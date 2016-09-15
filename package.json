@@ -1,0 +1,19 @@
+{
+  "name": "partner-api-docs",
+  "version": "0.1.0",
+  "description": "Holiday Extras Partner API Docs. Documentation to give to partners who would like to integrate with our API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holidayextras/partner-api-docs.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/holidayextras/partner-api-docs/issues"
+  },
+  "homepage": "https://github.com/holidayextras/partner-api-docs#readme"
+}
