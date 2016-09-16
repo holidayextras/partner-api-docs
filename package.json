@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/holidayextras/partner-api-docs/issues"
   },
-  "homepage": "https://github.com/holidayextras/partner-api-docs#readme"
+  "homepage": "https://github.com/holidayextras/partner-api-docs#readme",
+  "dependencies": {
+    "metalsmith": "^2.2.0"
+  }
 }

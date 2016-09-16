@@ -11,3 +11,10 @@ _For more information speak to [Simon Wood](https://github.com/hpoom)_
 ## Contributing
 
 TODO
+
+
+## Scibbles so they don't get lost
+
+How to export from DokuWiki txt files to Markdown
+
+    php ../../dokuwiki-to-markdown-converter/convert.php ./
