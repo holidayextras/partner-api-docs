@@ -13,6 +13,16 @@ _For more information speak to [Simon Wood](https://github.com/hpoom)_
 TODO
 
 
+## ToDo's (should probably raise as issues)
+
+- Add linting, plus everyting else a good repo should have (Contributing md file) - Run past forkability
+- Wire up CI, Travis or Circle, for auto build on change
+- Add Google Analytics
+- Update examples to be valid dates etc
+- Make live code examples
+- Check email links are all correct
+- Rework DE pages to so they are a language switch on the EN pages. Also need 100% coverage
+
 ## Scibbles so they don't get lost
 
 How to export from DokuWiki txt files to Markdown

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/holidayextras/partner-api-docs#readme",
   "dependencies": {
-    "metalsmith": "^2.2.0"
+    "metalsmith": "^2.2.0",
+    "metalsmith-markdown": "^0.2.1"
   }
 }
