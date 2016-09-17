@@ -4,6 +4,7 @@
   "description": "Holiday Extras Partner API Docs. Documentation to give to partners who would like to integrate with our API.",
   "main": "index.js",
   "scripts": {
+    "build": "node index.js"
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
