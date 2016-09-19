@@ -1,4 +1,19 @@
-<h1 id="holiday-extras-api">Holiday Extras API</h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Holiday Extras Partner API Documentation</title>
+  <meta name="description" content="Holiday Extras Partner API (HXAPI) Documentation. HXAPI allows you to programatically query the Holiday Extras reservation system and product information.">
+</head>
+<body>
+  <header>
+    <p>
+      <a href="/">Home</a>
+    </p>
+    <!-- Nav will go here -->
+  </header>
+
+  <h1 id="holiday-extras-api">Holiday Extras API</h1>
 <h2 id="system-requirements">System requirements</h2>
 <p>The platform and programming language you use to interact with <strong>HXAPI</strong> is up to you. We expect the most common scenario to be a web application, written in PHP, Ruby or similar. However, you could equally use <strong>HXAPI</strong> in a mobile phone app or a kiosk.</p>
 <p>The only requirements are the ability to</p>
@@ -9,9 +24,9 @@
 </li>
 </ul>
 <h2 id="rest">REST</h2>
-<p><strong>HXAPI</strong> accepts <a href="https///en.wikipedia.org/wiki/Representational_state_transfer">REST</a> requests. Every request is made over <strong>HTTP</strong> using the standard methods. For data retrieval, you always use the GET method. For making a booking (thus creating a new resource), the POST method must be used. </p>
+<p><strong>HXAPI</strong> accepts <a href="https///en.wikipedia.org/wiki/Representational_state_transfer">REST</a> requests. Every request is made over <strong>HTTP</strong> using the standard methods. For data retrieval, you always use the GET method. For making a booking (thus creating a new resource), the POST method must be used.</p>
 <p><a href="http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2">http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2</a></p>
-<p>One URL can have different functions depending on the method used to access it. Taking the URL above as an example - As a GET it returns availability and pricing information for that car park for the given time period. When posted to with the correct parameters, it makes a booking at the car park, and returns a link to where you can view the booking. </p>
+<p>One URL can have different functions depending on the method used to access it. Taking the URL above as an example - As a GET it returns availability and pricing information for that car park for the given time period. When posted to with the correct parameters, it makes a booking at the car park, and returns a link to where you can view the booking.</p>
 <h2 id="server-address">Server Address</h2>
 <p>Whenever writing new code or altering existing functionality, you must use the development server (sandbox). The data returned  is not &#39;as live&#39;, but the format and structure are the same. If you do not, you will affect metrics such as conversion rates, and of course any bookings made will be live.</p>
 <p>The process for moving from development to live is outlined <a href="/golive">here</a>.</p>
@@ -22,15 +37,15 @@ To access UK products by default System=ABC is taken.</p>
 <h2 id="getting-started">Getting Started</h2>
 <p>The easiest way to get started with <strong>HXAPI</strong> is to make a few HTTP requests in a browser or (to see the headers) programatically with CURL. <a href="http://curl.haxx.se/download.html">Download CURL</a>.</p>
 <p>First a request for parking availability:</p>
-<pre><code>curl &quot;http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=20Jan09&amp;ArrivalTime=1200&amp;DepartDate=27Jan09&amp;DepartTime=1600&amp;token=000015778&amp;key=mytestkey&quot;
-</code></pre><p>Example for a European product:</p>
-<pre><code>curl &quot;http://api.holidayextras.co.uk/sandbox/v1/carpark/dus?ArrivalDate=20OCT15&amp;ArrivalTime=1200&amp;DepartDate=27OCT15&amp;DepartTime=1600&amp;token=000015778&amp;key=mytestkey&amp;System=ABG&quot;
-</code></pre><p>Another example - this one queries the product library about one of the car parks returned.</p>
-<pre><code>curl &quot;http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?token=000015778&amp;key=mytestkey&quot;
-</code></pre><p>The examples so far have returned XML - this is the default format. You can also ask for the output as a javascript object by setting the file extension to &#39;.js&#39;.</p>
-<pre><code>curl &quot;http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW.js?ArrivalDate=20Jan09&amp;ArrivalTime=1200&amp;DepartDate=27Jan09&amp;DepartTime=1600&amp;token=000015778&amp;key=mytestkey&quot;
-curl &quot;http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&amp;key=mytestkey&quot;
-</code></pre><h2 id="reply-formats">Reply Formats</h2>
+<p>  curl &quot;<a href="http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=20Jan09&amp;ArrivalTime=1200&amp;DepartDate=27Jan09&amp;DepartTime=1600&amp;token=000015778&amp;key=mytestkey">http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=20Jan09&amp;ArrivalTime=1200&amp;DepartDate=27Jan09&amp;DepartTime=1600&amp;token=000015778&amp;key=mytestkey</a>&quot;</p>
+<p>Example for a European product:</p>
+<p>  curl &quot;<a href="http://api.holidayextras.co.uk/sandbox/v1/carpark/dus?ArrivalDate=20OCT15&amp;ArrivalTime=1200&amp;DepartDate=27OCT15&amp;DepartTime=1600&amp;token=000015778&amp;key=mytestkey&amp;System=ABG">http://api.holidayextras.co.uk/sandbox/v1/carpark/dus?ArrivalDate=20OCT15&amp;ArrivalTime=1200&amp;DepartDate=27OCT15&amp;DepartTime=1600&amp;token=000015778&amp;key=mytestkey&amp;System=ABG</a>&quot;</p>
+<p>Another example - this one queries the product library about one of the car parks returned.</p>
+<p>  curl &quot;<a href="http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?token=000015778&amp;key=mytestkey">http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?token=000015778&amp;key=mytestkey</a>&quot;</p>
+<p>The examples so far have returned XML - this is the default format. You can also ask for the output as a javascript object by setting the file extension to &#39;.js&#39;.</p>
+<p>  curl &quot;<a href="http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW.js?ArrivalDate=20Jan09&amp;ArrivalTime=1200&amp;DepartDate=27Jan09&amp;DepartTime=1600&amp;token=000015778&amp;key=mytestkey">http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW.js?ArrivalDate=20Jan09&amp;ArrivalTime=1200&amp;DepartDate=27Jan09&amp;DepartTime=1600&amp;token=000015778&amp;key=mytestkey</a>&quot;
+  curl &quot;<a href="http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&amp;key=mytestkey">http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&amp;key=mytestkey</a>&quot;</p>
+<h2 id="reply-formats">Reply Formats</h2>
 <p><strong>HXAPI</strong> can return data in two several formats. The default format is XML. To specify the format explicitly, append the file extension to the requested resource.</p>
 <ul>
 <li><p>.xml (default if not specified)</p>
@@ -76,4 +91,11 @@ curl &quot;http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=
 <p>However when you point your application to our live server, you will need to use a valid credit card, the bookings will be live and will need to be cancelled.</p>
 <p>Please do <strong>not</strong> cancel bookings by ringing our call centre or using the online cancellation interface at <a href="http://www.holidayextras.com">www.holidayextras.com</a>. Credit card charges will <strong>not be refunded</strong> to your card if you use either of these methods. Send the booking references to <a href="sales@holidayextras.com">sales@holidayextras.com</a> and <strong>all charges will be refunded</strong>.</p>
 <h2 id="specific-documentation">Specific documentation</h2>
-<p>See <a href="hxapi">Holiday Extras API Endpoints</a> for more detailed documentation on how to make requests to the API and what responses to expect. </p>
+<p>See <a href="hxapi">Holiday Extras API Endpoints</a> for more detailed documentation on how to make requests to the API and what responses to expect.</p>
+
+
+  <footer>
+    <p>Generated with Metalsmith &mdash; <a href="http://docs.holidayextras.co.uk">http://docs.holidayextras.co.uk</a></p>
+  </footer>
+</body>
+</html>
