@@ -4,7 +4,7 @@
   "description": "Holiday Extras Partner API Docs. Documentation to give to partners who would like to integrate with our API.",
   "main": "index.js",
   "scripts": {
-    "build": "node index.js"
+    "build": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/holidayextras/partner-api-docs#readme",
   "dependencies": {
+    "handlebars": "^4.0.5",
     "metalsmith": "^2.2.0",
+    "metalsmith-layouts": "^1.6.5",
     "metalsmith-markdown": "^0.2.1"
   }
 }
