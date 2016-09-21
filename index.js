@@ -10,7 +10,7 @@ Metalsmith(__dirname)
     url: "http://docs.holidayextras.co.uk"
   })
   .source('./pages')
-  .destination('./docs')
+  .destination('./dist')
   .clean(false)
   .use(markdown())
   .use(layouts({
