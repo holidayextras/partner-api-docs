@@ -6,7 +6,6 @@ layout: page.html
 
 TESTING!!!
 
-
 ## Official Documentation
 
 Holiday Extras is the UK market leader for Airport Parking and Airport Hotels. This wiki introduces the Holiday Extras API (**HXAPI**). **HXAPI** allows you to programatically query the Holiday Extras reservation system and product information.
