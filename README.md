@@ -28,3 +28,8 @@ TODO
 How to export from DokuWiki txt files to Markdown
 
     php ../../dokuwiki-to-markdown-converter/convert.php ./
+
+Need, clear and test for npm script
+https://medium.com/quality-functions/how-to-design-and-build-a-hyper-fast-test-automation-stack-84dc6985e569#.4ux1mej6e
+
+Look at Google Developer docs. They are some of the best around. https://developers.google.com/actions/  https://docs.api.ai/
