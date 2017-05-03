@@ -7,6 +7,10 @@
 #Hotels
 
 
+#Lounges
+- Need to include pricecheckflag and pricecheckprice in lounge book requests - not clear in docs.
+
+
 #Parking
 - Registration plates are a string, we do not validate this in the API, a partner would need to validate the input if they so wished. (For our direct customers we have the car reg look up but as there is a cost attached to this per look up we have no plans to make this available outside of HX use).
 
