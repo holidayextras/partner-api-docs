@@ -39,64 +39,64 @@ GET
 
 ### Request
 
-	:::html
-	http://api.holidayextras.co.uk/de/v1/hotel/FRA?ABTANumber=FOO&Password=FOO&Initials=BJT&key=foo&token=999999999&ArrivalDate=2010-01-15&CarPickupDate=2010-01-22&Nights=1&ParkingPriorToStay=N
-
+```html
+http://api.holidayextras.co.uk/de/v1/hotel/FRA?ABTANumber=FOO&Password=FOO&Initials=BJT&key=foo&token=999999999&ArrivalDate=2010-01-15&CarPickupDate=2010-01-22&Nights=1&ParkingPriorToStay=N
+```
 
 
 
 
 ### Reply
 
-	:::xml
-	
-	`<?xml version="1.0" ?>`
-	`<API_Reply Product="HotelWithParking" RequestCode="1" Result="OK">`
-	  	`<Hotel>`
-			<Code>FRAACH</HotelCode>
-			<Name>ACHAT Hotel Airport - Frankfurt</HotelName>
-			<StarRating>4</StarRating>
-			<ParkingDays>8</ParkingDays>
-			<OnAirport>N</OnAirport>
-			<FamilyRooms>N</FamilyRooms>
-			<CarParkOnSite>N</CarParkOnSite>
-			<Transfer24Hour>N</Transfer24Hour>
-			<TwinDoublePrice>166.00</TwinDoublePrice>
-			<SinglePrice>N/A</SinglePrice>
-			<BoardBasis>RO</BoardBasis>
-		</Hotel>
-		<Hotel>
-			<HotelCode>FRAMAX</HotelCode>
-			<HotelName>Steigenberger Hotel Frankfurt-Langen</HotelName>
-			<StarRating>4</StarRating>
-			<ParkingDays>8</ParkingDays>
-			<OnAirport>N</OnAirport>
-			<FamilyRooms>N</FamilyRooms>
-			<CarParkOnSite>N</CarParkOnSite>
-			<Transfer24Hour>N</Transfer24Hour>
-			<TwinDoublePrice>185.00</TwinDoublePrice>
-			<SinglePrice>N/A</SinglePrice>
-			<BoardBasis>BB</BoardBasis>
-		</Hotel>
-	  .
-	  .
-	  .
-		<API_Header>
-			<Request>
-				<ABTANumber>FOO</ABTANumber>
-				<Password>TESTA</Password>
-				<Initials>BJT</Initials>
-				<key>foo</key>
-				<token>999999999</token>
-				<ArrivalDate>2010-01-15</ArrivalDate>
-				<CarPickupDate>2010-01-22</CarPickupDate>
-				<Nights>1</Nights>
-				<ParkingPriorToStay>N</ParkingPriorToStay>
-			</Request>
-		</API_Header>
-	`</API_Reply>`
-	
+```xml
 
+`<?xml version="1.0" ?>`
+`<API_Reply Product="HotelWithParking" RequestCode="1" Result="OK">`
+  	`<Hotel>`
+		<Code>FRAACH</HotelCode>
+		<Name>ACHAT Hotel Airport - Frankfurt</HotelName>
+		<StarRating>4</StarRating>
+		<ParkingDays>8</ParkingDays>
+		<OnAirport>N</OnAirport>
+		<FamilyRooms>N</FamilyRooms>
+		<CarParkOnSite>N</CarParkOnSite>
+		<Transfer24Hour>N</Transfer24Hour>
+		<TwinDoublePrice>166.00</TwinDoublePrice>
+		<SinglePrice>N/A</SinglePrice>
+		<BoardBasis>RO</BoardBasis>
+	</Hotel>
+	<Hotel>
+		<HotelCode>FRAMAX</HotelCode>
+		<HotelName>Steigenberger Hotel Frankfurt-Langen</HotelName>
+		<StarRating>4</StarRating>
+		<ParkingDays>8</ParkingDays>
+		<OnAirport>N</OnAirport>
+		<FamilyRooms>N</FamilyRooms>
+		<CarParkOnSite>N</CarParkOnSite>
+		<Transfer24Hour>N</Transfer24Hour>
+		<TwinDoublePrice>185.00</TwinDoublePrice>
+		<SinglePrice>N/A</SinglePrice>
+		<BoardBasis>BB</BoardBasis>
+	</Hotel>
+  .
+  .
+  .
+	<API_Header>
+		<Request>
+			<ABTANumber>FOO</ABTANumber>
+			<Password>TESTA</Password>
+			<Initials>BJT</Initials>
+			<key>foo</key>
+			<token>999999999</token>
+			<ArrivalDate>2010-01-15</ArrivalDate>
+			<CarPickupDate>2010-01-22</CarPickupDate>
+			<Nights>1</Nights>
+			<ParkingPriorToStay>N</ParkingPriorToStay>
+		</Request>
+	</API_Header>
+`</API_Reply>`
+
+```
 
 
 

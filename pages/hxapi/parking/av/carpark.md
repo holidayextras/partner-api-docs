@@ -50,9 +50,9 @@ GET
 
 ### Request
 
-	:::html
-	http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2?NumberOfPax=2&ArrivalDate=2008-09-20&ArrivalTime=1200&DepartDate=2008-09-20&DepartTime=1400&key=**HXAPIKEY**&token=000001234&ABTANumber=**HXAGENTCODE**
-
+```html
+http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2?NumberOfPax=2&ArrivalDate=2008-09-20&ArrivalTime=1200&DepartDate=2008-09-20&DepartTime=1400&key=**HXAPIKEY**&token=000001234&ABTANumber=**HXAGENTCODE**
+```
 
 #### top3
 
@@ -65,46 +65,46 @@ If a value of 1 is passed in for the top3 param, then a maximum of three car par
 
 ### Reply
 
-	:::xml
-	`<?xml version="1.0"?>`
-	`<API_Reply Product="CarPark" RequestCode="3" Result="OK">`
-		<Pricing>
-			<CCardSurchargePercent>2.00</CCardSurchargePercent>
-			<CCardSurchargeAmount>1.50</CCardSurchargeAmount>
-			<CancellationWaiver>
-				<Waiver>0.50</Waiver>
-			</CancellationWaiver>
-		</Pricing>
-		<API_Header>
-			<Request>
-				<NumberOfPax>2</NumberOfPax>
-				<ArrivalDate>2008-09-20</ArrivalDate>
-				<ArrivalTime>1200</ArrivalTime>
-				<DepartDate>2008-09-20</DepartDate>
-				<DepartTime>1400</DepartTime>
-				<key>mytestkey</key>
-				<token>000001234</token>
-				<v>1</v>
-			</Request>
-		</API_Header>
-		<CarPark>
-			<TotalPrice>10.00</TotalPrice>
-			<RequestFlags>
-				<Registration>1</Registration>
-			</RequestFlags>
-			<Code>LGW2</Code>
-			<Name>Long Stay</Name>
-			<Filter>
-				<on_airport>1</on_airport>
-				<terminal>1</terminal>
-			</Filter>
-			<BookingURL>/api/sandbox/v1/carpark/LGW2</BookingURL>
-			<MoreInfoURL>/api/sandbox/v1/product/LGW2</MoreInfoURL>
-		</CarPark>
-	`</API_Reply>`
-	
-	
+```xml
+`<?xml version="1.0"?>`
+`<API_Reply Product="CarPark" RequestCode="3" Result="OK">`
+	<Pricing>
+		<CCardSurchargePercent>2.00</CCardSurchargePercent>
+		<CCardSurchargeAmount>1.50</CCardSurchargeAmount>
+		<CancellationWaiver>
+			<Waiver>0.50</Waiver>
+		</CancellationWaiver>
+	</Pricing>
+	<API_Header>
+		<Request>
+			<NumberOfPax>2</NumberOfPax>
+			<ArrivalDate>2008-09-20</ArrivalDate>
+			<ArrivalTime>1200</ArrivalTime>
+			<DepartDate>2008-09-20</DepartDate>
+			<DepartTime>1400</DepartTime>
+			<key>mytestkey</key>
+			<token>000001234</token>
+			<v>1</v>
+		</Request>
+	</API_Header>
+	<CarPark>
+		<TotalPrice>10.00</TotalPrice>
+		<RequestFlags>
+			<Registration>1</Registration>
+		</RequestFlags>
+		<Code>LGW2</Code>
+		<Name>Long Stay</Name>
+		<Filter>
+			<on_airport>1</on_airport>
+			<terminal>1</terminal>
+		</Filter>
+		<BookingURL>/api/sandbox/v1/carpark/LGW2</BookingURL>
+		<MoreInfoURL>/api/sandbox/v1/product/LGW2</MoreInfoURL>
+	</CarPark>
+`</API_Reply>`
 
+
+```
 
 
 
@@ -129,14 +129,13 @@ Comprises of 3 elements
 The credit card surcharge IS applied to the TotalPrice + the Cancellation Waiver (see below). To prevent the surcharge from exceeding certain boundaries, we have min and max thresholds. If the amount does not come between those two figures, you should use the relevant threshold value.
 
 Pseudo code
-
-	
-	x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
-	if( x < CCardSurchargeMin) 
-	  x = CCardSurchargeMin
-	else if x > CCardSurchargeMax
-	  x = CCardSurchargeMax
-
+```
+x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
+if( x < CCardSurchargeMin) 
+  x = CCardSurchargeMin
+else if x > CCardSurchargeMax
+  x = CCardSurchargeMax
+```
 ####  Pricing/CancellationWaiver
 
 only for UK

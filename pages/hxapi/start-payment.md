@@ -65,38 +65,38 @@ POST
 
 (Convert to post)
 
-	
-	http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10213905?Amount=32.00&BkgProduct=CarPark&BusinessUnit=222&CardNumber=4111111111111111&Cardholder=T%20Test&ExpiryDate=0511&Operator=BJT&StartCustomer=111111&key=mytestkey&token=123456789
-
+```
+http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10213905?Amount=32.00&BkgProduct=CarPark&BusinessUnit=222&CardNumber=4111111111111111&Cardholder=T%20Test&ExpiryDate=0511&Operator=BJT&StartCustomer=111111&key=mytestkey&token=123456789
+```
 
 #### Response
 
-	:::xml
-	`<?xml version="1.0" ?>`
-	`<API_Reply Product="CarPark" RequestCode="17" Result="OK">`
-	  `<Booking>`
-	    `<BookingRef>`DZN40`</BookingRef>`
-	    `<StartRef>`10213905`</StartRef>`
-	    `<Result>`Credit Card payment now on file against booking`</Result>`
-	  `</Booking>`
-	  `<API_Header>`
-	    `<Request>`
-	      `<Amount>`32.00`</Amount>`
-	      `<BusinessUnit>`222`</BusinessUnit>`
-	      `<CardNumber>`4111111111111111`</CardNumber>`
-	      `<Cardholder>`T Test`</Cardholder>`
-	      `<ExpiryDate>`0511`</ExpiryDate>`
-	      `<Operator>`BJT`</Operator>`
-	      `<StartCustomer>`111111`</StartCustomer>`
-	      `<key>`foo`</key>`
-	      `<token>`123456789`</token>`
-	      `<system>`de`</system>`
-	      `<System>`ABG`</System>`
-	    `</Request>`
-	  `</API_Header>`
-	  `<CarPark>``</CarPark>`
-	`</API_Reply>`
-
+```xml
+`<?xml version="1.0" ?>`
+`<API_Reply Product="CarPark" RequestCode="17" Result="OK">`
+  `<Booking>`
+    `<BookingRef>`DZN40`</BookingRef>`
+    `<StartRef>`10213905`</StartRef>`
+    `<Result>`Credit Card payment now on file against booking`</Result>`
+  `</Booking>`
+  `<API_Header>`
+    `<Request>`
+      `<Amount>`32.00`</Amount>`
+      `<BusinessUnit>`222`</BusinessUnit>`
+      `<CardNumber>`4111111111111111`</CardNumber>`
+      `<Cardholder>`T Test`</Cardholder>`
+      `<ExpiryDate>`0511`</ExpiryDate>`
+      `<Operator>`BJT`</Operator>`
+      `<StartCustomer>`111111`</StartCustomer>`
+      `<key>`foo`</key>`
+      `<token>`123456789`</token>`
+      `<system>`de`</system>`
+      `<System>`ABG`</System>`
+    `</Request>`
+  `</API_Header>`
+  `<CarPark>``</CarPark>`
+`</API_Reply>`
+```
 
 
 
@@ -106,36 +106,35 @@ POST
 
 #### Request
 (Convert to post)
-
-	:::html
-	http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10213906?AccountName=T%20Test&AccountNumber=123456&Amount=32.00&BusinessUnit=222&Operator=BJT&SortCode=12345678&StartCustomer=111111&key=mytestkey&token=123456789
-
+```html
+http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10213906?AccountName=T%20Test&AccountNumber=123456&Amount=32.00&BusinessUnit=222&Operator=BJT&SortCode=12345678&StartCustomer=111111&key=mytestkey&token=123456789
+```
 
 #### Response
 
-	:::xml
-	`<?xml version="1.0" ?>`
-	`<API_Reply Product="CarPark" RequestCode="17" Result="OK">`
-	  `<Booking>`
-	    `<BookingRef>`DZN41`</BookingRef>`
-	    `<StartRef>`10213906`</StartRef>`
-	    `<Result>`Bacs/Lastschrift payment now on file against booking`</Result>`
-	  `</Booking>`
-	  `<API_Header>`
-	    `<Request>`
-	      `<Amount>`32.00`</Amount>`
-	      `<BusinessUnit>`222`</BusinessUnit>`
-	      `<Operator>`BJT`</Operator>`
-	      `<StartCustomer>`111111`</StartCustomer>`
-	      `<key>`foo`</key>`
-	      `<token>`123456789`</token>`
-	      `<AccountNumber>`123456`</AccountNumber>`
-	      `<SortCode>`12345678`</SortCode>`
-	      `<AccountName>`T Test`</AccountName>`
-	      `<system>`de`</system>`
-	      `<System>`ABG`</System>`
-	    `</Request>`
-	  `</API_Header>`
-	  `<CarPark>``</CarPark>`
-	`</API_Reply>`
-
+```xml
+`<?xml version="1.0" ?>`
+`<API_Reply Product="CarPark" RequestCode="17" Result="OK">`
+  `<Booking>`
+    `<BookingRef>`DZN41`</BookingRef>`
+    `<StartRef>`10213906`</StartRef>`
+    `<Result>`Bacs/Lastschrift payment now on file against booking`</Result>`
+  `</Booking>`
+  `<API_Header>`
+    `<Request>`
+      `<Amount>`32.00`</Amount>`
+      `<BusinessUnit>`222`</BusinessUnit>`
+      `<Operator>`BJT`</Operator>`
+      `<StartCustomer>`111111`</StartCustomer>`
+      `<key>`foo`</key>`
+      `<token>`123456789`</token>`
+      `<AccountNumber>`123456`</AccountNumber>`
+      `<SortCode>`12345678`</SortCode>`
+      `<AccountName>`T Test`</AccountName>`
+      `<system>`de`</system>`
+      `<System>`ABG`</System>`
+    `</Request>`
+  `</API_Header>`
+  `<CarPark>``</CarPark>`
+`</API_Reply>`
+```

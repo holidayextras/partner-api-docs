@@ -92,54 +92,53 @@ e.g. /lounge/LHRSA1
 
 AGENT EXAMPLE
 
-	
-	
-	GET /sandbox/v1/carpark/MANES1 HTTP/1.1
-	
-	http://api.holidayextras.co.uk/sandbox/v1/lounge/MANES1?
-	ABTANumber=*****&
-	Adults=2&
-	ArrivalDate=2015-10-24&
-	ArrivalTime=1000&
-	Children=0&
-	Infants=0&
-	Initial=T&
-	Initials=CG&
-	Password=*****&
-	Surname=Test&
-	Title=Mr&
-	key=*****&
-	method=POST&
-	token=012345678
-	
-	
-	###  Response
-	
-	`<API_Reply Product="Lounge" RequestCode="5" Result="OK">``<Booking>`
-	`<BookingRef>`J7A44`</BookingRef>`
-	`<AgentComm>`3.42-`</AgentComm>`
-	`<VATonComm>`0.57-`</VATonComm>`
-	`<MoreInfoURL>`/sandbox/v1/booking/J7A44`</MoreInfoURL>`
-	`</Booking>`
-	`<API_Header>`
-	`<Request>`
-	`<ABTANumber>``</ABTANumber>`
-	`<Adults>`2`</Adults>`
-	`<ArrivalDate>`2015-10-24`</ArrivalDate>`
-	`<ArrivalTime>`1000`</ArrivalTime>`
-	`<Children>`0`</Children>`
-	`<Infants>`0`</Infants>`
-	`<Initial>`T`</Initial>`
-	`<Initials>`CG`</Initials>`
-	`<Password>``</Password>`
-	`<Surname>`Test`</Surname>`
-	`<Title>`Mr`</Title>`
-	`<key>``</key>`
-	`<method>`POST`</method>`
-	`<token>`012345678`</token>`
-	`<v>`1`</v>`
-	`</Request>`
-	`</API_Header>`
-	`</API_Reply>`
-	
-	
+```
+
+GET /sandbox/v1/carpark/MANES1 HTTP/1.1
+
+http://api.holidayextras.co.uk/sandbox/v1/lounge/MANES1?
+ABTANumber=*****&
+Adults=2&
+ArrivalDate=2015-10-24&
+ArrivalTime=1000&
+Children=0&
+Infants=0&
+Initial=T&
+Initials=CG&
+Password=*****&
+Surname=Test&
+Title=Mr&
+key=*****&
+method=POST&
+token=012345678
+
+
+###  Response
+
+`<API_Reply Product="Lounge" RequestCode="5" Result="OK">``<Booking>`
+`<BookingRef>`J7A44`</BookingRef>`
+`<AgentComm>`3.42-`</AgentComm>`
+`<VATonComm>`0.57-`</VATonComm>`
+`<MoreInfoURL>`/sandbox/v1/booking/J7A44`</MoreInfoURL>`
+`</Booking>`
+`<API_Header>`
+`<Request>`
+`<ABTANumber>``</ABTANumber>`
+`<Adults>`2`</Adults>`
+`<ArrivalDate>`2015-10-24`</ArrivalDate>`
+`<ArrivalTime>`1000`</ArrivalTime>`
+`<Children>`0`</Children>`
+`<Infants>`0`</Infants>`
+`<Initial>`T`</Initial>`
+`<Initials>`CG`</Initials>`
+`<Password>``</Password>`
+`<Surname>`Test`</Surname>`
+`<Title>`Mr`</Title>`
+`<key>``</key>`
+`<method>`POST`</method>`
+`<token>`012345678`</token>`
+`<v>`1`</v>`
+`</Request>`
+`</API_Header>`
+`</API_Reply>`
+

@@ -159,40 +159,40 @@ PriceCheckFlag and PriceCheckPrice are used to ensure that the price you have di
 
 #### Intermediary
 
-	
-	
-	POST /sandbox/v1/carpark/LGV4 HTTP/1.1
-	
-	Host: api.holidayextras.co.uk
-	
-	...
-	
-	Accept-Language: en-us,en;q=0.5
-	
-	
-	ABTANumber=**HXAGENTCODE**&Address%5B%5D=99%20Test%20St&ArrivalDate=2008-05-01&ArrivalTime=1200&CardHolder=Mr%20T%20Test&CardNumber=4111111111111111&Confirmation=Y&County=Testshire&DataProtection=Y&DayPhone=9999%209999&DepartDate=2008-05-08&DepartTime=1800&Email=test%40test.com&ExpiryDate=1208&Initial=T&NumberOfPax=2&PostCode=T1%201TT&Surname=Test&Title=Mr&Town=Testchester&key=**HXAPIKEY**&token=123456789
-	
-	
+```
 
+POST /sandbox/v1/carpark/LGV4 HTTP/1.1
+
+Host: api.holidayextras.co.uk
+
+...
+
+Accept-Language: en-us,en;q=0.5
+
+
+ABTANumber=**HXAGENTCODE**&Address%5B%5D=99%20Test%20St&ArrivalDate=2008-05-01&ArrivalTime=1200&CardHolder=Mr%20T%20Test&CardNumber=4111111111111111&Confirmation=Y&County=Testshire&DataProtection=Y&DayPhone=9999%209999&DepartDate=2008-05-08&DepartTime=1800&Email=test%40test.com&ExpiryDate=1208&Initial=T&NumberOfPax=2&PostCode=T1%201TT&Surname=Test&Title=Mr&Town=Testchester&key=**HXAPIKEY**&token=123456789
+
+
+```
 
 
 
 #### Agent
 
-	
-	POST /sandbox/v1/carpark/LGW2 HTTP/1.1
-	
-	Host: api.holidayextras.co.uk
-	
-	...
-	
-	Content-Type: application/x-www-form-urlencoded
-	
-	Content-Length: 198
-	
-	
-	ABTANumber=**HXAGENTCODE**&ArrivalDate=2008-09-20&ArrivalTime=1125&DepartDate=2008-09-28&DepartTime=1135&Initial=T&Initials=BJT&NumberOfPax=2&Password=**HXAGENTPASSWORD**&Surname=Test&Title=Mr&key=**HXAPIKEY**&token=000001234
+```
+POST /sandbox/v1/carpark/LGW2 HTTP/1.1
 
+Host: api.holidayextras.co.uk
+
+...
+
+Content-Type: application/x-www-form-urlencoded
+
+Content-Length: 198
+
+
+ABTANumber=**HXAGENTCODE**&ArrivalDate=2008-09-20&ArrivalTime=1125&DepartDate=2008-09-28&DepartTime=1135&Initial=T&Initials=BJT&NumberOfPax=2&Password=**HXAGENTPASSWORD**&Surname=Test&Title=Mr&key=**HXAPIKEY**&token=000001234
+```
 
 
 
@@ -207,115 +207,115 @@ PriceCheckFlag and PriceCheckPrice are used to ensure that the price you have di
 
 #### Intermediary
 
-	:::xml
-	
-	`<?xml version="1.0"?>`
-	`<API_Reply Product="CarPark" RequestCode="4" Result="OK">`
-		<Booking>
-			<BookingRef>A8GBV</BookingRef>
-			<MoreInfoURL>/sandbox/v1/booking/A8GBV</MoreInfoURL>
-		</Booking>
-		<Pricing>
-			<AmountPaid>91.80</AmountPaid>
-			<CCardSurchargePercent>2.00</CCardSurchargePercent>
-			<CCardSurchargeAmount>1.80</CCardSurchargeAmount>
-		</Pricing>
-		<API_Header>
-			<Request>
-				<Address>1 Test Street</Address>
-				<ArrivalDate>2008-09-20</ArrivalDate>
-				<ArrivalTime>1125</ArrivalTime>
-				<CardHolder>T Test</CardHolder>
-				<CardNumber>4111111111111111</CardNumber>
-				<County>Test</County>
-				<DataProtection>N</DataProtection>
-				<DayPhone>01303 222222</DayPhone>
-				<DepartDate>2008-09-28</DepartDate>
-				<DepartTime>1135</DepartTime>
-				<Email>tommo245@gmail.com</Email>
-				<ExpiryDate>2008-07-21</ExpiryDate>
-				<Initial>T</Initial>
-				<NumberOfPax>2</NumberOfPax>
-				<PostCode>CT203RP</PostCode>
-				<Surname>Test</Surname>
-				<Title>Mr</Title>
-				<Town>Test</Town>
-				<key>mytestkey</key>
-				<token>000001234</token>
-				<v>1</v>
-			</Request>
-		</API_Header>
-		<CarPark>
-			<TotalPrice>90.00</TotalPrice>
-			<ArrivalDate>2008-09-20</ArrivalDate>
-			<DepartDate>2008-09-28</DepartDate>
-			<ArrivalTime>1125</ArrivalTime>
-			<DepartTime>1135</DepartTime>
-			<Duration>8</Duration>
-			<NumberOfPax>2</NumberOfPax>
-			<Code>LGW2</Code>
-			<Name>Long Stay</Name>
-			<Filter>
-				<on_airport>1</on_airport>
-				<terminal>1</terminal>
-			</Filter>
-			<BookingURL>/sandbox/v1/carpark/LGW2</BookingURL>
-			<MoreInfoURL>/sandbox/v1/product/LGW2</MoreInfoURL>
-		</CarPark>
-	`</API_Reply>`
-	
-	
+```xml
 
+`<?xml version="1.0"?>`
+`<API_Reply Product="CarPark" RequestCode="4" Result="OK">`
+	<Booking>
+		<BookingRef>A8GBV</BookingRef>
+		<MoreInfoURL>/sandbox/v1/booking/A8GBV</MoreInfoURL>
+	</Booking>
+	<Pricing>
+		<AmountPaid>91.80</AmountPaid>
+		<CCardSurchargePercent>2.00</CCardSurchargePercent>
+		<CCardSurchargeAmount>1.80</CCardSurchargeAmount>
+	</Pricing>
+	<API_Header>
+		<Request>
+			<Address>1 Test Street</Address>
+			<ArrivalDate>2008-09-20</ArrivalDate>
+			<ArrivalTime>1125</ArrivalTime>
+			<CardHolder>T Test</CardHolder>
+			<CardNumber>4111111111111111</CardNumber>
+			<County>Test</County>
+			<DataProtection>N</DataProtection>
+			<DayPhone>01303 222222</DayPhone>
+			<DepartDate>2008-09-28</DepartDate>
+			<DepartTime>1135</DepartTime>
+			<Email>tommo245@gmail.com</Email>
+			<ExpiryDate>2008-07-21</ExpiryDate>
+			<Initial>T</Initial>
+			<NumberOfPax>2</NumberOfPax>
+			<PostCode>CT203RP</PostCode>
+			<Surname>Test</Surname>
+			<Title>Mr</Title>
+			<Town>Test</Town>
+			<key>mytestkey</key>
+			<token>000001234</token>
+			<v>1</v>
+		</Request>
+	</API_Header>
+	<CarPark>
+		<TotalPrice>90.00</TotalPrice>
+		<ArrivalDate>2008-09-20</ArrivalDate>
+		<DepartDate>2008-09-28</DepartDate>
+		<ArrivalTime>1125</ArrivalTime>
+		<DepartTime>1135</DepartTime>
+		<Duration>8</Duration>
+		<NumberOfPax>2</NumberOfPax>
+		<Code>LGW2</Code>
+		<Name>Long Stay</Name>
+		<Filter>
+			<on_airport>1</on_airport>
+			<terminal>1</terminal>
+		</Filter>
+		<BookingURL>/sandbox/v1/carpark/LGW2</BookingURL>
+		<MoreInfoURL>/sandbox/v1/product/LGW2</MoreInfoURL>
+	</CarPark>
+`</API_Reply>`
+
+
+```
 
 #### Agent
 
-	:::xml
-	
-	`<?xml version="1.0"?>`
-	`<API_Reply Product="CarPark" RequestCode="5" Result="OK">`
-		<Booking>
-			<BookingRef>A8GBW</BookingRef>
-			<AgentComm>13.50-</AgentComm>
-			<VATonComm>2.01-</VATonComm>
-		</Booking>
-		<API_Header>
-			<Request>
-				<ArrivalDate>2008-09-20</ArrivalDate>
-				<ArrivalTime>1125</ArrivalTime>
-				<DepartDate>2008-09-28</DepartDate>
-				<DepartTime>1135</DepartTime>
-				<Initial>T</Initial>
-				<NumberOfPax>2</NumberOfPax>
-				<Surname>Test</Surname>
-				<Title>Mr</Title>
-				<key>mytestkey</key>
-				<token>000001234</token>
-				<ABTANumber>FOO</ABTANumber>
-				<Password>FOO</Password>
-				<Initials>BJT</Initials>
-				<v>1</v>
-			</Request>
-		</API_Header>
-		<CarPark>
-			<TotalPrice>90.00</TotalPrice>
-			<ArrivalDate>2008-09-20</ArrivalDate>
-			<DepartDate>2008-09-28</DepartDate>
-			<ArrivalTime>1125</ArrivalTime>
-			<DepartTime>1135</DepartTime>
-			<Duration>8</Duration>
-			<NumberOfPax>2</NumberOfPax>
-			<Code>LGW2</Code>
-			<Name>Long Stay</Name>
-			<Filter>
-				<on_airport>1</on_airport>
-				<terminal>1</terminal>
-			</Filter>
-			<BookingURL>/sandbox/v1/carpark/LGW2</BookingURL>
-			<MoreInfoURL>/sandbox/v1/product/LGW2</MoreInfoURL>
-		</CarPark>
-	`</API_Reply>`
-	
+```xml
 
+`<?xml version="1.0"?>`
+`<API_Reply Product="CarPark" RequestCode="5" Result="OK">`
+	<Booking>
+		<BookingRef>A8GBW</BookingRef>
+		<AgentComm>13.50-</AgentComm>
+		<VATonComm>2.01-</VATonComm>
+	</Booking>
+	<API_Header>
+		<Request>
+			<ArrivalDate>2008-09-20</ArrivalDate>
+			<ArrivalTime>1125</ArrivalTime>
+			<DepartDate>2008-09-28</DepartDate>
+			<DepartTime>1135</DepartTime>
+			<Initial>T</Initial>
+			<NumberOfPax>2</NumberOfPax>
+			<Surname>Test</Surname>
+			<Title>Mr</Title>
+			<key>mytestkey</key>
+			<token>000001234</token>
+			<ABTANumber>FOO</ABTANumber>
+			<Password>FOO</Password>
+			<Initials>BJT</Initials>
+			<v>1</v>
+		</Request>
+	</API_Header>
+	<CarPark>
+		<TotalPrice>90.00</TotalPrice>
+		<ArrivalDate>2008-09-20</ArrivalDate>
+		<DepartDate>2008-09-28</DepartDate>
+		<ArrivalTime>1125</ArrivalTime>
+		<DepartTime>1135</DepartTime>
+		<Duration>8</Duration>
+		<NumberOfPax>2</NumberOfPax>
+		<Code>LGW2</Code>
+		<Name>Long Stay</Name>
+		<Filter>
+			<on_airport>1</on_airport>
+			<terminal>1</terminal>
+		</Filter>
+		<BookingURL>/sandbox/v1/carpark/LGW2</BookingURL>
+		<MoreInfoURL>/sandbox/v1/product/LGW2</MoreInfoURL>
+	</CarPark>
+`</API_Reply>`
+
+```
 
 
 

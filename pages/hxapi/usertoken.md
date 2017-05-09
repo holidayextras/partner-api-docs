@@ -25,21 +25,21 @@ GET
 
 ## Request
 
-	
-	http://api.holidayextras.co.uk/sandbox/v1/usertoken?key=mytestkey
-
+```
+http://api.holidayextras.co.uk/sandbox/v1/usertoken?key=mytestkey
+```
 
 
 
 ## Reply
 
 
-	:::xml
-	`<?xml version="1.0" ?>`
-	`<API_Reply>`
-	  `<Token>`000015778`</Token>`
-	  `<BookingURL>`/api/v1`</BookingURL>`
-	`</API_Reply>`
-
+```xml
+`<?xml version="1.0" ?>`
+`<API_Reply>`
+  `<Token>`000015778`</Token>`
+  `<BookingURL>`/api/v1`</BookingURL>`
+`</API_Reply>`
+```
 
 

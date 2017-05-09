@@ -93,20 +93,18 @@ Der einfachste Weg mit **HXAPI** zu beginnen, ist in einem Browser einige HTTP A
 
 Zunächst eine Anfrage nach Parkverfügbarkeiten:
 
-	
-	curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
-
+```
+curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
+```
 Ein weiteres Beispiel - dieses fragt die Productbibliothek nach einem der in der Suche erhaltenen Parkplätze.
-
-	
-	curl "http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?token=000015778&key=mytestkey"
-
+```
+curl "http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?token=000015778&key=mytestkey"
+```
 Die bisherigen Beispiele haben XML geliefert - dies ist das Default Format. Sie können auch nach dem Output als Javascript Objekt fragen, indem Sie die Dateikennung auf ".js" stellen.
-
-	
-	curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW.js?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
-	curl "http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&key=mytestkey"
-
+```
+curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW.js?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
+curl "http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&key=mytestkey"
+```
 
 
 ## Ergebnis Formate

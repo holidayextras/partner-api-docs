@@ -47,9 +47,9 @@ GET
 
 ### Anfrage
 
-	:::html
-	http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2?NumberOfPax=2&ArrivalDate=2008-09-20&ArrivalTime=1200&DepartDate=2008-09-20&DepartTime=1400&key=mytestkey&token=000001234
-
+```html
+http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2?NumberOfPax=2&ArrivalDate=2008-09-20&ArrivalTime=1200&DepartDate=2008-09-20&DepartTime=1400&key=mytestkey&token=000001234
+```
 
 
 
@@ -61,46 +61,46 @@ GET
 
 ### Antwort
 
-	:::xml
-	`<?xml version="1.0"?>`
-	`<API_Reply Product="CarPark" RequestCode="3" Result="OK">`
-		<Pricing>
-			<CCardSurchargePercent>2.00</CCardSurchargePercent>
-			<CCardSurchargeAmount>1.50</CCardSurchargeAmount>
-			<CancellationWaiver>
-				<Waiver>0.50</Waiver>
-			</CancellationWaiver>
-		</Pricing>
-		<API_Header>
-			<Request>
-				<NumberOfPax>2</NumberOfPax>
-				<ArrivalDate>2008-09-20</ArrivalDate>
-				<ArrivalTime>1200</ArrivalTime>
-				<DepartDate>2008-09-20</DepartDate>
-				<DepartTime>1400</DepartTime>
-				<key>mytestkey</key>
-				<token>000001234</token>
-				<v>1</v>
-			</Request>
-		</API_Header>
-		<CarPark>
-			<TotalPrice>10.00</TotalPrice>
-			<RequestFlags>
-				<Registration>1</Registration>
-			</RequestFlags>
-			<Code>LGW2</Code>
-			<Name>Long Stay</Name>
-			<Filter>
-				<on_airport>1</on_airport>
-				<terminal>1</terminal>
-			</Filter>
-			<BookingURL>/api/sandbox/v1/carpark/LGW2</BookingURL>
-			<MoreInfoURL>/api/sandbox/v1/product/LGW2</MoreInfoURL>
-		</CarPark>
-	`</API_Reply>`
-	
-	
+```xml
+`<?xml version="1.0"?>`
+`<API_Reply Product="CarPark" RequestCode="3" Result="OK">`
+	<Pricing>
+		<CCardSurchargePercent>2.00</CCardSurchargePercent>
+		<CCardSurchargeAmount>1.50</CCardSurchargeAmount>
+		<CancellationWaiver>
+			<Waiver>0.50</Waiver>
+		</CancellationWaiver>
+	</Pricing>
+	<API_Header>
+		<Request>
+			<NumberOfPax>2</NumberOfPax>
+			<ArrivalDate>2008-09-20</ArrivalDate>
+			<ArrivalTime>1200</ArrivalTime>
+			<DepartDate>2008-09-20</DepartDate>
+			<DepartTime>1400</DepartTime>
+			<key>mytestkey</key>
+			<token>000001234</token>
+			<v>1</v>
+		</Request>
+	</API_Header>
+	<CarPark>
+		<TotalPrice>10.00</TotalPrice>
+		<RequestFlags>
+			<Registration>1</Registration>
+		</RequestFlags>
+		<Code>LGW2</Code>
+		<Name>Long Stay</Name>
+		<Filter>
+			<on_airport>1</on_airport>
+			<terminal>1</terminal>
+		</Filter>
+		<BookingURL>/api/sandbox/v1/carpark/LGW2</BookingURL>
+		<MoreInfoURL>/api/sandbox/v1/product/LGW2</MoreInfoURL>
+	</CarPark>
+`</API_Reply>`
 
+
+```
 
 
 
@@ -126,14 +126,13 @@ Wird aus 3 Elementen gebildet
 Die Kreditkartengebühr IS wird auf den TotalPrice + den Cancellation Waiver (siehe unten) angewendet. Um zu verhindern, dass die Gebühr gewisse Grenzen überschreitet, haben wir Minimal- und Maximalschwellenwerte. Falls der Betrag nicht zwischen diesen beiden Ziffern liegt, sollten Sie passenden Schwellenwert benutzen.
 
 Pseudo code
-
-	
-	x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
-	if( x < CCardSurchargeMin) 
-	  x = CCardSurchargeMin
-	else if x > CCardSurchargeMax
-	  x = CCardSurchargeMax
-
+```
+x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
+if( x < CCardSurchargeMin) 
+  x = CCardSurchargeMin
+else if x > CCardSurchargeMax
+  x = CCardSurchargeMax
+```
 
 #### Pricing/CancellationWaiver
 

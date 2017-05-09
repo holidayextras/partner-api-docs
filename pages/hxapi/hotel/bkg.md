@@ -138,61 +138,61 @@ PriceCheckFlag and PriceCheckPrice are used to ensure that the price you have di
 
 ### Reply
 
-	:::xml
-	
-	`<API_Reply Product="HotelWithParking" RequestCode="5" Result="OK">`
-		<Booking>
-			<BookingRef>A8PBN</BookingRef>
-			<MoreInfoURL>/sandbox/v1/booking/A8PBN</MoreInfoURL>
-	                `<AgentComm>`7.35-`</AgentComm>`
-	                `<VATonComm>`0.96-`</VATonComm>`
-		</Booking>
-		<Itinerary>
-			<ArrivalDate>2009-10-15</ArrivalDate>
-			<Nights>1</Nights>
-			<BoardBasis>RO</BoardBasis>
-			<NonSmoking>N</NonSmoking>
-			<CarPickupDate>2009-10-22</CarPickupDate>
-			<CarDropoffTime>1100</CarDropoffTime>
-			<CarPickupTime>1200</CarPickupTime>
-			<ParkingDays>15</ParkingDays>
-			<ParkingSpaces>1</ParkingSpaces>
-			<ReturnFlight>AB123</ReturnFlight>
-			<TerminalCode>1</TerminalCode>
-			<Code>LHRNOV</Code>
-		</Itinerary>
-		<Room>
-			<Adults>2</Adults>
-			<Children>0</Children>
-			<Infants>0</Infants>
-			<Code>DBL</Code>
-		</Room>
-		<ClientDetails>
-			<Title>MR</Title>
-			<Initial>B</Initial>
-			<Surname>Test</Surname>
-			<Address>4</Address>
-			<Address a="2">TEST</Address>
-			<Town>TESTTOWN</Town>
-			<County>TESTCOUNTY</County>
-			<Postcode>CT223PP</Postcode>
-			<Country>ENGLAND</Country>
-			<EvePhone>01303200202</EvePhone>
-			<Email>BEN.THOMPSON@HOLIDAYEXTRAS.COM</Email>
-			<Waiver>Y</Waiver>
-			<WaiverAmount>5.00</WaiverAmount>
-		</ClientDetails>
-		<Pricing>
-			<WaiverValue/>
-		</Pricing>
-		<API_Header>
-			<Request>
-	                ...
-			</Request>
-		</API_Header>
-	`</API_Reply>`
-	
+```xml
 
+`<API_Reply Product="HotelWithParking" RequestCode="5" Result="OK">`
+	<Booking>
+		<BookingRef>A8PBN</BookingRef>
+		<MoreInfoURL>/sandbox/v1/booking/A8PBN</MoreInfoURL>
+                `<AgentComm>`7.35-`</AgentComm>`
+                `<VATonComm>`0.96-`</VATonComm>`
+	</Booking>
+	<Itinerary>
+		<ArrivalDate>2009-10-15</ArrivalDate>
+		<Nights>1</Nights>
+		<BoardBasis>RO</BoardBasis>
+		<NonSmoking>N</NonSmoking>
+		<CarPickupDate>2009-10-22</CarPickupDate>
+		<CarDropoffTime>1100</CarDropoffTime>
+		<CarPickupTime>1200</CarPickupTime>
+		<ParkingDays>15</ParkingDays>
+		<ParkingSpaces>1</ParkingSpaces>
+		<ReturnFlight>AB123</ReturnFlight>
+		<TerminalCode>1</TerminalCode>
+		<Code>LHRNOV</Code>
+	</Itinerary>
+	<Room>
+		<Adults>2</Adults>
+		<Children>0</Children>
+		<Infants>0</Infants>
+		<Code>DBL</Code>
+	</Room>
+	<ClientDetails>
+		<Title>MR</Title>
+		<Initial>B</Initial>
+		<Surname>Test</Surname>
+		<Address>4</Address>
+		<Address a="2">TEST</Address>
+		<Town>TESTTOWN</Town>
+		<County>TESTCOUNTY</County>
+		<Postcode>CT223PP</Postcode>
+		<Country>ENGLAND</Country>
+		<EvePhone>01303200202</EvePhone>
+		<Email>BEN.THOMPSON@HOLIDAYEXTRAS.COM</Email>
+		<Waiver>Y</Waiver>
+		<WaiverAmount>5.00</WaiverAmount>
+	</ClientDetails>
+	<Pricing>
+		<WaiverValue/>
+	</Pricing>
+	<API_Header>
+		<Request>
+                ...
+		</Request>
+	</API_Header>
+`</API_Reply>`
+
+```
 
 
 

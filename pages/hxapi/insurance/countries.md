@@ -28,9 +28,9 @@ GET
 
 ### Request (example 1)
 
-	
-	http://api.holidayextras.co.uk/v1/insurancecountries?token=000015778&key=mytestkey
-
+```
+http://api.holidayextras.co.uk/v1/insurancecountries?token=000015778&key=mytestkey
+```
 
 
 
@@ -43,20 +43,19 @@ GET
 
 ### Reply (example 1)
 
-	:::xml
-	`<API_Reply>`
-	  `<country>`Albania`</country>`
-	  `<country>`Andorra`</country>`
-	  `<country>`Armenia`</country>`
-	  ...
-	  `<country>`United Kingdom`</country>`
-	  `<country>`Vatican City`</country>`
-	  `<country>`Yugoslavia (Former)`</country>`
-	  `<API_Header>`
-	    `<Request>`
-	      `<key>`mytestkey`</key>`
-	      `<token>`000015778`</token>`
-	    `</Request>`
-	  `</API_Header>`
-	`</API_Reply>``</code>`
-	
+```xml
+`<API_Reply>`
+  `<country>`Albania`</country>`
+  `<country>`Andorra`</country>`
+  `<country>`Armenia`</country>`
+  ...
+  `<country>`United Kingdom`</country>`
+  `<country>`Vatican City`</country>`
+  `<country>`Yugoslavia (Former)`</country>`
+  `<API_Header>`
+    `<Request>`
+      `<key>`mytestkey`</key>`
+      `<token>`000015778`</token>`
+    `</Request>`
+  `</API_Header>`
+`</API_Reply>``</code>`

@@ -74,9 +74,9 @@ Pass in lang=en/de/it/es/pt/nl (For System=ABG available lang=de/it/fr/nl)
 
 ### Request
 
-	:::html
-	http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=2010-09-20&ArrivalTime=1200&DepartDate=2010-09-27&DepartTime=1400&key=**HXAPIKEY**&token=generate&ABTANumber=**HXAGENTCODE**&Initials=BJT
-
+```html
+http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=2010-09-20&ArrivalTime=1200&DepartDate=2010-09-27&DepartTime=1400&key=**HXAPIKEY**&token=generate&ABTANumber=**HXAGENTCODE**&Initials=BJT
+```
 
 
 
@@ -92,63 +92,63 @@ Pass in lang=en/de/it/es/pt/nl (For System=ABG available lang=de/it/fr/nl)
 
 ### Reply
 
-	:::xml
-	
-	`<?xml version="1.0"?>`
-	`<API_Reply Product="CarPark" RequestCode="1" Result="OK">`
-		<CarPark>
-			<TotalPrice>80.00</TotalPrice>
-			<NonDiscPrice>80.00</NonDiscPrice>
-			<RequestFlags>
-				<Registration>1</Registration>
-			</RequestFlags>
-			<Name>Long Stay</Name>
-			<Code>LGW2</Code>
-			<Filter>
-				<on_airport>1</on_airport>
-				<terminal>1</terminal>
-			</Filter>
-			<BookingURL>/api/sandbox/v1/carpark/LGW2</BookingURL>
-			<MoreInfoURL>/api/sandbox/v1/product/LGW2</MoreInfoURL>
-		</CarPark>
-		<CarPark>
-			<TotalPrice>72.00</TotalPrice>
-			<NonDiscPrice>72.00</NonDiscPrice>
-			<RequestFlags>
-				<Registration>1</Registration>
-			</RequestFlags>
-			<Name>Summer Special</Name>
-			<Code>LGW3</Code>
-			<Filter>
-				<on_airport>1</on_airport>
-				<terminal>1</terminal>
-				<car_parked_for_you>1</car_parked_for_you>
-			</Filter>
-			<BookingURL>/api/sandbox/v1/carpark/LGW3</BookingURL>
-			<MoreInfoURL>/api/sandbox/v1/product/LGW3</MoreInfoURL>
-		</CarPark>
-		<Pricing>
-			<CCardSurchargePercent>2.00</CCardSurchargePercent>
-			<CCardSurchargeMin>1.50</CCardSurchargeMin>
-			<CCardSurchargeMax>4.00</CCardSurchargeMax>
-			<CancellationWaiver>
-				<Waiver>0.50</Waiver>
-			</CancellationWaiver>
-		</Pricing>
-		<API_Header>
-			<Request>
-				<ArrivalDate>2008-09-20</ArrivalDate>
-				<ArrivalTime>1200</ArrivalTime>
-				<DepartDate>2008-09-27</DepartDate>
-				<DepartTime>1400</DepartTime>
-				<key>mytestkey</key>
-				<token>000001234</token>
-				<v>1</v>
-			</Request>
-		</API_Header>
-	`</API_Reply>`
-	
+```xml
 
+`<?xml version="1.0"?>`
+`<API_Reply Product="CarPark" RequestCode="1" Result="OK">`
+	<CarPark>
+		<TotalPrice>80.00</TotalPrice>
+		<NonDiscPrice>80.00</NonDiscPrice>
+		<RequestFlags>
+			<Registration>1</Registration>
+		</RequestFlags>
+		<Name>Long Stay</Name>
+		<Code>LGW2</Code>
+		<Filter>
+			<on_airport>1</on_airport>
+			<terminal>1</terminal>
+		</Filter>
+		<BookingURL>/api/sandbox/v1/carpark/LGW2</BookingURL>
+		<MoreInfoURL>/api/sandbox/v1/product/LGW2</MoreInfoURL>
+	</CarPark>
+	<CarPark>
+		<TotalPrice>72.00</TotalPrice>
+		<NonDiscPrice>72.00</NonDiscPrice>
+		<RequestFlags>
+			<Registration>1</Registration>
+		</RequestFlags>
+		<Name>Summer Special</Name>
+		<Code>LGW3</Code>
+		<Filter>
+			<on_airport>1</on_airport>
+			<terminal>1</terminal>
+			<car_parked_for_you>1</car_parked_for_you>
+		</Filter>
+		<BookingURL>/api/sandbox/v1/carpark/LGW3</BookingURL>
+		<MoreInfoURL>/api/sandbox/v1/product/LGW3</MoreInfoURL>
+	</CarPark>
+	<Pricing>
+		<CCardSurchargePercent>2.00</CCardSurchargePercent>
+		<CCardSurchargeMin>1.50</CCardSurchargeMin>
+		<CCardSurchargeMax>4.00</CCardSurchargeMax>
+		<CancellationWaiver>
+			<Waiver>0.50</Waiver>
+		</CancellationWaiver>
+	</Pricing>
+	<API_Header>
+		<Request>
+			<ArrivalDate>2008-09-20</ArrivalDate>
+			<ArrivalTime>1200</ArrivalTime>
+			<DepartDate>2008-09-27</DepartDate>
+			<DepartTime>1400</DepartTime>
+			<key>mytestkey</key>
+			<token>000001234</token>
+			<v>1</v>
+		</Request>
+	</API_Header>
+`</API_Reply>`
+
+```
 
 
 
@@ -281,14 +281,13 @@ Comprises of 3 elements
 The credit card surcharge IS applied to the TotalPrice + the Cancellation Waiver (see below). To prevent the surcharge from exceeding certain boundaries, we have min and max thresholds. If the amount does not come between those two figures, you should use the relevant threshold value.
 
 Pseudo code
-
-	
-	x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
-	if( x < CCardSurchargeMin) 
-	  x = CCardSurchargeMin
-	else if x > CCardSurchargeMax
-	  x = CCardSurchargeMax
-
+```
+x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
+if( x < CCardSurchargeMin) 
+  x = CCardSurchargeMin
+else if x > CCardSurchargeMax
+  x = CCardSurchargeMax
+```
 #### Pricing/CancellationWaiver
 
 We provide an optional cancellation waiver. If not taken up, cancellation will incur a fee. The fee is outlined in our terms and conditions. This value is not currently returned via the XML.

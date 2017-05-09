@@ -22,27 +22,26 @@ The file extension is also required, to tell the API to return the correct image
 
 ## Request
 
-	
-	http://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo
-
+```
+http://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo
+```
 
 So you can include it in your page as easily as...
 
-	
-	`<img src="http://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo" />`
-
+```
+`<img src="http://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo" />`
+```
 
 
 The image can be rotated to fit the side of a page:
 
-	
-	http://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo&angle=90
-
+```
+http://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo&angle=90
+```
 Or
-
-	
-	http://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo&angle=270
-
+```
+http://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo&angle=270
+```
 
 
 ## Reply

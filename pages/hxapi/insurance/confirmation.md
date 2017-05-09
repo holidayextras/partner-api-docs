@@ -50,21 +50,21 @@ POST
 
 #### Intermediary
 
-	
-	
-	POST /v1/insurancepolicy/EUROPE HTTP/1.1
-	
-	Host: api.holidayextras.co.uk
-	
-	...
-	
-	Content-Type: application/x-www-form-urlencoded
-	
-	Content-Length: 198
-	
-	
-	Address[]=1 Test St&Address[]=Testchester&Address[]=Testshire&CardHolder=Mr T Test&CardNumber=4111 1111 1111 1111&DateOfBirth[]=1972-07-27&Email=test%40test.com&EndDate=2009-02-29&ExpiryDate=1010&Initial[]=T&PostCode=T1 1TT&SchemeCode=DPR08&SchemePrice=33.01&StartDate=2009-02-22&Surname[]=Test&Title[]=Mr&key=foo&token=000015778
+```
 
+POST /v1/insurancepolicy/EUROPE HTTP/1.1
+
+Host: api.holidayextras.co.uk
+
+...
+
+Content-Type: application/x-www-form-urlencoded
+
+Content-Length: 198
+
+
+Address[]=1 Test St&Address[]=Testchester&Address[]=Testshire&CardHolder=Mr T Test&CardNumber=4111 1111 1111 1111&DateOfBirth[]=1972-07-27&Email=test%40test.com&EndDate=2009-02-29&ExpiryDate=1010&Initial[]=T&PostCode=T1 1TT&SchemeCode=DPR08&SchemePrice=33.01&StartDate=2009-02-22&Surname[]=Test&Title[]=Mr&key=foo&token=000015778
+```
 
 ### Reply
 

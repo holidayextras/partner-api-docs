@@ -97,48 +97,48 @@ This request does not affect the booking, no changes are confirmed at this point
 
 ### Request
 
-	:::html
-	http://api.holidayextras.co.uk/sandbox/booking/A8LUM?ArrivalDate=2009-02-10&ArrivalTime=1800&DepartDate=2009-02-20&DepartTime=2000&CarParkCode=MAN3&NumberOfPax=2&ABTANumber=FOO&key=mytestkey
-
+```html
+http://api.holidayextras.co.uk/sandbox/booking/A8LUM?ArrivalDate=2009-02-10&ArrivalTime=1800&DepartDate=2009-02-20&DepartTime=2000&CarParkCode=MAN3&NumberOfPax=2&ABTANumber=FOO&key=mytestkey
+```
 
 add System=ABG for European products
 
 ### Reply
 
-	:::xml
-	`<?xml version="1.0" ?>`
-	`<API_Reply Product="CarPark" RequestCode="13" Result="OK">`
-	  `<Pricing>`
-	    `<MinPricingDuration>`1`</MinPricingDuration>`
-	    `<Duration>`11`</Duration>`
-	    `<OriginalPrice>`48.00`</OriginalPrice>`
-	    `<NewPrice>`52.80`</NewPrice>`
-	    `<PriceDifference>`4.80`</PriceDifference>`
-	  `</Pricing>`
-	  `<API_Header>`
-	    `<Request>`
-	      `<ArrivalDate>`2009-02-10`</ArrivalDate>`
-	      `<ArrivalTime>`1800`</ArrivalTime>`
-	      `<DepartDate>`2009-02-20`</DepartDate>`
-	      `<DepartTime>`2000`</DepartTime>`
-	      `<NumberOfPax>`2`</NumberOfPax>`
-	      `<ABTANumber>`FOO`</ABTANumber>`
-	      `<key>`mytestkey`</key>`
-	      `<Code>`MAN3`</Code>`
-	    `</Request>`
-	  `</API_Header>`
-	  `<CarPark>`
-	    `<Code>`MAN3`</Code>`
-	    `<Name>`Airparks Handforth Dean`</Name>`
-	    `<Filter>`
-	      `<recommended>`1`</recommended>`
-	      `<car_parked_for_you>`1`</car_parked_for_you>`
-	    `</Filter>`
-	    `<BookingURL>`/sandbox/carpark/MAN3`</BookingURL>`
-	    `<MoreInfoURL>`/sandbox/product/MAN3`</MoreInfoURL>`
-	  `</CarPark>`
-	`</API_Reply>`
-
+```xml
+`<?xml version="1.0" ?>`
+`<API_Reply Product="CarPark" RequestCode="13" Result="OK">`
+  `<Pricing>`
+    `<MinPricingDuration>`1`</MinPricingDuration>`
+    `<Duration>`11`</Duration>`
+    `<OriginalPrice>`48.00`</OriginalPrice>`
+    `<NewPrice>`52.80`</NewPrice>`
+    `<PriceDifference>`4.80`</PriceDifference>`
+  `</Pricing>`
+  `<API_Header>`
+    `<Request>`
+      `<ArrivalDate>`2009-02-10`</ArrivalDate>`
+      `<ArrivalTime>`1800`</ArrivalTime>`
+      `<DepartDate>`2009-02-20`</DepartDate>`
+      `<DepartTime>`2000`</DepartTime>`
+      `<NumberOfPax>`2`</NumberOfPax>`
+      `<ABTANumber>`FOO`</ABTANumber>`
+      `<key>`mytestkey`</key>`
+      `<Code>`MAN3`</Code>`
+    `</Request>`
+  `</API_Header>`
+  `<CarPark>`
+    `<Code>`MAN3`</Code>`
+    `<Name>`Airparks Handforth Dean`</Name>`
+    `<Filter>`
+      `<recommended>`1`</recommended>`
+      `<car_parked_for_you>`1`</car_parked_for_you>`
+    `</Filter>`
+    `<BookingURL>`/sandbox/carpark/MAN3`</BookingURL>`
+    `<MoreInfoURL>`/sandbox/product/MAN3`</MoreInfoURL>`
+  `</CarPark>`
+`</API_Reply>`
+```
 
 
 
@@ -192,86 +192,86 @@ This request actually changes the details of the booking. It is a good idea to a
 
 ### Request
 
-	
-	POST /booking/RSE3F HTTP/1.1
-	Host: api.holidayextras.co.uk
-	User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.1) Gecko/2008070206 Firefox/3.0.1
-	Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-	Accept-Language: en-us,en;q=0.5
-	Accept-Encoding: gzip,deflate
-	Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
-	Keep-Alive: 300
-	Connection: keep-alive
-	Content-Type: application/x-www-form-urlencoded
-	Content-Length: 297
-	
-	ABTANumber=FOO&Address%5B%5D=45%20Test%20Street&ArrivalDate=2009-04-16&ArrivalTime=1200&CarParkCode=LGV4&Confirmation=Y&County=Kent&DepartDate=2009-04-23&DepartTime=1500&Email=test%40test.com&Initial=B&NumberOfPax=3&PostCode=CT202TT&Surname=Test&Title=Mr&Town=Test&key=mytestkey
-	
+```
+POST /booking/RSE3F HTTP/1.1
+Host: api.holidayextras.co.uk
+User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.1) Gecko/2008070206 Firefox/3.0.1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 297
 
+ABTANumber=FOO&Address%5B%5D=45%20Test%20Street&ArrivalDate=2009-04-16&ArrivalTime=1200&CarParkCode=LGV4&Confirmation=Y&County=Kent&DepartDate=2009-04-23&DepartTime=1500&Email=test%40test.com&Initial=B&NumberOfPax=3&PostCode=CT202TT&Surname=Test&Title=Mr&Town=Test&key=mytestkey
+
+```
 
 
 
 ### Reply
 
-	:::xml
-	`<?xml version="1.0" ?>`
-	`<API_Reply Product="CarPark" RequestCode="14" Result="OK">`
-	  `<Booking>`
-	    `<BookingRef>`A8LUM`</BookingRef>`
-	  `</Booking>`
-	  `<CarDetails>`
-	    `<Registration>``</Registration>`
-	    `<CarMake>``</CarMake>`
-	    `<CarModel>``</CarModel>`
-	    `<CarColour>``</CarColour>`
-	  `</CarDetails>`
-	  `<ClientDetails>`
-	    `<Title>`MR`</Title>`
-	    `<Initial>`T`</Initial>`
-	    `<Surname>`TEST`</Surname>`
-	    `<Address a="1">`Test Street`</Address>`
-	    `<Email>`BEN.THOMPSON@HOLIDAYEXTRAS.COM`</Email>`
-	    `<DataProtection>``</DataProtection>`
-	  `</ClientDetails>`
-	  `<Pricing>`
-	    `<OriginalPrice>`48.00`</OriginalPrice>`
-	    `<NewPrice>`52.80`</NewPrice>`
-	    `<PriceDifference>`N/A`</PriceDifference>`
-	  `</Pricing>`
-	  `<API_Header>`
-	    `<Request>`
-	      `<ABTANumber>`FOO`</ABTANumber>`
-	      `<ArrivalDate>`2009-02-10`</ArrivalDate>`
-	      `<ArrivalTime>`1800`</ArrivalTime>`
-	      `<Confirmation>`Y`</Confirmation>`
-	      `<DepartDate>`2009-02-20`</DepartDate>`
-	      `<DepartTime>`2000`</DepartTime>`
-	      `<Initial>`T`</Initial>`
-	      `<NumberOfPax>`2`</NumberOfPax>`
-	      `<Surname>`Test`</Surname>`
-	      `<Title>`Mr`</Title>`
-	      `<key>`mytestkey`</key>`
-	      `<Email>`ben.thompson@holidayextras.com`</Email>`
-	      `<Code>`MAN3`</Code>`
-	    `</Request>`
-	  `</API_Header>`
-	  `<CarPark>`
-	    `<ArrivalDate>`2009-02-10`</ArrivalDate>`
-	    `<DepartDate>`2009-02-20`</DepartDate>`
-	    `<ArrivalTime>`1800`</ArrivalTime>`
-	    `<DepartTime>`2000`</DepartTime>`
-	    `<Duration>`10`</Duration>`
-	    `<NumberOfPax>`2`</NumberOfPax>`
-	    `<ReturnFlight>``</ReturnFlight>`
-	    `<Code>`MAN3`</Code>`
-	    `<Name>`Airparks Handforth Dean`</Name>`
-	    `<Filter>`
-	      `<recommended>`1`</recommended>`
-	      `<car_parked_for_you>`1`</car_parked_for_you>`
-	    `</Filter>`
-	    `<BookingURL>`/sandbox/carpark/MAN3`</BookingURL>`
-	    `<MoreInfoURL>`/sandbox/product/MAN3`</MoreInfoURL>`
-	  `</CarPark>`
-	`</API_Reply>`
-
+```xml
+`<?xml version="1.0" ?>`
+`<API_Reply Product="CarPark" RequestCode="14" Result="OK">`
+  `<Booking>`
+    `<BookingRef>`A8LUM`</BookingRef>`
+  `</Booking>`
+  `<CarDetails>`
+    `<Registration>``</Registration>`
+    `<CarMake>``</CarMake>`
+    `<CarModel>``</CarModel>`
+    `<CarColour>``</CarColour>`
+  `</CarDetails>`
+  `<ClientDetails>`
+    `<Title>`MR`</Title>`
+    `<Initial>`T`</Initial>`
+    `<Surname>`TEST`</Surname>`
+    `<Address a="1">`Test Street`</Address>`
+    `<Email>`BEN.THOMPSON@HOLIDAYEXTRAS.COM`</Email>`
+    `<DataProtection>``</DataProtection>`
+  `</ClientDetails>`
+  `<Pricing>`
+    `<OriginalPrice>`48.00`</OriginalPrice>`
+    `<NewPrice>`52.80`</NewPrice>`
+    `<PriceDifference>`N/A`</PriceDifference>`
+  `</Pricing>`
+  `<API_Header>`
+    `<Request>`
+      `<ABTANumber>`FOO`</ABTANumber>`
+      `<ArrivalDate>`2009-02-10`</ArrivalDate>`
+      `<ArrivalTime>`1800`</ArrivalTime>`
+      `<Confirmation>`Y`</Confirmation>`
+      `<DepartDate>`2009-02-20`</DepartDate>`
+      `<DepartTime>`2000`</DepartTime>`
+      `<Initial>`T`</Initial>`
+      `<NumberOfPax>`2`</NumberOfPax>`
+      `<Surname>`Test`</Surname>`
+      `<Title>`Mr`</Title>`
+      `<key>`mytestkey`</key>`
+      `<Email>`ben.thompson@holidayextras.com`</Email>`
+      `<Code>`MAN3`</Code>`
+    `</Request>`
+  `</API_Header>`
+  `<CarPark>`
+    `<ArrivalDate>`2009-02-10`</ArrivalDate>`
+    `<DepartDate>`2009-02-20`</DepartDate>`
+    `<ArrivalTime>`1800`</ArrivalTime>`
+    `<DepartTime>`2000`</DepartTime>`
+    `<Duration>`10`</Duration>`
+    `<NumberOfPax>`2`</NumberOfPax>`
+    `<ReturnFlight>``</ReturnFlight>`
+    `<Code>`MAN3`</Code>`
+    `<Name>`Airparks Handforth Dean`</Name>`
+    `<Filter>`
+      `<recommended>`1`</recommended>`
+      `<car_parked_for_you>`1`</car_parked_for_you>`
+    `</Filter>`
+    `<BookingURL>`/sandbox/carpark/MAN3`</BookingURL>`
+    `<MoreInfoURL>`/sandbox/product/MAN3`</MoreInfoURL>`
+  `</CarPark>`
+`</API_Reply>`
+```
 

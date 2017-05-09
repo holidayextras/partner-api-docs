@@ -95,38 +95,38 @@ This request does not affect the booking, no changes are confirmed at this point
 
 ### Request
 
-	:::html
-	http://api.holidayextras.co.uk/booking/{REF}?ABTANumber=AGENT&key=mytestkey&Password=Password&Nights=1&HotelCode=FRAMAX&ArrivalDate=20Nov16&ParkingDays=8&ParkingSpaces=1&RoomCode[]=DZ&Rooms=1&Adults=2&Children=0&Infants=0
-
+```html
+http://api.holidayextras.co.uk/booking/{REF}?ABTANumber=AGENT&key=mytestkey&Password=Password&Nights=1&HotelCode=FRAMAX&ArrivalDate=20Nov16&ParkingDays=8&ParkingSpaces=1&RoomCode[]=DZ&Rooms=1&Adults=2&Children=0&Infants=0
+```
 
 add System=ABG for European products
 
 ### Reply
 
-	:::xml
-	`<?xml version="1.0" ?>`
-	`<API_Reply Product="Hotel" RequestCode="13" Result="OK">`
-	    `<Itinerary>`
-	        `<ArrivalDate>`2016-11-20`</ArrivalDate>`
-	        `<Nights>`1`</Nights>`
-	        `<BoardBasis>`U`</BoardBasis>`
-	        `<Code>`FRAMAX`</Code>`
-	    `</Itinerary>`
-	    `<Room>`
-	        `<Rooms>`1`</Rooms>`
-	        `<Adults>`2`</Adults>`
-	        `<Children>`0`</Children>`
-	        `<Infants>`0`</Infants>`
-	        `<Price>`89.00`</Price>`
-	        `<Code>`DZ`</Code>`
-	    `</Room>`
-	    `<Pricing>`
-	        `<OriginalPrice>`109.00`</OriginalPrice>`
-	        `<NewPrice>`89.00`</NewPrice>`
-	        `<PriceDifference>`20.00-`</PriceDifference>`
-	    `</Pricing>`
-	`</API_Reply>`
-
+```xml
+`<?xml version="1.0" ?>`
+`<API_Reply Product="Hotel" RequestCode="13" Result="OK">`
+    `<Itinerary>`
+        `<ArrivalDate>`2016-11-20`</ArrivalDate>`
+        `<Nights>`1`</Nights>`
+        `<BoardBasis>`U`</BoardBasis>`
+        `<Code>`FRAMAX`</Code>`
+    `</Itinerary>`
+    `<Room>`
+        `<Rooms>`1`</Rooms>`
+        `<Adults>`2`</Adults>`
+        `<Children>`0`</Children>`
+        `<Infants>`0`</Infants>`
+        `<Price>`89.00`</Price>`
+        `<Code>`DZ`</Code>`
+    `</Room>`
+    `<Pricing>`
+        `<OriginalPrice>`109.00`</OriginalPrice>`
+        `<NewPrice>`89.00`</NewPrice>`
+        `<PriceDifference>`20.00-`</PriceDifference>`
+    `</Pricing>`
+`</API_Reply>`
+```
 
 
 
@@ -186,92 +186,92 @@ This request actually changes the details of the booking. It is a good idea to a
 
 ### Request
 
-	
-	POST /booking/{REF} HTTP/1.1
-	Host: api.holidayextras.co.uk
-	User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.1) Gecko/2008070206 Firefox/3.0.1
-	Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-	Accept-Language: en-us,en;q=0.5
-	Accept-Encoding: gzip,deflate
-	Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
-	Keep-Alive: 300
-	Connection: keep-alive
-	Content-Type: application/x-www-form-urlencoded
-	Content-Length: 297
-	
-	ABTANumber:AGENT
-	key:mytestkey
-	Password:PASSWORD
-	Nights:1
-	HotelCode:FRAMAX
-	ArrivalDate:2016-11-19
-	ParkingDays:8
-	ParkingSpaces:1
-	BoardBasis:U
-	RoomCode[]:DBL
-	TerminalCode:
-	ReturnFlight:
-	Rooms:1
-	Adults:2
-	Children:0
-	Infants:0
-	Title:Herr
-	Initial:T
-	Surname:Test
-	NonSmoking:Y
-	CarPickupDate:2016-11-28
-	CarPickupTime:1200
-	CarDropOffTime:1200
-	ParkStart:2016-11-19
-	token:generate
-	
+```
+POST /booking/{REF} HTTP/1.1
+Host: api.holidayextras.co.uk
+User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.1) Gecko/2008070206 Firefox/3.0.1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 297
 
+ABTANumber:AGENT
+key:mytestkey
+Password:PASSWORD
+Nights:1
+HotelCode:FRAMAX
+ArrivalDate:2016-11-19
+ParkingDays:8
+ParkingSpaces:1
+BoardBasis:U
+RoomCode[]:DBL
+TerminalCode:
+ReturnFlight:
+Rooms:1
+Adults:2
+Children:0
+Infants:0
+Title:Herr
+Initial:T
+Surname:Test
+NonSmoking:Y
+CarPickupDate:2016-11-28
+CarPickupTime:1200
+CarDropOffTime:1200
+ParkStart:2016-11-19
+token:generate
+
+```
 
 
 
 ### Reply
 
-	:::xml
-	`<?xml version="1.0" ?>`
-	`<API_Reply Product="Hotel" RequestCode="14" Result="OK">`
-	    `<Booking>`
-	        `<BookingRef>`FBGCR`</BookingRef>`
-	        `<AgentComm>`8.47`</AgentComm>`
-	        `<VATonComm>`1.35`</VATonComm>`
-	        `<RETURNFLIGHT>``</RETURNFLIGHT>`
-	        `<BOOKNO>`FBGCR`</BOOKNO>`
-	    `</Booking>`
-	    `<Itinerary>`
-	        `<ArrivalDate>`2016-11-19`</ArrivalDate>`
-	        `<Nights>`1`</Nights>`
-	        `<BoardBasis>`U`</BoardBasis>`
-	        `<NonSmoking>``</NonSmoking>`
-	        `<CarPickupDate>`2016-11-28`</CarPickupDate>`
-	        `<CarDropoffTime>`1200`</CarDropoffTime>`
-	        `<ParkingDays>`8`</ParkingDays>`
-	        `<ParkingSpaces>`1`</ParkingSpaces>`
-	        `<Remarks>``</Remarks>`
-	        `<Code>`FRAMAX`</Code>`
-	    `</Itinerary>`
-	    `<Room>`
-	        `<Rooms>`1`</Rooms>`
-	        `<Adults>`2`</Adults>`
-	        `<Children>`0`</Children>`
-	        `<Infants>`0`</Infants>`
-	        `<Code>`DZ`</Code>`
-	    `</Room>`
-	    `<ClientDetails>`
-	        `<Title>`HERR`</Title>`
-	        `<Initial>`T`</Initial>`
-	        `<Surname>`TEST`</Surname>`
-	        `<Fax>`Y`</Fax>`
-	    `</ClientDetails>`
-	    `<Pricing>`
-	        `<OriginalPrice>`109.00`</OriginalPrice>`
-	        `<NewPrice>`89.00`</NewPrice>`
-	        `<PriceDifference>`-20.00`</PriceDifference>`
-	    `</Pricing>`
-	    
-	`</API_Reply>`
-
+```xml
+`<?xml version="1.0" ?>`
+`<API_Reply Product="Hotel" RequestCode="14" Result="OK">`
+    `<Booking>`
+        `<BookingRef>`FBGCR`</BookingRef>`
+        `<AgentComm>`8.47`</AgentComm>`
+        `<VATonComm>`1.35`</VATonComm>`
+        `<RETURNFLIGHT>``</RETURNFLIGHT>`
+        `<BOOKNO>`FBGCR`</BOOKNO>`
+    `</Booking>`
+    `<Itinerary>`
+        `<ArrivalDate>`2016-11-19`</ArrivalDate>`
+        `<Nights>`1`</Nights>`
+        `<BoardBasis>`U`</BoardBasis>`
+        `<NonSmoking>``</NonSmoking>`
+        `<CarPickupDate>`2016-11-28`</CarPickupDate>`
+        `<CarDropoffTime>`1200`</CarDropoffTime>`
+        `<ParkingDays>`8`</ParkingDays>`
+        `<ParkingSpaces>`1`</ParkingSpaces>`
+        `<Remarks>``</Remarks>`
+        `<Code>`FRAMAX`</Code>`
+    `</Itinerary>`
+    `<Room>`
+        `<Rooms>`1`</Rooms>`
+        `<Adults>`2`</Adults>`
+        `<Children>`0`</Children>`
+        `<Infants>`0`</Infants>`
+        `<Code>`DZ`</Code>`
+    `</Room>`
+    `<ClientDetails>`
+        `<Title>`HERR`</Title>`
+        `<Initial>`T`</Initial>`
+        `<Surname>`TEST`</Surname>`
+        `<Fax>`Y`</Fax>`
+    `</ClientDetails>`
+    `<Pricing>`
+        `<OriginalPrice>`109.00`</OriginalPrice>`
+        `<NewPrice>`89.00`</NewPrice>`
+        `<PriceDifference>`-20.00`</PriceDifference>`
+    `</Pricing>`
+    
+`</API_Reply>`
+```
 

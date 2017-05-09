@@ -36,183 +36,183 @@ GET
 
 ### Request (one room)
 
-	
-	http://api.holidayextras.co.uk/hotel/LGW?ABTANumber=FOO&Initials=BJT&key=mytestkey&token=999999999&ArrivalDate=2011-10-15&Nights=1&ParkingDays=8&RoomType=T20
-
+```
+http://api.holidayextras.co.uk/hotel/LGW?ABTANumber=FOO&Initials=BJT&key=mytestkey&token=999999999&ArrivalDate=2011-10-15&Nights=1&ParkingDays=8&RoomType=T20
+```
 
 Please use system=ABG to request European products
 
 ### Reply
 
-	:::xml
-	`<?xml version="1.0" ?>`
-	`<API_Reply Product="HotelWithParking" RequestCode="21" Result="OK">`
-	  `<Hotel>`
-	    `<RequestFlags>``</RequestFlags>`
-	    `<Name>`Russ Hill`</Name>`
-	    `<Code>`LGWRHP`</Code>`
-	    `<BookingURL>`/hotel/LGWRHP`</BookingURL>`
-	    `<MoreInfoURL>`/product/LGWRHP`</MoreInfoURL>`
-	    `<Price>`55.00`</Price>`
-	    `<PriceWithSurcharge>`56.50`</PriceWithSurcharge>`
-	    `<RoomCode>`TWN`</RoomCode>`
-	    `<BoardBasis>`RO`</BoardBasis>`
-	    `<Adults>`2`</Adults>`
-	    `<Children>`0`</Children>`
-	    `<ParkingDays>`8`</ParkingDays>`
-	  `</Hotel>`
-	  `<Hotel>`
-	    `<RequestFlags>`
-	      `<Registration>`1`</Registration>`
-	      `<CarMake>`1`</CarMake>`
-	      `<CarModel>`1`</CarModel>`
-	      `<CarColour>`1`</CarColour>`
-	      `<CarDropoffTime>`1`</CarDropoffTime>`
-	      `<CarPickupTime>`1`</CarPickupTime>`
-	      `<ReturnFlight>`1`</ReturnFlight>`
-	    `</RequestFlags>`
-	    `<Name>`Arora International Gatwick`</Name>`
-	    `<Code>`LGWARA`</Code>`
-	    `<Filter>`
-	      `<car_park_assocLGV9>`1`</car_park_assocLGV9>`
-	    `</Filter>`
-	    `<BookingURL>`/hotel/LGWARA`</BookingURL>`
-	    `<MoreInfoURL>`/product/LGWARA`</MoreInfoURL>`
-	    `<CarPark>`LGV9`</CarPark>`
-	    `<Price>`74.00`</Price>`
-	    `<PriceWithSurcharge>`75.50`</PriceWithSurcharge>`
-	    `<RoomCode>`TWN`</RoomCode>`
-	    `<BoardBasis>`RO`</BoardBasis>`
-	    `<Adults>`2`</Adults>`
-	    `<Children>`0`</Children>`
-	    `<ParkingDays>`8`</ParkingDays>`
-	  `</Hotel>`
-	  ...
-	  `<Hotel>`
-	    `<RequestFlags>``</RequestFlags>`
-	    `<Name>`Arora International Gatwick`</Name>`
-	    `<Code>`LGWARO`</Code>`
-	    `<BookingURL>`/hotel/LGWARO`</BookingURL>`
-	    `<MoreInfoURL>`/product/LGWARO`</MoreInfoURL>`
-	    `<Price>`99.00`</Price>`
-	    `<PriceWithSurcharge>`100.98`</PriceWithSurcharge>`
-	    `<RoomCode>`TWN`</RoomCode>`
-	    `<BoardBasis>`RO`</BoardBasis>`
-	    `<Adults>`2`</Adults>`
-	    `<Children>`0`</Children>`
-	    `<ParkingDays>`8`</ParkingDays>`
-	  `</Hotel>`
-	  `<API_Header>`
-	    `<Request>`
-	      `<ABTANumber>`FOO`</ABTANumber>`
-	      `<Initials>`BJT`</Initials>`
-	      `<key>`mytestkey`</key>`
-	      `<token>`999999999`</token>`
-	      `<ArrivalDate>`2009-10-15`</ArrivalDate>`
-	      `<Nights>`1`</Nights>`
-	      `<ParkingDays>`8`</ParkingDays>`
-	      `<RoomType>`T20`</RoomType>`
-	    `</Request>`
-	  `</API_Header>`
-	  `<Pricing>`
-	    `<CCardSurchargePercent>`2.00`</CCardSurchargePercent>`
-	    `<CCardSurchargeMin>`1.50`</CCardSurchargeMin>`
-	    `<CCardSurchargeMax>`4.00`</CCardSurchargeMax>`
-	    `<DiscountType>``</DiscountType>`
-	    `<DiscountValue>`0`</DiscountValue>`
-	    `<WaiverValue>`2.49`</WaiverValue>`
-	  `</Pricing>`
-	`</API_Reply>`
-
+```xml
+`<?xml version="1.0" ?>`
+`<API_Reply Product="HotelWithParking" RequestCode="21" Result="OK">`
+  `<Hotel>`
+    `<RequestFlags>``</RequestFlags>`
+    `<Name>`Russ Hill`</Name>`
+    `<Code>`LGWRHP`</Code>`
+    `<BookingURL>`/hotel/LGWRHP`</BookingURL>`
+    `<MoreInfoURL>`/product/LGWRHP`</MoreInfoURL>`
+    `<Price>`55.00`</Price>`
+    `<PriceWithSurcharge>`56.50`</PriceWithSurcharge>`
+    `<RoomCode>`TWN`</RoomCode>`
+    `<BoardBasis>`RO`</BoardBasis>`
+    `<Adults>`2`</Adults>`
+    `<Children>`0`</Children>`
+    `<ParkingDays>`8`</ParkingDays>`
+  `</Hotel>`
+  `<Hotel>`
+    `<RequestFlags>`
+      `<Registration>`1`</Registration>`
+      `<CarMake>`1`</CarMake>`
+      `<CarModel>`1`</CarModel>`
+      `<CarColour>`1`</CarColour>`
+      `<CarDropoffTime>`1`</CarDropoffTime>`
+      `<CarPickupTime>`1`</CarPickupTime>`
+      `<ReturnFlight>`1`</ReturnFlight>`
+    `</RequestFlags>`
+    `<Name>`Arora International Gatwick`</Name>`
+    `<Code>`LGWARA`</Code>`
+    `<Filter>`
+      `<car_park_assocLGV9>`1`</car_park_assocLGV9>`
+    `</Filter>`
+    `<BookingURL>`/hotel/LGWARA`</BookingURL>`
+    `<MoreInfoURL>`/product/LGWARA`</MoreInfoURL>`
+    `<CarPark>`LGV9`</CarPark>`
+    `<Price>`74.00`</Price>`
+    `<PriceWithSurcharge>`75.50`</PriceWithSurcharge>`
+    `<RoomCode>`TWN`</RoomCode>`
+    `<BoardBasis>`RO`</BoardBasis>`
+    `<Adults>`2`</Adults>`
+    `<Children>`0`</Children>`
+    `<ParkingDays>`8`</ParkingDays>`
+  `</Hotel>`
+  ...
+  `<Hotel>`
+    `<RequestFlags>``</RequestFlags>`
+    `<Name>`Arora International Gatwick`</Name>`
+    `<Code>`LGWARO`</Code>`
+    `<BookingURL>`/hotel/LGWARO`</BookingURL>`
+    `<MoreInfoURL>`/product/LGWARO`</MoreInfoURL>`
+    `<Price>`99.00`</Price>`
+    `<PriceWithSurcharge>`100.98`</PriceWithSurcharge>`
+    `<RoomCode>`TWN`</RoomCode>`
+    `<BoardBasis>`RO`</BoardBasis>`
+    `<Adults>`2`</Adults>`
+    `<Children>`0`</Children>`
+    `<ParkingDays>`8`</ParkingDays>`
+  `</Hotel>`
+  `<API_Header>`
+    `<Request>`
+      `<ABTANumber>`FOO`</ABTANumber>`
+      `<Initials>`BJT`</Initials>`
+      `<key>`mytestkey`</key>`
+      `<token>`999999999`</token>`
+      `<ArrivalDate>`2009-10-15`</ArrivalDate>`
+      `<Nights>`1`</Nights>`
+      `<ParkingDays>`8`</ParkingDays>`
+      `<RoomType>`T20`</RoomType>`
+    `</Request>`
+  `</API_Header>`
+  `<Pricing>`
+    `<CCardSurchargePercent>`2.00`</CCardSurchargePercent>`
+    `<CCardSurchargeMin>`1.50`</CCardSurchargeMin>`
+    `<CCardSurchargeMax>`4.00`</CCardSurchargeMax>`
+    `<DiscountType>``</DiscountType>`
+    `<DiscountValue>`0`</DiscountValue>`
+    `<WaiverValue>`2.49`</WaiverValue>`
+  `</Pricing>`
+`</API_Reply>`
+```
 
 ### Request (two rooms)
 
 only for UK
 
-	:::html
-	http://api.holidayextras.co.uk/hotel/LGW?ABTANumber=FOO&Initials=BJT&key=mytestkey&token=999999999&ArrivalDate=2011-10-15&Nights=1&ParkingDays=8&RoomType=T20&SecondRoomType=D20
-
+```html
+http://api.holidayextras.co.uk/hotel/LGW?ABTANumber=FOO&Initials=BJT&key=mytestkey&token=999999999&ArrivalDate=2011-10-15&Nights=1&ParkingDays=8&RoomType=T20&SecondRoomType=D20
+```
 
 ### Reply (two rooms)
 
 only for UK
 
-	:::xml
-	`<?xml version="1.0" ?>`
-	`<API_Reply Product="HotelWithParking" RequestCode="21" Result="OK">`
-	  `<Hotel>`
-	    `<Code>`LGWSOP`</Code>`
-	    `<Name>`Sofitel London Gatwick`</Name>`
-	    `<Filter>`
-	      `<car_park_assocLGV9>`1`</car_park_assocLGV9>`
-	    `</Filter>`
-	    `<single_car_only>`1`</single_car_only>`
-	    `<car_park_assoc>`LGV9`</car_park_assoc>`
-	    `<BookingURL>`/hotel/LGWSOP/preview`</BookingURL>`
-	    `<MoreInfoURL>`/product/LGWSOP/preview`</MoreInfoURL>`
-	    `<RequestFlags>``</RequestFlags>`
-	    `<CarPark>`LGV9`</CarPark>`
-	    `<Price>`342.00`</Price>`
-	    `<PriceWithSurcharge>`346.00`</PriceWithSurcharge>`
-	    `<RoomCode>`TWN`</RoomCode>`
-	    `<BoardBasis>`RO`</BoardBasis>`
-	    `<Adults>`4`</Adults>`
-	    `<Children>`0`</Children>`
-	    `<ParkingDays>`8`</ParkingDays>`
-	    `<FirstRoomAdults>`2`</FirstRoomAdults>`
-	    `<FirstRoomChildren>`0`</FirstRoomChildren>`
-	    `<SecondRoomCode>`DBL`</SecondRoomCode>`
-	    `<SecondRoomAdults>`2`</SecondRoomAdults>`
-	    `<SecondRoomChildren>`0`</SecondRoomChildren>`
-	  `</Hotel>`
-	  ...
-	  `<Hotel>`
-	    `<Code>`LGWLFH`</Code>`
-	    `<Name>`Little Foxes Hotel`</Name>`
-	    `<Filter>`
-	      `<car_park_assocLGV9>`1`</car_park_assocLGV9>`
-	    `</Filter>`
-	    `<car_park_assoc>`LGV9`</car_park_assoc>`
-	    `<BookingURL>`/hotel/LGWLFH`</BookingURL>`
-	    `<MoreInfoURL>`/product/LGWLFH`</MoreInfoURL>`
-	    `<RequestFlags>``</RequestFlags>`
-	    `<CarPark>`LGV9`</CarPark>`
-	    `<Price>`218.00`</Price>`
-	    `<PriceWithSurcharge>`222.00`</PriceWithSurcharge>`
-	    `<RoomCode>`TWN`</RoomCode>`
-	    `<BoardBasis>`RO`</BoardBasis>`
-	    `<Adults>`4`</Adults>`
-	    `<Children>`0`</Children>`
-	    `<ParkingDays>`8`</ParkingDays>`
-	    `<FirstRoomAdults>`2`</FirstRoomAdults>`
-	    `<FirstRoomChildren>`0`</FirstRoomChildren>`
-	    `<SecondRoomCode>`DBL`</SecondRoomCode>`
-	    `<SecondRoomAdults>`2`</SecondRoomAdults>`
-	    `<SecondRoomChildren>`0`</SecondRoomChildren>`
-	  `</Hotel>`
-	  `<API_Header>`
-	    `<Request>`
-	      `<ABTANumber>`FOO`</ABTANumber>`
-	      `<ArrivalDate>`2011-10-15`</ArrivalDate>`
-	      `<Initials>`BJT`</Initials>`
-	      `<Nights>`1`</Nights>`
-	      `<ParkingDays>`8`</ParkingDays>`
-	      `<RoomType>`T20`</RoomType>`
-	      `<SecondRoomType>`D20`</SecondRoomType>`
-	      `<key>`mytestkey`</key>`
-	      `<token>`999999999`</token>`
-	    `</Request>`
-	  `</API_Header>`
-	  `<Pricing>`
-	    `<CCardSurchargePercent>`2.00`</CCardSurchargePercent>`
-	    `<CCardSurchargeMin>`1.50`</CCardSurchargeMin>`
-	    `<CCardSurchargeMax>`4.00`</CCardSurchargeMax>`
-	    `<DiscountType>``</DiscountType>`
-	    `<DiscountValue>`0`</DiscountValue>`
-	    `<WaiverValue>`2.49`</WaiverValue>`
-	  `</Pricing>`
-	`</API_Reply>`
-
+```xml
+`<?xml version="1.0" ?>`
+`<API_Reply Product="HotelWithParking" RequestCode="21" Result="OK">`
+  `<Hotel>`
+    `<Code>`LGWSOP`</Code>`
+    `<Name>`Sofitel London Gatwick`</Name>`
+    `<Filter>`
+      `<car_park_assocLGV9>`1`</car_park_assocLGV9>`
+    `</Filter>`
+    `<single_car_only>`1`</single_car_only>`
+    `<car_park_assoc>`LGV9`</car_park_assoc>`
+    `<BookingURL>`/hotel/LGWSOP/preview`</BookingURL>`
+    `<MoreInfoURL>`/product/LGWSOP/preview`</MoreInfoURL>`
+    `<RequestFlags>``</RequestFlags>`
+    `<CarPark>`LGV9`</CarPark>`
+    `<Price>`342.00`</Price>`
+    `<PriceWithSurcharge>`346.00`</PriceWithSurcharge>`
+    `<RoomCode>`TWN`</RoomCode>`
+    `<BoardBasis>`RO`</BoardBasis>`
+    `<Adults>`4`</Adults>`
+    `<Children>`0`</Children>`
+    `<ParkingDays>`8`</ParkingDays>`
+    `<FirstRoomAdults>`2`</FirstRoomAdults>`
+    `<FirstRoomChildren>`0`</FirstRoomChildren>`
+    `<SecondRoomCode>`DBL`</SecondRoomCode>`
+    `<SecondRoomAdults>`2`</SecondRoomAdults>`
+    `<SecondRoomChildren>`0`</SecondRoomChildren>`
+  `</Hotel>`
+  ...
+  `<Hotel>`
+    `<Code>`LGWLFH`</Code>`
+    `<Name>`Little Foxes Hotel`</Name>`
+    `<Filter>`
+      `<car_park_assocLGV9>`1`</car_park_assocLGV9>`
+    `</Filter>`
+    `<car_park_assoc>`LGV9`</car_park_assoc>`
+    `<BookingURL>`/hotel/LGWLFH`</BookingURL>`
+    `<MoreInfoURL>`/product/LGWLFH`</MoreInfoURL>`
+    `<RequestFlags>``</RequestFlags>`
+    `<CarPark>`LGV9`</CarPark>`
+    `<Price>`218.00`</Price>`
+    `<PriceWithSurcharge>`222.00`</PriceWithSurcharge>`
+    `<RoomCode>`TWN`</RoomCode>`
+    `<BoardBasis>`RO`</BoardBasis>`
+    `<Adults>`4`</Adults>`
+    `<Children>`0`</Children>`
+    `<ParkingDays>`8`</ParkingDays>`
+    `<FirstRoomAdults>`2`</FirstRoomAdults>`
+    `<FirstRoomChildren>`0`</FirstRoomChildren>`
+    `<SecondRoomCode>`DBL`</SecondRoomCode>`
+    `<SecondRoomAdults>`2`</SecondRoomAdults>`
+    `<SecondRoomChildren>`0`</SecondRoomChildren>`
+  `</Hotel>`
+  `<API_Header>`
+    `<Request>`
+      `<ABTANumber>`FOO`</ABTANumber>`
+      `<ArrivalDate>`2011-10-15`</ArrivalDate>`
+      `<Initials>`BJT`</Initials>`
+      `<Nights>`1`</Nights>`
+      `<ParkingDays>`8`</ParkingDays>`
+      `<RoomType>`T20`</RoomType>`
+      `<SecondRoomType>`D20`</SecondRoomType>`
+      `<key>`mytestkey`</key>`
+      `<token>`999999999`</token>`
+    `</Request>`
+  `</API_Header>`
+  `<Pricing>`
+    `<CCardSurchargePercent>`2.00`</CCardSurchargePercent>`
+    `<CCardSurchargeMin>`1.50`</CCardSurchargeMin>`
+    `<CCardSurchargeMax>`4.00`</CCardSurchargeMax>`
+    `<DiscountType>``</DiscountType>`
+    `<DiscountValue>`0`</DiscountValue>`
+    `<WaiverValue>`2.49`</WaiverValue>`
+  `</Pricing>`
+`</API_Reply>`
+```
 
 ### Fields Explained
 
@@ -299,14 +299,13 @@ Comprises of 3 elements
 The credit card surcharge IS applied to the TotalPrice + the Cancellation Waiver (see below). To prevent the surcharge from exceeding certain boundaries, we have min and max thresholds. If the amount does not come between those two figures, you should use the relevant threshold value.
 
 Pseudo code
-
-	
-	x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
-	if( x < CCardSurchargeMin) 
-	  x = CCardSurchargeMin
-	else if x > CCardSurchargeMax
-	  x = CCardSurchargeMax
-
+```
+x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
+if( x < CCardSurchargeMin) 
+  x = CCardSurchargeMin
+else if x > CCardSurchargeMax
+  x = CCardSurchargeMax
+```
 
 
 #### API_Header/Request

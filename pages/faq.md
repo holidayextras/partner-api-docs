@@ -53,13 +53,13 @@ Agents should ignore the credit card surcharge elements. Any processing or handl
 
 Intermediaries must calculate the credit card surcharge using the logic below.
 
-	
-	x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
-	if( x < CCardSurchargeMin) 
-	  x = CCardSurchargeMin
-	else if x > CCardSurchargeMax
-	  x = CCardSurchargeMax
-
+```
+x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
+if( x < CCardSurchargeMin) 
+  x = CCardSurchargeMin
+else if x > CCardSurchargeMax
+  x = CCardSurchargeMax
+```
 
 
 

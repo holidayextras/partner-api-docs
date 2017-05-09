@@ -26,9 +26,9 @@
 
 Please note retail insurance uses the same API endpoints as the above Direct insurance. To see destinations and pricing for Retail policies, ensure your ABTANumber and Password are included as parameters with every request, for example:
 
-	
-	http://api.holidayextras.co.uk/v1/insurancepolicy?key=mytestkey&ABTANumber=FOO&Password=FOO
-
+```
+http://api.holidayextras.co.uk/v1/insurancepolicy?key=mytestkey&ABTANumber=FOO&Password=FOO
+```
 
 The retail API is only suitable if you are set up as a retail agent with us, please check with our sales team if you are not sure about this. You will need to collect payment from the customer yourself and will be separately invoiced by us for the policies you issue.
 

@@ -36,15 +36,14 @@ This is a general request, is is therefore not product specific. So a booking of
 
 ### Request
 
-	:::html
-	http://api.holidayextras.co.uk/v1/booking/ABCDE?Email=email@address.com&key=mytestkey
-
+```html
+http://api.holidayextras.co.uk/v1/booking/ABCDE?Email=email@address.com&key=mytestkey
+```
 
 For European products please use
-
-	:::html
-	http://api.holidayextras.co.uk/sandbox/v1/booking/BLBTS?key=mytestkey&ABTANumber=32877&Password=RADEN&System=ABG
-
+```html
+http://api.holidayextras.co.uk/sandbox/v1/booking/BLBTS?key=mytestkey&ABTANumber=32877&Password=RADEN&System=ABG
+```
 
 delete sandbox to be directed to production
 
@@ -52,63 +51,63 @@ delete sandbox to be directed to production
 
 ### Reply
 
-	:::xml
-	`<?xml version="1.0" ?>`
-	`<API_Reply System="ABC" Version="1.0" Product="General" Customer="A" Session="999999999" RequestCode="7" Result="OK">`
-	  `<Agent>`WT314`</Agent>`
-	  `<Booking>`
-	    `<BookingRef>`ABCDE`</BookingRef>`
-	    `<AgentComm>`0.10`</AgentComm>`
-	    `<VATonComm>`0.02`</VATonComm>`
-	    `<Amendable>`C`</Amendable>`
-	  `</Booking>`
-	  `<Itinerary>`
-	    `<Product>`Parking`</Product>`
-	    `<ArrivalDate>`2009-05-24`</ArrivalDate>`
-	    `<DepartDate>`2009-05-31`</DepartDate>`
-	    `<ArrivalTime>`1130`</ArrivalTime>`
-	    `<DepartTime>`1230`</DepartTime>`
-	    `<Duration>`8`</Duration>`
-	    `<CarParkCode>`LPX0`</CarParkCode>`
-	    `<ValetParking>`N`</ValetParking>`
-	    `<CarPickupDate>`2009-05-31`</CarPickupDate>`
-	    `<CarDropoffTime>`1130`</CarDropoffTime>`
-	    `<CarPickupTime>`1230`</CarPickupTime>`
-	    `<ParkingSpaces>`01`</ParkingSpaces>`
-	    `<TerminalCode>`....`</TerminalCode>`
-	    `<NumberOfPax>`1`</NumberOfPax>`
-	  `</Itinerary>`
-	  `<CarDetails>`
-	    `<Registration>`ABCDE 12F`</Registration>`
-	    `<CarMake>`Fiat`</CarMake>`
-	    `<CarModel>`126`</CarModel>`
-	    `<CarColour>`White`</CarColour>`
-	  `</CarDetails>`
-	  `<ClientDetails>`
-	    `<Title>`MR`</Title>`
-	    `<Initial>`T`</Initial>`
-	    `<Surname>`TEST`</Surname>`
-	    `<Address a="1">`N/A`</Address>`
-	    `<Town>`N/A`</Town>`
-	    `<County>`N/A`</County>`
-	    `<Postcode>`CT21 4JF`</Postcode>`
-	    `<DayPhone>`01303222222`</DayPhone>`
-	    `<Email>`email@address.com`</Email>`
-	    `<DataProtection>`Y`</DataProtection>`
-	  `</ClientDetails>`
-	  `<Pricing>`
-	    `<AmountPaid>`1.50`</AmountPaid>`
-	    `<TotalPrice>`0.00`</TotalPrice>`
-	    `<CCardSurchargeAmount>`1.50`</CCardSurchargeAmount>`
-	  `</Pricing>`
-	  `<API_Header>`
-	    `<Request>`
-	      `<Email>`email@address.com`</Email>`
-	      `<key>`mytestkey`</key>`
-	    `</Request>`
-	  `</API_Header>`
-	`</API_Reply>`
-
+```xml
+`<?xml version="1.0" ?>`
+`<API_Reply System="ABC" Version="1.0" Product="General" Customer="A" Session="999999999" RequestCode="7" Result="OK">`
+  `<Agent>`WT314`</Agent>`
+  `<Booking>`
+    `<BookingRef>`ABCDE`</BookingRef>`
+    `<AgentComm>`0.10`</AgentComm>`
+    `<VATonComm>`0.02`</VATonComm>`
+    `<Amendable>`C`</Amendable>`
+  `</Booking>`
+  `<Itinerary>`
+    `<Product>`Parking`</Product>`
+    `<ArrivalDate>`2009-05-24`</ArrivalDate>`
+    `<DepartDate>`2009-05-31`</DepartDate>`
+    `<ArrivalTime>`1130`</ArrivalTime>`
+    `<DepartTime>`1230`</DepartTime>`
+    `<Duration>`8`</Duration>`
+    `<CarParkCode>`LPX0`</CarParkCode>`
+    `<ValetParking>`N`</ValetParking>`
+    `<CarPickupDate>`2009-05-31`</CarPickupDate>`
+    `<CarDropoffTime>`1130`</CarDropoffTime>`
+    `<CarPickupTime>`1230`</CarPickupTime>`
+    `<ParkingSpaces>`01`</ParkingSpaces>`
+    `<TerminalCode>`....`</TerminalCode>`
+    `<NumberOfPax>`1`</NumberOfPax>`
+  `</Itinerary>`
+  `<CarDetails>`
+    `<Registration>`ABCDE 12F`</Registration>`
+    `<CarMake>`Fiat`</CarMake>`
+    `<CarModel>`126`</CarModel>`
+    `<CarColour>`White`</CarColour>`
+  `</CarDetails>`
+  `<ClientDetails>`
+    `<Title>`MR`</Title>`
+    `<Initial>`T`</Initial>`
+    `<Surname>`TEST`</Surname>`
+    `<Address a="1">`N/A`</Address>`
+    `<Town>`N/A`</Town>`
+    `<County>`N/A`</County>`
+    `<Postcode>`CT21 4JF`</Postcode>`
+    `<DayPhone>`01303222222`</DayPhone>`
+    `<Email>`email@address.com`</Email>`
+    `<DataProtection>`Y`</DataProtection>`
+  `</ClientDetails>`
+  `<Pricing>`
+    `<AmountPaid>`1.50`</AmountPaid>`
+    `<TotalPrice>`0.00`</TotalPrice>`
+    `<CCardSurchargeAmount>`1.50`</CCardSurchargeAmount>`
+  `</Pricing>`
+  `<API_Header>`
+    `<Request>`
+      `<Email>`email@address.com`</Email>`
+      `<key>`mytestkey`</key>`
+    `</Request>`
+  `</API_Header>`
+`</API_Reply>`
+```
 
 
 ### Fields Explained

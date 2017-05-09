@@ -19,9 +19,9 @@ GET
 
 ## Request
 
-	
-	http://api.holidayextras.co.uk/sandbox/v1/show?key=mytestkey
-
+```
+http://api.holidayextras.co.uk/sandbox/v1/show?key=mytestkey
+```
 
 
 

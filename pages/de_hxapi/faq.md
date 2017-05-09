@@ -43,13 +43,13 @@ Agents sollten die Elemente für Kreditkartenaufschläge ignorieren. Jegliche Be
 
 Vermittler müssen den Kreditkartenaufschlag nach unten stehendem Prinzip kalkulieren.
 
-	
-	x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
-	if( x < CCardSurchargeMin) 
-	  x = CCardSurchargeMin
-	else if x > CCardSurchargeMax
-	  x = CCardSurchargeMax
-
+```
+x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
+if( x < CCardSurchargeMin) 
+  x = CCardSurchargeMin
+else if x > CCardSurchargeMax
+  x = CCardSurchargeMax
+```
 
 
 

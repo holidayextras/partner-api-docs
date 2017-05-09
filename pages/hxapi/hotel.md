@@ -18,10 +18,9 @@ These are the hotel with parking requests. If available, the options returned ar
 ## Merging product library data into availability response
 
 You can specify a comma-separated list of fields to pull back from the product library. This overcomes the need for partners to do multiple HTTP requests, one for every hotel returned. Just specify a parameter named 'fields' and include the product library field names there. 
-
-	
-	eg...&fields=field_a,field_b,field_c
-
+```
+eg...&fields=field_a,field_b,field_c
+```
 
 The method for querying the product library as a separate request [is outlined here](hxapi/productlibrary/parking)
 

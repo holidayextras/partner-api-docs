@@ -35,10 +35,9 @@ These are the parking requests.
 ## Merging product library data into availability response
 
 You can specify a comma-separated list of fields to pull back from the product library. This overcomes the need for partners to do multiple HTTP requests. Just specify a parameter named 'fields' and include the product library field names there. 
-
-	
-	eg...&fields=field_a,field_b,field_c
-
+```
+eg...&fields=field_a,field_b,field_c
+```
 
 The method for querying the product library as a separate request [is outlined here](hxapi/productlibrary/parking)
 
@@ -62,11 +61,11 @@ If your application does not grab a new user token for each user on your site be
 
 The request flags brought back from availability searches indicate the fields required in the booking by the car park. You must retrieve this information from the customer. There are occasions where your booking will go through without sending this information but can fail later when importing the bookings to car parks. This causes us considerable administrative difficulties. Please, make sure your application sends all requested fields.
 
-	:::xml
-	`<RequestFlags>`
-		<Registration>1</Registration>
-	`</RequestFlags>`
-
+```xml
+`<RequestFlags>`
+	<Registration>1</Registration>
+`</RequestFlags>`
+```
 
 
 
@@ -79,13 +78,12 @@ The request flags brought back from availability searches indicate the fields re
 The cost of the Credit Card surcharge applies to the price of parking + cancellation waiver (if taken).
 
 So in the reply for a booking request you may see something like
-
-	:::xml
-	`<AmountPaid>`43.56`</AmountPaid>`
-	`<TotalPrice>`42.06`</TotalPrice>`
-	`<CCSurchargeAmount>`1.50`</CCSurchargeAmount>`
-	`<CanxWaiver>`0.50`</CanxWaiver>`
-
+```xml
+`<AmountPaid>`43.56`</AmountPaid>`
+`<TotalPrice>`42.06`</TotalPrice>`
+`<CCSurchargeAmount>`1.50`</CCSurchargeAmount>`
+`<CanxWaiver>`0.50`</CanxWaiver>`
+```
 ... and expect `<AmountPaid>` to total £44.06 (because 42.06 + 1.50 + 0.50 = 44.06). This is not an error, the `<CanxWaiver>` amount has already been added to the parking price of £41.56 to create `<TotalPrice>`, and the credit card surcharge is then applied to that value, giving `<AmountPaid>`.
 
 

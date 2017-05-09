@@ -30,37 +30,37 @@ GET
 
 ### Request
 
-	:::html
-	http://api.holidayextras.co.uk/sandbox/v1/carparkspaces/LGV4?ArrivalDate=2011-09-20&DepartDate=2011-09-27&key=mytestkey&token=000001234&ABTANumber=FOO&Initials=BJT
-
+```html
+http://api.holidayextras.co.uk/sandbox/v1/carparkspaces/LGV4?ArrivalDate=2011-09-20&DepartDate=2011-09-27&key=mytestkey&token=000001234&ABTANumber=FOO&Initials=BJT
+```
 
 ### Reply
 
-	:::xml
-	
-	`<API_Reply>`
-	  `<API_Header>`
-	    `<Request>`
-	      `<ArrivalDate>`2011-09-20`</ArrivalDate>`
-	      `<DepartDate>`2011-09-27`</DepartDate>`
-	      `<key>`mytestkey`</key>`
-	      `<token>`000001234`</token>`
-	      `<ABTANumber>`FOO`</ABTANumber>`
-	      `<Initials>`BJT`</Initials>`
-	      `<v>`1`</v>`
-	    `</Request>`
-	  `</API_Header>`
-	  `<CarPark>`
-	    `<Code>`LGV4`</Code>`
-	    `<Name>`Airparks Gatwick(formerly BCP)`</Name>`
-	    `<Status>`F`</Status>`
-	    `<Spaces>`
-	      `<Total>`9999`</Total>`
-	      `<Left>`9999`</Left>`
-	    `</Spaces>`
-	  `</CarPark>`
-	`</API_Reply>`
+```xml
 
+`<API_Reply>`
+  `<API_Header>`
+    `<Request>`
+      `<ArrivalDate>`2011-09-20`</ArrivalDate>`
+      `<DepartDate>`2011-09-27`</DepartDate>`
+      `<key>`mytestkey`</key>`
+      `<token>`000001234`</token>`
+      `<ABTANumber>`FOO`</ABTANumber>`
+      `<Initials>`BJT`</Initials>`
+      `<v>`1`</v>`
+    `</Request>`
+  `</API_Header>`
+  `<CarPark>`
+    `<Code>`LGV4`</Code>`
+    `<Name>`Airparks Gatwick(formerly BCP)`</Name>`
+    `<Status>`F`</Status>`
+    `<Spaces>`
+      `<Total>`9999`</Total>`
+      `<Left>`9999`</Left>`
+    `</Spaces>`
+  `</CarPark>`
+`</API_Reply>`
+```
 
 
 

@@ -58,9 +58,9 @@ GET
 
 ### Request
 
-	:::html
-	http://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA?StartCustomer=111111&BusinessUnit=222&Operator=BJT&ArrivalDate=2010-02-20&ArrivalTime=1200&DepartDate=2010-02-27&DepartTime=1400&NumberOfPax=2&key=mytestkey&token=000001234
-
+```html
+http://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA?StartCustomer=111111&BusinessUnit=222&Operator=BJT&ArrivalDate=2010-02-20&ArrivalTime=1200&DepartDate=2010-02-27&DepartTime=1400&NumberOfPax=2&key=mytestkey&token=000001234
+```
 
 
 
@@ -77,40 +77,40 @@ GET
 
 ### Reply
 
-	:::xml
-	`<?xml version="1.0" ?>`
-	`<API_Reply Product="CarPark" RequestCode="1" Result="OK">`
-	  `<CarPark c="1">`
-	    `<CarDetails>`N`</CarDetails>`
-	    `<TotalPrice>`160.00`</TotalPrice>`
-	    `<GatePrice>`0.00`</GatePrice>`
-	    `<Name>`Airparks Parkhaus Frankfurt - Winterspecial`</Name>`
-	    `<Code>`FRA2`</Code>`
-	    `<Filter>`
-	      `<recommended>`1`</recommended>`
-	    `</Filter>`
-	    `<BookingURL>`/sandbox/carpark/FRA2`</BookingURL>`
-	    `<MoreInfoURL>`/sandbox/product/FRA2`</MoreInfoURL>`
-	  `</CarPark>`
-	  `<API_Header>`
-	    `<Request>`
-	      `<StartCustomer>`111111`</StartCustomer>`
-	      `<BusinessUnit>`222`</BusinessUnit>`
-	      `<Initials>`BJT`</Initials>`
-	      `<ArrivalDate>`2010-02-20`</ArrivalDate>`
-	      `<ArrivalTime>`1200`</ArrivalTime>`
-	      `<DepartDate>`2010-02-27`</DepartDate>`
-	      `<DepartTime>`1400`</DepartTime>`
-	      `<NumberOfPax>`2`</NumberOfPax>`
-	      `<key>`mytestkey`</key>`
-	      `<token>`000001234`</token>`
-	      `<system>`de`</system>`
-	      `<System>`ABG`</System>`
-	    `</Request>`
-	  `</API_Header>`
-	`</API_Reply>`
-	
+```xml
+`<?xml version="1.0" ?>`
+`<API_Reply Product="CarPark" RequestCode="1" Result="OK">`
+  `<CarPark c="1">`
+    `<CarDetails>`N`</CarDetails>`
+    `<TotalPrice>`160.00`</TotalPrice>`
+    `<GatePrice>`0.00`</GatePrice>`
+    `<Name>`Airparks Parkhaus Frankfurt - Winterspecial`</Name>`
+    `<Code>`FRA2`</Code>`
+    `<Filter>`
+      `<recommended>`1`</recommended>`
+    `</Filter>`
+    `<BookingURL>`/sandbox/carpark/FRA2`</BookingURL>`
+    `<MoreInfoURL>`/sandbox/product/FRA2`</MoreInfoURL>`
+  `</CarPark>`
+  `<API_Header>`
+    `<Request>`
+      `<StartCustomer>`111111`</StartCustomer>`
+      `<BusinessUnit>`222`</BusinessUnit>`
+      `<Initials>`BJT`</Initials>`
+      `<ArrivalDate>`2010-02-20`</ArrivalDate>`
+      `<ArrivalTime>`1200`</ArrivalTime>`
+      `<DepartDate>`2010-02-27`</DepartDate>`
+      `<DepartTime>`1400`</DepartTime>`
+      `<NumberOfPax>`2`</NumberOfPax>`
+      `<key>`mytestkey`</key>`
+      `<token>`000001234`</token>`
+      `<system>`de`</system>`
+      `<System>`ABG`</System>`
+    `</Request>`
+  `</API_Header>`
+`</API_Reply>`
 
+```
 
 
 

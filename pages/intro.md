@@ -87,27 +87,25 @@ The easiest way to get started with **HXAPI** is to make a few HTTP requests in 
 
 First a request for parking availability:
 
-	
-	curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
-
+```
+curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
+```
 
 Example for a European product:
 
-	
-	curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/dus?ArrivalDate=20OCT15&ArrivalTime=1200&DepartDate=27OCT15&DepartTime=1600&token=000015778&key=mytestkey&System=ABG"
-
+```
+curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/dus?ArrivalDate=20OCT15&ArrivalTime=1200&DepartDate=27OCT15&DepartTime=1600&token=000015778&key=mytestkey&System=ABG"
+```
 
 Another example - this one queries the product library about one of the car parks returned.
-
-	
-	curl "http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?token=000015778&key=mytestkey"
-
+```
+curl "http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?token=000015778&key=mytestkey"
+```
 The examples so far have returned XML - this is the default format. You can also ask for the output as a javascript object by setting the file extension to '.js'.
-
-	
-	curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW.js?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
-	curl "http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&key=mytestkey"
-
+```
+curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW.js?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
+curl "http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&key=mytestkey"
+```
 
 
 

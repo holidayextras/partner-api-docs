@@ -30,9 +30,9 @@ GET
 
 ### Request
 
-	
-	http://api.holidayextras.co.uk/v1/insurancepolicy/188?ABTANumber=FOO&Password=FOO&EndDate=2011-10-20&StartDate=2011-10-10&birthDate[0]=1945-05-05&birthDate[1]=1955-01-01&destinationID=13&firstName[0]=test&firstName[1]=test&key=foo&lastName[0]=tests&lastName[1]=test&schemePrice=12.00&title[0]=Mr&title[1]=Mrs
-
+```
+http://api.holidayextras.co.uk/v1/insurancepolicy/188?ABTANumber=FOO&Password=FOO&EndDate=2011-10-20&StartDate=2011-10-10&birthDate[0]=1945-05-05&birthDate[1]=1955-01-01&destinationID=13&firstName[0]=test&firstName[1]=test&key=foo&lastName[0]=tests&lastName[1]=test&schemePrice=12.00&title[0]=Mr&title[1]=Mrs
+```
 
 ### Reply
 
@@ -233,27 +233,24 @@ ID string of your temporary policy. You will need this when [POSTing](hxapi/insu
 ### Retail - commission calculations
 
 Pseudo code
-
-	
-	ipt_rate = 20 /* 20 percent */
-	net = (scheme NET + sum( all selected option NETs ))
-
+```
+ipt_rate = 20 /* 20 percent */
+net = (scheme NET + sum( all selected option NETs ))
+```
 
 Basic calculation (selling scheme and all options at suggested price)
-
-	
-	ipt = (scheme IPT + sum( all selected option IPTs ))
-	comm = ((scheme price + sum( all selected option prices)) - (net + ipt))
-
+```
+ipt = (scheme IPT + sum( all selected option IPTs ))
+comm = ((scheme price + sum( all selected option prices)) - (net + ipt))
+```
 
 Overriding suggested selling price calculation
-
-	
-	your_price = 100
-	if( your_price < net ):
-	  ipt = net / (1 + (ipt_rate/100))
-	else:
-	  ipt = your_price / (1 + (ipt_rate/100))
-	comm = (your_price - (net + ipt))
-
+```
+your_price = 100
+if( your_price < net ):
+  ipt = net / (1 + (ipt_rate/100))
+else:
+  ipt = your_price / (1 + (ipt_rate/100))
+comm = (your_price - (net + ipt))
+```
 

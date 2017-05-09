@@ -48,76 +48,76 @@ Or Get add-ons available for Luton Airparks
 
 ### Reply
 
-	:::xml
-	`<?xml version="1.0" ?>`
-	`<API_Reply System="ABC" Version="1.0" Product="General" Customer="A" Session="123456789" RequestCode="12" Result="OK">`
-	  `<Itinerary>`
-	    `<SiteCode>`LGWHIL`</SiteCode>`
-	  `</Itinerary>`
-	  `<Supplement>`
-	    `<Code>`LGWHDI`</Code>`
-	    `<Name>`Three-course buffet dinner`</Name>`
-	    `<AdPrice>`12.50`</AdPrice>`
-	    `<Per>`P`</Per>`
-	    `<Canx>`Y`</Canx>`
-	    `<description>`Do you have dinner plans? Make a night of it, upgrade your package to include a three-course dinner. After a long drive to the airport, unwind in the Garden Restaurant and satisfy your hunger with a hearty meal. Serving a full buffet menu, the Garden Restaurant is sure to have something to suit everyone&#39;s taste buds.`</description>`
-	    `<supplement_type>`Meal`</supplement_type>`
-	    `<Date>`2010-09-01`</Date>`
-	  `</Supplement>`
-	  `<Supplement>`
-	    `<Code>`LGWHDX`</Code>`
-	    `<Name>`Deluxe room`</Name>`
-	    `<Price>`25.00`</Price>`
-	    `<Per>`R`</Per>`
-	    `<Canx>`Y`</Canx>`
-	    `<description>`Taking a well deserved break? Do it in style with a deluxe room. Featuring a large walk-in shower, a soft double bed, and high speed Internet access. Kick off your shoes and enjoy the first-rate standards of a Hilton deluxe room.`</description>`
-	    `<supplement_type>`Luxury`</supplement_type>`
-	    `<Date>`2010-09-01`</Date>`
-	  `</Supplement>`
-	  `<Supplement>`
-	    `<Code>`LGWHCD`</Code>`
-	    `<Name>`FREE dinner for children under 10 years`</Name>`
-	    `<AdPrice>`0.00`</AdPrice>`
-	    `<Per>`P`</Per>`
-	    `<Canx>`Y`</Canx>`
-	    `<description>`Taking the kids away? Well if you dine at the hotel then the Hilton will let your children eat for FREE. So if they&#39;re under 10 years old and you&#39;ve chosen the adults dinner upgrade then you can pick this FREE dinner option.`</description>`
-	    `<supplement_type>`Meal`</supplement_type>`
-	    `<only_for_children>`1`</only_for_children>`
-	    `<only_for_adults>`0`</only_for_adults>`
-	    `<Date>`2010-09-01`</Date>`
-	  `</Supplement>`
-	
-	[...]  
-	
-	  `<API_Header>`
-	    `<Request>`
-	      `<AdultsCount>`2`</AdultsCount>`
-	      `<ArrivalDate>`2010-09-01`</ArrivalDate>`
-	      `<DepartDate>`2010-09-10`</DepartDate>`
-	      `<key>`foo`</key>`
-	      `<token>`123456789`</token>`
-	      `<format>`xml`</format>`
-	    `</Request>`
-	  `</API_Header>`
-	`</API_Reply>`
+```xml
+`<?xml version="1.0" ?>`
+`<API_Reply System="ABC" Version="1.0" Product="General" Customer="A" Session="123456789" RequestCode="12" Result="OK">`
+  `<Itinerary>`
+    `<SiteCode>`LGWHIL`</SiteCode>`
+  `</Itinerary>`
+  `<Supplement>`
+    `<Code>`LGWHDI`</Code>`
+    `<Name>`Three-course buffet dinner`</Name>`
+    `<AdPrice>`12.50`</AdPrice>`
+    `<Per>`P`</Per>`
+    `<Canx>`Y`</Canx>`
+    `<description>`Do you have dinner plans? Make a night of it, upgrade your package to include a three-course dinner. After a long drive to the airport, unwind in the Garden Restaurant and satisfy your hunger with a hearty meal. Serving a full buffet menu, the Garden Restaurant is sure to have something to suit everyone&#39;s taste buds.`</description>`
+    `<supplement_type>`Meal`</supplement_type>`
+    `<Date>`2010-09-01`</Date>`
+  `</Supplement>`
+  `<Supplement>`
+    `<Code>`LGWHDX`</Code>`
+    `<Name>`Deluxe room`</Name>`
+    `<Price>`25.00`</Price>`
+    `<Per>`R`</Per>`
+    `<Canx>`Y`</Canx>`
+    `<description>`Taking a well deserved break? Do it in style with a deluxe room. Featuring a large walk-in shower, a soft double bed, and high speed Internet access. Kick off your shoes and enjoy the first-rate standards of a Hilton deluxe room.`</description>`
+    `<supplement_type>`Luxury`</supplement_type>`
+    `<Date>`2010-09-01`</Date>`
+  `</Supplement>`
+  `<Supplement>`
+    `<Code>`LGWHCD`</Code>`
+    `<Name>`FREE dinner for children under 10 years`</Name>`
+    `<AdPrice>`0.00`</AdPrice>`
+    `<Per>`P`</Per>`
+    `<Canx>`Y`</Canx>`
+    `<description>`Taking the kids away? Well if you dine at the hotel then the Hilton will let your children eat for FREE. So if they&#39;re under 10 years old and you&#39;ve chosen the adults dinner upgrade then you can pick this FREE dinner option.`</description>`
+    `<supplement_type>`Meal`</supplement_type>`
+    `<only_for_children>`1`</only_for_children>`
+    `<only_for_adults>`0`</only_for_adults>`
+    `<Date>`2010-09-01`</Date>`
+  `</Supplement>`
 
+[...]  
+
+  `<API_Header>`
+    `<Request>`
+      `<AdultsCount>`2`</AdultsCount>`
+      `<ArrivalDate>`2010-09-01`</ArrivalDate>`
+      `<DepartDate>`2010-09-10`</DepartDate>`
+      `<key>`foo`</key>`
+      `<token>`123456789`</token>`
+      `<format>`xml`</format>`
+    `</Request>`
+  `</API_Header>`
+`</API_Reply>`
+```
 
 ### 'Supplement' Node
 
-	:::xml
-	  `<Supplement>`
-	    `<Code>`LGWHCD`</Code>`
-	    `<Name>`FREE dinner for children under 10 years`</Name>`
-	    `<AdPrice>`0.00`</AdPrice>`
-	    `<Per>`P`</Per>`
-	    `<Canx>`Y`</Canx>`
-	    `<description>`Taking the kids away? Well if you dine at the hotel then the Hilton will let your children eat for FREE. So if they&#39;re under 10 years old and you&#39;ve chosen the adults dinner upgrade then you can pick this FREE dinner option.`</description>`
-	    `<supplement_type>`Meal`</supplement_type>`
-	    `<only_for_children>`1`</only_for_children>`
-	    `<only_for_adults>`0`</only_for_adults>`
-	    `<Date>`2010-09-01`</Date>`
-	  `</Supplement>`
-
+```xml
+  `<Supplement>`
+    `<Code>`LGWHCD`</Code>`
+    `<Name>`FREE dinner for children under 10 years`</Name>`
+    `<AdPrice>`0.00`</AdPrice>`
+    `<Per>`P`</Per>`
+    `<Canx>`Y`</Canx>`
+    `<description>`Taking the kids away? Well if you dine at the hotel then the Hilton will let your children eat for FREE. So if they&#39;re under 10 years old and you&#39;ve chosen the adults dinner upgrade then you can pick this FREE dinner option.`</description>`
+    `<supplement_type>`Meal`</supplement_type>`
+    `<only_for_children>`1`</only_for_children>`
+    `<only_for_adults>`0`</only_for_adults>`
+    `<Date>`2010-09-01`</Date>`
+  `</Supplement>`
+```
 
  | Name              | Possible Values                                                                                                                                | Notes                                                                                                                                                                                                                                                       | 
  | ----              | ---------------                                                                                                                                | -----                                                                                                                                                                                                                                                       | 
