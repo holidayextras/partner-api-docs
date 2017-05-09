@@ -50,9 +50,9 @@ http://api.holidayextras.co.uk/de/v1/hotel/FRA?ABTANumber=FOO&Password=FOO&Initi
 
 ```xml
 
-`<?xml version="1.0" ?>`
-`<API_Reply Product="HotelWithParking" RequestCode="1" Result="OK">`
-  	`<Hotel>`
+<?xml version="1.0" ?>
+<API_Reply Product="HotelWithParking" RequestCode="1" Result="OK">
+  	<Hotel>
 		<Code>FRAACH</HotelCode>
 		<Name>ACHAT Hotel Airport - Frankfurt</HotelName>
 		<StarRating>4</StarRating>
@@ -94,7 +94,7 @@ http://api.holidayextras.co.uk/de/v1/hotel/FRA?ABTANumber=FOO&Password=FOO&Initi
 			<ParkingPriorToStay>N</ParkingPriorToStay>
 		</Request>
 	</API_Header>
-`</API_Reply>`
+</API_Reply>
 
 ```
 

@@ -28,69 +28,69 @@ http://api.holidayextras.co.uk/v1/sandbox/insurancepolicy/EUROPELOW?ABTANumber=F
 ### Reply
 
 ```xml
-`<?xml version="1.0" ?>`
+<?xml version="1.0" ?>
 
-`<API_Reply Product="Quote">`
-  `<Itinerary>`
-    `<Destination>`Europelow`</Destination>`
-    `<DestNum>`6`</DestNum>`
-    `<StartDate>`2011-10-10`</StartDate>`
-    `<EndDate>`2011-10-20`</EndDate>`
-    `<AnnualStart>`07JUN11`</AnnualStart>`
-  `</Itinerary>`
-  `<Quote>`
-    `<SchemeCode>`188`</SchemeCode>`
-    `<SchemeDes>``</SchemeDes>`
-    `<PolicyEnd>`2011-10-20`</PolicyEnd>`
-    `<PolicyStart>`2011-10-10`</PolicyStart>`
-    `<Annual>`N`</Annual>`
-    `<SchemePrice>`12.00`</SchemePrice>`
-    `<SchemeName>`Super Saver`</SchemeName>`
-    `<CancellationCover>`500`</CancellationCover>`
-    `<CancellationXS>`75`</CancellationXS>`
-    `<MedicalCover>`1000000`</MedicalCover>`
-    `<MedicalXS>`100`</MedicalXS>`
-    `<BaggageCover>`1000`</BaggageCover>`
-    `<BaggageXS>`75`</BaggageXS>`
-    `<PolicyWording>`http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - PW.pdf`</PolicyWording>`
-    `<KeyFacts>`http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - KF.pdf`</KeyFacts>`
-    `<Wintersports>`Y`</Wintersports>`
-    `<Insolvency>`Y`</Insolvency>`
-    `<destinationID>`13`</destinationID>`
-  `</Quote>`
+<API_Reply Product="Quote">
+  <Itinerary>
+    <Destination>Europelow</Destination>
+    <DestNum>6</DestNum>
+    <StartDate>2011-10-10</StartDate>
+    <EndDate>2011-10-20</EndDate>
+    <AnnualStart>07JUN11</AnnualStart>
+  </Itinerary>
+  <Quote>
+    <SchemeCode>188</SchemeCode>
+    <SchemeDes></SchemeDes>
+    <PolicyEnd>2011-10-20</PolicyEnd>
+    <PolicyStart>2011-10-10</PolicyStart>
+    <Annual>N</Annual>
+    <SchemePrice>12.00</SchemePrice>
+    <SchemeName>Super Saver</SchemeName>
+    <CancellationCover>500</CancellationCover>
+    <CancellationXS>75</CancellationXS>
+    <MedicalCover>1000000</MedicalCover>
+    <MedicalXS>100</MedicalXS>
+    <BaggageCover>1000</BaggageCover>
+    <BaggageXS>75</BaggageXS>
+    <PolicyWording>http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - PW.pdf</PolicyWording>
+    <KeyFacts>http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - KF.pdf</KeyFacts>
+    <Wintersports>Y</Wintersports>
+    <Insolvency>Y</Insolvency>
+    <destinationID>13</destinationID>
+  </Quote>
 	...
-  `<Quote>`
-    `<SchemeCode>`160`</SchemeCode>`
-    `<SchemeDes>``</SchemeDes>`
-    `<PolicyEnd>`2012-06-05`</PolicyEnd>`
-    `<PolicyStart>`2011-06-07`</PolicyStart>`
-    `<Annual>`Y`</Annual>`
-    `<SchemePrice>`40.00`</SchemePrice>`
-    `<SchemeName>`Multi`</SchemeName>`
-    `<CancellationCover>`3000`</CancellationCover>`
-    `<CancellationXS>`75`</CancellationXS>`
-    `<MedicalCover>`5000000`</MedicalCover>`
-    `<MedicalXS>`100`</MedicalXS>`
-    `<BaggageCover>`1500`</BaggageCover>`
-    `<BaggageXS>`75`</BaggageXS>`
-    `<PolicyWording>`http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - PW.pdf`</PolicyWording>`
-    `<KeyFacts>`http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - KF.pdf`</KeyFacts>`
-    `<Wintersports>`Y`</Wintersports>`
-    `<Insolvency>`Y`</Insolvency>`
-    `<destinationID>`13`</destinationID>`
-  `</Quote>`
-  `<API_Header>`
-    `<Request>`
-      `<ABTANumber>`FOO`</ABTANumber>`
-      `<Password>`FOO`</Password>`
-      `<EndDate>`2011-10-20`</EndDate>`
-      `<StartDate>`2011-10-10`</StartDate>`
-      `<key>`foo`</key>`
-      `<birthDate>`1985-05-05`</birthDate>`
-      `<v>`1`</v>`
-    `</Request>`
-  `</API_Header>`
-`</API_Reply>``</code>`
+  <Quote>
+    <SchemeCode>160</SchemeCode>
+    <SchemeDes></SchemeDes>
+    <PolicyEnd>2012-06-05</PolicyEnd>
+    <PolicyStart>2011-06-07</PolicyStart>
+    <Annual>Y</Annual>
+    <SchemePrice>40.00</SchemePrice>
+    <SchemeName>Multi</SchemeName>
+    <CancellationCover>3000</CancellationCover>
+    <CancellationXS>75</CancellationXS>
+    <MedicalCover>5000000</MedicalCover>
+    <MedicalXS>100</MedicalXS>
+    <BaggageCover>1500</BaggageCover>
+    <BaggageXS>75</BaggageXS>
+    <PolicyWording>http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - PW.pdf</PolicyWording>
+    <KeyFacts>http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - KF.pdf</KeyFacts>
+    <Wintersports>Y</Wintersports>
+    <Insolvency>Y</Insolvency>
+    <destinationID>13</destinationID>
+  </Quote>
+  <API_Header>
+    <Request>
+      <ABTANumber>FOO</ABTANumber>
+      <Password>FOO</Password>
+      <EndDate>2011-10-20</EndDate>
+      <StartDate>2011-10-10</StartDate>
+      <key>foo</key>
+      <birthDate>1985-05-05</birthDate>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply></code>
 
 ###  Fields explained
 

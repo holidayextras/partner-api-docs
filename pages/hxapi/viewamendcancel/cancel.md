@@ -51,22 +51,22 @@ http://api.holidayextras.co.uk/v1/booking/ABCDE?CreditCardLast4=1111&key=mytestk
 
 ```xml
 
-`<?xml version="1.0" ?>`
-`<API_Reply System="ABC" Version="1.0" Product="Cancel" Customer="A" Session="999999999" RequestCode="9" Result="OK">`
-  `<Booking>`
-    `<BookingRef>`ABCDE`</BookingRef>`
-  `</Booking>`
-  `<Cancel>`
-    `<CancelFee>`0.00`</CancelFee>`
-    `<CancelInfo>`~61There is no charge for cancelling this booking`</CancelInfo>`
-  `</Cancel>`
-  `<API_Header>`
-    `<Request>`
-      `<key>`mytestkey`</key>`
-      `<CreditCardLast4>`1111`</CreditCardLast4>`
-    `</Request>`
-  `</API_Header>`
-`</API_Reply>`
+<?xml version="1.0" ?>
+<API_Reply System="ABC" Version="1.0" Product="Cancel" Customer="A" Session="999999999" RequestCode="9" Result="OK">
+  <Booking>
+    <BookingRef>ABCDE</BookingRef>
+  </Booking>
+  <Cancel>
+    <CancelFee>0.00</CancelFee>
+    <CancelInfo>~61There is no charge for cancelling this booking</CancelInfo>
+  </Cancel>
+  <API_Header>
+    <Request>
+      <key>mytestkey</key>
+      <CreditCardLast4>1111</CreditCardLast4>
+    </Request>
+  </API_Header>
+</API_Reply>
 ```
 
 At this point, the booking has not been cancelled. This first request just checks that the booking can be cancelled and shows whether or not there is a fee for cancelling. Please do not be tempted to skip this step, the customer should be informed if they are not going to be refunded the full amount.
@@ -121,26 +121,26 @@ http://api.holidayextras.co.uk/v1/booking/ABCDE?ABTANumber=youragentcode&Passwor
 
 ```xml
 
-`<?xml version="1.0" ?>`
-`<API_Reply System="ABC" Version="1.0" Product="Cancel" Customer="A" Session="999999999" RequestCode="9" Result="OK">`
-  `<Booking>`
-    `<BookingRef>`ABCDE`</BookingRef>`
-  `</Booking>`
-  `<Cancel>`
-    `<CancelFee>`0.00`</CancelFee>`
-    `<CancelInfo>`There is no charge for cancelling this booking`</CancelInfo>`
-    `<RefundAmount>`52.24`</RefundAmount>`
-  `</Cancel>`
-  `<API_Header>`
-    `<Request>`
-      `<ABTANumber>`youragentcode`</ABTANumber>`
-      `<Password>`yourpassword`</Password>`
-      `<ConfirmCancel>`N`</ConfirmCancel>`
-      `<key>`foo`</key>`
-      `<v>`1`</v>`
-    `</Request>`
-  `</API_Header>`
-`</API_Reply>`
+<?xml version="1.0" ?>
+<API_Reply System="ABC" Version="1.0" Product="Cancel" Customer="A" Session="999999999" RequestCode="9" Result="OK">
+  <Booking>
+    <BookingRef>ABCDE</BookingRef>
+  </Booking>
+  <Cancel>
+    <CancelFee>0.00</CancelFee>
+    <CancelInfo>There is no charge for cancelling this booking</CancelInfo>
+    <RefundAmount>52.24</RefundAmount>
+  </Cancel>
+  <API_Header>
+    <Request>
+      <ABTANumber>youragentcode</ABTANumber>
+      <Password>yourpassword</Password>
+      <ConfirmCancel>N</ConfirmCancel>
+      <key>foo</key>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply>
 ```
 
 At this point, the booking has not been cancelled. This first request just checks that the booking can be cancelled and shows whether or not there is a fee for cancelling. Please do not be tempted to skip this step, the customer should be informed if they are not going to be refunded the full amount.
@@ -192,24 +192,24 @@ CreditCardLast4=5383&key=mytestkey&ConfirmCancel=Y
 ### Response
 
 ```xml
-`<?xml version="1.0" ?>`
-`<API_Reply System="ABC" Version="1.0" Product="Cancel" Customer="A" Session="999999999" RequestCode="9" Result="OK">`
-  `<Booking>`
-    `<BookingRef>`RV5ZB`</BookingRef>`
-  `</Booking>`
-  `<Cancel>`
-    `<CancelFee>`0.00`</CancelFee>`
-    `<CancelRef>`NZ805`</CancelRef>`
-    `<CancelInfo>`Please be aware your booking will be reinstated if your booking confirmation voucher is used`</CancelInfo>`
-  `</Cancel>`
-  `<API_Header>`
-    `<Request>`
-      `<CreditCardLast4>`5383`</CreditCardLast4>`
-      `<key>`mytestkey`</key>`
-      `<ConfirmCancel>`Y`</ConfirmCancel>`
-    `</Request>`
-  `</API_Header>`
-`</API_Reply>`
+<?xml version="1.0" ?>
+<API_Reply System="ABC" Version="1.0" Product="Cancel" Customer="A" Session="999999999" RequestCode="9" Result="OK">
+  <Booking>
+    <BookingRef>RV5ZB</BookingRef>
+  </Booking>
+  <Cancel>
+    <CancelFee>0.00</CancelFee>
+    <CancelRef>NZ805</CancelRef>
+    <CancelInfo>Please be aware your booking will be reinstated if your booking confirmation voucher is used</CancelInfo>
+  </Cancel>
+  <API_Header>
+    <Request>
+      <CreditCardLast4>5383</CreditCardLast4>
+      <key>mytestkey</key>
+      <ConfirmCancel>Y</ConfirmCancel>
+    </Request>
+  </API_Header>
+</API_Reply>
 
 ```
 
@@ -261,27 +261,27 @@ ABTANumber=youragentcode&Password=yourpassword&key=foo&ConfirmCancel=Y&CancelRef
 ### Response
 
 ```xml
-`<?xml version="1.0" ?>`
-`<API_Reply System="ABC" Version="1.0" Product="Cancel" Customer="A" Session="999999999" RequestCode="9" Result="OK">`
-`<Booking>`
-    `<BookingRef>`ABCDE`</BookingRef>`
-  `</Booking>`
-  `<Cancel>`
-    `<CancelFee>`0.00`</CancelFee>`
-    `<CancelRef>`12345`</CancelRef>`
-    `<CancelInfo>`Please retrieve your client&#39;s copy of voucher as booking will be reinstated if used`</CancelInfo>`
-    `<RefundAmount>`52.24`</RefundAmount>`
-  `</Cancel>`
-  `<API_Header>`
-    `<Request>`
-      `<ABTANumber>`youragentcode`</ABTANumber>`
-      `<Password>`yourpassword`</Password>`
-      `<key>`foo`</key>`
-      `<ConfirmCancel>`Y`</ConfirmCancel>`
-      `<CancelRef>`Foo`</CancelRef>`
-      `<v>`1`</v>`
-    `</Request>`
-  `</API_Header>`
-`</API_Reply>`
+<?xml version="1.0" ?>
+<API_Reply System="ABC" Version="1.0" Product="Cancel" Customer="A" Session="999999999" RequestCode="9" Result="OK">
+<Booking>
+    <BookingRef>ABCDE</BookingRef>
+  </Booking>
+  <Cancel>
+    <CancelFee>0.00</CancelFee>
+    <CancelRef>12345</CancelRef>
+    <CancelInfo>Please retrieve your client&#39;s copy of voucher as booking will be reinstated if used</CancelInfo>
+    <RefundAmount>52.24</RefundAmount>
+  </Cancel>
+  <API_Header>
+    <Request>
+      <ABTANumber>youragentcode</ABTANumber>
+      <Password>yourpassword</Password>
+      <key>foo</key>
+      <ConfirmCancel>Y</ConfirmCancel>
+      <CancelRef>Foo</CancelRef>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply>
 
 ```

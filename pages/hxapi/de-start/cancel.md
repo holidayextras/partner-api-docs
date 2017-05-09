@@ -52,59 +52,59 @@ http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213896?StartCustome
 
 Dry-run
 ```xml
-`<?xml version="1.0" ?>`
+<?xml version="1.0" ?>
 
-`<API_Reply System="ABG" Version="1.0" Product="Cancel" Customer="A" Session="123456789" RequestCode="9" Result="OK">`
-  `<Booking>`
-    `<BookingRef>`DZN32`</BookingRef>`
-    `<StartRef>`10213897`</StartRef>`
-  `</Booking>`
-  `<Cancel>`
-    `<CancelFee>`0.00`</CancelFee>`
-    `<CancelInfo>`Es gibt keine Geb&#252;hr f&#252;r die Stornierung dieser Buchung`</CancelInfo>`
-  `</Cancel>`
-  `<API_Header>`
-    `<Request>`
-      `<BusinessUnit>`222`</BusinessUnit>`
-      `<ConfirmCancel>`N`</ConfirmCancel>`
-      `<Operator>`BJT`</Operator>`
-      `<StartCustomer>`111111`</StartCustomer>`
-      `<key>`foo`</key>`
-      `<token>`123456789`</token>`
-      `<CancelRef>`testcanx`</CancelRef>`
-      `<system>`de`</system>`
-      `<System>`ABG`</System>`
-    `</Request>`
-  `</API_Header>`
-`</API_Reply>`
+<API_Reply System="ABG" Version="1.0" Product="Cancel" Customer="A" Session="123456789" RequestCode="9" Result="OK">
+  <Booking>
+    <BookingRef>DZN32</BookingRef>
+    <StartRef>10213897</StartRef>
+  </Booking>
+  <Cancel>
+    <CancelFee>0.00</CancelFee>
+    <CancelInfo>Es gibt keine Geb&#252;hr f&#252;r die Stornierung dieser Buchung</CancelInfo>
+  </Cancel>
+  <API_Header>
+    <Request>
+      <BusinessUnit>222</BusinessUnit>
+      <ConfirmCancel>N</ConfirmCancel>
+      <Operator>BJT</Operator>
+      <StartCustomer>111111</StartCustomer>
+      <key>foo</key>
+      <token>123456789</token>
+      <CancelRef>testcanx</CancelRef>
+      <system>de</system>
+      <System>ABG</System>
+    </Request>
+  </API_Header>
+</API_Reply>
 ```
 
 Confirmed cancel
 ```xml
-`<?xml version="1.0" ?>`
+<?xml version="1.0" ?>
 
-`<API_Reply System="ABG" Version="1.0" Product="Cancel" Customer="A" Session="123456789" RequestCode="9" Result="OK">`
-  `<Booking>`
-    `<BookingRef>`DZN31`</BookingRef>`
-    `<StartRef>`10213896`</StartRef>`
-  `</Booking>`
-  `<Cancel>`
-    `<CancelFee>`0.00`</CancelFee>`
-    `<CancelRef>`70619`</CancelRef>`
-    `<CancelInfo>`Bitten Sie um R&#252;ckgabe des Kundenvouchers, da er seine G&#252;ltigkeit nicht verliert`</CancelInfo>`
-  `</Cancel>`
-  `<API_Header>`
-    `<Request>`
-      `<BusinessUnit>`222`</BusinessUnit>`
-      `<CancelRef>`TestCnx`</CancelRef>`
-      `<ConfirmCancel>`Y`</ConfirmCancel>`
-      `<Operator>`BJT`</Operator>`
-      `<StartCustomer>`123456`</StartCustomer>`
-      `<key>`foo`</key>`
-      `<token>`123456789`</token>`
-      `<system>`de`</system>`
-      `<System>`ABG`</System>`
-    `</Request>`
-  `</API_Header>`
-`</API_Reply>`
+<API_Reply System="ABG" Version="1.0" Product="Cancel" Customer="A" Session="123456789" RequestCode="9" Result="OK">
+  <Booking>
+    <BookingRef>DZN31</BookingRef>
+    <StartRef>10213896</StartRef>
+  </Booking>
+  <Cancel>
+    <CancelFee>0.00</CancelFee>
+    <CancelRef>70619</CancelRef>
+    <CancelInfo>Bitten Sie um R&#252;ckgabe des Kundenvouchers, da er seine G&#252;ltigkeit nicht verliert</CancelInfo>
+  </Cancel>
+  <API_Header>
+    <Request>
+      <BusinessUnit>222</BusinessUnit>
+      <CancelRef>TestCnx</CancelRef>
+      <ConfirmCancel>Y</ConfirmCancel>
+      <Operator>BJT</Operator>
+      <StartCustomer>123456</StartCustomer>
+      <key>foo</key>
+      <token>123456789</token>
+      <system>de</system>
+      <System>ABG</System>
+    </Request>
+  </API_Header>
+</API_Reply>
 ```

@@ -66,8 +66,8 @@ If a value of 1 is passed in for the top3 param, then a maximum of three car par
 ### Reply
 
 ```xml
-`<?xml version="1.0"?>`
-`<API_Reply Product="CarPark" RequestCode="3" Result="OK">`
+<?xml version="1.0"?>
+<API_Reply Product="CarPark" RequestCode="3" Result="OK">
 	<Pricing>
 		<CCardSurchargePercent>2.00</CCardSurchargePercent>
 		<CCardSurchargeAmount>1.50</CCardSurchargeAmount>
@@ -101,7 +101,7 @@ If a value of 1 is passed in for the top3 param, then a maximum of three car par
 		<BookingURL>/api/sandbox/v1/carpark/LGW2</BookingURL>
 		<MoreInfoURL>/api/sandbox/v1/product/LGW2</MoreInfoURL>
 	</CarPark>
-`</API_Reply>`
+</API_Reply>
 
 
 ```
@@ -212,12 +212,12 @@ Link to the product library information for this product.
 
 The availability response will identify a list of flags which identify the fields required to be POSTED when making a booking.
 
-e.g. `<CarDetFlags>`NNNNNNNNNNNNNNNNNN`</CarDetFlags>`
+e.g. <CarDetFlags>NNNNNNNNNNNNNNNNNN</CarDetFlags>
 
 The order of the flags refer to these POST parameter fields respectively:
 
 
-`<CarDetFlags>`1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18`</CarDetFlags>`
+<CarDetFlags>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</CarDetFlags>
 
 
  | Position | POST Parameter | character length | what is it?                                                                        | 

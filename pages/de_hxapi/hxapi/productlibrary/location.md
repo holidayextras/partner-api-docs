@@ -15,8 +15,8 @@ http://api.holidayextras.co.uk/sandbox/v1/location?key=mytestkey
 ### Reply
 
 ```xml
-`<?xml version="1.0"?>`
-`<API_Reply>`
+<?xml version="1.0"?>
+<API_Reply>
 	<Product>
 		<Code>ABZ</Code>
 		<Name>Aberdeen</Name>
@@ -215,6 +215,6 @@ http://api.holidayextras.co.uk/sandbox/v1/location?key=mytestkey
 			<v>1</v>
 		</Request>
 	</API_Header>
-`</API_Reply>`
+</API_Reply>
 
 ```

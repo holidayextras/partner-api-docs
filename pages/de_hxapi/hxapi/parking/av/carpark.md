@@ -62,8 +62,8 @@ http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2?NumberOfPax=2&ArrivalDate
 ### Antwort
 
 ```xml
-`<?xml version="1.0"?>`
-`<API_Reply Product="CarPark" RequestCode="3" Result="OK">`
+<?xml version="1.0"?>
+<API_Reply Product="CarPark" RequestCode="3" Result="OK">
 	<Pricing>
 		<CCardSurchargePercent>2.00</CCardSurchargePercent>
 		<CCardSurchargeAmount>1.50</CCardSurchargeAmount>
@@ -97,7 +97,7 @@ http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2?NumberOfPax=2&ArrivalDate
 		<BookingURL>/api/sandbox/v1/carpark/LGW2</BookingURL>
 		<MoreInfoURL>/api/sandbox/v1/product/LGW2</MoreInfoURL>
 	</CarPark>
-`</API_Reply>`
+</API_Reply>
 
 
 ```

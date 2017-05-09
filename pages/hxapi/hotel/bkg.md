@@ -140,12 +140,12 @@ PriceCheckFlag and PriceCheckPrice are used to ensure that the price you have di
 
 ```xml
 
-`<API_Reply Product="HotelWithParking" RequestCode="5" Result="OK">`
+<API_Reply Product="HotelWithParking" RequestCode="5" Result="OK">
 	<Booking>
 		<BookingRef>A8PBN</BookingRef>
 		<MoreInfoURL>/sandbox/v1/booking/A8PBN</MoreInfoURL>
-                `<AgentComm>`7.35-`</AgentComm>`
-                `<VATonComm>`0.96-`</VATonComm>`
+                <AgentComm>7.35-</AgentComm>
+                <VATonComm>0.96-</VATonComm>
 	</Booking>
 	<Itinerary>
 		<ArrivalDate>2009-10-15</ArrivalDate>
@@ -190,7 +190,7 @@ PriceCheckFlag and PriceCheckPrice are used to ensure that the price you have di
                 ...
 		</Request>
 	</API_Header>
-`</API_Reply>`
+</API_Reply>
 
 ```
 

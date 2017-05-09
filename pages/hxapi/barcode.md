@@ -29,7 +29,7 @@ http://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo
 So you can include it in your page as easily as...
 
 ```
-`<img src="http://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo" />`
+<img src="http://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo" />
 ```
 
 

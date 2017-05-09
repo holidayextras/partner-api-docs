@@ -104,28 +104,28 @@ add System=ABG for European products
 ### Reply
 
 ```xml
-`<?xml version="1.0" ?>`
-`<API_Reply Product="Hotel" RequestCode="13" Result="OK">`
-    `<Itinerary>`
-        `<ArrivalDate>`2016-11-20`</ArrivalDate>`
-        `<Nights>`1`</Nights>`
-        `<BoardBasis>`U`</BoardBasis>`
-        `<Code>`FRAMAX`</Code>`
-    `</Itinerary>`
-    `<Room>`
-        `<Rooms>`1`</Rooms>`
-        `<Adults>`2`</Adults>`
-        `<Children>`0`</Children>`
-        `<Infants>`0`</Infants>`
-        `<Price>`89.00`</Price>`
-        `<Code>`DZ`</Code>`
-    `</Room>`
-    `<Pricing>`
-        `<OriginalPrice>`109.00`</OriginalPrice>`
-        `<NewPrice>`89.00`</NewPrice>`
-        `<PriceDifference>`20.00-`</PriceDifference>`
-    `</Pricing>`
-`</API_Reply>`
+<?xml version="1.0" ?>
+<API_Reply Product="Hotel" RequestCode="13" Result="OK">
+    <Itinerary>
+        <ArrivalDate>2016-11-20</ArrivalDate>
+        <Nights>1</Nights>
+        <BoardBasis>U</BoardBasis>
+        <Code>FRAMAX</Code>
+    </Itinerary>
+    <Room>
+        <Rooms>1</Rooms>
+        <Adults>2</Adults>
+        <Children>0</Children>
+        <Infants>0</Infants>
+        <Price>89.00</Price>
+        <Code>DZ</Code>
+    </Room>
+    <Pricing>
+        <OriginalPrice>109.00</OriginalPrice>
+        <NewPrice>89.00</NewPrice>
+        <PriceDifference>20.00-</PriceDifference>
+    </Pricing>
+</API_Reply>
 ```
 
 
@@ -232,46 +232,46 @@ token:generate
 ### Reply
 
 ```xml
-`<?xml version="1.0" ?>`
-`<API_Reply Product="Hotel" RequestCode="14" Result="OK">`
-    `<Booking>`
-        `<BookingRef>`FBGCR`</BookingRef>`
-        `<AgentComm>`8.47`</AgentComm>`
-        `<VATonComm>`1.35`</VATonComm>`
-        `<RETURNFLIGHT>``</RETURNFLIGHT>`
-        `<BOOKNO>`FBGCR`</BOOKNO>`
-    `</Booking>`
-    `<Itinerary>`
-        `<ArrivalDate>`2016-11-19`</ArrivalDate>`
-        `<Nights>`1`</Nights>`
-        `<BoardBasis>`U`</BoardBasis>`
-        `<NonSmoking>``</NonSmoking>`
-        `<CarPickupDate>`2016-11-28`</CarPickupDate>`
-        `<CarDropoffTime>`1200`</CarDropoffTime>`
-        `<ParkingDays>`8`</ParkingDays>`
-        `<ParkingSpaces>`1`</ParkingSpaces>`
-        `<Remarks>``</Remarks>`
-        `<Code>`FRAMAX`</Code>`
-    `</Itinerary>`
-    `<Room>`
-        `<Rooms>`1`</Rooms>`
-        `<Adults>`2`</Adults>`
-        `<Children>`0`</Children>`
-        `<Infants>`0`</Infants>`
-        `<Code>`DZ`</Code>`
-    `</Room>`
-    `<ClientDetails>`
-        `<Title>`HERR`</Title>`
-        `<Initial>`T`</Initial>`
-        `<Surname>`TEST`</Surname>`
-        `<Fax>`Y`</Fax>`
-    `</ClientDetails>`
-    `<Pricing>`
-        `<OriginalPrice>`109.00`</OriginalPrice>`
-        `<NewPrice>`89.00`</NewPrice>`
-        `<PriceDifference>`-20.00`</PriceDifference>`
-    `</Pricing>`
+<?xml version="1.0" ?>
+<API_Reply Product="Hotel" RequestCode="14" Result="OK">
+    <Booking>
+        <BookingRef>FBGCR</BookingRef>
+        <AgentComm>8.47</AgentComm>
+        <VATonComm>1.35</VATonComm>
+        <RETURNFLIGHT></RETURNFLIGHT>
+        <BOOKNO>FBGCR</BOOKNO>
+    </Booking>
+    <Itinerary>
+        <ArrivalDate>2016-11-19</ArrivalDate>
+        <Nights>1</Nights>
+        <BoardBasis>U</BoardBasis>
+        <NonSmoking></NonSmoking>
+        <CarPickupDate>2016-11-28</CarPickupDate>
+        <CarDropoffTime>1200</CarDropoffTime>
+        <ParkingDays>8</ParkingDays>
+        <ParkingSpaces>1</ParkingSpaces>
+        <Remarks></Remarks>
+        <Code>FRAMAX</Code>
+    </Itinerary>
+    <Room>
+        <Rooms>1</Rooms>
+        <Adults>2</Adults>
+        <Children>0</Children>
+        <Infants>0</Infants>
+        <Code>DZ</Code>
+    </Room>
+    <ClientDetails>
+        <Title>HERR</Title>
+        <Initial>T</Initial>
+        <Surname>TEST</Surname>
+        <Fax>Y</Fax>
+    </ClientDetails>
+    <Pricing>
+        <OriginalPrice>109.00</OriginalPrice>
+        <NewPrice>89.00</NewPrice>
+        <PriceDifference>-20.00</PriceDifference>
+    </Pricing>
     
-`</API_Reply>`
+</API_Reply>
 ```
 

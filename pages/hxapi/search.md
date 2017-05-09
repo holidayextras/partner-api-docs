@@ -74,53 +74,53 @@ http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213905?StartCustome
 ### Response
 
 ```xml
-`<?xml version="1.0" ?>`
-`<API_Reply Product="CarPark" RequestCode="11" Result="OK">`
-  `<BookingRef>`DZN40`</BookingRef>`
-  `<StartRef>`10213905`</StartRef>`
-  `<BookingDate>`25FEB10`</BookingDate>`
-  `<Status>`OK`</Status>`
-  `<BookingTime>`10:15`</BookingTime>`
-  `<StartDate>`21APR10`</StartDate>`
-  `<EndDate>`27APR10`</EndDate>`
-  `<Adults>`2`</Adults>`
-  `<Children>`0`</Children>`
-  `<Infants>`0`</Infants>`
-  `<TotalPrice>`30.00`</TotalPrice>`
-  `<PaymentOutstanding>`0.00`</PaymentOutstanding>`
-  `<AgentName>`Test German Agent`</AgentName>`
-  `<Strasse s="1">`Strasse 1`</Strasse>`
-  `<Strasse s="2">`Strasse 2`</Strasse>`
-  `<PLZ>`12345`</PLZ>`
-  `<Ort>`Ort (Town)`</Ort>`
-  `<SiteCode>`FRA9`</SiteCode>`
-  `<CarPickUpDate>``</CarPickUpDate>`
-  `<ParkingDays>`7`</ParkingDays>`
-  `<Pax p="1">`
-    `<Title>`MR`</Title>`
-    `<Initial>`T`</Initial>`
-    `<LastName>`THOMPSON`</LastName>`
-    `<Age>``</Age>`
-  `</Pax>`
-  `<Pax p="2">`
-    `<Title>``</Title>`
-    `<Initial>``</Initial>`
-    `<LastName>``</LastName>`
-    `<Age>``</Age>`
-  `</Pax>`
-  `<Confirmation c="1">``</Confirmation>`
-  `<API_Header>`
-    `<Request>`
-      `<StartCustomer>`111111`</StartCustomer>`
-      `<BusinessUnit>`222`</BusinessUnit>`
-      `<Operator>`BJT`</Operator>`
-      `<key>`foo`</key>`
-      `<system>`de`</system>`
-      `<System>`ABG`</System>`
-    `</Request>`
-  `</API_Header>`
-  `<CarPark>``</CarPark>`
-`</API_Reply>`
+<?xml version="1.0" ?>
+<API_Reply Product="CarPark" RequestCode="11" Result="OK">
+  <BookingRef>DZN40</BookingRef>
+  <StartRef>10213905</StartRef>
+  <BookingDate>25FEB10</BookingDate>
+  <Status>OK</Status>
+  <BookingTime>10:15</BookingTime>
+  <StartDate>21APR10</StartDate>
+  <EndDate>27APR10</EndDate>
+  <Adults>2</Adults>
+  <Children>0</Children>
+  <Infants>0</Infants>
+  <TotalPrice>30.00</TotalPrice>
+  <PaymentOutstanding>0.00</PaymentOutstanding>
+  <AgentName>Test German Agent</AgentName>
+  <Strasse s="1">Strasse 1</Strasse>
+  <Strasse s="2">Strasse 2</Strasse>
+  <PLZ>12345</PLZ>
+  <Ort>Ort (Town)</Ort>
+  <SiteCode>FRA9</SiteCode>
+  <CarPickUpDate></CarPickUpDate>
+  <ParkingDays>7</ParkingDays>
+  <Pax p="1">
+    <Title>MR</Title>
+    <Initial>T</Initial>
+    <LastName>THOMPSON</LastName>
+    <Age></Age>
+  </Pax>
+  <Pax p="2">
+    <Title></Title>
+    <Initial></Initial>
+    <LastName></LastName>
+    <Age></Age>
+  </Pax>
+  <Confirmation c="1"></Confirmation>
+  <API_Header>
+    <Request>
+      <StartCustomer>111111</StartCustomer>
+      <BusinessUnit>222</BusinessUnit>
+      <Operator>BJT</Operator>
+      <key>foo</key>
+      <system>de</system>
+      <System>ABG</System>
+    </Request>
+  </API_Header>
+  <CarPark></CarPark>
+</API_Reply>
 
 ```
 
@@ -146,53 +146,53 @@ http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/?StartCustomer=111111
 ### Response
 
 ```xml
-`<?xml version="1.0" ?>`
-`<API_Reply Product="CarPark" RequestCode="11" Result="OK">`
-  `<BookingRef>`DZN41`</BookingRef>`
-  `<StartRef>`10213906`</StartRef>`
-  `<BookingDate>`25FEB10`</BookingDate>`
-  `<Status>`OK`</Status>`
-  `<BookingTime>`10:15`</BookingTime>`
-  `<StartDate>`23APR10`</StartDate>`
-  `<EndDate>`28APR10`</EndDate>`
-  `<Adults>`2`</Adults>`
-  `<Children>`0`</Children>`
-  `<Infants>`0`</Infants>`
-  `<TotalPrice>`30.00`</TotalPrice>`
-  `<PaymentOutstanding>`30.00`</PaymentOutstanding>`
-  `<AgentName>`Test German Agent`</AgentName>`
-  `<Strasse s="1">`Strasse 1`</Strasse>`
-  `<Strasse s="2">`Strasse 2`</Strasse>`
-  `<PLZ>`12345`</PLZ>`
-  `<Ort>`Ort (Town)`</Ort>`
-  `<SiteCode>`FRA9`</SiteCode>`
-  `<CarPickUpDate>``</CarPickUpDate>`
-  `<ParkingDays>`6`</ParkingDays>`
-  `<Pax p="1">`
-    `<Title>`MR`</Title>`
-    `<Initial>`T`</Initial>`
-    `<LastName>`THOMPSON`</LastName>`
-    `<Age>``</Age>`
-  `</Pax>`
-  `<Pax p="2">`
-    `<Title>``</Title>`
-    `<Initial>``</Initial>`
-    `<LastName>``</LastName>`
-    `<Age>``</Age>`
-  `</Pax>`
-  `<Confirmation c="1">``</Confirmation>`
-  `<API_Header>`
-    `<Request>`
-      `<StartCustomer>`111111`</StartCustomer>`
-      `<BusinessUnit>`222`</BusinessUnit>`
-      `<Operator>`BJT`</Operator>`
-      `<key>`foo`</key>`
-      `<system>`de`</system>`
-      `<System>`ABG`</System>`
-    `</Request>`
-  `</API_Header>`
-  `<CarPark>``</CarPark>`
-`</API_Reply>`
+<?xml version="1.0" ?>
+<API_Reply Product="CarPark" RequestCode="11" Result="OK">
+  <BookingRef>DZN41</BookingRef>
+  <StartRef>10213906</StartRef>
+  <BookingDate>25FEB10</BookingDate>
+  <Status>OK</Status>
+  <BookingTime>10:15</BookingTime>
+  <StartDate>23APR10</StartDate>
+  <EndDate>28APR10</EndDate>
+  <Adults>2</Adults>
+  <Children>0</Children>
+  <Infants>0</Infants>
+  <TotalPrice>30.00</TotalPrice>
+  <PaymentOutstanding>30.00</PaymentOutstanding>
+  <AgentName>Test German Agent</AgentName>
+  <Strasse s="1">Strasse 1</Strasse>
+  <Strasse s="2">Strasse 2</Strasse>
+  <PLZ>12345</PLZ>
+  <Ort>Ort (Town)</Ort>
+  <SiteCode>FRA9</SiteCode>
+  <CarPickUpDate></CarPickUpDate>
+  <ParkingDays>6</ParkingDays>
+  <Pax p="1">
+    <Title>MR</Title>
+    <Initial>T</Initial>
+    <LastName>THOMPSON</LastName>
+    <Age></Age>
+  </Pax>
+  <Pax p="2">
+    <Title></Title>
+    <Initial></Initial>
+    <LastName></LastName>
+    <Age></Age>
+  </Pax>
+  <Confirmation c="1"></Confirmation>
+  <API_Header>
+    <Request>
+      <StartCustomer>111111</StartCustomer>
+      <BusinessUnit>222</BusinessUnit>
+      <Operator>BJT</Operator>
+      <key>foo</key>
+      <system>de</system>
+      <System>ABG</System>
+    </Request>
+  </API_Header>
+  <CarPark></CarPark>
+</API_Reply>
 ```
 
 
@@ -217,67 +217,67 @@ http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/?StartCustomer=111111
 
 API -> Chauntry
 ```xml
-`<API_Request System="ABG" Version="1.0" Product="HotelWithParking" Customer="A" RequestCode="11" Session="111222333">`                                                                                                  `<Agent>`                                                                         
+<API_Request System="ABG" Version="1.0" Product="HotelWithParking" Customer="A" RequestCode="11" Session="111222333">                                                                                                  <Agent>                                                                         
 	<StartCustomer>111111</StartCustomer>                                           
 	<BusinessUnit>222</BusinessUnit>                                                
 	<Operator>JMB</Operator>                                                        
-`</Agent>`                                                                        
-`<Itinerary>`                                                                     
+</Agent>                                                                        
+<Itinerary>                                                                     
 	<StartRef></StartRef>
-        `<StartDate>`01JUN09`</StartDate>`
-        `<EndDate>`01APR10`</EndDate>`
-`</Itinerary>`                                                                    
-`</API_Request>`
+        <StartDate>01JUN09</StartDate>
+        <EndDate>01APR10</EndDate>
+</Itinerary>                                                                    
+</API_Request>
 ```
 
 CHAUNTRY -> API
 ```xml
-`<?xml version="1.0"?>`
-`<API_Reply System="ABG" Version="1.0" Product="HotelWithParking" Customer="A" Session="111222333" RequestCode="11" Result="OK">`
-  `<Booking b="1">`
-    `<BookingRef>`T5828`</BookingRef>`
-    `<StartRef>`10051763`</StartRef>`
-    `<BookingDate>`12MAY09`</BookingDate>`
-    `<StayDate>`01AUG09`</StayDate>`
-    `<LeadName>`Mr  TTesr`</LeadName>`
-  `</Booking>`
-  `<Booking b="2">`
-    `<BookingRef>`T5829`</BookingRef>`
-    `<StartRef>`10051764`</StartRef>`
-    `<BookingDate>`12MAY09`</BookingDate>`
-    `<StayDate>`01AUG09`</StayDate>`
-    `<LeadName>`Mr  TTest`</LeadName>`
-  `</Booking>`
+<?xml version="1.0"?>
+<API_Reply System="ABG" Version="1.0" Product="HotelWithParking" Customer="A" Session="111222333" RequestCode="11" Result="OK">
+  <Booking b="1">
+    <BookingRef>T5828</BookingRef>
+    <StartRef>10051763</StartRef>
+    <BookingDate>12MAY09</BookingDate>
+    <StayDate>01AUG09</StayDate>
+    <LeadName>Mr  TTesr</LeadName>
+  </Booking>
+  <Booking b="2">
+    <BookingRef>T5829</BookingRef>
+    <StartRef>10051764</StartRef>
+    <BookingDate>12MAY09</BookingDate>
+    <StayDate>01AUG09</StayDate>
+    <LeadName>Mr  TTest</LeadName>
+  </Booking>
 .
 .
 .
-`</API_Reply>`
+</API_Reply>
 
 ```
 
 
 API -> ZNT
 ```xml
-`<?xml version="1.0"?>`
-`<API_Reply Product="HotelWithParking" RequestCode="11" Result="OK">`
-  `<Booking>`
-    `<BookingRef>`T5828`</BookingRef>`
-    `<StartRef>`10051763`</StartRef>`
-    `<BookingDate>`090512`</BookingDate>`
-    `<StayDate>`090801`</StayDate>`
-    `<LeadName>`Mr  TTesr`</LeadName>`
-  `</Booking>`
-  `<Booking>`
-    `<BookingRef>`T5829`</BookingRef>`
-    `<StartRef>`10051764`</StartRef>`
-    `<BookingDate>`090512`</BookingDate>`
-    `<StayDate>`090801`</StayDate>`
-    `<LeadName>`Mr  TTest`</LeadName>`
-  `</Booking>`
+<?xml version="1.0"?>
+<API_Reply Product="HotelWithParking" RequestCode="11" Result="OK">
+  <Booking>
+    <BookingRef>T5828</BookingRef>
+    <StartRef>10051763</StartRef>
+    <BookingDate>090512</BookingDate>
+    <StayDate>090801</StayDate>
+    <LeadName>Mr  TTesr</LeadName>
+  </Booking>
+  <Booking>
+    <BookingRef>T5829</BookingRef>
+    <StartRef>10051764</StartRef>
+    <BookingDate>090512</BookingDate>
+    <StayDate>090801</StayDate>
+    <LeadName>Mr  TTest</LeadName>
+  </Booking>
 .
 .
 .
-`</API_Reply>`
+</API_Reply>
 ```
 
 
@@ -304,70 +304,70 @@ http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/?StartCustomer=111111
 
 api -> chauntry
 ```xml
-`<API_Request System="ABG" Version="1.0" Product="HotelWithParking" Customer="A" RequestCode="11" Session="111222333">`
-`<Agent>`
+<API_Request System="ABG" Version="1.0" Product="HotelWithParking" Customer="A" RequestCode="11" Session="111222333">
+<Agent>
 	<StartCustomer>111111</StartCustomer>
 	<BusinessUnit>222</BusinessUnit>
 	<Operator>JMB</Operator>
-`</Agent>`
-`<Itinerary>`
+</Agent>
+<Itinerary>
 	<StartRef></StartRef>                                                           
 	<StartDate>23Dec09</StartDate>
 	<EndDate>23Mar10</EndDate>
 	<PartyName>Test</PartyName>
 	<Location>DUSDOR</Location>
 	<Product>HotelWithParking</Product>
-`</Itinerary>`
-`</API_Request>`
+</Itinerary>
+</API_Request>
 ```
 
 chauntry -> api
 ```xml
-`<?xml version="1.0"?>`
-`<API_Reply System="ABG" Version="1.0" Product="HotelWithParking" Customer="A" Session="111222333" RequestCode="11" Result="OK">`
-  `<Booking b="1">`
-    `<BookingRef>`T6361`</BookingRef>`
-    `<StartRef>`10051848`</StartRef>`
-    `<BookingDate>`091214`</BookingDate>`
-    `<StayDate>`091223`</StayDate>`
-    `<LeadName>`HERRTTEST`</LeadName>`
-  `</Booking>`
+<?xml version="1.0"?>
+<API_Reply System="ABG" Version="1.0" Product="HotelWithParking" Customer="A" Session="111222333" RequestCode="11" Result="OK">
+  <Booking b="1">
+    <BookingRef>T6361</BookingRef>
+    <StartRef>10051848</StartRef>
+    <BookingDate>091214</BookingDate>
+    <StayDate>091223</StayDate>
+    <LeadName>HERRTTEST</LeadName>
+  </Booking>
 .
 .
 .
-  `<Booking b="26">`
-    `<BookingRef>`T6497`</BookingRef>`
-    `<StartRef>`10051926`</StartRef>`
-    `<BookingDate>`100126`</BookingDate>`
-    `<StayDate>`100301`</StayDate>`
-    `<LeadName>`MR  TTEST`</LeadName>`
-  `</Booking>`
-`</API_Reply>`
+  <Booking b="26">
+    <BookingRef>T6497</BookingRef>
+    <StartRef>10051926</StartRef>
+    <BookingDate>100126</BookingDate>
+    <StayDate>100301</StayDate>
+    <LeadName>MR  TTEST</LeadName>
+  </Booking>
+</API_Reply>
 
 ```
 
 api -> ZNT
 ```xml
-`<?xml version="1.0"?>`
-`<API_Reply Product="HotelWithParking" RequestCode="11" Result="OK">`
-  `<Booking>`
-    `<BookingRef>`T6361`</BookingRef>`
-    `<StartRef>`10051848`</StartRef>`
-    `<BookingDate>`091214`</BookingDate>`
-    `<StayDate>`091223`</StayDate>`
-    `<LeadName>`HERRTTEST`</LeadName>`
-  `</Booking>`
+<?xml version="1.0"?>
+<API_Reply Product="HotelWithParking" RequestCode="11" Result="OK">
+  <Booking>
+    <BookingRef>T6361</BookingRef>
+    <StartRef>10051848</StartRef>
+    <BookingDate>091214</BookingDate>
+    <StayDate>091223</StayDate>
+    <LeadName>HERRTTEST</LeadName>
+  </Booking>
 .
 .
 .
-  `<Booking>`
-    `<BookingRef>`T6497`</BookingRef>`
-    `<StartRef>`10051926`</StartRef>`
-    `<BookingDate>`100126`</BookingDate>`
-    `<StayDate>`100301`</StayDate>`
-    `<LeadName>`MR  TTEST`</LeadName>`
-  `</Booking>`
-`</API_Reply>`
+  <Booking>
+    <BookingRef>T6497</BookingRef>
+    <StartRef>10051926</StartRef>
+    <BookingDate>100126</BookingDate>
+    <StayDate>100301</StayDate>
+    <LeadName>MR  TTEST</LeadName>
+  </Booking>
+</API_Reply>
 ```
 
 

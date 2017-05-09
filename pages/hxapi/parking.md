@@ -62,9 +62,9 @@ If your application does not grab a new user token for each user on your site be
 The request flags brought back from availability searches indicate the fields required in the booking by the car park. You must retrieve this information from the customer. There are occasions where your booking will go through without sending this information but can fail later when importing the bookings to car parks. This causes us considerable administrative difficulties. Please, make sure your application sends all requested fields.
 
 ```xml
-`<RequestFlags>`
+<RequestFlags>
 	<Registration>1</Registration>
-`</RequestFlags>`
+</RequestFlags>
 ```
 
 
@@ -73,18 +73,18 @@ The request flags brought back from availability searches indicate the fields re
 
 
 
-## Total price  - `<Pricing>` element
+## Total price  - <Pricing> element
 
 The cost of the Credit Card surcharge applies to the price of parking + cancellation waiver (if taken).
 
 So in the reply for a booking request you may see something like
 ```xml
-`<AmountPaid>`43.56`</AmountPaid>`
-`<TotalPrice>`42.06`</TotalPrice>`
-`<CCSurchargeAmount>`1.50`</CCSurchargeAmount>`
-`<CanxWaiver>`0.50`</CanxWaiver>`
+<AmountPaid>43.56</AmountPaid>
+<TotalPrice>42.06</TotalPrice>
+<CCSurchargeAmount>1.50</CCSurchargeAmount>
+<CanxWaiver>0.50</CanxWaiver>
 ```
-... and expect `<AmountPaid>` to total £44.06 (because 42.06 + 1.50 + 0.50 = 44.06). This is not an error, the `<CanxWaiver>` amount has already been added to the parking price of £41.56 to create `<TotalPrice>`, and the credit card surcharge is then applied to that value, giving `<AmountPaid>`.
+... and expect <AmountPaid> to total £44.06 (because 42.06 + 1.50 + 0.50 = 44.06). This is not an error, the <CanxWaiver> amount has already been added to the parking price of £41.56 to create <TotalPrice>, and the credit card surcharge is then applied to that value, giving <AmountPaid>.
 
 
 ## Images
@@ -116,31 +116,31 @@ You will need to create a voucher for the customer yourself by using the followi
 
 mandatory fields are:
 
-*  car park name `<name>` or `<parkplatzname>`
+*  car park name <name> or <parkplatzname>
 
-*  car park adress `<adresse>`
+*  car park adress <adresse>
 
-*  car park phone number `<telefon>`
+*  car park phone number <telefon>
 
-*  important information `<hinweis>`
+*  important information <hinweis>
 
-*  transfer information `<transfer>`
+*  transfer information <transfer>
 
-*  approach `<anfahrt>`
+*  approach <anfahrt>
 
-*  arrival `<bei_der_anreise_>`
+*  arrival <bei_der_anreise_>
 
-*  size of vehicle `<pkw_groesse>`
+*  size of vehicle <pkw_groesse>
 
 optional fields are:
 
-*  departure `<bei_der_abreise_>`
+*  departure <bei_der_abreise_>
 
-*  information for handicapped people `<barrierefreier_zugang>`
+*  information for handicapped people <barrierefreier_zugang>
 
-*  security information `<sicherheit>`
+*  security information <sicherheit>
 
-*  information on insurance `<versicherung>`
+*  information on insurance <versicherung>
 
 Please always add our terms and conditions (refer to "make a booking at car park" section) 
 Example: 

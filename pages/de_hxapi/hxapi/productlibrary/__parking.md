@@ -57,8 +57,8 @@ http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=
 
 ```xml
 
-`<?xml version="1.0"?>`
-`<API_Reply>`
+<?xml version="1.0"?>
+<API_Reply>
 	<Product>
 		<parent>LGW</parent>
 		<child>4</child>
@@ -118,7 +118,7 @@ http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=
 			<version>lite</version>
 		</Request>
 	</API_Header>
-`</API_Reply>`
+</API_Reply>
 
 
 ```
@@ -141,8 +141,8 @@ http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=
 
 ```xml
 
-`<?xml version="1.0"?>`
-`<API_Reply>`
+<?xml version="1.0"?>
+<API_Reply>
 	<Product>
 		<name>Maple Manor Meet and Greet</name>
 		<longitude>-0.15964508056640625</longitude>
@@ -157,7 +157,7 @@ http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=
 			<version>lite</version>
 		</Request>
 	</API_Header>
-`</API_Reply>`
+</API_Reply>
 
 ```
 
@@ -301,8 +301,8 @@ http://api.holidayextras.co.uk/sandbox/v1/product/FRA0?key=mytestkey
 
 ```xml
 
-`<?xml version="1.0"?>`
-`<API_Reply>`
+<?xml version="1.0"?>
+<API_Reply>
 	<Product>
 		<parent>FRA</parent>
 		<child>0</child>
@@ -349,7 +349,7 @@ http://api.holidayextras.co.uk/sandbox/v1/product/FRA0?key=mytestkey
 			<v>1</v>
 		</Request>
 	</API_Header>
-`</API_Reply>`
+</API_Reply>
 
 
 ```

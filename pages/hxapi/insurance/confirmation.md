@@ -70,55 +70,55 @@ Address[]=1 Test St&Address[]=Testchester&Address[]=Testshire&CardHolder=Mr T Te
 
 #### Intermediary
 
-`<code xml>``<API_Reply>`
-    `<Itinerary>`
-    `<Destination>`EUROPE`</Destination>`
-    `<DestNum>`2`</DestNum>`
-    `<StartDate>`2009-02-22`</StartDate>`
-    `<EndDate>`2009-03-01`</EndDate>`
-    `</Itinerary>`
-    `<Booking>`
-    `<RefNum>`DPR080000012077`</RefNum>`
-    `<SchemeCode>`DPR08`</SchemeCode>`
-    `</Booking>`
-    `<PartyNames p="1">`
-    `<PartyTitle>`MR`</PartyTitle>`
-    `<PartyInit>`T`</PartyInit>`
-    `<PartySurname>`TEST`</PartySurname>`
-    `<PartyDOB>`1972-07-27`</PartyDOB>`
-    `</PartyNames>`
-    `<ClientDetails>`
-    `<Title>`MR`</Title>`
-    `<Initial>`T`</Initial>`
-    `<Surname>`TEST`</Surname>`
-    `<Address a="1">`1 TEST ST`</Address>`
-    `<Address a="2">`TESTCHESTER`</Address>`
-    `<Address a="3">`TESTSHIRE`</Address>`
-    `<Postcode>`T1 1TT`</Postcode>`
-    `<Email>`TEST@TEST.COM`</Email>`
-    `</ClientDetails>`
-    `<API_Header>`
-    `<Request>`
-      `<Address>`1 Test St`</Address>`
-      `<Address>`Testchester`</Address>`
-      `<Address>`Testshire`</Address>`
-      `<CardHolder>`Mr T Test`</CardHolder>`
-      `<CardNumber>`4111 1111 1111 1111`</CardNumber>`
-      `<DateOfBirth>`1972-07-27`</DateOfBirth>`
-      `<Email>`test@test.com`</Email>`
-      `<EndDate>`2009-03-01`</EndDate>`
-      `<ExpiryDate>`2009-07-10`</ExpiryDate>`
-      `<Initial>`T`</Initial>`
-      `<PostCode>`T1 1TT`</PostCode>`
-      `<SchemeCode>`DPR08`</SchemeCode>`
-      `<SchemePrice>`33.01`</SchemePrice>`
-      `<StartDate>`2009-02-22`</StartDate>`
-      `<Surname>`Test`</Surname>`
-      `<Title>`Mr`</Title>`
-      `<key>`foo`</key>`
-      `<token>`000015778`</token>`
-    `</Request>`
-    `</API_Header>`
-`</API_Reply>``</code>`
+<code xml><API_Reply>
+    <Itinerary>
+    <Destination>EUROPE</Destination>
+    <DestNum>2</DestNum>
+    <StartDate>2009-02-22</StartDate>
+    <EndDate>2009-03-01</EndDate>
+    </Itinerary>
+    <Booking>
+    <RefNum>DPR080000012077</RefNum>
+    <SchemeCode>DPR08</SchemeCode>
+    </Booking>
+    <PartyNames p="1">
+    <PartyTitle>MR</PartyTitle>
+    <PartyInit>T</PartyInit>
+    <PartySurname>TEST</PartySurname>
+    <PartyDOB>1972-07-27</PartyDOB>
+    </PartyNames>
+    <ClientDetails>
+    <Title>MR</Title>
+    <Initial>T</Initial>
+    <Surname>TEST</Surname>
+    <Address a="1">1 TEST ST</Address>
+    <Address a="2">TESTCHESTER</Address>
+    <Address a="3">TESTSHIRE</Address>
+    <Postcode>T1 1TT</Postcode>
+    <Email>TEST@TEST.COM</Email>
+    </ClientDetails>
+    <API_Header>
+    <Request>
+      <Address>1 Test St</Address>
+      <Address>Testchester</Address>
+      <Address>Testshire</Address>
+      <CardHolder>Mr T Test</CardHolder>
+      <CardNumber>4111 1111 1111 1111</CardNumber>
+      <DateOfBirth>1972-07-27</DateOfBirth>
+      <Email>test@test.com</Email>
+      <EndDate>2009-03-01</EndDate>
+      <ExpiryDate>2009-07-10</ExpiryDate>
+      <Initial>T</Initial>
+      <PostCode>T1 1TT</PostCode>
+      <SchemeCode>DPR08</SchemeCode>
+      <SchemePrice>33.01</SchemePrice>
+      <StartDate>2009-02-22</StartDate>
+      <Surname>Test</Surname>
+      <Title>Mr</Title>
+      <key>foo</key>
+      <token>000015778</token>
+    </Request>
+    </API_Header>
+</API_Reply></code>
 
 

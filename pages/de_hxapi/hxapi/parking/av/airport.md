@@ -69,78 +69,78 @@ http://api.holidayextras.co.uk/v1/carpark/FRA?ArrivalDate=2009-05-20&ArrivalTime
 
 ```xml
 
-`<?xml version="1.0" ?>`
+<?xml version="1.0" ?>
 
-`<API_Reply Product="CarPark" RequestCode="1" Result="OK">`
-  `<CarPark>`
-    `<CarDetails>`Y`</CarDetails>`
-    `<TotalPrice>`53.00`</TotalPrice>`
-    `<Name>`Airparks Frankfurt Parkplatz`</Name>`
-    `<Code>`FRA8`</Code>`
-    `<Filter>`
-      `<recommended>`1`</recommended>`
-      `<terminalTerminal1>`1`</terminalTerminal1>`
-    `</Filter>`
-    `<BookingURL>`/v1/carpark/FRA8`</BookingURL>`
-    `<MoreInfoURL>`/v1/product/FRA8`</MoreInfoURL>`
-  `</CarPark>`
-  `<CarPark>`
-    `<CarDetails>`Y`</CarDetails>`
-    `<TotalPrice>`56.00`</TotalPrice>`
-    `<Name>`Airparks Parkhaus Frankfurt`</Name>`
-    `<Code>`FRA6`</Code>`
-    `<Filter>`
-      `<recommended>`1`</recommended>`
-      `<terminalTerminal1>`1`</terminalTerminal1>`
-    `</Filter>`
-    `<BookingURL>`/v1/carpark/FRA6`</BookingURL>`
-    `<MoreInfoURL>`/v1/product/FRA6`</MoreInfoURL>`
-  `</CarPark>`
-  `<CarPark>`
-    `<CarDetails>`Y`</CarDetails>`
-    `<TotalPrice>`54.00`</TotalPrice>`
-    `<Name>`Parkhaus Red Crocodile Frankfurt-Niederrad`</Name>`
-    `<Code>`FRA5`</Code>`
-    `<Filter>`
-      `<terminalTerminal1>`1`</terminalTerminal1>`
-    `</Filter>`
-    `<BookingURL>`/v1/carpark/FRA5`</BookingURL>`
-    `<MoreInfoURL>`/v1/product/FRA5`</MoreInfoURL>`
-  `</CarPark>`
-  `<CarPark>`
-    `<CarDetails>`N`</CarDetails>`
-    `<TotalPrice>`59.00`</TotalPrice>`
-    `<Name>`Tiefgarage Kelsterbach`</Name>`
-    `<Code>`FRA1`</Code>`
-    `<Filter>``</Filter>`
-    `<BookingURL>`/v1/carpark/FRA1`</BookingURL>`
-    `<MoreInfoURL>`/v1/product/FRA1`</MoreInfoURL>`
-  `</CarPark>`
-  `<CarPark>`
-    `<CarDetails>`Y`</CarDetails>`
-    `<TotalPrice>`46.00`</TotalPrice>`
-    `<Name>`Platzhirsch Parkhaus`</Name>`
-    `<Code>`FRAP`</Code>`
-    `<Filter>`
-      `<terminalTerminal1>`1`</terminalTerminal1>`
-    `</Filter>`
-    `<BookingURL>`/v1/carpark/FRAP`</BookingURL>`
-    `<MoreInfoURL>`/v1/product/FRAP`</MoreInfoURL>`
-  `</CarPark>`
-  `<API_Header>`
-    `<Request>`
-      `<ArrivalDate>`2009-05-20`</ArrivalDate>`
-      `<ArrivalTime>`1200`</ArrivalTime>`
-      `<DepartDate>`2009-05-27`</DepartDate>`
-      `<DepartTime>`1400`</DepartTime>`
+<API_Reply Product="CarPark" RequestCode="1" Result="OK">
+  <CarPark>
+    <CarDetails>Y</CarDetails>
+    <TotalPrice>53.00</TotalPrice>
+    <Name>Airparks Frankfurt Parkplatz</Name>
+    <Code>FRA8</Code>
+    <Filter>
+      <recommended>1</recommended>
+      <terminalTerminal1>1</terminalTerminal1>
+    </Filter>
+    <BookingURL>/v1/carpark/FRA8</BookingURL>
+    <MoreInfoURL>/v1/product/FRA8</MoreInfoURL>
+  </CarPark>
+  <CarPark>
+    <CarDetails>Y</CarDetails>
+    <TotalPrice>56.00</TotalPrice>
+    <Name>Airparks Parkhaus Frankfurt</Name>
+    <Code>FRA6</Code>
+    <Filter>
+      <recommended>1</recommended>
+      <terminalTerminal1>1</terminalTerminal1>
+    </Filter>
+    <BookingURL>/v1/carpark/FRA6</BookingURL>
+    <MoreInfoURL>/v1/product/FRA6</MoreInfoURL>
+  </CarPark>
+  <CarPark>
+    <CarDetails>Y</CarDetails>
+    <TotalPrice>54.00</TotalPrice>
+    <Name>Parkhaus Red Crocodile Frankfurt-Niederrad</Name>
+    <Code>FRA5</Code>
+    <Filter>
+      <terminalTerminal1>1</terminalTerminal1>
+    </Filter>
+    <BookingURL>/v1/carpark/FRA5</BookingURL>
+    <MoreInfoURL>/v1/product/FRA5</MoreInfoURL>
+  </CarPark>
+  <CarPark>
+    <CarDetails>N</CarDetails>
+    <TotalPrice>59.00</TotalPrice>
+    <Name>Tiefgarage Kelsterbach</Name>
+    <Code>FRA1</Code>
+    <Filter></Filter>
+    <BookingURL>/v1/carpark/FRA1</BookingURL>
+    <MoreInfoURL>/v1/product/FRA1</MoreInfoURL>
+  </CarPark>
+  <CarPark>
+    <CarDetails>Y</CarDetails>
+    <TotalPrice>46.00</TotalPrice>
+    <Name>Platzhirsch Parkhaus</Name>
+    <Code>FRAP</Code>
+    <Filter>
+      <terminalTerminal1>1</terminalTerminal1>
+    </Filter>
+    <BookingURL>/v1/carpark/FRAP</BookingURL>
+    <MoreInfoURL>/v1/product/FRAP</MoreInfoURL>
+  </CarPark>
+  <API_Header>
+    <Request>
+      <ArrivalDate>2009-05-20</ArrivalDate>
+      <ArrivalTime>1200</ArrivalTime>
+      <DepartDate>2009-05-27</DepartDate>
+      <DepartTime>1400</DepartTime>
 
-      `<key>`mytestkey`</key>`
-      `<token>`000001234`</token>`
-      `<system>`DE`</system>`
-      `<v>`1`</v>`
-    `</Request>`
-  `</API_Header>`
-`</API_Reply>`
+      <key>mytestkey</key>
+      <token>000001234</token>
+      <system>DE</system>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply>
 
 ```
 

@@ -27,32 +27,32 @@ http://api.holidayextras.co.uk/v1/insurancecountries?ABTANumber=foo&Password=you
 ### Reply
 
 ```xml
-`<?xml version="1.0" ?>`
-`<API_Reply>`
-  `<Message>`Regions for retail`</Message>`
-  `<Details>`
-    `<Request>`
-      `<Code>`UKROI`</Code>`
-      `<Description>`UK + Ireland`</Description>`
-      `<MoreInfoUrl>`/insurancepolicy/UKROI/`</MoreInfoUrl>`
-      `<AcceptedCountries>`/insurancecountries/UKROI/`</AcceptedCountries>`
-    `</Request>`
+<?xml version="1.0" ?>
+<API_Reply>
+  <Message>Regions for retail</Message>
+  <Details>
+    <Request>
+      <Code>UKROI</Code>
+      <Description>UK + Ireland</Description>
+      <MoreInfoUrl>/insurancepolicy/UKROI/</MoreInfoUrl>
+      <AcceptedCountries>/insurancecountries/UKROI/</AcceptedCountries>
+    </Request>
     ...
-    `<Request>`
-      `<Code>`WWXUSA`</Code>`
-      `<Description>`Worldwide (Excluding USA)`</Description>`
-      `<MoreInfoUrl>`/insurancepolicy/WWXUSA/`</MoreInfoUrl>`
-      `<AcceptedCountries>`/insurancecountries/WWXUSA/`</AcceptedCountries>`
-    `</Request>`
-  `</Details>`
-  `<API_Header>`
-    `<Request>`
-      `<ABTANumber>`foo`</ABTANumber>`
-      `<Password>`yourpassword`</Password>`
-      `<key>`foo`</key>`
-    `</Request>`
-  `</API_Header>`
-`</API_Reply>`
+    <Request>
+      <Code>WWXUSA</Code>
+      <Description>Worldwide (Excluding USA)</Description>
+      <MoreInfoUrl>/insurancepolicy/WWXUSA/</MoreInfoUrl>
+      <AcceptedCountries>/insurancecountries/WWXUSA/</AcceptedCountries>
+    </Request>
+  </Details>
+  <API_Header>
+    <Request>
+      <ABTANumber>foo</ABTANumber>
+      <Password>yourpassword</Password>
+      <key>foo</key>
+    </Request>
+  </API_Header>
+</API_Reply>
 ```
 
 ## /insurancecountries/foo
@@ -80,41 +80,41 @@ http://api.holidayextras.co.uk/v1/insurancecountries/EUROPELOW?ABTANumber=foo&Pa
 ### Reply
 
 ```xml
-`<?xml version="1.0" ?>`
+<?xml version="1.0" ?>
 
-`<API_Reply>`
-  `<RecordSet>`
-    `<Meta>`
-      `<Total>`83`</Total>`
-    `</Meta>`
-    `<Record>`
-      `<country>`Albania`</country>`
-    `</Record>`
-    `<Record>`
-      `<country>`Andorra`</country>`
-    `</Record>`
-    `<Record>`
-      `<country>`Armenia`</country>`
-    `</Record>`
+<API_Reply>
+  <RecordSet>
+    <Meta>
+      <Total>83</Total>
+    </Meta>
+    <Record>
+      <country>Albania</country>
+    </Record>
+    <Record>
+      <country>Andorra</country>
+    </Record>
+    <Record>
+      <country>Armenia</country>
+    </Record>
     ...
-    `<Record>`
-      `<country>`Vatican City`</country>`
-    `</Record>`
-    `<Record>`
-      `<country>`Wales`</country>`
-    `</Record>`
-    `<Record>`
-      `<country>`Yugoslavia (Former)`</country>`
-    `</Record>`
-  `</RecordSet>`
-  `<API_Header>`
-    `<Request>`
-      `<ABTANumber>`foo`</ABTANumber>`
-      `<Password>`yourpassword`</Password>`
-      `<key>`foo`</key>`
-    `</Request>`
-  `</API_Header>`
-`</API_Reply>`
+    <Record>
+      <country>Vatican City</country>
+    </Record>
+    <Record>
+      <country>Wales</country>
+    </Record>
+    <Record>
+      <country>Yugoslavia (Former)</country>
+    </Record>
+  </RecordSet>
+  <API_Header>
+    <Request>
+      <ABTANumber>foo</ABTANumber>
+      <Password>yourpassword</Password>
+      <key>foo</key>
+    </Request>
+  </API_Header>
+</API_Reply>
 ```
 
 ## /insurancecountries/search
@@ -145,66 +145,66 @@ http://api.holidayextras.co.uk/v1/insurancecountries/search?key=mytestkey&ABTANu
 ### Reply
 
 ```xml
-`<?xml version="1.0" ?>`
+<?xml version="1.0" ?>
 
-`<API_Reply>`
-  `<RecordSet>`
-    `<Meta>`
-      `<Total>`6`</Total>`
-    `</Meta>`
-    `<Record>`
-      `<country>`Bonaire (Antilles)`</country>`
-      `<region>`3`</region>`
-      `<region_retail>`3`</region_retail>`
-      `<api_region>`WWIUSA`</api_region>`
-      `<api_region_retail>`WWIUSA`</api_region_retail>`
-    `</Record>`
-    `<Record>`
-      `<country>`Cote D&#39;Ivoire`</country>`
-      `<region>`5`</region>`
-      `<region_retail>`5`</region_retail>`
-      `<api_region>`WWXUSA`</api_region>`
-      `<api_region_retail>`WWXUSA`</api_region_retail>`
-    `</Record>`
-    `<Record>`
-      `<country>`Ireland`</country>`
-      `<region>`6`</region>`
-      `<region_retail>`1`</region_retail>`
-      `<api_region>`EUROPELOW`</api_region>`
-      `<api_region_retail>`UKROI`</api_region_retail>`
-    `</Record>`
-    `<Record>`
-      `<country>`Northern Ireland`</country>`
-      `<region>`6`</region>`
-      `<region_retail>`1`</region_retail>`
-      `<api_region>`EUROPELOW`</api_region>`
-      `<api_region_retail>`UKROI`</api_region_retail>`
-    `</Record>`
-    `<Record>`
-      `<country>`Rep. Ireland`</country>`
-      `<region>`6`</region>`
-      `<region_retail>`1`</region_retail>`
-      `<api_region>`EUROPELOW`</api_region>`
-      `<api_region_retail>`UKROI`</api_region_retail>`
-    `</Record>`
-    `<Record>`
-      `<country>`Zaire`</country>`
-      `<region>`5`</region>`
-      `<region_retail>`5`</region_retail>`
-      `<api_region>`WWXUSA`</api_region>`
-      `<api_region_retail>`WWXUSA`</api_region_retail>`
-    `</Record>`
-  `</RecordSet>`
-  `<API_Header>`
-    `<Request>`
-      `<key>`mytestkey`</key>`
-      `<ABTANumber>`foo`</ABTANumber>`
-      `<Password>`yourpassword`</Password>`
-      `<query>`ire`</query>`
-      `<v>`1`</v>`
-    `</Request>`
-  `</API_Header>`
-`</API_Reply>``</code>`
+<API_Reply>
+  <RecordSet>
+    <Meta>
+      <Total>6</Total>
+    </Meta>
+    <Record>
+      <country>Bonaire (Antilles)</country>
+      <region>3</region>
+      <region_retail>3</region_retail>
+      <api_region>WWIUSA</api_region>
+      <api_region_retail>WWIUSA</api_region_retail>
+    </Record>
+    <Record>
+      <country>Cote D&#39;Ivoire</country>
+      <region>5</region>
+      <region_retail>5</region_retail>
+      <api_region>WWXUSA</api_region>
+      <api_region_retail>WWXUSA</api_region_retail>
+    </Record>
+    <Record>
+      <country>Ireland</country>
+      <region>6</region>
+      <region_retail>1</region_retail>
+      <api_region>EUROPELOW</api_region>
+      <api_region_retail>UKROI</api_region_retail>
+    </Record>
+    <Record>
+      <country>Northern Ireland</country>
+      <region>6</region>
+      <region_retail>1</region_retail>
+      <api_region>EUROPELOW</api_region>
+      <api_region_retail>UKROI</api_region_retail>
+    </Record>
+    <Record>
+      <country>Rep. Ireland</country>
+      <region>6</region>
+      <region_retail>1</region_retail>
+      <api_region>EUROPELOW</api_region>
+      <api_region_retail>UKROI</api_region_retail>
+    </Record>
+    <Record>
+      <country>Zaire</country>
+      <region>5</region>
+      <region_retail>5</region_retail>
+      <api_region>WWXUSA</api_region>
+      <api_region_retail>WWXUSA</api_region_retail>
+    </Record>
+  </RecordSet>
+  <API_Header>
+    <Request>
+      <key>mytestkey</key>
+      <ABTANumber>foo</ABTANumber>
+      <Password>yourpassword</Password>
+      <query>ire</query>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply></code>
 
 ###  Fields explained
 

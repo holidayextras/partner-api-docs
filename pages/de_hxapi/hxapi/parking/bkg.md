@@ -217,8 +217,8 @@ ABTANumber=FOO&ArrivalDate=2008-09-20&ArrivalTime=1125&DepartDate=2008-09-28&Dep
 
 ```xml
 
-`<?xml version="1.0"?>`
-`<API_Reply Product="CarPark" RequestCode="4" Result="OK">`
+<?xml version="1.0"?>
+<API_Reply Product="CarPark" RequestCode="4" Result="OK">
 	<Booking>
 		<BookingRef>A8GBV</BookingRef>
 		<MoreInfoURL>/api/sandbox/v1/booking/A8GBV</MoreInfoURL>
@@ -270,7 +270,7 @@ ABTANumber=FOO&ArrivalDate=2008-09-20&ArrivalTime=1125&DepartDate=2008-09-28&Dep
 		<BookingURL>/api/sandbox/v1/carpark/LGW2</BookingURL>
 		<MoreInfoURL>/api/sandbox/v1/product/LGW2</MoreInfoURL>
 	</CarPark>
-`</API_Reply>`
+</API_Reply>
 
 
 ```
@@ -279,8 +279,8 @@ ABTANumber=FOO&ArrivalDate=2008-09-20&ArrivalTime=1125&DepartDate=2008-09-28&Dep
 
 ```xml
 
-`<?xml version="1.0"?>`
-`<API_Reply Product="CarPark" RequestCode="5" Result="OK">`
+<?xml version="1.0"?>
+<API_Reply Product="CarPark" RequestCode="5" Result="OK">
 	<Booking>
 		<BookingRef>A8GBW</BookingRef>
 		<AgentComm>13.50-</AgentComm>
@@ -321,7 +321,7 @@ ABTANumber=FOO&ArrivalDate=2008-09-20&ArrivalTime=1125&DepartDate=2008-09-28&Dep
 		<BookingURL>/api/sandbox/v1/carpark/LGW2</BookingURL>
 		<MoreInfoURL>/api/sandbox/v1/product/LGW2</MoreInfoURL>
 	</CarPark>
-`</API_Reply>`
+</API_Reply>
 
 ```
 

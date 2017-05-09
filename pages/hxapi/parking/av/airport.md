@@ -94,8 +94,8 @@ http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=2010-09-20&Arr
 
 ```xml
 
-`<?xml version="1.0"?>`
-`<API_Reply Product="CarPark" RequestCode="1" Result="OK">`
+<?xml version="1.0"?>
+<API_Reply Product="CarPark" RequestCode="1" Result="OK">
 	<CarPark>
 		<TotalPrice>80.00</TotalPrice>
 		<NonDiscPrice>80.00</NonDiscPrice>
@@ -146,7 +146,7 @@ http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=2010-09-20&Arr
 			<v>1</v>
 		</Request>
 	</API_Header>
-`</API_Reply>`
+</API_Reply>
 
 ```
 
@@ -229,12 +229,12 @@ We have a filter mechanism on our site, to show only meet and greet products etc
 
 The availability response will identify a list of flags which identify the fields required to be POSTED when making a booking.
 
-e.g. `<CarDetFlags>`NNNNNNNNNNNNNNNNNN`</CarDetFlags>`
+e.g. <CarDetFlags>NNNNNNNNNNNNNNNNNN</CarDetFlags>
 
 The order of the flags refer to these POST parameter fields respectively:
 
 
-`<CarDetFlags>`1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18`</CarDetFlags>`
+<CarDetFlags>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</CarDetFlags>
 
 
  | Position | POST Parameter | character length | what is it?                                                                        | 

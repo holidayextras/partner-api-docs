@@ -115,30 +115,30 @@ token=012345678
 
 ###  Response
 
-`<API_Reply Product="Lounge" RequestCode="5" Result="OK">``<Booking>`
-`<BookingRef>`J7A44`</BookingRef>`
-`<AgentComm>`3.42-`</AgentComm>`
-`<VATonComm>`0.57-`</VATonComm>`
-`<MoreInfoURL>`/sandbox/v1/booking/J7A44`</MoreInfoURL>`
-`</Booking>`
-`<API_Header>`
-`<Request>`
-`<ABTANumber>``</ABTANumber>`
-`<Adults>`2`</Adults>`
-`<ArrivalDate>`2015-10-24`</ArrivalDate>`
-`<ArrivalTime>`1000`</ArrivalTime>`
-`<Children>`0`</Children>`
-`<Infants>`0`</Infants>`
-`<Initial>`T`</Initial>`
-`<Initials>`CG`</Initials>`
-`<Password>``</Password>`
-`<Surname>`Test`</Surname>`
-`<Title>`Mr`</Title>`
-`<key>``</key>`
-`<method>`POST`</method>`
-`<token>`012345678`</token>`
-`<v>`1`</v>`
-`</Request>`
-`</API_Header>`
-`</API_Reply>`
+<API_Reply Product="Lounge" RequestCode="5" Result="OK"><Booking>
+<BookingRef>J7A44</BookingRef>
+<AgentComm>3.42-</AgentComm>
+<VATonComm>0.57-</VATonComm>
+<MoreInfoURL>/sandbox/v1/booking/J7A44</MoreInfoURL>
+</Booking>
+<API_Header>
+<Request>
+<ABTANumber>*****</ABTANumber>
+<Adults>2</Adults>
+<ArrivalDate>2015-10-24</ArrivalDate>
+<ArrivalTime>1000</ArrivalTime>
+<Children>0</Children>
+<Infants>0</Infants>
+<Initial>T</Initial>
+<Initials>CG</Initials>
+<Password>*****</Password>
+<Surname>Test</Surname>
+<Title>Mr</Title>
+<key>******</key>
+<method>POST</method>
+<token>012345678</token>
+<v>1</v>
+</Request>
+</API_Header>
+</API_Reply>
 
