@@ -2,26 +2,7 @@
 
 ---
 
-# Holiday Extras API
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##  Was Sie brauchen 
+#  Was Sie brauchen 
 
 Welche Platform und Programmiersprache Sie benutzen, um mit **HXAPI** zu interagieren, liegt bei Ihnen. Wir gehen davon aus, dass es in den häufigsten Fällen eine Web Anwendung ist, welche in PHP, Ruby o.ä. geschrieben ist. Jedoch könnten Sie **HXAPI** auch gleichermaßen per Mobiltelefon-Anwendung oder Internet Terminal verwenden.
 
@@ -32,40 +13,7 @@ Die einzigen Vorraussetzungen ist die Möglichkeit
 
 *  XML/JSON/csv/text-Dateien zu parsen
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## REST
+# REST
 
 **HXAPI** akzeptiert [REST](https///en.wikipedia.org/wiki/Representational_state_transfer) Anfragen. Jede Anfrage wird über **HTTP** unter Verwendung der Standardverfahren gemacht. Für den Datenabruf benutzen Sie immer das GET Verfahren. Um eine Buchung zu machen (und demzufolge eine neue Quelle zu erstellen), muss das POST Verfahren verwendet werden.
 
@@ -73,12 +21,7 @@ http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2
 
 Eine URL kann, je nach Zugangsverfahren, unterschiedliche Funktionen haben. Die obige URL als Beispiel, liefert als GET Informationen über Verfügbarkeiten und Preise für den Parkplatz im gewählten Zeitraum. Wenn mit den korrekten Parametern "posted to", wird eine Buchung bei eben diesem Parkplatz gemacht und ein Link geliefert, unter dem Sie die Buchung einsehen können.
 
-
-
-
-
-
-## Server Adresse
+# Server Adresse
 
 Immer wenn Sie neuen Code schreiben oder bestehende Funktionalität verändern, müssen Sie den Development Server (sandbox) verwenden. Die erhaltenen Daten sind nicht "genauso live", aber das Format und die Struktur sind gleich. Falls Sie das nicht tun, beeinflussen Sie Metriken, wie zum Beispiel Conversion Rates, und natürlich werden alle gemachten Buchungen live sein.
 
@@ -88,10 +31,7 @@ Development URL: http://api.holidayextras.co.uk/sandbox/
 
 Live URL: http://api.holidayextras.co.uk/
 
-
-
-
-## Die ersten Schritte
+# Die ersten Schritte
 
 Der einfachste Weg mit **HXAPI** zu beginnen, ist in einem Browser einige HTTP Anfragen zu machen (um die Header zu sehen) oder programmatisch mit CURL. [CURL Download](http://curl.haxx.se/download.html)
 
@@ -110,8 +50,7 @@ curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW.js?ArrivalDate=20Jan
 curl "http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&key=mytestkey"
 ```
 
-
-## Ergebnis Formate
+# Ergebnis Formate
 
 **HXAPI** kann Daten in zwei verschiedenen Formaten liefern. Das Default Format ist XML. Um das Format explizit zu spezifizieren, fügen Sie den Dateikennung and die gewünschte Quelle an.
 
@@ -134,14 +73,7 @@ Dieselbe Anfrage mit Ergebnissen in Javascript
 
 http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.js?key=mytestkey
 
-
-
-
-
-
-
-
-## Anwendungsschlüssel
+# Anwendungsschlüssel
 
 Jeder Partner, der **HXAPI** nutzt, erhält einen **Anwendungsschlüssel** zur Identifikation. Bei allen Anfragen muss dieser Schlüssel benutzt werden, damit diese erfolgreich sind. Andernfalls tritt ein Fehler auf.
 
@@ -153,28 +85,17 @@ Anfragehöchstgrenzen gelten auf einer pro Schlüssel-Basis. Die Grenzen können
 
 Jeder unsachgemäße Gebrauch oder Missbrauch von **HXAPI** kann zu einer Sperrung oder Einschränkung des Anwendungsschlüssels führen.
 
-
-
-
-
-## Agent Code
+# Agent Code
 
 Zusätzlich zu Ihrem Anwendungsschlüssel müssen Sie auch Ihren Holiday Extras Agent Code angeben. Agents (die Zahlungen selbst annehmen) müssen ihr Passwort senden. Partner haben kein Passwort und sollten folglich keines senden.
 
 Sie können mehrere Anwendungen haben, die den gleichen Agent Code verwenden, allerdings **müssen Sie getrennte Anwendungsschlüssel für jede einzelne Anwendung benutzen**.
 
-
-## Versionen
+# Versionen
 
 Immer wenn es eine bedeutende Änderung oder Verbesserung des API gibt, erhöhen wir die Versionsnummer. Falls Sie eine vorherige Version weiter nutzen, wird diese für eine bestimmte Zeitspanne (ca. 3 Monate) auch weiterhin funktionieren wie zuvor, allerdings wird es uns nicht mehr möglich sein diese zu unterstützen. Nach Ablauf der Zeitspanne ist es möglich, dass die Version entfernt wird oder das Ergebnisse/Antworden blockiert werden.
 
-
-
-
-
-
-
-##  Nutzerkennung
+#  Nutzerkennung
 
 Um einzelne Nutzer unter Verfügbarkeits- und Buchungsanfragen zu identifizieren, stellt **HXAPI** Nutzerkennungen zur Verfügung. Anwendungen müssen für jeden Nutzer auf ihrer Seite eine neue Nutzerkennung anfordern. Sobald diese erhalten wurde, wird sie als Parameter jeder Folgeanfrage weitergereicht.
 
@@ -182,10 +103,7 @@ Der Anforderung einer Nutzerkennung **muss** eine Verfügbarkeitsanfrage vorausg
 
 Diese Methode dient **nicht** dazu, wiederkehrende Nutzer nachzuverfolgen (wie zum Beispiel diese in einem Cookie zu speichen und zu verwenden, wenn die Nutzer zu einem späteren Zeitpunkt zurückkehren). Ihre Anmeldung sollte User Tracking gesondert verwenden, wenn Sie es wünschen. Die Kennung verbindet lediglich Verfügbarkeitsanfragen mit Buchungen für einen bestimmten Nutzer während einer bestimmten Sitzung.
 
-
-
-
-## Ablauf einer Anfrage
+# Ablauf einer Anfrage
 
 Das üblichste Szenario oder Anfragenabfolge bei HXAPI wäre:
 
@@ -194,77 +112,13 @@ Das üblichste Szenario oder Anfragenabfolge bei HXAPI wäre:
  3.  (optional) für verfügbare Produkte Informationen anfordern
  4.  für das ausgewählte Produkt eine Buchung durchführen
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Stornierung einer Buchung
+# Stornierung einer Buchung
 
 Buchungen, die auf dem Test Server gemacht wurden, können mit einer Unsinns-Kreditkartennummer (zum Beispiel 4111111111111111) gemacht werden. Wenn Sie Ihre Anfrage jedoch an unseren Live Server richten, müssen Sie eine gültige Kreditkarte verwenden. Außerdem sind diese Buchungen live und müssen storniert werden.
 
 Bitte stornieren Sie Buchungen **nicht** mittels eines Anrufes in unserem Callcenter oder der Online-Stornierungs-Interface auf [www.holidayextras.com](http://www.holidayextras.com). Kreditkartengebühren werden **nicht erstattet**, wenn Sie einen dieser Wege wählen. Schicken Sie die Buchungsnummern an <sales@holidayextras.com> und **alle Gebühren werden erstattet**.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Anfragen 
+# Anfragen 
 
 Klicken Sie auf die unten stehenden Links um ausführlichere Details der für jede Anfrage benötigten Parameter zu erhalten.
 
@@ -277,5 +131,3 @@ Klicken Sie auf die unten stehenden Links um ausführlichere Details der für je
 [Location](de_hxapi/hxapi/locations) - Die Liste gültiger Locations abfragen.
 
 [Terminal](de_hxapi/hxapi/terminal) - Liste der Terminals bei einer gewählten Location.
-
-

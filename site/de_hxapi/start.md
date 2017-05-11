@@ -2,45 +2,7 @@
 
 ---
 
-# Holiday Extras API
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Offizielle Dokumentation
+# Offizielle Dokumentation
 
 Holiday Extras ist der UK Marktführer für Flughafenparken und Flughafenhotels. Diese Wiki stellt Holiday Extras API (**HXAPI**) vor. **HXAPI** ermöglicht es Ihnen, im Reservierungssystem und den Produktinformationen von Holiday Extras programmatische Suchanfragen zu machen.
 
@@ -65,6 +27,3 @@ Nachdem Sie diese Anleitung gelesen haben, werden Sie alles haben, was sie benö
 Anwendungsbeispiele - nicht verfügbar
 
 Bedingungen und Konditionen - nicht verfügbar
-
-
-

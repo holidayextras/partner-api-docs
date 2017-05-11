@@ -2,11 +2,7 @@
 
 ---
 
-# Holiday Extras API
-
-
-
-##  System requirements 
+#  System requirements 
 
 The platform and programming language you use to interact with **HXAPI** is up to you. We expect the most common scenario to be a web application, written in PHP, Ruby or similar. However, you could equally use **HXAPI** in a mobile phone app or a kiosk.
 
@@ -17,39 +13,7 @@ The only requirements are the ability to
 
 *  parse XML/JSON/csv/text files
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## REST
+# REST
 
 **HXAPI** accepts [REST](https///en.wikipedia.org/wiki/Representational_state_transfer) requests. Every request is made over **HTTP** using the standard methods. For data retrieval, you always use the GET method. For making a booking (thus creating a new resource), the POST method must be used. 
 
@@ -63,7 +27,7 @@ One URL can have different functions depending on the method used to access it. 
 
 
 
-## Server Address
+# Server Address
 
 Whenever writing new code or altering existing functionality, you must use the development server (sandbox). The data returned  is not 'as live', but the format and structure are the same. If you do not, you will affect metrics such as conversion rates, and of course any bookings made will be live.
 
@@ -76,16 +40,7 @@ Live URL: http://api.holidayextras.co.uk/
 To access European products please add System=ABG.
 To access UK products by default System=ABC is taken.
 
-
-
-
-
-
-
-
-
-
-## Getting Started
+# Getting Started
 
 The easiest way to get started with **HXAPI** is to make a few HTTP requests in a browser or (to see the headers) programatically with CURL. [Download CURL](http://curl.haxx.se/download.html).
 
@@ -111,13 +66,7 @@ curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW.js?ArrivalDate=20Jan
 curl "http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&key=mytestkey"
 ```
 
-
-
-
-
-
-
-## Reply Formats
+# Reply Formats
 
 **HXAPI** can return data in two several formats. The default format is XML. To specify the format explicitly, append the file extension to the requested resource.
 
@@ -143,11 +92,7 @@ The same query, with results in javascript
 http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.js?key=mytestkey
 
 
-
-
-
-
-## Application Key
+# Application Key
 
  
 Every partner using **HXAPI** is issued with an **application key** for identification. All requests must provide this key in order to receive a successful response. Otherwise an error is returned.
@@ -162,29 +107,17 @@ Request limits are applied on a per-key basis. Thresholds can be adjusted if the
 
 Any abuse or misuse of **HXAPI** may result in the application key being disabled or restricted.
 
-
-
-
-
-
-
-## Agent Code
+# Agent Code
 
 In addition to your application key, you must pass your Holiday Extras agent code. Agents (taking payment themselves) will need to send their password. Affiliates do not have a password, and so should not send one.
 
 You can have multiple applications using the same agent code, but you **must use separate application keys for each application**.
 
-
-## Versioning
+# Versioning
 
 Whenever there is a significant alteration or upgrade to the API, we increase the version number. If you continue to use a previous version, it will continue to function as before for a period of time ( approx 3 months), but we will no longer support it and after that time it may be removed or responses blocked.
 
-
-
-
-
-
-##  User Token
+#  User Token
 
 To identify individual users between availability and booking searches, **HXAPI** provides a user token. Applications must make a request for a new user token for every user on their site. Once obtained, this token is passed as a parameter to every subsequent request.
 
@@ -192,11 +125,7 @@ A request for a user token **must** precede a request for availability. An avail
 
 This mechanism is **NOT** for tracking returning users (for example, storing it in a cookie and used when they come back at a later date). Your application should take care of user tracking separately if you require it. The token merely links availability searches to bookings for a particular user during a specific session.
 
-
-
-
-
-## Application flow
+# Application flow
 
 The most common scenario, or order of requests to HXAPI, would be:
 
@@ -205,22 +134,7 @@ The most common scenario, or order of requests to HXAPI, would be:
  3.  (Optional) Get info for available products
  4.  Make booking for selected product
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## How to cancel a booking
+# How to cancel a booking
 
 Bookings made against the test server can be made with a test credit card number (eg 4715059999000437). If you use a valid card number, no payment will be taken. There are a range of cards and scenarios which will allow a test booking against the test server to be processed - see [faq](http://docs.holidayextras.co.uk/doku.php?id=faq&#test_credit_cards) for more detail.
 
@@ -228,44 +142,6 @@ However when you point your application to our live server, you will need to use
 
 Please do **not** cancel bookings by ringing our call centre or using the online cancellation interface at [www.holidayextras.com](http://www.holidayextras.com). Credit card charges will **not be refunded** to your card if you use either of these methods. Send the booking references to <sales@holidayextras.com> and **all charges will be refunded**.
 
-
-
-## Specific documentation
+# Specific documentation
 
 See [Holiday Extras API Endpoints](hxapi) for more detailed documentation on how to make requests to the API and what responses to expect. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
