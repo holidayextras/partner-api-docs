@@ -6,6 +6,14 @@ Holiday Extras Partner API Documentation. Documentation to give to partners who 
 
 ## Contributing
 
+### Installation
+
+Setting up ruby:
+
+    curl -sSL https://get.rvm.io | bash -s stable
+    rvm install ruby-2.0.0-p648
+    gem install bundler
+
 ### Running locally
 
     bundle install
