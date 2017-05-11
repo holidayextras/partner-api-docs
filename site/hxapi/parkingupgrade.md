@@ -2,9 +2,9 @@
 
 ---
 
-†====== Car Parking Upgrade ======
+# Car Parking Upgrade
 
-only for UK products
+Only for UK products
 
 [API Docs](hxapi/) > endpoint:[upgrade](hxapi/upgrade)
 

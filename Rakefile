@@ -1,12 +1,13 @@
-task default: %w[check_links]
+task default: %w[build html_proofer]
 
-desc "Check all external links"
-task :check_links do
-  require 'link_checker'
-  LinkChecker.new(
-    :options => {
-      :no_warnings => true,
-      :max_threads => 10
-    }
-  ).check_uris
+desc "Build site"
+task :build do
+  sh "bundle exec jekyll build"
+end
+
+desc "Check generated HTML"
+task :html_proofer do
+  require 'html-proofer'
+  options = { :assume_extension => true }
+  HTMLProofer.check_directory("./_site", options).run
 end

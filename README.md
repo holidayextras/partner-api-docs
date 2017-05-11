@@ -11,15 +11,19 @@ Holiday Extras Partner API Documentation. Documentation to give to partners who 
 Setting up ruby:
 
     curl -sSL https://get.rvm.io | bash -s stable
-    rvm install ruby-2.0.0-p648
+    rvm install ruby-2.4.1
     gem install bundler
+    bundle install
 
 ### Running locally
 
-    bundle install
     bundle exec jekyll serve
 
 Then open [http://127.0.0.1:4000/](http://127.0.0.1:4000/).
+
+### Testing
+
+    rake
 
 ## ToDo's (should probably raise as issues)
 
@@ -28,7 +32,6 @@ Then open [http://127.0.0.1:4000/](http://127.0.0.1:4000/).
 - Add Google Analytics
 - Update examples to be valid dates etc
 - Make live code examples
-- Check email links are all correct
 - Rework DE pages to so they are a language switch on the EN pages. Also need 100% coverage
 
 ## Scibbles so they don't get lost
