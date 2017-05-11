@@ -2,7 +2,9 @@
 
 currently in use only in UK
 
-Some airport carparks, and other products, have the ability to scan barcodes, speeding up arrival procedures. This endpoint simply enables you to specify a booking reference and receive a **Code128** barcode representation of that in return. 
+An increasing number of car parks, and other products, are updating the way they operate to introduce scanning systems in order to speed up arrival procedures. You will be required to include a 2D barcode on every customer confirmation. The only instance where you should not include a 2D barcode is when a car park stipulates that a QR code is required.
+
+This endpoint simply enables you to specify a booking reference and receive a **Code128** barcode representation of that in return. 
 
 In our experience, the size can be scaled down, but you must keep the proportions the same to prevent blurring. 
 ## Method
@@ -49,6 +51,8 @@ http://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo&angle=270
 The reply in this case will be an image, not XML.
 
 ## QR Code
+
+You can establish whether a car park requires a QR code by including the parameter '&fields=qr_code' within your request. The response will either be '0' or '1'. 
 
 To enable a QR code you use google charts, just add the booking ref as value for chl=  ​so in the example below the booking ref would be HX123.​
 

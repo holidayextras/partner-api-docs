@@ -60,6 +60,7 @@ POST
  | EvePhone              | Phone Number  |                                  | N                 | Y                         |                                                                                                                                                             | 
  | Email                 | Email         | Valid email address              | Y                 | Y                         |                                                                                                                                                             | 
  | CustomerRef           | String        |                                  | N                 | N                         |                                                                                                                                                             | 
+ | Remarks               | String        |                                  | N                 | N                         | Pass in Remarks for notification such as COT REQUESTED in ROOM                                                                                              | 
  | Waiver                | Boolean       | [1,0]                            | Y                 | Y                         | Assumed 0 if not supplied                                                                                                                                   | 
  | DataProtection        | String        | [Y,N]                            | N                 | N                         | Does the customer consent to receiving offers from Holiday Extras. Y = Yes, will receive offers, N = Customer data is protected. Not required, default is N | 
  | PriceCheckPrice       | Int           | (00)0.00                         | Y                 | Y                         |                                                                                                                                                             | 
@@ -81,6 +82,8 @@ POST
 
 System is required to be set to ABG if you are processing bookings for European products and taking payment in Euros.
 Default is ABC for UK/GBP - it is not mandatory to send if you are processing bookings for UK based products or products being processed in GBP.
+
+
 
 #### Terms and conditions Holiday Extras GmbH, Munich
 

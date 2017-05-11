@@ -75,7 +75,7 @@ Pass in lang=en/de/it/es/pt/nl (For System=ABG available lang=de/it/fr/nl)
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=2010-09-20&ArrivalTime=1200&DepartDate=2010-09-27&DepartTime=1400&key=**HXAPIKEY**&token=generate&ABTANumber=**HXAGENTCODE**&Initials=BJT
+http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=2017-09-20&ArrivalTime=1200&DepartDate=2017-09-27&DepartTime=1400&key=**HXAPIKEY**&token=generate&ABTANumber=**HXAGENTCODE**&Initials=BJT
 ```
 
 

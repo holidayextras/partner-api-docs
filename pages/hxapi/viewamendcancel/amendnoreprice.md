@@ -45,6 +45,7 @@ Pass through any existing parameter that the Customer is not changing.
  | DepartTerminal  | String | [A-Z][0-9]    | Y        | N                             | 
  | ArrivalTerminal | String | [A-Z][0-9]    | Y        | 4                             | 
  | CarDropoffTime  | Int    | HHII[0-9]     | Y        | 1200                          | 
+ | CarPickupTime   | Int    | HHII[0-9]     | Y        | 1500                          | 
  | Title           | String | [A-Z][0-9]    | Y        | MR                            | 
  | Initial         | String | [A-Z][0-9]    | Y        | T                             | 
  | Surname         | String | [A-Z][0-9]    | Y        | TEST                          | 

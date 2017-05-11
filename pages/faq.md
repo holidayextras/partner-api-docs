@@ -1,6 +1,5 @@
 # FAQ
 
-
 ## What is the development server address?
 
 http://api.holidayextras.co.uk/sandbox/

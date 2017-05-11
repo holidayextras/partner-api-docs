@@ -47,7 +47,7 @@ The fields required for each request differ according to product.  The products 
 We have built **HXAPI** according to REST design principles. All that means is that everything is done using standard HTTP, just like a web browser. There are no complicated protocols, no specialist skills needed by your programming team. If you would like to read about REST design, [[https://en.wikipedia.org/wiki/Representational_state_transfer
  | here is a good primer]]
  | -----------------------
-, but it does assume some programming knowledge.
+, but it does assume some programming knowledge
 
 Your application sends in HTTP requests and receives a response. The HTTP method used determines the type of action.
 

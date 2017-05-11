@@ -36,48 +36,55 @@ POST
 
 #### Intermediary
 
- | Name            | Data Type | Format       | Required      | 
- | ----            | --------- | ------       | --------      | 
- | ABTANumber      | String    | [A-Z0-9]{5}  | Y             | 
- | Initials        | String    | [A-Z]{3}     | N             | 
- | ArrivalDate     | Date      | YYYY-MM-DD   | Y             | 
- | ArrivalTime     | Time      | HHMM         | Y             | 
- | DepartDate      | Date      | YYYY-MM-DD   | Y             | 
- | DepartTime      | Time      | HHMM         | Y             | 
- | Registration    | String    |              | N §          | 
- | CarMake         | String    |              | N §          | 
- | CarModel        | String    |              | N §          | 
- | CarColour       | String    |              | N §          | 
- | OutFlight       | String    |              | N §          | 
- | ReturnFlight    | String    |              | N §          | 
- | OutTerminal     | String    |              | N §          | 
- | ReturnTerminal  | String    |              | N §          | 
- | MobileNum       | String    |              | N §          | 
- | Destination     | String    |              | N §          | 
- | Title           | String    |              | Y             | 
- | Initial         | String    | [A-Z]{1}     | Y             | 
- | Surname         | String    |              | Y             | 
- | Address[]       | String    |              | Y             | 
- | Town            | String    |              | Y             | 
- | County          | String    |              | Y             | 
- | NumberOfPax     | Number    |              | Y             | 
- | PostCode        | String    |              | Y             | 
- | DayPhone        | String    |              | Y             | 
- | Email           | String    |              | Y             | 
- | CardHolder      | String    |              | Y             | 
- | CardNumber      | String    | [0-9]{14-16} | Y             | 
- | CV2             | Integer   | [0-9]{3-4}   | Y             | 
- | ExpiryDate      | Date      | MMYY         | Y             | 
- | StartDate       | Date      | MMYY         | N*            | 
- | IssueNumber     | Integer   |              | N*            | 
- | Waiver          | Boolean   | 1/0          | N (default N) | 
- | DataProtection  | Char      | Y/N          | N (default N) | 
- | CustomerRef     | String    |              | N             | 
- | key             | String    |              | Y             | 
- | token           | String    | [0-9]{9}     | Y             | 
- | System          | String    | ABC/ABG      | N             | 
- | PriceCheckFlag  | String    | Y            | Y             | 
- | PriceCheckPrice | Value     | 12.34        | Y             | 
+We no longer accept card payments taken via the API - this will be updated to include a TOKEN to pass in payment.
+A new API service will be availble to obtain a token from a Credit Card number - you must prove that you are PCI compliant before this service is available for you.
+
+ | Name                  | Data Type     | Format       | Required      | 
+ | ----                  | ---------     | ------       | --------      | 
+ | ABTANumber            | String        | [A-Z0-9]{5}  | Y             | 
+ | Initials              | String        | [A-Z]{3}     | N             | 
+ | ArrivalDate           | Date          | YYYY-MM-DD   | Y             | 
+ | ArrivalTime           | Time          | HHMM         | Y             | 
+ | DepartDate            | Date          | YYYY-MM-DD   | Y             | 
+ | DepartTime            | Time          | HHMM         | Y             | 
+ | Registration          | String        |              | N §          | 
+ | CarMake               | String        |              | N §          | 
+ | CarModel              | String        |              | N §          | 
+ | CarColour             | String        |              | N §          | 
+ | OutFlight             | String        |              | N §          | 
+ | ReturnFlight          | String        |              | N §          | 
+ | OutTerminal           | String        |              | N §          | 
+ | ReturnTerminal        | String        |              | N §          | 
+ | MobileNum             | String        |              | N §          | 
+ | Destination           | String        |              | N §          | 
+ | Title                 | String        |              | Y             | 
+ | Initial               | String        | [A-Z]{1}     | Y             | 
+ | Surname               | String        |              | Y             | 
+ | Address[]             | String        |              | Y             | 
+ | Town                  | String        |              | Y             | 
+ | County                | String        |              | Y             | 
+ | NumberOfPax           | Number        |              | Y             | 
+ | PostCode              | String        |              | Y             | 
+ | DayPhone              | String        |              | Y             | 
+ | Email                 | String        |              | Y             | 
+ | CardHolder            | String        |              | Y             | 
+ | CardToken             | String        | [0-9]{14-16} | Y             | 
+ | CV2                   | Integer       | [0-9]{3-4}   | Y             | 
+ | ExpiryDate            | Date          | MMYY         | Y             | 
+ | StartDate             | Date          | MMYY         | N*            | 
+ | IssueNumber           | Integer       |              | N*            | 
+ | Waiver                | Boolean       | 1/0          | N (default N) | 
+ | DataProtection        | Char          | Y/N          | N (default N) | 
+ | CustomerRef           | String        |              | N             | 
+ | key                   | String        |              | Y             | 
+ | token                 | String        | [0-9]{9}     | Y             | 
+ | Supplements[]         | String Array  |              | N             | 
+ | SupplementsAdults[]   | Integer Array |              | N             | 
+ | SupplementsChildren[] | Integer Array |              | N             | 
+ | SupplementsCount[]    | Integer Array |              | N             | 
+ | System                | String        | ABC/ABG      | N             | 
+ | PriceCheckFlag        | String        | Y            | Y             | 
+ | PriceCheckPrice       | Value         | 12.34        | Y             | 
 
 
 * Only required for debit card purchases where card has one.
@@ -88,6 +95,54 @@ OutTerminal & ReturnTerminal - Must comprise of airport code + identifier. Eg LG
 
 System is required to be set to ABG if you are processing bookings for European products and taking payment in Euros.
 Default is ABC for UK/GBP - it is not mandatory to send if you are processing bookings for UK based products or products being processed in GBP.
+
+#### Supplements
+
+ | Param                 | Explanation                                                                                         | 
+ | -----                 | -----------                                                                                         | 
+ | Supplements[]         | An array of codes that identify the add-ons that supplement a hotel booking                         | 
+ | SupplementsAdults[]   | An array containing the number of adults for each supplement that is sold on a Per Person basis     | 
+ | SupplementsChildren[] | An array containing the number of children for each supplement that is sold on a Per Person basis   | 
+ | SupplementsCount[]    | An array containing the quantity of each supplement that is sold on a Per Booking or Per Room basis | 
+
+##### Supplement Parameter examples
+
+ | Supplements[]    | SupplementsAdults[SupplementCode] | SupplementsChildren[SupplementCode] | SupplementsCount[SupplementCode] | Supplement Basis | Explantation                                                                              | 
+ | -------------    | --------------------------------- | ----------------------------------- | -------------------------------- | ---------------- | ------------                                                                              | 
+ | SUPPLEMENT_CODE1 | 1                                 | 0                                   | 0                                | PER PERSON       | Booking Basis is PP so Adults and Children params are used, Count param is ignored        | 
+ | SUPPLEMENT_CODE2 | 1                                 | 1                                   | 0                                | PER PERSON       | Booking Basis is PP so Adults and Children params are used, Count param is ignored        | 
+ | SUPPLEMENT_CODE3 | 0                                 | 0                                   | 1                                | PER BOOKING      | Booking Basis is PB so Adults and Children params are used, Count param is ignored        | 
+ | SUPPLEMENT_CODE4 | 0                                 | 0                                   | 1                                | PER ROOM         | Booking Basis is PP so Count param is used and the Adults and Children params are ignored | 
+ | SUPPLEMENT_CODE5 | 0                                 | 0                                   | 2                                | PER ROOM         | Booking Basis is PP so Count param is used and the Adults and Children params are ignored | 
+
+##### The same data as above expressed in the way that it should be submitted
+
+ | Field                                   | Value              | 
+ | -----                                   | -----              | 
+ | Supplements[]                           | 'SUPPLEMENT_CODE1' | 
+ | Supplements[]                           | 'SUPPLEMENT_CODE2' | 
+ | Supplements[]                           | 'SUPPLEMENT_CODE3' | 
+ | Supplements[]                           | 'SUPPLEMENT_CODE4' | 
+ | Supplements[]                           | 'SUPPLEMENT_CODE5' | 
+ | Field                                   | Value              | 
+ | SupplementsAdults['SUPPLEMENT_CODE1']   | 1                  | 
+ | SupplementsAdults['SUPPLEMENT_CODE2']   | 1                  | 
+ | SupplementsAdults['SUPPLEMENT_CODE3']   | 0                  | 
+ | SupplementsAdults['SUPPLEMENT_CODE4']   | 0                  | 
+ | SupplementsAdults['SUPPLEMENT_CODE5']   | 0                  | 
+ | Field                                   | Value              | 
+ | SupplementsChildren['SUPPLEMENT_CODE1'] | 0                  | 
+ | SupplementsChildren['SUPPLEMENT_CODE2'] | 1                  | 
+ | SupplementsChildren['SUPPLEMENT_CODE3'] | 0                  | 
+ | SupplementsChildren['SUPPLEMENT_CODE4'] | 0                  | 
+ | SupplementsChildren['SUPPLEMENT_CODE5'] | 0                  | 
+ | Field                                   | Value              | 
+ | SupplementsCount['SUPPLEMENT_CODE1']    | 0                  | 
+ | SupplementsCount['SUPPLEMENT_CODE2']    | 0                  | 
+ | SupplementsCount['SUPPLEMENT_CODE3']    | 1                  | 
+ | SupplementsCount['SUPPLEMENT_CODE4']    | 1                  | 
+ | SupplementsCount['SUPPLEMENT_CODE5']    | 2                  | 
+
 
 #### Terms and conditions Holiday Extras GmbH, Munich
 
@@ -100,40 +155,44 @@ PriceCheckFlag and PriceCheckPrice are used to ensure that the price you have di
 
 #### Agent
 
- | Name            | Data Type | Format      | Required             | 
- | ----            | --------- | ------      | --------             | 
- | ABTANumber      | String    | [A-Z0-9]{5} | Y                    | 
- | Password        | String    | [A-Z0-9]{5} | N                    | 
- | Initials        | String    | [A-Z]{3}    | N                    | 
- | ArrivalDate     | Date      | YYYY-MM-DD  | Y                    | 
- | ArrivalTime     | Time      | HHMM        | Y                    | 
- | DepartDate      | Date      | YYYY-MM-DD  | Y                    | 
- | DepartTime      | Time      | HHMM        | Y                    | 
- | Registration    | String    |             | N §                 | 
- | CarMake         | String    |             | N §                 | 
- | CarModel        | String    |             | N §                 | 
- | CarColour       | String    |             | N §                 | 
- | OutFlight       | String    |             | N §                 | 
- | ReturnFlight    | String    |             | N §                 | 
- | OutTerminal     | String    |             | N §                 | 
- | ReturnTerminal  | String    |             | N§                  | 
- | MobileNum       | String    |             | N §                 | 
- | Destination     | String    |             | N §                 | 
- | Title           | String    |             | Y                    | 
- | Initial         | String    | [A-Z]{1}    | Y                    | 
- | Surname         | String    |             | Y                    | 
- | Address[]       | String    |             | Y (can be set as NA) | 
- | Town            | String    |             | Y (can be set as NA) | 
- | County          | String    |             | Y (can be set as NA) | 
- | PostCode        | String    |             | Y (can be set as NA) | 
- | Email           | String    |             | Y (can be set as NA) | 
- | NumberOfPax     | Number    |             | Y                    | 
- | Waiver          | Boolean   | 1/0         | N (default N)        | 
- | key             | String    |             | Y                    | 
- | token           | String    | [0-9]{9}    | Y                    | 
- | System          | String    | ABC/ABG     | N                    | 
- | PriceCheckFlag  | String    | Y           | Y                    | 
- | PriceCheckPrice | Value     | 12.34       | Y                    | 
+ | Name                  | Data Type     | Format      | Required             | 
+ | ----                  | ---------     | ------      | --------             | 
+ | ABTANumber            | String        | [A-Z0-9]{5} | Y                    | 
+ | Password              | String        | [A-Z0-9]{5} | N                    | 
+ | Initials              | String        | [A-Z]{3}    | N                    | 
+ | ArrivalDate           | Date          | YYYY-MM-DD  | Y                    | 
+ | ArrivalTime           | Time          | HHMM        | Y                    | 
+ | DepartDate            | Date          | YYYY-MM-DD  | Y                    | 
+ | DepartTime            | Time          | HHMM        | Y                    | 
+ | Registration          | String        |             | N §                 | 
+ | CarMake               | String        |             | N §                 | 
+ | CarModel              | String        |             | N §                 | 
+ | CarColour             | String        |             | N §                 | 
+ | OutFlight             | String        |             | N §                 | 
+ | ReturnFlight          | String        |             | N §                 | 
+ | OutTerminal           | String        |             | N §                 | 
+ | ReturnTerminal        | String        |             | N§                  | 
+ | MobileNum             | String        |             | N §                 | 
+ | Destination           | String        |             | N §                 | 
+ | Title                 | String        |             | Y                    | 
+ | Initial               | String        | [A-Z]{1}    | Y                    | 
+ | Surname               | String        |             | Y                    | 
+ | Address[]             | String        |             | Y (can be set as NA) | 
+ | Town                  | String        |             | Y (can be set as NA) | 
+ | County                | String        |             | Y (can be set as NA) | 
+ | PostCode              | String        |             | Y (can be set as NA) | 
+ | Email                 | String        |             | Y (can be set as NA) | 
+ | NumberOfPax           | Number        |             | Y                    | 
+ | Waiver                | Boolean       | 1/0         | N (default N)        | 
+ | key                   | String        |             | Y                    | 
+ | token                 | String        | [0-9]{9}    | Y                    | 
+ | Supplements[]         | String Array  |             | N                    | 
+ | SupplementsAdults[]   | Integer Array |             | N                    | 
+ | SupplementsChildren[] | Integer Array |             | N                    | 
+ | SupplementsCount[]    | Integer Array |             | N                    | 
+ | System                | String        | ABC/ABG     | N                    | 
+ | PriceCheckFlag        | String        | Y           | Y                    | 
+ | PriceCheckPrice       | Value         | 12.34       | Y                    | 
 
 § The fields required by the carpark are returned in the availability request, in the `<RequestFlags>` element.
 
@@ -170,7 +229,7 @@ Host: api.holidayextras.co.uk
 Accept-Language: en-us,en;q=0.5
 
 
-ABTANumber=**HXAGENTCODE**&Address%5B%5D=99%20Test%20St&ArrivalDate=2008-05-01&ArrivalTime=1200&CardHolder=Mr%20T%20Test&CardNumber=4111111111111111&Confirmation=Y&County=Testshire&DataProtection=Y&DayPhone=9999%209999&DepartDate=2008-05-08&DepartTime=1800&Email=test%40test.com&ExpiryDate=1208&Initial=T&NumberOfPax=2&PostCode=T1%201TT&Surname=Test&Title=Mr&Town=Testchester&key=**HXAPIKEY**&token=123456789
+ABTANumber=**HXAGENTCODE**&Address%5B%5D=99%20Test%20St&ArrivalDate=2008-05-01&ArrivalTime=1200&CardHolder=Mr%20T%20Test&CardToken=12341234123412341234&Confirmation=Y&County=Testshire&DataProtection=Y&DayPhone=9999%209999&DepartDate=2008-05-08&DepartTime=1800&Email=test%40test.com&ExpiryDate=1208&Initial=T&NumberOfPax=2&PostCode=T1%201TT&Surname=Test&Title=Mr&Town=Testchester&key=**HXAPIKEY**&token=123456789
 
 
 ```
@@ -226,7 +285,7 @@ ABTANumber=**HXAGENTCODE**&ArrivalDate=2008-09-20&ArrivalTime=1125&DepartDate=20
 			<ArrivalDate>2008-09-20</ArrivalDate>
 			<ArrivalTime>1125</ArrivalTime>
 			<CardHolder>T Test</CardHolder>
-			<CardNumber>4111111111111111</CardNumber>
+			<CardToken>1234123412341234</CardToken>
 			<County>Test</County>
 			<DataProtection>N</DataProtection>
 			<DayPhone>01303 222222</DayPhone>

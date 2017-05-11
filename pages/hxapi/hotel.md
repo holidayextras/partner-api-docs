@@ -54,3 +54,40 @@ There are some hotels in which the name field will not provide the name of the h
 Pass in System=ABG to access products in Europe.
 
 Default if System is not set should be System=ABC to access products in UK only.
+
+You will need to create a voucher for the customer yourself by using the following information from the product library, plus the information from the booking response:
+
+Relevant keys from the php API are (besides the booking specifics like date, name of the hotel, name of the customer...)
+
+
+*  name
+
+*  adresse
+
+*  GPS coordinates (latitude, longitude)
+
+*  telefon
+
+*  anfahrt (how to get to the hotel)
+
+*  transfer
+
+*  parken (information on car park at the hotel)
+
+*  boardbasis (will be delivered back in the bookings response)
+
+*  frühstücksinformationen (information on breakfast offer in the hotel)
+
+*  zimmerausstattung (room facilities)
+
+*  kinderangebot (child policy)
+
+*  anreise (check in time)
+
+*  weitere_informationen (additional information such as city tax)
+
+http://api.holidayextras.co.uk/v1/product/AMSDOR?key=HXAPI&lang=nl&fields=name,adresse,latitude,longitude,telefon,anfahrt,transfer,parken,fruehstuecksinformationen,zimmerausstattung,kinderangebot,anreise,weitere_informationen,barrierefreier_zugang,haustiere
+
+Please always add our terms and conditions (please also refer to “make a booking at car park” section) 
+
+Example: Service provider: Holiday Extras GmbH | Aidenbachstr. 52 | 81379 München | Germany. Terms and conditions of Holiday Extras, available at http://www.holidayextras.de/images/de-hx/pdf/agb.pdf, apply.

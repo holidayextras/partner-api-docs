@@ -16,6 +16,8 @@ Click on the links below for specific details for each endpoint.
 
 [Insurance](hxapi/insurance) - Quotes and booking requests for insurance.  **UK ONLY**
 
+[Car Hire](hxapi/carhire) - Availability and booking requests for car hire.
+
 [View, amend & cancel](hxapi/viewamendcancel) - Review and alter booking details
 
 [Product library](hxapi/productlibrary) - Static data relating to our products.

@@ -39,7 +39,7 @@ You can specify a comma-separated list of fields to pull back from the product l
 eg...&fields=field_a,field_b,field_c
 ```
 
-The method for querying the product library as a separate request [is outlined here](hxapi/productlibrary/parking)
+The method for querying the product library as a separate request [is outlined here](hxapi/productlibrary/parking).
 
 ## Advance purchase
 
@@ -115,6 +115,8 @@ Default if System is not set should be System=ABC to access products in UK only.
 You will need to create a voucher for the customer yourself by using the following information from the product library, plus the information from the booking response:
 
 mandatory fields are:
+
+
 
 *  car park name <name> or <parkplatzname>
 

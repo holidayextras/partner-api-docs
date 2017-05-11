@@ -7,3 +7,4 @@ To use HXAPI you must have an account with Holiday Extras. We do NOT permit anon
 
 For customers in contact with Holiday Extras, Munich (Germany) please send your questions to [hxapi-contact@holidayextras.de](hxapi-contact@holidayextras.de)
 
+
