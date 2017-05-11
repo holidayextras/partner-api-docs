@@ -38,27 +38,3 @@ Click on the links below for specific details for each endpoint.
 ## Types
 
 [Room Code](hxapi/types/roomcode)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
