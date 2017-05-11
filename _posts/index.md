@@ -1,7 +1,3 @@
----
-layout: page.html
----
-
 # Holiday Extras API
 
 TESTING! Subtree???

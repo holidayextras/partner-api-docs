@@ -10,8 +10,11 @@ _For more information speak to [Simon Wood](https://github.com/hpoom)_
 
 ## Contributing
 
-TODO
 
+### Running locally
+
+    bundle install
+    bundle exec jekyll serve
 
 ## ToDo's (should probably raise as issues)
 
