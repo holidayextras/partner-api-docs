@@ -17,7 +17,7 @@ Both of these formats are compatible with Microsoft Excel. However, if your comp
 
 Excel may show an Import dialog when the file is opened. When opening a CSV file, ensure the **Comma** box is ticked and the **Tab** box is unticked, and vice versa for TSV files.
 
-{{e-mail:systems_excelimport2.jpg|}}
+![e-mail](systems_excelimport2.jpg)
 
 If Excel does not correctly separate the data into cells, it may have guessed at the file format based on the extension of the file. To force Excel to show the Import dialog, you can rename the file to have a ".txt" file extension, then re-open the file by using the same method as above. Beware that if you cannot see the file extension (the part of the file name after the full stop), you will need to prevent the Operating System from hiding this information before renaming the file. On Microsoft Windows (versions prior to Vista) this can be done with the following steps:
 
@@ -29,25 +29,19 @@ If Excel does not correctly separate the data into cells, it may have guessed at
 
 Click [here](http://www.wikihow.com/Disable-Hidden-File-Extensions-in-Windows-XP) for instructions on doing this on Microsoft Windows XP.
 
-
 ### How to report a problem
 
 #### Apple Mail.app E-mail
 
  1.  When requesting help, remember to include the job number in square brackets in the subject line.
  2.  Reports appear below the message. To open a report, right-click and select one of the save options.
-{{e-mail:systems_picture_2.png|}}
+
+![e-mail](systems_picture_2.png)
 
 #### Evolution E-mail
 
-{{e-mail:systems_evolution_screenshot.png|}}
-
-
-
-
+![e-mail](systems_evolution_screenshot.png)
 
 ## Usage Details
 
-There is currently no interface for creating new e-mail notifications. Contact [Philip Carrington](philip.carrington@holidayextras.com) if you need a new report.
-
-[Top of page](#e-mail_notification_system_-_Notification Usage)
+There is currently no interface for creating new e-mail notifications. Please contact your Account Manager and they can arrange report creation.
