@@ -14,7 +14,7 @@ To use **HXAPI** you must have an account with Holiday Extras. We do **NOT** per
 For customers in contact with Holiday Extras, Munich (Germany) please send your questions to 
 <hxapi-contact@holidayextras.de>
 
-This guide assumes a level of programming knowledge. You should be familiar with HTTP, XML, javascript and server-side programming (examples are given in pseudo code and PHP). If you are not a programmer, you may prefer to [read the overview of HXAPI](/nontechOverview) first.
+This guide assumes a level of programming knowledge. You should be familiar with HTTP, XML, javascript and server-side programming (examples are given in pseudo code and PHP). If you are not a programmer, you may prefer to [read the overview of HXAPI](/nontechoverview) first.
 
 After reading this guide, you will have everything you need to build a complete booking system for Holiday Extras products.
 
