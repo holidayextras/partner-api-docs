@@ -10,11 +10,11 @@ Wir veröffentlichen Flughafenparken zuerst, dem wird der Rest unseres Produktan
 
 Um **HXAPI** zu nutzen, müssen Sie über ein Holiday Extras Konto verfügen. Anonymen Zugang erlauben wir **NICHT**. Kontaktieren Sie unsere Sales Abteilung oder schicken sie eine E-Mail an <sales@holidayextras.com>, wenn Sie sich über eine Kontoeröffnung informieren wollen.
 
-Diese Anleitung setzt ein bestimmtes Maß an Programmierkenntnissen voraus. Sie sollten sich mit HTTP, XML, javascript und Server-Side Programming auskennen (Beispiele sind in pseudo code und PHP). Wenn Sie kein Programmierer sind, wollen Sie möglicherweise zunächst den [Überblick über HXAPI lesen](/nontechOverview).
+Diese Anleitung setzt ein bestimmtes Maß an Programmierkenntnissen voraus. Sie sollten sich mit HTTP, XML, javascript und Server-Side Programming auskennen (Beispiele sind in pseudo code und PHP). Wenn Sie kein Programmierer sind, wollen Sie möglicherweise zunächst den [Überblick über HXAPI lesen](/nontechoverview).
 
 Nachdem Sie diese Anleitung gelesen haben, werden Sie alles haben, was sie benötigen, um ein vollständiges Buchungssystem für Produkte von Holiday Extras aufzubauen.
 
-[Überblick über HXAPI](/nontechOverview)
+[Überblick über HXAPI](/nontechoverview)
 
 [Ihr Konto erstellen](/accounts)
 

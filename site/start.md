@@ -20,7 +20,7 @@ After reading this guide, you will have everything you need to build a complete 
 
 [Contact Us](/contactus)
 
-[Overview of HXAPI](/nontechOverview)
+[Overview of HXAPI](/nontechoverview)
 
 [Creating your account](/accounts)
 
