@@ -81,6 +81,7 @@ DEPENDENCIES
   jekyll-feed (~> 0.6)
   minima (~> 2.0)
   rake
+  rouge
   tzinfo-data
 
 RUBY VERSION

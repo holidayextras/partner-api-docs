@@ -24,6 +24,7 @@ GET
  | BookingRef | Alphanumeric | [A-z,0-9]{5}   | Y        | 
  | angle      | Numeric      | Multiple of 90 | N        | 
 
+
 The file extension is also required, to tell the API to return the correct image headers.
 
 ## Request

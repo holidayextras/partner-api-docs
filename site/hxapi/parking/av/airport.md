@@ -33,11 +33,11 @@ GET
  | fields      | String  | [A-Z]a csv list of product info fields | N*++     |     
  | top3        | Boolean | [01]                                   | N*+++    |     
  | key         | String  | [A-Z]                                  | Y        |     
- | token       | String  | [0-9]{9}                               | Y        | ++++
+ | token       | String  | [0-9]{9}                               | Y++++    | 
  | System      | String  | [A-Z]{3}                               | N        |     
  | lang        | String  | [A-Z]{2}                               | N        |     
 
-* Password only required for agent requests. If sending this you should make your availability requests over https.
+*Password only required for agent requests. If sending this you should make your availability requests over https.
 
 *+ Pass in filter=on_airport or filter=recommended or filter=meet_and_greet to only show car parks meeting those criteria. You can filter by any field that comes back in the filter section of the xml.
 

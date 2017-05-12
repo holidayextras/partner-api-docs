@@ -34,8 +34,7 @@ GET
  | key         | String  |             | Y        | 
  | token       | String  | [0-9]{9}    | Y        | 
 
-
-* Password field only required for agents. If sending, requests should be made over https.
+*Password field only required for agents. If sending, requests should be made over https.
 II = Minutes
 
 
