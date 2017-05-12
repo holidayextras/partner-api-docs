@@ -15,7 +15,7 @@ To retrieve all details about the booking, perform a GET request to view the boo
 
 # Post-booking
 
-For parking products, once the booking has been made, you should include a barcode on your confirmation page and email. This is a simple representation of the booking reference and it just involves another call to the api. Details are available [here](http://docs.holidayextras.co.uk/doku.php?id=hxapi:barcode).
+For parking products, once the booking has been made, you should include a barcode on your confirmation page and email. This is a simple representation of the booking reference and it just involves another call to the api. Details are available [here](/hxapi/barcode).
 
 ## /carpark/foo
 

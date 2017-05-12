@@ -136,7 +136,7 @@ The most common scenario, or order of requests to HXAPI, would be:
 
 # How to cancel a booking
 
-Bookings made against the test server can be made with a test credit card number (eg 4715059999000437). If you use a valid card number, no payment will be taken. There are a range of cards and scenarios which will allow a test booking against the test server to be processed - see [faq](http://docs.holidayextras.co.uk/doku.php?id=faq&#test_credit_cards) for more detail.
+Bookings made against the test server can be made with a test credit card number (eg 4715059999000437). If you use a valid card number, no payment will be taken. There are a range of cards and scenarios which will allow a test booking against the test server to be processed - see [faq](/faq#test-credit-cards) for more detail.
 
 However when you point your application to our live server, you will need to use a valid credit card, the bookings will be live and will need to be cancelled.
 
