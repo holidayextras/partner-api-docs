@@ -2,11 +2,9 @@
 
 ---
 
-# API Documentation
+# Endpoints
 
 [API Docs](/hxapi/) > index
-
-## Endpoints 
 
 Click on the links below for specific details for each endpoint.
 
@@ -35,6 +33,7 @@ Click on the links below for specific details for each endpoint.
 [Hotel Upgrade](upgrade) - Hotel Upgrade/Add-ons available for a given product. **UK ONLY**
 
 [Parking Upgrade](parkingupgrade) - Parking Upgrade/Add-ons available for a given product. 
-## Types
+
+# Types
 
 [Room Code](types/roomcode)

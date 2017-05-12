@@ -20,5 +20,4 @@
  | [Availability, room](/hxapi/hotel/de-av-room) | 2              | 
  | [Booking](/hxapi/hotel/de-bkg)                | 5              | 
 
-
 ##  Common 

@@ -60,4 +60,4 @@ You can establish whether a car park requires a QR code by including the paramet
 
 To enable a QR code you use google charts, just add the booking ref as value for chl=  ​so in the example below the booking ref would be HX123.​
 
-http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=HX123&chld=H|0
+[http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=HX123&chld=H%7C0](http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=HX123&chld=H%7C0)
