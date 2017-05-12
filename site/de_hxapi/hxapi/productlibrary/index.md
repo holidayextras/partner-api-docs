@@ -13,6 +13,6 @@ Alternativ können Sie die Datenfelder, die Sie angezeigt bekommen wollen, auch 
 Der Zweck der meisten Datenfelder sollte selbsterklärend sein. Wenn es irgendetwas gibt, das Sie nicht verstehen, schicken Sie bitte eine E-Mail an 
 <sales@holidayextras.com>. Es gibt keine Garantie dafür, welche Arten von Daten geliefert werden. Sie sollten nicht vorraussetzen, dass ein Feld eine ganze Zahl ist etc.
 
-[Parken - Spezifische Parkplatz-Informationen](de_hxapi/productlibrary/parking)
+[Parken - Spezifische Parkplatz-Informationen](parking)
 
-[Location - Alle Locations listen](de_hxapi/productlibrary/location)
+[Location - Alle Locations listen](location)

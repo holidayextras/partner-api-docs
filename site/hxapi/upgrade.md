@@ -6,7 +6,7 @@
 
 only for UK products
 
-[API Docs](hxapi/) > endpoint:[upgrade](hxapi/upgrade)
+[API Docs](/hxapi/) > endpoint:[upgrade](upgrade)
 
 ## Method
 

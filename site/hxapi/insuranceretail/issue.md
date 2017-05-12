@@ -6,7 +6,7 @@
 
 ## /insurancepolicy/foo
 
-Where **foo** is the certificate Reference from a call to [GET options](hxapi/insuranceretail/options). 
+Where **foo** is the certificate Reference from a call to [GET options](options).
 
 ## Caution
 

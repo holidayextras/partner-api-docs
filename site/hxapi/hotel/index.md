@@ -4,18 +4,18 @@
 
 # Hotels
 
-[API Docs](hxapi/) > product:[Hotels](hxapi/hotel)
+[API Docs](/hxapi/) > product:[Hotels](index)
 
 These are the hotel with parking requests. If available, the options returned are for 0, 8 and 15 days parking. If the customer requires room only, please choose the zero days parking option. There is no specific hotel-only request.
 
  | Action                                     | Endpoint                                                                         | Method | 
  | ------                                     | --------                                                                         | ------ | 
- | UK and Europe - Availability at hotel      | [http://api.holidayextras.co.uk/v1/sandbox/hotel/foo](hxapi/hotel/av)            | GET    | 
- | UK ONLY - Upgrades at hotel                | [http://api.holidayextras.co.uk/v1/sandbox/upgrade/foo](hxapi/upgrade)           | GET    | 
- | UK and Europe - Make booking at hotel      | [http://api.holidayextras.co.uk/v1/sandbox/hotel/foo](hxapi/hotel/bkg)           | POST   | 
- | DE ZNT linked - Availability at hotel      | [http://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](hxapi/hotel/de-av)      | GET    | 
- | DE ZNT linked - Room availability at hotel | [http://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](hxapi/hotel/de-av-room) | GET    | 
- | DE ZNT linked - Make booking at hotel      | [http://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](hxapi/hotel/de-bkg)     | POST   | 
+ | UK and Europe - Availability at hotel      | [http://api.holidayextras.co.uk/v1/sandbox/hotel/foo](av)            | GET    | 
+ | UK ONLY - Upgrades at hotel                | [http://api.holidayextras.co.uk/v1/sandbox/upgrade/foo](/hxapi/upgrade)           | GET    | 
+ | UK and Europe - Make booking at hotel      | [http://api.holidayextras.co.uk/v1/sandbox/hotel/foo](bkg)           | POST   | 
+ | DE ZNT linked - Availability at hotel      | [http://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](de-av)      | GET    | 
+ | DE ZNT linked - Room availability at hotel | [http://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](de-av-room) | GET    | 
+ | DE ZNT linked - Make booking at hotel      | [http://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](de-bkg)     | POST   | 
 
 # Important Notices
 
@@ -26,7 +26,7 @@ You can specify a comma-separated list of fields to pull back from the product l
 eg...&fields=field_a,field_b,field_c
 ```
 
-The method for querying the product library as a separate request [is outlined here](hxapi/productlibrary/parking)
+The method for querying the product library as a separate request [is outlined here](/hxapi/productlibrary/parking)
 
 ## Advance purchase
 

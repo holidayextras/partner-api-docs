@@ -4,11 +4,7 @@
 
 # Availability At Car Park
 
-[API Docs](hxapi/) > product:[Parking](hxapi/parking) > endpoint:[carpark](hxapi/parking/av) > [Availability by Carpark](hxapi/parking/av/carpark)
-
-
-
-
+[API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carpark](/hxapi/parking/av) > [Availability by Carpark](carpark)
 
 ## /carpark/foo
 
@@ -19,17 +15,6 @@ e.g. http://api.holidayextras.co.uk/carpark/LHR2
 ### Method
 
 GET
-
-
-
-
-
-
-
-
-
-
-
 
 ### Parameters
 

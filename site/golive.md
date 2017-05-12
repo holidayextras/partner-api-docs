@@ -4,31 +4,11 @@
 
 # Go-Live Procedure
 
-
-
-
-
-
 ## Enable your key
 
-Once development is complete against the development environment, you must contact us at [sales@holidayextras.com](sales@holidayextras.co.uk) so that we can create and enable your key for the live environment. This action will not be taken until the [relevant paperwork](/accounts) has been received and approved.
+Once development is complete against the development environment, you must contact us at <sales@holidayextras.com> so that we can create and enable your key for the live environment. This action will not be taken until the [relevant paperwork](/accounts) has been received and approved.
 
 For customers in contact with Holiday Extras, Munich (Germany) please contact <hxapi-contact@holidayextras.de> to create and enable your key for the live environment.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Once your key is active
 
@@ -50,7 +30,7 @@ If you cancel online via the Holiday Extras website or by telephoning our call c
 *  Do not make a booking for a non amendable/non cancellable supersaver product
 
 
-When your application is ready to go live, please contact us via [email](sales@holidayextras.com) with the following information:
+When your application is ready to go live, please contact us via email at <sales@holidayextras.com> with the following information:
 
 
 *  the url at which we can see the system.

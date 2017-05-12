@@ -6,7 +6,7 @@
 
 only available in UK
 
-[API Docs](hxapi/) > product:[Parking](hxapi/parking) > endpoint:[carparkspaces](hxapi/parking/spaces/carpark)
+[API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carparkspaces](carpark)
 
 ## /carparkspaces/foo
 

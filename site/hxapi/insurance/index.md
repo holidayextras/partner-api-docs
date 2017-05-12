@@ -6,9 +6,9 @@
 
  | Action                             | Endpoint                                                                                                          | Method | 
  | ------                             | --------                                                                                                          | ------ | 
- | List all Valid Regions             | [http://api.holidayextras.co.uk/v1/insurancecountries](hxapi/insurancecountries)                                  | GET    | 
- | List all Countries in Valid Region | [http://api.holidayextras.co.uk/v1/insurancecountries/foo ](hxapi/insurancecountries#insurancecountries_foo)      | GET    | 
- | Search for Specific Country        | [http://api.holidayextras.co.uk/v1/insurancecountries/search](hxapi/insurancecountries#insurancecountries_search) | GET    | 
+ | List all Valid Regions             | [http://api.holidayextras.co.uk/v1/insurancecountries](/hxapi/insurancecountries)                                  | GET    | 
+ | List all Countries in Valid Region | [http://api.holidayextras.co.uk/v1/insurancecountries/foo ](/hxapi/insurancecountries#insurancecountriesfoo)      | GET    | 
+ | Search for Specific Country        | [http://api.holidayextras.co.uk/v1/insurancecountries/search](/hxapi/insurancecountries#insurancecountriessearch) | GET    | 
 
 # Insurance Policies
 
@@ -18,11 +18,11 @@
 
  | Action                                               | Endpoint                                                                                     | Method | Note | 
  | ------                                               | --------                                                                                     | ------ | ---- | 
- | Request insurance quote for Europe low-risk          | [http://api.holidayextras.co.uk/v1/insurancepolicy/EUROPELOW](hxapi/insurance/availability)  | GET    | *    | 
- | Request insurance quote for Europe high-risk         | [http://api.holidayextras.co.uk/v1/insurancepolicy/EUROPEHIGH](hxapi/insurance/availability) | GET    | *    | 
- | Request insurance quote for World wide including USA | [http://api.holidayextras.co.uk/v1/insurancepolicy/WWXUSA](hxapi/insurance/availability)     | GET    |      | 
- | Request insurance quote for World wide excluding USA | [http://api.holidayextras.co.uk/v1/insurancepolicy/WWIUSA](hxapi/insurance/availability)     | GET    |      | 
- | Request insurance quote for Europe                   | [http://api.holidayextras.co.uk/v1/insurancepolicy/EUROPE](hxapi/insurance/availability)     | GET    | *    | 
+ | Request insurance quote for Europe low-risk          | [http://api.holidayextras.co.uk/v1/insurancepolicy/EUROPELOW](availability)  | GET    | *    | 
+ | Request insurance quote for Europe high-risk         | [http://api.holidayextras.co.uk/v1/insurancepolicy/EUROPEHIGH](availability) | GET    | *    | 
+ | Request insurance quote for World wide including USA | [http://api.holidayextras.co.uk/v1/insurancepolicy/WWXUSA](availability)     | GET    |      | 
+ | Request insurance quote for World wide excluding USA | [http://api.holidayextras.co.uk/v1/insurancepolicy/WWIUSA](availability)     | GET    |      | 
+ | Request insurance quote for Europe                   | [http://api.holidayextras.co.uk/v1/insurancepolicy/EUROPE](availability)     | GET    | *    | 
 
 * The Europe low-risk and Europe high-risk destinations are what we will use for most schemes issued, if in doubt, use /EUROPEHIGH and /EUROPELOW. A few partners can use /EUROPE, if you can, you will know who you are.
 

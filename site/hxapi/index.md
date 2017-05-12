@@ -4,7 +4,7 @@
 
 # API Documentation
 
-[API Docs](/) > index
+[API Docs](/hxapi/) > index
 
 ## Endpoints 
 

@@ -4,15 +4,15 @@
 
 # Region Codes
 
-Five or six character region codes determine which region of the world an [insurance policy](hxapi/insurance) will cover. It is safer to confirm which country your customer is travelling to and map it to the region than ask them the region directly.
+Five or six character region codes determine which region of the world an [insurance policy](/hxapi/insurance) will cover. It is safer to confirm which country your customer is travelling to and map it to the region than ask them the region directly.
 
 ### Endpoints
 
  | Action                    | Endpoint                                                                                                          | Method | 
  | ------                    | --------                                                                                                          | ------ | 
- | List regions              | [http://api.holidayextras.co.uk/v1/insurancecountries/](hxapi/insurancecountries)                                 | GET    | 
- | List countries for region | [http://api.holidayextras.co.uk/v1/insurancecountries/foo](hxapi/insurancecountries#insurancecountries_foo)       | GET    | 
- | Search by country         | [http://api.holidayextras.co.uk/v1/insurancecountries/search](hxapi/insurancecountries#insurancecountries_search) | GET    | 
+ | List regions              | [http://api.holidayextras.co.uk/v1/insurancecountries/](/hxapi/insurancecountries)                                 | GET    | 
+ | List countries for region | [http://api.holidayextras.co.uk/v1/insurancecountries/foo](/hxapi/insurancecountries#insurancecountriesfoo)       | GET    | 
+ | Search by country         | [http://api.holidayextras.co.uk/v1/insurancecountries/search](/hxapi/insurancecountries#insurancecountriessearch) | GET    | 
 
 ### Intermediary/Direct System
 

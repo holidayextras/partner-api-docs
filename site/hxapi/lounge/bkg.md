@@ -11,7 +11,7 @@ To make a booking, the request type must be a POST. It must be made over HTTPS. 
 If you do not send the `<ABTANumber>` field, your booking will not be tracked to your agent code. For agent bookings, the `<Password>` field is also required, intermediaries do not have a password.
 
 
-To retrieve all details about the booking, perform a GET request to view the booking at the location specified in `<MoreInfoURL>`. [Instructions on how to view a booking](hxapi/viewamendcancel/view).
+To retrieve all details about the booking, perform a GET request to view the booking at the location specified in `<MoreInfoURL>`. [Instructions on how to view a booking](/hxapi/viewamendcancel/view).
 
 ## /lounge/foo
 

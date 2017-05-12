@@ -6,7 +6,7 @@
 
 ## /insurancepolicy/foo
 
-Where **foo** is the [region code](hxapi/types/regioncode). Call this method to get available schemes, the next step is to [GET options](hxapi/insuranceretail/options).
+Where **foo** is the [region code](/hxapi/types/regioncode). Call this method to get available schemes, the next step is to [GET options](/hxapi/insuranceretail/options).
 
 ### Method
 

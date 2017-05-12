@@ -4,7 +4,7 @@
 
 # Insurance Country - Region Lookup
 
-This endpoint can be used to list all [regions](hxapi/types/regioncode), list countries by region, or free text search to get a list of countries and the corresponding regions.
+This endpoint can be used to list all [regions](types/regioncode), list countries by region, or free text search to get a list of countries and the corresponding regions.
 
 ## /insurancecountries/
 
@@ -61,7 +61,7 @@ http://api.holidayextras.co.uk/v1/insurancecountries?ABTANumber=foo&Password=you
 
 ## /insurancecountries/foo
 
-Where foo is the [Region code](hxapi/types/regioncode)
+Where foo is the [Region code](/hxapi/types/regioncode)
 
 ### Method
 

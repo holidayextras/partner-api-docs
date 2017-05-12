@@ -4,12 +4,7 @@
 
 # Availability At Airport
 
-[API Docs](hxapi/) > product:[Parking](hxapi/parking) > endpoint:[carpark](hxapi/parking/av) > request:[Availability by Airport](hxapi/parking/av/airport)
-
-
-
-
-
+[API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carpark](/hxapi/parking/av) > request:[Availability by Airport](airport)
 
 ## /carpark/foo
 
@@ -17,23 +12,9 @@ where foo is the location (airport) code
 
 e.g. http://api.holidayextras.co.uk/v1/carpark/LHR
 
-
-
-
-
 ### Method
 
 GET
-
-
-
-
-
-
-
-
-
-
 
 
 ### Parameters

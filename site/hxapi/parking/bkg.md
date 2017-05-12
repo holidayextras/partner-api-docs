@@ -4,17 +4,14 @@
 
 # Make booking at car park
 
-[API Docs](hxapi/) > product:[Parking](hxapi/parking) > endpoint:[carpark](hxapi/parking/av) > [Make Booking](hxapi/parking/bkg)
+[API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carpark](av) > [Make Booking](bkg)
 
 This must be a POST, as you are making a booking. It must be made over HTTPS. Intermediaries will be sending credit card information, Agents will send their login details so HTTPS is required in both instances.
 
 If you do not send the ABTANumber field (for agent code) then your booking will not be tracked to your agent code. For agent bookings, the Password field is also required, intermediaries do not have a password.
 
 
-To retrieve all details about the booking, perform a GET request to view the booking at the location specified in `<MoreInfoURL>`. [Instructions on how to view a booking](hxapi/viewamendcancel/view).
-
-
-
+To retrieve all details about the booking, perform a GET request to view the booking at the location specified in `<MoreInfoURL>`. [Instructions on how to view a booking](/hxapi/viewamendcancel/view).
 
 # Post-booking
 
@@ -29,12 +26,6 @@ e.g. /carpark/LHR2
 ### Method
 
 POST
-
-
-
-
-
-
 
 ### Parameters
 
@@ -381,9 +372,6 @@ ABTANumber=**HXAGENTCODE**&ArrivalDate=2008-09-20&ArrivalTime=1125&DepartDate=20
 ```
 
 
-
-
-
 ### Fields Explained
 
 #### API_Header/Request/DataProtection
@@ -408,5 +396,4 @@ The amount of commission earned on the booking.
 #### Booking/VATonComm
 
 VAT payable on the commission.
-
 

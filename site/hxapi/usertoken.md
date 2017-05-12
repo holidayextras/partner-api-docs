@@ -4,7 +4,7 @@
 
 # User Token
 
-[API Docs](hxapi/) > endpoint:[usertoken](hxapi/usertoken)
+[API Docs](/hxapi/) > endpoint:[usertoken](usertoken)
 
 Any request to **HXAPI** for either availability or to make a booking must include a valid user token. Your application should obtain a new user token for every user who embarks on an availability search. Once a user has made a booking, we expect the user token to be dropped, **it should not be reused**.
 

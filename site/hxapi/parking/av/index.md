@@ -4,7 +4,7 @@
 
 # Carpark Endpoint
 
-[API Docs](hxapi/) > product:[Parking](hxapi/parking) > endpoint:[carpark](hxapi/parking/av)
+[API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carpark](/hxapi/parking/av)
 
 
 ## /carpark/foo

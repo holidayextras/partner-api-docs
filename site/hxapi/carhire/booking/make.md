@@ -4,7 +4,7 @@
 
 # Make Booking
 
-[API Docs](hxapi/) > product:[Car Hire](hxapi/carhire) > endpoint:[make booking](hxapi/carhire/booking/make)
+[API Docs](/hxapi/) > product:[Car Hire](/hxapi/carhire) > endpoint:[make booking](make)
 
 ```html
 GET: /carHire/<productCode>

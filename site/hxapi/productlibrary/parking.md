@@ -4,7 +4,7 @@
 
 # Product Library - Car Park
 
-[API Docs](hxapi/) > endpoint:[product](hxapi/productlibrary/parking)
+[API Docs](/hxapi/) > endpoint:[product](parking)
 
 ## /product/foo
 

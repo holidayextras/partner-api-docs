@@ -10,7 +10,7 @@
 
 ## /insurancecountries/foo
 
-Where **foo** is the [ country code](hxapi/insurance ).
+Where **foo** is the [ country code](index).
 
 
 

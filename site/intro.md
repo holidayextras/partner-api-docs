@@ -15,7 +15,7 @@ The only requirements are the ability to
 
 # REST
 
-**HXAPI** accepts [REST](https///en.wikipedia.org/wiki/Representational_state_transfer) requests. Every request is made over **HTTP** using the standard methods. For data retrieval, you always use the GET method. For making a booking (thus creating a new resource), the POST method must be used. 
+**HXAPI** accepts [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) requests. Every request is made over **HTTP** using the standard methods. For data retrieval, you always use the GET method. For making a booking (thus creating a new resource), the POST method must be used. 
 
 http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2
 

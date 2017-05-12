@@ -15,7 +15,7 @@ Die einzigen Vorraussetzungen ist die Möglichkeit
 
 # REST
 
-**HXAPI** akzeptiert [REST](https///en.wikipedia.org/wiki/Representational_state_transfer) Anfragen. Jede Anfrage wird über **HTTP** unter Verwendung der Standardverfahren gemacht. Für den Datenabruf benutzen Sie immer das GET Verfahren. Um eine Buchung zu machen (und demzufolge eine neue Quelle zu erstellen), muss das POST Verfahren verwendet werden.
+**HXAPI** akzeptiert [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) Anfragen. Jede Anfrage wird über **HTTP** unter Verwendung der Standardverfahren gemacht. Für den Datenabruf benutzen Sie immer das GET Verfahren. Um eine Buchung zu machen (und demzufolge eine neue Quelle zu erstellen), muss das POST Verfahren verwendet werden.
 
 http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2
 
@@ -25,7 +25,7 @@ Eine URL kann, je nach Zugangsverfahren, unterschiedliche Funktionen haben. Die 
 
 Immer wenn Sie neuen Code schreiben oder bestehende Funktionalität verändern, müssen Sie den Development Server (sandbox) verwenden. Die erhaltenen Daten sind nicht "genauso live", aber das Format und die Struktur sind gleich. Falls Sie das nicht tun, beeinflussen Sie Metriken, wie zum Beispiel Conversion Rates, und natürlich werden alle gemachten Buchungen live sein.
 
-Der nötige Ablauf, um von Development zu Live zu gelangen, ist [hier](/golive) verdeutlicht.
+Der nötige Ablauf, um von Development zu Live zu gelangen, ist [hier](golive) verdeutlicht.
 
 Development URL: http://api.holidayextras.co.uk/sandbox/
 
@@ -122,12 +122,12 @@ Bitte stornieren Sie Buchungen **nicht** mittels eines Anrufes in unserem Callce
 
 Klicken Sie auf die unten stehenden Links um ausführlichere Details der für jede Anfrage benötigten Parameter zu erhalten.
 
-[Nutzerkennung](de_hxapi/hxapi/usertoken) - Kennung, die Suchanfragen und Buchungen von Kunden verbindet.
+[Nutzerkennung](hxapi/usertoken) - Kennung, die Suchanfragen und Buchungen von Kunden verbindet.
 
-[Produktbibliothek](de_hxapi/hxapi/productlibrary) - Alle statistischen Daten, die mit unseren Produkten verbunden sind.
+[Produktbibliothek](hxapi/productlibrary) - Alle statistischen Daten, die mit unseren Produkten verbunden sind.
 
-[Parken](de_hxapi/hxapi/parking) - Verfügbarkeits- und Buchungsanfragen bei Parkplätzen.
+[Parken](hxapi/parking) - Verfügbarkeits- und Buchungsanfragen bei Parkplätzen.
 
-[Location](de_hxapi/hxapi/locations) - Die Liste gültiger Locations abfragen.
+[Location](hxapi/locations) - Die Liste gültiger Locations abfragen.
 
-[Terminal](de_hxapi/hxapi/terminal) - Liste der Terminals bei einer gewählten Location.
+[Terminal](hxapi/terminal) - Liste der Terminals bei einer gewählten Location.

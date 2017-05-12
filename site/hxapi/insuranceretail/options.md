@@ -6,7 +6,7 @@
 
 ## /insurancepolicy/foo
 
-Where **foo** is the scheme ID from a call to [GET quotes](hxapi/insuranceretail/availability). Most parameters required by this method are returned in that reply.
+Where **foo** is the scheme ID from a call to [GET quotes](availability). Most parameters required by this method are returned in that reply.
 
 ### Method
 
@@ -30,7 +30,7 @@ GET
 
 * It's recommended to specify keys (eg birthDate[0], title[0] rather than just birthDate[]) to avoid any risk of mixing up passenger details
 
-§ You should use the values from the [GET quotes](hxapi/insuranceretail/availability) reply for these fields
+§ You should use the values from the [GET quotes](availability) reply for these fields
 
 ### Request
 
@@ -232,7 +232,7 @@ This is returned on type H options. 'Activity' has a list of covered activities,
 
 #### Quote/certificateRef
 
-ID string of your temporary policy. You will need this when [POSTing](hxapi/insuranceretail/issue) to issue the policy.
+ID string of your temporary policy. You will need this when [POSTing](issue) to issue the policy.
 
 ### Retail - commission calculations
 

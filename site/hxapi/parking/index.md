@@ -4,36 +4,23 @@
 
 # Parking
 
-[API Docs](hxapi/) > product:[Parking](hxapi/parking)
+[API Docs](/hxapi/) > product:[Parking](index)
 
 These are the parking requests.
 
 
  | Action                   | Endpoint                                                                            | Method | 
  | ------                   | --------                                                                            | ------ | 
- | Availability at airport  | [http://api.holidayextras.co.uk/v1/carpark/foo](hxapi/parking/av/airport)           | GET    | 
- | Availability at car park | [http://api.holidayextras.co.uk/v1/carpark/foo](hxapi/parking/av/carpark)           | GET    | 
- | Space count at car park  | [http://api.holidayextras.co.uk/v1/carparkspaces/foo](hxapi/parking/spaces/carpark) | GET    | 
- | Upgrades                 | [http://api.holidayextras.co.uk/v1/upgrade/foo](hxapi/upgrade)                      | GET    | 
- | Make booking at car park | [https://api.holidayextras.co.uk/v1/carpark/foo](hxapi/parking/bkg)                 | POST   | 
-
-
-
-
-
+ | Availability at airport  | [http://api.holidayextras.co.uk/v1/carpark/foo](av/airport)           | GET    | 
+ | Availability at car park | [http://api.holidayextras.co.uk/v1/carpark/foo](av/carpark)           | GET    | 
+ | Space count at car park  | [http://api.holidayextras.co.uk/v1/carparkspaces/foo](spaces/carpark) | GET    | 
+ | Upgrades                 | [http://api.holidayextras.co.uk/v1/upgrade/foo](/hxapi/upgrade)                      | GET    | 
+ | Make booking at car park | [https://api.holidayextras.co.uk/v1/carpark/foo](bkg)                 | POST   | 
 
 
 # Important notices
 
 **Important!** These points have created problems for partners in the past.
-
-
-
-
-
-
-
-
 
 
 ## Merging product library data into availability response
@@ -43,7 +30,7 @@ You can specify a comma-separated list of fields to pull back from the product l
 eg...&fields=field_a,field_b,field_c
 ```
 
-The method for querying the product library as a separate request [is outlined here](hxapi/productlibrary/parking).
+The method for querying the product library as a separate request [is outlined here](/hxapi/productlibrary/parking).
 
 ## Advance purchase
 
@@ -54,11 +41,7 @@ There is a field in the product library for car parks, named 'advance_purchase'.
 
 If your application does not grab a new user token for each user on your site before making requests to the carpark endpoint, we have no way of differentiating between your customers. We've had several partners send through the same number for every customer. This has made it difficult to trace bookings when a problem has required investigation. Please ensure that you request a User Token before doing any parking requests.
 
-[How to request a user token](http://docs.holidayextras.co.uk/doku.php?id=hxapi:usertoken)
-
-
-
-
+[How to request a user token](/hxapi/usertoken)
 
 
 ## Request flags
@@ -70,12 +53,6 @@ The request flags brought back from availability searches indicate the fields re
 	<Registration>1</Registration>
 </RequestFlags>
 ```
-
-
-
-
-
-
 
 ## Total price  - <Pricing> element
 

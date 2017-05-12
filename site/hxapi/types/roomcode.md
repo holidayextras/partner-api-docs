@@ -4,7 +4,7 @@
 
 # Room Codes
 
-[API Docs](hxapi/) > type:[roomcode](hxapi/types/roomcode)
+[API Docs](/hxapi/) > type:[roomcode](roomcode)
 
 #### RoomType (request)
 
