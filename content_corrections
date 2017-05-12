@@ -14,6 +14,7 @@
 #Parking
 - Registration plates are a string, we do not validate this in the API, a partner would need to validate the input if they so wished. (For our direct customers we have the car reg look up but as there is a cost attached to this per look up we have no plans to make this available outside of HX use).
 - The table of parameters for make booking focuses only on mandatory and non mandatory parameters for intermediary agents. Retail should be included as some of these aren't mandatory... although intermediary should be removed anyway as part of PCI updates as nobody uses it on intermediary basis to make bookings. They will only use it on occasions for requests
+- Needs to be clearer that need to add "FR" to start of product code when making a booking (check this is same for other products).
 
 #Germany 
 - Date format for UK needs to be reversed, i.e. DD-MM-YYYY
