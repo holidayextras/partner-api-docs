@@ -18,6 +18,7 @@ echo "merging..."
 git merge ${RELEASE_BRANCH} -m 'Merged'
 echo "copying files..."
 cp -a _site/* ./
+git status
 echo "adding files..."
 git add * || true
 git status
