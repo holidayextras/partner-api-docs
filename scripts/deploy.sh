@@ -9,18 +9,18 @@ fi
 git --version
 git checkout ${RELEASE_BRANCH}
 git remote set-branches --add origin gh-pages
-echo "fetching..."
+echo "Fetching..."
 git fetch origin
 git branch gh-pages origin/gh-pages
 git checkout gh-pages
 git branch
-echo "merging..."
+echo "Merging..."
 git merge ${RELEASE_BRANCH} -m 'Merged'
-echo "copying files..."
+echo "Copying files..."
 cp -a _site/* ./
 git status
-echo "adding files..."
-git add * --ignore-errors || true
+echo "Adding files..."
+git add .
 git status
 if [[ -n $(git status -s) ]] ; then
   echo "Updated site needs committing"

@@ -27,8 +27,6 @@ Then open [http://127.0.0.1:4000/](http://127.0.0.1:4000/).
 
 ## ToDo's (should probably raise as issues)
 
-- Add linting, plus everyting else a good repo should have (Contributing md file) - Run past forkability
-- Wire up CI, Travis or Circle, for auto build on change
 - Add Google Analytics
 - Update examples to be valid dates etc
 - Make live code examples
