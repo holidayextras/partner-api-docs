@@ -6,10 +6,15 @@ if [ "${TRAVIS_BRANCH}" != "${RELEASE_BRANCH}" ]; then
   echo "ERROR: Not on ${RELEASE_BRANCH} branch"
   exit 2
 fi
+git --version
 git branch
 git checkout ${RELEASE_BRANCH}
+echo "fetching..."
 git fetch origin
 git pull
+echo "showing remote branches..."
+git ls-remote
+echo "showing branches..."
 git branch -a -v
 git checkout -b gh-pages origin/gh-pages
 git branch
