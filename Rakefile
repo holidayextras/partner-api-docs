@@ -1,3 +1,5 @@
+require 'rake-jekyll'
+
 task default: %w[build html_proofer]
 
 desc "Build site"
