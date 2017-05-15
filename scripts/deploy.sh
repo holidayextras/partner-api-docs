@@ -8,6 +8,7 @@ if [ "${TRAVIS_BRANCH}" != "${RELEASE_BRANCH}" ]; then
 fi
 git branch
 git checkout ${RELEASE_BRANCH}
+git fetch origin
 git pull
 git branch
 git checkout gh-pages
