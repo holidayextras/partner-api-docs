@@ -7,6 +7,9 @@ if [ "${TRAVIS_BRANCH}" != "${RELEASE_BRANCH}" ]; then
   exit 2
 fi
 git --version
+if [ "`git config --get user.name`" == "" ]; then
+  git config user.name ${GITHUB_USER}
+fi
 git checkout ${RELEASE_BRANCH}
 git remote set-branches --add origin gh-pages
 echo "Fetching..."
