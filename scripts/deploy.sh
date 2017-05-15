@@ -1,5 +1,13 @@
 #!/bin/bash
 set -e
+
+which ruby
+ruby -v
+bundle exec rake deploy
+
+exit 2
+
+
 RELEASE_BRANCH='master'
 echo "Current branch: ${TRAVIS_BRANCH}"
 if [ "${TRAVIS_BRANCH}" != "${RELEASE_BRANCH}" ]; then
@@ -11,8 +19,6 @@ if [ "`git config --get user.name`" == "" ]; then
   git config user.name ${GITHUB_USER}
 fi
 
-bundle exec rake deploy
-exit 2
 git checkout ${RELEASE_BRANCH}
 git remote set-branches --add origin gh-pages
 echo "Fetching..."

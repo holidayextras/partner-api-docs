@@ -6,10 +6,7 @@ rvm:
   - 2.4.1
 deploy:
   provider: script
-  script:
-    - which ruby
-    - ruby -v
-    - bundle exec rake deploy
+  script: scripts/deploy.sh
   skip_cleanup: true
   on:
     branch: master
