@@ -7,23 +7,18 @@ if [ "${TRAVIS_BRANCH}" != "${RELEASE_BRANCH}" ]; then
   exit 2
 fi
 git --version
-git branch
 git checkout ${RELEASE_BRANCH}
 git remote set-branches --add origin gh-pages
 echo "fetching..."
 git fetch origin
-git pull
-echo "showing remote branches..."
-git ls-remote
-echo "showing remote branches #2 ..."
-git branch -r
-echo "showing branches..."
-git branch -a -v
 git branch gh-pages origin/gh-pages
 git checkout gh-pages
 git branch
-git merge ${RELEASE_BRANCH}
+echo "merging..."
+git merge ${RELEASE_BRANCH} -m 'Merged'
+echo "copying files..."
 cp -a _site/* ./
+echo "adding files..."
 git add * || true
 git status
 if [[ -n $(git status -s) ]] ; then
