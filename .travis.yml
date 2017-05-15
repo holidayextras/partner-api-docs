@@ -4,3 +4,9 @@ language: ruby
 cache: bundler
 rvm:
   - 2.4.1
+deploy:
+  provider: script
+  script: scripts/deploy.sh
+  skip_cleanup: true
+  on:
+    branch: master

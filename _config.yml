@@ -27,7 +27,6 @@ theme: minima
 highlighter: rouge
 gems:
   - jekyll-feed
-destination: docs
 defaults:
   -
     scope:
