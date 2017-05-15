@@ -7,7 +7,9 @@ if [ "${TRAVIS_BRANCH}" != "${RELEASE_BRANCH}" ]; then
   exit 2
 fi
 git branch
+git checkout ${RELEASE_BRANCH}
 git pull
+git branch
 git checkout gh-pages
 git branch
 git merge ${RELEASE_BRANCH}
