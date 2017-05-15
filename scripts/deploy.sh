@@ -14,6 +14,8 @@ git fetch origin
 git pull
 echo "showing remote branches..."
 git ls-remote
+echo "showing remote branches #2 ..."
+git branch -r
 echo "showing branches..."
 git branch -a -v
 git checkout -b gh-pages origin/gh-pages
