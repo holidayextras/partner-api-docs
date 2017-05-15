@@ -20,7 +20,7 @@ echo "copying files..."
 cp -a _site/* ./
 git status
 echo "adding files..."
-git add * || true
+git add * --ignore-errors || true
 git status
 if [[ -n $(git status -s) ]] ; then
   echo "Updated site needs committing"
