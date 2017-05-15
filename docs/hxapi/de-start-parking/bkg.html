@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="make-booking-at-car-park">Make booking at car park</h1>
+
+<p>This must be a POST, as you are making a booking. It must be made over HTTPS, you must enforce this.</p>
+
+<h2 id="carparkfoo">/carpark/foo</h2>
+
+<p>where foo is the carpark code</p>
+
+<p>e.g. /carpark/FRA2</p>
+
+<h3 id="method">Method</h3>
+
+<p>POST</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>StartCustomer</td>
+      <td>String</td>
+      <td>[0-9]{6}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BusinessUnit</td>
+      <td>String</td>
+      <td>[0-9]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Operator</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Registration</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>CarMake</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>CarModel</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>CarColour</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z]{1}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>NumberOfPax</td>
+      <td>Number</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Remarks</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>§ The fields required by the carpark are returned in the availability request, in the <code class="highlighter-rouge">&lt;RequestFlags&gt;</code> element.</p>
+
+<h3 id="request">Request</h3>
+
+<p>You will need to turn this into a POST (Firefox / UrlParams / Get -&gt; Post) to make a booking, or use CURL.</p>
+
+<p>znt -&gt; api</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA8?StartCustomer=111111<span class="err">&amp;</span>ArrivalDate=2010-10-19<span class="err">&amp;</span>ArrivalTime=1200<span class="err">&amp;</span>DepartDate=2010-10-27<span class="err">&amp;</span>DepartTime=1400<span class="err">&amp;</span>Initial=T<span class="err">&amp;</span>Operator=BJT<span class="err">&amp;</span>NumberOfPax=2<span class="err">&amp;</span>BusinessUnit=222<span class="err">&amp;</span>Registration=CP54JOV<span class="err">&amp;</span>Surname=Thompson<span class="err">&amp;</span>Title=Mr<span class="err">&amp;</span>key=foo<span class="err">&amp;</span>token=123456789
+</code></pre>
+</div>
+
+<p>api -&gt; chauntry</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>
+<span class="nt">&lt;API_Request</span> <span class="na">System=</span><span class="s">"ABG"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Session=</span><span class="s">"123456789"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Agent&gt;</span>
+    <span class="nt">&lt;StartCustomer&gt;</span>111111<span class="nt">&lt;/StartCustomer&gt;</span>
+    <span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>
+    <span class="nt">&lt;Operator&gt;</span>BJT<span class="nt">&lt;/Operator&gt;</span>
+  <span class="nt">&lt;/Agent&gt;</span>
+  <span class="nt">&lt;Itinerary&gt;</span>
+    <span class="nt">&lt;ArrivalDate&gt;</span>19Oct10<span class="nt">&lt;/ArrivalDate&gt;</span>
+    <span class="nt">&lt;DepartDate&gt;</span>27Oct10<span class="nt">&lt;/DepartDate&gt;</span>
+    <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+    <span class="nt">&lt;DepartTime&gt;</span>1400<span class="nt">&lt;/DepartTime&gt;</span>
+    <span class="nt">&lt;Duration&gt;</span>8.0833333333333<span class="nt">&lt;/Duration&gt;</span>
+    <span class="nt">&lt;CarParkCode&gt;</span>FRA8<span class="nt">&lt;/CarParkCode&gt;</span>
+    <span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+    <span class="nt">&lt;ReturnFlight&gt;&lt;/ReturnFlight&gt;</span>
+  <span class="nt">&lt;/Itinerary&gt;</span>
+  <span class="nt">&lt;CarDetails&gt;</span>
+    <span class="nt">&lt;Registration&gt;</span>CP54JOV<span class="nt">&lt;/Registration&gt;</span>
+  <span class="nt">&lt;/CarDetails&gt;</span>
+  <span class="nt">&lt;ClientDetails&gt;</span>
+    <span class="nt">&lt;Title&gt;</span>Mr<span class="nt">&lt;/Title&gt;</span>
+    <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+    <span class="nt">&lt;Surname&gt;</span>Thompson<span class="nt">&lt;/Surname&gt;</span>
+    <span class="nt">&lt;Town&gt;&lt;/Town&gt;</span>
+    <span class="nt">&lt;County&gt;&lt;/County&gt;</span>
+    <span class="nt">&lt;PostCode&gt;&lt;/PostCode&gt;</span>
+    <span class="nt">&lt;DayPhone&gt;&lt;/DayPhone&gt;</span>
+    <span class="nt">&lt;EvePhone&gt;&lt;/EvePhone&gt;</span>
+    <span class="nt">&lt;Email&gt;&lt;/Email&gt;</span>
+    <span class="nt">&lt;Secemail&gt;&lt;/Secemail&gt;</span>
+    <span class="nt">&lt;Remarks&gt;</span>carpark test<span class="nt">&lt;/Remarks&gt;</span>
+    <span class="nt">&lt;CustomerRef&gt;</span>N/A<span class="nt">&lt;/CustomerRef&gt;</span>
+  <span class="nt">&lt;/ClientDetails&gt;</span>
+<span class="nt">&lt;/API_Request&gt;</span>
+
+
+</code></pre>
+</div>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>DZM89<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;AgentComm&gt;</span>5.47-<span class="nt">&lt;/AgentComm&gt;</span>
+    <span class="nt">&lt;VATonComm&gt;</span>0.87-<span class="nt">&lt;/VATonComm&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10213858<span class="nt">&lt;/StartRef&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+  <span class="nt">&lt;CarDetails&gt;</span>
+    <span class="nt">&lt;Registration&gt;</span>CP54JOV<span class="nt">&lt;/Registration&gt;</span>
+  <span class="nt">&lt;/CarDetails&gt;</span>
+  <span class="nt">&lt;ClientDetails&gt;</span>
+    <span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
+    <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+    <span class="nt">&lt;Surname&gt;</span>THOMPSON<span class="nt">&lt;/Surname&gt;</span>
+    <span class="nt">&lt;CustomerRef&gt;</span>N/A<span class="nt">&lt;/CustomerRef&gt;</span>
+    <span class="nt">&lt;Remarks&gt;</span>CARPARK TEST<span class="nt">&lt;/Remarks&gt;</span>
+  <span class="nt">&lt;/ClientDetails&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2010-10-19<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+      <span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>
+      <span class="nt">&lt;DepartDate&gt;</span>2010-10-27<span class="nt">&lt;/DepartDate&gt;</span>
+      <span class="nt">&lt;DepartTime&gt;</span>1400<span class="nt">&lt;/DepartTime&gt;</span>
+      <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+      <span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+      <span class="nt">&lt;Operator&gt;</span>BJT<span class="nt">&lt;/Operator&gt;</span>
+      <span class="nt">&lt;Registration&gt;</span>CP54JOV<span class="nt">&lt;/Registration&gt;</span>
+      <span class="nt">&lt;Remarks&gt;</span>carpark test<span class="nt">&lt;/Remarks&gt;</span>
+      <span class="nt">&lt;StartCustomer&gt;</span>111111<span class="nt">&lt;/StartCustomer&gt;</span>
+      <span class="nt">&lt;Surname&gt;</span>Thompson<span class="nt">&lt;/Surname&gt;</span>
+      <span class="nt">&lt;Title&gt;</span>Mr<span class="nt">&lt;/Title&gt;</span>
+      <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>123456789<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;debug&gt;</span>1<span class="nt">&lt;/debug&gt;</span>
+      <span class="nt">&lt;system&gt;</span>de<span class="nt">&lt;/system&gt;</span>
+      <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+  <span class="nt">&lt;CarPark&gt;</span>
+    <span class="nt">&lt;ArrivalDate&gt;</span>19OCT10<span class="nt">&lt;/ArrivalDate&gt;</span>
+    <span class="nt">&lt;DepartDate&gt;</span>27OCT10<span class="nt">&lt;/DepartDate&gt;</span>
+    <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+    <span class="nt">&lt;DepartTime&gt;</span>1400<span class="nt">&lt;/DepartTime&gt;</span>
+    <span class="nt">&lt;Duration&gt;</span>8<span class="nt">&lt;/Duration&gt;</span>
+    <span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRA8<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/carpark/FRA8/debug<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRA8/debug<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/CarPark&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+
+</code></pre>
+</div>
+
+<h3 id="fields-explained">Fields Explained</h3>
+
+<h4 id="api_headerrequestdataprotection">API_Header/Request/DataProtection</h4>
+
+<p>Indicates whether customer has opted to receive Holiday Extras offers.</p>
+
+<p>Y = opted OUT ie data is protected
+N = opted IN</p>
+
+<h4 id="bookingmoreinfourl">Booking/MoreInfoURL</h4>
+
+<p>In this context a link to view the booking details.</p>
+
+<h4 id="carparkmoreinfourl">CarPark/MoreInfoURL</h4>
+
+<p>Product library information about the car park.</p>
+
+<h4 id="bookingagentcomm">Booking/AgentComm</h4>
+
+<p>The amount of commission earned on the booking.</p>
+
+<h4 id="bookingvatoncomm">Booking/VATonComm</h4>
+
+<p>VAT payable on the commission.</p>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

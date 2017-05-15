@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="hotel-booking">Hotel Booking</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; product:<a href="/hxapi/hotel">Hotels</a> &gt; endpoint:<a href="/hxapi/hotel/av">hotel</a> &gt; request:<a href="v2">Make Booking (v2)</a></p>
+
+<p>As with all bookings, this must be a POST and it must be made over HTTPS. Intermediaries will be sending credit card information, Agents will send their login details so HTTPS is required in both instances.</p>
+
+<p>If you do not send the ABTANumber field then your booking will not be tracked to your agent code. For agent bookings, the Password field is also required, intermediaries do not have a password.</p>
+
+<p>To retrieve all details about the booking, perform a GET request to view the booking at the location specified in <code class="highlighter-rouge">&lt;MoreInfoURL&gt;</code>. <a href="/hxapi/viewamendcancel/view">Instructions on how to view a booking</a>.</p>
+
+<p>Currently, we can only accept up to 2 rooms per booking. If the customer needs more, you will need to make multiple requests. If an intermediary account, this would lead to multiple transactions on the credit card, and multiple charges, therefore we advise against it. Agents accounts do not suffer from this, they can make multiple requests as they process the payment themselves.</p>
+
+<h2 id="hotelv2foo">/hotel/v2/foo</h2>
+
+<p>where foo is the selected hotel code</p>
+
+<p>e.g. /hotel/v2/LHRSOF</p>
+
+<h3 id="method">Method</h3>
+
+<p>POST</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<h4 id="intermediary">Intermediary</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>DDMMMYY</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Nights</td>
+      <td>Integer</td>
+      <td>1</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BoardBasis</td>
+      <td>String</td>
+      <td>[RO,BB]</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>RoomCode</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Rooms</td>
+      <td>Int</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Adults</td>
+      <td>Integer</td>
+      <td>[1-5]</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Children</td>
+      <td>Integer</td>
+      <td>[0-4]</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Infants</td>
+      <td>Integer</td>
+      <td>[0,1,2]</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ParkingDays</td>
+      <td>Integer</td>
+      <td>[0,8,15]</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ParkingSpaces</td>
+      <td>Integer</td>
+      <td>[1,2]</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarDropoffTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarPickupDate</td>
+      <td>Date</td>
+      <td>DDMMMYY</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarPickupTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ReturnFlight</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>TerminalCode</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Registration</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarMake</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarModel</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarColour</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Address[]</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Town</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>County</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Country</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Postcode</td>
+      <td>String</td>
+      <td>UK Postcode</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>DayPhone</td>
+      <td>Phone Number</td>
+      <td> </td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>EvePhone</td>
+      <td>Phone Number</td>
+      <td> </td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>Email</td>
+      <td>Valid email address</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CustomerRef</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Waiver</td>
+      <td>Boolean</td>
+      <td>[1,0]</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>DataProtection</td>
+      <td>String</td>
+      <td>[Y,N]</td>
+      <td>N</td>
+      <td>Does the customer consent to receiving offers from Holiday Extras. Y = Yes, will receive offers, N = Customer data is protected. Not required, default is N</td>
+    </tr>
+    <tr>
+      <td>PriceCheckFlag</td>
+      <td>String</td>
+      <td>[Y,N]</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PriceCheckPrice</td>
+      <td>Int</td>
+      <td>(00)0.00</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CardHolder</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CardNumber</td>
+      <td>String</td>
+      <td>[0-9]{14-19}</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CV2</td>
+      <td>Integer</td>
+      <td>[0-9]{3}</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ExpiryDate</td>
+      <td>Date</td>
+      <td>DDMM</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>StartDate</td>
+      <td>Date</td>
+      <td>DDMM</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>IssueNumber</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>Integer</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Supplements[]</td>
+      <td>String Array</td>
+      <td>See below</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>SupplementsAdults[]</td>
+      <td>Integer Array</td>
+      <td>See below</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>SupplementsChildren[]</td>
+      <td>Integer Array</td>
+      <td>See below</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>SupplementsCount[]</td>
+      <td>Integer Array</td>
+      <td>See below</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="agent">Agent</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>DDMMMYY</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Nights</td>
+      <td>Integer</td>
+      <td>1</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BoardBasis</td>
+      <td>String</td>
+      <td>[RO,BB]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>RoomCode</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Rooms</td>
+      <td>Int</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Adults</td>
+      <td>Integer</td>
+      <td>[1-5]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Children</td>
+      <td>Integer</td>
+      <td>[0-4]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Infants</td>
+      <td>Integer</td>
+      <td>[0,1,2]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ParkingDays</td>
+      <td>Integer</td>
+      <td>[0,8,15]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ParkingSpaces</td>
+      <td>Integer</td>
+      <td>[1,2]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CarDropoffTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CarPickupDate</td>
+      <td>Date</td>
+      <td>DDMMMYY</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CarPickupTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ReturnFlight</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>TerminalCode</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Registration</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>CarMake</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>CarModel</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>CarColour</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Address[]</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Town</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>County</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Postcode</td>
+      <td>String</td>
+      <td>UK Postcode</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>EvePhone</td>
+      <td>Phone Number</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>Email</td>
+      <td>Valid email address</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CustomerRef</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Waiver</td>
+      <td>Boolean</td>
+      <td>[1,0]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>PriceCheckFlag</td>
+      <td>String</td>
+      <td>[Y,N]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>PriceCheckPrice</td>
+      <td>Int</td>
+      <td>(0)0.00</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>Integer</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Supplements[]</td>
+      <td>String Array</td>
+      <td>See below</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>SupplementsAdults[]</td>
+      <td>Integer Array</td>
+      <td>See below</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>SupplementsChildren[]</td>
+      <td>Integer Array</td>
+      <td>See below</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>SupplementsCount[]</td>
+      <td>Integer Array</td>
+      <td>See below</td>
+      <td>N</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="booking-add-ons">Booking add ons</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Supplements[]</td>
+      <td>An array of codes that identify the add-ons that supplement a hotel booking</td>
+    </tr>
+    <tr>
+      <td>SupplementsAdults[]</td>
+      <td>An array containing the number of adults for each supplement that is sold on a Per Person basis</td>
+    </tr>
+    <tr>
+      <td>SupplementsChildren[]</td>
+      <td>An array containing the number of children for each supplement that is sold on a Per Person basis</td>
+    </tr>
+    <tr>
+      <td>SupplementsCount[]</td>
+      <td>An array containing the quantity of each supplement that is sold on a Per Booking or Per Room basis</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="supplement-parameter-examples">Supplement Parameter examples</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Supplements[]</th>
+      <th>SupplementsAdults[SupplementCode]</th>
+      <th>SupplementsChildren[SupplementCode]</th>
+      <th>SupplementsCount[SupplementCode]</th>
+      <th>Supplement Basis</th>
+      <th>Explantation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SUPPLEMENT_CODE1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PER PERSON</td>
+      <td>Booking Basis is PP so Adults and Children params are used, Count param is ignored</td>
+    </tr>
+    <tr>
+      <td>SUPPLEMENT_CODE2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PER PERSON</td>
+      <td>Booking Basis is PP so Adults and Children params are used, Count param is ignored</td>
+    </tr>
+    <tr>
+      <td>SUPPLEMENT_CODE3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>PER BOOKING</td>
+      <td>Booking Basis is PB so Adults and Children params are used, Count param is ignored</td>
+    </tr>
+    <tr>
+      <td>SUPPLEMENT_CODE4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>PER ROOM</td>
+      <td>Booking Basis is PP so Count param is used and the Adults and Children params are ignored</td>
+    </tr>
+    <tr>
+      <td>SUPPLEMENT_CODE5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>PER ROOM</td>
+      <td>Booking Basis is PP so Count param is used and the Adults and Children params are ignored</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="the-same-data-as-above-expressed-in-the-way-that-it-should-be-submitted">The same data as above expressed in the way that it should be submitted</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Supplements[]</td>
+      <td>‘SUPPLEMENT_CODE1’</td>
+    </tr>
+    <tr>
+      <td>Supplements[]</td>
+      <td>‘SUPPLEMENT_CODE2’</td>
+    </tr>
+    <tr>
+      <td>Supplements[]</td>
+      <td>‘SUPPLEMENT_CODE3’</td>
+    </tr>
+    <tr>
+      <td>Supplements[]</td>
+      <td>‘SUPPLEMENT_CODE4’</td>
+    </tr>
+    <tr>
+      <td>Supplements[]</td>
+      <td>‘SUPPLEMENT_CODE5’</td>
+    </tr>
+    <tr>
+      <td>Field</td>
+      <td>Value</td>
+    </tr>
+    <tr>
+      <td>SupplementsAdults[‘SUPPLEMENT_CODE1’]</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>SupplementsAdults[‘SUPPLEMENT_CODE2’]</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>SupplementsAdults[‘SUPPLEMENT_CODE3’]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>SupplementsAdults[‘SUPPLEMENT_CODE4’]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>SupplementsAdults[‘SUPPLEMENT_CODE5’]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Field</td>
+      <td>Value</td>
+    </tr>
+    <tr>
+      <td>SupplementsChildren[‘SUPPLEMENT_CODE1’]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>SupplementsChildren[‘SUPPLEMENT_CODE2’]</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>SupplementsChildren[‘SUPPLEMENT_CODE3’]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>SupplementsChildren[‘SUPPLEMENT_CODE4’]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>SupplementsChildren[‘SUPPLEMENT_CODE5’]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Field</td>
+      <td>Value</td>
+    </tr>
+    <tr>
+      <td>SupplementsCount[‘SUPPLEMENT_CODE1’]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>SupplementsCount[‘SUPPLEMENT_CODE2’]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>SupplementsCount[‘SUPPLEMENT_CODE3’]</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>SupplementsCount[‘SUPPLEMENT_CODE4’]</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>SupplementsCount[‘SUPPLEMENT_CODE5’]</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="reply">Reply</h3>
+
+<h4 id="intermediary-1">Intermediary</h4>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"4"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;Booking&gt;</span>
+		<span class="nt">&lt;BookingRef&gt;</span>AB12X<span class="nt">&lt;/BookingRef&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/booking/AB12X<span class="nt">&lt;/MoreInfoURL&gt;</span>
+	<span class="nt">&lt;/Booking&gt;</span>
+	<span class="nt">&lt;Itinerary&gt;</span>
+		<span class="nt">&lt;ArrivalDate&gt;</span>2009-10-15<span class="nt">&lt;/ArrivalDate&gt;</span>
+		<span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+		<span class="nt">&lt;BoardBasis&gt;</span>RO<span class="nt">&lt;/BoardBasis&gt;</span>
+		<span class="nt">&lt;NonSmoking&gt;</span>N<span class="nt">&lt;/NonSmoking&gt;</span>
+		<span class="nt">&lt;CarPickupDate&gt;</span>2009-10-22<span class="nt">&lt;/CarPickupDate&gt;</span>
+		<span class="nt">&lt;CarDropoffTime&gt;</span>1100<span class="nt">&lt;/CarDropoffTime&gt;</span>
+		<span class="nt">&lt;CarPickupTime&gt;</span>1200<span class="nt">&lt;/CarPickupTime&gt;</span>
+		<span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+		<span class="nt">&lt;ParkingSpaces&gt;</span>1<span class="nt">&lt;/ParkingSpaces&gt;</span>
+		<span class="nt">&lt;ReturnFlight&gt;</span>AB123<span class="nt">&lt;/ReturnFlight&gt;</span>
+		<span class="nt">&lt;TerminalCode&gt;</span>1<span class="nt">&lt;/TerminalCode&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LHRNOV<span class="nt">&lt;/Code&gt;</span>
+	<span class="nt">&lt;/Itinerary&gt;</span>
+	<span class="nt">&lt;Room&gt;</span>
+		<span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+		<span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+		<span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>DBL<span class="nt">&lt;/Code&gt;</span>
+	<span class="nt">&lt;/Room&gt;</span>
+	<span class="nt">&lt;ClientDetails&gt;</span>
+		<span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
+		<span class="nt">&lt;Initial&gt;</span>B<span class="nt">&lt;/Initial&gt;</span>
+		<span class="nt">&lt;Surname&gt;</span>THOMPSON<span class="nt">&lt;/Surname&gt;</span>
+		<span class="nt">&lt;Address&gt;</span>4<span class="nt">&lt;/Address&gt;</span>
+		<span class="nt">&lt;Address</span> <span class="na">a=</span><span class="s">"2"</span><span class="nt">&gt;</span>TEST<span class="nt">&lt;/Address&gt;</span>
+		<span class="nt">&lt;Town&gt;</span>TESTTOWN<span class="nt">&lt;/Town&gt;</span>
+		<span class="nt">&lt;County&gt;</span>TESTCOUNTY<span class="nt">&lt;/County&gt;</span>
+		<span class="nt">&lt;Postcode&gt;</span>CT223PP<span class="nt">&lt;/Postcode&gt;</span>
+		<span class="nt">&lt;Country&gt;</span>ENGLAND<span class="nt">&lt;/Country&gt;</span>
+		<span class="nt">&lt;EvePhone&gt;</span>01303200202<span class="nt">&lt;/EvePhone&gt;</span>
+		<span class="nt">&lt;Email&gt;</span>BEN.THOMPSON@HOLIDAYEXTRAS.COM<span class="nt">&lt;/Email&gt;</span>
+		<span class="nt">&lt;CustomerRef&gt;</span>TESTING<span class="nt">&lt;/CustomerRef&gt;</span>
+		<span class="nt">&lt;DataProtection&gt;</span>Y<span class="nt">&lt;/DataProtection&gt;</span>
+	<span class="nt">&lt;/ClientDetails&gt;</span>
+	<span class="nt">&lt;Pricing&gt;</span>
+		<span class="nt">&lt;WaiverValue&gt;</span>5.00<span class="nt">&lt;/WaiverValue&gt;</span>
+	<span class="nt">&lt;/Pricing&gt;</span>
+	<span class="nt">&lt;API_Header&gt;</span>
+		<span class="nt">&lt;Request&gt;</span>
+		<span class="nt">&lt;ABTANumber&gt;</span>FOO<span class="nt">&lt;/ABTANumber&gt;</span>
+		<span class="nt">&lt;Address&gt;</span>4<span class="nt">&lt;/Address&gt;</span>
+		<span class="nt">&lt;Address&gt;</span>Test<span class="nt">&lt;/Address&gt;</span>
+		<span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+		<span class="nt">&lt;ArrivalDate&gt;</span>2009-10-15<span class="nt">&lt;/ArrivalDate&gt;</span>
+		<span class="nt">&lt;BoardBasis&gt;</span>RO<span class="nt">&lt;/BoardBasis&gt;</span>
+		<span class="nt">&lt;CV2&gt;</span>946<span class="nt">&lt;/CV2&gt;</span>
+		<span class="nt">&lt;CanxWaiver&gt;</span>Y<span class="nt">&lt;/CanxWaiver&gt;</span>
+		<span class="nt">&lt;CarDropoffTime&gt;</span>1100<span class="nt">&lt;/CarDropoffTime&gt;</span>
+		<span class="nt">&lt;CarPickupDate&gt;</span>2009-10-22<span class="nt">&lt;/CarPickupDate&gt;</span>
+		<span class="nt">&lt;CarPickupTime&gt;</span>1200<span class="nt">&lt;/CarPickupTime&gt;</span>
+		<span class="nt">&lt;CardHolder&gt;</span>T Test<span class="nt">&lt;/CardHolder&gt;</span>
+		<span class="nt">&lt;CardNumber&gt;</span>4111111111111111<span class="nt">&lt;/CardNumber&gt;</span>
+		<span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+		<span class="nt">&lt;Country&gt;</span>England<span class="nt">&lt;/Country&gt;</span>
+		<span class="nt">&lt;County&gt;</span>TestCounty<span class="nt">&lt;/County&gt;</span>
+		<span class="nt">&lt;CustomerRef&gt;</span>testing<span class="nt">&lt;/CustomerRef&gt;</span>
+		<span class="nt">&lt;DataProtection&gt;</span>Y<span class="nt">&lt;/DataProtection&gt;</span>
+		<span class="nt">&lt;DayPhone&gt;</span>01303222222<span class="nt">&lt;/DayPhone&gt;</span>
+		<span class="nt">&lt;Email&gt;</span>ben.thompson@holidayextras.com<span class="nt">&lt;/Email&gt;</span>
+		<span class="nt">&lt;EvePhone&gt;</span>01303200202<span class="nt">&lt;/EvePhone&gt;</span>
+		<span class="nt">&lt;ExpiryDate&gt;</span>1209<span class="nt">&lt;/ExpiryDate&gt;</span>
+		<span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
+		<span class="nt">&lt;Initial&gt;</span>B<span class="nt">&lt;/Initial&gt;</span>
+		<span class="nt">&lt;Initials&gt;</span>BJT<span class="nt">&lt;/Initials&gt;</span>
+		<span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+		<span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+		<span class="nt">&lt;ParkingSpaces&gt;</span>1<span class="nt">&lt;/ParkingSpaces&gt;</span>
+		<span class="nt">&lt;Postcode&gt;</span>CT223PP<span class="nt">&lt;/Postcode&gt;</span>
+		<span class="nt">&lt;PriceCheckFlag&gt;</span>Y<span class="nt">&lt;/PriceCheckFlag&gt;</span>
+		<span class="nt">&lt;PriceCheckPrice&gt;</span>121.38<span class="nt">&lt;/PriceCheckPrice&gt;</span>
+		<span class="nt">&lt;ReturnFlight&gt;</span>AB123<span class="nt">&lt;/ReturnFlight&gt;</span>
+		<span class="nt">&lt;Rooms&gt;</span>1<span class="nt">&lt;/Rooms&gt;</span>
+		<span class="nt">&lt;Surname&gt;</span>Thompson<span class="nt">&lt;/Surname&gt;</span>
+		<span class="nt">&lt;TerminalCode&gt;</span>1<span class="nt">&lt;/TerminalCode&gt;</span>
+		<span class="nt">&lt;Title&gt;</span>Mr<span class="nt">&lt;/Title&gt;</span>
+		<span class="nt">&lt;Town&gt;</span>TestTown<span class="nt">&lt;/Town&gt;</span>
+		<span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;token&gt;</span>123456789<span class="nt">&lt;/token&gt;</span>
+		<span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>DBL<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;/Request&gt;</span>
+	<span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre>
+</div>
+
+<h4 id="agent-1">Agent</h4>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;Booking&gt;</span>
+		<span class="nt">&lt;BookingRef&gt;</span>A8PBN<span class="nt">&lt;/BookingRef&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/booking/A8PBN<span class="nt">&lt;/MoreInfoURL&gt;</span>
+                <span class="nt">&lt;AgentComm&gt;</span>7.35-<span class="nt">&lt;/AgentComm&gt;</span>
+                <span class="nt">&lt;VATonComm&gt;</span>0.96-<span class="nt">&lt;/VATonComm&gt;</span>
+	<span class="nt">&lt;/Booking&gt;</span>
+	<span class="nt">&lt;Itinerary&gt;</span>
+		<span class="nt">&lt;ArrivalDate&gt;</span>2009-10-15<span class="nt">&lt;/ArrivalDate&gt;</span>
+		<span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+		<span class="nt">&lt;BoardBasis&gt;</span>RO<span class="nt">&lt;/BoardBasis&gt;</span>
+		<span class="nt">&lt;NonSmoking&gt;</span>N<span class="nt">&lt;/NonSmoking&gt;</span>
+		<span class="nt">&lt;CarPickupDate&gt;</span>2009-10-22<span class="nt">&lt;/CarPickupDate&gt;</span>
+		<span class="nt">&lt;CarDropoffTime&gt;</span>1100<span class="nt">&lt;/CarDropoffTime&gt;</span>
+		<span class="nt">&lt;CarPickupTime&gt;</span>1200<span class="nt">&lt;/CarPickupTime&gt;</span>
+		<span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+		<span class="nt">&lt;ParkingSpaces&gt;</span>1<span class="nt">&lt;/ParkingSpaces&gt;</span>
+		<span class="nt">&lt;ReturnFlight&gt;</span>AB123<span class="nt">&lt;/ReturnFlight&gt;</span>
+		<span class="nt">&lt;TerminalCode&gt;</span>1<span class="nt">&lt;/TerminalCode&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LHRNOV<span class="nt">&lt;/Code&gt;</span>
+	<span class="nt">&lt;/Itinerary&gt;</span>
+	<span class="nt">&lt;Room&gt;</span>
+		<span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+		<span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+		<span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>DBL<span class="nt">&lt;/Code&gt;</span>
+	<span class="nt">&lt;/Room&gt;</span>
+	<span class="nt">&lt;ClientDetails&gt;</span>
+		<span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
+		<span class="nt">&lt;Initial&gt;</span>B<span class="nt">&lt;/Initial&gt;</span>
+		<span class="nt">&lt;Surname&gt;</span>Test<span class="nt">&lt;/Surname&gt;</span>
+		<span class="nt">&lt;Address&gt;</span>4<span class="nt">&lt;/Address&gt;</span>
+		<span class="nt">&lt;Address</span> <span class="na">a=</span><span class="s">"2"</span><span class="nt">&gt;</span>TEST<span class="nt">&lt;/Address&gt;</span>
+		<span class="nt">&lt;Town&gt;</span>TESTTOWN<span class="nt">&lt;/Town&gt;</span>
+		<span class="nt">&lt;County&gt;</span>TESTCOUNTY<span class="nt">&lt;/County&gt;</span>
+		<span class="nt">&lt;Postcode&gt;</span>CT223PP<span class="nt">&lt;/Postcode&gt;</span>
+		<span class="nt">&lt;Country&gt;</span>ENGLAND<span class="nt">&lt;/Country&gt;</span>
+		<span class="nt">&lt;EvePhone&gt;</span>01303200202<span class="nt">&lt;/EvePhone&gt;</span>
+		<span class="nt">&lt;Email&gt;</span>BEN.THOMPSON@HOLIDAYEXTRAS.COM<span class="nt">&lt;/Email&gt;</span>
+		<span class="nt">&lt;Waiver&gt;</span>Y<span class="nt">&lt;/Waiver&gt;</span>
+		<span class="nt">&lt;WaiverAmount&gt;</span>5.00<span class="nt">&lt;/WaiverAmount&gt;</span>
+	<span class="nt">&lt;/ClientDetails&gt;</span>
+	<span class="nt">&lt;Pricing&gt;</span>
+		<span class="nt">&lt;WaiverValue/&gt;</span>
+	<span class="nt">&lt;/Pricing&gt;</span>
+	<span class="nt">&lt;API_Header&gt;</span>
+		<span class="nt">&lt;Request&gt;</span>
+		.
+		.
+		.
+		<span class="nt">&lt;/Request&gt;</span>
+	<span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre>
+</div>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="availability-at-car-park">Availability At Car Park</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; product:<a href="/hxapi/parking">Parking</a> &gt; endpoint:<a href="/hxapi/parking/av">carpark</a> &gt; <a href="carpark">Availability by Carpark</a></p>
+
+<h2 id="carparkfoo">/carpark/foo</h2>
+
+<p>where foo is the carpark code</p>
+
+<p>e.g. http://api.holidayextras.co.uk/carpark/LHR2</p>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>NumberOfPax</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time 24hr</td>
+      <td>HHSS</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartTime</td>
+      <td>Time 24hr</td>
+      <td>HHSS</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>top3</td>
+      <td>Boolean</td>
+      <td>[01]</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="http://api.holidayextras.co.uk/form/carpark3?key=mytestkey">Example form</a></p>
+
+<h3 id="request">Request</h3>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2?NumberOfPax=2<span class="err">&amp;</span>ArrivalDate=2008-09-20<span class="err">&amp;</span>ArrivalTime=1200<span class="err">&amp;</span>DepartDate=2008-09-20<span class="err">&amp;</span>DepartTime=1400<span class="err">&amp;</span>key=**HXAPIKEY**<span class="err">&amp;</span>token=000001234<span class="err">&amp;</span>ABTANumber=**HXAGENTCODE**
+</code></pre>
+</div>
+
+<h4 id="top3">top3</h4>
+
+<p>If a value of 1 is passed in for the top3 param, then a maximum of three car parks will be returned, one on airport, one other park and ride, and one other meet and greet.</p>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"3"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;Pricing&gt;</span>
+		<span class="nt">&lt;CCardSurchargePercent&gt;</span>2.00<span class="nt">&lt;/CCardSurchargePercent&gt;</span>
+		<span class="nt">&lt;CCardSurchargeAmount&gt;</span>1.50<span class="nt">&lt;/CCardSurchargeAmount&gt;</span>
+		<span class="nt">&lt;CancellationWaiver&gt;</span>
+			<span class="nt">&lt;Waiver&gt;</span>0.50<span class="nt">&lt;/Waiver&gt;</span>
+		<span class="nt">&lt;/CancellationWaiver&gt;</span>
+	<span class="nt">&lt;/Pricing&gt;</span>
+	<span class="nt">&lt;API_Header&gt;</span>
+		<span class="nt">&lt;Request&gt;</span>
+			<span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+			<span class="nt">&lt;ArrivalDate&gt;</span>2008-09-20<span class="nt">&lt;/ArrivalDate&gt;</span>
+			<span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+			<span class="nt">&lt;DepartDate&gt;</span>2008-09-20<span class="nt">&lt;/DepartDate&gt;</span>
+			<span class="nt">&lt;DepartTime&gt;</span>1400<span class="nt">&lt;/DepartTime&gt;</span>
+			<span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+			<span class="nt">&lt;token&gt;</span>000001234<span class="nt">&lt;/token&gt;</span>
+			<span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+		<span class="nt">&lt;/Request&gt;</span>
+	<span class="nt">&lt;/API_Header&gt;</span>
+	<span class="nt">&lt;CarPark&gt;</span>
+		<span class="nt">&lt;TotalPrice&gt;</span>10.00<span class="nt">&lt;/TotalPrice&gt;</span>
+		<span class="nt">&lt;RequestFlags&gt;</span>
+			<span class="nt">&lt;Registration&gt;</span>1<span class="nt">&lt;/Registration&gt;</span>
+		<span class="nt">&lt;/RequestFlags&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LGW2<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Long Stay<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;Filter&gt;</span>
+			<span class="nt">&lt;on_airport&gt;</span>1<span class="nt">&lt;/on_airport&gt;</span>
+			<span class="nt">&lt;terminal&gt;</span>1<span class="nt">&lt;/terminal&gt;</span>
+		<span class="nt">&lt;/Filter&gt;</span>
+		<span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/v1/carpark/LGW2<span class="nt">&lt;/BookingURL&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/v1/product/LGW2<span class="nt">&lt;/MoreInfoURL&gt;</span>
+	<span class="nt">&lt;/CarPark&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+
+</code></pre>
+</div>
+
+<h3 id="fields-explained">Fields Explained</h3>
+
+<h4 id="pricingcreditcardsurcharge">Pricing/CreditCardSurcharge</h4>
+
+<p>Only relevant for intermediaries, agents levy their own fees. This element should be ignored by agents.</p>
+
+<p>Comprises of 3 elements</p>
+
+<ul>
+  <li>
+    <p>CCardSurchargePercent</p>
+  </li>
+  <li>
+    <p>CCardSurchargeMin</p>
+  </li>
+  <li>
+    <p>CCardSurchargeMax</p>
+  </li>
+</ul>
+
+<p>The credit card surcharge IS applied to the TotalPrice + the Cancellation Waiver (see below). To prevent the surcharge from exceeding certain boundaries, we have min and max thresholds. If the amount does not come between those two figures, you should use the relevant threshold value.</p>
+
+<p>Pseudo code</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
+if( x &lt; CCardSurchargeMin) 
+  x = CCardSurchargeMin
+else if x &gt; CCardSurchargeMax
+  x = CCardSurchargeMax
+</code></pre>
+</div>
+<h4 id="pricingcancellationwaiver">Pricing/CancellationWaiver</h4>
+
+<p>only for UK</p>
+
+<p>We provide an optional cancellation waiver. If not taken up, cancellation will incur a fee. The fee is outlined in our terms and conditions. This value is not currently returned via the XML.</p>
+
+<h4 id="api_headerrequest">API_Header/Request</h4>
+
+<p><strong>HXAPI</strong> returns every parameter you sent in the previous request, as you sent it. This is so your app doesn’t have to remember anything not replied in the XML reply.</p>
+
+<h4 id="carparktotalprice">CarPark/TotalPrice</h4>
+
+<p>The price of product <strong>WITHOUT</strong> any surcharges/fees added.</p>
+
+<h4 id="carparknondiscprice">CarPark/NonDiscPrice</h4>
+
+<p>Non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.</p>
+
+<h4 id="carparkrequestflags">CarPark/RequestFlags</h4>
+
+<p>Flags listing which details the car park operator requires from the customer. If a flag is returned with a ‘Y’ your application should send the corresponding value in the booking request. These are not compulsory, the booking should still be made without these details, but it greatly reduces administrative work if they are completed. Flags are only returned when positive, if a field is not required the field will not be returned.</p>
+
+<p>The flags which might be returned are:</p>
+
+<ul>
+  <li>
+    <p>Registration</p>
+  </li>
+  <li>
+    <p>CarMake</p>
+  </li>
+  <li>
+    <p>CarModel</p>
+  </li>
+  <li>
+    <p>CarColour</p>
+  </li>
+  <li>
+    <p>OutFlight</p>
+  </li>
+  <li>
+    <p>ReturnFlight</p>
+  </li>
+  <li>
+    <p>OutTerminal</p>
+  </li>
+  <li>
+    <p>ReturnTerminal</p>
+  </li>
+  <li>
+    <p>Destination</p>
+  </li>
+  <li>
+    <p>MobileNum</p>
+  </li>
+</ul>
+
+<h4 id="carparkfilter">CarPark/Filter</h4>
+
+<p>We have a filter mechanism on our site, to show only meet and greet products etc. The filters that apply to a product are returned here. Possible values are:</p>
+
+<ul>
+  <li>
+    <p>meet_and_greet</p>
+  </li>
+  <li>
+    <p>recommended</p>
+  </li>
+  <li>
+    <p>on_airport</p>
+  </li>
+  <li>
+    <p>terminal</p>
+  </li>
+  <li>
+    <p>valet_included</p>
+  </li>
+  <li>
+    <p>car_parked_for_you</p>
+  </li>
+</ul>
+
+<h4 id="carparkbookingurl">CarPark/BookingURL</h4>
+
+<p>The URL to go to book this product.</p>
+
+<h4 id="carparkmoreinfourl">CarPark/MoreInfoURL</h4>
+
+<p>Link to the product library information for this product.</p>
+
+<h4 id="europe-carparkdetailsflag">Europe CarParkDetailsFlag</h4>
+
+<p>The availability response will identify a list of flags which identify the fields required to be POSTED when making a booking.</p>
+
+<p>e.g. <CarDetFlags>NNNNNNNNNNNNNNNNNN</CarDetFlags></p>
+
+<p>The order of the flags refer to these POST parameter fields respectively:</p>
+
+<CarDetFlags>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</CarDetFlags>
+
+<table>
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>POST Parameter</th>
+      <th>character length</th>
+      <th>what is it?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Registration</td>
+      <td>VARCHAR(10)</td>
+      <td>This is the car registration</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>CarMake</td>
+      <td>VARCHAR(10)</td>
+      <td>This is the make of the car e.g. Audi</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>CarModel</td>
+      <td>VARCHAR(10)</td>
+      <td>This is the model of the car e.g. A6</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>CarColour</td>
+      <td>VARCHAR(10)</td>
+      <td>This is the colour of the car e.g. White</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>NumberOfPax</td>
+      <td>INT(2)</td>
+      <td>This is the number of passengers in the vehicle e.g. 5</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>CarDropoffTime</td>
+      <td>HHMM</td>
+      <td>This is the Arrival Time when you drop the car off at the car park e.g 1000</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>CarPickupTime</td>
+      <td>HHMM</td>
+      <td>This is the time on leaving the car park when you pick up your car e.g. 1600</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>OutTerminal</td>
+      <td>VARCHAR(2)</td>
+      <td>This is the single letter or number representation of the terminal e.g N or S or 4</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>OutFltNo</td>
+      <td>VARCHAR(10)</td>
+      <td>This is the flight number e.g. EZY123</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>InFltNo</td>
+      <td>VARCHAR(10)</td>
+      <td>This is the flight number e.g. EZY124</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>OutFltTime</td>
+      <td>HHMM</td>
+      <td>This is the Departure Time of the outbound flight e.g. 1200</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>InFltTime</td>
+      <td>HHMM</td>
+      <td>This is the Arrival Time of the inbound flight e.g. 1500</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>MobileNum</td>
+      <td>VARCHAR(15)</td>
+      <td>This is the mobile number of the customer</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>ShipName</td>
+      <td>VARCHAR(20)</td>
+      <td>This is the name of the ship e.g. AIDA</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>PierName</td>
+      <td>VARCHAR(20)</td>
+      <td>This is the pier name</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>ChildSeat</td>
+      <td>Y/N</td>
+      <td>Is a child car seat needed?</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>AddlServices</td>
+      <td>VARCHAR(50)</td>
+      <td>This is a remarks line</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>RetTerminal</td>
+      <td>VARCHAR(2)</td>
+      <td>This is the single letter or number representation of the terminal e.g N or S or 4</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="xsd">XSD</h3>
+
+<p>To come</p>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

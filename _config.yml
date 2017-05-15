@@ -27,11 +27,7 @@ theme: minima
 highlighter: rouge
 gems:
   - jekyll-feed
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - README.md
-  - LICENSE
+destination: docs
 defaults:
   -
     scope:

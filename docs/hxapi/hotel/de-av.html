@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="german-hotel-availability">German Hotel Availability</h1>
+
+<h2 id="hotelfoo">/hotel/foo</h2>
+
+<p>where foo is the location (airport) code</p>
+
+<p>e.g. http://api.holidayextras.co.uk/v1/de-start/hotel/FRA</p>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>StartCustomer</td>
+      <td>String</td>
+      <td>[0-9]{6}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BusinessUnit</td>
+      <td>String</td>
+      <td>[0-9]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Operator</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Nights</td>
+      <td>Integer</td>
+      <td>[1,2,3]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Filter</td>
+      <td>String</td>
+      <td>‘onrequest’ or ‘upsell’</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>RoomType</td>
+      <td>String</td>
+      <td>see below</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="filter">Filter</h4>
+
+<p>onrequest - pass this to remove any hotels only available on request.</p>
+
+<p>upsell - pass this to only return the hotel required for the upsell (for display with parking availability).</p>
+
+<p>If you need to use multiple filters, they can be comma separated eg filter=x,y,z . This is not currently appliable because of the filters we have, but thinking ahead.</p>
+
+<h4 id="roomtype-codes">RoomType codes</h4>
+
+<p>If RoomType is not sent, will default to D20 - 1x double room
+For availability requests the room types are:</p>
+
+<ul>
+  <li>
+    <p>S10 : Single - 1 Adult</p>
+  </li>
+  <li>
+    <p>T20 : Twin - 2 Adults</p>
+  </li>
+  <li>
+    <p>D20 : Double - 2 Adults</p>
+  </li>
+  <li>
+    <p>T21 : Triple - 2 Adults 1 Child</p>
+  </li>
+  <li>
+    <p>T12 : Triple - 1 Adult 2 Children</p>
+  </li>
+  <li>
+    <p>T30 : Triple - 3 Adults</p>
+  </li>
+  <li>
+    <p>F22 : Family - 2 Adults 2 Children</p>
+  </li>
+  <li>
+    <p>F31 : Family - 3 Adults 1 Child</p>
+  </li>
+  <li>
+    <p>F13 : Family - 1 Adult 3 Children</p>
+  </li>
+  <li>
+    <p>F40 : Family - 4 Adults 0 Children</p>
+  </li>
+</ul>
+
+<p>For bookings, you should send back the code returned in the reply. The format of room codes changes between searches for availability and making a booking.</p>
+
+<h3 id="request">Request</h3>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/sandbox/v1/hotel/FRA?StartCustomer=111111<span class="err">&amp;</span>BusinessUnit=222<span class="err">&amp;</span>Operator=BJT<span class="err">&amp;</span>key=mytestkey<span class="err">&amp;</span>token=999999999<span class="err">&amp;</span>ArrivalDate=2010-10-15<span class="err">&amp;</span>Nights=1<span class="err">&amp;</span>RoomType=D20<span class="err">&amp;</span>key=foo
+</code></pre>
+</div>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"21"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+
+          <span class="nt">&lt;RoomPrice&gt;</span>67.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>81.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+
+      <span class="nt">&lt;/Room&gt;</span>
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>ACHAT Hotel Airport Frankfurt<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRAACH<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRAACH<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRAACH<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>95.00<span class="nt">&lt;/RoomPrice&gt;</span>
+
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>95.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Mercure Wings Frankfurt Apt<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRAMER<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRAMER<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRAMER<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>62.00<span class="nt">&lt;/RoomPrice&gt;</span>
+
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>99.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Steigenberger Htl.Langen<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRAMAX<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRAMAX<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRAMAX<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>F<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>120.00<span class="nt">&lt;/RoomPrice&gt;</span>
+
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>130.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Mercure Htl. Frankfurt Airport<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRANOV<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRANOV<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRANOV<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>141.00<span class="nt">&lt;/RoomPrice&gt;</span>
+
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>141.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Novotel Frankfurt Niederrad<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRANOH<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRANOH<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRANOH<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>F<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>93.00<span class="nt">&lt;/RoomPrice&gt;</span>
+
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>98.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>NH Frankfurt Rhein Main<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRANHR<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRANHR<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRANHR<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>113.00<span class="nt">&lt;/RoomPrice&gt;</span>
+
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>113.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Holiday Inn Frankfurt Airport<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRAHOL<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRAHOL<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRAHOL<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>92.00<span class="nt">&lt;/RoomPrice&gt;</span>
+
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>117.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Balladins SUPERIOR Hotel<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRAQUA<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRAQUA<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRAQUA<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>F<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>121.00<span class="nt">&lt;/RoomPrice&gt;</span>
+
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>126.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>NH Frankfurt-Airport<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRAAST<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRAAST<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRAAST<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>139.00<span class="nt">&lt;/RoomPrice&gt;</span>
+
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Steigenberger Airport Hotel<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRASTE<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRASTE<span class="nt">&lt;/BookingURL&gt;</span>
+
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRASTE<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>f<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>108.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>113.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>NH Frankfurt Niederrad<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRANHN<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRANHN<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRANHN<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>F<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>199.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>199.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>256.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Sheraton FRA Hotel And Towers<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRATOW<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRATOW<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRATOW<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>107.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>107.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Ibis Frankfurt City Messe<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FFMIBI<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FFMIBI<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FFMIBI<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>F<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>139.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>139.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Carat Hotel Frankfurt/Airport<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FFMCAR<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FFMCAR<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FFMCAR<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;</span>
+      <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>F<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>91.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;RoomPrice&gt;</span>101.00<span class="nt">&lt;/RoomPrice&gt;</span>
+        <span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;/Room&gt;</span>
+    <span class="nt">&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Holiday Inn Express<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FFMEXP<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FFMEXP<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FFMEXP<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;SpeedDial&gt;</span>0<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>ACHAT Hotel Airport Frankfurt<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRAACH<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRAACH<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRAACH<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;SpeedDial&gt;</span>431<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Mercure Wings Frankfurt Apt<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRAMER<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRAMER<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRAMER<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;SpeedDial&gt;</span>0<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Steigenberger Htl.Langen<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRAMAX<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRAMAX<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRAMAX<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;SpeedDial&gt;</span>0<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Mercure Htl. Frankfurt Airport<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRANOV<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRANOV<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRANOV<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;SpeedDial&gt;</span>452<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>SheratonCongress<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRACGS<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRACGS<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRACGS<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;SpeedDial&gt;</span>0<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;</span>
+      <span class="nt">&lt;CreditCard&gt;</span>1<span class="nt">&lt;/CreditCard&gt;</span>
+    <span class="nt">&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Novotel Frankfurt Niederrad<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRADOR<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRADOR<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRADOR<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;SpeedDial&gt;</span>0<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Novotel Frankfurt Niederrad<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRANOH<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRANOH<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRANOH<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;SpeedDial&gt;</span>0<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>NH Frankfurt Rhein Main<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRANHR<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRANHR<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRANHR<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;SpeedDial&gt;</span>0<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Holiday Inn Frankfurt Airport<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRAHOL<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRAHOL<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRAHOL<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;SpeedDial&gt;</span>428<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Balladins SUPERIOR Hotel<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRAQUA<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRAQUA<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRAQUA<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+
+    <span class="nt">&lt;SpeedDial&gt;</span>453<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>NH Frankfurt-Airport<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRAAST<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRAAST<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRAAST<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;SpeedDial&gt;</span>0<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Steigenberger Airport Hotel<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRASTE<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRASTE<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRASTE<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;SpeedDial&gt;</span>0<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>NH Frankfurt Niederrad<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRANHN<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRANHN<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRANHN<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;OnRequest&gt;</span>Y<span class="nt">&lt;/OnRequest&gt;</span>
+    <span class="nt">&lt;Contact&gt;</span>Reservations<span class="nt">&lt;/Contact&gt;</span>
+    <span class="nt">&lt;SpeedDial&gt;</span>458<span class="nt">&lt;/SpeedDial&gt;</span>
+    <span class="nt">&lt;RequestFlags&gt;&lt;/RequestFlags&gt;</span>
+    <span class="nt">&lt;RoomType&gt;&lt;/RoomType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Sheraton FRA Hotel And Towers<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRATOW<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/hotel/FRATOW<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/product/FRATOW<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2010-10-15<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;Operator&gt;</span>BJT<span class="nt">&lt;/Operator&gt;</span>
+      <span class="nt">&lt;RoomType&gt;</span>D20<span class="nt">&lt;/RoomType&gt;</span>
+      <span class="nt">&lt;StartCustomer&gt;</span>111111<span class="nt">&lt;/StartCustomer&gt;</span>
+      <span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>999999999<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;system&gt;</span>de<span class="nt">&lt;/system&gt;</span>
+      <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+  <span class="nt">&lt;Pricing&gt;</span>
+    <span class="nt">&lt;TerminalDetail</span> <span class="na">t=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;TerminalCode&gt;</span>FRA1<span class="nt">&lt;/TerminalCode&gt;</span>
+      <span class="nt">&lt;TerminalName&gt;</span>Terminal 1<span class="nt">&lt;/TerminalName&gt;</span>
+    <span class="nt">&lt;/TerminalDetail&gt;</span>
+  <span class="nt">&lt;/Pricing&gt;</span>
+  <span class="nt">&lt;Pricing&gt;</span>
+    <span class="nt">&lt;TerminalDetail</span> <span class="na">t=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;TerminalCode&gt;</span>FRA1<span class="nt">&lt;/TerminalCode&gt;</span>
+      <span class="nt">&lt;TerminalName&gt;</span>Terminal 1<span class="nt">&lt;/TerminalName&gt;</span>
+    <span class="nt">&lt;/TerminalDetail&gt;</span>
+  <span class="nt">&lt;/Pricing&gt;</span>
+  <span class="nt">&lt;WaiverValue&gt;&lt;/WaiverValue&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

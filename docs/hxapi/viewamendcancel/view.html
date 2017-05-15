@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="view-booking">View Booking</h1>
+
+<h2 id="bookingfoo">/booking/foo</h2>
+
+<p>where foo is the booking reference</p>
+
+<p>e.g. http://api.holidayextras.co.uk/v1/booking/ABCDE</p>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>N*</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>email</td>
+      <td>Valid email</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This is a general request, is is therefore not product specific. So a booking of any type, i,e parking, hotel, lounge can be cancelled using the booking reference and the same request parameters it does not need to vary by product.</p>
+
+<ul>
+  <li>Required for agents Agent bookings need not pass in the Email parameter.</li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/v1/booking/ABCDE?Email=email@address.com<span class="err">&amp;</span>key=mytestkey
+</code></pre>
+</div>
+
+<p>For European products please use</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/sandbox/v1/booking/BLBTS?key=mytestkey<span class="err">&amp;</span>ABTANumber=32877<span class="err">&amp;</span>Password=RADEN<span class="err">&amp;</span>System=ABG
+</code></pre>
+</div>
+
+<p>delete sandbox to be directed to production</p>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">System=</span><span class="s">"ABC"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"General"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"999999999"</span> <span class="na">RequestCode=</span><span class="s">"7"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Agent&gt;</span>WT314<span class="nt">&lt;/Agent&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>ABCDE<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;AgentComm&gt;</span>0.10<span class="nt">&lt;/AgentComm&gt;</span>
+    <span class="nt">&lt;VATonComm&gt;</span>0.02<span class="nt">&lt;/VATonComm&gt;</span>
+    <span class="nt">&lt;Amendable&gt;</span>C<span class="nt">&lt;/Amendable&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+  <span class="nt">&lt;Itinerary&gt;</span>
+    <span class="nt">&lt;Product&gt;</span>Parking<span class="nt">&lt;/Product&gt;</span>
+    <span class="nt">&lt;ArrivalDate&gt;</span>2009-05-24<span class="nt">&lt;/ArrivalDate&gt;</span>
+    <span class="nt">&lt;DepartDate&gt;</span>2009-05-31<span class="nt">&lt;/DepartDate&gt;</span>
+    <span class="nt">&lt;ArrivalTime&gt;</span>1130<span class="nt">&lt;/ArrivalTime&gt;</span>
+    <span class="nt">&lt;DepartTime&gt;</span>1230<span class="nt">&lt;/DepartTime&gt;</span>
+    <span class="nt">&lt;Duration&gt;</span>8<span class="nt">&lt;/Duration&gt;</span>
+    <span class="nt">&lt;CarParkCode&gt;</span>LPX0<span class="nt">&lt;/CarParkCode&gt;</span>
+    <span class="nt">&lt;ValetParking&gt;</span>N<span class="nt">&lt;/ValetParking&gt;</span>
+    <span class="nt">&lt;CarPickupDate&gt;</span>2009-05-31<span class="nt">&lt;/CarPickupDate&gt;</span>
+    <span class="nt">&lt;CarDropoffTime&gt;</span>1130<span class="nt">&lt;/CarDropoffTime&gt;</span>
+    <span class="nt">&lt;CarPickupTime&gt;</span>1230<span class="nt">&lt;/CarPickupTime&gt;</span>
+    <span class="nt">&lt;ParkingSpaces&gt;</span>01<span class="nt">&lt;/ParkingSpaces&gt;</span>
+    <span class="nt">&lt;TerminalCode&gt;</span>....<span class="nt">&lt;/TerminalCode&gt;</span>
+    <span class="nt">&lt;NumberOfPax&gt;</span>1<span class="nt">&lt;/NumberOfPax&gt;</span>
+  <span class="nt">&lt;/Itinerary&gt;</span>
+  <span class="nt">&lt;CarDetails&gt;</span>
+    <span class="nt">&lt;Registration&gt;</span>ABCDE 12F<span class="nt">&lt;/Registration&gt;</span>
+    <span class="nt">&lt;CarMake&gt;</span>Fiat<span class="nt">&lt;/CarMake&gt;</span>
+    <span class="nt">&lt;CarModel&gt;</span>126<span class="nt">&lt;/CarModel&gt;</span>
+    <span class="nt">&lt;CarColour&gt;</span>White<span class="nt">&lt;/CarColour&gt;</span>
+  <span class="nt">&lt;/CarDetails&gt;</span>
+  <span class="nt">&lt;ClientDetails&gt;</span>
+    <span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
+    <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+    <span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
+    <span class="nt">&lt;Address</span> <span class="na">a=</span><span class="s">"1"</span><span class="nt">&gt;</span>N/A<span class="nt">&lt;/Address&gt;</span>
+    <span class="nt">&lt;Town&gt;</span>N/A<span class="nt">&lt;/Town&gt;</span>
+    <span class="nt">&lt;County&gt;</span>N/A<span class="nt">&lt;/County&gt;</span>
+    <span class="nt">&lt;Postcode&gt;</span>CT21 4JF<span class="nt">&lt;/Postcode&gt;</span>
+    <span class="nt">&lt;DayPhone&gt;</span>01303222222<span class="nt">&lt;/DayPhone&gt;</span>
+    <span class="nt">&lt;Email&gt;</span>email@address.com<span class="nt">&lt;/Email&gt;</span>
+    <span class="nt">&lt;DataProtection&gt;</span>Y<span class="nt">&lt;/DataProtection&gt;</span>
+  <span class="nt">&lt;/ClientDetails&gt;</span>
+  <span class="nt">&lt;Pricing&gt;</span>
+    <span class="nt">&lt;AmountPaid&gt;</span>1.50<span class="nt">&lt;/AmountPaid&gt;</span>
+    <span class="nt">&lt;TotalPrice&gt;</span>0.00<span class="nt">&lt;/TotalPrice&gt;</span>
+    <span class="nt">&lt;CCardSurchargeAmount&gt;</span>1.50<span class="nt">&lt;/CCardSurchargeAmount&gt;</span>
+  <span class="nt">&lt;/Pricing&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;Email&gt;</span>email@address.com<span class="nt">&lt;/Email&gt;</span>
+      <span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="fields-explained">Fields Explained</h3>
+
+<p>Most of these should be self explanatory, just the values from the booking.</p>
+
+<h4 id="bookingamendable">/Booking/Amendable</h4>
+
+<p>Possible values</p>
+
+<ul>
+  <li>
+    <p>Y - booking can be amended or cancelled</p>
+  </li>
+  <li>
+    <p>N - booking cannot be amended or cancelled (advance purchase product etc)</p>
+  </li>
+  <li>
+    <p>C - booking has been cancelled</p>
+  </li>
+  <li>
+    <p>S - Same day - booking is for arrival the same day so cannot be amended or cancelled</p>
+  </li>
+</ul>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

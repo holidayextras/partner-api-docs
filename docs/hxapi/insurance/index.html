@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="insurance-countries">Insurance Countries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Endpoint</th>
+      <th>Method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>List all Valid Regions</td>
+      <td><a href="/hxapi/insurancecountries">http://api.holidayextras.co.uk/v1/insurancecountries</a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>List all Countries in Valid Region</td>
+      <td><a href="/hxapi/insurancecountries#insurancecountriesfoo">http://api.holidayextras.co.uk/v1/insurancecountries/foo </a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Search for Specific Country</td>
+      <td><a href="/hxapi/insurancecountries#insurancecountriessearch">http://api.holidayextras.co.uk/v1/insurancecountries/search</a></td>
+      <td>GET</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="insurance-policies">Insurance Policies</h1>
+
+<h2 id="insurance-directintermediary">Insurance Direct/Intermediary</h2>
+
+<p><strong>Requesting options and issuing policies is not yet available via our API for Direct/Intermediary partners.</strong> If you expect to issue a policy a customer will pay for directly via a credit card that our API will process, this API does not support that, though we plan to in future. At the moment the best workaround would be to use the quotes API to get a price, then link through to our scheme selection, options or payment pages.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Endpoint</th>
+      <th>Method</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Request insurance quote for Europe low-risk</td>
+      <td><a href="availability">http://api.holidayextras.co.uk/v1/insurancepolicy/EUROPELOW</a></td>
+      <td>GET</td>
+      <td>*</td>
+    </tr>
+    <tr>
+      <td>Request insurance quote for Europe high-risk</td>
+      <td><a href="availability">http://api.holidayextras.co.uk/v1/insurancepolicy/EUROPEHIGH</a></td>
+      <td>GET</td>
+      <td>*</td>
+    </tr>
+    <tr>
+      <td>Request insurance quote for World wide including USA</td>
+      <td><a href="availability">http://api.holidayextras.co.uk/v1/insurancepolicy/WWXUSA</a></td>
+      <td>GET</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Request insurance quote for World wide excluding USA</td>
+      <td><a href="availability">http://api.holidayextras.co.uk/v1/insurancepolicy/WWIUSA</a></td>
+      <td>GET</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Request insurance quote for Europe</td>
+      <td><a href="availability">http://api.holidayextras.co.uk/v1/insurancepolicy/EUROPE</a></td>
+      <td>GET</td>
+      <td>*</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>The Europe low-risk and Europe high-risk destinations are what we will use for most schemes issued, if in doubt, use /EUROPEHIGH and /EUROPELOW. A few partners can use /EUROPE, if you can, you will know who you are.</li>
+</ul>
+
+<h2 id="insurance-retail">Insurance Retail</h2>
+
+<p>Please note retail insurance uses the same API endpoints as the above Direct insurance. To see destinations and pricing for Retail policies, ensure your ABTANumber and Password are included as parameters with every request, for example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/v1/insurancepolicy?key=mytestkey&amp;ABTANumber=FOO&amp;Password=FOO
+</code></pre>
+</div>
+
+<p>The retail API is only suitable if you are set up as a retail agent with us, please check with our sales team if you are not sure about this. You will need to collect payment from the customer yourself and will be separately invoiced by us for the policies you issue.</p>
+
+<h2 id="insurance-policies-1">Insurance Policies</h2>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

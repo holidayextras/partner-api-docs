@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="produktbibliothek---location">Produktbibliothek - Location</h1>
+
+<h2 id="location">/location</h2>
+
+<p>Diese Anfrage liefert alle gültigen Locations und ihre Codes.</p>
+
+<h3 id="anfrage">Anfrage</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/sandbox/v1/location?key=mytestkey
+</code></pre>
+</div>
+
+<h3 id="antwort">Antwort</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>ABZ<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Aberdeen<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/ABZ<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>BFS<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Belfast<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/BFS<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>BHX<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Birmingham<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/BHX<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>BLK<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Blackpool<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/BLK<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>BRS<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Bristol<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/BRS<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>CVT<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Coventry<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/CVT<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>CWL<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Cardiff<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/CWL<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>DOV<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Dover<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/DOV<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>DSA<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Robin Hood Doncaster Sheffield<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/DSA<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>DUB<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Dublin<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/DUB<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>EDI<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Edinburgh<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/EDI<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>EMA<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>East Midlands<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/EMA<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>EXT<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Exeter<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/EXT<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>GLA<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Glasgow<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/GLA<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>HUY<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Humberside International<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/HUY<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>INV<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Inverness<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/INV<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LBA<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Leeds Bradford<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/LBA<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LCY<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>London City Airport<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/LCY<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LGW<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Gatwick<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/LGW<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LH5<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Heathrow Terminal 5<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/LH5<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LHR<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Heathrow<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/LHR<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LON<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>London City Centre<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/LON<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LOX<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>London City Centre<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/LOX<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LPL<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Liverpool<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/LPL<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LTN<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Luton<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/LTN<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>MAN<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Manchester<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/MAN<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>MME<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Teesside<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/MME<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>NCL<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Newcastle<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/NCL<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>NWI<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Norwich<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/NWI<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>PIK<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Prestwick<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/PIK<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>SOU<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Southampton<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/SOU<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>STN<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Stansted<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/v1/product/STN<span class="nt">&lt;/MoreInfoURL&gt;</span>
+		<span class="nt">&lt;Type&gt;</span>airport<span class="nt">&lt;/Type&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;API_Header&gt;</span>
+		<span class="nt">&lt;Request&gt;</span>
+			<span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+			<span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+		<span class="nt">&lt;/Request&gt;</span>
+	<span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre>
+</div>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

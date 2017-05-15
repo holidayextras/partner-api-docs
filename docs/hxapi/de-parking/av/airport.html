@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="availability-at-airport">Availability At Airport</h1>
+
+<h2 id="carparkfoo">/carpark/foo</h2>
+
+<p>where foo is the location (airport) code</p>
+
+<p>e.g. http://api.holidayextras.co.uk/de-start/v1/carpark/FRA</p>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>StartCustomer</td>
+      <td>String</td>
+      <td>[0-9]{6}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BusinessUnit</td>
+      <td>String</td>
+      <td>[0-9]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Operator</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time</td>
+      <td>HHSS</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartTime</td>
+      <td>Time</td>
+      <td>HHSS</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>NumberOfPax</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>filter</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>N§</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Password only required for agent requests. If sending this you should make your availability requests over https.</li>
+</ul>
+
+<p>§ Pass in filter=on_airport or filter=recommended or filter=meet_and_greet to only show car parks meeting those criteria. You can filter by any field that comes back in the filter section of the xml.</p>
+
+<p><a href="http://api.holidayextras.co.uk/form/carpark1?key=mytestkey">Example form</a></p>
+
+<h3 id="request">Request</h3>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA?StartCustomer=111111<span class="err">&amp;</span>BusinessUnit=222<span class="err">&amp;</span>Initials=BJT<span class="err">&amp;</span>ArrivalDate=2010-02-20<span class="err">&amp;</span>ArrivalTime=1200<span class="err">&amp;</span>DepartDate=2010-02-27<span class="err">&amp;</span>DepartTime=1400<span class="err">&amp;</span>NumberOfPax=2<span class="err">&amp;</span>key=mytestkey<span class="err">&amp;</span>token=000001234
+</code></pre>
+</div>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"1"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;CarPark</span> <span class="na">c=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;CarDetails&gt;</span>N<span class="nt">&lt;/CarDetails&gt;</span>
+    <span class="nt">&lt;TotalPrice&gt;</span>160.00<span class="nt">&lt;/TotalPrice&gt;</span>
+    <span class="nt">&lt;GatePrice&gt;</span>0.00<span class="nt">&lt;/GatePrice&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Airparks Parkhaus Frankfurt - Winterspecial<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRA2<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;Filter&gt;</span>
+      <span class="nt">&lt;recommended&gt;</span>1<span class="nt">&lt;/recommended&gt;</span>
+    <span class="nt">&lt;/Filter&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/sandbox/carpark/FRA2<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/product/FRA2<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/CarPark&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;StartCustomer&gt;</span>111111<span class="nt">&lt;/StartCustomer&gt;</span>
+      <span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>
+      <span class="nt">&lt;Initials&gt;</span>BJT<span class="nt">&lt;/Initials&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2010-02-20<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+      <span class="nt">&lt;DepartDate&gt;</span>2010-02-27<span class="nt">&lt;/DepartDate&gt;</span>
+      <span class="nt">&lt;DepartTime&gt;</span>1400<span class="nt">&lt;/DepartTime&gt;</span>
+      <span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+      <span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>000001234<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;system&gt;</span>de<span class="nt">&lt;/system&gt;</span>
+      <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre>
+</div>
+
+<h3 id="fields-explained">Fields Explained</h3>
+
+<h4 id="carparktotalprice">CarPark/TotalPrice</h4>
+
+<p>The price of product <strong>WITHOUT</strong> any surcharges/fees added.</p>
+
+<h4 id="carparkrequestflags">CarPark/RequestFlags</h4>
+
+<p>Flags listing which details the car park operator requires from the customer. If a flag is returned with a ‘Y’ your application should send the corresponding field/value in the booking request. These are not compulsory, the booking should still be made without these details, but it greatly reduces administrative work if they are completed. Flags are only returned when positive, if a field is not required the field will not be returned.</p>
+
+<p>The flags which can be returned are:</p>
+
+<ul>
+  <li>
+    <p>Registration</p>
+  </li>
+  <li>
+    <p>CarMake</p>
+  </li>
+  <li>
+    <p>CarModel</p>
+  </li>
+  <li>
+    <p>CarColour</p>
+  </li>
+  <li>
+    <p>OutFlight</p>
+  </li>
+  <li>
+    <p>ReturnFlight</p>
+  </li>
+  <li>
+    <p>OutTerminal</p>
+  </li>
+  <li>
+    <p>ReturnTerminal</p>
+  </li>
+  <li>
+    <p>Destination</p>
+  </li>
+  <li>
+    <p>MobileNum</p>
+  </li>
+</ul>
+
+<h4 id="carparkfilter">CarPark/Filter</h4>
+
+<p>We have a filter mechanism on our site, to show only meet and greet products etc. The filters that apply to a product are returned here. Possible values are:</p>
+
+<ul>
+  <li>
+    <p>meet_and_greet</p>
+  </li>
+  <li>
+    <p>recommended</p>
+  </li>
+  <li>
+    <p>on_airport</p>
+  </li>
+  <li>
+    <p>terminal</p>
+  </li>
+  <li>
+    <p>valet_included</p>
+  </li>
+  <li>
+    <p>car_parked_for_you</p>
+  </li>
+</ul>
+
+<h4 id="carparkbookingurl">CarPark/BookingURL</h4>
+
+<p>The URL to go to book this product.</p>
+
+<h4 id="carparkmoreinfourl">CarPark/MoreInfoURL</h4>
+
+<p>Link to the product library information for this product.</p>
+
+<h4 id="api_headerrequest">API_Header/Request</h4>
+
+<p><strong>HXAPI</strong> returns every parameter you sent in the previous request, as you sent it. This is so your app doesn’t have to remember anything not replied in the XML reply.</p>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="übersicht">Übersicht</h1>
+
+<h2 id="was-ist-hxapi">Was ist HXAPI?</h2>
+
+<p><strong>HXAPI</strong> macht es möglich, programmatisch mit dem Holiday Extras Reservations- und Informationssystem zu agieren.</p>
+
+<p><strong>HXAPI</strong> ist besser als das frühere <a href="http://www.holidayextras.co.uk/affiliates/xmlintro.html">XML feed</a> und garantiert Live-Zugang zu unserer Product Library. Mit <strong>HXAPI</strong> kann man Produkte in den Buchungsablauf einbinden, mit dem Vorteil, dass der Kunde auf der Seite bleibt und nur eine Transaktion durchgeführt werden muss.</p>
+
+<p><strong>HXAPI</strong> kann sowohl mit einem Intermediary als auch Retail Konto durchgeführt werden.</p>
+
+<p>Generell hat der Prozessablauf drei grundlegende Anfragen:</p>
+
+<ol>
+  <li><strong>Availability</strong> - Verfügbarkeit</li>
+  <li><strong>Product library</strong> - Detaillierte Informationen zu Produkten.</li>
+  <li><strong>Booking</strong> - Buchung</li>
+</ol>
+
+<p>Die erforderlichen Felder für die Anfrage hängen vom Produkt ab.</p>
+
+<h2 id="was-beinhaltet-eine-anfrage">Was beinhaltet eine Anfrage?</h2>
+
+<p><strong>HXAPI</strong> wurde nach den REST Design Vorgaben erstellt. Das bedeutet, dass alles in Standard-HTTP erstellt wird, genau wie ein Web Browser. Komplizierte Protokolle existieren hier nicht, spezielle Kenntnisse vom Programmierteam sind nicht erforderlich. Wer mehr über das REST Design wissen will, kann [[https://en.wikipedia.org/wiki/Representational_state_transfer
+ | hier]] nachlesen - allerdings werden dabei einige Programmierkenntnisse vorausgesetzt.
+ | ————————————————————————————–</p>
+
+<p>Die Anwendung sendet Befehle in HTTP und erhält eine Antwort darauf. Die verwendete HTTP Methode bestimmt die Art der Handlung.</p>
+
+<ol>
+  <li><strong>GET</strong> Die gebräuchlichste Anfrage, sie erfragt Informationen von der angegebenen URL (z.B. eine Verfügbarkeitsanfrage oder von der Produktbibliothek).</li>
+  <li><strong>POST</strong> Diese Anfrage erstellt etwas Neues, meistens eine Buchung.</li>
+</ol>
+
+<p>Die automatische Antwort von <strong>HXML</strong> ist XML aber es sind auch andere Formate verfügbar (YML, CSV, TXT, JSON). Wie man das Format detaillierter bestimmt, ist in der <a href="/intro">technischen Dokumentation</a> zu finden.</p>
+
+<h2 id="nutzungseinschränkungen">Nutzungseinschränkungen</h2>
+
+<p>Wir überprüfen die Nutzung von HXAPI und bitten darum, dass alle Anwendungen verantwortungsvoll genutzt werden. Bei jeder Anwendung, die ein Volumen an Anfragen produziert, welches wir für exzessiv halten, wird das Konto gesperrt.</p>
+
+<h2 id="die-ersten-schritte">Die ersten Schritte?</h2>
+
+<p>Um uns bezüglich HXAPI zu kontaktieren bitte eine E-Mail an <a href="mailto:sales@holidayextras.com">sales@holidayextras.com</a> schicken oder in der <a href="/intro">technischen Dokumentation</a> nachschauen.</p>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

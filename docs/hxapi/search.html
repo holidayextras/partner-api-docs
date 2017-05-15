@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="german-booking-search">German Booking Search</h1>
+
+<h2 id="simple-search-with-start-booking-reference">Simple search, with Start booking reference</h2>
+
+<h2 id="bookingfoo">/booking/foo</h2>
+
+<p>where foo is the Start booking reference</p>
+
+<p>e.g. http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10051848</p>
+
+<h2 id="the-paymentoutstanding-element">The PaymentOutstanding Element</h2>
+
+<p>This element is to be used to indicate the amount left payable, by the customer, if Direktinkasso is chosen. It is the <strong>full amount</strong> of the booking. It should not be confused with what the agent is due to pay HX if the customer does not pay Direktinkasso.</p>
+
+<p>If the booking has been paid in full, PaymentOutstanding = 0.00.</p>
+
+<p>If PaymentOutstanding reaches a negative figure, something has gone wrong. Your application must ensure that the correct value is taken at point of payment, this is not currently enforced by HXAPI.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>StartCustomer</td>
+      <td>String</td>
+      <td>[0-9]{6}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BusinessUnit</td>
+      <td>String</td>
+      <td>[0-9]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Operator</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>StartDate</td>
+      <td>Date</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>EndDate</td>
+      <td>Date</td>
+      <td> </td>
+      <td>N*</td>
+    </tr>
+    <tr>
+      <td>PartyName</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Product</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>EndDate parameter is required IF StartDate has a value.</li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213905?StartCustomer=111111<span class="err">&amp;</span>BusinessUnit=222<span class="err">&amp;</span>Operator=BJT<span class="err">&amp;</span>key=mytestkey
+</code></pre>
+</div>
+
+<h3 id="response">Response</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"11"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;BookingRef&gt;</span>DZN40<span class="nt">&lt;/BookingRef&gt;</span>
+  <span class="nt">&lt;StartRef&gt;</span>10213905<span class="nt">&lt;/StartRef&gt;</span>
+  <span class="nt">&lt;BookingDate&gt;</span>25FEB10<span class="nt">&lt;/BookingDate&gt;</span>
+  <span class="nt">&lt;Status&gt;</span>OK<span class="nt">&lt;/Status&gt;</span>
+  <span class="nt">&lt;BookingTime&gt;</span>10:15<span class="nt">&lt;/BookingTime&gt;</span>
+  <span class="nt">&lt;StartDate&gt;</span>21APR10<span class="nt">&lt;/StartDate&gt;</span>
+  <span class="nt">&lt;EndDate&gt;</span>27APR10<span class="nt">&lt;/EndDate&gt;</span>
+  <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+  <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+  <span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
+  <span class="nt">&lt;TotalPrice&gt;</span>30.00<span class="nt">&lt;/TotalPrice&gt;</span>
+  <span class="nt">&lt;PaymentOutstanding&gt;</span>0.00<span class="nt">&lt;/PaymentOutstanding&gt;</span>
+  <span class="nt">&lt;AgentName&gt;</span>Test German Agent<span class="nt">&lt;/AgentName&gt;</span>
+  <span class="nt">&lt;Strasse</span> <span class="na">s=</span><span class="s">"1"</span><span class="nt">&gt;</span>Strasse 1<span class="nt">&lt;/Strasse&gt;</span>
+  <span class="nt">&lt;Strasse</span> <span class="na">s=</span><span class="s">"2"</span><span class="nt">&gt;</span>Strasse 2<span class="nt">&lt;/Strasse&gt;</span>
+  <span class="nt">&lt;PLZ&gt;</span>12345<span class="nt">&lt;/PLZ&gt;</span>
+  <span class="nt">&lt;Ort&gt;</span>Ort (Town)<span class="nt">&lt;/Ort&gt;</span>
+  <span class="nt">&lt;SiteCode&gt;</span>FRA9<span class="nt">&lt;/SiteCode&gt;</span>
+  <span class="nt">&lt;CarPickUpDate&gt;&lt;/CarPickUpDate&gt;</span>
+  <span class="nt">&lt;ParkingDays&gt;</span>7<span class="nt">&lt;/ParkingDays&gt;</span>
+  <span class="nt">&lt;Pax</span> <span class="na">p=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
+    <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+    <span class="nt">&lt;LastName&gt;</span>THOMPSON<span class="nt">&lt;/LastName&gt;</span>
+    <span class="nt">&lt;Age&gt;&lt;/Age&gt;</span>
+  <span class="nt">&lt;/Pax&gt;</span>
+  <span class="nt">&lt;Pax</span> <span class="na">p=</span><span class="s">"2"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Title&gt;&lt;/Title&gt;</span>
+    <span class="nt">&lt;Initial&gt;&lt;/Initial&gt;</span>
+    <span class="nt">&lt;LastName&gt;&lt;/LastName&gt;</span>
+    <span class="nt">&lt;Age&gt;&lt;/Age&gt;</span>
+  <span class="nt">&lt;/Pax&gt;</span>
+  <span class="nt">&lt;Confirmation</span> <span class="na">c=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/Confirmation&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;StartCustomer&gt;</span>111111<span class="nt">&lt;/StartCustomer&gt;</span>
+      <span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>
+      <span class="nt">&lt;Operator&gt;</span>BJT<span class="nt">&lt;/Operator&gt;</span>
+      <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;system&gt;</span>de<span class="nt">&lt;/system&gt;</span>
+      <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+  <span class="nt">&lt;CarPark&gt;&lt;/CarPark&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre>
+</div>
+
+<h2 id="simple-search-with-no-booking-reference">Simple search, with no booking reference</h2>
+
+<h3 id="request-1">Request</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/?StartCustomer=111111&amp;BusinessUnit=222&amp;Operator=BJT&amp;key=mytestkey
+</code></pre>
+</div>
+
+<h3 id="response-1">Response</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"11"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;BookingRef&gt;</span>DZN41<span class="nt">&lt;/BookingRef&gt;</span>
+  <span class="nt">&lt;StartRef&gt;</span>10213906<span class="nt">&lt;/StartRef&gt;</span>
+  <span class="nt">&lt;BookingDate&gt;</span>25FEB10<span class="nt">&lt;/BookingDate&gt;</span>
+  <span class="nt">&lt;Status&gt;</span>OK<span class="nt">&lt;/Status&gt;</span>
+  <span class="nt">&lt;BookingTime&gt;</span>10:15<span class="nt">&lt;/BookingTime&gt;</span>
+  <span class="nt">&lt;StartDate&gt;</span>23APR10<span class="nt">&lt;/StartDate&gt;</span>
+  <span class="nt">&lt;EndDate&gt;</span>28APR10<span class="nt">&lt;/EndDate&gt;</span>
+  <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+  <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+  <span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
+  <span class="nt">&lt;TotalPrice&gt;</span>30.00<span class="nt">&lt;/TotalPrice&gt;</span>
+  <span class="nt">&lt;PaymentOutstanding&gt;</span>30.00<span class="nt">&lt;/PaymentOutstanding&gt;</span>
+  <span class="nt">&lt;AgentName&gt;</span>Test German Agent<span class="nt">&lt;/AgentName&gt;</span>
+  <span class="nt">&lt;Strasse</span> <span class="na">s=</span><span class="s">"1"</span><span class="nt">&gt;</span>Strasse 1<span class="nt">&lt;/Strasse&gt;</span>
+  <span class="nt">&lt;Strasse</span> <span class="na">s=</span><span class="s">"2"</span><span class="nt">&gt;</span>Strasse 2<span class="nt">&lt;/Strasse&gt;</span>
+  <span class="nt">&lt;PLZ&gt;</span>12345<span class="nt">&lt;/PLZ&gt;</span>
+  <span class="nt">&lt;Ort&gt;</span>Ort (Town)<span class="nt">&lt;/Ort&gt;</span>
+  <span class="nt">&lt;SiteCode&gt;</span>FRA9<span class="nt">&lt;/SiteCode&gt;</span>
+  <span class="nt">&lt;CarPickUpDate&gt;&lt;/CarPickUpDate&gt;</span>
+  <span class="nt">&lt;ParkingDays&gt;</span>6<span class="nt">&lt;/ParkingDays&gt;</span>
+  <span class="nt">&lt;Pax</span> <span class="na">p=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
+    <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+    <span class="nt">&lt;LastName&gt;</span>THOMPSON<span class="nt">&lt;/LastName&gt;</span>
+    <span class="nt">&lt;Age&gt;&lt;/Age&gt;</span>
+  <span class="nt">&lt;/Pax&gt;</span>
+  <span class="nt">&lt;Pax</span> <span class="na">p=</span><span class="s">"2"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Title&gt;&lt;/Title&gt;</span>
+    <span class="nt">&lt;Initial&gt;&lt;/Initial&gt;</span>
+    <span class="nt">&lt;LastName&gt;&lt;/LastName&gt;</span>
+    <span class="nt">&lt;Age&gt;&lt;/Age&gt;</span>
+  <span class="nt">&lt;/Pax&gt;</span>
+  <span class="nt">&lt;Confirmation</span> <span class="na">c=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/Confirmation&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;StartCustomer&gt;</span>111111<span class="nt">&lt;/StartCustomer&gt;</span>
+      <span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>
+      <span class="nt">&lt;Operator&gt;</span>BJT<span class="nt">&lt;/Operator&gt;</span>
+      <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;system&gt;</span>de<span class="nt">&lt;/system&gt;</span>
+      <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+  <span class="nt">&lt;CarPark&gt;&lt;/CarPark&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="multi-parameter-searches-with-no-booking-reference">Multi parameter searches, with no booking reference</h2>
+
+<h3 id="date-range">Date range</h3>
+
+<p>ZNT -&gt; API</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/?StartCustomer=111111&amp;BusinessUnit=222&amp;Operator=BJT&amp;StartDate=01Jun09&amp;EndDate=01Mar10&amp;key=mytestkey
+</code></pre>
+</div>
+
+<p>API -&gt; Chauntry</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;API_Request</span> <span class="na">System=</span><span class="s">"ABG"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">RequestCode=</span><span class="s">"11"</span> <span class="na">Session=</span><span class="s">"111222333"</span><span class="nt">&gt;</span>                                                                                                  <span class="nt">&lt;Agent&gt;</span>                                                                         
+	<span class="nt">&lt;StartCustomer&gt;</span>111111<span class="nt">&lt;/StartCustomer&gt;</span>                                           
+	<span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>                                                
+	<span class="nt">&lt;Operator&gt;</span>JMB<span class="nt">&lt;/Operator&gt;</span>                                                        
+<span class="nt">&lt;/Agent&gt;</span>                                                                        
+<span class="nt">&lt;Itinerary&gt;</span>                                                                     
+	<span class="nt">&lt;StartRef&gt;&lt;/StartRef&gt;</span>
+        <span class="nt">&lt;StartDate&gt;</span>01JUN09<span class="nt">&lt;/StartDate&gt;</span>
+        <span class="nt">&lt;EndDate&gt;</span>01APR10<span class="nt">&lt;/EndDate&gt;</span>
+<span class="nt">&lt;/Itinerary&gt;</span>                                                                    
+<span class="nt">&lt;/API_Request&gt;</span>
+</code></pre>
+</div>
+
+<p>CHAUNTRY -&gt; API</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">System=</span><span class="s">"ABG"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"111222333"</span> <span class="na">RequestCode=</span><span class="s">"11"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Booking</span> <span class="na">b=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>T5828<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10051763<span class="nt">&lt;/StartRef&gt;</span>
+    <span class="nt">&lt;BookingDate&gt;</span>12MAY09<span class="nt">&lt;/BookingDate&gt;</span>
+    <span class="nt">&lt;StayDate&gt;</span>01AUG09<span class="nt">&lt;/StayDate&gt;</span>
+    <span class="nt">&lt;LeadName&gt;</span>Mr  TTesr<span class="nt">&lt;/LeadName&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+  <span class="nt">&lt;Booking</span> <span class="na">b=</span><span class="s">"2"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>T5829<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10051764<span class="nt">&lt;/StartRef&gt;</span>
+    <span class="nt">&lt;BookingDate&gt;</span>12MAY09<span class="nt">&lt;/BookingDate&gt;</span>
+    <span class="nt">&lt;StayDate&gt;</span>01AUG09<span class="nt">&lt;/StayDate&gt;</span>
+    <span class="nt">&lt;LeadName&gt;</span>Mr  TTest<span class="nt">&lt;/LeadName&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+.
+.
+.
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre>
+</div>
+
+<p>API -&gt; ZNT</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"11"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>T5828<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10051763<span class="nt">&lt;/StartRef&gt;</span>
+    <span class="nt">&lt;BookingDate&gt;</span>090512<span class="nt">&lt;/BookingDate&gt;</span>
+    <span class="nt">&lt;StayDate&gt;</span>090801<span class="nt">&lt;/StayDate&gt;</span>
+    <span class="nt">&lt;LeadName&gt;</span>Mr  TTesr<span class="nt">&lt;/LeadName&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>T5829<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10051764<span class="nt">&lt;/StartRef&gt;</span>
+    <span class="nt">&lt;BookingDate&gt;</span>090512<span class="nt">&lt;/BookingDate&gt;</span>
+    <span class="nt">&lt;StayDate&gt;</span>090801<span class="nt">&lt;/StayDate&gt;</span>
+    <span class="nt">&lt;LeadName&gt;</span>Mr  TTest<span class="nt">&lt;/LeadName&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+.
+.
+.
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="all-params">All params</h3>
+
+<p>When performing this search, please pass StartDate and EndDate. If none are entered by the customer, use the default values below:</p>
+
+<ul>
+  <li>
+    <p>StartDate: -2 years</p>
+  </li>
+  <li>
+    <p>EndDate: +2 years</p>
+  </li>
+</ul>
+
+<p>This search will return up to 100 results, in the order of booking eg oldest first. If more recent bookings are required please adjust the date range.</p>
+
+<p>znt -&gt; api</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/?StartCustomer=111111&amp;BusinessUnit=222&amp;Operator=BJT&amp;StartDate=23JUN09&amp;EndDate=23MAR10&amp;PartyName=TEST&amp;Product=HotelWithParking&amp;Location=DUS6&amp;key=mytestkey
+</code></pre>
+</div>
+
+<p>api -&gt; chauntry</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;API_Request</span> <span class="na">System=</span><span class="s">"ABG"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">RequestCode=</span><span class="s">"11"</span> <span class="na">Session=</span><span class="s">"111222333"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;Agent&gt;</span>
+	<span class="nt">&lt;StartCustomer&gt;</span>111111<span class="nt">&lt;/StartCustomer&gt;</span>
+	<span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>
+	<span class="nt">&lt;Operator&gt;</span>JMB<span class="nt">&lt;/Operator&gt;</span>
+<span class="nt">&lt;/Agent&gt;</span>
+<span class="nt">&lt;Itinerary&gt;</span>
+	<span class="nt">&lt;StartRef&gt;&lt;/StartRef&gt;</span>                                                           
+	<span class="nt">&lt;StartDate&gt;</span>23Dec09<span class="nt">&lt;/StartDate&gt;</span>
+	<span class="nt">&lt;EndDate&gt;</span>23Mar10<span class="nt">&lt;/EndDate&gt;</span>
+	<span class="nt">&lt;PartyName&gt;</span>Test<span class="nt">&lt;/PartyName&gt;</span>
+	<span class="nt">&lt;Location&gt;</span>DUSDOR<span class="nt">&lt;/Location&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>HotelWithParking<span class="nt">&lt;/Product&gt;</span>
+<span class="nt">&lt;/Itinerary&gt;</span>
+<span class="nt">&lt;/API_Request&gt;</span>
+</code></pre>
+</div>
+
+<p>chauntry -&gt; api</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">System=</span><span class="s">"ABG"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"111222333"</span> <span class="na">RequestCode=</span><span class="s">"11"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Booking</span> <span class="na">b=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>T6361<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10051848<span class="nt">&lt;/StartRef&gt;</span>
+    <span class="nt">&lt;BookingDate&gt;</span>091214<span class="nt">&lt;/BookingDate&gt;</span>
+    <span class="nt">&lt;StayDate&gt;</span>091223<span class="nt">&lt;/StayDate&gt;</span>
+    <span class="nt">&lt;LeadName&gt;</span>HERRTTEST<span class="nt">&lt;/LeadName&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+.
+.
+.
+  <span class="nt">&lt;Booking</span> <span class="na">b=</span><span class="s">"26"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>T6497<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10051926<span class="nt">&lt;/StartRef&gt;</span>
+    <span class="nt">&lt;BookingDate&gt;</span>100126<span class="nt">&lt;/BookingDate&gt;</span>
+    <span class="nt">&lt;StayDate&gt;</span>100301<span class="nt">&lt;/StayDate&gt;</span>
+    <span class="nt">&lt;LeadName&gt;</span>MR  TTEST<span class="nt">&lt;/LeadName&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre>
+</div>
+
+<p>api -&gt; ZNT</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"11"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>T6361<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10051848<span class="nt">&lt;/StartRef&gt;</span>
+    <span class="nt">&lt;BookingDate&gt;</span>091214<span class="nt">&lt;/BookingDate&gt;</span>
+    <span class="nt">&lt;StayDate&gt;</span>091223<span class="nt">&lt;/StayDate&gt;</span>
+    <span class="nt">&lt;LeadName&gt;</span>HERRTTEST<span class="nt">&lt;/LeadName&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+.
+.
+.
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>T6497<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10051926<span class="nt">&lt;/StartRef&gt;</span>
+    <span class="nt">&lt;BookingDate&gt;</span>100126<span class="nt">&lt;/BookingDate&gt;</span>
+    <span class="nt">&lt;StayDate&gt;</span>100301<span class="nt">&lt;/StayDate&gt;</span>
+    <span class="nt">&lt;LeadName&gt;</span>MR  TTEST<span class="nt">&lt;/LeadName&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

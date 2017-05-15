@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="amend-booking---personal-details-no-reprice">Amend Booking - Personal Details No Reprice</h1>
+
+<h2 id="bookingfoo">/booking/foo</h2>
+
+<p>where foo is the booking reference</p>
+
+<p>e.g. http://api.holidayextras.co.uk/v1/booking/ABCDE</p>
+
+<p>This request is required if you need to update any personal details to a booking, but it will not amend a booking where it is likely to reprice.</p>
+
+<p>You are advised to look up a booking first using the View API - and store the existing parameters for a booking.
+Pass through any parameter that the Customer wants to change.
+Pass through any existing parameter that the Customer is not changing.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>foo - this is your agent code</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>yourkey</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>yourtoken</td>
+    </tr>
+    <tr>
+      <td>Registration</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>AB12CDE</td>
+    </tr>
+    <tr>
+      <td>CarMake</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>TEST MAKE</td>
+    </tr>
+    <tr>
+      <td>CarModel</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>TEST MODEL</td>
+    </tr>
+    <tr>
+      <td>CarColour</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>WHITE</td>
+    </tr>
+    <tr>
+      <td>OutFlight</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>AB123</td>
+    </tr>
+    <tr>
+      <td>MobileNum</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>Y</td>
+      <td>0123456789</td>
+    </tr>
+    <tr>
+      <td>Destination</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>SOMEWHERE</td>
+    </tr>
+    <tr>
+      <td>DepartTerminal</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>ArrivalTerminal</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>CarDropoffTime</td>
+      <td>Int</td>
+      <td>HHII[0-9]</td>
+      <td>Y</td>
+      <td>1200</td>
+    </tr>
+    <tr>
+      <td>CarPickupTime</td>
+      <td>Int</td>
+      <td>HHII[0-9]</td>
+      <td>Y</td>
+      <td>1500</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>MR</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>T</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>TEST</td>
+    </tr>
+    <tr>
+      <td>Address[]</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>TEST STREET</td>
+    </tr>
+    <tr>
+      <td>Town</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>TEST TOWN</td>
+    </tr>
+    <tr>
+      <td>County</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>TEST COUNTY</td>
+    </tr>
+    <tr>
+      <td>PostCode</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>AB12 3CD</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>test@test.com</td>
+    </tr>
+    <tr>
+      <td>DayPhone</td>
+      <td>Int</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>0123456789</td>
+    </tr>
+    <tr>
+      <td>EvePhone</td>
+      <td>Int</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>0123456789</td>
+    </tr>
+    <tr>
+      <td>CustRef</td>
+      <td>String</td>
+      <td>[A-Z][0-9]</td>
+      <td>Y</td>
+      <td>TESTREF</td>
+    </tr>
+    <tr>
+      <td>Confirmation</td>
+      <td>String</td>
+      <td>[A-Z][0-9]{1}</td>
+      <td>Y</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>System</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>Y*</td>
+      <td>ABG</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*System is only required if you are using the European System and you will need to pass in ABG</p>
+
+<h2 id="confirm-amend">Confirm amend</h2>
+
+<p>This request actually changes the details of the booking. It is a good idea to ask the customer to confirm the changes before making this request. Use the booking details retrieved from a request 7 to prepopulate the form.</p>
+
+<h3 id="request">Request</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /booking/REF HTTP/1.1
+Host: api.holidayextras.co.uk
+User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.1) Gecko/2008070206 Firefox/3.0.1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 297
+
+ABTANumber=FOO&amp;Title=MR&amp;Initial=T&amp;Surname=TEST&amp;Address[]=TEST&amp;Town=TEST&amp;County=TEST&amp;PostCode=TEST&amp;DayPhone=0123456789&amp;EvePhone=0123456789&amp;Email=test%40test.com&amp;Registration=AB12CDE&amp;CarMake=Test Make&amp;CarModel=Test Model&amp;CarColour=WHITE&amp;OutFlight=AB123&amp;MobileNum=0123456789&amp;Destination=Maldives&amp;&amp;DepartTerminal=S&amp;ArrivalTerminal=1&amp;CarDropOffTime=1200&amp;key=mytestkey&amp;AmendNoReprice=1&amp;Confirmation=Y&amp;token=generate
+
+</code></pre>
+</div>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">System=</span><span class="s">"ABC"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"General"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"999999999"</span> <span class="na">RequestCode=</span><span class="s">"24"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Ident&gt;</span>
+        <span class="nt">&lt;BookingRef&gt;</span>TESTREF<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;/Ident&gt;</span>
+    <span class="nt">&lt;Itinerary&gt;</span>
+        <span class="nt">&lt;ReturnFlight&gt;&lt;/ReturnFlight&gt;</span>
+        <span class="nt">&lt;Remarks&gt;&lt;/Remarks&gt;</span>
+    <span class="nt">&lt;/Itinerary&gt;</span>
+    <span class="nt">&lt;CarDetails&gt;</span>
+        <span class="nt">&lt;Registration&gt;&lt;/Registration&gt;</span>
+        <span class="nt">&lt;CarMake&gt;&lt;/CarMake&gt;</span>
+        <span class="nt">&lt;CarModel&gt;&lt;/CarModel&gt;</span>
+        <span class="nt">&lt;CarColour&gt;&lt;/CarColour&gt;</span>
+        <span class="nt">&lt;OutFlight&gt;&lt;/OutFlight&gt;</span>
+        <span class="nt">&lt;MobileNum&gt;&lt;/MobileNum&gt;</span>
+        <span class="nt">&lt;Destination&gt;&lt;/Destination&gt;</span>
+        <span class="nt">&lt;OutTerminal&gt;&lt;/OutTerminal&gt;</span>
+        <span class="nt">&lt;RetTerminal&gt;&lt;/RetTerminal&gt;</span>
+        <span class="nt">&lt;CarDropOffTime&gt;&lt;/CarDropOffTime&gt;</span>
+        <span class="nt">&lt;CarPickupTime&gt;&lt;/CarPickupTime&gt;</span>
+        <span class="nt">&lt;Pax&gt;&lt;/Pax&gt;</span>
+    <span class="nt">&lt;/CarDetails&gt;</span>
+    <span class="nt">&lt;ClientDetails&gt;</span>
+        <span class="nt">&lt;Title&gt;</span>MRS<span class="nt">&lt;/Title&gt;</span>
+        <span class="nt">&lt;Initial&gt;</span>J<span class="nt">&lt;/Initial&gt;</span>
+        <span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
+        <span class="nt">&lt;Address&gt;</span>TEST<span class="nt">&lt;/Address&gt;</span>
+        <span class="nt">&lt;Town&gt;</span>TEST<span class="nt">&lt;/Town&gt;</span>
+        <span class="nt">&lt;County&gt;</span>TEST<span class="nt">&lt;/County&gt;</span>
+        <span class="nt">&lt;PostCode&gt;</span>TEST<span class="nt">&lt;/PostCode&gt;</span>
+        <span class="nt">&lt;DayPhone&gt;</span>0123456789<span class="nt">&lt;/DayPhone&gt;</span>
+        <span class="nt">&lt;EvePhone&gt;</span>0123456789<span class="nt">&lt;/EvePhone&gt;</span>
+        <span class="nt">&lt;Confirmation&gt;</span>Y<span class="nt">&lt;/Confirmation&gt;</span>
+        <span class="nt">&lt;DataProtection&gt;</span>Y<span class="nt">&lt;/DataProtection&gt;</span>
+        <span class="nt">&lt;EMail&gt;</span>jackie.king@holidayextras.com<span class="nt">&lt;/EMail&gt;</span>
+        <span class="nt">&lt;CustRef&gt;&lt;/CustRef&gt;</span>
+    <span class="nt">&lt;/ClientDetails&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;ABTANumber&gt;</span>WEB1<span class="nt">&lt;/ABTANumber&gt;</span>
+            <span class="nt">&lt;Title&gt;</span>MRS<span class="nt">&lt;/Title&gt;</span>
+            <span class="nt">&lt;Initial&gt;</span>J<span class="nt">&lt;/Initial&gt;</span>
+            <span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
+            <span class="nt">&lt;Address&gt;</span>TEST<span class="nt">&lt;/Address&gt;</span>
+            <span class="nt">&lt;Town&gt;</span>TEST<span class="nt">&lt;/Town&gt;</span>
+            <span class="nt">&lt;County&gt;</span>TEST<span class="nt">&lt;/County&gt;</span>
+            <span class="nt">&lt;PostCode&gt;</span>TEST<span class="nt">&lt;/PostCode&gt;</span>
+            <span class="nt">&lt;DayPhone&gt;</span>0123456789<span class="nt">&lt;/DayPhone&gt;</span>
+            <span class="nt">&lt;EvePhone&gt;</span>0123456789<span class="nt">&lt;/EvePhone&gt;</span>
+            <span class="nt">&lt;Email&gt;</span>jackie.king@holidayextras.com<span class="nt">&lt;/Email&gt;</span>
+            <span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;AmendNoReprice&gt;</span>1<span class="nt">&lt;/AmendNoReprice&gt;</span>
+            <span class="nt">&lt;Confirmation&gt;</span>Y<span class="nt">&lt;/Confirmation&gt;</span>
+            <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

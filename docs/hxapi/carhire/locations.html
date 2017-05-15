@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="lookup-locations">Lookup Locations</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; product:<a href="/hxapi/carhire">Car Hire</a> &gt; endpoint:<a href="locations">locations</a></p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>GET: /carHire/locations
+</code></pre>
+</div>
+
+<h2 id="request">Request</h2>
+
+<p>The following GET parameters are mandatory:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="s2">"key"</span><span class="err">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">"Query"</span><span class="err">:</span> <span class="s2">"London"</span>
+</code></pre>
+</div>
+
+<p>Query searches against name and/or country_name.</p>
+
+<p>Example request:</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/v1/sandbox/carHire/locations.js?key=1<span class="err">&amp;</span>Query=London
+</code></pre>
+</div>
+
+<h2 id="response">Response</h2>
+
+<p>Car Hire returns a list of locations, including a location code, name and country. The location code can be used as part of an Availability request when searching for Pickup or Dropoff locations.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"API_Reply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL965"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amsterdam (Schipol) Airport"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Netherlands"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

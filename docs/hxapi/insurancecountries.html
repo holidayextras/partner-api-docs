@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="insurance-country---region-lookup">Insurance Country - Region Lookup</h1>
+
+<p>This endpoint can be used to list all <a href="types/regioncode">regions</a>, list countries by region, or free text search to get a list of countries and the corresponding regions.</p>
+
+<h2 id="insurancecountries">/insurancecountries/</h2>
+
+<p>List all valid regions.</p>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>N</td>
+      <td>Required for retail requests</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>N</td>
+      <td>Required for retail requests. If sending this you should make your requests over https.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request">Request</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/v1/insurancecountries?ABTANumber=foo&amp;Password=yourpassword&amp;key=mytestkey
+</code></pre>
+</div>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply&gt;</span>
+  <span class="nt">&lt;Message&gt;</span>Regions for retail<span class="nt">&lt;/Message&gt;</span>
+  <span class="nt">&lt;Details&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>UKROI<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;Description&gt;</span>UK + Ireland<span class="nt">&lt;/Description&gt;</span>
+      <span class="nt">&lt;MoreInfoUrl&gt;</span>/insurancepolicy/UKROI/<span class="nt">&lt;/MoreInfoUrl&gt;</span>
+      <span class="nt">&lt;AcceptedCountries&gt;</span>/insurancecountries/UKROI/<span class="nt">&lt;/AcceptedCountries&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+    ...
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>WWXUSA<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;Description&gt;</span>Worldwide (Excluding USA)<span class="nt">&lt;/Description&gt;</span>
+      <span class="nt">&lt;MoreInfoUrl&gt;</span>/insurancepolicy/WWXUSA/<span class="nt">&lt;/MoreInfoUrl&gt;</span>
+      <span class="nt">&lt;AcceptedCountries&gt;</span>/insurancecountries/WWXUSA/<span class="nt">&lt;/AcceptedCountries&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/Details&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ABTANumber&gt;</span>foo<span class="nt">&lt;/ABTANumber&gt;</span>
+      <span class="nt">&lt;Password&gt;</span>yourpassword<span class="nt">&lt;/Password&gt;</span>
+      <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="insurancecountriesfoo">/insurancecountries/foo</h2>
+
+<p>Where foo is the <a href="/hxapi/types/regioncode">Region code</a></p>
+
+<h3 id="method-1">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>N</td>
+      <td>Required for retail requests</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>N</td>
+      <td>Required for retail requests. If sending this you should make your requests over https.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request-1">Request</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/v1/insurancecountries/EUROPELOW?ABTANumber=foo&amp;Password=yourpassword&amp;key=mytestkey
+</code></pre>
+</div>
+
+<h3 id="reply-1">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+
+<span class="nt">&lt;API_Reply&gt;</span>
+  <span class="nt">&lt;RecordSet&gt;</span>
+    <span class="nt">&lt;Meta&gt;</span>
+      <span class="nt">&lt;Total&gt;</span>83<span class="nt">&lt;/Total&gt;</span>
+    <span class="nt">&lt;/Meta&gt;</span>
+    <span class="nt">&lt;Record&gt;</span>
+      <span class="nt">&lt;country&gt;</span>Albania<span class="nt">&lt;/country&gt;</span>
+    <span class="nt">&lt;/Record&gt;</span>
+    <span class="nt">&lt;Record&gt;</span>
+      <span class="nt">&lt;country&gt;</span>Andorra<span class="nt">&lt;/country&gt;</span>
+    <span class="nt">&lt;/Record&gt;</span>
+    <span class="nt">&lt;Record&gt;</span>
+      <span class="nt">&lt;country&gt;</span>Armenia<span class="nt">&lt;/country&gt;</span>
+    <span class="nt">&lt;/Record&gt;</span>
+    ...
+    <span class="nt">&lt;Record&gt;</span>
+      <span class="nt">&lt;country&gt;</span>Vatican City<span class="nt">&lt;/country&gt;</span>
+    <span class="nt">&lt;/Record&gt;</span>
+    <span class="nt">&lt;Record&gt;</span>
+      <span class="nt">&lt;country&gt;</span>Wales<span class="nt">&lt;/country&gt;</span>
+    <span class="nt">&lt;/Record&gt;</span>
+    <span class="nt">&lt;Record&gt;</span>
+      <span class="nt">&lt;country&gt;</span>Yugoslavia (Former)<span class="nt">&lt;/country&gt;</span>
+    <span class="nt">&lt;/Record&gt;</span>
+  <span class="nt">&lt;/RecordSet&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ABTANumber&gt;</span>foo<span class="nt">&lt;/ABTANumber&gt;</span>
+      <span class="nt">&lt;Password&gt;</span>yourpassword<span class="nt">&lt;/Password&gt;</span>
+      <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="insurancecountriessearch">/insurancecountries/search</h2>
+
+<p>Text search for specific countries. Useful if your application uses a javascript autocomplete script.</p>
+
+<h3 id="method-2">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>query</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request-2">Request</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/v1/insurancecountries/search?key=mytestkey&amp;ABTANumber=foo&amp;Password=yourpassword&amp;query=ire
+</code></pre>
+</div>
+
+<h3 id="reply-2">Reply</h3>
+
+<p>```xml
+<?xml version="1.0" ?></p>
+
+<API_Reply>
+  <RecordSet>
+    <meta />
+      <Total>6</Total>
+    &lt;/Meta&gt;
+    <Record>
+      <country>Bonaire (Antilles)</country>
+      <region>3</region>
+      <region_retail>3</region_retail>
+      <api_region>WWIUSA</api_region>
+      <api_region_retail>WWIUSA</api_region_retail>
+    </Record>
+    <Record>
+      <country>Cote D&#39;Ivoire</country>
+      <region>5</region>
+      <region_retail>5</region_retail>
+      <api_region>WWXUSA</api_region>
+      <api_region_retail>WWXUSA</api_region_retail>
+    </Record>
+    <Record>
+      <country>Ireland</country>
+      <region>6</region>
+      <region_retail>1</region_retail>
+      <api_region>EUROPELOW</api_region>
+      <api_region_retail>UKROI</api_region_retail>
+    </Record>
+    <Record>
+      <country>Northern Ireland</country>
+      <region>6</region>
+      <region_retail>1</region_retail>
+      <api_region>EUROPELOW</api_region>
+      <api_region_retail>UKROI</api_region_retail>
+    </Record>
+    <Record>
+      <country>Rep. Ireland</country>
+      <region>6</region>
+      <region_retail>1</region_retail>
+      <api_region>EUROPELOW</api_region>
+      <api_region_retail>UKROI</api_region_retail>
+    </Record>
+    <Record>
+      <country>Zaire</country>
+      <region>5</region>
+      <region_retail>5</region_retail>
+      <api_region>WWXUSA</api_region>
+      <api_region_retail>WWXUSA</api_region_retail>
+    </Record>
+  </RecordSet>
+  <API_Header>
+    <Request>
+      <key>mytestkey</key>
+      <ABTANumber>foo</ABTANumber>
+      <Password>yourpassword</Password>
+      <query>ire</query>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply>
+<p>&lt;/code&gt;</p>
+
+<h3 id="fields-explained">Fields explained</h3>
+
+<h4 id="recordsetrecordapi_region">RecordSet/Record/api_region</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>[[hxapi:types:regioncode</td>
+      <td>Region code]] to use for <strong>direct or intermediary</strong> [[hxapi:insurance:availability</td>
+      <td>policy searches]]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="recordsetrecordapi_region_retail">RecordSet/Record/api_region_retail</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>[[hxapi:types:regioncode</td>
+      <td>Region code]] to use for <strong>retail</strong> [[hxapi:insuranceretail:availability</td>
+      <td>policy searches]]</td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

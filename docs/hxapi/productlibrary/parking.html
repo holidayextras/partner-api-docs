@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="product-library---car-park">Product Library - Car Park</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; endpoint:<a href="parking">product</a></p>
+
+<h2 id="productfoo">/product/foo</h2>
+
+<p>Where <strong>foo</strong> is the car park code.</p>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>fields</td>
+      <td>String</td>
+      <td>N</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request-example-1">Request (example 1)</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&amp;key=mytestkey
+</code></pre>
+</div>
+
+<h3 id="reply-example-1">Reply (example 1)</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>
+<span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;parent&gt;</span>LGW<span class="nt">&lt;/parent&gt;</span>
+		<span class="nt">&lt;child&gt;</span>4<span class="nt">&lt;/child&gt;</span>
+		<span class="nt">&lt;type&gt;</span>1<span class="nt">&lt;/type&gt;</span>
+		<span class="nt">&lt;name&gt;</span>Maple Manor Meet and Greet<span class="nt">&lt;/name&gt;</span>
+		<span class="nt">&lt;archived&gt;</span>0<span class="nt">&lt;/archived&gt;</span>
+		<span class="nt">&lt;longitude&gt;</span>-0.15964508056640625<span class="nt">&lt;/longitude&gt;</span>
+		<span class="nt">&lt;latitude&gt;</span>51.15636211351587<span class="nt">&lt;/latitude&gt;</span>
+		<span class="nt">&lt;baseProduct/&gt;</span>
+		<span class="nt">&lt;browser_title&gt;</span>Gatwick Maple Manor Parking | Meet and Greet Parking<span class="nt">&lt;/browser_title&gt;</span>
+		<span class="nt">&lt;browser_description&gt;</span>Maple Manor Meet and Greet Parking takes the hassle out of arriving and departing from the airport. You will be met by a fully insured, well trained, uniformed driver who will carefully park your car at a fully secured car park just 4 miles from the terminal.<span class="nt">&lt;/browser_description&gt;</span>
+		<span class="nt">&lt;features&gt;</span>Meet <span class="ni">&amp;amp;</span> Greet<span class="nt">&lt;/features&gt;</span>
+		<span class="nt">&lt;fax&gt;</span>01293 863838<span class="nt">&lt;/fax&gt;</span>
+		<span class="nt">&lt;keyword_meta&gt;</span>maple manor gatwick, gatwick airport maple manor parking, maple manor parking gatwick, maple manor parking, gatwick airport parking, maple manor, maple, manor, gatwick parking, meet, greet<span class="nt">&lt;/keyword_meta&gt;</span>
+		<span class="nt">&lt;telephone&gt;</span>01293 863322<span class="nt">&lt;/telephone&gt;</span>
+		<span class="nt">&lt;introduction&gt;</span>Maple Manor Meet and Greet Parking takes the hassle out of arriving and departing from the airport. You will be met by a fully insured, well trained, uniformed driver who will carefully park your car at a fully secured car park just 4 miles from the terminal. Drop-offs and pick-ups are available from the North and South terminals. There is also a NEW Car Valet Service option for only <span class="ni">&amp;#xA3;</span>9.95.<span class="nt">&lt;/introduction&gt;</span>
+		<span class="nt">&lt;distance_to_airport&gt;</span>On airport.<span class="nt">&lt;/distance_to_airport&gt;</span>
+		<span class="nt">&lt;security_measures&gt;</span>The compound to which your car is taken is fully fenced or manned<span class="nt">&lt;/security_measures&gt;</span>
+		<span class="nt">&lt;arrival_procedures&gt;</span>Call Maple Manor on 01293 863 322 between 8am and 8pm, 24 hours after the booking is made to confirm the exact details. You must also call 07801 142165, or if busy 01293 776 447, in advance or your arrival at Gatwick to confirm these details on the day. Drive to the pre-arranged location at Gatwick North or South Terminal (see directions). You will be met by a uniformed driver who will check your car, collect your e-mail booking confirmation and take the keys.  Your car will be driven to a secured compound while you proceed direct to check in.  If you have not given us the terminal information at the time of booking then please call 01293 776 447 at least 24hrs before arrival to reconfirm.<span class="nt">&lt;/arrival_procedures&gt;</span>
+		<span class="nt">&lt;directions&gt;</span>Call Maple Manor on 07801 142165, or if busy 01293 776 447, before your arrival at Gatwick to re-confirm the time you wish to be met. You will be met at either the North or South Terminal as specified in your booking. Follow the directions below to meet your driver. -SOUTH TERMINAL: As you drive into the main entrance to Gatwick South Terminal keep to the offside lane and do not follow to the upper level. -Follow signs for arrivals. As the road bends to the right you will see the car rental building on your left. -Continue past the pedestrian lights and park up on the left or right. Look out for our driver with a 'Maple Manor' marked board. -NORTH TERMINAL: As you drive into the main entrance to Gatwick North take the middle lane.  Do not drive to the upper level. -Follow the signs for 'cars only' (marked with a car logo in the correct lane).  Drive to the far end of this road where you will be met outside the car rental building. Look out for a driver with a Maple Manor board.  Call Maple Manor on 07801 142165, or if busy 01293 776 447, when you are on the M23 to re-confirm your arrival time.<span class="nt">&lt;/directions&gt;</span>
+		<span class="nt">&lt;address&gt;</span>Woodhatch Road Salfords Nr Redhill Surrey RH1 5JH<span class="nt">&lt;/address&gt;</span>
+		<span class="nt">&lt;information&gt;</span>If you are returning ahead of schedule please give us at least 24 hours notice so that we can ensure you car is ready.  A <span class="ni">&amp;#xA3;</span>2.50 supplement for pick-up or drop-off from 00.00 until 06.30. You must call 07801 142165 or if unsuccessful 01293 776447 when on M23 to confirm details. If your actual stay is longer than your booked stay, you will be charged extras on departure at the car park standard daily rate. Please note: No refund will be issued for part used stays and any additional time will be charged at the local gate rate.<span class="nt">&lt;/information&gt;</span>
+		<span class="nt">&lt;departure_procedures&gt;</span>On return from your holiday, once you have cleared customs, simply call 07801 142165, or if unsuccessful 01293 776447, then proceed to arrivals following signs for car rental. Your car will be delivered to the same point where you were met on arrival for you to collect and drive home.<span class="nt">&lt;/departure_procedures&gt;</span>
+		<span class="nt">&lt;minimum_stay&gt;</span>1 day (8 days from April 06 onwards)<span class="nt">&lt;/minimum_stay&gt;</span>
+		<span class="nt">&lt;disabled_facilities&gt;</span>Maple Manor cannot drive specially adapted vehicles but otherwise welcomes bookings from disabled customers.<span class="nt">&lt;/disabled_facilities&gt;</span>
+		<span class="nt">&lt;maximum_car_size&gt;</span>No mobile homes, vans, lorries, caravans or trailers are permitted.<span class="nt">&lt;/maximum_car_size&gt;</span>
+		<span class="nt">&lt;transfers&gt;</span>No transfers are required. Once your car is picked you proceed directly to check in!<span class="nt">&lt;/transfers&gt;</span>
+		<span class="nt">&lt;opening_periods&gt;</span>365 days a year<span class="nt">&lt;/opening_periods&gt;</span>
+		<span class="nt">&lt;number_of_spaces&gt;</span>200<span class="nt">&lt;/number_of_spaces&gt;</span>
+		<span class="nt">&lt;insurance&gt;</span>All cars parked or stored with Maple Manor will be on a proven direct negligence basis. Any loss or damage claims for vehicles must be made prior to the vehicle being handed over by Maple Manor. All vehicles will only be driven by qualified drivers and under Maple Manor's own specialist road risk insurance. Parking is at owner's own risk subject to printed terms and conditions.<span class="nt">&lt;/insurance&gt;</span>
+		<span class="nt">&lt;trailer_and_car&gt;</span>No trailers allowed<span class="nt">&lt;/trailer_and_car&gt;</span>
+		<span class="nt">&lt;bestseller&gt;</span>Yes<span class="nt">&lt;/bestseller&gt;</span>
+		<span class="nt">&lt;undercover_parking&gt;</span>Not available.<span class="nt">&lt;/undercover_parking&gt;</span>
+		<span class="nt">&lt;sellpoint_location&gt;</span>Avoid the hassle of parking and be met at the airport terminal on your departure and arrival.<span class="nt">&lt;/sellpoint_location&gt;</span>
+		<span class="nt">&lt;sellpoint_terminal&gt;</span>Officially our lowest priced Meet and Greet service at Gatwick.<span class="nt">&lt;/sellpoint_terminal&gt;</span>
+		<span class="nt">&lt;sellpoint_transfers&gt;</span>Eliminate transfers with this superb Meet and Greet service.<span class="nt">&lt;/sellpoint_transfers&gt;</span>
+		<span class="nt">&lt;sellpoint_parking&gt;</span>Secured compound with security fencing, monitored 24 hours a day.<span class="nt">&lt;/sellpoint_parking&gt;</span>
+		<span class="nt">&lt;sellpoint_security&gt;</span>Maple Manor make additional charges during the hours 00:00 - 6:00, please click more info before proceeding with your booking.<span class="nt">&lt;/sellpoint_security&gt;</span>
+		<span class="nt">&lt;logo&gt;</span>/images/prodlib/maple.jpg<span class="nt">&lt;/logo&gt;</span>
+		<span class="nt">&lt;distance_miles&gt;</span>4.6490992603197325<span class="nt">&lt;/distance_miles&gt;</span>
+		<span class="nt">&lt;bestselleroverride&gt;</span>LGZ1<span class="nt">&lt;/bestselleroverride&gt;</span>
+		<span class="nt">&lt;default_img&gt;</span>/images/prodlib/LGW8/LGW8.jpg<span class="nt">&lt;/default_img&gt;</span>
+		<span class="nt">&lt;premium_product&gt;</span>Y<span class="nt">&lt;/premium_product&gt;</span>
+		<span class="nt">&lt;custom_msg&gt;</span>Premium service<span class="nt">&lt;/custom_msg&gt;</span>
+		<span class="nt">&lt;priority&gt;</span>-2<span class="nt">&lt;/priority&gt;</span>
+		<span class="nt">&lt;terminal_unknown&gt;</span>If you do not know your terminal, you will need to call to confirm at least 24hrs before your arrival. Please follow the instructions on your confirmation.<span class="nt">&lt;/terminal_unknown&gt;</span>
+		<span class="nt">&lt;meet_and_greet&gt;</span>1<span class="nt">&lt;/meet_and_greet&gt;</span>
+		<span class="nt">&lt;car_parked_for_you&gt;</span>1<span class="nt">&lt;/car_parked_for_you&gt;</span>
+		<span class="nt">&lt;filter&gt;</span>all|N|0|Y|N<span class="nt">&lt;/filter&gt;</span>
+		<span class="nt">&lt;postcode&gt;</span>RH1 5JH<span class="nt">&lt;/postcode&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;API_Header&gt;</span>
+		<span class="nt">&lt;Request&gt;</span>
+			<span class="nt">&lt;token&gt;</span>000015778<span class="nt">&lt;/token&gt;</span>
+			<span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+			<span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+			<span class="nt">&lt;version&gt;</span>lite<span class="nt">&lt;/version&gt;</span>
+		<span class="nt">&lt;/Request&gt;</span>
+	<span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+
+</code></pre>
+</div>
+
+<h3 id="request-example-2">Request (example 2)</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&amp;key=mytestkey&amp;fields=name,longitude,latitude
+</code></pre>
+</div>
+
+<h3 id="reply-example-2">Reply (example 2)</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>
+<span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;name&gt;</span>Maple Manor Meet and Greet<span class="nt">&lt;/name&gt;</span>
+		<span class="nt">&lt;longitude&gt;</span>-0.15964508056640625<span class="nt">&lt;/longitude&gt;</span>
+		<span class="nt">&lt;latitude&gt;</span>51.15636211351587<span class="nt">&lt;/latitude&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;API_Header&gt;</span>
+		<span class="nt">&lt;Request&gt;</span>
+			<span class="nt">&lt;token&gt;</span>000015778<span class="nt">&lt;/token&gt;</span>
+			<span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+			<span class="nt">&lt;fields&gt;</span>name,longitude,latitude<span class="nt">&lt;/fields&gt;</span>
+			<span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+			<span class="nt">&lt;version&gt;</span>lite<span class="nt">&lt;/version&gt;</span>
+		<span class="nt">&lt;/Request&gt;</span>
+	<span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre>
+</div>
+
+<h3 id="fields-explained">Fields Explained</h3>
+
+<h4 id="parent">parent</h4>
+
+<p>Contains the location code of product - eg LGW, LHR etc. Parent and child provide the composite key to create the product code.</p>
+
+<p>eg LGW + 2 = LGW2</p>
+
+<h4 id="child">child</h4>
+
+<p>Numeric identifier to be appended to parent to create product code.</p>
+
+<h4 id="type">type</h4>
+
+<p>Product type - 1 = car park, 2 = hotels, 3 = lounges</p>
+
+<h4 id="archived">archived</h4>
+
+<p>Boolean - if a product is no longer offered for sale it will be marked as archived but remain in the product library. It will not be returned in availability searches and the product cannot be booked.</p>
+
+<h4 id="longitudelatitude">longitude/latitude</h4>
+
+<p>Co-ordinates for plugging in to Google Maps etc. We do not provide any map functionality other than these co-ordinates.</p>
+
+<h4 id="baseproduct">baseProduct</h4>
+
+<p>HX use only.</p>
+
+<h4 id="browser_titlebrowser_description">browser_title/browser_description</h4>
+
+<p>HX use only.</p>
+
+<h4 id="features">features</h4>
+
+<p>Obsolete.</p>
+
+<h4 id="distance_to_airport">distance_to_airport</h4>
+
+<p>This will be either a number or a string such as ‘On airport’. Not guaranteed to be a number.</p>
+
+<h4 id="trailer_and_car">trailer_and_car</h4>
+
+<p>Car park specific rules regarding trailers.</p>
+
+<h4 id="bestseller">bestseller</h4>
+
+<p>Ignore, for HX internal use.</p>
+
+<h4 id="undercover_parking">undercover_parking</h4>
+
+<p>Is parking area covered, or in the open?</p>
+
+<h4 id="sellpoint_">sellpoint_<strong>**</strong></h4>
+
+<p>Sellpoint fields are used to note positive aspects about the product.</p>
+
+<p>The possible fields are sellpoint_location, 
+sellpoint_terminal, sellpoint_transfers, sellpoint_parking, sellpoint_security.</p>
+
+<h4 id="logo">logo</h4>
+
+<p>Logo of company. Prepend http://secure.holidayextras.co.uk/</p>
+
+<h4 id="distance_miles">distance_miles</h4>
+
+<p>Calculated distance from location to airport. If present, guaranteed to be a number.</p>
+
+<h4 id="bestselleroverride">bestselleroverride</h4>
+
+<p>HX use only.</p>
+
+<h4 id="default_img">default_img</h4>
+
+<p>Our stock image for the car park. Prepend http://secure.holidayextras.co.uk/</p>
+
+<h4 id="premium_product">premium_product</h4>
+
+<p>HX use only.</p>
+
+<h4 id="custom_msg">custom_msg</h4>
+
+<p>HX use only.</p>
+
+<h4 id="priority">priority</h4>
+
+<p>HX use only.</p>
+
+<h4 id="terminal_unknown">terminal_unknown</h4>
+
+<p>If customer does not know their terminal, display this message.</p>
+
+<h4 id="recommended">recommended</h4>
+
+<p>Boolean -</p>
+
+<h4 id="on_airport">on_airport</h4>
+
+<p>Boolean - is the car park on airport (as opposed to off-site)?</p>
+
+<h4 id="terminal">terminal</h4>
+
+<p>String - Where appropriate, the terminal(s) served by the car park.</p>
+
+<h4 id="meet_and_greet">meet_and_greet</h4>
+
+<p>Boolean - is the product a Meet &amp; Greet service?</p>
+
+<h4 id="valet_included">valet_included</h4>
+
+<p>Boolean - is the car cleaned while customer is away.</p>
+
+<h4 id="car_parked_for_you">car_parked_for_you</h4>
+
+<p>Boolean - does the car park park the vehicles for the customer?</p>
+
+<h4 id="filter">filter</h4>
+
+<p>HX use only</p>
+
+<h3 id="request-example-3---german-airport">Request (example 3) - German airport</h3>
+
+<p>Requests for German products return a different set of fields. Explanation of fields not currently available.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/sandbox/v1/product/FRA0?key=mytestkey
+</code></pre>
+</div>
+
+<h3 id="reply-example-3">Reply (example 3)</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>
+<span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply&gt;</span>
+	<span class="nt">&lt;Product&gt;</span>
+		<span class="nt">&lt;parent&gt;</span>FRA<span class="nt">&lt;/parent&gt;</span>
+		<span class="nt">&lt;child&gt;</span>0<span class="nt">&lt;/child&gt;</span>
+		<span class="nt">&lt;type&gt;</span>10<span class="nt">&lt;/type&gt;</span>
+		<span class="nt">&lt;name&gt;</span>Airparks Parkplatz Frankfurt - Winterspecial<span class="nt">&lt;/name&gt;</span>
+		<span class="nt">&lt;archived&gt;</span>0<span class="nt">&lt;/archived&gt;</span>
+		<span class="nt">&lt;longitude&gt;</span>8.589195<span class="nt">&lt;/longitude&gt;</span>
+		<span class="nt">&lt;latitude&gt;</span>50.096385<span class="nt">&lt;/latitude&gt;</span>
+		<span class="nt">&lt;baseProduct/&gt;</span>
+		<span class="nt">&lt;parkplatzname&gt;</span>Airparks Parkplatz Frankfurt - Winterspecial<span class="nt">&lt;/parkplatzname&gt;</span>
+		<span class="nt">&lt;adresse&gt;</span>L<span class="ni">&amp;#xE4;</span>rchenstra<span class="ni">&amp;#xDF;</span>e 133, 65933 Frankfurt am Main Zur Eingabe im Navigationsger<span class="ni">&amp;#xE4;</span>t: L<span class="ni">&amp;#xE4;</span>rchenstr. 131, 65933 Frankfurt am Main<span class="nt">&lt;/adresse&gt;</span>
+		<span class="nt">&lt;adresse_navigation&gt;</span>Zur Eingabe im Navigationsger<span class="ni">&amp;#xE4;</span>t: L<span class="ni">&amp;#xE4;</span>rchenstr. 131, 65933 Frankfurt am Main<span class="nt">&lt;/adresse_navigation&gt;</span>
+		<span class="nt">&lt;hinweis&gt;</span>Dieses Angebot gilt f<span class="ni">&amp;#xFC;</span>r Anreisen ab 9.11.2008 und sp<span class="ni">&amp;#xE4;</span>teste R<span class="ni">&amp;#xFC;</span>ckreise am 30.03.2009. Es ist umbuchbar und stornierbar und gilt nur solange der Vorrat reicht. Bringen Sie bitte Ihre Buchungsbest<span class="ni">&amp;#xE4;</span>tigung und Ihre Flugdetails (Flugnummer und Ankunftszeit in Frankfurt) mit zum Check-in des Parkplatzes. Der Shuttletransfer erfolgt zum Terminal 1. Alle G<span class="ni">&amp;#xE4;</span>ste, die ab Terminal 2 fliegen, k<span class="ni">&amp;#xF6;</span>nnen ab Terminal 1 kostenfrei mit der <span class="ni">&amp;#xFFFD;</span>Sky Line<span class="ni">&amp;#xFFFD;</span> oder dem <span class="ni">&amp;#xFFFD;</span>Flughafen-Shuttle-Bus<span class="ni">&amp;#xFFFD;</span> (alle paar Minuten) zum Terminal 2 fahren.<span class="nt">&lt;/hinweis&gt;</span>
+		<span class="nt">&lt;telefon&gt;</span>F<span class="ni">&amp;#xFC;</span>r R<span class="ni">&amp;#xFC;</span>ckfragen und <span class="ni">&amp;#xC4;</span>nderungen melden Sie sich bitte bei dem unter Kundenservice angegebenen Ansprechpartner. Ihren R<span class="ni">&amp;#xFC;</span>cktransfer bestellen Sie bitte direkt beim Parkplatz unter Tel: + 49 (0)69/ 175 148 65 oder +49 (0)176 / 100 311 54.<span class="nt">&lt;/telefon&gt;</span>
+		<span class="nt">&lt;mindestparkdauer&gt;</span>1 Tag.<span class="nt">&lt;/mindestparkdauer&gt;</span>
+		<span class="nt">&lt;sicherheit&gt;</span>Das Gel<span class="ni">&amp;#xE4;</span>nde ist eingez<span class="ni">&amp;#xE4;</span>unt, video<span class="ni">&amp;#xFC;</span>berwacht und 24-Stunden personell besetzt.<span class="nt">&lt;/sicherheit&gt;</span>
+		<span class="nt">&lt;sicherheit_kurzform&gt;</span>personell besetztes und video<span class="ni">&amp;#xFC;</span>berwachtes Gel<span class="ni">&amp;#xE4;</span>nde<span class="nt">&lt;/sicherheit_kurzform&gt;</span>
+		<span class="nt">&lt;anfahrt&gt;</span>Gern k<span class="ni">&amp;#xF6;</span>nnen Sie sich eine  ausf<span class="ni">&amp;#xFC;</span>hrliche Anfahrtsbeschreibung zu Airparks Frankfurt herunterladen.  Aus allen Richtungen: Fahren Sie auf die A3 in Richtung Frankfurter Kreuz/ Flughafen Frankfurt. In H<span class="ni">&amp;#xF6;</span>he des Flughafens Frankfurt fahren Sie von der A3 auf die B43 in Richtung Kelsterbach/ Industriepark H<span class="ni">&amp;#xF6;</span>chst ab. Nach ca. 1 km biegen Sie NICHT von der B43 in Richtung Kelsterbach ab, sondern fahren Sie weiter geradeaus auf der B40. Nach weiteren 1,5 km biegen Sie dann rechts ab auf die B40A in Richtung Frankfurt-Stadtmitte und Frankfurt-Griesheim. Sie gelangen nach ungef<span class="ni">&amp;#xE4;</span>hr 4 km auf die Mainzer Landstra<span class="ni">&amp;#xDF;</span>e. Passieren Sie den Geb<span class="ni">&amp;#xE4;</span>udekomplex TOOM Markt/ Promarkt/ Cinestar und biegen Sie anschlie<span class="ni">&amp;#xDF;</span>end an der Ampel rechts ab in die Stra<span class="ni">&amp;#xDF;</span>e "In der Schildwacht". Nach ungef<span class="ni">&amp;#xE4;</span>hr 400 m fahren Sie am Ende der Stra<span class="ni">&amp;#xDF;</span>e erneut rechts ab in die L<span class="ni">&amp;#xE4;</span>rchenstra<span class="ni">&amp;#xDF;</span>e. Nach weiteren 300 m erreichen Sie auf der linken Seite die Airparks-Einfahrt.  Alternativ aus dem Westen auf der A3: Bleiben Sie bitte auf der A3 und verlassen Sie die A3 NICHT an der Ausfahrt zur A67/ B43. Folgen Sie der Beschilderung "F-H<span class="ni">&amp;#xF6;</span>chst/ Kelsterbach". Verlassen Sie die A3 an der Ausfahrt "F-H<span class="ni">&amp;#xF6;</span>chst/ Kelsterbach" und biegen Sie auf die B43 in Richtung "Kelsterbach/ Industriepark H<span class="ni">&amp;#xF6;</span>chst".  Nun folgen Sie der Beschreibung in Richtung B40/ B40a (siehe oben).  Bitte achten Sie darauf, dass Sie der Ausschilderung zum Airparks-Parkplatz (L<span class="ni">&amp;#xE4;</span>rchenstra<span class="ni">&amp;#xDF;</span>e 133) und nicht zum Airparks-Parkhaus folgen! Dort checken Sie ein.<span class="nt">&lt;/anfahrt&gt;</span>
+		<span class="nt">&lt;transfer&gt;</span>24-Stunden-Shuttleservice zum Flughafen und zur<span class="ni">&amp;#xFC;</span>ck inklusive. Alle 20 Minuten. Transferdauern ca. 10 Minuten. Der Shuttleservice erfolgt zum Busbahnhof am Terminal 1. Alle G<span class="ni">&amp;#xE4;</span>ste, die ab Terminal 2 fliegen, k<span class="ni">&amp;#xF6;</span>nnen von hier mit dem "Flughafen-Shuttle-Bus" oder der "Sky Line" kostenlos weiterfahren.<span class="nt">&lt;/transfer&gt;</span>
+		<span class="nt">&lt;entfernung_zum_flughafen&gt;</span>Transferdauer ca. 10 Minuten<span class="nt">&lt;/entfernung_zum_flughafen&gt;</span>
+		<span class="nt">&lt;transfer_kurzform&gt;</span>24-Stunden-Shuttleservice zum Flughafen und zur<span class="ni">&amp;#xFC;</span>ck, alle 20 Minuten inklusive. Transferdauer: ca. 10 Minuten.<span class="nt">&lt;/transfer_kurzform&gt;</span>
+		<span class="nt">&lt;shuttle_times&gt;</span>24 Stunden<span class="nt">&lt;/shuttle_times&gt;</span>
+		<span class="nt">&lt;transferdauer&gt;</span>ca. 10 Minuten<span class="nt">&lt;/transferdauer&gt;</span>
+		<span class="nt">&lt;shuttle_frequency&gt;</span>alle 20 Minuten<span class="nt">&lt;/shuttle_frequency&gt;</span>
+		<span class="nt">&lt;shuttle_von&gt;</span>0000<span class="nt">&lt;/shuttle_von&gt;</span>
+		<span class="nt">&lt;shuttle_bis&gt;</span>2400<span class="nt">&lt;/shuttle_bis&gt;</span>
+		<span class="nt">&lt;bei_der_anreise_&gt;</span>Bitte fahren Sie auf dem Airparks-Parkplatz bis zum Empfang und halten Sie dort auf den markierten Fl<span class="ni">&amp;#xE4;</span>chen. Bringen Sie bitte Ihre Buchungsbest<span class="ni">&amp;#xE4;</span>tigung und Ihre Flugdetails mit (Flugnummer Ihre R<span class="ni">&amp;#xFC;</span>ckflugs (z.B. LH 2374) und Ihre Ankunftszeit in Frankfurt). Die Flugdetails ben<span class="ni">&amp;#xF6;</span>tigen wir zur besseren Koordinierung Ihres R<span class="ni">&amp;#xFC;</span>cktransfers. Unser Personal erkl<span class="ni">&amp;#xE4;</span>rt Ihnen kurz den Shuttleservice und weist Ihnen den Stellplatz f<span class="ni">&amp;#xFC;</span>r Ihr Fahrzeug zu.<span class="nt">&lt;/bei_der_anreise_&gt;</span>
+		<span class="nt">&lt;bei_der_abreise&gt;</span>Begeben Sie sich bitte nach der Gep<span class="ni">&amp;#xE4;</span>ckausgabe und nach der Zollabfertigung zum Airparks Shuttle Treffpunkt, Linienbushaltestelle 10 (Terminal 1, ANKUNFTS-Ebene (NICHT Abflugs-Ebene!), Halle B, Ausgang Nr. 6). Die blaue Linie f<span class="ni">&amp;#xE4;</span>hrt rund um die Uhr alle 20 Minuten zum Airparks Parkplatz L<span class="ni">&amp;#xE4;</span>rchenstra<span class="ni">&amp;#xDF;</span>e und zum Airparks Parkhaus Franfurt. Bitte NICHT in die rote Linie einsteigen, diese f<span class="ni">&amp;#xE4;</span>hrt zu einem anderen Parkplatz!"<span class="nt">&lt;/bei_der_abreise&gt;</span>
+		<span class="nt">&lt;parkplatzbetreibertipp&gt;</span>Gern erhalten Sie kostenlose Starthilfe.  Ihr Kfz-Pflegeservice f<span class="ni">&amp;#xFC;</span>r Airparks-Kunden!  Ab sofort stehen Ihnen an allen Airparks-Standorten in Frankfurt Angebote zur Fahrzeugpflege zur Verf<span class="ni">&amp;#xFC;</span>gung. Neben T<span class="ni">&amp;#xDC;</span>V-Abnahme, Entfernung von Beulen und Ausbesserung von Lacksch<span class="ni">&amp;#xE4;</span>den bietet Ihnen die Firma Sunshine eine breite Palette an Serviceleistungen rund um das Auto - und das alles, w<span class="ni">&amp;#xE4;</span>hrend Sie im Urlaub sind. Weitere Informationen erhalten Sie unter www.Sunshine-Autopflege.de/Airparks.<span class="nt">&lt;/parkplatzbetreibertipp&gt;</span>
+		<span class="nt">&lt;barrierefreier_zugang&gt;</span>Es stehen auch behindertengerechte Stellpl<span class="ni">&amp;#xE4;</span>tze zur Verf<span class="ni">&amp;#xFC;</span>gung.<span class="nt">&lt;/barrierefreier_zugang&gt;</span>
+		<span class="nt">&lt;pkw_groesse&gt;</span>keine Beschr<span class="ni">&amp;#xE4;</span>nkungen. Bis 5 m L<span class="ni">&amp;#xE4;</span>nge und 2 m Breite: kein Aufpreis. Bis 6 m L<span class="ni">&amp;#xE4;</span>nge bzw. 2,30 m Breite: 10,- <span class="ni">&amp;#xFFFD;</span> Aufpreis vor Ort. <span class="ni">&amp;#xDC;</span>ber 6 m L<span class="ni">&amp;#xE4;</span>nge bzw. 2,30 m Breite t<span class="ni">&amp;#xE4;</span>tigen Sie bitte 2 Buchungen und melden die <span class="ni">&amp;#xDC;</span>bergr<span class="ni">&amp;#xF6;&amp;#xDF;</span>e nach der Buchung am Parkplatz an.<span class="nt">&lt;/pkw_groesse&gt;</span>
+		<span class="nt">&lt;usp&gt;</span>Unser Bestseller mit kostenlosem 24-Stunden-Shuttle zu besten Preisen.<span class="nt">&lt;/usp&gt;</span>
+		<span class="nt">&lt;zusatzvermerk&gt;</span>Dieses Angebot gilt f<span class="ni">&amp;#xFC;</span>r Anreisen ab 9.11.2008 und sp<span class="ni">&amp;#xE4;</span>teste R<span class="ni">&amp;#xFC;</span>ckreise am 30.03.2009. Es ist umbuchbar und stornierbar und gilt nur solange der Vorrat reicht. Die Maximalparkdauer betr<span class="ni">&amp;#xE4;</span>gt 43 Tage.<span class="nt">&lt;/zusatzvermerk&gt;</span>
+		<span class="nt">&lt;bestseller&gt;</span>yes<span class="nt">&lt;/bestseller&gt;</span>
+		<span class="nt">&lt;versicherung&gt;</span>Haftpflichtversicherung f<span class="ni">&amp;#xFC;</span>r Betrieb des Parkplatzes entsprechend den gesetzlichen Bestimmungen.<span class="nt">&lt;/versicherung&gt;</span>
+		<span class="nt">&lt;company_name&gt;</span>Airparks<span class="nt">&lt;/company_name&gt;</span>
+		<span class="nt">&lt;company_logo&gt;</span>airparks.png<span class="nt">&lt;/company_logo&gt;</span>
+		<span class="nt">&lt;lat_hms&gt;</span>50:05:47<span class="nt">&lt;/lat_hms&gt;</span>
+		<span class="nt">&lt;long_hms&gt;</span>8:35:17<span class="nt">&lt;/long_hms&gt;</span>
+	<span class="nt">&lt;/Product&gt;</span>
+	<span class="nt">&lt;API_Header&gt;</span>
+		<span class="nt">&lt;Request&gt;</span>
+			<span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+			<span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+		<span class="nt">&lt;/Request&gt;</span>
+	<span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+
+</code></pre>
+</div>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

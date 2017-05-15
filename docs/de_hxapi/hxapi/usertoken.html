@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="nutzerkennung">Nutzerkennung</h1>
+
+<p>Jede Anfrage bei <strong>HXAPI</strong>, sei es nach Verfügbarkeit oder um eine Buchung zu machen, muss eine gültige Nutzerkennung enthalten. Ihre Anwendung sollte für jeden Nutzer, der eine Verfügbarkeitsanfrage stellt, eine neue Nutzerkennung erhalten. Sobald eine Nutzer eine Buchung gemacht hat, sollte die Nutzerkennung <strong>nicht weiter verwendet werden</strong>.</p>
+
+<p>Dies ist nicht als Methode gedacht, um wiederkehrende Nutzer zu identifizieren. Wenn Sie solch eine Funktion benötigen, sollte Ihre Anwendung das separat handhaben.</p>
+
+<h2 id="methode">Methode</h2>
+
+<p>GET</p>
+
+<h2 id="parameter">Parameter</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="anfrage">Anfrage</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/api/v1/usertoken?key=mytestkey
+</code></pre>
+</div>
+
+<h2 id="antwort">Antwort</h2>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply&gt;</span>
+  <span class="nt">&lt;Token&gt;</span>000015778<span class="nt">&lt;/Token&gt;</span>
+  <span class="nt">&lt;BookingURL&gt;</span>/api/v1<span class="nt">&lt;/BookingURL&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

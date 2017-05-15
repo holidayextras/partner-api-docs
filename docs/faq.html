@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="faq">FAQ</h1>
+
+<h2 id="what-is-the-development-server-address">What is the development server address?</h2>
+
+<p>http://api.holidayextras.co.uk/sandbox/</p>
+
+<p>Whenever writing new code or altering existing functionality, you must use the development server (sandbox). The data returned is not ‘as live’, but the format and structure are the same. If you do not, you will affect metrics such as conversion rates, and any bookings made will be live.</p>
+
+<h2 id="what-is-the-live-server-address">What is the live server address?</h2>
+
+<p>http://api.holidayextras.co.uk/</p>
+
+<h2 id="what-about-caching">What about caching?</h2>
+
+<p>We anticipate that many application developers will want to cache the results to certain searches. For example, there is no need to request locations every time. Much better to store these locally and create a routine that calls the API at regular intervals to get the latest list.</p>
+
+<p>We suggest that you do not cache availability requests though. Prices can change without notice and allocation can run out.</p>
+
+<h2 id="h00x-product-codes">H00x product codes</h2>
+
+<p>These are sometimes returned at the end of car parking requests. They represent hotels with parking to be offered as an upsell to customers taking early morning flights. You should ignore these or contact <a href="mailto:sales@holidayextras.com">sales@holidayextras.com</a>, tell us your agent code and we will disable them.</p>
+
+<h2 id="test-credit-cards">Test Credit Cards</h2>
+
+<p>In order to make card bookings through our development server (sandbox) one of the following test cards must be used to process the transaction, with the correct CV2 and expiry date as shown below:</p>
+
+<p>Visa Credit Card - 4715059999000437
+CV2 - 222
+Expiry - 05/17</p>
+
+<p>Visa Debit Card - 4508750015741019
+CV2 - 222
+Expiry - 05/17</p>
+
+<p>Amex - 345678000000007
+CV2 - 2222
+Expiry - 05/17</p>
+
+<h2 id="credit-card-surcharges">Credit card surcharges</h2>
+
+<p>Agents should ignore the credit card surcharge elements. Any processing or handling fees charged on your customers’ bookings are under your control.</p>
+
+<p>Intermediaries must calculate the credit card surcharge using the logic below.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
+if( x &lt; CCardSurchargeMin) 
+  x = CCardSurchargeMin
+else if x &gt; CCardSurchargeMax
+  x = CCardSurchargeMax
+</code></pre>
+</div>
+
+<h2 id="the-prices-returned-are-they-net-or-with-markup-already-added">The prices returned, are they net or with markup already added?</h2>
+
+<p>Markup already added.</p>
+
+<h2 id="do-holiday-extras-need-my-ip-address">Do Holiday Extras need my IP address?</h2>
+
+<p>No. We use a blacklist for unwelcome traffic, otherwise anyone can make requests to <strong>HXAPI</strong> as long as they use a valid key.</p>
+
+<h2 id="how-do-i-cancel-a-test-booking">How do I cancel a test booking?</h2>
+
+<p>You only need to cancel bookings made to the live server. You do not need to cancel bookings made on the development server, no payment is actually taken.</p>
+
+<p>Please do <strong>not</strong> cancel bookings by ringing our call centre or using the online cancellation interface at <a href="http://www.holidayextras.com">www.holidayextras.com</a>. Credit card charges will <strong>not be refunded</strong> to your card if you use either of these methods. Send the booking references to <a href="mailto:sales@holidayextras.com">sales@holidayextras.com</a> and <strong>all charges will be refunded</strong>.</p>
+
+<h2 id="faq-germanyeuropean-product-specific-systemabg">FAQ Germany/European product specific (System=ABG)</h2>
+
+<p>Currency - Right now and for the near future there’s only EUR and GBP. All European products, accessed through System=ABG are returned in EUR and all UK products in GBP.</p>
+
+<p>Number of Pax - is actually required, as the car parks need to plan their shuttle capacities.</p>
+
+<p>Cancellation Process - Car parks can be cancelled free of charge until 24h before the beginning of the arrival day (basically two days before arrival). If cancelled between 24h before arrival day and arrival day, the charge is 50%. Later than that bookings can only be cancelled by our service team. Customers need to be aware of our terms and conditions, so it would be needed to show the link to our terms and conditions them during booking process (please see section booking parking, booking hotel). Easiest solution for after booking would be to offer the customer a form or/and phone number for cancellations or ammendmends. We do have our own inhouse call center, which handles requests quickly.</p>
+
+<p>QR code - is not needed for Germany/European products.</p>
+
+<p>shuttle time = 24 hours calculation? - No, they are on a daily basis, but we need the shuttle times for a better planning on the parking space regarding shuttle.</p>
+
+<p>Availability test/live system - The status of the data in the test system is December 2015</p>
+
+<p>Car park details - We are asked to collect them in the name of the parking provider. They need them to organize their services.</p>
+
+<p>Error messages - we can provide you a list of error messages. It is planned to provide them in different languages.</p>
+
+<p>Booking number/ABTA number - the combination of both is always unique</p>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

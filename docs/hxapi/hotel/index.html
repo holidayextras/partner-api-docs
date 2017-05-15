@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="hotels">Hotels</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; product:<a href="index">Hotels</a></p>
+
+<p>These are the hotel with parking requests. If available, the options returned are for 0, 8 and 15 days parking. If the customer requires room only, please choose the zero days parking option. There is no specific hotel-only request.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Endpoint</th>
+      <th>Method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>UK and Europe - Availability at hotel</td>
+      <td><a href="av">http://api.holidayextras.co.uk/v1/sandbox/hotel/foo</a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>UK ONLY - Upgrades at hotel</td>
+      <td><a href="/hxapi/upgrade">http://api.holidayextras.co.uk/v1/sandbox/upgrade/foo</a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>UK and Europe - Make booking at hotel</td>
+      <td><a href="bkg">http://api.holidayextras.co.uk/v1/sandbox/hotel/foo</a></td>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <td>DE ZNT linked - Availability at hotel</td>
+      <td><a href="de-av">http://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo</a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>DE ZNT linked - Room availability at hotel</td>
+      <td><a href="de-av-room">http://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo</a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>DE ZNT linked - Make booking at hotel</td>
+      <td><a href="de-bkg">http://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo</a></td>
+      <td>POST</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="important-notices">Important Notices</h1>
+
+<h2 id="merging-product-library-data-into-availability-response">Merging product library data into availability response</h2>
+
+<p>You can specify a comma-separated list of fields to pull back from the product library. This overcomes the need for partners to do multiple HTTP requests, one for every hotel returned. Just specify a parameter named ‘fields’ and include the product library field names there.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>eg...&amp;fields=field_a,field_b,field_c
+</code></pre>
+</div>
+
+<p>The method for querying the product library as a separate request <a href="/hxapi/productlibrary/parking">is outlined here</a></p>
+
+<h2 id="advance-purchase">Advance purchase</h2>
+
+<p>There is a field in the product library for hotels, named noncancellable_nonrefundable. Advance purchase products are non-refundable and non-cancellable. As a result, the Cancellation Waiver must not be sold to customers purchasing a product with advance_purchase set to 1.</p>
+
+<h2 id="day-use-only">Day Use Only</h2>
+
+<p>There is a field in the product library for hotels, named ‘day_use_only’. Day use products must not be sold to customers wishing to have an overnight stay where day_use_only is set to 1.</p>
+
+<h2 id="parking-includes-arrival">Parking Includes Arrival</h2>
+
+<p>In order to establish whether the package includes parking for the night of the hotel stay the parking_includes_arrival field needs to be taken into account.</p>
+
+<parking_includes_arrival>0</parking_includes_arrival>
+<ul>
+  <li>This indicates  whether the parking period starts on the arrival date at the hotel or the next day when the customer is flying.</li>
+</ul>
+
+<p>So 0 means that the night of your stay is not counted, so there is free overnight parking, and the amount of days parking will be from the next day</p>
+
+<p>So 1 means that the parking starts from the date the customer checks into the hotel, and the amount of days parking will start from that day.</p>
+
+<h2 id="mystery--un-named-products">Mystery / Un-named Products</h2>
+
+<p>There are some hotels in which the name field will not provide the name of the hotel e.g <Name>Mystery 4-star hotel</Name>.  This should not be provided to the customer until the booking is made, along with other details such as address, hotel images, restaurant names etc.</p>
+
+<h2 id="european-products">European Products</h2>
+
+<p>Pass in System=ABG to access products in Europe.</p>
+
+<p>Default if System is not set should be System=ABC to access products in UK only.</p>
+
+<p>You will need to create a voucher for the customer yourself by using the following information from the product library, plus the information from the booking response:</p>
+
+<p>Relevant keys from the php API are (besides the booking specifics like date, name of the hotel, name of the customer…)</p>
+
+<ul>
+  <li>
+    <p>name</p>
+  </li>
+  <li>
+    <p>adresse</p>
+  </li>
+  <li>
+    <p>GPS coordinates (latitude, longitude)</p>
+  </li>
+  <li>
+    <p>telefon</p>
+  </li>
+  <li>
+    <p>anfahrt (how to get to the hotel)</p>
+  </li>
+  <li>
+    <p>transfer</p>
+  </li>
+  <li>
+    <p>parken (information on car park at the hotel)</p>
+  </li>
+  <li>
+    <p>boardbasis (will be delivered back in the bookings response)</p>
+  </li>
+  <li>
+    <p>frühstücksinformationen (information on breakfast offer in the hotel)</p>
+  </li>
+  <li>
+    <p>zimmerausstattung (room facilities)</p>
+  </li>
+  <li>
+    <p>kinderangebot (child policy)</p>
+  </li>
+  <li>
+    <p>anreise (check in time)</p>
+  </li>
+  <li>
+    <p>weitere_informationen (additional information such as city tax)</p>
+  </li>
+</ul>
+
+<p>http://api.holidayextras.co.uk/v1/product/AMSDOR?key=HXAPI&amp;lang=nl&amp;fields=name,adresse,latitude,longitude,telefon,anfahrt,transfer,parken,fruehstuecksinformationen,zimmerausstattung,kinderangebot,anreise,weitere_informationen,barrierefreier_zugang,haustiere</p>
+
+<p>Please always add our terms and conditions (please also refer to “make a booking at car park” section)</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Example: Service provider: Holiday Extras GmbH</td>
+      <td>Aidenbachstr. 52</td>
+      <td>81379 München</td>
+      <td>Germany. Terms and conditions of Holiday Extras, available at http://www.holidayextras.de/images/de-hx/pdf/agb.pdf, apply.</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

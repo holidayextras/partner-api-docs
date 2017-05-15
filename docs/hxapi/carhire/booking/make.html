@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="make-booking">Make Booking</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; product:<a href="/hxapi/carhire">Car Hire</a> &gt; endpoint:<a href="make">make booking</a></p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>GET: /carHire/<span class="nt">&lt;productCode&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="request">Request</h2>
+
+<p>The following POST parameters are mandatory:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="s2">"key"</span><span class="err">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">"ABTANumber"</span><span class="err">:</span> <span class="s2">"AgentCode"</span><span class="p">,</span>
+<span class="s2">"Password"</span><span class="err">:</span> <span class="s2">"xxxxxxxx"</span><span class="p">,</span>
+<span class="s2">"ArrivalTime"</span><span class="err">:</span> <span class="s2">"HHmm"</span><span class="p">,</span> <span class="c1">// 24 hour time format</span>
+<span class="s2">"ArrivalDate"</span><span class="err">:</span> <span class="s2">"YYYY-MM-DD"</span><span class="p">,</span>
+<span class="s2">"DepartTime"</span><span class="err">:</span> <span class="s2">"HHmm"</span><span class="p">,</span> <span class="c1">// 24 hour time format</span>
+<span class="s2">"DepartDate"</span><span class="err">:</span> <span class="s2">"YYYY-MM-DD"</span><span class="p">,</span>
+<span class="s2">"PickupLocation"</span><span class="err">:</span> <span class="s2">"FL965"</span><span class="p">,</span>
+<span class="s2">"DropoffLocation"</span><span class="err">:</span> <span class="s2">"FL965"</span><span class="p">,</span>
+<span class="s2">"FlightNumber"</span><span class="err">:</span> <span class="s2">"TBA"</span><span class="p">,</span>
+<span class="s2">"Title"</span><span class="err">:</span> <span class="s2">"Mr"</span><span class="p">,</span>
+<span class="s2">"FirstName"</span><span class="err">:</span> <span class="s2">"FirstName"</span><span class="p">,</span>
+<span class="s2">"Surname"</span><span class="err">:</span> <span class="s2">"LastName"</span><span class="p">,</span>
+<span class="s2">"DateOfBirth"</span><span class="err">:</span> <span class="s2">"YYYY-MM-DD"</span><span class="p">,</span>
+<span class="s2">"Email"</span><span class="err">:</span> <span class="s2">"example@email.com"</span><span class="p">,</span>
+<span class="s2">"DayPhone"</span><span class="err">:</span> <span class="s2">"01111 111111"</span><span class="p">,</span>
+<span class="s2">"token"</span><span class="err">:</span> <span class="s2">"123456789"</span> <span class="c1">// user token</span>
+</code></pre>
+</div>
+
+<p>The following POST parameters are optional:</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>"ERPRequired": "true/false"
+</code></pre>
+</div>
+
+<h2 id="response">Response</h2>
+
+<p>Successful bookings will respond with the booking reference and commission details, which can then be used to Lookup Bookings.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"API_Reply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Booking"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"BookingRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXX-XXXXXXXX"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AgentComm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VATonComm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MoreInfoURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/booking/XXXXX-XXXXXXXX.js"</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nt">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CarHire"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"RequestCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"API_Header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ArrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ArrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"DepartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-22"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"DepartTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"DateOfBirth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PickupLocation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL965"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"DropoffLocation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL965"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"FlightNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TBA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FirstName"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Surname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LastName"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ERPRequired"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email@email.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"DayPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01234123123"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ABTANumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TESTL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Redacted"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"js"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

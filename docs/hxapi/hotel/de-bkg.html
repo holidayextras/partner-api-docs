@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="german-hotel-booking">German Hotel Booking</h1>
+
+<h2 id="hotelfoo">/hotel/foo</h2>
+
+<p>Where foo is the hotel code to book</p>
+
+<p>eg http://api.holidayextras.co.uk/de-start/v1/sandbox/hotel/FRAAST</p>
+
+<p>NB - With this we can book multiple rooms of the same type. If different types have to be booked, we have to decide hwo to do this. Have started by adding the num rooms param.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>StartCustomer</td>
+      <td>String</td>
+      <td>[0-9]{6}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BusinessUnit</td>
+      <td>String</td>
+      <td>[0-9]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Operator</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Nights</td>
+      <td>Integer</td>
+      <td>[0-9]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BoardBasis</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>NonSmoking</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ParkingDays</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ParkingSpaces</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>NumberOfRooms</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>RoomCode</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Rooms</td>
+      <td>Integer</td>
+      <td>[0-9]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Adults</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Children</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Infants</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z]{1}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Remarks</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>(POST)</p>
+
+<p>znt -&gt; api</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/v1/sandbox/hotel/FRAACH?Adults=2&amp;ArrivalDate=15OCT10&amp;BoardBasis=U&amp;BusinessUnit=222&amp;Children=0&amp;Infants=0&amp;Initial=T&amp;Nights=1&amp;NonSmoking=Y&amp;Operator=BJT&amp;ParkingDays=8&amp;ParkingSpaces=1&amp;Registration=CP54JOV&amp;Remarks=Ben%20testing%205&amp;RoomCode=DZ&amp;Rooms=1&amp;StartCustomer=111111&amp;Surname=Test&amp;Title=Mr&amp;key=foo&amp;token=123456789
+</code></pre>
+</div>
+
+<p>api -&gt; chauntry</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;API_Request</span> <span class="na">System=</span><span class="s">"ABG"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"000000015"</span> <span class="na">RequestCode=</span><span class="s">"5"</span><span class="nt">&gt;</span>                                            
+<span class="nt">&lt;Agent&gt;</span>                                                                         
+        <span class="nt">&lt;StartCustomer&gt;</span>111111<span class="nt">&lt;/StartCustomer&gt;</span>                                   
+        <span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>                                        
+        <span class="nt">&lt;Operator&gt;</span>JMB<span class="nt">&lt;/Operator&gt;</span>                                                
+<span class="nt">&lt;/Agent&gt;</span>                                                                        
+<span class="nt">&lt;Itinerary&gt;</span>                                                                     
+	<span class="nt">&lt;ArrivalDate&gt;</span>15Mar10<span class="nt">&lt;/ArrivalDate&gt;</span>                                              
+	<span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>                                                              
+	<span class="nt">&lt;HotelCode&gt;</span>FRAAST<span class="nt">&lt;/HotelCode&gt;</span>                                                   
+	<span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>                                                      
+	<span class="nt">&lt;NonSmoking&gt;</span>Y<span class="nt">&lt;/NonSmoking&gt;</span>                                                      
+	<span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>                                                    
+	<span class="nt">&lt;ParkingSpaces&gt;</span>1<span class="nt">&lt;/ParkingSpaces&gt;</span>                                                
+<span class="nt">&lt;/Itinerary&gt;</span>                                                                    
+<span class="nt">&lt;Room</span> <span class="na">r=</span><span class="s">"1"</span><span class="nt">&gt;</span>                                                                    
+	<span class="nt">&lt;RoomCode&gt;</span>DZ<span class="nt">&lt;/RoomCode&gt;</span>                                                         
+	<span class="nt">&lt;Rooms&gt;</span>1<span class="nt">&lt;/Rooms&gt;</span>                                                                
+	<span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>                                                              
+	<span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>                                                          
+	<span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>                                                            
+<span class="nt">&lt;/Room&gt;</span>                                                                         
+<span class="nt">&lt;CarDetails&gt;</span>                                                                    
+	<span class="nt">&lt;Registration&gt;</span>AB03CDE<span class="nt">&lt;/Registration&gt;</span>                                            
+<span class="nt">&lt;/CarDetails&gt;</span>                                                                   
+<span class="nt">&lt;ClientDetails&gt;</span>                                                                 
+	<span class="nt">&lt;Title&gt;</span>Mr<span class="nt">&lt;/Title&gt;</span>                                                               
+	<span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>                                                            
+	<span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
+	<span class="nt">&lt;Remarks&gt;</span>Ben testing 1<span class="nt">&lt;/Remarks&gt;</span>
+<span class="nt">&lt;/ClientDetails&gt;</span>                                                                
+<span class="nt">&lt;/API_Request&gt;</span>  
+</code></pre>
+</div>
+
+<p>Chauntry -&gt; api</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">System=</span><span class="s">"ABG"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"000000015"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>T6518<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;AgentComm/&gt;</span>
+    <span class="nt">&lt;VATonComm/&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10051939<span class="nt">&lt;/StartRef&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+  <span class="nt">&lt;Itinerary&gt;</span>
+    <span class="nt">&lt;ArrivalDate&gt;</span>15MAR10<span class="nt">&lt;/ArrivalDate&gt;</span>
+    <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+    <span class="nt">&lt;HotelCode&gt;</span>FRAAST<span class="nt">&lt;/HotelCode&gt;</span>
+    <span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>
+    <span class="nt">&lt;NonSmoking&gt;</span>Y<span class="nt">&lt;/NonSmoking&gt;</span>
+    <span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>
+    <span class="nt">&lt;ParkingSpaces&gt;</span>1<span class="nt">&lt;/ParkingSpaces&gt;</span>
+  <span class="nt">&lt;/Itinerary&gt;</span>
+  <span class="nt">&lt;Room</span> <span class="na">r=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;RoomCode&gt;</span>DZ<span class="nt">&lt;/RoomCode&gt;</span>
+    <span class="nt">&lt;Rooms&gt;</span>1<span class="nt">&lt;/Rooms&gt;</span>
+    <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+    <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+    <span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
+  <span class="nt">&lt;/Room&gt;</span>
+  <span class="nt">&lt;CarDetails&gt;</span>
+    <span class="nt">&lt;Registration&gt;</span>AB03CDE<span class="nt">&lt;/Registration&gt;</span>
+  <span class="nt">&lt;/CarDetails&gt;</span>
+  <span class="nt">&lt;ClientDetails&gt;</span>
+    <span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
+    <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+    <span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
+    <span class="nt">&lt;Remarks&gt;</span>BEN TESTING 1<span class="nt">&lt;/Remarks&gt;</span>
+  <span class="nt">&lt;/ClientDetails&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<p>api -&gt; znt</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>T6518<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;AgentComm/&gt;</span>
+    <span class="nt">&lt;VATonComm/&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10051939<span class="nt">&lt;/StartRef&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+  <span class="nt">&lt;Itinerary&gt;</span>
+    <span class="nt">&lt;ArrivalDate&gt;</span>15MAR10<span class="nt">&lt;/ArrivalDate&gt;</span>
+    <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+    <span class="nt">&lt;HotelCode&gt;</span>FRAAST<span class="nt">&lt;/HotelCode&gt;</span>
+    <span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>
+    <span class="nt">&lt;NonSmoking&gt;</span>Y<span class="nt">&lt;/NonSmoking&gt;</span>
+    <span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>
+    <span class="nt">&lt;ParkingSpaces&gt;</span>1<span class="nt">&lt;/ParkingSpaces&gt;</span>
+  <span class="nt">&lt;/Itinerary&gt;</span>
+  <span class="nt">&lt;Room&gt;</span>
+    <span class="nt">&lt;RoomCode&gt;</span>DZ<span class="nt">&lt;/RoomCode&gt;</span>
+    <span class="nt">&lt;Rooms&gt;</span>1<span class="nt">&lt;/Rooms&gt;</span>
+    <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+    <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+    <span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
+  <span class="nt">&lt;/Room&gt;</span>
+  <span class="nt">&lt;CarDetails&gt;</span>
+    <span class="nt">&lt;Registration&gt;</span>AB03CDE<span class="nt">&lt;/Registration&gt;</span>
+  <span class="nt">&lt;/CarDetails&gt;</span>
+  <span class="nt">&lt;ClientDetails&gt;</span>
+    <span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
+    <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+    <span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
+    <span class="nt">&lt;Remarks&gt;</span>BEN TESTING 1<span class="nt">&lt;/Remarks&gt;</span>
+  <span class="nt">&lt;/ClientDetails&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

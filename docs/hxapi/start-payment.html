@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="add-payment-to-existing-booking">Add payment to existing booking</h1>
+
+<h2 id="bookingfoo">/booking/foo</h2>
+
+<p>where foo is the Start booking reference</p>
+
+<p>e.g. http://api.holidayextras.co.uk/v1/de/booking/10213904</p>
+
+<h2 id="full-payment-only">Full payment only</h2>
+
+<p>At the moment HXAPI does not enforce full payment, it is technically possible to pay only a portion of the amount due. Your application is responsible for ensuring that the correct amount is paid, we will not raise an error if it’s over or under.</p>
+
+<p>Therefore a search is effectively mandatory before payment, to retrieve the amount payable.</p>
+
+<h3 id="method">Method</h3>
+
+<p>POST</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>StartCustomer</td>
+      <td>String</td>
+      <td>[0-9]{6}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BusinessUnit</td>
+      <td>String</td>
+      <td>[0-9]{3}</td>
+      <td>N*</td>
+    </tr>
+    <tr>
+      <td>Operator</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CardNumber*</td>
+      <td>String</td>
+      <td>[0-9]{18}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ExpiryDate</td>
+      <td>Date</td>
+      <td>MMYY</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>StartDate*</td>
+      <td>Date</td>
+      <td>MMYY</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>IssueNumber*</td>
+      <td>Integer</td>
+      <td>[0-9]{1,2}</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Cardholder*</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>AccountNumber§</td>
+      <td>String</td>
+      <td>[0-9]{?}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>SortCode§</td>
+      <td>String</td>
+      <td>[0-9]{8}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>AccountName§</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Amount</td>
+      <td>Decimal</td>
+      <td>[0-9]{1-5}.[0-9]{2}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BkgProduct±</td>
+      <td>String</td>
+      <td>CarPark,HotelWithParking</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>For credit card payments only</li>
+</ul>
+
+<p>§ For laschtschrift payments only</p>
+
+<p>± Have added BkgProduct as a parameter to specify the product. If none is specified, it will default to CarPark. If the incorrect product is specified, the payment request will fail.</p>
+
+<h3 id="credit-card-payment">Credit card payment</h3>
+
+<h4 id="request">Request</h4>
+
+<p>(Convert to post)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10213905?Amount=32.00&amp;BkgProduct=CarPark&amp;BusinessUnit=222&amp;CardNumber=4111111111111111&amp;Cardholder=T%20Test&amp;ExpiryDate=0511&amp;Operator=BJT&amp;StartCustomer=111111&amp;key=mytestkey&amp;token=123456789
+</code></pre>
+</div>
+
+<h4 id="response">Response</h4>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"17"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>DZN40<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10213905<span class="nt">&lt;/StartRef&gt;</span>
+    <span class="nt">&lt;Result&gt;</span>Credit Card payment now on file against booking<span class="nt">&lt;/Result&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;Amount&gt;</span>32.00<span class="nt">&lt;/Amount&gt;</span>
+      <span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>
+      <span class="nt">&lt;CardNumber&gt;</span>4111111111111111<span class="nt">&lt;/CardNumber&gt;</span>
+      <span class="nt">&lt;Cardholder&gt;</span>T Test<span class="nt">&lt;/Cardholder&gt;</span>
+      <span class="nt">&lt;ExpiryDate&gt;</span>0511<span class="nt">&lt;/ExpiryDate&gt;</span>
+      <span class="nt">&lt;Operator&gt;</span>BJT<span class="nt">&lt;/Operator&gt;</span>
+      <span class="nt">&lt;StartCustomer&gt;</span>111111<span class="nt">&lt;/StartCustomer&gt;</span>
+      <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>123456789<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;system&gt;</span>de<span class="nt">&lt;/system&gt;</span>
+      <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+  <span class="nt">&lt;CarPark&gt;&lt;/CarPark&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="laschtschrift-payment">Laschtschrift payment</h3>
+
+<h4 id="request-1">Request</h4>
+<p>(Convert to post)</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10213906?AccountName=T%20Test<span class="err">&amp;</span>AccountNumber=123456<span class="err">&amp;</span>Amount=32.00<span class="err">&amp;</span>BusinessUnit=222<span class="err">&amp;</span>Operator=BJT<span class="err">&amp;</span>SortCode=12345678<span class="err">&amp;</span>StartCustomer=111111<span class="err">&amp;</span>key=mytestkey<span class="err">&amp;</span>token=123456789
+</code></pre>
+</div>
+
+<h4 id="response-1">Response</h4>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"17"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>DZN41<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10213906<span class="nt">&lt;/StartRef&gt;</span>
+    <span class="nt">&lt;Result&gt;</span>Bacs/Lastschrift payment now on file against booking<span class="nt">&lt;/Result&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;Amount&gt;</span>32.00<span class="nt">&lt;/Amount&gt;</span>
+      <span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>
+      <span class="nt">&lt;Operator&gt;</span>BJT<span class="nt">&lt;/Operator&gt;</span>
+      <span class="nt">&lt;StartCustomer&gt;</span>111111<span class="nt">&lt;/StartCustomer&gt;</span>
+      <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>123456789<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;AccountNumber&gt;</span>123456<span class="nt">&lt;/AccountNumber&gt;</span>
+      <span class="nt">&lt;SortCode&gt;</span>12345678<span class="nt">&lt;/SortCode&gt;</span>
+      <span class="nt">&lt;AccountName&gt;</span>T Test<span class="nt">&lt;/AccountName&gt;</span>
+      <span class="nt">&lt;system&gt;</span>de<span class="nt">&lt;/system&gt;</span>
+      <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+  <span class="nt">&lt;CarPark&gt;&lt;/CarPark&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

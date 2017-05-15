@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="amend-parking-booking">Amend Parking Booking</h1>
+
+<h2 id="bookingfoo">/booking/foo</h2>
+
+<p>where foo is the booking reference</p>
+
+<p>e.g. http://api.holidayextras.co.uk/v1/booking/ABCDE</p>
+
+<p>You should typically do a view request before an amend. In this way you’ll have the booking details to prepopulate fields for your user.</p>
+
+<h4 id="at-present-the-api-only-allows-access-to-amend-a-car-parking-booking-this-means-that-you-will-not-be-able-to-amend-a-hotel-hotel-with-car-parking-or-lounge-booking-using-the-api">At present, the API only allows access to amend a car parking booking. This means that you will not be able to amend a hotel, hotel with car parking or lounge booking using the API.</h4>
+
+<h2 id="how-to-amend-a-booking">How to amend a booking</h2>
+
+<p>Amending a booking is a two stage process, made to the same endpoint but with different parameters and via different methods.</p>
+
+<ul>
+  <li>
+    <p>GET - Price check request - Optional. For changes which will affect the cost..</p>
+  </li>
+  <li>
+    <p>POST - Commit changes and charge or credit the card used to make the booking. Requires all other parameters shown below. As you can see there are a lot of parameters so it is best to use the values retrieved from a view request rather than ask the customer to fill them all in.</p>
+  </li>
+</ul>
+
+<p>One way to implement this would be:</p>
+
+<ol>
+  <li>Present the user with the view of their booking details in a web form.</li>
+  <li>User edits whatever editable fields they need to change, then submits form.</li>
+  <li>If no fields which change the price are altered, application posts the whole form.</li>
+  <li>If any fields which alter the price have been changed, your application does a GET and presents the new price, asking the customer to confirm they’re happy with the new price.</li>
+  <li>If user confirms the new price, post the entire form including non-price sensitive changes.</li>
+</ol>
+
+<p>You could present the user with their changes before sending the HTTP request, giving them a chance to confirm or return to editing their booking again.</p>
+
+<h2 id="price-alteration-request">Price alteration request</h2>
+
+<p>Some edits may alter the price. You must send a GET request to discern whether the price has changed and present this information to the customer, giving them the option to confirm or reject the new price. The fields which may affect price are:</p>
+
+<ul>
+  <li>
+    <p>ArrivalDate</p>
+  </li>
+  <li>
+    <p>ArrivalTime</p>
+  </li>
+  <li>
+    <p>DepartDate</p>
+  </li>
+  <li>
+    <p>DepartTime</p>
+  </li>
+  <li>
+    <p>NumberOfPax</p>
+  </li>
+</ul>
+
+<p>This request does not affect the booking, no changes are confirmed at this point, you ought to make this clear to the customer.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time</td>
+      <td>HHSS</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartTime</td>
+      <td>Time</td>
+      <td>HHSS</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CarParkCode*</td>
+      <td>String</td>
+      <td>[A-Z]{3}[0-9]{1}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>NumberOfPax*</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ABTANumber*</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Required field, cannot be altered.</li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/sandbox/booking/A8LUM?ArrivalDate=2009-02-10<span class="err">&amp;</span>ArrivalTime=1800<span class="err">&amp;</span>DepartDate=2009-02-20<span class="err">&amp;</span>DepartTime=2000<span class="err">&amp;</span>CarParkCode=MAN3<span class="err">&amp;</span>NumberOfPax=2<span class="err">&amp;</span>ABTANumber=FOO<span class="err">&amp;</span>key=mytestkey
+</code></pre>
+</div>
+
+<p>add System=ABG for European products</p>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"13"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Pricing&gt;</span>
+    <span class="nt">&lt;MinPricingDuration&gt;</span>1<span class="nt">&lt;/MinPricingDuration&gt;</span>
+    <span class="nt">&lt;Duration&gt;</span>11<span class="nt">&lt;/Duration&gt;</span>
+    <span class="nt">&lt;OriginalPrice&gt;</span>48.00<span class="nt">&lt;/OriginalPrice&gt;</span>
+    <span class="nt">&lt;NewPrice&gt;</span>52.80<span class="nt">&lt;/NewPrice&gt;</span>
+    <span class="nt">&lt;PriceDifference&gt;</span>4.80<span class="nt">&lt;/PriceDifference&gt;</span>
+  <span class="nt">&lt;/Pricing&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2009-02-10<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;ArrivalTime&gt;</span>1800<span class="nt">&lt;/ArrivalTime&gt;</span>
+      <span class="nt">&lt;DepartDate&gt;</span>2009-02-20<span class="nt">&lt;/DepartDate&gt;</span>
+      <span class="nt">&lt;DepartTime&gt;</span>2000<span class="nt">&lt;/DepartTime&gt;</span>
+      <span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+      <span class="nt">&lt;ABTANumber&gt;</span>FOO<span class="nt">&lt;/ABTANumber&gt;</span>
+      <span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>MAN3<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+  <span class="nt">&lt;CarPark&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>MAN3<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Airparks Handforth Dean<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Filter&gt;</span>
+      <span class="nt">&lt;recommended&gt;</span>1<span class="nt">&lt;/recommended&gt;</span>
+      <span class="nt">&lt;car_parked_for_you&gt;</span>1<span class="nt">&lt;/car_parked_for_you&gt;</span>
+    <span class="nt">&lt;/Filter&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/sandbox/carpark/MAN3<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/product/MAN3<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/CarPark&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="confirm-amend">Confirm amend</h2>
+
+<p>This request actually changes the details of the booking. It is a good idea to ask the customer to confirm the changes before making this request. Use the booking details retrieved from a request 7 to prepopulate the form.</p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time</td>
+      <td>HHSS</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartTime</td>
+      <td>Time</td>
+      <td>HHSS</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CarParkCode</td>
+      <td>String</td>
+      <td>[A-Z]{3}[0-9]{1}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>NumberOfPax</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Registration</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>CarMake</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>CarModel</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>CarColour</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>Valid email</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z]{1}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Address[]</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Town</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>County</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>PostCode</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Confirmation</td>
+      <td>Char</td>
+      <td>[Y,N]{1}</td>
+      <td>Y*</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Determines whether customer will be sent a non-branded system email confirming changes. If you prefer, you can send ‘N’ and create your own email.</li>
+</ul>
+
+<h3 id="request-1">Request</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /booking/RSE3F HTTP/1.1
+Host: api.holidayextras.co.uk
+User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.1) Gecko/2008070206 Firefox/3.0.1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 297
+
+ABTANumber=FOO&amp;Address%5B%5D=45%20Test%20Street&amp;ArrivalDate=2009-04-16&amp;ArrivalTime=1200&amp;CarParkCode=LGV4&amp;Confirmation=Y&amp;County=Kent&amp;DepartDate=2009-04-23&amp;DepartTime=1500&amp;Email=test%40test.com&amp;Initial=B&amp;NumberOfPax=3&amp;PostCode=CT202TT&amp;Surname=Test&amp;Title=Mr&amp;Town=Test&amp;key=mytestkey
+
+</code></pre>
+</div>
+
+<h3 id="reply-1">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"14"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>A8LUM<span class="nt">&lt;/BookingRef&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+  <span class="nt">&lt;CarDetails&gt;</span>
+    <span class="nt">&lt;Registration&gt;&lt;/Registration&gt;</span>
+    <span class="nt">&lt;CarMake&gt;&lt;/CarMake&gt;</span>
+    <span class="nt">&lt;CarModel&gt;&lt;/CarModel&gt;</span>
+    <span class="nt">&lt;CarColour&gt;&lt;/CarColour&gt;</span>
+  <span class="nt">&lt;/CarDetails&gt;</span>
+  <span class="nt">&lt;ClientDetails&gt;</span>
+    <span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
+    <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+    <span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
+    <span class="nt">&lt;Address</span> <span class="na">a=</span><span class="s">"1"</span><span class="nt">&gt;</span>Test Street<span class="nt">&lt;/Address&gt;</span>
+    <span class="nt">&lt;Email&gt;</span>BEN.THOMPSON@HOLIDAYEXTRAS.COM<span class="nt">&lt;/Email&gt;</span>
+    <span class="nt">&lt;DataProtection&gt;&lt;/DataProtection&gt;</span>
+  <span class="nt">&lt;/ClientDetails&gt;</span>
+  <span class="nt">&lt;Pricing&gt;</span>
+    <span class="nt">&lt;OriginalPrice&gt;</span>48.00<span class="nt">&lt;/OriginalPrice&gt;</span>
+    <span class="nt">&lt;NewPrice&gt;</span>52.80<span class="nt">&lt;/NewPrice&gt;</span>
+    <span class="nt">&lt;PriceDifference&gt;</span>N/A<span class="nt">&lt;/PriceDifference&gt;</span>
+  <span class="nt">&lt;/Pricing&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ABTANumber&gt;</span>FOO<span class="nt">&lt;/ABTANumber&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2009-02-10<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;ArrivalTime&gt;</span>1800<span class="nt">&lt;/ArrivalTime&gt;</span>
+      <span class="nt">&lt;Confirmation&gt;</span>Y<span class="nt">&lt;/Confirmation&gt;</span>
+      <span class="nt">&lt;DepartDate&gt;</span>2009-02-20<span class="nt">&lt;/DepartDate&gt;</span>
+      <span class="nt">&lt;DepartTime&gt;</span>2000<span class="nt">&lt;/DepartTime&gt;</span>
+      <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+      <span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+      <span class="nt">&lt;Surname&gt;</span>Test<span class="nt">&lt;/Surname&gt;</span>
+      <span class="nt">&lt;Title&gt;</span>Mr<span class="nt">&lt;/Title&gt;</span>
+      <span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;Email&gt;</span>ben.thompson@holidayextras.com<span class="nt">&lt;/Email&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>MAN3<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+  <span class="nt">&lt;CarPark&gt;</span>
+    <span class="nt">&lt;ArrivalDate&gt;</span>2009-02-10<span class="nt">&lt;/ArrivalDate&gt;</span>
+    <span class="nt">&lt;DepartDate&gt;</span>2009-02-20<span class="nt">&lt;/DepartDate&gt;</span>
+    <span class="nt">&lt;ArrivalTime&gt;</span>1800<span class="nt">&lt;/ArrivalTime&gt;</span>
+    <span class="nt">&lt;DepartTime&gt;</span>2000<span class="nt">&lt;/DepartTime&gt;</span>
+    <span class="nt">&lt;Duration&gt;</span>10<span class="nt">&lt;/Duration&gt;</span>
+    <span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+    <span class="nt">&lt;ReturnFlight&gt;&lt;/ReturnFlight&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>MAN3<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Airparks Handforth Dean<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Filter&gt;</span>
+      <span class="nt">&lt;recommended&gt;</span>1<span class="nt">&lt;/recommended&gt;</span>
+      <span class="nt">&lt;car_parked_for_you&gt;</span>1<span class="nt">&lt;/car_parked_for_you&gt;</span>
+    <span class="nt">&lt;/Filter&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/sandbox/carpark/MAN3<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/product/MAN3<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/CarPark&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

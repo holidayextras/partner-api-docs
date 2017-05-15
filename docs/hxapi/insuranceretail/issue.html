@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="insurance---issue-policy">Insurance - Issue Policy</h1>
+
+<h2 id="insurancepolicyfoo">/insurancepolicy/foo</h2>
+
+<p>Where <strong>foo</strong> is the certificate Reference from a call to <a href="options">GET options</a>.</p>
+
+<h2 id="caution">Caution</h2>
+
+<p>The /sandbox/ prefix available on other products is not available for this API endpoint, there is no test system to go to. If you make test bookings during development, you can log in online and use our “manage my booking” pages to cancel them, or contact us with policy numbers so we can cancel them.</p>
+
+<h3 id="method">Method</h3>
+
+<p>POST</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Format</th>
+      <th>Required</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>Y</td>
+      <td>Required to correctly calculate and attribute commission</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Address[0]</td>
+      <td>String</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Address[1]</td>
+      <td>String</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Address[2]</td>
+      <td>String</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Town</td>
+      <td>String</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>County</td>
+      <td>String</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PostCode</td>
+      <td>String</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>DayPhone</td>
+      <td>String</td>
+      <td>N</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>String</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>option</td>
+      <td>Array</td>
+      <td>N</td>
+      <td>See below</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-no-options">Example (no options)</h3>
+
+<h3 id="request">Request</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>POST http://api.holidayextras.co.uk/v1/insurancepolicy/yourCertificateReference
+
+key=foo&amp;ABTANumber=ABCDE&amp;Password=ABCDE&amp;Address[0]=Holiday Extras&amp;Address[1]=Ashford Road&amp;Address[2]=Newingreen&amp;Town=Hythe&amp;County=Kent&amp;PostCode=CT21 4JF&amp;DayPhone=01234567890&amp;Email=test@example.com
+</code></pre>
+</div>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply&gt;</span>
+  <span class="nt">&lt;cover&gt;</span>
+    <span class="nt">&lt;cancellation&gt;</span>
+      <span class="nt">&lt;section&gt;</span>Cancellation cover<span class="nt">&lt;/section&gt;</span>
+      <span class="nt">&lt;limit&gt;</span>1500<span class="nt">&lt;/limit&gt;</span>
+      <span class="nt">&lt;excess&gt;</span>75<span class="nt">&lt;/excess&gt;</span>
+    <span class="nt">&lt;/cancellation&gt;</span>
+    <span class="nt">&lt;medical&gt;</span>
+      <span class="nt">&lt;section&gt;</span>Medical Emergency Expenses<span class="nt">&lt;/section&gt;</span>
+      <span class="nt">&lt;limit&gt;</span>5000000<span class="nt">&lt;/limit&gt;</span>
+      <span class="nt">&lt;excess&gt;</span>100<span class="nt">&lt;/excess&gt;</span>
+    <span class="nt">&lt;/medical&gt;</span>
+    <span class="nt">&lt;possessions&gt;</span>
+      <span class="nt">&lt;section&gt;</span>Personal possessions<span class="nt">&lt;/section&gt;</span>
+      <span class="nt">&lt;limit&gt;</span>1500<span class="nt">&lt;/limit&gt;</span>
+      <span class="nt">&lt;excess&gt;</span>75<span class="nt">&lt;/excess&gt;</span>
+    <span class="nt">&lt;/possessions&gt;</span>
+  <span class="nt">&lt;/cover&gt;</span>
+  <span class="nt">&lt;Scheme&gt;</span>
+    <span class="nt">&lt;schemeID&gt;</span>369<span class="nt">&lt;/schemeID&gt;</span>
+    <span class="nt">&lt;schemeName&gt;</span>Silver Independent<span class="nt">&lt;/schemeName&gt;</span>
+    <span class="nt">&lt;purchaseDate&gt;</span>2011-10-13<span class="nt">&lt;/purchaseDate&gt;</span>
+    <span class="nt">&lt;keyFacts&gt;</span>http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/HXagentMainKF.pdf<span class="nt">&lt;/keyFacts&gt;</span>
+    <span class="nt">&lt;policyWording&gt;</span>http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/HXagentMainPW.pdf<span class="nt">&lt;/policyWording&gt;</span>
+    <span class="nt">&lt;PolicyNumber&gt;</span>ABCDE100123<span class="nt">&lt;/PolicyNumber&gt;</span>
+    <span class="nt">&lt;Annual&gt;</span>N<span class="nt">&lt;/Annual&gt;</span>
+  <span class="nt">&lt;/Scheme&gt;</span>
+  <span class="nt">&lt;ClientDetails&gt;</span>
+    <span class="nt">&lt;address&gt;</span>
+      <span class="nt">&lt;address1&gt;</span>Holiday Extras<span class="nt">&lt;/address1&gt;</span>
+      <span class="nt">&lt;address2&gt;</span>Ashford Road<span class="nt">&lt;/address2&gt;</span>
+      <span class="nt">&lt;address3&gt;</span>Newingreen<span class="nt">&lt;/address3&gt;</span>
+      <span class="nt">&lt;address4&gt;</span>Hythe<span class="nt">&lt;/address4&gt;</span>
+      <span class="nt">&lt;address5&gt;</span>Kent<span class="nt">&lt;/address5&gt;</span>
+      <span class="nt">&lt;postcode&gt;</span>CT21 4JF<span class="nt">&lt;/postcode&gt;</span>
+    <span class="nt">&lt;/address&gt;</span>
+    <span class="nt">&lt;email&gt;</span>test@example.com<span class="nt">&lt;/email&gt;</span>
+    <span class="nt">&lt;dayPhone&gt;</span>01234567890<span class="nt">&lt;/dayPhone&gt;</span>
+  <span class="nt">&lt;/ClientDetails&gt;</span>
+  <span class="nt">&lt;Itinerary&gt;</span>
+    <span class="nt">&lt;startDate&gt;</span>2012-10-10<span class="nt">&lt;/startDate&gt;</span>
+    <span class="nt">&lt;endDate&gt;</span>2012-10-19<span class="nt">&lt;/endDate&gt;</span>
+    <span class="nt">&lt;destinationName&gt;</span>Europe (exc Spain, Cyprus, Malta, Turkey)<span class="nt">&lt;/destinationName&gt;</span>
+  <span class="nt">&lt;/Itinerary&gt;</span>
+  <span class="nt">&lt;Pricing&gt;</span>
+    <span class="nt">&lt;grossAmount&gt;</span>42.44<span class="nt">&lt;/grossAmount&gt;</span>
+    <span class="nt">&lt;netAmount&gt;</span>22.48<span class="nt">&lt;/netAmount&gt;</span>
+    <span class="nt">&lt;overallAmount&gt;</span>42.44<span class="nt">&lt;/overallAmount&gt;</span>
+    <span class="nt">&lt;premiumIPTAmount&gt;</span>5.93<span class="nt">&lt;/premiumIPTAmount&gt;</span>
+    <span class="nt">&lt;medicalAmount&gt;</span>0<span class="nt">&lt;/medicalAmount&gt;</span>
+    <span class="nt">&lt;optionsIPT&gt;</span>0<span class="nt">&lt;/optionsIPT&gt;</span>
+    <span class="nt">&lt;optionsNett&gt;</span>0<span class="nt">&lt;/optionsNett&gt;</span>
+    <span class="nt">&lt;optionsAmount&gt;</span>0<span class="nt">&lt;/optionsAmount&gt;</span>
+    <span class="nt">&lt;overallIPTAmount&gt;</span>5.93<span class="nt">&lt;/overallIPTAmount&gt;</span>
+    <span class="nt">&lt;overallNett&gt;</span>22.48<span class="nt">&lt;/overallNett&gt;</span>
+    <span class="nt">&lt;overallComm&gt;</span>14.03<span class="nt">&lt;/overallComm&gt;</span>
+    <span class="nt">&lt;premiumComm&gt;</span>14.03<span class="nt">&lt;/premiumComm&gt;</span>
+    <span class="nt">&lt;optionsComm&gt;</span>0<span class="nt">&lt;/optionsComm&gt;</span>
+    <span class="nt">&lt;overallNet&gt;</span>36.51<span class="nt">&lt;/overallNet&gt;</span>
+  <span class="nt">&lt;/Pricing&gt;</span>
+  <span class="nt">&lt;People&gt;</span>
+    <span class="nt">&lt;PersonDetails&gt;</span>
+      <span class="nt">&lt;title&gt;</span>Mr<span class="nt">&lt;/title&gt;</span>
+      <span class="nt">&lt;firstName&gt;</span>Test<span class="nt">&lt;/firstName&gt;</span>
+      <span class="nt">&lt;lastName&gt;</span>Test<span class="nt">&lt;/lastName&gt;</span>
+      <span class="nt">&lt;birthDate&gt;</span>1985-05-05<span class="nt">&lt;/birthDate&gt;</span>
+    <span class="nt">&lt;/PersonDetails&gt;</span>
+    <span class="nt">&lt;PersonDetails&gt;</span>
+      <span class="nt">&lt;title&gt;</span>Mrs<span class="nt">&lt;/title&gt;</span>
+      <span class="nt">&lt;firstName&gt;</span>Test<span class="nt">&lt;/firstName&gt;</span>
+      <span class="nt">&lt;lastName&gt;</span>Test<span class="nt">&lt;/lastName&gt;</span>
+      <span class="nt">&lt;birthDate&gt;</span>1987-07-07<span class="nt">&lt;/birthDate&gt;</span>
+    <span class="nt">&lt;/PersonDetails&gt;</span>
+  <span class="nt">&lt;/People&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;ABTANumber&gt;</span>ABCDE<span class="nt">&lt;/ABTANumber&gt;</span>
+      <span class="nt">&lt;Password&gt;</span>ABCDE<span class="nt">&lt;/Password&gt;</span>
+      <span class="nt">&lt;Address&gt;</span>Holiday Extras<span class="nt">&lt;/Address&gt;</span>
+      <span class="nt">&lt;Address&gt;</span>Ashford Road<span class="nt">&lt;/Address&gt;</span>
+      <span class="nt">&lt;Address&gt;</span>Newingreen<span class="nt">&lt;/Address&gt;</span>
+      <span class="nt">&lt;Town&gt;</span>Hythe<span class="nt">&lt;/Town&gt;</span>
+      <span class="nt">&lt;County&gt;</span>Kent<span class="nt">&lt;/County&gt;</span>
+      <span class="nt">&lt;PostCode&gt;</span>CT21 4JF<span class="nt">&lt;/PostCode&gt;</span>
+      <span class="nt">&lt;DayPhone&gt;</span>01234567890<span class="nt">&lt;/DayPhone&gt;</span>
+      <span class="nt">&lt;Email&gt;</span>test@example.com<span class="nt">&lt;/Email&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="example-with-options">Example (with options)</h3>
+
+<p>Per policy options require schemeoptionID, optionRateID, optionPrice and optionIPT. Per person options also require the CertificateClientID of the person they are for. Per person options can be submitted multiple times with different CertificateClientIDs. This should be sent as a multidimensional array/hash, for example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>option[0][schemeoptionID]=12345
+option[0][optionRateID]=12345
+option[0][optionPrice]=10.00
+option[0][optionIPT]=2.00
+option[1][CertificateClientID]=123456
+option[1][schemeoptionID]=54321
+option[1][optionRateID]=12345
+option[1][optionPrice]=10.00
+option[1][optionIPT]=2.00
+option[2][CertificateClientID]=123457
+option[2][schemeoptionID]=54321
+option[2][optionRateID]=12345
+option[2][optionPrice]=10.00
+option[2][optionIPT]=2.00
+option[3][CertificateClientID]=123456
+option[3][schemeoptionID]=67890
+option[3][optionRateID]=12345
+option[3][optionPrice]=10.00
+option[3][optionIPT]=2.00
+</code></pre>
+</div>
+
+<p>Assuming a provisional policy (from a call to GET options) with two customers (123456 and 123457), these fields will add the per-policy option 12345 to the policy, the per-person option 54321 for both customers, and the per-person option 67890 just for customer id 123456.</p>
+
+<p>Example full request/reply with a per person and a per policy option:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>POST 
+
+key=foo&amp;ABTANumber=ABCDE&amp;Password=ABCDE&amp;Address[0]=Holiday Extras&amp;Address[1]=Ashford Road&amp;Address[2]=Newingreen&amp;Town=Hythe&amp;County=Kent&amp;PostCode=CT21 4JF&amp;DayPhone=01234567890&amp;Email=test@example.com&amp;option[0][schemeoptionID]=3249&amp;option[0][optionRateID]=2687460&amp;option[0][optionPrice]=2.67&amp;option[0][optionIPT]=0.45&amp;option[0][personID]=0&amp;option[1][schemeoptionID]=3252&amp;option[1][optionRateID]=2681885&amp;option[1][optionPrice]=53.34&amp;option[1][optionIPT]=8.89
+</code></pre>
+</div>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;API_Reply&gt;</span>
+ <span class="nt">&lt;cover&gt;</span>
+ <span class="nt">&lt;cancellation&gt;</span>
+<span class="nt">&lt;section&gt;</span>Cancellation cover<span class="nt">&lt;/section&gt;</span>
+<span class="nt">&lt;limit&gt;</span>1500<span class="nt">&lt;/limit&gt;</span>
+<span class="nt">&lt;excess&gt;</span>75<span class="nt">&lt;/excess&gt;</span>
+ <span class="nt">&lt;/cancellation&gt;</span>
+ <span class="nt">&lt;medical&gt;</span>
+<span class="nt">&lt;section&gt;</span>Medical Emergency Expenses<span class="nt">&lt;/section&gt;</span>
+<span class="nt">&lt;limit&gt;</span>5000000<span class="nt">&lt;/limit&gt;</span>
+<span class="nt">&lt;excess&gt;</span>100<span class="nt">&lt;/excess&gt;</span>
+ <span class="nt">&lt;/medical&gt;</span>
+ <span class="nt">&lt;possessions&gt;</span>
+<span class="nt">&lt;section&gt;</span>Personal possessions<span class="nt">&lt;/section&gt;</span>
+<span class="nt">&lt;limit&gt;</span>1500<span class="nt">&lt;/limit&gt;</span>
+<span class="nt">&lt;excess&gt;</span>75<span class="nt">&lt;/excess&gt;</span>
+ <span class="nt">&lt;/possessions&gt;</span>
+ <span class="nt">&lt;/cover&gt;</span>
+ <span class="nt">&lt;Scheme&gt;</span>
+<span class="nt">&lt;schemeID&gt;</span>369<span class="nt">&lt;/schemeID&gt;</span>
+<span class="nt">&lt;schemeName&gt;</span>Silver Independent<span class="nt">&lt;/schemeName&gt;</span>
+<span class="nt">&lt;purchaseDate&gt;</span>2011-10-13<span class="nt">&lt;/purchaseDate&gt;</span>
+<span class="nt">&lt;keyFacts&gt;</span>http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/HXagentMainKF.pdf<span class="nt">&lt;/keyFacts&gt;</span>
+<span class="nt">&lt;policyWording&gt;</span>http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/HXagentMainPW.pdf<span class="nt">&lt;/policyWording&gt;</span>
+<span class="nt">&lt;PolicyNumber&gt;</span>F1234100633<span class="nt">&lt;/PolicyNumber&gt;</span>
+<span class="nt">&lt;Annual&gt;</span>N<span class="nt">&lt;/Annual&gt;</span>
+ <span class="nt">&lt;/Scheme&gt;</span>
+ <span class="nt">&lt;PolicyOptions&gt;</span>
+<span class="nt">&lt;schemeoptionID&gt;</span>3252<span class="nt">&lt;/schemeoptionID&gt;</span>
+<span class="nt">&lt;optionName&gt;</span>Winter Sports<span class="nt">&lt;/optionName&gt;</span>
+<span class="nt">&lt;optionPrice&gt;</span>53.34<span class="nt">&lt;/optionPrice&gt;</span>
+<span class="nt">&lt;optionNet&gt;</span>33.72<span class="nt">&lt;/optionNet&gt;</span>
+<span class="nt">&lt;optionIPT&gt;</span>8.89<span class="nt">&lt;/optionIPT&gt;</span>
+ <span class="nt">&lt;/PolicyOptions&gt;</span>
+ <span class="nt">&lt;ClientDetails&gt;</span>
+ <span class="nt">&lt;address&gt;</span>
+<span class="nt">&lt;address1&gt;</span>Holiday Extras<span class="nt">&lt;/address1&gt;</span>
+<span class="nt">&lt;address2&gt;</span>Ashford Road<span class="nt">&lt;/address2&gt;</span>
+<span class="nt">&lt;address3&gt;</span>Newingreen<span class="nt">&lt;/address3&gt;</span>
+<span class="nt">&lt;address4&gt;</span>Hythe<span class="nt">&lt;/address4&gt;</span>
+<span class="nt">&lt;address5&gt;</span>Kent<span class="nt">&lt;/address5&gt;</span>
+<span class="nt">&lt;postcode&gt;</span>CT21 4JF<span class="nt">&lt;/postcode&gt;</span>
+ <span class="nt">&lt;/address&gt;</span>
+<span class="nt">&lt;email&gt;</span>test@example.com<span class="nt">&lt;/email&gt;</span>
+<span class="nt">&lt;dayPhone&gt;</span>01234567890<span class="nt">&lt;/dayPhone&gt;</span>
+ <span class="nt">&lt;/ClientDetails&gt;</span>
+ <span class="nt">&lt;Itinerary&gt;</span>
+<span class="nt">&lt;startDate&gt;</span>2012-10-10<span class="nt">&lt;/startDate&gt;</span>
+<span class="nt">&lt;endDate&gt;</span>2012-10-19<span class="nt">&lt;/endDate&gt;</span>
+<span class="nt">&lt;destinationName&gt;</span>Europe (exc Spain, Cyprus, Malta, Turkey)<span class="nt">&lt;/destinationName&gt;</span>
+ <span class="nt">&lt;/Itinerary&gt;</span>
+ <span class="nt">&lt;Pricing&gt;</span>
+<span class="nt">&lt;grossAmount&gt;</span>42.44<span class="nt">&lt;/grossAmount&gt;</span>
+<span class="nt">&lt;netAmount&gt;</span>22.48<span class="nt">&lt;/netAmount&gt;</span>
+<span class="nt">&lt;overallAmount&gt;</span>98.45<span class="nt">&lt;/overallAmount&gt;</span>
+<span class="nt">&lt;premiumIPTAmount&gt;</span>5.93<span class="nt">&lt;/premiumIPTAmount&gt;</span>
+<span class="nt">&lt;medicalAmount&gt;</span>0<span class="nt">&lt;/medicalAmount&gt;</span>
+<span class="nt">&lt;optionsIPT&gt;</span>9.34<span class="nt">&lt;/optionsIPT&gt;</span>
+<span class="nt">&lt;optionsNett&gt;</span>37.09<span class="nt">&lt;/optionsNett&gt;</span>
+<span class="nt">&lt;optionsAmount&gt;</span>56.01<span class="nt">&lt;/optionsAmount&gt;</span>
+<span class="nt">&lt;overallIPTAmount&gt;</span>15.27<span class="nt">&lt;/overallIPTAmount&gt;</span>
+<span class="nt">&lt;overallNett&gt;</span>59.57<span class="nt">&lt;/overallNett&gt;</span>
+<span class="nt">&lt;overallComm&gt;</span>23.61<span class="nt">&lt;/overallComm&gt;</span>
+<span class="nt">&lt;premiumComm&gt;</span>14.03<span class="nt">&lt;/premiumComm&gt;</span>
+<span class="nt">&lt;optionsComm&gt;</span>9.58<span class="nt">&lt;/optionsComm&gt;</span>
+<span class="nt">&lt;overallNet&gt;</span>83.18<span class="nt">&lt;/overallNet&gt;</span>
+ <span class="nt">&lt;/Pricing&gt;</span>
+ <span class="nt">&lt;People&gt;</span>
+ <span class="nt">&lt;PersonDetails&gt;</span>
+<span class="nt">&lt;title&gt;</span>Mr<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;firstName&gt;</span>Test<span class="nt">&lt;/firstName&gt;</span>
+<span class="nt">&lt;lastName&gt;</span>Test<span class="nt">&lt;/lastName&gt;</span>
+<span class="nt">&lt;birthDate&gt;</span>1985-05-05<span class="nt">&lt;/birthDate&gt;</span>
+ <span class="nt">&lt;PersonOptions&gt;</span>
+<span class="nt">&lt;schemeoptionID&gt;</span>3249<span class="nt">&lt;/schemeoptionID&gt;</span>
+<span class="nt">&lt;ccID&gt;</span>535171<span class="nt">&lt;/ccID&gt;</span>
+<span class="nt">&lt;optionRateID&gt;</span>0<span class="nt">&lt;/optionRateID&gt;</span>
+<span class="nt">&lt;optionPrice&gt;</span>2.67<span class="nt">&lt;/optionPrice&gt;</span>
+<span class="nt">&lt;optionNet&gt;</span>3.37<span class="nt">&lt;/optionNet&gt;</span>
+<span class="nt">&lt;optionIPT&gt;</span>0.45<span class="nt">&lt;/optionIPT&gt;</span>
+<span class="nt">&lt;optionEnableDuplicates&gt;</span>0<span class="nt">&lt;/optionEnableDuplicates&gt;</span>
+<span class="nt">&lt;optionHazardousPursuit&gt;</span>0<span class="nt">&lt;/optionHazardousPursuit&gt;</span>
+<span class="nt">&lt;optionName&gt;</span>Business Cover<span class="nt">&lt;/optionName&gt;</span>
+ <span class="nt">&lt;/PersonOptions&gt;</span>
+ <span class="nt">&lt;/PersonDetails&gt;</span>
+ <span class="nt">&lt;PersonDetails&gt;</span>
+<span class="nt">&lt;title&gt;</span>Mrs<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;firstName&gt;</span>Test<span class="nt">&lt;/firstName&gt;</span>
+<span class="nt">&lt;lastName&gt;</span>Test<span class="nt">&lt;/lastName&gt;</span>
+<span class="nt">&lt;birthDate&gt;</span>1987-07-07<span class="nt">&lt;/birthDate&gt;</span>
+<span class="nt">&lt;arrSchemePersonOption</span> <span class="nt">/&gt;</span>
+ <span class="nt">&lt;/PersonDetails&gt;</span>
+ <span class="nt">&lt;/People&gt;</span>
+ <span class="nt">&lt;API_Header&gt;</span>
+ <span class="nt">&lt;Request&gt;</span>
+<span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;ABTANumber&gt;</span>ABCDE<span class="nt">&lt;/ABTANumber&gt;</span>
+<span class="nt">&lt;Password&gt;</span>ABCDE<span class="nt">&lt;/Password&gt;</span>
+<span class="nt">&lt;Address&gt;</span>Holiday Extras<span class="nt">&lt;/Address&gt;</span>
+<span class="nt">&lt;Address&gt;</span>Ashford Road<span class="nt">&lt;/Address&gt;</span>
+<span class="nt">&lt;Address&gt;</span>Newingreen<span class="nt">&lt;/Address&gt;</span>
+<span class="nt">&lt;Town&gt;</span>Hythe<span class="nt">&lt;/Town&gt;</span>
+<span class="nt">&lt;County&gt;</span>Kent<span class="nt">&lt;/County&gt;</span>
+<span class="nt">&lt;PostCode&gt;</span>CT21 4JF<span class="nt">&lt;/PostCode&gt;</span>
+<span class="nt">&lt;DayPhone&gt;</span>01234567890<span class="nt">&lt;/DayPhone&gt;</span>
+<span class="nt">&lt;Email&gt;</span>test@example.com<span class="nt">&lt;/Email&gt;</span>
+ <span class="nt">&lt;option&gt;</span>
+<span class="nt">&lt;schemeoptionID&gt;</span>3249<span class="nt">&lt;/schemeoptionID&gt;</span>
+<span class="nt">&lt;optionRateID&gt;</span>2687460<span class="nt">&lt;/optionRateID&gt;</span>
+<span class="nt">&lt;optionPrice&gt;</span>2.67<span class="nt">&lt;/optionPrice&gt;</span>
+<span class="nt">&lt;optionIPT&gt;</span>0.45<span class="nt">&lt;/optionIPT&gt;</span>
+<span class="nt">&lt;personID&gt;</span>0<span class="nt">&lt;/personID&gt;</span>
+ <span class="nt">&lt;/option&gt;</span>
+ <span class="nt">&lt;option&gt;</span>
+<span class="nt">&lt;schemeoptionID&gt;</span>3252<span class="nt">&lt;/schemeoptionID&gt;</span>
+<span class="nt">&lt;optionRateID&gt;</span>2681885<span class="nt">&lt;/optionRateID&gt;</span>
+<span class="nt">&lt;optionPrice&gt;</span>53.34<span class="nt">&lt;/optionPrice&gt;</span>
+<span class="nt">&lt;optionIPT&gt;</span>8.89<span class="nt">&lt;/optionIPT&gt;</span>
+ <span class="nt">&lt;/option&gt;</span>
+ <span class="nt">&lt;/Request&gt;</span>
+ <span class="nt">&lt;/API_Header&gt;</span>
+ <span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="hotel-or-car-parking-upgrade">Hotel or Car Parking Upgrade</h1>
+
+<p>only for UK products</p>
+
+<p><a href="/hxapi/">API Docs</a> &gt; endpoint:<a href="upgrade">upgrade</a></p>
+
+<h2 id="method">Method</h2>
+
+<p>GET</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td>Alphanumeric</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>Integer</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Product code</td>
+      <td>Alphanumeric</td>
+      <td>[A-Z,0-9]+</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>AdultCount</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>RoomCode[]</td>
+      <td>Array</td>
+      <td> </td>
+      <td>Only if searching for a hotel</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The file extension (js or xml) is also required.</p>
+
+<h2 id="example">Example</h2>
+
+<p>Get add-ons available for Gatwick Hilton:</p>
+
+<p>'’http://api.holidayextras.co.uk/upgrade/LGWHIL.xml?AdultsCount=2&amp;ArrivalDate=01/09/10&amp;DepartDate=10/09/10&amp;key=foo&amp;token=123456789’’</p>
+
+<p>Or Get add-ons available for Luton Airparks</p>
+
+<p>'’http://api.holidayextras.co.uk/upgrade/LTN2.xml?AdultsCount=2&amp;ArrivalDate=01/09/16&amp;DepartDate=10/09/16&amp;key=foo&amp;token=123456789’’</p>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">System=</span><span class="s">"ABC"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"General"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"123456789"</span> <span class="na">RequestCode=</span><span class="s">"12"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Itinerary&gt;</span>
+    <span class="nt">&lt;SiteCode&gt;</span>LGWHIL<span class="nt">&lt;/SiteCode&gt;</span>
+  <span class="nt">&lt;/Itinerary&gt;</span>
+  <span class="nt">&lt;Supplement&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>LGWHDI<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Three-course buffet dinner<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;AdPrice&gt;</span>12.50<span class="nt">&lt;/AdPrice&gt;</span>
+    <span class="nt">&lt;Per&gt;</span>P<span class="nt">&lt;/Per&gt;</span>
+    <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Do you have dinner plans? Make a night of it, upgrade your package to include a three-course dinner. After a long drive to the airport, unwind in the Garden Restaurant and satisfy your hunger with a hearty meal. Serving a full buffet menu, the Garden Restaurant is sure to have something to suit everyone<span class="ni">&amp;#39;</span>s taste buds.<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;supplement_type&gt;</span>Meal<span class="nt">&lt;/supplement_type&gt;</span>
+    <span class="nt">&lt;Date&gt;</span>2010-09-01<span class="nt">&lt;/Date&gt;</span>
+  <span class="nt">&lt;/Supplement&gt;</span>
+  <span class="nt">&lt;Supplement&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>LGWHDX<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Deluxe room<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Price&gt;</span>25.00<span class="nt">&lt;/Price&gt;</span>
+    <span class="nt">&lt;Per&gt;</span>R<span class="nt">&lt;/Per&gt;</span>
+    <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Taking a well deserved break? Do it in style with a deluxe room. Featuring a large walk-in shower, a soft double bed, and high speed Internet access. Kick off your shoes and enjoy the first-rate standards of a Hilton deluxe room.<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;supplement_type&gt;</span>Luxury<span class="nt">&lt;/supplement_type&gt;</span>
+    <span class="nt">&lt;Date&gt;</span>2010-09-01<span class="nt">&lt;/Date&gt;</span>
+  <span class="nt">&lt;/Supplement&gt;</span>
+  <span class="nt">&lt;Supplement&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>LGWHCD<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>FREE dinner for children under 10 years<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;AdPrice&gt;</span>0.00<span class="nt">&lt;/AdPrice&gt;</span>
+    <span class="nt">&lt;Per&gt;</span>P<span class="nt">&lt;/Per&gt;</span>
+    <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Taking the kids away? Well if you dine at the hotel then the Hilton will let your children eat for FREE. So if they<span class="ni">&amp;#39;</span>re under 10 years old and you<span class="ni">&amp;#39;</span>ve chosen the adults dinner upgrade then you can pick this FREE dinner option.<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;supplement_type&gt;</span>Meal<span class="nt">&lt;/supplement_type&gt;</span>
+    <span class="nt">&lt;only_for_children&gt;</span>1<span class="nt">&lt;/only_for_children&gt;</span>
+    <span class="nt">&lt;only_for_adults&gt;</span>0<span class="nt">&lt;/only_for_adults&gt;</span>
+    <span class="nt">&lt;Date&gt;</span>2010-09-01<span class="nt">&lt;/Date&gt;</span>
+  <span class="nt">&lt;/Supplement&gt;</span>
+
+[...]  
+
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;AdultsCount&gt;</span>2<span class="nt">&lt;/AdultsCount&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2010-09-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;DepartDate&gt;</span>2010-09-10<span class="nt">&lt;/DepartDate&gt;</span>
+      <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>123456789<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;format&gt;</span>xml<span class="nt">&lt;/format&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="supplement-node">‘Supplement’ Node</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>  <span class="nt">&lt;Supplement&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>LGWHCD<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>FREE dinner for children under 10 years<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;AdPrice&gt;</span>0.00<span class="nt">&lt;/AdPrice&gt;</span>
+    <span class="nt">&lt;Per&gt;</span>P<span class="nt">&lt;/Per&gt;</span>
+    <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Taking the kids away? Well if you dine at the hotel then the Hilton will let your children eat for FREE. So if they<span class="ni">&amp;#39;</span>re under 10 years old and you<span class="ni">&amp;#39;</span>ve chosen the adults dinner upgrade then you can pick this FREE dinner option.<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;supplement_type&gt;</span>Meal<span class="nt">&lt;/supplement_type&gt;</span>
+    <span class="nt">&lt;only_for_children&gt;</span>1<span class="nt">&lt;/only_for_children&gt;</span>
+    <span class="nt">&lt;only_for_adults&gt;</span>0<span class="nt">&lt;/only_for_adults&gt;</span>
+    <span class="nt">&lt;Date&gt;</span>2010-09-01<span class="nt">&lt;/Date&gt;</span>
+  <span class="nt">&lt;/Supplement&gt;</span>
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Possible Values</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Code</td>
+      <td> </td>
+      <td>Product code for this addon</td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Per</td>
+      <td>P,B,R</td>
+      <td>Sale rule for addon (P = Per Person, B = Per Booking, R = Per Room)</td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td> </td>
+      <td>Returned if addon is Per B or R - price per addon</td>
+    </tr>
+    <tr>
+      <td>AdPrice</td>
+      <td> </td>
+      <td>Optionally returned if addon is per P - price per adult</td>
+    </tr>
+    <tr>
+      <td>ChPrice</td>
+      <td> </td>
+      <td>Optionally returned if addon is per P - price per child</td>
+    </tr>
+    <tr>
+      <td>only_for_adults</td>
+      <td> </td>
+      <td>If 1, addon is for adults only</td>
+    </tr>
+    <tr>
+      <td>only_for_children</td>
+      <td> </td>
+      <td>If 1, addon is for children only</td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td> </td>
+      <td>Date for addon - for example on a hotel booking, a dinner will be on the same date as the hotel stay, a breakfast or a lounge will be on the day after</td>
+    </tr>
+    <tr>
+      <td>number_of_days</td>
+      <td> </td>
+      <td>Applies to insurance addon - maximum trip length. If you pass in both ArrivalDate and DepartDate, the most appropriate option will be returned automatically; if you don’t you will get multiple insurance options with different ‘number_of_days’ settings</td>
+    </tr>
+    <tr>
+      <td>supplement_type</td>
+      <td>Meal,Luxury,Lounge,Insurance,Quick Check-in,Charity Donation (to come: Transport, Transfer, Text Services, Currency Card, Postal Confirmation)</td>
+      <td>Type of addon, to help with grouping. “Luxury” covers options like bottle of champagne in room</td>
+    </tr>
+    <tr>
+      <td>Canx</td>
+      <td>Y,N</td>
+      <td>Is addon removeable/cancellable once booked</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="pricing">Pricing</h3>
+
+<p>It may be easier to assume all passengers/rooms on the bookings would like the addon, and this is permitted though not recommended. You should calculate and present prices based on the ‘Per’ flag and user input. Limit the quantity of per room &amp; per person addons based on the Adults, Children &amp; number of rooms sent, and per booking addons to 1.</p>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

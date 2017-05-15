@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="amend-hotel-booking">Amend Hotel Booking</h1>
+
+<h2 id="bookingfoo">/booking/foo</h2>
+
+<p>where foo is the booking reference</p>
+
+<p>e.g. http://api.holidayextras.co.uk/v1/booking/ABCDE</p>
+
+<p>You should typically do a view request before an amend. In this way you’ll have the booking details to prepopulate fields for your user.</p>
+
+<h2 id="how-to-amend-a-booking">How to amend a booking</h2>
+
+<p>Amending a booking is a two stage process, made to the same endpoint but with different parameters and via different methods.</p>
+
+<ul>
+  <li>
+    <p>GET - Price check request - Optional. For changes which will affect the cost..</p>
+  </li>
+  <li>
+    <p>POST - Commit changes and charge or credit the card used to make the booking. Requires all other parameters shown below. As you can see there are a lot of parameters so it is best to use the values retrieved from a view request rather than ask the customer to fill them all in.</p>
+  </li>
+</ul>
+
+<p>One way to implement this would be:</p>
+
+<ol>
+  <li>Present the user with the view of their booking details in a web form.</li>
+  <li>User edits whatever editable fields they need to change, then submits form.</li>
+  <li>If no fields which change the price are altered, application posts the whole form.</li>
+  <li>If any fields which alter the price have been changed, your application does a GET and presents the new price, asking the customer to confirm they’re happy with the new price.</li>
+  <li>If user confirms the new price, post the entire form including non-price sensitive changes.</li>
+</ol>
+
+<p>You could present the user with their changes before sending the HTTP request, giving them a chance to confirm or return to editing their booking again.</p>
+
+<h2 id="price-alteration-request">Price alteration request</h2>
+
+<p>Some edits may alter the price. You must send a GET request to discern whether the price has changed and present this information to the customer, giving them the option to confirm or reject the new price. The fields which may affect price are:</p>
+
+<p>ArrivalDate:2016-11-21</p>
+
+<p>ParkingDays:8</p>
+
+<p>RoomCode[]:DBL</p>
+
+<p>Rooms:1</p>
+
+<p>Adults:2</p>
+
+<p>Children:0</p>
+
+<p>Infants:0</p>
+
+<p>This request does not affect the booking, no changes are confirmed at this point, you ought to make this clear to the customer.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Example</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z][0-9]{5}</td>
+      <td>your agent</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>[A-Z]{3}[0-9]</td>
+      <td>mytestkey</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>System</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>ABG</td>
+      <td>Y*</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z]{5}</td>
+      <td>PASSWORD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Nights</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>1</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>HotelCode</td>
+      <td>String</td>
+      <td>[A-Z]{6}</td>
+      <td>FRAMAX</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>2016-11-21</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ParkingDays</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>8</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ParkingSpaces</td>
+      <td>Int</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BoardBasis</td>
+      <td>String</td>
+      <td>[A-Z]{2}</td>
+      <td>RO</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>RoomCode[]</td>
+      <td>String</td>
+      <td>[A-Z]{2-3}</td>
+      <td>DBL</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>TerminalCode</td>
+      <td>String</td>
+      <td>[A-Z][0-9]{2}</td>
+      <td>S or 1</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>ReturnFlight</td>
+      <td>String</td>
+      <td>[A-Z]{2-3}[0-9]{3}</td>
+      <td>ABC123</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Rooms</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>1</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Adults</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>2</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Children</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>0</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Infants</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>0</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Mr</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>T</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Test</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>NonSmoking</td>
+      <td>String</td>
+      <td>[A-Z]{1}</td>
+      <td>Y</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CarPickupDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>2016-11-19</td>
+      <td>Y+</td>
+    </tr>
+    <tr>
+      <td>CarPickupTime</td>
+      <td>Time</td>
+      <td>HHII</td>
+      <td>1200</td>
+      <td>Y+</td>
+    </tr>
+    <tr>
+      <td>CarDropOffTime</td>
+      <td>Time</td>
+      <td>HHII</td>
+      <td>1200</td>
+      <td>Y+</td>
+    </tr>
+    <tr>
+      <td>ParkStart</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>2016-11-19</td>
+      <td>Y+</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>generate</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Only required if your need European based products - pass in System=ABG</li>
+  <li>Required for Hotels with Parking</li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/booking/{REF}?ABTANumber=AGENT<span class="err">&amp;</span>key=mytestkey<span class="err">&amp;</span>Password=Password<span class="err">&amp;</span>Nights=1<span class="err">&amp;</span>HotelCode=FRAMAX<span class="err">&amp;</span>ArrivalDate=20Nov16<span class="err">&amp;</span>ParkingDays=8<span class="err">&amp;</span>ParkingSpaces=1<span class="err">&amp;</span>RoomCode[]=DZ<span class="err">&amp;</span>Rooms=1<span class="err">&amp;</span>Adults=2<span class="err">&amp;</span>Children=0<span class="err">&amp;</span>Infants=0
+</code></pre>
+</div>
+
+<p>add System=ABG for European products</p>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"Hotel"</span> <span class="na">RequestCode=</span><span class="s">"13"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Itinerary&gt;</span>
+        <span class="nt">&lt;ArrivalDate&gt;</span>2016-11-20<span class="nt">&lt;/ArrivalDate&gt;</span>
+        <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>FRAMAX<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;/Itinerary&gt;</span>
+    <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;Rooms&gt;</span>1<span class="nt">&lt;/Rooms&gt;</span>
+        <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+        <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+        <span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>89.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;/Room&gt;</span>
+    <span class="nt">&lt;Pricing&gt;</span>
+        <span class="nt">&lt;OriginalPrice&gt;</span>109.00<span class="nt">&lt;/OriginalPrice&gt;</span>
+        <span class="nt">&lt;NewPrice&gt;</span>89.00<span class="nt">&lt;/NewPrice&gt;</span>
+        <span class="nt">&lt;PriceDifference&gt;</span>20.00-<span class="nt">&lt;/PriceDifference&gt;</span>
+    <span class="nt">&lt;/Pricing&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="confirm-amend">Confirm amend</h2>
+
+<p>This request actually changes the details of the booking. It is a good idea to ask the customer to confirm the changes before making this request. Use the booking details retrieved from a request 7 to prepopulate the form.</p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Example</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z][0-9]{5}</td>
+      <td>your agent</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>[A-Z]{3}[0-9]</td>
+      <td>mytestkey</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>System</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>ABG</td>
+      <td>Y*</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z]{5}</td>
+      <td>PASSWORD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Nights</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>1</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>HotelCode</td>
+      <td>String</td>
+      <td>[A-Z]{6}</td>
+      <td>FRAMAX</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>2016-11-21</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ParkingDays</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>8</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ParkingSpaces</td>
+      <td>Int</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BoardBasis</td>
+      <td>String</td>
+      <td>[A-Z]{2}</td>
+      <td>RO</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>RoomCode[]</td>
+      <td>String</td>
+      <td>[A-Z]{2-3}</td>
+      <td>DBL</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>TerminalCode</td>
+      <td>String</td>
+      <td>[A-Z][0-9]{2}</td>
+      <td>S or 1</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>ReturnFlight</td>
+      <td>String</td>
+      <td>[A-Z]{2-3}[0-9]{3}</td>
+      <td>ABC123</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Rooms</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>1</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Adults</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>2</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Children</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>0</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Infants</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>0</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Mr</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>T</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Test</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>NonSmoking</td>
+      <td>String</td>
+      <td>[A-Z]{1}</td>
+      <td>Y</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CarPickupDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>2016-11-19</td>
+      <td>Y+</td>
+    </tr>
+    <tr>
+      <td>CarPickupTime</td>
+      <td>Time</td>
+      <td>HHII</td>
+      <td>1200</td>
+      <td>Y+</td>
+    </tr>
+    <tr>
+      <td>CarDropOffTime</td>
+      <td>Time</td>
+      <td>HHII</td>
+      <td>1200</td>
+      <td>Y+</td>
+    </tr>
+    <tr>
+      <td>ParkStart</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>2016-11-19</td>
+      <td>Y+</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>generate</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Only required if you need European based products - pass in System=ABG</li>
+  <li>Required for Hotels with Parking only</li>
+</ul>
+
+<h3 id="request-1">Request</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /booking/{REF} HTTP/1.1
+Host: api.holidayextras.co.uk
+User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.1) Gecko/2008070206 Firefox/3.0.1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 297
+
+ABTANumber:AGENT
+key:mytestkey
+Password:PASSWORD
+Nights:1
+HotelCode:FRAMAX
+ArrivalDate:2016-11-19
+ParkingDays:8
+ParkingSpaces:1
+BoardBasis:U
+RoomCode[]:DBL
+TerminalCode:
+ReturnFlight:
+Rooms:1
+Adults:2
+Children:0
+Infants:0
+Title:Herr
+Initial:T
+Surname:Test
+NonSmoking:Y
+CarPickupDate:2016-11-28
+CarPickupTime:1200
+CarDropOffTime:1200
+ParkStart:2016-11-19
+token:generate
+
+</code></pre>
+</div>
+
+<h3 id="reply-1">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"Hotel"</span> <span class="na">RequestCode=</span><span class="s">"14"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Booking&gt;</span>
+        <span class="nt">&lt;BookingRef&gt;</span>FBGCR<span class="nt">&lt;/BookingRef&gt;</span>
+        <span class="nt">&lt;AgentComm&gt;</span>8.47<span class="nt">&lt;/AgentComm&gt;</span>
+        <span class="nt">&lt;VATonComm&gt;</span>1.35<span class="nt">&lt;/VATonComm&gt;</span>
+        <span class="nt">&lt;RETURNFLIGHT&gt;&lt;/RETURNFLIGHT&gt;</span>
+        <span class="nt">&lt;BOOKNO&gt;</span>FBGCR<span class="nt">&lt;/BOOKNO&gt;</span>
+    <span class="nt">&lt;/Booking&gt;</span>
+    <span class="nt">&lt;Itinerary&gt;</span>
+        <span class="nt">&lt;ArrivalDate&gt;</span>2016-11-19<span class="nt">&lt;/ArrivalDate&gt;</span>
+        <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;NonSmoking&gt;&lt;/NonSmoking&gt;</span>
+        <span class="nt">&lt;CarPickupDate&gt;</span>2016-11-28<span class="nt">&lt;/CarPickupDate&gt;</span>
+        <span class="nt">&lt;CarDropoffTime&gt;</span>1200<span class="nt">&lt;/CarDropoffTime&gt;</span>
+        <span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>
+        <span class="nt">&lt;ParkingSpaces&gt;</span>1<span class="nt">&lt;/ParkingSpaces&gt;</span>
+        <span class="nt">&lt;Remarks&gt;&lt;/Remarks&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>FRAMAX<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;/Itinerary&gt;</span>
+    <span class="nt">&lt;Room&gt;</span>
+        <span class="nt">&lt;Rooms&gt;</span>1<span class="nt">&lt;/Rooms&gt;</span>
+        <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+        <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+        <span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;/Room&gt;</span>
+    <span class="nt">&lt;ClientDetails&gt;</span>
+        <span class="nt">&lt;Title&gt;</span>HERR<span class="nt">&lt;/Title&gt;</span>
+        <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+        <span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
+        <span class="nt">&lt;Fax&gt;</span>Y<span class="nt">&lt;/Fax&gt;</span>
+    <span class="nt">&lt;/ClientDetails&gt;</span>
+    <span class="nt">&lt;Pricing&gt;</span>
+        <span class="nt">&lt;OriginalPrice&gt;</span>109.00<span class="nt">&lt;/OriginalPrice&gt;</span>
+        <span class="nt">&lt;NewPrice&gt;</span>89.00<span class="nt">&lt;/NewPrice&gt;</span>
+        <span class="nt">&lt;PriceDifference&gt;</span>-20.00<span class="nt">&lt;/PriceDifference&gt;</span>
+    <span class="nt">&lt;/Pricing&gt;</span>
+    
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

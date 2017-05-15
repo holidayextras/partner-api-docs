@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="parking">Parking</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; product:<a href="index">Parking</a></p>
+
+<p>These are the parking requests.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Endpoint</th>
+      <th>Method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Availability at airport</td>
+      <td><a href="av/airport">http://api.holidayextras.co.uk/v1/carpark/foo</a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Availability at car park</td>
+      <td><a href="av/carpark">http://api.holidayextras.co.uk/v1/carpark/foo</a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Space count at car park</td>
+      <td><a href="spaces/carpark">http://api.holidayextras.co.uk/v1/carparkspaces/foo</a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Upgrades</td>
+      <td><a href="/hxapi/upgrade">http://api.holidayextras.co.uk/v1/upgrade/foo</a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Make booking at car park</td>
+      <td><a href="bkg">https://api.holidayextras.co.uk/v1/carpark/foo</a></td>
+      <td>POST</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="important-notices">Important notices</h1>
+
+<p><strong>Important!</strong> These points have created problems for partners in the past.</p>
+
+<h2 id="merging-product-library-data-into-availability-response">Merging product library data into availability response</h2>
+
+<p>You can specify a comma-separated list of fields to pull back from the product library. This overcomes the need for partners to do multiple HTTP requests. Just specify a parameter named ‘fields’ and include the product library field names there.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>eg...&amp;fields=field_a,field_b,field_c
+</code></pre>
+</div>
+
+<p>The method for querying the product library as a separate request <a href="/hxapi/productlibrary/parking">is outlined here</a>.</p>
+
+<h2 id="advance-purchase">Advance purchase</h2>
+
+<p>There is a field in the product library for car parks, named ‘advance_purchase’. Advance purchase products are non-refundable and non-cancellable. As a result, the Cancellation Waiver must not be sold to customers purchasing a product with advance_purchase set to 1.</p>
+
+<h2 id="user-token">User token</h2>
+
+<p>If your application does not grab a new user token for each user on your site before making requests to the carpark endpoint, we have no way of differentiating between your customers. We’ve had several partners send through the same number for every customer. This has made it difficult to trace bookings when a problem has required investigation. Please ensure that you request a User Token before doing any parking requests.</p>
+
+<p><a href="/hxapi/usertoken">How to request a user token</a></p>
+
+<h2 id="request-flags">Request flags</h2>
+
+<p>The request flags brought back from availability searches indicate the fields required in the booking by the car park. You must retrieve this information from the customer. There are occasions where your booking will go through without sending this information but can fail later when importing the bookings to car parks. This causes us considerable administrative difficulties. Please, make sure your application sends all requested fields.</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;RequestFlags&gt;</span>
+	<span class="nt">&lt;Registration&gt;</span>1<span class="nt">&lt;/Registration&gt;</span>
+<span class="nt">&lt;/RequestFlags&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="total-price-----element">Total price  - <Pricing> element</Pricing></h2>
+
+<p>The cost of the Credit Card surcharge applies to the price of parking + cancellation waiver (if taken).</p>
+
+<p>So in the reply for a booking request you may see something like</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;AmountPaid&gt;</span>43.56<span class="nt">&lt;/AmountPaid&gt;</span>
+<span class="nt">&lt;TotalPrice&gt;</span>42.06<span class="nt">&lt;/TotalPrice&gt;</span>
+<span class="nt">&lt;CCSurchargeAmount&gt;</span>1.50<span class="nt">&lt;/CCSurchargeAmount&gt;</span>
+<span class="nt">&lt;CanxWaiver&gt;</span>0.50<span class="nt">&lt;/CanxWaiver&gt;</span>
+</code></pre>
+</div>
+<p>… and expect <AmountPaid> to total £44.06 (because 42.06 + 1.50 + 0.50 = 44.06). This is not an error, the <CanxWaiver> amount has already been added to the parking price of £41.56 to create <TotalPrice>, and the credit card surcharge is then applied to that value, giving <AmountPaid>.</AmountPaid></TotalPrice></CanxWaiver></AmountPaid></p>
+
+<h2 id="images">Images</h2>
+
+<p>We have recently moved all our images into an internal image library. The paths provided in the API will no longer be valid.</p>
+
+<p>However for each of the products you will see a key called tripappimages - these are the best images to use.  There will be an array split by a ;</p>
+
+<p>e.g. http://api.holidayextras.co.uk/v1/product/LGW4.js?token=000015778&amp;key=mytestkey&amp;fields=tripappimages</p>
+
+<p>You can specify the specific product library fields you need using this syntax and adding fields=x,y,z, etc.</p>
+
+<p>The domain you can source them to is //static4.holidayextras.com</p>
+
+<p>You would need to replace /imageLibrary/Images/ with /libraryimages</p>
+
+<p>e.g. /imageLibrary/Images/81818-LGW-maple-manor-North2.png</p>
+
+<p>should be replaced with //static4.holidayextras.com/libraryimages/81818-LGW-maple-manor-North2.png</p>
+
+<h2 id="european-products-only">European Products ONLY</h2>
+
+<p>Pass in System=ABG to access products in Europe.</p>
+
+<p>Default if System is not set should be System=ABC to access products in UK only.</p>
+
+<p>You will need to create a voucher for the customer yourself by using the following information from the product library, plus the information from the booking response:</p>
+
+<p>mandatory fields are:</p>
+
+<ul>
+  <li>
+    <p>car park name <name> or <parkplatzname></parkplatzname></name></p>
+  </li>
+  <li>
+    <p>car park adress <adresse></adresse></p>
+  </li>
+  <li>
+    <p>car park phone number <telefon></telefon></p>
+  </li>
+  <li>
+    <p>important information <hinweis></hinweis></p>
+  </li>
+  <li>
+    <p>transfer information <transfer></transfer></p>
+  </li>
+  <li>
+    <p>approach <anfahrt></anfahrt></p>
+  </li>
+  <li>
+    <p>arrival <bei_der_anreise_></bei_der_anreise_></p>
+  </li>
+  <li>
+    <p>size of vehicle <pkw_groesse></pkw_groesse></p>
+  </li>
+</ul>
+
+<p>optional fields are:</p>
+
+<ul>
+  <li>
+    <p>departure <bei_der_abreise_></bei_der_abreise_></p>
+  </li>
+  <li>
+    <p>information for handicapped people <barrierefreier_zugang></barrierefreier_zugang></p>
+  </li>
+  <li>
+    <p>security information <sicherheit></sicherheit></p>
+  </li>
+  <li>
+    <p>information on insurance <versicherung></versicherung></p>
+  </li>
+</ul>
+
+<p>Please always add our terms and conditions (refer to “make a booking at car park” section) 
+Example: 
+Service provider: Holiday Extras GmbH | Aidenbachstr. 52 | 81379 München | Germany. Terms and conditions of Holiday Extras, available at http://www.holidayextras.de/images/en-hx/pdf/agb.pdf, apply.</p>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

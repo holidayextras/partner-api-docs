@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="spaces-at-car-park">Spaces at car park</h1>
+
+<p>only available in UK</p>
+
+<p><a href="/hxapi/">API Docs</a> &gt; product:<a href="/hxapi/parking">Parking</a> &gt; endpoint:<a href="carpark">carparkspaces</a></p>
+
+<h2 id="carparkspacesfoo">/carparkspaces/foo</h2>
+
+<p>where foo is the car park code</p>
+
+<p>e.g. http://api.holidayextras.co.uk/v1/carparkspaces/LGV4</p>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>N*</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Password only required for agent requests. If sending this you should make your availability requests over https.</li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/sandbox/v1/carparkspaces/LGV4?ArrivalDate=2011-09-20<span class="err">&amp;</span>DepartDate=2011-09-27<span class="err">&amp;</span>key=mytestkey<span class="err">&amp;</span>token=000001234<span class="err">&amp;</span>ABTANumber=FOO<span class="err">&amp;</span>Initials=BJT
+</code></pre>
+</div>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>
+<span class="nt">&lt;API_Reply&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2011-09-20<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;DepartDate&gt;</span>2011-09-27<span class="nt">&lt;/DepartDate&gt;</span>
+      <span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>000001234<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;ABTANumber&gt;</span>FOO<span class="nt">&lt;/ABTANumber&gt;</span>
+      <span class="nt">&lt;Initials&gt;</span>BJT<span class="nt">&lt;/Initials&gt;</span>
+      <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+  <span class="nt">&lt;CarPark&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>LGV4<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Airparks Gatwick(formerly BCP)<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Status&gt;</span>F<span class="nt">&lt;/Status&gt;</span>
+    <span class="nt">&lt;Spaces&gt;</span>
+      <span class="nt">&lt;Total&gt;</span>9999<span class="nt">&lt;/Total&gt;</span>
+      <span class="nt">&lt;Left&gt;</span>9999<span class="nt">&lt;/Left&gt;</span>
+    <span class="nt">&lt;/Spaces&gt;</span>
+  <span class="nt">&lt;/CarPark&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="fields-explained">Fields Explained</h3>
+
+<h4 id="carparkstatus">CarPark/Status</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S</td>
+      <td>Standard - see total &amp; left spaces</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>Free sale - actual count of remaining/total spaces not available (returns 9999 for both fields)</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>Closed out - no spaces available (returns 0 for both fields)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="api_headerrequest">API_Header/Request</h4>
+
+<p><strong>HXAPI</strong> returns every parameter you sent in the previous request, as you sent it. This is so your app doesn’t have to remember anything not replied in the XML reply.</p>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

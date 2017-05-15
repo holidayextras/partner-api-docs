@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="faq">FAQ</h1>
+
+<h2 id="wie-lautet-die-adresse-des-development-servers">Wie lautet die Adresse des Development Servers?</h2>
+
+<p>http://api.holidayextras.co.uk/sandbox/</p>
+
+<h2 id="welches-ist-die-adresse-des-live-servers">Welches ist die Adresse des Live Servers?</h2>
+
+<p>http://api.holidayextras.co.uk/</p>
+
+<h2 id="was-ist-mit-caching">Was ist mit Caching?</h2>
+
+<p>Wir erwarten, dass viele Anwendungentwickler die Ergebnisse bestimmter Suchen cachen wollen. Es ist zum Beispiel nicht nötig, jedesmal Locations anzufragen. Es ist viel besser, diese lokal abzuspeichern und eine Routine zu erstellen, die in regelmäßigen Abständen beim API die aktuelle Liste erfragt.</p>
+
+<p>Bitte cachen Sie keine Verfügbarkeitsanfragen. Preise können sich unangekündigt ändern und die Allokation kann ablaufen.</p>
+
+<h2 id="h00x-produktcodes">H00x Produktcodes</h2>
+
+<p>Diese werden manchmal am Ende von Parkplatzanfragen geliefert. Sie stehen für Hotels mit Parken, die Kunden, welche früh am Morgen abfliegen, als Upsell angeboten werden. Sie sollten diese ignorieren oder <a href="mailto:sales@holidayextras.com">sales@holidayextras.com</a> kontaktieren, uns Ihren Agent Code mitteilen und dann werden wir diese ausschalten.</p>
+
+<h2 id="kreditkartenaufschläge">Kreditkartenaufschläge</h2>
+
+<p>Agents sollten die Elemente für Kreditkartenaufschläge ignorieren. Jegliche Bearbeitungsgebühren, die auf die Buchungen Ihrer Kunden aufgeschlagen werden, obligen Ihrer Kontrolle.</p>
+
+<p>Vermittler müssen den Kreditkartenaufschlag nach unten stehendem Prinzip kalkulieren.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
+if( x &lt; CCardSurchargeMin) 
+  x = CCardSurchargeMin
+else if x &gt; CCardSurchargeMax
+  x = CCardSurchargeMax
+</code></pre>
+</div>
+
+<h2 id="sind-die-angegebenen-preise-netto-preise-oder-wurde-der-aufschlag-bereits-addiert">Sind die angegebenen Preise Netto-Preise oder wurde der Aufschlag bereits addiert?</h2>
+
+<p>Der Aufschlag wurde bereits addiert.</p>
+
+<h2 id="braucht-holiday-extras-meine-ip-adresse">Braucht Holiday Extras meine IP Adresse?</h2>
+
+<p>Nein. Wir verwenden eine schwarze Liste für unerwünschten Traffic, davon abgesehen kann jeder, der einen gültigen Schlüssel verwendet, bei <strong>HXAPI</strong> Anfragen machen.</p>
+
+<h2 id="wie-storniere-ich-eine-testbuchung">Wie storniere ich eine Testbuchung?</h2>
+
+<p>Sie müssen nur Buchungen stornieren, die auf dem Live Server gemacht wurden. Buchungen, die auf dem Development Server gemacht wurden, müssen nicht storniert werden, es wird keine Zahlung vorgenommen.</p>
+
+<p>Bitte stornieren Sie Buchungen <strong>nicht</strong> mittels eines Anrufes in unserem Callcenter oder der Online-Stornierungs-Interface auf <a href="http://www.holidayextras.com">www.holidayextras.com</a>. Kreditkartengebühren werden <strong>nicht erstattet</strong>, wenn Sie einen dieser Wege wählen. Schicken Sie die Buchungsnummern an <a href="mailto:sales@holidayextras.com">sales@holidayextras.com</a> und <strong>alle Gebühren werden erstattet</strong>.</p>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

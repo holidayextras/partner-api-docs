@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="hotel-availability-without-roomtype">Hotel Availability Without RoomType</h1>
+
+<p>This request is only available on the German system. It has not yet been implememented, but should not vary from this.</p>
+
+<h2 id="hotelfoo">/hotel/foo</h2>
+
+<p>where foo is the location (airport) code</p>
+
+<p>e.g. http://api.holidayextras.co.uk/de/v1/hotel/FRA</p>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>N*</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CarPickupDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Nights</td>
+      <td>Int</td>
+      <td>[0-9]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ParkingPriorToStay</td>
+      <td>Boolean</td>
+      <td>[Y,N]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Password required for Agents</li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de/v1/hotel/FRA?ABTANumber=FOO<span class="err">&amp;</span>Password=FOO<span class="err">&amp;</span>Initials=BJT<span class="err">&amp;</span>key=foo<span class="err">&amp;</span>token=999999999<span class="err">&amp;</span>ArrivalDate=2010-01-15<span class="err">&amp;</span>CarPickupDate=2010-01-22<span class="err">&amp;</span>Nights=1<span class="err">&amp;</span>ParkingPriorToStay=N
+</code></pre>
+</div>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>
+<span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"1"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  	<span class="nt">&lt;Hotel&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>FRAACH<span class="nt">&lt;/HotelCode&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>ACHAT Hotel Airport - Frankfurt<span class="nt">&lt;/HotelName&gt;</span>
+		<span class="nt">&lt;StarRating&gt;</span>4<span class="nt">&lt;/StarRating&gt;</span>
+		<span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>
+		<span class="nt">&lt;OnAirport&gt;</span>N<span class="nt">&lt;/OnAirport&gt;</span>
+		<span class="nt">&lt;FamilyRooms&gt;</span>N<span class="nt">&lt;/FamilyRooms&gt;</span>
+		<span class="nt">&lt;CarParkOnSite&gt;</span>N<span class="nt">&lt;/CarParkOnSite&gt;</span>
+		<span class="nt">&lt;Transfer24Hour&gt;</span>N<span class="nt">&lt;/Transfer24Hour&gt;</span>
+		<span class="nt">&lt;TwinDoublePrice&gt;</span>166.00<span class="nt">&lt;/TwinDoublePrice&gt;</span>
+		<span class="nt">&lt;SinglePrice&gt;</span>N/A<span class="nt">&lt;/SinglePrice&gt;</span>
+		<span class="nt">&lt;BoardBasis&gt;</span>RO<span class="nt">&lt;/BoardBasis&gt;</span>
+	<span class="nt">&lt;/Hotel&gt;</span>
+	<span class="nt">&lt;Hotel&gt;</span>
+		<span class="nt">&lt;HotelCode&gt;</span>FRAMAX<span class="nt">&lt;/HotelCode&gt;</span>
+		<span class="nt">&lt;HotelName&gt;</span>Steigenberger Hotel Frankfurt-Langen<span class="nt">&lt;/HotelName&gt;</span>
+		<span class="nt">&lt;StarRating&gt;</span>4<span class="nt">&lt;/StarRating&gt;</span>
+		<span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>
+		<span class="nt">&lt;OnAirport&gt;</span>N<span class="nt">&lt;/OnAirport&gt;</span>
+		<span class="nt">&lt;FamilyRooms&gt;</span>N<span class="nt">&lt;/FamilyRooms&gt;</span>
+		<span class="nt">&lt;CarParkOnSite&gt;</span>N<span class="nt">&lt;/CarParkOnSite&gt;</span>
+		<span class="nt">&lt;Transfer24Hour&gt;</span>N<span class="nt">&lt;/Transfer24Hour&gt;</span>
+		<span class="nt">&lt;TwinDoublePrice&gt;</span>185.00<span class="nt">&lt;/TwinDoublePrice&gt;</span>
+		<span class="nt">&lt;SinglePrice&gt;</span>N/A<span class="nt">&lt;/SinglePrice&gt;</span>
+		<span class="nt">&lt;BoardBasis&gt;</span>BB<span class="nt">&lt;/BoardBasis&gt;</span>
+	<span class="nt">&lt;/Hotel&gt;</span>
+  .
+  .
+  .
+	<span class="nt">&lt;API_Header&gt;</span>
+		<span class="nt">&lt;Request&gt;</span>
+			<span class="nt">&lt;ABTANumber&gt;</span>FOO<span class="nt">&lt;/ABTANumber&gt;</span>
+			<span class="nt">&lt;Password&gt;</span>TESTA<span class="nt">&lt;/Password&gt;</span>
+			<span class="nt">&lt;Initials&gt;</span>BJT<span class="nt">&lt;/Initials&gt;</span>
+			<span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+			<span class="nt">&lt;token&gt;</span>999999999<span class="nt">&lt;/token&gt;</span>
+			<span class="nt">&lt;ArrivalDate&gt;</span>2010-01-15<span class="nt">&lt;/ArrivalDate&gt;</span>
+			<span class="nt">&lt;CarPickupDate&gt;</span>2010-01-22<span class="nt">&lt;/CarPickupDate&gt;</span>
+			<span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+			<span class="nt">&lt;ParkingPriorToStay&gt;</span>N<span class="nt">&lt;/ParkingPriorToStay&gt;</span>
+		<span class="nt">&lt;/Request&gt;</span>
+	<span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre>
+</div>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

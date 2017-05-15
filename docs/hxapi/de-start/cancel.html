@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="cancel-booking">Cancel booking</h1>
+
+<h2 id="bookingfoo">/booking/foo</h2>
+
+<p>where foo is the Start booking reference</p>
+
+<p>e.g. http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10051848</p>
+
+<h3 id="method">Method</h3>
+
+<p>Post</p>
+
+<h3 id="different-requests">Different requests</h3>
+
+<p>The cancel has 2 modes which differ only in the value of the ConfirmCancel parameter. You should first send ConfirmCancel=N. This dry-run will advise on any cancellation charges. Once the customer has agreed these with the agent, you should send the same request but with ConfirmCancel set to Y.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>StartCustomer</td>
+      <td>String</td>
+      <td>[0-9]{6}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BusinessUnit</td>
+      <td>String</td>
+      <td>[0-9]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Operator</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ConfirmCancel</td>
+      <td>String</td>
+      <td>[Y,N]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request">Request</h3>
+
+<p>Dry-run</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213896?StartCustomer=111111<span class="err">&amp;</span>BusinessUnit=222<span class="err">&amp;</span>Operator=BJT<span class="err">&amp;</span>key=mytestkey<span class="err">&amp;</span>ConfirmCancel=N<span class="err">&amp;</span>CancelRef=TestCnx
+</code></pre>
+</div>
+
+<p>Confirmed cancel</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213896?StartCustomer=111111<span class="err">&amp;</span>BusinessUnit=222<span class="err">&amp;</span>Operator=BJT<span class="err">&amp;</span>key=mytestkey<span class="err">&amp;</span>CancelRef=HolidayCancelled<span class="err">&amp;</span>ConfirmCancel=Y
+</code></pre>
+</div>
+
+<h3 id="response">Response</h3>
+
+<p>Dry-run</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+
+<span class="nt">&lt;API_Reply</span> <span class="na">System=</span><span class="s">"ABG"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"Cancel"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"123456789"</span> <span class="na">RequestCode=</span><span class="s">"9"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>DZN32<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10213897<span class="nt">&lt;/StartRef&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+  <span class="nt">&lt;Cancel&gt;</span>
+    <span class="nt">&lt;CancelFee&gt;</span>0.00<span class="nt">&lt;/CancelFee&gt;</span>
+    <span class="nt">&lt;CancelInfo&gt;</span>Es gibt keine Geb<span class="ni">&amp;#252;</span>hr f<span class="ni">&amp;#252;</span>r die Stornierung dieser Buchung<span class="nt">&lt;/CancelInfo&gt;</span>
+  <span class="nt">&lt;/Cancel&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>
+      <span class="nt">&lt;ConfirmCancel&gt;</span>N<span class="nt">&lt;/ConfirmCancel&gt;</span>
+      <span class="nt">&lt;Operator&gt;</span>BJT<span class="nt">&lt;/Operator&gt;</span>
+      <span class="nt">&lt;StartCustomer&gt;</span>111111<span class="nt">&lt;/StartCustomer&gt;</span>
+      <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>123456789<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;CancelRef&gt;</span>testcanx<span class="nt">&lt;/CancelRef&gt;</span>
+      <span class="nt">&lt;system&gt;</span>de<span class="nt">&lt;/system&gt;</span>
+      <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<p>Confirmed cancel</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+
+<span class="nt">&lt;API_Reply</span> <span class="na">System=</span><span class="s">"ABG"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"Cancel"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"123456789"</span> <span class="na">RequestCode=</span><span class="s">"9"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>DZN31<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;StartRef&gt;</span>10213896<span class="nt">&lt;/StartRef&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+  <span class="nt">&lt;Cancel&gt;</span>
+    <span class="nt">&lt;CancelFee&gt;</span>0.00<span class="nt">&lt;/CancelFee&gt;</span>
+    <span class="nt">&lt;CancelRef&gt;</span>70619<span class="nt">&lt;/CancelRef&gt;</span>
+    <span class="nt">&lt;CancelInfo&gt;</span>Bitten Sie um R<span class="ni">&amp;#252;</span>ckgabe des Kundenvouchers, da er seine G<span class="ni">&amp;#252;</span>ltigkeit nicht verliert<span class="nt">&lt;/CancelInfo&gt;</span>
+  <span class="nt">&lt;/Cancel&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>
+      <span class="nt">&lt;CancelRef&gt;</span>TestCnx<span class="nt">&lt;/CancelRef&gt;</span>
+      <span class="nt">&lt;ConfirmCancel&gt;</span>Y<span class="nt">&lt;/ConfirmCancel&gt;</span>
+      <span class="nt">&lt;Operator&gt;</span>BJT<span class="nt">&lt;/Operator&gt;</span>
+      <span class="nt">&lt;StartCustomer&gt;</span>123456<span class="nt">&lt;/StartCustomer&gt;</span>
+      <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>123456789<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;system&gt;</span>de<span class="nt">&lt;/system&gt;</span>
+      <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

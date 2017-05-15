@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="make-an-insurance-booking">Make an insurance booking</h1>
+
+<p>This must be a POST, as you are making a booking. It must be made over HTTPS. Intermediaries will be sending credit card information, Agents will send their login details so HTTPS is required in both instances.</p>
+
+<p>If you do not send the ABTANumber field (for agent code) then your booking will not be tracked to your agent code. The Password field is currently <strong>not</strong> required, intermediaries do not have a password.</p>
+
+<h2 id="insurancepolicyfoo">/insurancepolicy/foo</h2>
+
+<p>where foo is the destination code
+e.g. /insurancepolicy/EUROPE</p>
+
+<h3 id="method">Method</h3>
+
+<p>POST</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<h4 id="intermediary">Intermediary</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Address</td>
+      <td>array</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CardHolder</td>
+      <td>string</td>
+      <td>Mr T Test</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CardNumber</td>
+      <td>string</td>
+      <td>4111 1111 1111 1111</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DateOfBirth</td>
+      <td>date</td>
+      <td>1972-07-27</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>email</td>
+      <td>test@test.com</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>EndDate</td>
+      <td>date</td>
+      <td>2009-03-01</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ExpiryDate</td>
+      <td>date</td>
+      <td>2009-07-10</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>string</td>
+      <td>T</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>PostCode</td>
+      <td>string</td>
+      <td>T1 1TT</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>SchemeCode</td>
+      <td>string</td>
+      <td>DPR08</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>SchemePrice</td>
+      <td>float</td>
+      <td>33.01</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>StartDate</td>
+      <td>date</td>
+      <td>2009-02-22</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>string</td>
+      <td>Test</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>string</td>
+      <td>Mr</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>string</td>
+      <td>my_test_key</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>string</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ABTANumber</td>
+      <td>string</td>
+      <td>X1234</td>
+      <td>N</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request">Request</h3>
+
+<h4 id="intermediary-1">Intermediary</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+POST /v1/insurancepolicy/EUROPE HTTP/1.1
+
+Host: api.holidayextras.co.uk
+
+...
+
+Content-Type: application/x-www-form-urlencoded
+
+Content-Length: 198
+
+
+Address[]=1 Test St&amp;Address[]=Testchester&amp;Address[]=Testshire&amp;CardHolder=Mr T Test&amp;CardNumber=4111 1111 1111 1111&amp;DateOfBirth[]=1972-07-27&amp;Email=test%40test.com&amp;EndDate=2009-02-29&amp;ExpiryDate=1010&amp;Initial[]=T&amp;PostCode=T1 1TT&amp;SchemeCode=DPR08&amp;SchemePrice=33.01&amp;StartDate=2009-02-22&amp;Surname[]=Test&amp;Title[]=Mr&amp;key=foo&amp;token=000015778
+</code></pre>
+</div>
+
+<h3 id="reply">Reply</h3>
+
+<h4 id="intermediary-2">Intermediary</h4>
+
+<p><code xml=""><API_Reply>
+    <Itinerary>
+    <Destination>EUROPE</Destination>
+    <DestNum>2</DestNum>
+    <StartDate>2009-02-22</StartDate>
+    <EndDate>2009-03-01</EndDate>
+    </Itinerary>
+    <Booking>
+    <RefNum>DPR080000012077</RefNum>
+    <SchemeCode>DPR08</SchemeCode>
+    </Booking>
+    <PartyNames p="1">
+    <PartyTitle>MR</PartyTitle>
+    <PartyInit>T</PartyInit>
+    <PartySurname>TEST</PartySurname>
+    <PartyDOB>1972-07-27</PartyDOB>
+    </PartyNames>
+    <ClientDetails>
+    <Title>MR</Title>
+    <Initial>T</Initial>
+    <Surname>TEST</Surname>
+    &lt;Address a="1"&gt;1 TEST ST&lt;/Address&gt;
+    &lt;Address a="2"&gt;TESTCHESTER&lt;/Address&gt;
+    &lt;Address a="3"&gt;TESTSHIRE&lt;/Address&gt;
+    <Postcode>T1 1TT</Postcode>
+    <Email>TEST@TEST.COM</Email>
+    </ClientDetails>
+    <API_Header>
+    <Request>
+      &lt;Address&gt;1 Test St&lt;/Address&gt;
+      &lt;Address&gt;Testchester&lt;/Address&gt;
+      &lt;Address&gt;Testshire&lt;/Address&gt;
+      <CardHolder>Mr T Test</CardHolder>
+      <CardNumber>4111 1111 1111 1111</CardNumber>
+      <DateOfBirth>1972-07-27</DateOfBirth>
+      <Email>test@test.com</Email>
+      <EndDate>2009-03-01</EndDate>
+      <ExpiryDate>2009-07-10</ExpiryDate>
+      <Initial>T</Initial>
+      <PostCode>T1 1TT</PostCode>
+      <SchemeCode>DPR08</SchemeCode>
+      <SchemePrice>33.01</SchemePrice>
+      <StartDate>2009-02-22</StartDate>
+      <Surname>Test</Surname>
+      <Title>Mr</Title>
+      <key>foo</key>
+      <token>000015778</token>
+    </Request>
+    </API_Header>
+</API_Reply></code></p>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

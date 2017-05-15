@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="make-booking-at-lounge">Make booking at lounge</h1>
+
+<p>To make a booking, the request type must be a POST. It must be made over HTTPS. Intermediaries will be sending credit card information, agents will send their login details. Therefore HTTPS is required in both instances.</p>
+
+<p>If you do not send the <code class="highlighter-rouge">&lt;ABTANumber&gt;</code> field, your booking will not be tracked to your agent code. For agent bookings, the <code class="highlighter-rouge">&lt;Password&gt;</code> field is also required, intermediaries do not have a password.</p>
+
+<p>To retrieve all details about the booking, perform a GET request to view the booking at the location specified in <code class="highlighter-rouge">&lt;MoreInfoURL&gt;</code>. <a href="/hxapi/viewamendcancel/view">Instructions on how to view a booking</a>.</p>
+
+<h2 id="loungefoo">/lounge/foo</h2>
+
+<p>where foo is the lounge code returned from the availability request.</p>
+
+<p>e.g. /lounge/LHRSA1</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<h4 id="intermediary">Intermediary</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>LoungeCode</td>
+      <td>String</td>
+      <td>[A-Z0-9]{6}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Adults</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Children</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Infants</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Remarks</td>
+      <td>Text</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z]{1}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Address[]</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Town</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>County</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>PostCode</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DayPhone</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DataProtection</td>
+      <td>String</td>
+      <td>Y/N</td>
+      <td>Y+</td>
+    </tr>
+    <tr>
+      <td>CardHolder</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CardNumber</td>
+      <td>String</td>
+      <td>[0-9]{14-16}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>StartDate</td>
+      <td>Date</td>
+      <td>MMYY</td>
+      <td>N*</td>
+    </tr>
+    <tr>
+      <td>ExpiryDate</td>
+      <td>Date</td>
+      <td>MMYY</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>IssueNumber</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>N*</td>
+    </tr>
+    <tr>
+      <td>CV2</td>
+      <td>Integer</td>
+      <td>[0-9]{3}</td>
+      <td>Y±</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <p>Only required for debit card purchases where card has one.</p>
+  </li>
+  <li>
+    <p>DataProtection field - Does the customer opt out of receiving offers from Holiday Extras. Y = Yes, data is protected, N = Will receive offers.</p>
+  </li>
+</ul>
+
+<p>± Bookings will still be processed without passing CV2, but please code your applications as if this field were mandatory.</p>
+
+<h4 id="agent">Agent</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>LoungeCode</td>
+      <td>String</td>
+      <td>[A-Z0-9]{6}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Adults</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Children</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Infants</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Remarks</td>
+      <td>Text</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z]{1}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request">Request</h3>
+
+<p>AGENT EXAMPLE</p>
+
+<p>```</p>
+
+<p>GET /sandbox/v1/carpark/MANES1 HTTP/1.1</p>
+
+<p>http://api.holidayextras.co.uk/sandbox/v1/lounge/MANES1?
+ABTANumber=<strong>**<em>&amp;
+Adults=2&amp;
+ArrivalDate=2015-10-24&amp;
+ArrivalTime=1000&amp;
+Children=0&amp;
+Infants=0&amp;
+Initial=T&amp;
+Initials=CG&amp;
+Password=</em></strong><strong>&amp;
+Surname=Test&amp;
+Title=Mr&amp;
+key=</strong>***&amp;
+method=POST&amp;
+token=012345678</p>
+
+<h3 id="response">Response</h3>
+
+<API_Reply Product="Lounge" RequestCode="5" Result="OK"><Booking>
+<BookingRef>J7A44</BookingRef>
+<AgentComm>3.42-</AgentComm>
+<VATonComm>0.57-</VATonComm>
+<MoreInfoURL>/sandbox/v1/booking/J7A44</MoreInfoURL>
+</Booking>
+<API_Header>
+<Request>
+<ABTANumber>*****</ABTANumber>
+<Adults>2</Adults>
+<ArrivalDate>2015-10-24</ArrivalDate>
+<ArrivalTime>1000</ArrivalTime>
+<Children>0</Children>
+<Infants>0</Infants>
+<Initial>T</Initial>
+<Initials>CG</Initials>
+<Password>*****</Password>
+<Surname>Test</Surname>
+<Title>Mr</Title>
+<key>******</key>
+<method>POST</method>
+<token>012345678</token>
+<v>1</v>
+</Request>
+</API_Header>
+</API_Reply>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="theatre-break-availability">Theatre Break Availability</h1>
+
+<h2 id="theatrebreakfoo">/theatrebreak/{foo}</h2>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ShowDate</td>
+      <td>DDMMMYY</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>HHSS</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>RoomCode</td>
+      <td>X12</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request">Request</h3>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/sandbox/v1/theatrebreak/SHOLME?ShowDate=2008-05-08<span class="err">&amp;</span>ArrivalDate=2008-05-15<span class="err">&amp;</span>RoomCode[]=D20<span class="err">&amp;</span>key=mytestkey
+</code></pre>
+</div>
+
+<h3 id="reply">Reply</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+
+<span class="nt">&lt;API_Reply</span> <span class="na">RequestCode=</span><span class="s">"3"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Show&gt;</span>
+    <span class="nt">&lt;ShowDate&gt;</span>2008-05-08<span class="nt">&lt;/ShowDate&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Strand Palace<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTSTR<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTSTR<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>220.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/145<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Tlodge Kings Cross Royal Scot<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTFOI<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTFOI<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>165.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/146<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Crowne Plaza - London St James<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTCPL<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTCPL<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>310.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/147<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Kensington Forum<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTFOR<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTFOR<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>195.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/148<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Millennium Gloucester Hotel<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTMCG<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTMCG<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>241.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/149<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Copthorne Tara Hotel<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTTAR<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTTAR<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>208.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/150<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Holiday Inn Bloomsbury<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTBLO<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTBLO<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>230.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/151<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>St Giles<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTSTG<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTSTG<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>194.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/152<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Radisson Portman<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTPOR<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTPOR<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>309.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/153<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Travelodge London City Road<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTTLC<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTTLC<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>179.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/154<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Le Meridien Picadilly<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTLMP<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTLMP<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>284.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/155<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Holiday Inn Oxford Circus<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTHOX<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTHOX<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>240.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/156<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Holiday Inn Regents Park<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTREG<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTREG<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>230.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/157<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Rembrandt<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTREM<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTREM<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>231.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/158<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Intercontinental Park Lane<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTIPL<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTIPL<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>329.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/159<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Park Inn Hyde Park<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>THTPIN<span class="nt">&lt;/Code&gt;</span>
+      <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/THTPIN<span class="nt">&lt;/MoreInfoURL&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;StayDate&gt;</span>2008-05-15<span class="nt">&lt;/StayDate&gt;</span>
+      <span class="nt">&lt;Seat&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Top Seat Stalls/Dress Circle<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>200.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>1ST<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/api/v1/basket/160<span class="nt">&lt;/BookingURL&gt;</span>
+      <span class="nt">&lt;/Seat&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>LES MISERABLES<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>SHOLME<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/api/v1/product/SHOLME<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Show&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>34.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Ascots<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATT001<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>30.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Bertorellis Floral Street<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATT002<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>30.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Chez Gerard Victoria<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATT003<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>28.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Creation<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATT004<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>38.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Criterion<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATT005<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>34.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Dial<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATT006<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>38.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>LEscargot<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATT007<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>24.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Salieries<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATT009<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>34.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Hampshire<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATT010<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>56.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Tutankhamun With Thames Clip<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTTC<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>40.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Tutankhamun Exhibition<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTTE<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>66.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>TUS<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>London Eye Champagne Flight<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTCF<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>55.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>TUS<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>London Eye River Cruise<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTRC<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>31.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>TUS<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>London Eye Flight Only<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTFO<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>50.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>TUS<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>London Eye Fast Track<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTFT<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>18.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>James Bond Exhibition<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTJB<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>40.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>TUS<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Madame Tussauds/Chamber Live<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTCL<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>42.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>PLA<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Planet Cruise<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTPLC<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>63.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Fortnum <span class="ni">&amp;#38;</span> Mason Afternoon Tea<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTAT<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>20.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>St Pauls Cathedral<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTPC<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>34.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ZOO<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>London Zoo<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTLZ<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>36.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>TUS<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>The London Dungeon<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTLD<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>142.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>EN2<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Luxury Dinner Cruise<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTDC<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>42.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>EN1<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Original Bus Tour<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTBT<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>24.60<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Kensington Palace<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTKP<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>33.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>ENC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Tower Of London<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTTL<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>50.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>EN2<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Lunch Cruise<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTLC<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Attraction&gt;</span>
+    <span class="nt">&lt;AttractionPrice&gt;</span>38.00<span class="nt">&lt;/AttractionPrice&gt;</span>
+    <span class="nt">&lt;AttractionSupplier&gt;</span>DUC<span class="nt">&lt;/AttractionSupplier&gt;</span>
+    <span class="nt">&lt;AttractionPrePaid&gt;</span>PREPAID<span class="nt">&lt;/AttractionPrePaid&gt;</span>
+    <span class="nt">&lt;AttractionDate&gt;</span>2008-05-08<span class="nt">&lt;/AttractionDate&gt;</span>
+    <span class="nt">&lt;AttractionPriceRule&gt;</span>DEFAULT<span class="nt">&lt;/AttractionPriceRule&gt;</span>
+    <span class="nt">&lt;SeatTicketType&gt;</span>ATT<span class="nt">&lt;/SeatTicketType&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>London Duck Tours<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ATTTDT<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Attraction&gt;</span>
+  <span class="nt">&lt;Pricing&gt;</span>
+    <span class="nt">&lt;CCardSurcharge&gt;</span>2.00<span class="nt">&lt;/CCardSurcharge&gt;</span>
+    <span class="nt">&lt;CCardSurchargeMin&gt;</span>1.50<span class="nt">&lt;/CCardSurchargeMin&gt;</span>
+    <span class="nt">&lt;CCardSurchargeMax&gt;</span>4.00<span class="nt">&lt;/CCardSurchargeMax&gt;</span>
+  <span class="nt">&lt;/Pricing&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

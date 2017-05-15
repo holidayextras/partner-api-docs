@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="eine-parkplatz-buchung-machen">Eine Parkplatz-Buchung machen</h1>
+
+<p>Dies muss POST sein, da Sie eine Buchung vornehmen. Sie muss über HTTPS erfolgen. Vermittler senden Kreditkarteninformationen, Agents senden ihre Login Angaben, folglich wird HTTPS in beiden Fällen benötigt.</p>
+
+<p>Wenn Sie das Feld mit der ABTANumber (für den Agent Code) nicht senden, wird Ihre Buchung nicht auf Ihren Agent Code zurückverfolgt werden. Bei Buchungen von Agents wird das Feld für das Passwort wird ebenfalls benötigt, Vermittler haben kein Passwort.</p>
+
+<h2 id="carparkfoo">/carpark/foo</h2>
+
+<p>dort, wo foo der Parkplatz Code ist</p>
+
+<p>z.B. /carpark/LHR2</p>
+
+<h3 id="methode">Methode</h3>
+
+<p>POST</p>
+
+<h3 id="parameter">Parameter</h3>
+
+<h4 id="vermittler">Vermittler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Registration</td>
+      <td> </td>
+      <td>N §</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarMake</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>CarModel</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>CarColour</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>OutFlight</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>ReturnFlight</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>OutTerminal</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>ReturnTerminal</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>MobileNum</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>Destination</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z]{1}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Address[]</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Town</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>County</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>NumberOfPax</td>
+      <td>Number</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>PostCode</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DayPhone</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CardHolder</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CardNumber</td>
+      <td>String</td>
+      <td>[0-9]{14-16}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ExpiryDate</td>
+      <td>Date</td>
+      <td>MMYY</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>StartDate</td>
+      <td>Date</td>
+      <td>MMYY</td>
+      <td>N*</td>
+    </tr>
+    <tr>
+      <td>IssueNumber</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>N*</td>
+    </tr>
+    <tr>
+      <td>DataProtection</td>
+      <td>String</td>
+      <td>Y/N</td>
+      <td>Y+</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>system</td>
+      <td>String</td>
+      <td>DE</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <p>Nur bei Zahlung mit Debit-Karte, falls die Karte eine solche hat.</p>
+  </li>
+  <li>
+    <p>DataProtection Feld - Lehnt es der Kunde ab, Angebote von Holiday Extras zu erhalten. Y = Ja, die Daten sind geschützt N = Wird Angebote erhalten.</p>
+  </li>
+</ul>
+
+<p>§ Die vom Parkplatzbetreiber benötigten Datenfelder werden in der Verfügbarkeitsanfrage im <code class="highlighter-rouge">&lt;RequestFlags&gt;</code> Element angezeigt.</p>
+
+<h4 id="agent">Agent</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9]{5}</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Registration</td>
+      <td> </td>
+      <td>N §</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarMake</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>CarModel</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>CarColour</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>OutFlight</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>ReturnFlight</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>OutTerminal</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>ReturnTerminal</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>MobileNum</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>Destination</td>
+      <td>String</td>
+      <td> </td>
+      <td>N §</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z]{1}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>NumberOfPax</td>
+      <td>Number</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>system</td>
+      <td>String</td>
+      <td>DE</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>§ Die vom Parkplatzbetreiber benötigten Datenfelder werden in der Verfügbarkeitsanfrage im <code class="highlighter-rouge">&lt;RequestFlags&gt;</code> Element angezeigt.</p>
+
+<h3 id="anfrage">Anfrage</h3>
+
+<h4 id="vermittler-1">Vermittler</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+POST /sandbox/v1/carpark/LGV4 HTTP/1.1
+
+Host: api.holidayextras.co.uk
+
+User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13
+
+Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+
+Accept-Language: en-us,en;q=0.5
+
+Address%5B%5D=99%20Test%20St&amp;ArrivalDate=2008-05-01&amp;ArrivalTime=1200&amp;CardHolder=Mr%20T%20Test&amp;CardNumber=4111111111111111&amp;Confirmation=Y&amp;County=Testshire&amp;DataProtection=Y&amp;DayPhone=9999%209999&amp;DepartDate=2008-05-08&amp;DepartTime=1800&amp;Email=test%40test.com&amp;ExpiryDate=1208&amp;Initial=T&amp;NumberOfPax=2&amp;PostCode=T1%201TT&amp;Surname=Test&amp;Title=Mr&amp;Town=Testchester&amp;key=mytestkey&amp;token=123456789
+
+
+</code></pre>
+</div>
+
+<h4 id="agent-1">Agent</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /sandbox/v1/carpark/LGW2 HTTP/1.1
+
+Host: api.holidayextras.co.uk
+
+User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-GB; rv:1.8.1.16) Gecko/20080702 Firefox/2.0.0.16
+
+Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+
+Accept-Language: en-gb,en;q=0.5
+
+Accept-Encoding: gzip,deflate
+
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+
+Keep-Alive: 300
+
+Connection: keep-alive
+
+Cookie: s_sess=%20s_cc%3Dtrue%3B%20s_sq%3D%3B
+
+Cache-Control: max-age=0
+
+Content-Type: application/x-www-form-urlencoded
+
+Content-Length: 198
+
+
+
+ABTANumber=FOO&amp;ArrivalDate=2008-09-20&amp;ArrivalTime=1125&amp;DepartDate=2008-09-28&amp;DepartTime=1135&amp;Initial=T&amp;Initials=BJT&amp;NumberOfPax=2&amp;Password=FOO&amp;Surname=Test&amp;Title=Mr&amp;key=mytestkey&amp;token=000001234
+</code></pre>
+</div>
+
+<h3 id="antwort">Antwort</h3>
+
+<h4 id="vermittler-2">Vermittler</h4>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>
+<span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"4"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;Booking&gt;</span>
+		<span class="nt">&lt;BookingRef&gt;</span>A8GBV<span class="nt">&lt;/BookingRef&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/v1/booking/A8GBV<span class="nt">&lt;/MoreInfoURL&gt;</span>
+	<span class="nt">&lt;/Booking&gt;</span>
+	<span class="nt">&lt;Pricing&gt;</span>
+		<span class="nt">&lt;AmountPaid&gt;</span>91.80<span class="nt">&lt;/AmountPaid&gt;</span>
+		<span class="nt">&lt;CCardSurchargePercent&gt;</span>2.00<span class="nt">&lt;/CCardSurchargePercent&gt;</span>
+		<span class="nt">&lt;CCardSurchargeAmount&gt;</span>1.80<span class="nt">&lt;/CCardSurchargeAmount&gt;</span>
+	<span class="nt">&lt;/Pricing&gt;</span>
+	<span class="nt">&lt;API_Header&gt;</span>
+		<span class="nt">&lt;Request&gt;</span>
+			<span class="nt">&lt;Address&gt;</span>1 Test Street<span class="nt">&lt;/Address&gt;</span>
+			<span class="nt">&lt;ArrivalDate&gt;</span>2008-09-20<span class="nt">&lt;/ArrivalDate&gt;</span>
+			<span class="nt">&lt;ArrivalTime&gt;</span>1125<span class="nt">&lt;/ArrivalTime&gt;</span>
+			<span class="nt">&lt;CardHolder&gt;</span>T Test<span class="nt">&lt;/CardHolder&gt;</span>
+			<span class="nt">&lt;CardNumber&gt;</span>4111111111111111<span class="nt">&lt;/CardNumber&gt;</span>
+			<span class="nt">&lt;County&gt;</span>Test<span class="nt">&lt;/County&gt;</span>
+			<span class="nt">&lt;DataProtection&gt;</span>N<span class="nt">&lt;/DataProtection&gt;</span>
+			<span class="nt">&lt;DayPhone&gt;</span>01303 222222<span class="nt">&lt;/DayPhone&gt;</span>
+			<span class="nt">&lt;DepartDate&gt;</span>2008-09-28<span class="nt">&lt;/DepartDate&gt;</span>
+			<span class="nt">&lt;DepartTime&gt;</span>1135<span class="nt">&lt;/DepartTime&gt;</span>
+			<span class="nt">&lt;Email&gt;</span>tommo245@gmail.com<span class="nt">&lt;/Email&gt;</span>
+			<span class="nt">&lt;ExpiryDate&gt;</span>2008-07-21<span class="nt">&lt;/ExpiryDate&gt;</span>
+			<span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+			<span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+			<span class="nt">&lt;PostCode&gt;</span>CT203RP<span class="nt">&lt;/PostCode&gt;</span>
+			<span class="nt">&lt;Surname&gt;</span>Test<span class="nt">&lt;/Surname&gt;</span>
+			<span class="nt">&lt;Title&gt;</span>Mr<span class="nt">&lt;/Title&gt;</span>
+			<span class="nt">&lt;Town&gt;</span>Test<span class="nt">&lt;/Town&gt;</span>
+			<span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+			<span class="nt">&lt;token&gt;</span>000001234<span class="nt">&lt;/token&gt;</span>
+			<span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+		<span class="nt">&lt;/Request&gt;</span>
+	<span class="nt">&lt;/API_Header&gt;</span>
+	<span class="nt">&lt;CarPark&gt;</span>
+		<span class="nt">&lt;TotalPrice&gt;</span>90.00<span class="nt">&lt;/TotalPrice&gt;</span>
+		<span class="nt">&lt;ArrivalDate&gt;</span>2008-09-20<span class="nt">&lt;/ArrivalDate&gt;</span>
+		<span class="nt">&lt;DepartDate&gt;</span>2008-09-28<span class="nt">&lt;/DepartDate&gt;</span>
+		<span class="nt">&lt;ArrivalTime&gt;</span>1125<span class="nt">&lt;/ArrivalTime&gt;</span>
+		<span class="nt">&lt;DepartTime&gt;</span>1135<span class="nt">&lt;/DepartTime&gt;</span>
+		<span class="nt">&lt;Duration&gt;</span>8<span class="nt">&lt;/Duration&gt;</span>
+		<span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LGW2<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Long Stay<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;Filter&gt;</span>
+			<span class="nt">&lt;on_airport&gt;</span>1<span class="nt">&lt;/on_airport&gt;</span>
+			<span class="nt">&lt;terminal&gt;</span>1<span class="nt">&lt;/terminal&gt;</span>
+		<span class="nt">&lt;/Filter&gt;</span>
+		<span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/v1/carpark/LGW2<span class="nt">&lt;/BookingURL&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/v1/product/LGW2<span class="nt">&lt;/MoreInfoURL&gt;</span>
+	<span class="nt">&lt;/CarPark&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+
+</code></pre>
+</div>
+
+<h4 id="agent-2">Agent</h4>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>
+<span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;Booking&gt;</span>
+		<span class="nt">&lt;BookingRef&gt;</span>A8GBW<span class="nt">&lt;/BookingRef&gt;</span>
+		<span class="nt">&lt;AgentComm&gt;</span>13.50-<span class="nt">&lt;/AgentComm&gt;</span>
+		<span class="nt">&lt;VATonComm&gt;</span>2.01-<span class="nt">&lt;/VATonComm&gt;</span>
+	<span class="nt">&lt;/Booking&gt;</span>
+	<span class="nt">&lt;API_Header&gt;</span>
+		<span class="nt">&lt;Request&gt;</span>
+			<span class="nt">&lt;ArrivalDate&gt;</span>2008-09-20<span class="nt">&lt;/ArrivalDate&gt;</span>
+			<span class="nt">&lt;ArrivalTime&gt;</span>1125<span class="nt">&lt;/ArrivalTime&gt;</span>
+			<span class="nt">&lt;DepartDate&gt;</span>2008-09-28<span class="nt">&lt;/DepartDate&gt;</span>
+			<span class="nt">&lt;DepartTime&gt;</span>1135<span class="nt">&lt;/DepartTime&gt;</span>
+			<span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+			<span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+			<span class="nt">&lt;Surname&gt;</span>Test<span class="nt">&lt;/Surname&gt;</span>
+			<span class="nt">&lt;Title&gt;</span>Mr<span class="nt">&lt;/Title&gt;</span>
+			<span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+			<span class="nt">&lt;token&gt;</span>000001234<span class="nt">&lt;/token&gt;</span>
+			<span class="nt">&lt;ABTANumber&gt;</span>FOO<span class="nt">&lt;/ABTANumber&gt;</span>
+			<span class="nt">&lt;Password&gt;</span>FOO<span class="nt">&lt;/Password&gt;</span>
+			<span class="nt">&lt;Initials&gt;</span>BJT<span class="nt">&lt;/Initials&gt;</span>
+			<span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+		<span class="nt">&lt;/Request&gt;</span>
+	<span class="nt">&lt;/API_Header&gt;</span>
+	<span class="nt">&lt;CarPark&gt;</span>
+		<span class="nt">&lt;TotalPrice&gt;</span>90.00<span class="nt">&lt;/TotalPrice&gt;</span>
+		<span class="nt">&lt;ArrivalDate&gt;</span>2008-09-20<span class="nt">&lt;/ArrivalDate&gt;</span>
+		<span class="nt">&lt;DepartDate&gt;</span>2008-09-28<span class="nt">&lt;/DepartDate&gt;</span>
+		<span class="nt">&lt;ArrivalTime&gt;</span>1125<span class="nt">&lt;/ArrivalTime&gt;</span>
+		<span class="nt">&lt;DepartTime&gt;</span>1135<span class="nt">&lt;/DepartTime&gt;</span>
+		<span class="nt">&lt;Duration&gt;</span>8<span class="nt">&lt;/Duration&gt;</span>
+		<span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LGW2<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Long Stay<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;Filter&gt;</span>
+			<span class="nt">&lt;on_airport&gt;</span>1<span class="nt">&lt;/on_airport&gt;</span>
+			<span class="nt">&lt;terminal&gt;</span>1<span class="nt">&lt;/terminal&gt;</span>
+		<span class="nt">&lt;/Filter&gt;</span>
+		<span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/v1/carpark/LGW2<span class="nt">&lt;/BookingURL&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/v1/product/LGW2<span class="nt">&lt;/MoreInfoURL&gt;</span>
+	<span class="nt">&lt;/CarPark&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre>
+</div>
+
+<h3 id="erläuterung-der-datenfelder">Erläuterung der Datenfelder</h3>
+
+<h4 id="api_headerrequestdataprotection">API_Header/Request/DataProtection</h4>
+
+<p>Zeigt an, ob der Kunde damit einverstanden ist Angebote von Holiday Extras zu erhalten.</p>
+
+<p>Y = NICHT einverstanden d.h. die Daten sind geschützt
+N = einverstanden</p>
+
+<h4 id="bookingmoreinfourl">Booking/MoreInfoURL</h4>
+
+<p>In diesem Zusammenhang ein Link um die Buchungsdetails anzuzeigen.</p>
+
+<h4 id="carparkmoreinfourl">CarPark/MoreInfoURL</h4>
+
+<p>Informationen der Produktbibliothek für diesen Parkplatz.</p>
+
+<h4 id="bookingagentcomm">Booking/AgentComm</h4>
+
+<p>Der Betrag an Provision, der bei der Buchung verdient wurde?</p>
+
+<h4 id="bookingvatoncomm">Booking/VATonComm</h4>
+
+<p>Mehrwertsteuer, die auf die Provision gezahlt werden muss.</p>
+
+<h3 id="xsd">XSD</h3>
+
+<p>Folgt.</p>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

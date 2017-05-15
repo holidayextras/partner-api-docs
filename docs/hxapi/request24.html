@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="amend-no-reprice">Amend-no-reprice</h1>
+
+<p>This must be a POST, as you are amending a booking. It must be made over HTTPS, you must enforce this.</p>
+
+<p>Unlike the normal amend process, you will not be asked for confirmation before completing this. There is only one request to send for amend-no-reprice</p>
+
+<h2 id="bookingfoo">/booking/foo</h2>
+
+<p>where foo is the start ref</p>
+
+<h3 id="method">Method</h3>
+
+<p>POST</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>StartCustomer</td>
+      <td>String</td>
+      <td>[0-9]{6}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BusinessUnit</td>
+      <td>String</td>
+      <td>[0-9]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Operator</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BookingRef</td>
+      <td>String</td>
+      <td>N §{5}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ReturnFlight</td>
+      <td> </td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Remarks</td>
+      <td>String</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Registration</td>
+      <td>String</td>
+      <td>N §</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Pax</td>
+      <td>Number</td>
+      <td>N</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>CarMake</td>
+      <td>String</td>
+      <td>N §</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>CarModel</td>
+      <td>String</td>
+      <td>N §</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>CarColour</td>
+      <td>String</td>
+      <td>N §</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>OutFltNo</td>
+      <td>String</td>
+      <td>N §</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>InFltNo</td>
+      <td>String</td>
+      <td>N §</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>OutFltTime</td>
+      <td>Number</td>
+      <td>HHMM</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>InFltTime</td>
+      <td>Number</td>
+      <td>HHMM</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>OutTerminal</td>
+      <td> </td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>RetTerminal</td>
+      <td> </td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>ShipName</td>
+      <td> </td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>PierName</td>
+      <td> </td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>ChildSeat</td>
+      <td>Boolean</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>AddlServices</td>
+      <td>Boolean</td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>MobileNum</td>
+      <td> </td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>CarDropoffTime</td>
+      <td>Number</td>
+      <td>HHMM</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>CarPickupTime</td>
+      <td>Number</td>
+      <td>HHMM</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z]{1}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>Striing</td>
+      <td>N §</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Town</td>
+      <td>String</td>
+      <td>N §</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>County</td>
+      <td>String</td>
+      <td>N §</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>PostCode</td>
+      <td>String</td>
+      <td>N §</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>DayPhone</td>
+      <td> </td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>EvePhone</td>
+      <td> </td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Confirmation</td>
+      <td>Boolean</td>
+      <td>[Y/N]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DataProtection</td>
+      <td>Boolean</td>
+      <td>true/false</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>String</td>
+      <td>N §</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>InvoiceReqd</td>
+      <td>Boolean</td>
+      <td>true/false</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>TaxType</td>
+      <td> </td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>TaxLocation</td>
+      <td> </td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>lang</td>
+      <td> </td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>HouseNumber</td>
+      <td> </td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Country</td>
+      <td>String</td>
+      <td>N §</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Company</td>
+      <td>String</td>
+      <td>N §</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>CustomerVAT</td>
+      <td> </td>
+      <td> </td>
+      <td>N</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="requests">Requests</h3>
+
+<p>znt -&gt; api</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10524994/?BookingRef=FBKM6&amp;BusinessUnit=001&amp;CarDropoffTime=1200&amp;CarPickupTime=1300&amp;Confirmation=Y&amp;County=testcountyaenderung&amp;Email=test.email&amp;Initial=T&amp;Operator=BJT&amp;Remarks=test&amp;Surname=Testnameaenderung&amp;Title=Herr&amp;TraveltainmentCustomer=111111&amp;holidayextras.com=&amp;key=foo
+</code></pre>
+</div>
+
+<p>api -&gt; chauntry</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;API_Request</span> <span class="na">System=</span><span class="s">"ABG"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"General"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">RequestCode=</span><span class="s">"24"</span> <span class="na">Session=</span><span class="s">"999999999"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Agent&gt;</span>
+        <span class="nt">&lt;TraveltainmentCustomer&gt;</span>111111<span class="nt">&lt;/TraveltainmentCustomer&gt;</span>
+        <span class="nt">&lt;BusinessUnit&gt;</span>001<span class="nt">&lt;/BusinessUnit&gt;</span>
+        <span class="nt">&lt;Operator&gt;</span>BJT<span class="nt">&lt;/Operator&gt;</span>
+        <span class="nt">&lt;ZNT&gt;</span>Y<span class="nt">&lt;/ZNT&gt;</span>
+    <span class="nt">&lt;/Agent&gt;</span>
+    <span class="nt">&lt;Ident&gt;</span>
+        <span class="nt">&lt;BookingRef&gt;</span>FBKM6<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;/Ident&gt;</span>
+    <span class="nt">&lt;Itinerary&gt;</span>
+        <span class="nt">&lt;ReturnFlight&gt;&lt;/ReturnFlight&gt;</span>
+        <span class="nt">&lt;Remarks&gt;</span>test<span class="nt">&lt;/Remarks&gt;</span>
+    <span class="nt">&lt;/Itinerary&gt;</span>
+    <span class="nt">&lt;CarDetails&gt;</span>
+        <span class="nt">&lt;Registration&gt;&lt;/Registration&gt;</span>
+        <span class="nt">&lt;Pax&gt;&lt;/Pax&gt;</span>
+        <span class="nt">&lt;Make&gt;&lt;/Make&gt;</span>
+        <span class="nt">&lt;Model&gt;&lt;/Model&gt;</span>
+        <span class="nt">&lt;Colour&gt;&lt;/Colour&gt;</span>
+        <span class="nt">&lt;OutFltNo&gt;&lt;/OutFltNo&gt;</span>
+        <span class="nt">&lt;InFltNo&gt;&lt;/InFltNo&gt;</span>
+        <span class="nt">&lt;OutFltTime&gt;&lt;/OutFltTime&gt;</span>
+        <span class="nt">&lt;InFltTime&gt;&lt;/InFltTime&gt;</span>
+        <span class="nt">&lt;OutTerminal&gt;&lt;/OutTerminal&gt;</span>
+        <span class="nt">&lt;RetTerminal&gt;&lt;/RetTerminal&gt;</span>
+        <span class="nt">&lt;ShipName&gt;&lt;/ShipName&gt;</span>
+        <span class="nt">&lt;PierName&gt;&lt;/PierName&gt;</span>
+        <span class="nt">&lt;ChildSeat&gt;&lt;/ChildSeat&gt;</span>
+        <span class="nt">&lt;AddlServices&gt;&lt;/AddlServices&gt;</span>
+        <span class="nt">&lt;MobileNum&gt;&lt;/MobileNum&gt;</span>
+        <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+        <span class="nt">&lt;DepartTime&gt;</span>1300<span class="nt">&lt;/DepartTime&gt;</span>
+    <span class="nt">&lt;/CarDetails&gt;</span>
+    <span class="nt">&lt;ClientDetails&gt;</span>
+        <span class="nt">&lt;Title&gt;</span>Herr<span class="nt">&lt;/Title&gt;</span>
+        <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+        <span class="nt">&lt;Surname&gt;</span>Testnameaenderung<span class="nt">&lt;/Surname&gt;</span>
+        <span class="nt">&lt;Town&gt;&lt;/Town&gt;</span>
+        <span class="nt">&lt;County&gt;</span>testcountyaenderung<span class="nt">&lt;/County&gt;</span>
+        <span class="nt">&lt;PostCode&gt;&lt;/PostCode&gt;</span>
+        <span class="nt">&lt;DayPhone&gt;&lt;/DayPhone&gt;</span>
+        <span class="nt">&lt;EvePhone&gt;&lt;/EvePhone&gt;</span>
+        <span class="nt">&lt;Confirmation&gt;</span>Y<span class="nt">&lt;/Confirmation&gt;</span>
+        <span class="nt">&lt;DataProtection&gt;&lt;/DataProtection&gt;</span>
+        <span class="nt">&lt;EMail&gt;</span>test.email<span class="nt">&lt;/EMail&gt;</span>
+        <span class="nt">&lt;InvoiceReqd&gt;&lt;/InvoiceReqd&gt;</span>
+        <span class="nt">&lt;ProdTaxType&gt;&lt;/ProdTaxType&gt;</span>
+        <span class="nt">&lt;ProdTaxLocation&gt;&lt;/ProdTaxLocation&gt;</span>
+        <span class="nt">&lt;SupplierVatId&gt;&lt;/SupplierVatId&gt;</span>
+        <span class="nt">&lt;InvLanguage&gt;&lt;/InvLanguage&gt;</span>
+        <span class="nt">&lt;InvTitle&gt;</span>Herr<span class="nt">&lt;/InvTitle&gt;</span>
+        <span class="nt">&lt;InvFirstName&gt;</span>T<span class="nt">&lt;/InvFirstName&gt;</span>
+        <span class="nt">&lt;InvSurname&gt;</span>Testnameaenderung<span class="nt">&lt;/InvSurname&gt;</span>
+        <span class="nt">&lt;InvHouseNo&gt;&lt;/InvHouseNo&gt;</span>
+        <span class="nt">&lt;InvStreet&gt;&lt;/InvStreet&gt;</span>
+        <span class="nt">&lt;InvTown&gt;&lt;/InvTown&gt;</span>
+        <span class="nt">&lt;InvPostCode&gt;&lt;/InvPostCode&gt;</span>
+        <span class="nt">&lt;InvCountry&gt;&lt;/InvCountry&gt;</span>
+        <span class="nt">&lt;InvCompany&gt;&lt;/InvCompany&gt;</span>
+        <span class="nt">&lt;CustVatNo&gt;&lt;/CustVatNo&gt;</span>
+        <span class="nt">&lt;InvEmail&gt;</span>test.email<span class="nt">&lt;/InvEmail&gt;</span>
+    <span class="nt">&lt;/ClientDetails&gt;</span>
+<span class="nt">&lt;/API_Request&gt;</span>
+</code></pre>
+</div>
+
+<p>chauntry -&gt; api</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;API_Reply</span> <span class="na">System=</span><span class="s">"ABG"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"General"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"999999999"</span> <span class="na">RequestCode=</span><span class="s">"24"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;AGENT&gt;</span>
+        <span class="nt">&lt;TRAVELTAINMENTCUSTOMER&gt;</span>111111<span class="nt">&lt;/TRAVELTAINMENTCUSTOMER&gt;</span>
+        <span class="nt">&lt;BUSINESSUNIT&gt;</span>001<span class="nt">&lt;/BUSINESSUNIT&gt;</span>
+        <span class="nt">&lt;OPERATOR&gt;</span>BJT<span class="nt">&lt;/OPERATOR&gt;</span>
+        <span class="nt">&lt;ZNT&gt;</span>Y<span class="nt">&lt;/ZNT&gt;</span>
+    <span class="nt">&lt;/AGENT&gt;</span>
+    <span class="nt">&lt;IDENT&gt;</span>
+        <span class="nt">&lt;BOOKINGREF&gt;</span>FBKM6<span class="nt">&lt;/BOOKINGREF&gt;</span>
+    <span class="nt">&lt;/IDENT&gt;</span>
+    <span class="nt">&lt;ITINERARY&gt;</span>
+        <span class="nt">&lt;RETURNFLIGHT/&gt;</span>
+        <span class="nt">&lt;REMARKS&gt;</span>TEST<span class="nt">&lt;/REMARKS&gt;</span>
+    <span class="nt">&lt;/ITINERARY&gt;</span>
+    <span class="nt">&lt;CARDETAILS&gt;</span>
+        <span class="nt">&lt;REGISTRATION/&gt;</span>
+        <span class="nt">&lt;PAX/&gt;</span>
+        <span class="nt">&lt;MAKE/&gt;</span>
+        <span class="nt">&lt;MODEL/&gt;</span>
+        <span class="nt">&lt;COLOUR/&gt;</span>
+        <span class="nt">&lt;OUTFLTNO/&gt;</span>
+        <span class="nt">&lt;INFLTNO/&gt;</span>
+        <span class="nt">&lt;OUTFLTTIME/&gt;</span>
+        <span class="nt">&lt;INFLTTIME/&gt;</span>
+        <span class="nt">&lt;OUTTERMINAL/&gt;</span>
+        <span class="nt">&lt;RETTERMINAL/&gt;</span>
+        <span class="nt">&lt;SHIPNAME/&gt;</span>
+        <span class="nt">&lt;PIERNAME/&gt;</span>
+        <span class="nt">&lt;CHILDSEAT/&gt;</span>
+        <span class="nt">&lt;ADDLSERVICES/&gt;</span>
+        <span class="nt">&lt;MOBILENUM/&gt;</span>
+        <span class="nt">&lt;ARRIVALTIME&gt;</span>1200<span class="nt">&lt;/ARRIVALTIME&gt;</span>
+        <span class="nt">&lt;DEPARTTIME&gt;</span>1300<span class="nt">&lt;/DEPARTTIME&gt;</span>
+    <span class="nt">&lt;/CARDETAILS&gt;</span>
+    <span class="nt">&lt;CLIENTDETAILS&gt;</span>
+        <span class="nt">&lt;TITLE&gt;</span>HERR<span class="nt">&lt;/TITLE&gt;</span>
+        <span class="nt">&lt;INITIAL&gt;</span>T<span class="nt">&lt;/INITIAL&gt;</span>
+        <span class="nt">&lt;SURNAME&gt;</span>TESTNAMEAENDERUNG<span class="nt">&lt;/SURNAME&gt;</span>
+        <span class="nt">&lt;TOWN/&gt;</span>
+        <span class="nt">&lt;COUNTY&gt;</span>TESTCOUNTYAENDERUNG<span class="nt">&lt;/COUNTY&gt;</span>
+        <span class="nt">&lt;POSTCODE/&gt;</span>
+        <span class="nt">&lt;DAYPHONE/&gt;</span>
+        <span class="nt">&lt;EVEPHONE/&gt;</span>
+        <span class="nt">&lt;CONFIRMATION&gt;</span>Y<span class="nt">&lt;/CONFIRMATION&gt;</span>
+        <span class="nt">&lt;DATAPROTECTION/&gt;</span>
+        <span class="nt">&lt;EMAIL&gt;</span>test.email<span class="nt">&lt;/EMAIL&gt;</span>
+        <span class="nt">&lt;INVOICEREQD/&gt;</span>
+        <span class="nt">&lt;PRODTAXTYPE/&gt;</span>
+        <span class="nt">&lt;PRODTAXLOCATION/&gt;</span>
+        <span class="nt">&lt;SUPPLIERVATID/&gt;</span>
+        <span class="nt">&lt;INVLANGUAGE/&gt;</span>
+        <span class="nt">&lt;INVTITLE&gt;</span>HERR<span class="nt">&lt;/INVTITLE&gt;</span>
+        <span class="nt">&lt;INVFIRSTNAME&gt;</span>T<span class="nt">&lt;/INVFIRSTNAME&gt;</span>
+        <span class="nt">&lt;INVSURNAME&gt;</span>TESTNAMEAENDERUNG<span class="nt">&lt;/INVSURNAME&gt;</span>
+        <span class="nt">&lt;INVHOUSENO/&gt;</span>
+        <span class="nt">&lt;INVSTREET/&gt;</span>
+        <span class="nt">&lt;INVTOWN/&gt;</span>
+        <span class="nt">&lt;INVPOSTCODE/&gt;</span>
+        <span class="nt">&lt;INVCOUNTRY/&gt;</span>
+        <span class="nt">&lt;INVCOMPANY/&gt;</span>
+        <span class="nt">&lt;CUSTVATNO/&gt;</span>
+        <span class="nt">&lt;INVEMAIL&gt;</span>TOM.PRICE<span class="nt">&lt;/INVEMAIL&gt;</span>
+    <span class="nt">&lt;/CLIENTDETAILS&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;BookingRef&gt;</span>FBKM6<span class="nt">&lt;/BookingRef&gt;</span>
+            <span class="nt">&lt;BusinessUnit&gt;</span>001<span class="nt">&lt;/BusinessUnit&gt;</span>
+            <span class="nt">&lt;CarDropoffTime&gt;</span>1200<span class="nt">&lt;/CarDropoffTime&gt;</span>
+            <span class="nt">&lt;CarPickupTime&gt;</span>1300<span class="nt">&lt;/CarPickupTime&gt;</span>
+            <span class="nt">&lt;Confirmation&gt;</span>Y<span class="nt">&lt;/Confirmation&gt;</span>
+            <span class="nt">&lt;County&gt;</span>testcountyaenderung<span class="nt">&lt;/County&gt;</span>
+            <span class="nt">&lt;Email&gt;</span>test.email<span class="nt">&lt;/Email&gt;</span>
+            <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+            <span class="nt">&lt;Operator&gt;</span>BJT<span class="nt">&lt;/Operator&gt;</span>
+            <span class="nt">&lt;Remarks&gt;</span>test<span class="nt">&lt;/Remarks&gt;</span>
+            <span class="nt">&lt;Surname&gt;</span>Testnameaenderung<span class="nt">&lt;/Surname&gt;</span>
+            <span class="nt">&lt;Title&gt;</span>Herr<span class="nt">&lt;/Title&gt;</span>
+            <span class="nt">&lt;TraveltainmentCustomer&gt;</span>111111<span class="nt">&lt;/TraveltainmentCustomer&gt;</span>
+            <span class="nt">&lt;holidayextras_com/&gt;</span>
+            <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;system&gt;</span>de<span class="nt">&lt;/system&gt;</span>
+            <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<p>api -&gt; znt</p>
+
+<p>Note this is the same as request chauntry -&gt; api</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;API_Reply</span> <span class="na">System=</span><span class="s">"ABG"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"General"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"999999999"</span> <span class="na">RequestCode=</span><span class="s">"24"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;AGENT&gt;</span>
+        <span class="nt">&lt;TRAVELTAINMENTCUSTOMER&gt;</span>111111<span class="nt">&lt;/TRAVELTAINMENTCUSTOMER&gt;</span>
+        <span class="nt">&lt;BUSINESSUNIT&gt;</span>001<span class="nt">&lt;/BUSINESSUNIT&gt;</span>
+        <span class="nt">&lt;OPERATOR&gt;</span>BJT<span class="nt">&lt;/OPERATOR&gt;</span>
+        <span class="nt">&lt;ZNT&gt;</span>Y<span class="nt">&lt;/ZNT&gt;</span>
+    <span class="nt">&lt;/AGENT&gt;</span>
+    <span class="nt">&lt;IDENT&gt;</span>
+        <span class="nt">&lt;BOOKINGREF&gt;</span>FBKM6<span class="nt">&lt;/BOOKINGREF&gt;</span>
+    <span class="nt">&lt;/IDENT&gt;</span>
+    <span class="nt">&lt;ITINERARY&gt;</span>
+        <span class="nt">&lt;RETURNFLIGHT/&gt;</span>
+        <span class="nt">&lt;REMARKS&gt;</span>TEST<span class="nt">&lt;/REMARKS&gt;</span>
+    <span class="nt">&lt;/ITINERARY&gt;</span>
+    <span class="nt">&lt;CARDETAILS&gt;</span>
+        <span class="nt">&lt;REGISTRATION/&gt;</span>
+        <span class="nt">&lt;PAX/&gt;</span>
+        <span class="nt">&lt;MAKE/&gt;</span>
+        <span class="nt">&lt;MODEL/&gt;</span>
+        <span class="nt">&lt;COLOUR/&gt;</span>
+        <span class="nt">&lt;OUTFLTNO/&gt;</span>
+        <span class="nt">&lt;INFLTNO/&gt;</span>
+        <span class="nt">&lt;OUTFLTTIME/&gt;</span>
+        <span class="nt">&lt;INFLTTIME/&gt;</span>
+        <span class="nt">&lt;OUTTERMINAL/&gt;</span>
+        <span class="nt">&lt;RETTERMINAL/&gt;</span>
+        <span class="nt">&lt;SHIPNAME/&gt;</span>
+        <span class="nt">&lt;PIERNAME/&gt;</span>
+        <span class="nt">&lt;CHILDSEAT/&gt;</span>
+        <span class="nt">&lt;ADDLSERVICES/&gt;</span>
+        <span class="nt">&lt;MOBILENUM/&gt;</span>
+        <span class="nt">&lt;ARRIVALTIME&gt;</span>1200<span class="nt">&lt;/ARRIVALTIME&gt;</span>
+        <span class="nt">&lt;DEPARTTIME&gt;</span>1300<span class="nt">&lt;/DEPARTTIME&gt;</span>
+    <span class="nt">&lt;/CARDETAILS&gt;</span>
+    <span class="nt">&lt;CLIENTDETAILS&gt;</span>
+        <span class="nt">&lt;TITLE&gt;</span>HERR<span class="nt">&lt;/TITLE&gt;</span>
+        <span class="nt">&lt;INITIAL&gt;</span>T<span class="nt">&lt;/INITIAL&gt;</span>
+        <span class="nt">&lt;SURNAME&gt;</span>TESTNAMEAENDERUNG<span class="nt">&lt;/SURNAME&gt;</span>
+        <span class="nt">&lt;TOWN/&gt;</span>
+        <span class="nt">&lt;COUNTY&gt;</span>TESTCOUNTYAENDERUNG<span class="nt">&lt;/COUNTY&gt;</span>
+        <span class="nt">&lt;POSTCODE/&gt;</span>
+        <span class="nt">&lt;DAYPHONE/&gt;</span>
+        <span class="nt">&lt;EVEPHONE/&gt;</span>
+        <span class="nt">&lt;CONFIRMATION&gt;</span>Y<span class="nt">&lt;/CONFIRMATION&gt;</span>
+        <span class="nt">&lt;DATAPROTECTION/&gt;</span>
+        <span class="nt">&lt;EMAIL&gt;</span>test.email<span class="nt">&lt;/EMAIL&gt;</span>
+        <span class="nt">&lt;INVOICEREQD/&gt;</span>
+        <span class="nt">&lt;PRODTAXTYPE/&gt;</span>
+        <span class="nt">&lt;PRODTAXLOCATION/&gt;</span>
+        <span class="nt">&lt;SUPPLIERVATID/&gt;</span>
+        <span class="nt">&lt;INVLANGUAGE/&gt;</span>
+        <span class="nt">&lt;INVTITLE&gt;</span>HERR<span class="nt">&lt;/INVTITLE&gt;</span>
+        <span class="nt">&lt;INVFIRSTNAME&gt;</span>T<span class="nt">&lt;/INVFIRSTNAME&gt;</span>
+        <span class="nt">&lt;INVSURNAME&gt;</span>TESTNAMEAENDERUNG<span class="nt">&lt;/INVSURNAME&gt;</span>
+        <span class="nt">&lt;INVHOUSENO/&gt;</span>
+        <span class="nt">&lt;INVSTREET/&gt;</span>
+        <span class="nt">&lt;INVTOWN/&gt;</span>
+        <span class="nt">&lt;INVPOSTCODE/&gt;</span>
+        <span class="nt">&lt;INVCOUNTRY/&gt;</span>
+        <span class="nt">&lt;INVCOMPANY/&gt;</span>
+        <span class="nt">&lt;CUSTVATNO/&gt;</span>
+        <span class="nt">&lt;INVEMAIL&gt;</span>TOM.PRICE<span class="nt">&lt;/INVEMAIL&gt;</span>
+    <span class="nt">&lt;/CLIENTDETAILS&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;BookingRef&gt;</span>FBKM6<span class="nt">&lt;/BookingRef&gt;</span>
+            <span class="nt">&lt;BusinessUnit&gt;</span>001<span class="nt">&lt;/BusinessUnit&gt;</span>
+            <span class="nt">&lt;CarDropoffTime&gt;</span>1200<span class="nt">&lt;/CarDropoffTime&gt;</span>
+            <span class="nt">&lt;CarPickupTime&gt;</span>1300<span class="nt">&lt;/CarPickupTime&gt;</span>
+            <span class="nt">&lt;Confirmation&gt;</span>Y<span class="nt">&lt;/Confirmation&gt;</span>
+            <span class="nt">&lt;County&gt;</span>testcountyaenderung<span class="nt">&lt;/County&gt;</span>
+            <span class="nt">&lt;Email&gt;</span>test.email<span class="nt">&lt;/Email&gt;</span>
+            <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+            <span class="nt">&lt;Operator&gt;</span>BJT<span class="nt">&lt;/Operator&gt;</span>
+            <span class="nt">&lt;Remarks&gt;</span>test<span class="nt">&lt;/Remarks&gt;</span>
+            <span class="nt">&lt;Surname&gt;</span>Testnameaenderung<span class="nt">&lt;/Surname&gt;</span>
+            <span class="nt">&lt;Title&gt;</span>Herr<span class="nt">&lt;/Title&gt;</span>
+            <span class="nt">&lt;TraveltainmentCustomer&gt;</span>111111<span class="nt">&lt;/TraveltainmentCustomer&gt;</span>
+            <span class="nt">&lt;holidayextras_com/&gt;</span>
+            <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;system&gt;</span>de<span class="nt">&lt;/system&gt;</span>
+            <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="request-fields-explained">Request Fields Explained</h3>
+
+<p>Any fields sent through in the level 24 request will amend what is saved to chips</p>
+
+<p>Fields include:</p>
+
+<p>BookingRef - Reference of the booking which is to be amended</p>
+
+<p>Address - An array of address lines to replace the current address</p>
+
+<p>Pax - Number of passengers</p>
+
+<h4 id="invoice-only-fields">Invoice Only Fields</h4>
+
+<p>lang - Language for the invoice</p>
+
+<p>HouseNumber</p>
+
+<p>Country</p>
+
+<p>Company</p>
+
+<p>CustomerVAT</p>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

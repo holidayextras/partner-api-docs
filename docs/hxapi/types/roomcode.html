@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="room-codes">Room Codes</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; type:<a href="roomcode">roomcode</a></p>
+
+<h4 id="roomtype-request">RoomType (request)</h4>
+
+<p>For availability requests the room types are:</p>
+
+<ul>
+  <li>
+    <p>S10 : Single - 1 Adult</p>
+  </li>
+  <li>
+    <p>D20 : Double - 2 Adults</p>
+  </li>
+  <li>
+    <p>T11 : Twin - 1 Adult 1 Child</p>
+  </li>
+  <li>
+    <p>T20 : Twin - 2 Adults</p>
+  </li>
+  <li>
+    <p>T12 : Triple - 1 Adult 2 Children</p>
+  </li>
+  <li>
+    <p>T21 : Triple - 2 Adults 1 Child</p>
+  </li>
+  <li>
+    <p>T30 : Triple - 3 Adults</p>
+  </li>
+  <li>
+    <p>F13 : Family - 1 Adult 3 Children</p>
+  </li>
+  <li>
+    <p>F22 : Family - 2 Adults 2 Children</p>
+  </li>
+  <li>
+    <p>F23 : Family - 2 Adults 3 Children</p>
+  </li>
+  <li>
+    <p>F31 : Family - 3 Adults 1 Child</p>
+  </li>
+  <li>
+    <p>F32 : Family - 3 Adults 2 Children</p>
+  </li>
+</ul>
+
+<p>For bookings, you should send back the code returned in the reply. The format of room codes changes between searches for availability and making a booking.</p>
+
+<h4 id="roomcode-response">RoomCode (Response)</h4>
+
+<ul>
+  <li>
+    <p>SGL : Single - 1 Adult</p>
+  </li>
+  <li>
+    <p>DBL : Double - 2 Adults</p>
+  </li>
+  <li>
+    <p>TWN : Twin - 2 Adults</p>
+  </li>
+  <li>
+    <p>TRL : Triple - All combos</p>
+  </li>
+  <li>
+    <p>QUD : Family room (for four)</p>
+  </li>
+  <li>
+    <p>FMC : Family room (for four)</p>
+  </li>
+  <li>
+    <p>FM5 : Family room (for five)</p>
+  </li>
+</ul>
+
+<h4 id="roomcode-response-1">RoomCode (Response)</h4>
+
+<p>for European Products</p>
+
+<ul>
+  <li>
+    <p>EZ : Single - 1 Adult</p>
+  </li>
+  <li>
+    <p>DZ : Double - 2 Adults</p>
+  </li>
+  <li>
+    <p>TZ : Triple</p>
+  </li>
+  <li>
+    <p>VZ : Family room</p>
+  </li>
+  <li>
+    <p>TZE : Triple for adults only</p>
+  </li>
+  <li>
+    <p>VZE : Family room adults only</p>
+  </li>
+</ul>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

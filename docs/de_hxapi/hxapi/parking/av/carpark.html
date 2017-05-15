@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="verfügbarkeit-beim-parkplatz">Verfügbarkeit beim Parkplatz</h1>
+
+<h2 id="carparkfoo">/carpark/foo</h2>
+
+<p>Dort, wo foo der Parkplatz Code ist</p>
+
+<p>z.B. http://api.holidayextras.co.uk/carpark/LHR2</p>
+
+<h3 id="methode">Methode</h3>
+
+<p>GET</p>
+
+<h3 id="parameter">Parameter</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>system</td>
+      <td>String</td>
+      <td>DE</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>NumberOfPax</td>
+      <td>Integer</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time 24hr</td>
+      <td>HHSS</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>DepartTime</td>
+      <td>Time 24hr</td>
+      <td>HHSS</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="anfrage">Anfrage</h3>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2?NumberOfPax=2<span class="err">&amp;</span>ArrivalDate=2008-09-20<span class="err">&amp;</span>ArrivalTime=1200<span class="err">&amp;</span>DepartDate=2008-09-20<span class="err">&amp;</span>DepartTime=1400<span class="err">&amp;</span>key=mytestkey<span class="err">&amp;</span>token=000001234
+</code></pre>
+</div>
+
+<h3 id="antwort">Antwort</h3>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"3"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;Pricing&gt;</span>
+		<span class="nt">&lt;CCardSurchargePercent&gt;</span>2.00<span class="nt">&lt;/CCardSurchargePercent&gt;</span>
+		<span class="nt">&lt;CCardSurchargeAmount&gt;</span>1.50<span class="nt">&lt;/CCardSurchargeAmount&gt;</span>
+		<span class="nt">&lt;CancellationWaiver&gt;</span>
+			<span class="nt">&lt;Waiver&gt;</span>0.50<span class="nt">&lt;/Waiver&gt;</span>
+		<span class="nt">&lt;/CancellationWaiver&gt;</span>
+	<span class="nt">&lt;/Pricing&gt;</span>
+	<span class="nt">&lt;API_Header&gt;</span>
+		<span class="nt">&lt;Request&gt;</span>
+			<span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+			<span class="nt">&lt;ArrivalDate&gt;</span>2008-09-20<span class="nt">&lt;/ArrivalDate&gt;</span>
+			<span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+			<span class="nt">&lt;DepartDate&gt;</span>2008-09-20<span class="nt">&lt;/DepartDate&gt;</span>
+			<span class="nt">&lt;DepartTime&gt;</span>1400<span class="nt">&lt;/DepartTime&gt;</span>
+			<span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+			<span class="nt">&lt;token&gt;</span>000001234<span class="nt">&lt;/token&gt;</span>
+			<span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+		<span class="nt">&lt;/Request&gt;</span>
+	<span class="nt">&lt;/API_Header&gt;</span>
+	<span class="nt">&lt;CarPark&gt;</span>
+		<span class="nt">&lt;TotalPrice&gt;</span>10.00<span class="nt">&lt;/TotalPrice&gt;</span>
+		<span class="nt">&lt;RequestFlags&gt;</span>
+			<span class="nt">&lt;Registration&gt;</span>1<span class="nt">&lt;/Registration&gt;</span>
+		<span class="nt">&lt;/RequestFlags&gt;</span>
+		<span class="nt">&lt;Code&gt;</span>LGW2<span class="nt">&lt;/Code&gt;</span>
+		<span class="nt">&lt;Name&gt;</span>Long Stay<span class="nt">&lt;/Name&gt;</span>
+		<span class="nt">&lt;Filter&gt;</span>
+			<span class="nt">&lt;on_airport&gt;</span>1<span class="nt">&lt;/on_airport&gt;</span>
+			<span class="nt">&lt;terminal&gt;</span>1<span class="nt">&lt;/terminal&gt;</span>
+		<span class="nt">&lt;/Filter&gt;</span>
+		<span class="nt">&lt;BookingURL&gt;</span>/api/sandbox/v1/carpark/LGW2<span class="nt">&lt;/BookingURL&gt;</span>
+		<span class="nt">&lt;MoreInfoURL&gt;</span>/api/sandbox/v1/product/LGW2<span class="nt">&lt;/MoreInfoURL&gt;</span>
+	<span class="nt">&lt;/CarPark&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+
+</code></pre>
+</div>
+
+<h3 id="erläuterung-der-datenfelder">Erläuterung der Datenfelder</h3>
+
+<h4 id="pricingcreditcardsurcharge">Pricing/CreditCardSurcharge</h4>
+
+<p>WARTEN AUF KORREKTUR, ZUR ZEIT WERDEN NICHT ALLE 3 ELEMENTE ANGEZEIGT.</p>
+
+<p>Nur relevant für Vermittler, Agents erheben ihre eigenen Gebühren. Dieses Element sollte von Agents ignoriert werden.</p>
+
+<p>Wird aus 3 Elementen gebildet</p>
+
+<ul>
+  <li>
+    <p>CCardSurchargePercent</p>
+  </li>
+  <li>
+    <p>CCardSurchargeMin</p>
+  </li>
+  <li>
+    <p>CCardSurchargeMax</p>
+  </li>
+</ul>
+
+<p>Die Kreditkartengebühr IS wird auf den TotalPrice + den Cancellation Waiver (siehe unten) angewendet. Um zu verhindern, dass die Gebühr gewisse Grenzen überschreitet, haben wir Minimal- und Maximalschwellenwerte. Falls der Betrag nicht zwischen diesen beiden Ziffern liegt, sollten Sie passenden Schwellenwert benutzen.</p>
+
+<p>Pseudo code</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
+if( x &lt; CCardSurchargeMin) 
+  x = CCardSurchargeMin
+else if x &gt; CCardSurchargeMax
+  x = CCardSurchargeMax
+</code></pre>
+</div>
+
+<h4 id="pricingcancellationwaiver">Pricing/CancellationWaiver</h4>
+
+<p>Wir bieten einen optionalen Cancellation Waiver an. Falls dieser nicht genutzt wird, fällt bei Stornierung eine Gebühr an. Diese Gebühr wird in unseren AGBs beschrieben. Dieser Wert wird per XML gegenwärtig nicht angezeigt.</p>
+
+<h4 id="api_headerrequest">API_Header/Request</h4>
+
+<p><strong>HXAPI</strong> sendet jeden Parameter, den Sie in der vorherigen Anfrage gesendet haben, so, wie Sie ihn gesendet haben. Das geschieht so, damit Ihre Anwendung sich an nichts erinnern muss, was nicht in der XML Antwort vorkam.</p>
+
+<h4 id="carparktotalprice">CarPark/TotalPrice</h4>
+
+<p>Der Produktpreis <strong>ONHE</strong> Aufschläge/Gebühren.</p>
+
+<h4 id="carparknondiscprice">CarPark/NonDiscPrice</h4>
+
+<p>Nicht diskontierter Preis. Einige Agent Codes verwenden einen Diskont, daher bietet dieses Feld die Möglichkeit zum Vergleich.</p>
+
+<h4 id="carparkrequestflags">CarPark/RequestFlags</h4>
+
+<p>Flags, die auflisten, welche Angaben der Parkplatzbetreiber vom Kuden benötigt. Wenn ein Flag mit einem ‘Y’ erscheint, sollte Ihre Anwendung das zugehörige Feld/ den zugehörigen Wert in der Buchungsanfrage senden. Diese Angaben sind nicht zwingend erforderlich, die Buchung könnte auch ohne sie gemacht werden, allerdings wird durch vollständige Angaben der Verwaltungsaufwand erheblich reduziert. Es werden nur positive Flags angezeigt. Wenn ein Feld nicht benötigt wird, wird das Feld nicht angezeigt.</p>
+
+<p>Die Flags, die angezeigt werden können, sind:</p>
+
+<ul>
+  <li>
+    <p>Registration</p>
+  </li>
+  <li>
+    <p>CarMake</p>
+  </li>
+  <li>
+    <p>CarModel</p>
+  </li>
+  <li>
+    <p>CarColour</p>
+  </li>
+  <li>
+    <p>OutFlight</p>
+  </li>
+  <li>
+    <p>ReturnFlight</p>
+  </li>
+  <li>
+    <p>OutTerminal</p>
+  </li>
+  <li>
+    <p>ReturnTerminal</p>
+  </li>
+  <li>
+    <p>Destination</p>
+  </li>
+  <li>
+    <p>MobileNum</p>
+  </li>
+</ul>
+
+<h4 id="carparkfilter">CarPark/Filter</h4>
+
+<p>Auf unserer Seite haben wir einen Filtermechanismus, um nur Meet &amp; Greet Produkte etc. anzeigen lassen zu können. Mögliche Werte sind:</p>
+
+<ul>
+  <li>
+    <p>meet_and_greet</p>
+  </li>
+  <li>
+    <p>recommended</p>
+  </li>
+  <li>
+    <p>on_airport</p>
+  </li>
+  <li>
+    <p>terminal</p>
+  </li>
+  <li>
+    <p>valet_included</p>
+  </li>
+  <li>
+    <p>car_parked_for_you</p>
+  </li>
+</ul>
+
+<h4 id="carparkbookingurl">CarPark/BookingURL</h4>
+
+<p>Die URL, zu der man gehen muss, um dieses Produkt zu buchen.</p>
+
+<h4 id="carparkmoreinfourl">CarPark/MoreInfoURL</h4>
+
+<p>Link zu den Informationen der Produktbibliothek für dieses Produkt.</p>
+
+<h3 id="xsd">XSD</h3>
+
+<p>Folgt.</p>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

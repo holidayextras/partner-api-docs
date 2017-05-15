@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="all-shows">All Shows</h1>
+
+<h2 id="method">Method</h2>
+
+<p>GET</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td>Number</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="request">Request</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/sandbox/v1/show?key=mytestkey
+</code></pre>
+</div>
+
+<h2 id="reply">Reply</h2>
+
+<html>
+
+<?xml version="1.0" ?>
+
+<API_Reply>
+    <Show>
+    <code>SHOAVE</code>
+    <Name>Avenue Q</Name>
+    <Description>Prepare to laugh your socks off as muppets and actors collide in this hilarious adult comedy. Avenue Q is home to some of the most lively and off the wall characters you&#39;ll ever meet.</Description>
+    <MoreInfoURL>/api/sandbox/product/SHOAVE</MoreInfoURL>
+    <BookingURL>/api/sandbox/theatrebreak/SHOAVE</BookingURL>
+    </Show>
+    <Show>
+    <code>SHOBBE</code>
+    <Name>Blood Brothers</Name>
+    <Description>In 1960&#39;s Liverpool twin boys are born to a loving mother who has the heart but not the wealth to care for two babies, choosing to give one up leads to disastrous consequences in later life.</Description>
+    <MoreInfoURL>/api/sandbox/product/SHOBBE</MoreInfoURL>
+    <BookingURL>/api/sandbox/theatrebreak/SHOBBE</BookingURL>
+    </Show>
+    <Show>
+    <code>SHOBEE</code>
+    <Name>Billy Elliot</Name>
+    <Description>Billy is born in a northern town where men box and work in the mines. They do not dance and they certainly do not harbour ambitions of attending the Royal Ballet School, but Billy is a bit different.</Description>
+    <MoreInfoURL>/api/sandbox/product/SHOBEE</MoreInfoURL>
+    <BookingURL>/api/sandbox/theatrebreak/SHOBEE</BookingURL>
+    </Show>
+    .
+    .
+    .
+    <Attraction></Attraction>
+</API_Reply>
+
+</html>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

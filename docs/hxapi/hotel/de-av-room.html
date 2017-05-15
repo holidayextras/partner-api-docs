@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="german-hotel-room-availability">German Hotel Room Availability</h1>
+
+<h2 id="hotelfoo">/hotel/foo</h2>
+
+<p>where foo is the specific hotel code</p>
+
+<p>e.g. http://api.holidayextras.co.uk/v1/de-start/hotel/FRAAST</p>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>StartCustomer</td>
+      <td>String</td>
+      <td>[0-9]{6}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>BusinessUnit</td>
+      <td>String</td>
+      <td>[0-9]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Operator</td>
+      <td>String</td>
+      <td>[A-Z]{3}</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ParkingDays</td>
+      <td>Int</td>
+      <td>[0,8,15,22]</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td> </td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9]{9}</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="roomtype-codes">RoomType codes</h4>
+
+<p>In the response to this request, the RoomType values change to the variety used for actual bookings. 
+Permissible room types are:</p>
+
+<ul>
+  <li>
+    <p>EZ - Single room</p>
+  </li>
+  <li>
+    <p>DZ - Double room</p>
+  </li>
+  <li>
+    <p>ZZ - Twin room</p>
+  </li>
+  <li>
+    <p>TZ - Triple room</p>
+  </li>
+  <li>
+    <p>VZ - Quad / family room</p>
+  </li>
+</ul>
+
+<p>For bookings, you should send these codes.</p>
+
+<h4 id="rooms">Rooms</h4>
+
+<p>This will normally contain an integer, except for cases where the room is only available on request. In this instance, you will see…</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;Rooms&gt;</span>R<span class="nt">&lt;/Rooms&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="request">Request</h3>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/de-start/sandbox/v1/hotel/FRAAST?StartCustomer=111111<span class="err">&amp;</span>BusinessUnit=222<span class="err">&amp;</span>Operator=BJT<span class="err">&amp;</span>key=foo<span class="err">&amp;</span>ArrivalDate=15Mar10<span class="err">&amp;</span>token=123456789<span class="err">&amp;</span>ParkingDays=8
+</code></pre>
+</div>
+
+<p>api -&gt; chauntry</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;API_Request</span> <span class="na">System=</span><span class="s">"ABG"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">RequestCode=</span><span class="s">"2"</span> <span class="na">Session=</span><span class="s">"123456789"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Agent&gt;</span>
+    <span class="nt">&lt;StartCustomer&gt;</span>111111<span class="nt">&lt;/StartCustomer&gt;</span>
+    <span class="nt">&lt;BusinessUnit&gt;</span>222<span class="nt">&lt;/BusinessUnit&gt;</span>
+    <span class="nt">&lt;Operator&gt;</span>JMB<span class="nt">&lt;/Operator&gt;</span>
+  <span class="nt">&lt;/Agent&gt;</span>
+  <span class="nt">&lt;Itinerary&gt;</span>
+    <span class="nt">&lt;ArrivalDate&gt;</span>15Mar10<span class="nt">&lt;/ArrivalDate&gt;</span>
+    <span class="nt">&lt;HotelCode&gt;</span>FRAAST<span class="nt">&lt;/HotelCode&gt;</span>
+    <span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>
+  <span class="nt">&lt;/Itinerary&gt;</span>
+<span class="nt">&lt;/API_Request&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="reply">Reply</h3>
+
+<p><strong>Please note</strong> - this reply currently shows BoardBasis varying per room type. When the data on live is copied to our dev environmet, this will be corrected, all rooms at a single hotel will share a common, single board basis.</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>
+<span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"2"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Hotel&gt;</span>
+    <span class="nt">&lt;NonSmokingRooms&gt;</span>N<span class="nt">&lt;/NonSmokingRooms&gt;</span>
+    <span class="nt">&lt;TerminalDetail&gt;</span>
+      <span class="nt">&lt;TerminalCode&gt;</span>1<span class="nt">&lt;/TerminalCode&gt;</span>
+      <span class="nt">&lt;TerminalName&gt;</span>Terminal 1<span class="nt">&lt;/TerminalName&gt;</span>
+    <span class="nt">&lt;/TerminalDetail&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>FRAAST<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/sandbox/hotel/FRAAST<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>/sandbox/product/FRAAST<span class="nt">&lt;/MoreInfoURL&gt;</span>
+  <span class="nt">&lt;/Hotel&gt;</span>
+  <span class="nt">&lt;Room&gt;</span>
+    <span class="nt">&lt;Rooms&gt;</span>9<span class="nt">&lt;/Rooms&gt;</span>
+    <span class="nt">&lt;BoardBasis&gt;</span>F<span class="nt">&lt;/BoardBasis&gt;</span>
+    <span class="nt">&lt;Price&gt;</span>102.00<span class="nt">&lt;/Price&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>DZ<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Room&gt;</span>
+  <span class="nt">&lt;Room&gt;</span>
+    <span class="nt">&lt;Rooms&gt;</span>9<span class="nt">&lt;/Rooms&gt;</span>
+    <span class="nt">&lt;BoardBasis&gt;</span>F<span class="nt">&lt;/BoardBasis&gt;</span>
+    <span class="nt">&lt;Price&gt;</span>102.00<span class="nt">&lt;/Price&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>EZ<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Room&gt;</span>
+  <span class="nt">&lt;Room&gt;</span>
+    <span class="nt">&lt;Rooms&gt;</span>9<span class="nt">&lt;/Rooms&gt;</span>
+    <span class="nt">&lt;BoardBasis&gt;</span>F<span class="nt">&lt;/BoardBasis&gt;</span>
+    <span class="nt">&lt;Price&gt;</span>120.00<span class="nt">&lt;/Price&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>TZ<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Room&gt;</span>
+  <span class="nt">&lt;Room&gt;</span>
+    <span class="nt">&lt;Rooms&gt;</span>9<span class="nt">&lt;/Rooms&gt;</span>
+    <span class="nt">&lt;BoardBasis&gt;</span>F<span class="nt">&lt;/BoardBasis&gt;</span>
+    <span class="nt">&lt;Price&gt;</span>102.00<span class="nt">&lt;/Price&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>VZ<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Room&gt;</span>
+  <span class="nt">&lt;Room&gt;</span>
+    <span class="nt">&lt;Rooms&gt;</span>9<span class="nt">&lt;/Rooms&gt;</span>
+    <span class="nt">&lt;BoardBasis&gt;</span>F<span class="nt">&lt;/BoardBasis&gt;</span>
+    <span class="nt">&lt;Price&gt;</span>102.00<span class="nt">&lt;/Price&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>ZZ<span class="nt">&lt;/Code&gt;</span>
+  <span class="nt">&lt;/Room&gt;</span>
+  <span class="nt">&lt;RequestFlags&gt;</span>
+    <span class="nt">&lt;Registration&gt;</span>N<span class="nt">&lt;/Registration&gt;</span>
+    <span class="nt">&lt;CarMake&gt;</span>N<span class="nt">&lt;/CarMake&gt;</span>
+    <span class="nt">&lt;CarModel&gt;</span>N<span class="nt">&lt;/CarModel&gt;</span>
+    <span class="nt">&lt;CarColour&gt;</span>N<span class="nt">&lt;/CarColour&gt;</span>
+    <span class="nt">&lt;CarPickupDate&gt;</span>2010-02-15<span class="nt">&lt;/CarPickupDate&gt;</span>
+    <span class="nt">&lt;CarDropoffTime&gt;</span>N<span class="nt">&lt;/CarDropoffTime&gt;</span>
+    <span class="nt">&lt;CarPickupTime&gt;</span>N<span class="nt">&lt;/CarPickupTime&gt;</span>
+    <span class="nt">&lt;CreditCard&gt;</span>N<span class="nt">&lt;/CreditCard&gt;</span>
+    <span class="nt">&lt;ReturnFlight&gt;</span>N<span class="nt">&lt;/ReturnFlight&gt;</span>
+    <span class="nt">&lt;Terminal&gt;</span>N<span class="nt">&lt;/Terminal&gt;</span>
+  <span class="nt">&lt;/RequestFlags&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ABTANumber&gt;</span>FOO<span class="nt">&lt;/ABTANumber&gt;</span>
+      <span class="nt">&lt;Password&gt;</span>TESTA<span class="nt">&lt;/Password&gt;</span>
+      <span class="nt">&lt;Initials&gt;</span>BJT<span class="nt">&lt;/Initials&gt;</span>
+      <span class="nt">&lt;key&gt;</span>foo<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2010-03-15<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;token&gt;</span>123456789<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;ParkingDays&gt;</span>1<span class="nt">&lt;/ParkingDays&gt;</span>
+      <span class="nt">&lt;system&gt;</span>de<span class="nt">&lt;/system&gt;</span>
+      <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+  <span class="nt">&lt;Pricing&gt;</span>
+    <span class="nt">&lt;WaiverValue&gt;&lt;/WaiverValue&gt;</span>
+  <span class="nt">&lt;/Pricing&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre>
+</div>
+
+<h4 id="rooms-1">Rooms</h4>
+
+<p>The value in the Rooms node will be either</p>
+
+<ul>
+  <li>
+    <p>number - signifying how many rooms are available</p>
+  </li>
+  <li>
+    <p>R - signifying that the room type is available only on request.</p>
+  </li>
+</ul>
+
+<h4 id="boardbasis-codes">BoardBasis codes</h4>
+
+<p>The valid values for the BoardBasis element are:</p>
+
+<ul>
+  <li>
+    <p>F - with breakfast (equivalent to <strong>UF</strong> in Start)</p>
+  </li>
+  <li>
+    <p>U - without breakfast</p>
+  </li>
+</ul>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

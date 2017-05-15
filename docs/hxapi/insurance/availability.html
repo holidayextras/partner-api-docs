@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="insurance-quote">Insurance quote</h1>
+
+<h2 id="insurancepolicyfoo">/insurancepolicy/foo</h2>
+
+<p>Where <strong>foo</strong> is the <a href="index"> country code</a>.</p>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>birthDate</td>
+      <td>Array</td>
+      <td>Y*</td>
+    </tr>
+    <tr>
+      <td>StartDate</td>
+      <td>Date</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>EndDate</td>
+      <td>Date</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>N</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="birthdate">birthDate[]</h3>
+
+<p>For convenience, ‘age[]’ is accepted as an alternative - it will generate dates of birth by assuming this day &amp; month and change the year.</p>
+
+<h3 id="request-example-1">Request (example 1)</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/v1/insurancepolicy/EUROPE?ABTANumber=FOO&amp;EndDate=2010-10-20&amp;StartDate=2010-10-10&amp;key=foo&amp;birthDate[]=1985-05-05
+</code></pre>
+</div>
+
+<h3 id="reply-example-1">Reply (example 1)</h3>
+
+<p>```xml</p>
+<API_Reply Product="Quote">
+<Itinerary>
+<Destination>Europe</Destination>
+<DestNum>2</DestNum>
+<StartDate>2010-10-10</StartDate>
+<EndDate>2010-10-20</EndDate>
+<AnnualStart>21SEP10</AnnualStart>
+</Itinerary>
+<Quote>
+<SchemeCode>9</SchemeCode>
+<SchemeDes />
+<PolicyEnd>2010-10-10</PolicyEnd>
+<PolicyStart>2010-10-20</PolicyStart>
+<Annual>N</Annual>
+<SchemePrice>12.00</SchemePrice>
+<SchemeName>Super Saver</SchemeName>
+<CancellationCover>500</CancellationCover>
+<MedicalCover>1000000</MedicalCover>
+<BaggageCover>1000</BaggageCover>
+<PolicyWording>
+http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - PW.pdf
+</PolicyWording>
+<KeyFacts>
+http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - KF.pdf
+</KeyFacts>
+<Wintersports>Y</Wintersports>
+</Quote>
+<Quote>
+<SchemeCode>10</SchemeCode>
+<SchemeDes />
+<PolicyEnd>2010-10-10</PolicyEnd>
+<PolicyStart>2010-10-20</PolicyStart>
+<Annual>N</Annual>
+<SchemePrice>15.00</SchemePrice>
+<SchemeName>Saver</SchemeName>
+<CancellationCover>1000</CancellationCover>
+<MedicalCover>2000000</MedicalCover>
+<BaggageCover>1000</BaggageCover>
+<PolicyWording>
+http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - PW.pdf
+</PolicyWording>
+<KeyFacts>
+http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - KF.pdf
+</KeyFacts>
+<Wintersports>Y</Wintersports>
+</Quote>
+<Quote>
+<SchemeCode>11</SchemeCode>
+<SchemeDes />
+<PolicyEnd>2010-10-10</PolicyEnd>
+<PolicyStart>2010-10-20</PolicyStart>
+<Annual>N</Annual>
+<SchemePrice>17.00</SchemePrice>
+<SchemeName>Classic</SchemeName>
+<CancellationCover>5000</CancellationCover>
+<MedicalCover>5000000</MedicalCover>
+<BaggageCover>1500</BaggageCover>
+<PolicyWording>
+http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - PW.pdf
+</PolicyWording>
+<KeyFacts>
+http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - KF.pdf
+</KeyFacts>
+<Wintersports>Y</Wintersports>
+</Quote>
+<Quote>
+<SchemeCode>12</SchemeCode>
+<SchemeDes />
+<PolicyEnd>2010-09-21</PolicyEnd>
+<PolicyStart>2011-09-20</PolicyStart>
+<Annual>Y</Annual>
+<SchemePrice>40.00</SchemePrice>
+<SchemeName>Multi</SchemeName>
+<CancellationCover>3000</CancellationCover>
+<MedicalCover>5000000</MedicalCover>
+<BaggageCover>1500</BaggageCover>
+<PolicyWording>
+http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - PW.pdf
+</PolicyWording>
+<KeyFacts>
+http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - KF.pdf
+</KeyFacts>
+<Wintersports>Y</Wintersports>
+</Quote>
+<API_Header>
+<Request>
+<ABTANumber>FOO</ABTANumber>
+<EndDate>2010-10-20</EndDate>
+<StartDate>2010-10-10</StartDate>
+<key>foo</key>
+<birthDate>1985-05-05</birthDate>
+<v>1</v>
+</Request>
+</API_Header>
+</API_Reply>
+<p>&lt;/code&gt;</p>
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="region-codes">Region Codes</h1>
+
+<p>Five or six character region codes determine which region of the world an <a href="/hxapi/insurance">insurance policy</a> will cover. It is safer to confirm which country your customer is travelling to and map it to the region than ask them the region directly.</p>
+
+<h3 id="endpoints">Endpoints</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Endpoint</th>
+      <th>Method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>List regions</td>
+      <td><a href="/hxapi/insurancecountries">http://api.holidayextras.co.uk/v1/insurancecountries/</a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>List countries for region</td>
+      <td><a href="/hxapi/insurancecountries#insurancecountriesfoo">http://api.holidayextras.co.uk/v1/insurancecountries/foo</a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Search by country</td>
+      <td><a href="/hxapi/insurancecountries#insurancecountriessearch">http://api.holidayextras.co.uk/v1/insurancecountries/search</a></td>
+      <td>GET</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="intermediarydirect-system">Intermediary/Direct System</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Our ID</th>
+      <th>Destination</th>
+      <th>Covered Countries</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EUROPE</td>
+      <td>6</td>
+      <td>Europe Low-risk</td>
+      <td>http://api.holidayextras.co.uk/v1/insurancecountries/EUROPELOW?key=foo</td>
+    </tr>
+    <tr>
+      <td>EUROPE</td>
+      <td>7</td>
+      <td>Europe High-risk</td>
+      <td>http://api.holidayextras.co.uk/v1/insurancecountries/EUROPEHIGH?key=foo</td>
+    </tr>
+    <tr>
+      <td>WWIUSA</td>
+      <td>3</td>
+      <td>Worldwide inc USA</td>
+      <td>http://api.holidayextras.co.uk/v1/insurancecountries/WWIUSA?key=foo</td>
+    </tr>
+    <tr>
+      <td>WWXUSA</td>
+      <td>5</td>
+      <td>Worldwide exc USA</td>
+      <td>http://api.holidayextras.co.uk/v1/insurancecountries/WWXUSA?key=foo</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="retail-system">Retail System</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Our ID</th>
+      <th>Destination</th>
+      <th>Covered Countries</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>UKROI</td>
+      <td>1</td>
+      <td>UK &amp; Ireland</td>
+      <td>http://api.holidayextras.co.uk/v1/insurancecountries/UKROI?ABTANumber=foo&amp;Password=yourpassword</td>
+    </tr>
+    <tr>
+      <td>EUROPE</td>
+      <td>6</td>
+      <td>Europe Low-risk</td>
+      <td>http://api.holidayextras.co.uk/v1/insurancecountries/EUROPELOW?ABTANumber=foo&amp;Password=yourpassword</td>
+    </tr>
+    <tr>
+      <td>EUROPE</td>
+      <td>7</td>
+      <td>Europe High-risk</td>
+      <td>http://api.holidayextras.co.uk/v1/insurancecountries/EUROPEHIGH?ABTANumber=foo&amp;Password=yourpassword</td>
+    </tr>
+    <tr>
+      <td>AUSNZ</td>
+      <td>4</td>
+      <td>Australia &amp; New Zealand</td>
+      <td>http://api.holidayextras.co.uk/v1/insurancecountries/AUSNZ?ABTANumber=foo&amp;Password=yourpassword</td>
+    </tr>
+    <tr>
+      <td>WWIUSA</td>
+      <td>3</td>
+      <td>Worldwide inc USA</td>
+      <td>http://api.holidayextras.co.uk/v1/insurancecountries/WWIUSA?ABTANumber=foo&amp;Password=yourpassword</td>
+    </tr>
+    <tr>
+      <td>WWXUSA</td>
+      <td>5</td>
+      <td>Worldwide exc USA</td>
+      <td>http://api.holidayextras.co.uk/v1/insurancecountries/WWXUSA?ABTANumber=foo&amp;Password=yourpassword</td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

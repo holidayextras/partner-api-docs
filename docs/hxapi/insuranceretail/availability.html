@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://d17s4kc6349e5h.cloudfront.net/holidayextras/stylesheets/4.2.5/theme.min.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
+       <div class="container">
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+       </div>
+     </nav>
+    <div class="container block-md">
+      <main role="main">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
+            <div class="panel-body">
+  <h1 id="insurance-quote">Insurance quote</h1>
+
+<h2 id="insurancepolicyfoo">/insurancepolicy/foo</h2>
+
+<p>Where <strong>foo</strong> is the <a href="/hxapi/types/regioncode">region code</a>. Call this method to get available schemes, the next step is to <a href="/hxapi/insuranceretail/options">GET options</a>.</p>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Format</th>
+      <th>Required</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>birthDate[]</td>
+      <td>Array</td>
+      <td>Y</td>
+      <td>age[] is also accepted, but will use only year with today’s date as the customer’s day &amp; month of birth</td>
+    </tr>
+    <tr>
+      <td>StartDate</td>
+      <td>Date</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>EndDate</td>
+      <td>Date</td>
+      <td>Y</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request">Request</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>http://api.holidayextras.co.uk/v1/sandbox/insurancepolicy/EUROPELOW?ABTANumber=FOO&amp;Password=FOO&amp;StartDate=2012-10-10&amp;EndDate=2012-10-20&amp;key=foo&amp;birthDate[0]=1985-05-05&amp;birthDate[1]=1987-07-07
+</code></pre>
+</div>
+
+<h3 id="reply">Reply</h3>
+
+<p>```xml
+<?xml version="1.0" ?></p>
+
+<API_Reply Product="Quote">
+  <Itinerary>
+    <Destination>Europelow</Destination>
+    <DestNum>6</DestNum>
+    <StartDate>2011-10-10</StartDate>
+    <EndDate>2011-10-20</EndDate>
+    <AnnualStart>07JUN11</AnnualStart>
+  </Itinerary>
+  <Quote>
+    <SchemeCode>188</SchemeCode>
+    <SchemeDes></SchemeDes>
+    <PolicyEnd>2011-10-20</PolicyEnd>
+    <PolicyStart>2011-10-10</PolicyStart>
+    <Annual>N</Annual>
+    <SchemePrice>12.00</SchemePrice>
+    <SchemeName>Super Saver</SchemeName>
+    <CancellationCover>500</CancellationCover>
+    <CancellationXS>75</CancellationXS>
+    <MedicalCover>1000000</MedicalCover>
+    <MedicalXS>100</MedicalXS>
+    <BaggageCover>1000</BaggageCover>
+    <BaggageXS>75</BaggageXS>
+    <PolicyWording>http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - PW.pdf</PolicyWording>
+    <KeyFacts>http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - KF.pdf</KeyFacts>
+    <Wintersports>Y</Wintersports>
+    <Insolvency>Y</Insolvency>
+    <destinationID>13</destinationID>
+  </Quote>
+	...
+  <Quote>
+    <SchemeCode>160</SchemeCode>
+    <SchemeDes></SchemeDes>
+    <PolicyEnd>2012-06-05</PolicyEnd>
+    <PolicyStart>2011-06-07</PolicyStart>
+    <Annual>Y</Annual>
+    <SchemePrice>40.00</SchemePrice>
+    <SchemeName>Multi</SchemeName>
+    <CancellationCover>3000</CancellationCover>
+    <CancellationXS>75</CancellationXS>
+    <MedicalCover>5000000</MedicalCover>
+    <MedicalXS>100</MedicalXS>
+    <BaggageCover>1500</BaggageCover>
+    <BaggageXS>75</BaggageXS>
+    <PolicyWording>http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - PW.pdf</PolicyWording>
+    <KeyFacts>http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/Direct - KF.pdf</KeyFacts>
+    <Wintersports>Y</Wintersports>
+    <Insolvency>Y</Insolvency>
+    <destinationID>13</destinationID>
+  </Quote>
+  <API_Header>
+    <Request>
+      <ABTANumber>FOO</ABTANumber>
+      <Password>FOO</Password>
+      <EndDate>2011-10-20</EndDate>
+      <StartDate>2011-10-10</StartDate>
+      <key>foo</key>
+      <birthDate>1985-05-05</birthDate>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply>
+<p>&lt;/code&gt;</p>
+
+<h3 id="fields-explained">Fields explained</h3>
+
+<h4 id="quotecancellationmedicalbaggagecoverxs">Quote/[Cancellation|Medical|Baggage][Cover|XS]</h4>
+
+<p>Amounts and excesses of Cancellation, Baggage &amp; Medical cover offered by the policy, in pounds.</p>
+
+<h4 id="quoteannual">Quote/Annual</h4>
+
+<p>If Y, the policy is for annual multi trip cover, will start on the date of issue and end 364 days afterward rather than the searched for dates.</p>
+
+<h4 id="quotemaxtriplength">Quote/MaxTripLength</h4>
+
+<p>Optional return if multiple annual policies are returned in the same search - the maximum duration of any individual trip that can be taken under this policy.</p>
+
+
+</div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
