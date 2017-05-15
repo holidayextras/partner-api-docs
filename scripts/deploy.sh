@@ -9,6 +9,7 @@ fi
 git --version
 git branch
 git checkout ${RELEASE_BRANCH}
+git remote set-branches --add origin gh-pages
 echo "fetching..."
 git fetch origin
 git pull
@@ -18,7 +19,8 @@ echo "showing remote branches #2 ..."
 git branch -r
 echo "showing branches..."
 git branch -a -v
-git checkout -b gh-pages origin/gh-pages
+git branch gh-pages origin/gh-pages
+git checkout gh-pages
 git branch
 git merge ${RELEASE_BRANCH}
 cp -a _site/* ./
