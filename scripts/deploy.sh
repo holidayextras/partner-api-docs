@@ -10,8 +10,8 @@ git branch
 git checkout ${RELEASE_BRANCH}
 git fetch origin
 git pull
-git branch
-git checkout gh-pages
+git branch -a -v
+git checkout -b gh-pages origin/gh-pages
 git branch
 git merge ${RELEASE_BRANCH}
 cp -a _site/* ./
