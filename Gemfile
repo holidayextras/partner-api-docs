@@ -29,3 +29,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'html-proofer'
 gem 'rake'
 gem 'rouge'
+gem 'rake-jekyll'

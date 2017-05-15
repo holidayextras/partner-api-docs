@@ -11,3 +11,5 @@ task :html_proofer do
   options = { :assume_extension => true }
   HTMLProofer.check_directory("./_site", options).run
 end
+
+Rake::Jekyll::GitDeployTask.new(:deploy)
