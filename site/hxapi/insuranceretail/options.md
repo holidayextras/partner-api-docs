@@ -40,7 +40,7 @@ http://api.holidayextras.co.uk/v1/insurancepolicy/188?ABTANumber=FOO&Password=FO
 
 ### Reply
 
-``` xml
+```xml
 <?xml version="1.0" ?>
 <API_Reply>
     <Options>
