@@ -208,7 +208,8 @@ http://api.holidayextras.co.uk/v1/insurancecountries/search?key=mytestkey&ABTANu
       <v>1</v>
     </Request>
   </API_Header>
-</API_Reply></code>
+</API_Reply>
+```
 
 ###  Fields explained
 

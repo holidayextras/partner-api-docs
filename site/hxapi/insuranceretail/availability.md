@@ -94,7 +94,8 @@ http://api.holidayextras.co.uk/v1/sandbox/insurancepolicy/EUROPELOW?ABTANumber=F
       <v>1</v>
     </Request>
   </API_Header>
-</API_Reply></code>
+</API_Reply>
+```
 
 ###  Fields explained
 
