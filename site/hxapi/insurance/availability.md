@@ -131,4 +131,6 @@ http://secure.holidayextras.co.uk/images/groups/insurancemagenta/policy_wording/
 <v>1</v>
 </Request>
 </API_Header>
-</API_Reply></code>
+</API_Reply>
+```
+
