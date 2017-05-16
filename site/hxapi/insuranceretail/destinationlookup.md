@@ -86,7 +86,8 @@ http://api.holidayextras.co.uk/v1/insurancecountries/search?token=000015778&key=
       <query>ire</query>
     </Request>
   </API_Header>
-</API_Reply></code>
+</API_Reply>
+```
 
 ###  Please note
 

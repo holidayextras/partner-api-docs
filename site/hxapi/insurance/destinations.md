@@ -70,4 +70,5 @@ http://api.holidayextras.co.uk/v1/insurancepolicy?token=000015778&key=mytestkey
       <token>000015778</token>
     </Request>
   </API_Header>
-</API_Reply></code>
+</API_Reply>
+```

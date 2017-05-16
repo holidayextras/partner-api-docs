@@ -62,4 +62,5 @@ http://api.holidayextras.co.uk/v1/insurancecountries?token=000015778&key=mytestk
       <token>000015778</token>
     </Request>
   </API_Header>
-</API_Reply></code>
+</API_Reply>
+```

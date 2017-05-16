@@ -74,7 +74,8 @@ Address[]=1 Test St&Address[]=Testchester&Address[]=Testshire&CardHolder=Mr T Te
 
 #### Intermediary
 
-<code xml><API_Reply>
+```xml
+<API_Reply>
     <Itinerary>
     <Destination>EUROPE</Destination>
     <DestNum>2</DestNum>
@@ -123,6 +124,5 @@ Address[]=1 Test St&Address[]=Testchester&Address[]=Testshire&CardHolder=Mr T Te
       <token>000015778</token>
     </Request>
     </API_Header>
-</API_Reply></code>
-
-
+</API_Reply>
+```
