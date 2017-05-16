@@ -1,6 +1,4 @@
 ---
-redirect_from:
-  - /doku.php
 ---
 
 # Official Documentation
