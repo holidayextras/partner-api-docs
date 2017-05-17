@@ -18,11 +18,11 @@ GET
 
 ### Parameters
 
- | Name   | Format | Required | 
- | ----   | ------ | -------- | 
- | token  | String | N        | 
- | key    | String | Y        | 
- | fields | String | N        | 
+ | Name   | Format | Required |
+ | ----   | ------ | -------- |
+ | token  | String | N        |
+ | key    | String | Y        |
+ | fields | String | N        |
 
 
 
@@ -30,7 +30,7 @@ GET
 ### Request (example 1)
 
 ```
-http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=mytestkey
 ```
 
 
@@ -119,7 +119,7 @@ http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=
 ### Request (example 2)
 
 ```
-http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=mytestkey&fields=name,longitude,latitude
+https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=mytestkey&fields=name,longitude,latitude
 ```
 
 
@@ -207,7 +207,7 @@ Is parking area covered, or in the open?
 
 Sellpoint fields are used to note positive aspects about the product.
 
-The possible fields are sellpoint_location, 
+The possible fields are sellpoint_location,
 sellpoint_terminal, sellpoint_transfers, sellpoint_parking, sellpoint_security.
 
 #### logo
@@ -245,7 +245,7 @@ If customer does not know their terminal, display this message.
 
 #### recommended
 
-Boolean - 
+Boolean -
 
 #### on_airport
 
@@ -281,7 +281,7 @@ HX use only
 Requests for German products return a different set of fields. Explanation of fields not currently available.
 
 ```
-http://api.holidayextras.co.uk/sandbox/v1/product/FRA0?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/product/FRA0?key=mytestkey
 ```
 
 

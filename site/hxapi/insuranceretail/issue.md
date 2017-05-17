@@ -18,27 +18,27 @@ POST
 
 ### Parameters
 
- | Name       | Format | Required | Notes                                                    | 
- | ----       | ------ | -------- | -----                                                    | 
- | key        | String | Y        |                                                          | 
- | ABTANumber | String | Y        | Required to correctly calculate and attribute commission | 
- | Password   | String | Y        |                                                          | 
- | Address[0] | String | Y        |                                                          | 
- | Address[1] | String | N        |                                                          | 
- | Address[2] | String | N        |                                                          | 
- | Town       | String | N        |                                                          | 
- | County     | String | N        |                                                          | 
- | PostCode   | String | Y        |                                                          | 
- | DayPhone   | String | N        |                                                          | 
- | Email      | String | Y        |                                                          | 
- | option     | Array  | N        | See below                                                | 
+ | Name       | Format | Required | Notes                                                    |
+ | ----       | ------ | -------- | -----                                                    |
+ | key        | String | Y        |                                                          |
+ | ABTANumber | String | Y        | Required to correctly calculate and attribute commission |
+ | Password   | String | Y        |                                                          |
+ | Address[0] | String | Y        |                                                          |
+ | Address[1] | String | N        |                                                          |
+ | Address[2] | String | N        |                                                          |
+ | Town       | String | N        |                                                          |
+ | County     | String | N        |                                                          |
+ | PostCode   | String | Y        |                                                          |
+ | DayPhone   | String | N        |                                                          |
+ | Email      | String | Y        |                                                          |
+ | option     | Array  | N        | See below                                                |
 
 ### Example (no options)
 
 ### Request
 
 ```
-POST http://api.holidayextras.co.uk/v1/insurancepolicy/yourCertificateReference
+POST https://api.holidayextras.co.uk/v1/insurancepolicy/yourCertificateReference
 
 key=foo&ABTANumber=ABCDE&Password=ABCDE&Address[0]=Holiday Extras&Address[1]=Ashford Road&Address[2]=Newingreen&Town=Hythe&County=Kent&PostCode=CT21 4JF&DayPhone=01234567890&Email=test@example.com
 ```
@@ -170,7 +170,7 @@ Assuming a provisional policy (from a call to GET options) with two customers (1
 Example full request/reply with a per person and a per policy option:
 
 ```
-POST 
+POST
 
 key=foo&ABTANumber=ABCDE&Password=ABCDE&Address[0]=Holiday Extras&Address[1]=Ashford Road&Address[2]=Newingreen&Town=Hythe&County=Kent&PostCode=CT21 4JF&DayPhone=01234567890&Email=test@example.com&option[0][schemeoptionID]=3249&option[0][optionRateID]=2687460&option[0][optionPrice]=2.67&option[0][optionIPT]=0.45&option[0][personID]=0&option[1][schemeoptionID]=3252&option[1][optionRateID]=2681885&option[1][optionPrice]=53.34&option[1][optionIPT]=8.89
 ```

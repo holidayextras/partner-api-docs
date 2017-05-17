@@ -8,7 +8,7 @@
 
 where foo is the Start booking reference
 
-e.g. http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10051848
+e.g. https://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10051848
 
 
 
@@ -25,14 +25,14 @@ The cancel has 2 modes which differ only in the value of the ConfirmCancel param
 
 ### Parameters
 
- | Name          | Type   | Format   | Required | 
- | ----          | ----   | ------   | -------- | 
- | StartCustomer | String | [0-9]{6} | Y        | 
- | BusinessUnit  | String | [0-9]{3} | Y        | 
- | Operator      | String | [A-Z]{3} | Y        | 
- | ConfirmCancel | String | [Y,N]    | Y        | 
- | key           | String |          | Y        | 
- | token         | String | [0-9]{9} | Y        | 
+ | Name          | Type   | Format   | Required |
+ | ----          | ----   | ------   | -------- |
+ | StartCustomer | String | [0-9]{6} | Y        |
+ | BusinessUnit  | String | [0-9]{3} | Y        |
+ | Operator      | String | [A-Z]{3} | Y        |
+ | ConfirmCancel | String | [Y,N]    | Y        |
+ | key           | String |          | Y        |
+ | token         | String | [0-9]{9} | Y        |
 
 
 
@@ -42,12 +42,12 @@ The cancel has 2 modes which differ only in the value of the ConfirmCancel param
 
 Dry-run
 ```html
-http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213896?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=mytestkey&ConfirmCancel=N&CancelRef=TestCnx
+https://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213896?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=mytestkey&ConfirmCancel=N&CancelRef=TestCnx
 ```
 
 Confirmed cancel
 ```html
-http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213896?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=mytestkey&CancelRef=HolidayCancelled&ConfirmCancel=Y
+https://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213896?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=mytestkey&CancelRef=HolidayCancelled&ConfirmCancel=Y
 ```
 
 

@@ -12,7 +12,7 @@ only available in UK
 
 where foo is the car park code
 
-e.g. http://api.holidayextras.co.uk/v1/carparkspaces/LGV4
+e.g. https://api.holidayextras.co.uk/v1/carparkspaces/LGV4
 
 ### Method
 
@@ -20,22 +20,22 @@ GET
 
 ### Parameters
 
- | Name        | Type   | Format      | Required | 
- | ----        | ----   | ------      | -------- | 
- | ABTANumber  | String | [A-Z0-9]{5} | Y        | 
- | Password    | String | [A-Z0-9]{5} | N*       | 
- | Initials    | String | [A-Z]{3}    | N        | 
- | ArrivalDate | Date   | YYYY-MM-DD  | Y        | 
- | DepartDate  | Date   | YYYY-MM-DD  | Y        | 
- | key         | String |             | Y        | 
- | token       | String | [0-9]{9}    | Y        | 
+ | Name        | Type   | Format      | Required |
+ | ----        | ----   | ------      | -------- |
+ | ABTANumber  | String | [A-Z0-9]{5} | Y        |
+ | Password    | String | [A-Z0-9]{5} | N*       |
+ | Initials    | String | [A-Z]{3}    | N        |
+ | ArrivalDate | Date   | YYYY-MM-DD  | Y        |
+ | DepartDate  | Date   | YYYY-MM-DD  | Y        |
+ | key         | String |             | Y        |
+ | token       | String | [0-9]{9}    | Y        |
 
 * Password only required for agent requests. If sending this you should make your availability requests over https.
 
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/sandbox/v1/carparkspaces/LGV4?ArrivalDate=2011-09-20&DepartDate=2011-09-27&key=mytestkey&token=000001234&ABTANumber=FOO&Initials=BJT
+https://api.holidayextras.co.uk/sandbox/v1/carparkspaces/LGV4?ArrivalDate=2011-09-20&DepartDate=2011-09-27&key=mytestkey&token=000001234&ABTANumber=FOO&Initials=BJT
 ```
 
 ### Reply
@@ -72,11 +72,11 @@ http://api.holidayextras.co.uk/sandbox/v1/carparkspaces/LGV4?ArrivalDate=2011-09
 
 #### CarPark/Status
 
- | Status | Meaning                                                                                         | 
- | ------ | -------                                                                                         | 
- | S      | Standard - see total & left spaces                                                              | 
- | F      | Free sale - actual count of remaining/total spaces not available (returns 9999 for both fields) | 
- | C      | Closed out - no spaces available (returns 0 for both fields)                                    | 
+ | Status | Meaning                                                                                         |
+ | ------ | -------                                                                                         |
+ | S      | Standard - see total & left spaces                                                              |
+ | F      | Free sale - actual count of remaining/total spaces not available (returns 9999 for both fields) |
+ | C      | Closed out - no spaces available (returns 0 for both fields)                                    |
 
 #### API_Header/Request
 

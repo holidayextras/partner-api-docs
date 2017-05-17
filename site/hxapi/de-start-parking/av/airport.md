@@ -15,7 +15,7 @@
 
 where foo is the location (airport) code
 
-e.g. http://api.holidayextras.co.uk/de-start/v1/carpark/FRA
+e.g. https://api.holidayextras.co.uk/de-start/v1/carpark/FRA
 
 ### Method
 
@@ -38,19 +38,19 @@ GET
 
 ### Parameters
 
- | Name          | Type    | Format     | Required | 
- | ----          | ----    | ------     | -------- | 
- | StartCustomer | String  | [0-9]{6}   | Y        | 
- | BusinessUnit  | String  | [0-9]{3}   | Y        | 
- | Operator      | String  | [A-Z]{3}   | Y        | 
- | ArrivalDate   | Date    | YYYY-MM-DD | Y        | 
- | ArrivalTime   | Time    | HHSS       | Y        | 
- | DepartDate    | Date    | YYYY-MM-DD | Y        | 
- | DepartTime    | Time    | HHSS       | Y        | 
- | NumberOfPax   | Integer |            | N        | 
- | filter        | String  | [A-Z]      | N§      | 
- | key           | String  |            | Y        | 
- | token         | String  | [0-9]{9}   | Y        | 
+ | Name          | Type    | Format     | Required |
+ | ----          | ----    | ------     | -------- |
+ | StartCustomer | String  | [0-9]{6}   | Y        |
+ | BusinessUnit  | String  | [0-9]{3}   | Y        |
+ | Operator      | String  | [A-Z]{3}   | Y        |
+ | ArrivalDate   | Date    | YYYY-MM-DD | Y        |
+ | ArrivalTime   | Time    | HHSS       | Y        |
+ | DepartDate    | Date    | YYYY-MM-DD | Y        |
+ | DepartTime    | Time    | HHSS       | Y        |
+ | NumberOfPax   | Integer |            | N        |
+ | filter        | String  | [A-Z]      | N§      |
+ | key           | String  |            | Y        |
+ | token         | String  | [0-9]{9}   | Y        |
 
 * Password only required for agent requests. If sending this you should make your availability requests over https.
 
@@ -63,7 +63,7 @@ GET
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA?StartCustomer=111111&BusinessUnit=222&Operator=BJT&ArrivalDate=2010-02-20&ArrivalTime=1200&DepartDate=2010-02-27&DepartTime=1400&NumberOfPax=2&key=mytestkey&token=000001234
+https://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA?StartCustomer=111111&BusinessUnit=222&Operator=BJT&ArrivalDate=2010-02-20&ArrivalTime=1200&DepartDate=2010-02-27&DepartTime=1400&NumberOfPax=2&key=mytestkey&token=000001234
 ```
 
 

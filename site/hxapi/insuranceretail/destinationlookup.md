@@ -12,18 +12,18 @@ GET
 
 ### Parameters
 
- | Name       | Format | Required | 
- | ----       | ------ | -------- | 
- | token      | String | N        | 
- | key        | String | Y        | 
- | query      | String | Y        | 
- | ABTANumber | String | N        | 
- | Password   | String | N        | 
+ | Name       | Format | Required |
+ | ----       | ------ | -------- |
+ | token      | String | N        |
+ | key        | String | Y        |
+ | query      | String | Y        |
+ | ABTANumber | String | N        |
+ | Password   | String | N        |
 
 ### Request (example 1)
 
 ```
-http://api.holidayextras.co.uk/v1/insurancecountries/search?token=000015778&key=mytestkey&ABTANumber=ABTA1&Password=PWORD&query=ire
+https://api.holidayextras.co.uk/v1/insurancecountries/search?token=000015778&key=mytestkey&ABTANumber=ABTA1&Password=PWORD&query=ire
 ```
 
 

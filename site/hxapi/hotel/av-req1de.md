@@ -11,7 +11,7 @@ This request is only available on the German system. It has not yet been impleme
 
 where foo is the location (airport) code
 
-e.g. http://api.holidayextras.co.uk/de/v1/hotel/FRA
+e.g. https://api.holidayextras.co.uk/de/v1/hotel/FRA
 
 ### Method
 
@@ -25,17 +25,17 @@ GET
 
 ### Parameters
 
- | Name               | Type    | Format      | Required | 
- | ----               | ----    | ------      | -------- | 
- | ABTANumber         | String  | [A-Z0-9]{5} | Y        | 
- | Password           | String  | [A-Z0-9]{5} | N*       | 
- | Initials           | String  | [A-Z]{3}    | Y        | 
- | ArrivalDate        | Date    | YYYY-MM-DD  | Y        | 
- | CarPickupDate      | Date    | YYYY-MM-DD  | Y        | 
- | Nights             | Int     | [0-9]       | Y        | 
- | ParkingPriorToStay | Boolean | [Y,N]       | Y        | 
- | key                | String  |             | Y        | 
- | token              | String  | [0-9]{9}    | Y        | 
+ | Name               | Type    | Format      | Required |
+ | ----               | ----    | ------      | -------- |
+ | ABTANumber         | String  | [A-Z0-9]{5} | Y        |
+ | Password           | String  | [A-Z0-9]{5} | N*       |
+ | Initials           | String  | [A-Z]{3}    | Y        |
+ | ArrivalDate        | Date    | YYYY-MM-DD  | Y        |
+ | CarPickupDate      | Date    | YYYY-MM-DD  | Y        |
+ | Nights             | Int     | [0-9]       | Y        |
+ | ParkingPriorToStay | Boolean | [Y,N]       | Y        |
+ | key                | String  |             | Y        |
+ | token              | String  | [0-9]{9}    | Y        |
 
 * Password required for Agents
 
@@ -44,7 +44,7 @@ GET
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/de/v1/hotel/FRA?ABTANumber=FOO&Password=FOO&Initials=BJT&key=foo&token=999999999&ArrivalDate=2010-01-15&CarPickupDate=2010-01-22&Nights=1&ParkingPriorToStay=N
+https://api.holidayextras.co.uk/de/v1/hotel/FRA?ABTANumber=FOO&Password=FOO&Initials=BJT&key=foo&token=999999999&ArrivalDate=2010-01-15&CarPickupDate=2010-01-22&Nights=1&ParkingPriorToStay=N
 ```
 
 

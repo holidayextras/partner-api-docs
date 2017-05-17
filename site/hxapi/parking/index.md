@@ -9,13 +9,13 @@
 These are the parking requests.
 
 
- | Action                   | Endpoint                                                                            | Method | 
- | ------                   | --------                                                                            | ------ | 
- | Availability at airport  | [http://api.holidayextras.co.uk/v1/carpark/foo](av/airport)           | GET    | 
- | Availability at car park | [http://api.holidayextras.co.uk/v1/carpark/foo](av/carpark)           | GET    | 
- | Space count at car park  | [http://api.holidayextras.co.uk/v1/carparkspaces/foo](spaces/carpark) | GET    | 
- | Upgrades                 | [http://api.holidayextras.co.uk/v1/upgrade/foo](/hxapi/upgrade)                      | GET    | 
- | Make booking at car park | [https://api.holidayextras.co.uk/v1/carpark/foo](bkg)                 | POST   | 
+ | Action                   | Endpoint                                                                            | Method |
+ | ------                   | --------                                                                            | ------ |
+ | Availability at airport  | [https://api.holidayextras.co.uk/v1/carpark/foo](av/airport)           | GET    |
+ | Availability at car park | [https://api.holidayextras.co.uk/v1/carpark/foo](av/carpark)           | GET    |
+ | Space count at car park  | [https://api.holidayextras.co.uk/v1/carparkspaces/foo](spaces/carpark) | GET    |
+ | Upgrades                 | [https://api.holidayextras.co.uk/v1/upgrade/foo](/hxapi/upgrade)                      | GET    |
+ | Make booking at car park | [https://api.holidayextras.co.uk/v1/carpark/foo](bkg)                 | POST   |
 
 
 # Important notices
@@ -25,7 +25,7 @@ These are the parking requests.
 
 ## Merging product library data into availability response
 
-You can specify a comma-separated list of fields to pull back from the product library. This overcomes the need for partners to do multiple HTTP requests. Just specify a parameter named 'fields' and include the product library field names there. 
+You can specify a comma-separated list of fields to pull back from the product library. This overcomes the need for partners to do multiple HTTP requests. Just specify a parameter named 'fields' and include the product library field names there.
 ```
 eg...&fields=field_a,field_b,field_c
 ```
@@ -74,15 +74,15 @@ We have recently moved all our images into an internal image library. The paths 
 
 However for each of the products you will see a key called tripappimages - these are the best images to use.  There will be an array split by a ;
 
-e.g. http://api.holidayextras.co.uk/v1/product/LGW4.js?token=000015778&key=mytestkey&fields=tripappimages
+e.g. https://api.holidayextras.co.uk/v1/product/LGW4.js?token=000015778&key=mytestkey&fields=tripappimages
 
-You can specify the specific product library fields you need using this syntax and adding fields=x,y,z, etc. 
+You can specify the specific product library fields you need using this syntax and adding fields=x,y,z, etc.
 
 The domain you can source them to is //static4.holidayextras.com
 
 You would need to replace /imageLibrary/Images/ with /libraryimages
 
-e.g. /imageLibrary/Images/81818-LGW-maple-manor-North2.png 
+e.g. /imageLibrary/Images/81818-LGW-maple-manor-North2.png
 
 should be replaced with //static4.holidayextras.com/libraryimages/81818-LGW-maple-manor-North2.png
 
@@ -125,8 +125,8 @@ optional fields are:
 
 *  information on insurance <versicherung>
 
-Please always add our terms and conditions (refer to "make a booking at car park" section) 
-Example: 
+Please always add our terms and conditions (refer to "make a booking at car park" section)
+Example:
 Service provider: Holiday Extras GmbH | Aidenbachstr. 52 | 81379 München | Germany. Terms and conditions of Holiday Extras, available at http://www.holidayextras.de/images/en-hx/pdf/agb.pdf, apply.
- 
+
 

@@ -15,7 +15,7 @@
 
 Dort, wo foo der Location (Flughafen) Code ist
 
-z.B. http://api.holidayextras.co.uk/v1/carpark/LHR
+z.B. https://api.holidayextras.co.uk/v1/carpark/LHR
 
 
 ### Methode
@@ -32,15 +32,15 @@ GET
 
 ### Parameter
 
- | Name        | Type   | Format     | Required | 
- | ----        | ----   | ------     | -------- | 
- | system      | String | DE         | Y        | 
- | ArrivalDate | Date   | YYYY-MM-DD | Y        | 
- | ArrivalTime | Time   | HHSS       | Y        | 
- | DepartDate  | Date   | YYYY-MM-DD | Y        | 
- | DepartTime  | Time   | HHSS       | Y        | 
- | key         | String |            | Y        | 
- | token       | String | [0-9]{9}   | Y        | 
+ | Name        | Type   | Format     | Required |
+ | ----        | ----   | ------     | -------- |
+ | system      | String | DE         | Y        |
+ | ArrivalDate | Date   | YYYY-MM-DD | Y        |
+ | ArrivalTime | Time   | HHSS       | Y        |
+ | DepartDate  | Date   | YYYY-MM-DD | Y        |
+ | DepartTime  | Time   | HHSS       | Y        |
+ | key         | String |            | Y        |
+ | token       | String | [0-9]{9}   | Y        |
 
 
 
@@ -51,7 +51,7 @@ GET
 ### Anfrage
 
 ```html
-http://api.holidayextras.co.uk/v1/carpark/FRA?ArrivalDate=2009-05-20&ArrivalTime=1200&DepartDate=2009-05-27&DepartTime=1400&key=mytestkey&token=000001234&system=DE
+https://api.holidayextras.co.uk/v1/carpark/FRA?ArrivalDate=2009-05-20&ArrivalTime=1200&DepartDate=2009-05-27&DepartTime=1400&key=mytestkey&token=000001234&system=DE
 ```
 
 
@@ -257,7 +257,7 @@ Die Kreditkartengebühr IS wird auf den TotalPrice + den Cancellation Waiver (si
 Pseudo code
 ```
 x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
-if( x < CCardSurchargeMin) 
+if( x < CCardSurchargeMin)
   x = CCardSurchargeMin
 else if x > CCardSurchargeMax
   x = CCardSurchargeMax

@@ -14,13 +14,13 @@ GET
 
 ### Parameters
 
- | Name        | Format  | Required | 
- | ----        | ------  | -------- | 
- | ShowDate    | DDMMMYY | Y        | 
- | ArrivalDate | HHSS    | Y        | 
- | RoomCode    | X12     | Y        | 
- | key         |         | Y        | 
- | token       |         | Y        | 
+ | Name        | Format  | Required |
+ | ----        | ------  | -------- |
+ | ShowDate    | DDMMMYY | Y        |
+ | ArrivalDate | HHSS    | Y        |
+ | RoomCode    | X12     | Y        |
+ | key         |         | Y        |
+ | token       |         | Y        |
 
 
 
@@ -30,7 +30,7 @@ GET
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/sandbox/v1/theatrebreak/SHOLME?ShowDate=2008-05-08&ArrivalDate=2008-05-15&RoomCode[]=D20&key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/theatrebreak/SHOLME?ShowDate=2008-05-08&ArrivalDate=2008-05-15&RoomCode[]=D20&key=mytestkey
 ```
 
 

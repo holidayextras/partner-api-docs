@@ -21,16 +21,16 @@ GET
 
 ## Parameter
 
- | Name | Data Type | Required | 
- | ---- | --------- | -------- | 
- | key  | String    | Y        | 
+ | Name | Data Type | Required |
+ | ---- | --------- | -------- |
+ | key  | String    | Y        |
 
 
 
 ## Anfrage
 
 ```
-http://api.holidayextras.co.uk/api/v1/usertoken?key=mytestkey
+https://api.holidayextras.co.uk/api/v1/usertoken?key=mytestkey
 ```
 
 

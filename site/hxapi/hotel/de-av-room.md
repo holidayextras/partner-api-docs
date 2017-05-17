@@ -10,7 +10,7 @@
 
 where foo is the specific hotel code
 
-e.g. http://api.holidayextras.co.uk/v1/de-start/hotel/FRAAST
+e.g. https://api.holidayextras.co.uk/v1/de-start/hotel/FRAAST
 
 ### Method
 
@@ -24,22 +24,22 @@ GET
 
 ### Parameters
 
- | Name          | Type   | Format      | Required | 
- | ----          | ----   | ------      | -------- | 
- | StartCustomer | String | [0-9]{6}    | Y        | 
- | BusinessUnit  | String | [0-9]{3}    | Y        | 
- | Operator      | String | [A-Z]{3}    | Y        | 
- | ArrivalDate   | Date   | YYYY-MM-DD  | Y        | 
- | ParkingDays   | Int    | [0,8,15,22] | Y        | 
- | key           | String |             | Y        | 
- | token         | String | [0-9]{9}    | Y        | 
+ | Name          | Type   | Format      | Required |
+ | ----          | ----   | ------      | -------- |
+ | StartCustomer | String | [0-9]{6}    | Y        |
+ | BusinessUnit  | String | [0-9]{3}    | Y        |
+ | Operator      | String | [A-Z]{3}    | Y        |
+ | ArrivalDate   | Date   | YYYY-MM-DD  | Y        |
+ | ParkingDays   | Int    | [0,8,15,22] | Y        |
+ | key           | String |             | Y        |
+ | token         | String | [0-9]{9}    | Y        |
 
 
 
 
 #### RoomType codes
 
-In the response to this request, the RoomType values change to the variety used for actual bookings. 
+In the response to this request, the RoomType values change to the variety used for actual bookings.
 Permissible room types are:
 
 
@@ -76,7 +76,7 @@ This will normally contain an integer, except for cases where the room is only a
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/de-start/sandbox/v1/hotel/FRAAST?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=foo&ArrivalDate=15Mar10&token=123456789&ParkingDays=8
+https://api.holidayextras.co.uk/de-start/sandbox/v1/hotel/FRAAST?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=foo&ArrivalDate=15Mar10&token=123456789&ParkingDays=8
 ```
 
 

@@ -16,9 +16,9 @@ GET
 
 ## Parameter
 
- | Name | Data Type | Required | 
- | ---- | --------- | -------- | 
- | key  | Number    | Y        | 
+ | Name | Data Type | Required |
+ | ---- | --------- | -------- |
+ | key  | Number    | Y        |
 
 
 
@@ -26,7 +26,7 @@ GET
 ## Anfrage
 
 ```
-http://api.holidayextras.co.uk/sandbox/v1/location?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/location?key=mytestkey
 ```
 
 

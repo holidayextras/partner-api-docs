@@ -21,16 +21,16 @@ GET
 
 ## Parameters
 
- | Name | Data Type | Required | 
- | ---- | --------- | -------- | 
- | key  | String    | Y        | 
+ | Name | Data Type | Required |
+ | ---- | --------- | -------- |
+ | key  | String    | Y        |
 
 
 
 ## Request
 
 ```
-http://api.holidayextras.co.uk/sandbox/v1/usertoken?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/usertoken?key=mytestkey
 ```
 
 

@@ -19,15 +19,15 @@ GET
 
 ## Parameters
 
- | Name         | Data Type    | Format     | Required                      | 
- | ----         | ---------    | ------     | --------                      | 
- | key          | Alphanumeric |            | Y                             | 
- | token        | Integer      | [0-9]{9}   | Y                             | 
- | Product code | Alphanumeric | [A-Z,0-9]+ | Y                             | 
- | AdultCount   | Integer      |            | Y                             | 
- | ArrivalDate  | Date         |            | Y                             | 
- | DepartDate   | Date         |            | N                             | 
- | RoomCode[]   | Array        |            | Only if searching for a hotel | 
+ | Name         | Data Type    | Format     | Required                      |
+ | ----         | ---------    | ------     | --------                      |
+ | key          | Alphanumeric |            | Y                             |
+ | token        | Integer      | [0-9]{9}   | Y                             |
+ | Product code | Alphanumeric | [A-Z,0-9]+ | Y                             |
+ | AdultCount   | Integer      |            | Y                             |
+ | ArrivalDate  | Date         |            | Y                             |
+ | DepartDate   | Date         |            | N                             |
+ | RoomCode[]   | Array        |            | Only if searching for a hotel |
 
 
 
@@ -43,11 +43,11 @@ The file extension (js or xml) is also required.
 
 Get add-ons available for Gatwick Hilton:
 
-''http://api.holidayextras.co.uk/upgrade/LGWHIL.xml?AdultsCount=2&ArrivalDate=01/09/10&DepartDate=10/09/10&key=foo&token=123456789''
+''https://api.holidayextras.co.uk/upgrade/LGWHIL.xml?AdultsCount=2&ArrivalDate=01/09/10&DepartDate=10/09/10&key=foo&token=123456789''
 
 Or Get add-ons available for Luton Airparks
 
-''http://api.holidayextras.co.uk/upgrade/LTN2.xml?AdultsCount=2&ArrivalDate=01/09/16&DepartDate=10/09/16&key=foo&token=123456789''
+''https://api.holidayextras.co.uk/upgrade/LTN2.xml?AdultsCount=2&ArrivalDate=01/09/16&DepartDate=10/09/16&key=foo&token=123456789''
 
 
 ### Reply
@@ -91,7 +91,7 @@ Or Get add-ons available for Luton Airparks
     <Date>2010-09-01</Date>
   </Supplement>
 
-[...]  
+[...]
 
   <API_Header>
     <Request>
@@ -123,21 +123,21 @@ Or Get add-ons available for Luton Airparks
   </Supplement>
 ```
 
- | Name              | Possible Values                                                                                                                                | Notes                                                                                                                                                                                                                                                       | 
- | ----              | ---------------                                                                                                                                | -----                                                                                                                                                                                                                                                       | 
- | Code              |                                                                                                                                                | Product code for this addon                                                                                                                                                                                                                                 | 
- | Name              |                                                                                                                                                |                                                                                                                                                                                                                                                             | 
- | description       |                                                                                                                                                |                                                                                                                                                                                                                                                             | 
- | Per               | P,B,R                                                                                                                                          | Sale rule for addon (P = Per Person, B = Per Booking, R = Per Room)                                                                                                                                                                                         | 
- | Price             |                                                                                                                                                | Returned if addon is Per B or R - price per addon                                                                                                                                                                                                           | 
- | AdPrice           |                                                                                                                                                | Optionally returned if addon is per P - price per adult                                                                                                                                                                                                     | 
- | ChPrice           |                                                                                                                                                | Optionally returned if addon is per P - price per child                                                                                                                                                                                                     | 
- | only_for_adults   |                                                                                                                                                | If 1, addon is for adults only                                                                                                                                                                                                                              | 
- | only_for_children |                                                                                                                                                | If 1, addon is for children only                                                                                                                                                                                                                            | 
- | Date              |                                                                                                                                                | Date for addon - for example on a hotel booking, a dinner will be on the same date as the hotel stay, a breakfast or a lounge will be on the day after                                                                                                      | 
- | number_of_days    |                                                                                                                                                | Applies to insurance addon - maximum trip length. If you pass in both ArrivalDate and DepartDate, the most appropriate option will be returned automatically; if you don't you will get multiple insurance options with different 'number_of_days' settings | 
- | supplement_type   | Meal,Luxury,Lounge,Insurance,Quick Check-in,Charity Donation (to come: Transport, Transfer, Text Services, Currency Card, Postal Confirmation) | Type of addon, to help with grouping. "Luxury" covers options like bottle of champagne in room                                                                                                                                                              | 
- | Canx              | Y,N                                                                                                                                            | Is addon removeable/cancellable once booked                                                                                                                                                                                                                 | 
+ | Name              | Possible Values                                                                                                                                | Notes                                                                                                                                                                                                                                                       |
+ | ----              | ---------------                                                                                                                                | -----                                                                                                                                                                                                                                                       |
+ | Code              |                                                                                                                                                | Product code for this addon                                                                                                                                                                                                                                 |
+ | Name              |                                                                                                                                                |                                                                                                                                                                                                                                                             |
+ | description       |                                                                                                                                                |                                                                                                                                                                                                                                                             |
+ | Per               | P,B,R                                                                                                                                          | Sale rule for addon (P = Per Person, B = Per Booking, R = Per Room)                                                                                                                                                                                         |
+ | Price             |                                                                                                                                                | Returned if addon is Per B or R - price per addon                                                                                                                                                                                                           |
+ | AdPrice           |                                                                                                                                                | Optionally returned if addon is per P - price per adult                                                                                                                                                                                                     |
+ | ChPrice           |                                                                                                                                                | Optionally returned if addon is per P - price per child                                                                                                                                                                                                     |
+ | only_for_adults   |                                                                                                                                                | If 1, addon is for adults only                                                                                                                                                                                                                              |
+ | only_for_children |                                                                                                                                                | If 1, addon is for children only                                                                                                                                                                                                                            |
+ | Date              |                                                                                                                                                | Date for addon - for example on a hotel booking, a dinner will be on the same date as the hotel stay, a breakfast or a lounge will be on the day after                                                                                                      |
+ | number_of_days    |                                                                                                                                                | Applies to insurance addon - maximum trip length. If you pass in both ArrivalDate and DepartDate, the most appropriate option will be returned automatically; if you don't you will get multiple insurance options with different 'number_of_days' settings |
+ | supplement_type   | Meal,Luxury,Lounge,Insurance,Quick Check-in,Charity Donation (to come: Transport, Transfer, Text Services, Currency Card, Postal Confirmation) | Type of addon, to help with grouping. "Luxury" covers options like bottle of champagne in room                                                                                                                                                              |
+ | Canx              | Y,N                                                                                                                                            | Is addon removeable/cancellable once booked                                                                                                                                                                                                                 |
 
 ### Pricing
 

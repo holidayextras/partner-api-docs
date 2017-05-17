@@ -8,11 +8,11 @@
 
 where foo is the location (airport) code
 
-e.g. http://api.holidayextras.co.uk/v1/hotel/LHR
+e.g. https://api.holidayextras.co.uk/v1/hotel/LHR
 
 or the hotel code
 
-e.g. http://api.holidayextras.co.uk/v1/hotel/LHRHIL
+e.g. https://api.holidayextras.co.uk/v1/hotel/LHRHIL
 
 ### Method
 
@@ -20,28 +20,28 @@ GET
 
 ### Parameters
 
- | Name           | Type    | Format           | Required | Notes                                                                                                                                       | 
- | ----           | ----    | ------           | -------- | -----                                                                                                                                       | 
- | key            | String  |                  | Y        |                                                                                                                                             | 
- | token          | String  | [0-9]{9}         | Y        |                                                                                                                                             | 
- | ABTANumber     | String  | [A-Z0-9]{5}      | Y        |                                                                                                                                             | 
- | Password       | String  | [A-Z0-9]{5}      | N        | Password required for Agents                                                                                                                | 
- | Initials       | String  | [A-Z]{3}         | Y        |                                                                                                                                             | 
- | ArrivalDate    | Date    | YYYY-MM-DD       | Y        |                                                                                                                                             | 
- | DepartDate     | Date    | YYYY-MM-DD       | N        |                                                                                                                                             | 
- | FlightDate     | Date    | YYYY-MM-DD       | N        |                                                                                                                                             | 
- | Nights         | Integer | [1,2,3]          | Y        |                                                                                                                                             | 
- | RoomType       | String  | [A-Z]{1}[0-9]{2} | Y        | See [RoomCodes](/hxapi/types/roomcode) for a list of valid codes                                                                             | 
- | SecondRoomType | String  | [A-Z]{1}[0-9]{2} | N        | See [RoomCodes](/hxapi/types/roomcode) for a list of valid codes                                                                             | 
- | ParkingDays    | Integer | [0,8,15]         | N        |                                                                                                                                             | 
- | System         | Char    | [A-Z]{3}         | N        | Send ABG if looking for products based in Europe and prices in Euros                                                                        | 
- | lang           | Char    | [A-Z]{2}         | N        | Send either en,de,nl,fr,es,pt to return any particular product information is respective language; used only when passing in a fields array | 
- | Supplements    | String  | [Y/N]            | N        | Only for searches by hotel code - pass Y to retrieve a list of possible [upgrades](/hxapi/upgrade)                                  | 
+ | Name           | Type    | Format           | Required | Notes                                                                                                                                       |
+ | ----           | ----    | ------           | -------- | -----                                                                                                                                       |
+ | key            | String  |                  | Y        |                                                                                                                                             |
+ | token          | String  | [0-9]{9}         | Y        |                                                                                                                                             |
+ | ABTANumber     | String  | [A-Z0-9]{5}      | Y        |                                                                                                                                             |
+ | Password       | String  | [A-Z0-9]{5}      | N        | Password required for Agents                                                                                                                |
+ | Initials       | String  | [A-Z]{3}         | Y        |                                                                                                                                             |
+ | ArrivalDate    | Date    | YYYY-MM-DD       | Y        |                                                                                                                                             |
+ | DepartDate     | Date    | YYYY-MM-DD       | N        |                                                                                                                                             |
+ | FlightDate     | Date    | YYYY-MM-DD       | N        |                                                                                                                                             |
+ | Nights         | Integer | [1,2,3]          | Y        |                                                                                                                                             |
+ | RoomType       | String  | [A-Z]{1}[0-9]{2} | Y        | See [RoomCodes](/hxapi/types/roomcode) for a list of valid codes                                                                             |
+ | SecondRoomType | String  | [A-Z]{1}[0-9]{2} | N        | See [RoomCodes](/hxapi/types/roomcode) for a list of valid codes                                                                             |
+ | ParkingDays    | Integer | [0,8,15]         | N        |                                                                                                                                             |
+ | System         | Char    | [A-Z]{3}         | N        | Send ABG if looking for products based in Europe and prices in Euros                                                                        |
+ | lang           | Char    | [A-Z]{2}         | N        | Send either en,de,nl,fr,es,pt to return any particular product information is respective language; used only when passing in a fields array |
+ | Supplements    | String  | [Y/N]            | N        | Only for searches by hotel code - pass Y to retrieve a list of possible [upgrades](/hxapi/upgrade)                                  |
 
 ### Request (one room)
 
 ```
-http://api.holidayextras.co.uk/hotel/LGW?ABTANumber=FOO&Initials=BJT&key=mytestkey&token=999999999&ArrivalDate=2011-10-15&Nights=1&ParkingDays=8&RoomType=T20
+https://api.holidayextras.co.uk/hotel/LGW?ABTANumber=FOO&Initials=BJT&key=mytestkey&token=999999999&ArrivalDate=2011-10-15&Nights=1&ParkingDays=8&RoomType=T20
 ```
 
 Please use system=ABG to request European products
@@ -134,7 +134,7 @@ Please use system=ABG to request European products
 only for UK
 
 ```html
-http://api.holidayextras.co.uk/hotel/LGW?ABTANumber=FOO&Initials=BJT&key=mytestkey&token=999999999&ArrivalDate=2011-10-15&Nights=1&ParkingDays=8&RoomType=T20&SecondRoomType=D20
+https://api.holidayextras.co.uk/hotel/LGW?ABTANumber=FOO&Initials=BJT&key=mytestkey&token=999999999&ArrivalDate=2011-10-15&Nights=1&ParkingDays=8&RoomType=T20&SecondRoomType=D20
 ```
 
 ### Reply (two rooms)
@@ -305,7 +305,7 @@ The credit card surcharge IS applied to the TotalPrice + the Cancellation Waiver
 Pseudo code
 ```
 x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
-if( x < CCardSurchargeMin) 
+if( x < CCardSurchargeMin)
   x = CCardSurchargeMin
 else if x > CCardSurchargeMax
   x = CCardSurchargeMax

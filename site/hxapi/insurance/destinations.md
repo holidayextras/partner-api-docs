@@ -19,10 +19,10 @@ GET
 
 ### Parameters
 
- | Name  | Format | Required | 
- | ----  | ------ | -------- | 
- | token | String | N        | 
- | key   | String | Y        | 
+ | Name  | Format | Required |
+ | ----  | ------ | -------- |
+ | token | String | N        |
+ | key   | String | Y        |
 
 
 
@@ -30,7 +30,7 @@ GET
 ### Request (example 1)
 
 ```
-http://api.holidayextras.co.uk/v1/insurancepolicy?token=000015778&key=mytestkey
+https://api.holidayextras.co.uk/v1/insurancepolicy?token=000015778&key=mytestkey
 ```
 
 

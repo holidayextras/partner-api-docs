@@ -8,20 +8,20 @@
 
 These are the hotel with parking requests. If available, the options returned are for 0, 8 and 15 days parking. If the customer requires room only, please choose the zero days parking option. There is no specific hotel-only request.
 
- | Action                                     | Endpoint                                                                         | Method | 
- | ------                                     | --------                                                                         | ------ | 
- | UK and Europe - Availability at hotel      | [http://api.holidayextras.co.uk/v1/sandbox/hotel/foo](av)            | GET    | 
- | UK ONLY - Upgrades at hotel                | [http://api.holidayextras.co.uk/v1/sandbox/upgrade/foo](/hxapi/upgrade)           | GET    | 
- | UK and Europe - Make booking at hotel      | [http://api.holidayextras.co.uk/v1/sandbox/hotel/foo](bkg)           | POST   | 
- | DE ZNT linked - Availability at hotel      | [http://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](de-av)      | GET    | 
- | DE ZNT linked - Room availability at hotel | [http://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](de-av-room) | GET    | 
- | DE ZNT linked - Make booking at hotel      | [http://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](de-bkg)     | POST   | 
+ | Action                                     | Endpoint                                                                         | Method |
+ | ------                                     | --------                                                                         | ------ |
+ | UK and Europe - Availability at hotel      | [https://api.holidayextras.co.uk/v1/sandbox/hotel/foo](av)            | GET    |
+ | UK ONLY - Upgrades at hotel                | [https://api.holidayextras.co.uk/v1/sandbox/upgrade/foo](/hxapi/upgrade)           | GET    |
+ | UK and Europe - Make booking at hotel      | [https://api.holidayextras.co.uk/v1/sandbox/hotel/foo](bkg)           | POST   |
+ | DE ZNT linked - Availability at hotel      | [https://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](de-av)      | GET    |
+ | DE ZNT linked - Room availability at hotel | [https://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](de-av-room) | GET    |
+ | DE ZNT linked - Make booking at hotel      | [https://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](de-bkg)     | POST   |
 
 # Important Notices
 
 ## Merging product library data into availability response
 
-You can specify a comma-separated list of fields to pull back from the product library. This overcomes the need for partners to do multiple HTTP requests, one for every hotel returned. Just specify a parameter named 'fields' and include the product library field names there. 
+You can specify a comma-separated list of fields to pull back from the product library. This overcomes the need for partners to do multiple HTTP requests, one for every hotel returned. Just specify a parameter named 'fields' and include the product library field names there.
 ```
 eg...&fields=field_a,field_b,field_c
 ```
@@ -90,8 +90,8 @@ Relevant keys from the php API are (besides the booking specifics like date, nam
 
 *  weitere_informationen (additional information such as city tax)
 
-http://api.holidayextras.co.uk/v1/product/AMSDOR?key=HXAPI&lang=nl&fields=name,adresse,latitude,longitude,telefon,anfahrt,transfer,parken,fruehstuecksinformationen,zimmerausstattung,kinderangebot,anreise,weitere_informationen,barrierefreier_zugang,haustiere
+https://api.holidayextras.co.uk/v1/product/AMSDOR?key=HXAPI&lang=nl&fields=name,adresse,latitude,longitude,telefon,anfahrt,transfer,parken,fruehstuecksinformationen,zimmerausstattung,kinderangebot,anreise,weitere_informationen,barrierefreier_zugang,haustiere
 
-Please always add our terms and conditions (please also refer to “make a booking at car park” section) 
+Please always add our terms and conditions (please also refer to “make a booking at car park” section)
 
 Example: Service provider: Holiday Extras GmbH | Aidenbachstr. 52 | 81379 München | Germany. Terms and conditions of Holiday Extras, available at http://www.holidayextras.de/images/de-hx/pdf/agb.pdf, apply.

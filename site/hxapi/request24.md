@@ -19,52 +19,52 @@ POST
 
 ### Parameters
 
- | Name           | Data Type | Format     | Required | 
- | ----           | --------- | ------     | -------- | 
- | StartCustomer  | String    | [0-9]{6}   | Y        | 
- | BusinessUnit   | String    | [0-9]{3}   | Y        | 
- | Operator       | String    | [A-Z]{3}   | Y        | 
- | BookingRef     | String    | N §{5}    | Y        | 
- | ReturnFlight   |           |            | N        | 
- | Remarks        | String    |            | N        | 
- | Registration   | String    | N §       | Y        | 
- | Pax            | Number    | N          | N        | 
- | CarMake        | String    | N §       | N        | 
- | CarModel       | String    | N §       | N        | 
- | CarColour      | String    | N §       | N        | 
- | OutFltNo       | String    | N §       | N        | 
- | InFltNo        | String    | N §       | N        | 
- | OutFltTime     | Number    | HHMM       | N        | 
- | InFltTime      | Number    | HHMM       | N        | 
- | OutTerminal    |           |            | N        | 
- | RetTerminal    |           |            | N        | 
- | ShipName       |           |            | N        | 
- | PierName       |           |            | N        | 
- | ChildSeat      | Boolean   |            | N        | 
- | AddlServices   | Boolean   |            | N        | 
- | MobileNum      |           |            | N        | 
- | CarDropoffTime | Number    | HHMM       | N        | 
- | CarPickupTime  | Number    | HHMM       | N        | 
- | Title          | String    | [A-Z]      | Y        | 
- | Initial        | String    | [A-Z]{1}   | Y        | 
- | Surname        | String    | [A-Z]      | Y        | 
- | Address        | Striing   | N §       | N        | 
- | Town           | String    | N §       | N        | 
- | County         | String    | N §       | N        | 
- | PostCode       | String    | N §       | N        | 
- | DayPhone       |           |            | N        | 
- | EvePhone       |           |            | N        | 
- | Confirmation   | Boolean   | [Y/N]      | Y        | 
- | DataProtection | Boolean   | true/false | N        | 
- | Email          | String    | N §       | N        | 
- | InvoiceReqd    | Boolean   | true/false | N        | 
- | TaxType        |           |            | N        | 
- | TaxLocation    |           |            | N        | 
- | lang           |           |            | N        | 
- | HouseNumber    |           |            | N        | 
- | Country        | String    | N §       | N        | 
- | Company        | String    | N §       | N        | 
- | CustomerVAT    |           |            | N        | 
+ | Name           | Data Type | Format     | Required |
+ | ----           | --------- | ------     | -------- |
+ | StartCustomer  | String    | [0-9]{6}   | Y        |
+ | BusinessUnit   | String    | [0-9]{3}   | Y        |
+ | Operator       | String    | [A-Z]{3}   | Y        |
+ | BookingRef     | String    | N §{5}    | Y        |
+ | ReturnFlight   |           |            | N        |
+ | Remarks        | String    |            | N        |
+ | Registration   | String    | N §       | Y        |
+ | Pax            | Number    | N          | N        |
+ | CarMake        | String    | N §       | N        |
+ | CarModel       | String    | N §       | N        |
+ | CarColour      | String    | N §       | N        |
+ | OutFltNo       | String    | N §       | N        |
+ | InFltNo        | String    | N §       | N        |
+ | OutFltTime     | Number    | HHMM       | N        |
+ | InFltTime      | Number    | HHMM       | N        |
+ | OutTerminal    |           |            | N        |
+ | RetTerminal    |           |            | N        |
+ | ShipName       |           |            | N        |
+ | PierName       |           |            | N        |
+ | ChildSeat      | Boolean   |            | N        |
+ | AddlServices   | Boolean   |            | N        |
+ | MobileNum      |           |            | N        |
+ | CarDropoffTime | Number    | HHMM       | N        |
+ | CarPickupTime  | Number    | HHMM       | N        |
+ | Title          | String    | [A-Z]      | Y        |
+ | Initial        | String    | [A-Z]{1}   | Y        |
+ | Surname        | String    | [A-Z]      | Y        |
+ | Address        | Striing   | N §       | N        |
+ | Town           | String    | N §       | N        |
+ | County         | String    | N §       | N        |
+ | PostCode       | String    | N §       | N        |
+ | DayPhone       |           |            | N        |
+ | EvePhone       |           |            | N        |
+ | Confirmation   | Boolean   | [Y/N]      | Y        |
+ | DataProtection | Boolean   | true/false | N        |
+ | Email          | String    | N §       | N        |
+ | InvoiceReqd    | Boolean   | true/false | N        |
+ | TaxType        |           |            | N        |
+ | TaxLocation    |           |            | N        |
+ | lang           |           |            | N        |
+ | HouseNumber    |           |            | N        |
+ | Country        | String    | N §       | N        |
+ | Company        | String    | N §       | N        |
+ | CustomerVAT    |           |            | N        |
 
 
 
@@ -73,7 +73,7 @@ POST
 
 znt -> api
 ```
-http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10524994/?BookingRef=FBKM6&BusinessUnit=001&CarDropoffTime=1200&CarPickupTime=1300&Confirmation=Y&County=testcountyaenderung&Email=test.email&Initial=T&Operator=BJT&Remarks=test&Surname=Testnameaenderung&Title=Herr&TraveltainmentCustomer=111111&holidayextras.com=&key=foo
+https://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10524994/?BookingRef=FBKM6&BusinessUnit=001&CarDropoffTime=1200&CarPickupTime=1300&Confirmation=Y&County=testcountyaenderung&Email=test.email&Initial=T&Operator=BJT&Remarks=test&Surname=Testnameaenderung&Title=Herr&TraveltainmentCustomer=111111&holidayextras.com=&key=foo
 ```
 
 api -> chauntry

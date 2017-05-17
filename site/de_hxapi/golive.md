@@ -38,7 +38,7 @@ Sobald die Tests in der Development-Umgebung abgeschlossen sind, müssen Sie uns
 
 Sie sollten Ihre Anwendung auf unser live System richten:
 
-http://api.holidayextras.co.uk/
+https://api.holidayextras.co.uk/
 
 Dann sollten Sie Ihre Anwendung testen und Testbuchungen vornehmen. Buchungen, die im live System mit Kredit-/Debitkarten gemacht wurden, könnnen inklusive jeglicher angefallenen Kreditkartengebühren storniert werden. Dazu schicken Sie bitte eine E-Mail mit Angaben über die Buchungsnummern und Name des Karteninhabers an <sales@holidayextras.com>.
 

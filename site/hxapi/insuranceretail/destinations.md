@@ -12,17 +12,17 @@ GET
 
 ### Parameters
 
- | Name       | Format | Required | 
- | ----       | ------ | -------- | 
- | token      | String | N        | 
- | key        | String | Y        | 
- | ABTANumber | String | Y        | 
- | Password   | String | Y        | 
+ | Name       | Format | Required |
+ | ----       | ------ | -------- |
+ | token      | String | N        |
+ | key        | String | Y        |
+ | ABTANumber | String | Y        |
+ | Password   | String | Y        |
 
 ### Request (example 1)
 
 ```
-http://api.holidayextras.co.uk/v1/insurancepolicy?token=000015778&key=mytestkey&ABTANumber=ABTA1&Password=PWORD
+https://api.holidayextras.co.uk/v1/insurancepolicy?token=000015778&key=mytestkey&ABTANumber=ABTA1&Password=PWORD
 ```
 
 
