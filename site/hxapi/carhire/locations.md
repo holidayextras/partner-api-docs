@@ -23,7 +23,7 @@ Query searches against name and/or country_name.
 
 Example request:
 ```html
-http://api.holidayextras.co.uk/v1/sandbox/carHire/locations.js?key=1&Query=London
+https://api.holidayextras.co.uk/v1/sandbox/carHire/locations.js?key=1&Query=London
 ```
 
 ## Response

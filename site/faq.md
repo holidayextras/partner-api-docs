@@ -6,7 +6,7 @@
 
 ## What is the development server address?
 
-http://api.holidayextras.co.uk/sandbox/
+https://api.holidayextras.co.uk/sandbox/
 
 Whenever writing new code or altering existing functionality, you must use the development server (sandbox). The data returned is not 'as live', but the format and structure are the same. If you do not, you will affect metrics such as conversion rates, and any bookings made will be live.
 
@@ -14,7 +14,7 @@ Whenever writing new code or altering existing functionality, you must use the d
 
 ## What is the live server address?
 
-http://api.holidayextras.co.uk/
+https://api.holidayextras.co.uk/
 
 
 
@@ -58,7 +58,7 @@ Intermediaries must calculate the credit card surcharge using the logic below.
 
 ```
 x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
-if( x < CCardSurchargeMin) 
+if( x < CCardSurchargeMin)
   x = CCardSurchargeMin
 else if x > CCardSurchargeMax
   x = CCardSurchargeMax
@@ -79,7 +79,7 @@ Markup already added.
 
 ## Do Holiday Extras need my IP address?
 
-No. We use a blacklist for unwelcome traffic, otherwise anyone can make requests to **HXAPI** as long as they use a valid key. 
+No. We use a blacklist for unwelcome traffic, otherwise anyone can make requests to **HXAPI** as long as they use a valid key.
 
 
 
@@ -94,11 +94,11 @@ Please do **not** cancel bookings by ringing our call centre or using the online
 
 Currency - Right now and for the near future there's only EUR and GBP. All European products, accessed through System=ABG are returned in EUR and all UK products in GBP.
 
-Number of Pax - is actually required, as the car parks need to plan their shuttle capacities. 
+Number of Pax - is actually required, as the car parks need to plan their shuttle capacities.
 
 Cancellation Process - Car parks can be cancelled free of charge until 24h before the beginning of the arrival day (basically two days before arrival). If cancelled between 24h before arrival day and arrival day, the charge is 50%. Later than that bookings can only be cancelled by our service team. Customers need to be aware of our terms and conditions, so it would be needed to show the link to our terms and conditions them during booking process (please see section booking parking, booking hotel). Easiest solution for after booking would be to offer the customer a form or/and phone number for cancellations or ammendmends. We do have our own inhouse call center, which handles requests quickly.
 
-QR code - is not needed for Germany/European products. 
+QR code - is not needed for Germany/European products.
 
 shuttle time = 24 hours calculation? - No, they are on a daily basis, but we need the shuttle times for a better planning on the parking space regarding shuttle.
 

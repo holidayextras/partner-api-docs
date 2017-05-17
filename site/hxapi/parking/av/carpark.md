@@ -10,7 +10,7 @@
 
 where foo is the carpark code
 
-e.g. http://api.holidayextras.co.uk/carpark/LHR2
+e.g. https://api.holidayextras.co.uk/carpark/LHR2
 
 ### Method
 
@@ -18,34 +18,34 @@ GET
 
 ### Parameters
 
- | Name        | Type      | Format      | Required | 
- | ----        | ----      | ------      | -------- | 
- | ABTANumber  | String    | [A-Z0-9]{5} | Y        | 
- | Initials    | String    | [A-Z]{3}    | N        | 
- | NumberOfPax | Integer   |             | Y        | 
- | ArrivalDate | Date      | YYYY-MM-DD  | Y        | 
- | ArrivalTime | Time 24hr | HHSS        | Y        | 
- | DepartDate  | Date      | YYYY-MM-DD  | Y        | 
- | DepartTime  | Time 24hr | HHSS        | Y        | 
- | top3        | Boolean   | [01]        | N        | 
- | key         | String    |             | Y        | 
- | token       | String    | [0-9]{9}    | Y        | 
+ | Name        | Type      | Format      | Required |
+ | ----        | ----      | ------      | -------- |
+ | ABTANumber  | String    | [A-Z0-9]{5} | Y        |
+ | Initials    | String    | [A-Z]{3}    | N        |
+ | NumberOfPax | Integer   |             | Y        |
+ | ArrivalDate | Date      | YYYY-MM-DD  | Y        |
+ | ArrivalTime | Time 24hr | HHSS        | Y        |
+ | DepartDate  | Date      | YYYY-MM-DD  | Y        |
+ | DepartTime  | Time 24hr | HHSS        | Y        |
+ | top3        | Boolean   | [01]        | N        |
+ | key         | String    |             | Y        |
+ | token       | String    | [0-9]{9}    | Y        |
 
 
 
 
-[Example form](http://api.holidayextras.co.uk/form/carpark3?key=mytestkey)
+[Example form](https://api.holidayextras.co.uk/form/carpark3?key=mytestkey)
 
 
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2?NumberOfPax=2&ArrivalDate=2008-09-20&ArrivalTime=1200&DepartDate=2008-09-20&DepartTime=1400&key=**HXAPIKEY**&token=000001234&ABTANumber=**HXAGENTCODE**
+https://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2?NumberOfPax=2&ArrivalDate=2008-09-20&ArrivalTime=1200&DepartDate=2008-09-20&DepartTime=1400&key=**HXAPIKEY**&token=000001234&ABTANumber=**HXAGENTCODE**
 ```
 
 #### top3
 
-If a value of 1 is passed in for the top3 param, then a maximum of three car parks will be returned, one on airport, one other park and ride, and one other meet and greet. 
+If a value of 1 is passed in for the top3 param, then a maximum of three car parks will be returned, one on airport, one other park and ride, and one other meet and greet.
 
 
 
@@ -120,7 +120,7 @@ The credit card surcharge IS applied to the TotalPrice + the Cancellation Waiver
 Pseudo code
 ```
 x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
-if( x < CCardSurchargeMin) 
+if( x < CCardSurchargeMin)
   x = CCardSurchargeMin
 else if x > CCardSurchargeMax
   x = CCardSurchargeMax
@@ -209,26 +209,26 @@ The order of the flags refer to these POST parameter fields respectively:
 <CarDetFlags>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</CarDetFlags>
 
 
- | Position | POST Parameter | character length | what is it?                                                                        | 
- | -------- | -------------- | ---------------- | -----------                                                                        | 
- | 1        | Registration   | VARCHAR(10)      | This is the car registration                                                       | 
- | 2        | CarMake        | VARCHAR(10)      | This is the make of the car e.g. Audi                                              | 
- | 3        | CarModel       | VARCHAR(10)      | This is the model of the car e.g. A6                                               | 
- | 4        | CarColour      | VARCHAR(10)      | This is the colour of the car e.g. White                                           | 
- | 5        | NumberOfPax    | INT(2)           | This is the number of passengers in the vehicle e.g. 5                             | 
- | 6        | CarDropoffTime | HHMM             | This is the Arrival Time when you drop the car off at the car park e.g 1000        | 
- | 7        | CarPickupTime  | HHMM             | This is the time on leaving the car park when you pick up your car e.g. 1600       | 
- | 8        | OutTerminal    | VARCHAR(2)       | This is the single letter or number representation of the terminal e.g N or S or 4 | 
- | 9        | OutFltNo       | VARCHAR(10)      | This is the flight number e.g. EZY123                                              | 
- | 10       | InFltNo        | VARCHAR(10)      | This is the flight number e.g. EZY124                                              | 
- | 11       | OutFltTime     | HHMM             | This is the Departure Time of the outbound flight e.g. 1200                        | 
- | 12       | InFltTime      | HHMM             | This is the Arrival Time of the inbound flight e.g. 1500                           | 
- | 13       | MobileNum      | VARCHAR(15)      | This is the mobile number of the customer                                          | 
- | 14       | ShipName       | VARCHAR(20)      | This is the name of the ship e.g. AIDA                                             | 
- | 15       | PierName       | VARCHAR(20)      | This is the pier name                                                              | 
- | 16       | ChildSeat      | Y/N              | Is a child car seat needed?                                                        | 
- | 17       | AddlServices   | VARCHAR(50)      | This is a remarks line                                                             | 
- | 18       | RetTerminal    | VARCHAR(2)       | This is the single letter or number representation of the terminal e.g N or S or 4 | 
+ | Position | POST Parameter | character length | what is it?                                                                        |
+ | -------- | -------------- | ---------------- | -----------                                                                        |
+ | 1        | Registration   | VARCHAR(10)      | This is the car registration                                                       |
+ | 2        | CarMake        | VARCHAR(10)      | This is the make of the car e.g. Audi                                              |
+ | 3        | CarModel       | VARCHAR(10)      | This is the model of the car e.g. A6                                               |
+ | 4        | CarColour      | VARCHAR(10)      | This is the colour of the car e.g. White                                           |
+ | 5        | NumberOfPax    | INT(2)           | This is the number of passengers in the vehicle e.g. 5                             |
+ | 6        | CarDropoffTime | HHMM             | This is the Arrival Time when you drop the car off at the car park e.g 1000        |
+ | 7        | CarPickupTime  | HHMM             | This is the time on leaving the car park when you pick up your car e.g. 1600       |
+ | 8        | OutTerminal    | VARCHAR(2)       | This is the single letter or number representation of the terminal e.g N or S or 4 |
+ | 9        | OutFltNo       | VARCHAR(10)      | This is the flight number e.g. EZY123                                              |
+ | 10       | InFltNo        | VARCHAR(10)      | This is the flight number e.g. EZY124                                              |
+ | 11       | OutFltTime     | HHMM             | This is the Departure Time of the outbound flight e.g. 1200                        |
+ | 12       | InFltTime      | HHMM             | This is the Arrival Time of the inbound flight e.g. 1500                           |
+ | 13       | MobileNum      | VARCHAR(15)      | This is the mobile number of the customer                                          |
+ | 14       | ShipName       | VARCHAR(20)      | This is the name of the ship e.g. AIDA                                             |
+ | 15       | PierName       | VARCHAR(20)      | This is the pier name                                                              |
+ | 16       | ChildSeat      | Y/N              | Is a child car seat needed?                                                        |
+ | 17       | AddlServices   | VARCHAR(50)      | This is a remarks line                                                             |
+ | 18       | RetTerminal    | VARCHAR(2)       | This is the single letter or number representation of the terminal e.g N or S or 4 |
 
 
 

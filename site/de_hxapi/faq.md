@@ -8,14 +8,14 @@
 
 ## Wie lautet die Adresse des Development Servers?
 
-http://api.holidayextras.co.uk/sandbox/
+https://api.holidayextras.co.uk/sandbox/
 
 
 
 
 ## Welches ist die Adresse des Live Servers?
 
-http://api.holidayextras.co.uk/
+https://api.holidayextras.co.uk/
 
 
 
@@ -49,7 +49,7 @@ Vermittler müssen den Kreditkartenaufschlag nach unten stehendem Prinzip kalkul
 
 ```
 x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
-if( x < CCardSurchargeMin) 
+if( x < CCardSurchargeMin)
   x = CCardSurchargeMin
 else if x > CCardSurchargeMax
   x = CCardSurchargeMax

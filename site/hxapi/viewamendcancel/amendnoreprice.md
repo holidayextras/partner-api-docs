@@ -22,7 +22,7 @@
 
 where foo is the booking reference
 
-e.g. http://api.holidayextras.co.uk/v1/booking/ABCDE
+e.g. https://api.holidayextras.co.uk/v1/booking/ABCDE
 
 This request is required if you need to update any personal details to a booking, but it will not amend a booking where it is likely to reprice.
 
@@ -34,35 +34,35 @@ Pass through any existing parameter that the Customer is not changing.
 
 ### Parameters
 
- | Name            | Type   | Format        | Required | Example                       | 
- | ----            | ----   | ------        | -------- | -------                       | 
- | ABTANumber      | String | [A-Z][0-9]    | Y        | foo - this is your agent code | 
- | key             | String | [A-Z][0-9]    | Y        | yourkey                       | 
- | token           | String | [A-Z][0-9]    | Y        | yourtoken                     | 
- | Registration    | String | [A-Z][0-9]    | Y        | AB12CDE                       | 
- | CarMake         | String | [A-Z][0-9]    | Y        | TEST MAKE                     | 
- | CarModel        | String | [A-Z][0-9]    | Y        | TEST MODEL                    | 
- | CarColour       | String | [A-Z][0-9]    | Y        | WHITE                         | 
- | OutFlight       | String | [A-Z][0-9]    | Y        | AB123                         | 
- | MobileNum       | Int    | [0-9]         | Y        | 0123456789                    | 
- | Destination     | String | [A-Z][0-9]    | Y        | SOMEWHERE                     | 
- | DepartTerminal  | String | [A-Z][0-9]    | Y        | N                             | 
- | ArrivalTerminal | String | [A-Z][0-9]    | Y        | 4                             | 
- | CarDropoffTime  | Int    | HHII[0-9]     | Y        | 1200                          | 
- | CarPickupTime   | Int    | HHII[0-9]     | Y        | 1500                          | 
- | Title           | String | [A-Z][0-9]    | Y        | MR                            | 
- | Initial         | String | [A-Z][0-9]    | Y        | T                             | 
- | Surname         | String | [A-Z][0-9]    | Y        | TEST                          | 
- | Address[]       | String | [A-Z][0-9]    | Y        | TEST STREET                   | 
- | Town            | String | [A-Z][0-9]    | Y        | TEST TOWN                     | 
- | County          | String | [A-Z][0-9]    | Y        | TEST COUNTY                   | 
- | PostCode        | String | [A-Z][0-9]    | Y        | AB12 3CD                      | 
- | Email           | String | [A-Z][0-9]    | Y        | test@test.com                 | 
- | DayPhone        | Int    | [A-Z][0-9]    | Y        | 0123456789                    | 
- | EvePhone        | Int    | [A-Z][0-9]    | Y        | 0123456789                    | 
- | CustRef         | String | [A-Z][0-9]    | Y        | TESTREF                       | 
- | Confirmation    | String | [A-Z][0-9]{1} | Y        | Y                             | 
- | System          | String | [A-Z]{3}      | Y*       | ABG                           | 
+ | Name            | Type   | Format        | Required | Example                       |
+ | ----            | ----   | ------        | -------- | -------                       |
+ | ABTANumber      | String | [A-Z][0-9]    | Y        | foo - this is your agent code |
+ | key             | String | [A-Z][0-9]    | Y        | yourkey                       |
+ | token           | String | [A-Z][0-9]    | Y        | yourtoken                     |
+ | Registration    | String | [A-Z][0-9]    | Y        | AB12CDE                       |
+ | CarMake         | String | [A-Z][0-9]    | Y        | TEST MAKE                     |
+ | CarModel        | String | [A-Z][0-9]    | Y        | TEST MODEL                    |
+ | CarColour       | String | [A-Z][0-9]    | Y        | WHITE                         |
+ | OutFlight       | String | [A-Z][0-9]    | Y        | AB123                         |
+ | MobileNum       | Int    | [0-9]         | Y        | 0123456789                    |
+ | Destination     | String | [A-Z][0-9]    | Y        | SOMEWHERE                     |
+ | DepartTerminal  | String | [A-Z][0-9]    | Y        | N                             |
+ | ArrivalTerminal | String | [A-Z][0-9]    | Y        | 4                             |
+ | CarDropoffTime  | Int    | HHII[0-9]     | Y        | 1200                          |
+ | CarPickupTime   | Int    | HHII[0-9]     | Y        | 1500                          |
+ | Title           | String | [A-Z][0-9]    | Y        | MR                            |
+ | Initial         | String | [A-Z][0-9]    | Y        | T                             |
+ | Surname         | String | [A-Z][0-9]    | Y        | TEST                          |
+ | Address[]       | String | [A-Z][0-9]    | Y        | TEST STREET                   |
+ | Town            | String | [A-Z][0-9]    | Y        | TEST TOWN                     |
+ | County          | String | [A-Z][0-9]    | Y        | TEST COUNTY                   |
+ | PostCode        | String | [A-Z][0-9]    | Y        | AB12 3CD                      |
+ | Email           | String | [A-Z][0-9]    | Y        | test@test.com                 |
+ | DayPhone        | Int    | [A-Z][0-9]    | Y        | 0123456789                    |
+ | EvePhone        | Int    | [A-Z][0-9]    | Y        | 0123456789                    |
+ | CustRef         | String | [A-Z][0-9]    | Y        | TESTREF                       |
+ | Confirmation    | String | [A-Z][0-9]{1} | Y        | Y                             |
+ | System          | String | [A-Z]{3}      | Y*       | ABG                           |
 
 
 *System is only required if you are using the European System and you will need to pass in ABG

@@ -22,20 +22,20 @@
 
 where foo is the booking reference
 
-e.g. http://api.holidayextras.co.uk/v1/booking/ABCDE
+e.g. https://api.holidayextras.co.uk/v1/booking/ABCDE
 
 You should typically do a view request before an amend. In this way you'll have the booking details to prepopulate fields for your user.
 
 
 
-####  At present, the API only allows access to amend a car parking booking. This means that you will not be able to amend a hotel, hotel with car parking or lounge booking using the API. 
+####  At present, the API only allows access to amend a car parking booking. This means that you will not be able to amend a hotel, hotel with car parking or lounge booking using the API.
 
 
 
 
 ## How to amend a booking
 
-Amending a booking is a two stage process, made to the same endpoint but with different parameters and via different methods. 
+Amending a booking is a two stage process, made to the same endpoint but with different parameters and via different methods.
 
 
 *  GET - Price check request - Optional. For changes which will affect the cost..
@@ -49,7 +49,7 @@ One way to implement this would be:
  3.  If no fields which change the price are altered, application posts the whole form.
  4.  If any fields which alter the price have been changed, your application does a GET and presents the new price, asking the customer to confirm they're happy with the new price.
  5.  If user confirms the new price, post the entire form including non-price sensitive changes.
-    
+
 
 You could present the user with their changes before sending the HTTP request, giving them a chance to confirm or return to editing their booking again.
 
@@ -83,16 +83,16 @@ This request does not affect the booking, no changes are confirmed at this point
 
 ### Parameters
 
- | Name         | Type   | Format           | Required | 
- | ----         | ----   | ------           | -------- | 
- | ArrivalDate  | Date   | YYYY-MM-DD       | Y        | 
- | ArrivalTime  | Time   | HHSS             | Y        | 
- | DepartDate   | Date   | YYYY-MM-DD       | Y        | 
- | DepartTime   | Time   | HHSS             | Y        | 
- | CarParkCode* | String | [A-Z]{3}[0-9]{1} | Y        | 
- | NumberOfPax* | Int    | [0-9]            | Y        | 
- | ABTANumber*  | String | [A-Z0-9]{5}      | Y        | 
- | key          | String |                  | Y        | 
+ | Name         | Type   | Format           | Required |
+ | ----         | ----   | ------           | -------- |
+ | ArrivalDate  | Date   | YYYY-MM-DD       | Y        |
+ | ArrivalTime  | Time   | HHSS             | Y        |
+ | DepartDate   | Date   | YYYY-MM-DD       | Y        |
+ | DepartTime   | Time   | HHSS             | Y        |
+ | CarParkCode* | String | [A-Z]{3}[0-9]{1} | Y        |
+ | NumberOfPax* | Int    | [0-9]            | Y        |
+ | ABTANumber*  | String | [A-Z0-9]{5}      | Y        |
+ | key          | String |                  | Y        |
 
 * Required field, cannot be altered.
 
@@ -102,7 +102,7 @@ This request does not affect the booking, no changes are confirmed at this point
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/sandbox/booking/A8LUM?ArrivalDate=2009-02-10&ArrivalTime=1800&DepartDate=2009-02-20&DepartTime=2000&CarParkCode=MAN3&NumberOfPax=2&ABTANumber=FOO&key=mytestkey
+https://api.holidayextras.co.uk/sandbox/booking/A8LUM?ArrivalDate=2009-02-10&ArrivalTime=1800&DepartDate=2009-02-20&DepartTime=2000&CarParkCode=MAN3&NumberOfPax=2&ABTANumber=FOO&key=mytestkey
 ```
 
 add System=ABG for European products
@@ -168,29 +168,29 @@ This request actually changes the details of the booking. It is a good idea to a
 
 ### Parameters
 
- | Name         | Type        | Format           | Required | 
- | ----         | ----        | ------           | -------- | 
- | ArrivalDate  | Date        | YYYY-MM-DD       | Y        | 
- | ArrivalTime  | Time        | HHSS             | Y        | 
- | DepartDate   | Date        | YYYY-MM-DD       | Y        | 
- | DepartTime   | Time        | HHSS             | Y        | 
- | CarParkCode  | String      | [A-Z]{3}[0-9]{1} | Y        | 
- | NumberOfPax  | Int         | [0-9]            | Y        | 
- | ABTANumber   | String      | [A-Z0-9]{5}      | Y        | 
- | Registration | String      |                  | N        | 
- | CarMake      | String      |                  | N        | 
- | CarModel     | String      |                  | N        | 
- | CarColour    | String      |                  | N        | 
- | Email        | Valid email |                  | Y        | 
- | Title        | String      |                  | Y        | 
- | Initial      | String      | [A-Z]{1}         | Y        | 
- | Surname      | String      |                  | Y        | 
- | Address[]    | String      |                  | Y        | 
- | Town         | String      |                  | Y        | 
- | County       | String      |                  | Y        | 
- | PostCode     | String      |                  | Y        | 
- | Confirmation | Char        | [Y,N]{1}         | Y*       | 
- | key          | String      |                  | Y        | 
+ | Name         | Type        | Format           | Required |
+ | ----         | ----        | ------           | -------- |
+ | ArrivalDate  | Date        | YYYY-MM-DD       | Y        |
+ | ArrivalTime  | Time        | HHSS             | Y        |
+ | DepartDate   | Date        | YYYY-MM-DD       | Y        |
+ | DepartTime   | Time        | HHSS             | Y        |
+ | CarParkCode  | String      | [A-Z]{3}[0-9]{1} | Y        |
+ | NumberOfPax  | Int         | [0-9]            | Y        |
+ | ABTANumber   | String      | [A-Z0-9]{5}      | Y        |
+ | Registration | String      |                  | N        |
+ | CarMake      | String      |                  | N        |
+ | CarModel     | String      |                  | N        |
+ | CarColour    | String      |                  | N        |
+ | Email        | Valid email |                  | Y        |
+ | Title        | String      |                  | Y        |
+ | Initial      | String      | [A-Z]{1}         | Y        |
+ | Surname      | String      |                  | Y        |
+ | Address[]    | String      |                  | Y        |
+ | Town         | String      |                  | Y        |
+ | County       | String      |                  | Y        |
+ | PostCode     | String      |                  | Y        |
+ | Confirmation | Char        | [Y,N]{1}         | Y*       |
+ | key          | String      |                  | Y        |
 
 * Determines whether customer will be sent a non-branded system email confirming changes. If you prefer, you can send 'N' and create your own email.
 

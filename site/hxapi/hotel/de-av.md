@@ -11,7 +11,7 @@
 
 where foo is the location (airport) code
 
-e.g. http://api.holidayextras.co.uk/v1/de-start/hotel/FRA
+e.g. https://api.holidayextras.co.uk/v1/de-start/hotel/FRA
 
 
 
@@ -43,17 +43,17 @@ GET
 
 ### Parameters
 
- | Name          | Type    | Format                  | Required | 
- | ----          | ----    | ------                  | -------- | 
- | StartCustomer | String  | [0-9]{6}                | Y        | 
- | BusinessUnit  | String  | [0-9]{3}                | Y        | 
- | Operator      | String  | [A-Z]{3}                | Y        | 
- | ArrivalDate   | Date    | YYYY-MM-DD              | Y        | 
- | Nights        | Integer | [1,2,3]                 | Y        | 
- | Filter        | String  | 'onrequest' or 'upsell' | N        | 
- | RoomType      | String  | see below               | N        | 
- | key           | String  |                         | Y        | 
- | token         | String  | [0-9]{9}                | Y        | 
+ | Name          | Type    | Format                  | Required |
+ | ----          | ----    | ------                  | -------- |
+ | StartCustomer | String  | [0-9]{6}                | Y        |
+ | BusinessUnit  | String  | [0-9]{3}                | Y        |
+ | Operator      | String  | [A-Z]{3}                | Y        |
+ | ArrivalDate   | Date    | YYYY-MM-DD              | Y        |
+ | Nights        | Integer | [1,2,3]                 | Y        |
+ | Filter        | String  | 'onrequest' or 'upsell' | N        |
+ | RoomType      | String  | see below               | N        |
+ | key           | String  |                         | Y        |
+ | token         | String  | [0-9]{9}                | Y        |
 
 
 
@@ -91,7 +91,7 @@ For availability requests the room types are:
 
 *  F40 : Family - 4 Adults 0 Children
 
-For bookings, you should send back the code returned in the reply. The format of room codes changes between searches for availability and making a booking. 
+For bookings, you should send back the code returned in the reply. The format of room codes changes between searches for availability and making a booking.
 
 
 
@@ -108,7 +108,7 @@ For bookings, you should send back the code returned in the reply. The format of
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/de-start/sandbox/v1/hotel/FRA?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=mytestkey&token=999999999&ArrivalDate=2010-10-15&Nights=1&RoomType=D20&key=foo
+https://api.holidayextras.co.uk/de-start/sandbox/v1/hotel/FRA?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=mytestkey&token=999999999&ArrivalDate=2010-10-15&Nights=1&RoomType=D20&key=foo
 ```
 
 

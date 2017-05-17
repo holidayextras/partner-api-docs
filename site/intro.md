@@ -2,7 +2,7 @@
 
 ---
 
-#  System requirements 
+#  System requirements
 
 The platform and programming language you use to interact with **HXAPI** is up to you. We expect the most common scenario to be a web application, written in PHP, Ruby or similar. However, you could equally use **HXAPI** in a mobile phone app or a kiosk.
 
@@ -15,11 +15,11 @@ The only requirements are the ability to
 
 # REST
 
-**HXAPI** accepts [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) requests. Every request is made over **HTTP** using the standard methods. For data retrieval, you always use the GET method. For making a booking (thus creating a new resource), the POST method must be used. 
+**HXAPI** accepts [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) requests. Every request is made over **HTTP** using the standard methods. For data retrieval, you always use the GET method. For making a booking (thus creating a new resource), the POST method must be used.
 
-http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2
+https://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2
 
-One URL can have different functions depending on the method used to access it. Taking the URL above as an example - As a GET it returns availability and pricing information for that car park for the given time period. When posted to with the correct parameters, it makes a booking at the car park, and returns a link to where you can view the booking. 
+One URL can have different functions depending on the method used to access it. Taking the URL above as an example - As a GET it returns availability and pricing information for that car park for the given time period. When posted to with the correct parameters, it makes a booking at the car park, and returns a link to where you can view the booking.
 
 
 
@@ -33,9 +33,9 @@ Whenever writing new code or altering existing functionality, you must use the d
 
 The process for moving from development to live is outlined [here](/golive).
 
-Development URL: http://api.holidayextras.co.uk/sandbox/
+Development URL: https://api.holidayextras.co.uk/sandbox/
 
-Live URL: http://api.holidayextras.co.uk/
+Live URL: https://api.holidayextras.co.uk/
 
 To access European products please add System=ABG.
 To access UK products by default System=ABC is taken.
@@ -47,23 +47,23 @@ The easiest way to get started with **HXAPI** is to make a few HTTP requests in 
 First a request for parking availability:
 
 ```
-curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
+curl "https://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
 ```
 
 Example for a European product:
 
 ```
-curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/dus?ArrivalDate=20OCT15&ArrivalTime=1200&DepartDate=27OCT15&DepartTime=1600&token=000015778&key=mytestkey&System=ABG"
+curl "https://api.holidayextras.co.uk/sandbox/v1/carpark/dus?ArrivalDate=20OCT15&ArrivalTime=1200&DepartDate=27OCT15&DepartTime=1600&token=000015778&key=mytestkey&System=ABG"
 ```
 
 Another example - this one queries the product library about one of the car parks returned.
 ```
-curl "http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?token=000015778&key=mytestkey"
+curl "https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?token=000015778&key=mytestkey"
 ```
 The examples so far have returned XML - this is the default format. You can also ask for the output as a javascript object by setting the file extension to '.js'.
 ```
-curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW.js?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
-curl "http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&key=mytestkey"
+curl "https://api.holidayextras.co.uk/sandbox/v1/carpark/LGW.js?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
+curl "https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&key=mytestkey"
 ```
 
 # Reply Formats
@@ -81,20 +81,20 @@ curl "http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=00001
 
 
 
-http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?key=mytestkey
 
 is the same as
 
-http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.xml?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.xml?key=mytestkey
 
 The same query, with results in javascript
 
-http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.js?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.js?key=mytestkey
 
 
 # Application Key
 
- 
+
 Every partner using **HXAPI** is issued with an **application key** for identification. All requests must provide this key in order to receive a successful response. Otherwise an error is returned.
 
 Your Account Manager  will provide you with your application key. If you have not yet been issued an application key, email us at <sales@holidayextras.com>.
@@ -144,4 +144,4 @@ Please do **not** cancel bookings by ringing our call centre or using the online
 
 # Specific documentation
 
-See [Holiday Extras API Endpoints](hxapi) for more detailed documentation on how to make requests to the API and what responses to expect. 
+See [Holiday Extras API Endpoints](hxapi) for more detailed documentation on how to make requests to the API and what responses to expect.

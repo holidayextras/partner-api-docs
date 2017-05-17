@@ -28,7 +28,7 @@ The following GET parameters are mandatory:
 
 Example request:
 ```html
-http://api.holidayextras.co.uk/v1/sandbox/carHire/products.js?key=1&From=06NOV16&ArrivalTime=1200&To=13NOV&DepartTime=1600&PickupLocation=FL965&DropoffLocation=FL965&DateOfBirth=1990-10-13
+https://api.holidayextras.co.uk/v1/sandbox/carHire/products.js?key=1&From=06NOV16&ArrivalTime=1200&To=13NOV&DepartTime=1600&PickupLocation=FL965&DropoffLocation=FL965&DateOfBirth=1990-10-13
 ```
 
 ## Response

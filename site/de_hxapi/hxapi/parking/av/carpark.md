@@ -15,7 +15,7 @@
 
 Dort, wo foo der Parkplatz Code ist
 
-z.B. http://api.holidayextras.co.uk/carpark/LHR2
+z.B. https://api.holidayextras.co.uk/carpark/LHR2
 
 
 ### Methode
@@ -33,16 +33,16 @@ GET
 
 ### Parameter
 
- | Name        | Type      | Format     | Required | 
- | ----        | ----      | ------     | -------- | 
- | system      | String    | DE         | Y        | 
- | NumberOfPax | Integer   |            | Y        | 
- | ArrivalDate | Date      | YYYY-MM-DD | Y        | 
- | ArrivalTime | Time 24hr | HHSS       | Y        | 
- | DepartDate  | Date      | YYYY-MM-DD | Y        | 
- | DepartTime  | Time 24hr | HHSS       | Y        | 
- | key         | String    |            | Y        | 
- | token       | String    | [0-9]{9}   | Y        | 
+ | Name        | Type      | Format     | Required |
+ | ----        | ----      | ------     | -------- |
+ | system      | String    | DE         | Y        |
+ | NumberOfPax | Integer   |            | Y        |
+ | ArrivalDate | Date      | YYYY-MM-DD | Y        |
+ | ArrivalTime | Time 24hr | HHSS       | Y        |
+ | DepartDate  | Date      | YYYY-MM-DD | Y        |
+ | DepartTime  | Time 24hr | HHSS       | Y        |
+ | key         | String    |            | Y        |
+ | token       | String    | [0-9]{9}   | Y        |
 
 
 
@@ -52,7 +52,7 @@ GET
 ### Anfrage
 
 ```html
-http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2?NumberOfPax=2&ArrivalDate=2008-09-20&ArrivalTime=1200&DepartDate=2008-09-20&DepartTime=1400&key=mytestkey&token=000001234
+https://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2?NumberOfPax=2&ArrivalDate=2008-09-20&ArrivalTime=1200&DepartDate=2008-09-20&DepartTime=1400&key=mytestkey&token=000001234
 ```
 
 
@@ -132,7 +132,7 @@ Die Kreditkartengebühr IS wird auf den TotalPrice + den Cancellation Waiver (si
 Pseudo code
 ```
 x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
-if( x < CCardSurchargeMin) 
+if( x < CCardSurchargeMin)
   x = CCardSurchargeMin
 else if x > CCardSurchargeMax
   x = CCardSurchargeMax

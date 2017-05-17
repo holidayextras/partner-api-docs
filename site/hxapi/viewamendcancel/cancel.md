@@ -10,7 +10,7 @@
 
 where foo is the booking reference
 
-e.g. http://api.holidayextras.co.uk/v1/booking/ABCDE
+e.g. https://api.holidayextras.co.uk/v1/booking/ABCDE
 
 Cancelling a booking is a two step process. You must first request the details of the booking via a GET, present them to the customer to confirm. You can then cancel the booking via POST.
 
@@ -27,10 +27,10 @@ GET
 
 ### Parameters
 
- | Name            | Type   | Format   | Required | 
- | ----            | ----   | ------   | -------- | 
- | CreditCardLast4 | Int    | [0-9]{4} | N*       | 
- | key             | String |          | Y        | 
+ | Name            | Type   | Format   | Required |
+ | ----            | ----   | ------   | -------- |
+ | CreditCardLast4 | Int    | [0-9]{4} | N*       |
+ | key             | String |          | Y        |
 
 
 
@@ -41,7 +41,7 @@ This is a general request, is is therefore not product specific. So a booking of
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/v1/booking/ABCDE?CreditCardLast4=1111&key=mytestkey
+https://api.holidayextras.co.uk/v1/booking/ABCDE?CreditCardLast4=1111&key=mytestkey
 ```
 
 
@@ -88,13 +88,13 @@ GET
 
 ### Parameters
 
- | Name          | Type   | Format                  | Required | 
- | ----          | ----   | ------                  | -------- | 
- | ABTANumber    | String |                         | Y        | 
- | Password      | String |                         | Y        | 
- | ConfirmCancel | String | N                       | Y        | 
- | CancelRef     | String | Initials or Voucher ref | Y        | 
- | key           | String |                         | Y        | 
+ | Name          | Type   | Format                  | Required |
+ | ----          | ----   | ------                  | -------- |
+ | ABTANumber    | String |                         | Y        |
+ | Password      | String |                         | Y        |
+ | ConfirmCancel | String | N                       | Y        |
+ | CancelRef     | String | Initials or Voucher ref | Y        |
+ | key           | String |                         | Y        |
 
 
 
@@ -105,13 +105,13 @@ GET
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/v1/booking/ABCDE?ABTANumber=youragentcode&Password=yourpassword&ConfirmCancel=N&CancelRef=voucher/initial&key=foo
+https://api.holidayextras.co.uk/v1/booking/ABCDE?ABTANumber=youragentcode&Password=yourpassword&ConfirmCancel=N&CancelRef=voucher/initial&key=foo
 ```
 
 For European products please add System=ABG
 
 ```html
-http://api.holidayextras.co.uk/v1/booking/ABCDE?ABTANumber=youragentcode&Password=yourpassword&ConfirmCancel=N&key=foo&System=ABG
+https://api.holidayextras.co.uk/v1/booking/ABCDE?ABTANumber=youragentcode&Password=yourpassword&ConfirmCancel=N&key=foo&System=ABG
 ```
 
 
@@ -161,11 +161,11 @@ Post
 ### Parameters
 
 
- | Name            | Type   | Format   | Required | 
- | ----            | ----   | ------   | -------- | 
- | CreditCardLast4 | Int    | [0-9]{4} | N*       | 
- | key             | String |          | Y        | 
- | ConfirmCancel   | String | Y/N      | Y        | 
+ | Name            | Type   | Format   | Required |
+ | ----            | ----   | ------   | -------- |
+ | CreditCardLast4 | Int    | [0-9]{4} | N*       |
+ | key             | String |          | Y        |
+ | ConfirmCancel   | String | Y/N      | Y        |
 
 
 
@@ -174,7 +174,7 @@ Post
 ### Request
 
 ```
-http://api.holidayextras.co.uk/booking/ABCDE
+https://api.holidayextras.co.uk/booking/ABCDE
 
 POST /booking/ABCDE HTTP/1.1
 Host: api.holidayextras.co.uk
@@ -229,13 +229,13 @@ Post
 ### Parameters
 
 
- | Name          | Type   | Format | Required | 
- | ----          | ----   | ------ | -------- | 
- | ABTANumber    | String |        | Y        | 
- | Password      | String |        | Y        | 
- | ConfirmCancel | String | Y/N    | Y        | 
- | CancelRef     | String |        | Y        | 
- | key           | String |        | Y        | 
+ | Name          | Type   | Format | Required |
+ | ----          | ----   | ------ | -------- |
+ | ABTANumber    | String |        | Y        |
+ | Password      | String |        | Y        |
+ | ConfirmCancel | String | Y/N    | Y        |
+ | CancelRef     | String |        | Y        |
+ | key           | String |        | Y        |
 
 
 
@@ -244,7 +244,7 @@ Post
 ### Request
 
 ```
-http://api.holidayextras.co.uk/booking/ABCDE
+https://api.holidayextras.co.uk/booking/ABCDE
 
 POST /booking/ABCDE HTTP/1.1
 Host: api.holidayextras.co.uk

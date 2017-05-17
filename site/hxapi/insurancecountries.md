@@ -8,7 +8,7 @@ This endpoint can be used to list all [regions](types/regioncode), list countrie
 
 ## /insurancecountries/
 
-List all valid regions. 
+List all valid regions.
 
 ### Method
 
@@ -16,16 +16,16 @@ GET
 
 ### Parameters
 
- | Name       | Type   | Format      | Required | Notes                                                                                   | 
- | ----       | ----   | ------      | -------- | -----                                                                                   | 
- | key        | String |             | Y        |                                                                                         | 
- | ABTANumber | String | [A-Z0-9]{5} | N        | Required for retail requests                                                            | 
- | Password   | String | [A-Z0-9]{5} | N        | Required for retail requests. If sending this you should make your requests over https. | 
+ | Name       | Type   | Format      | Required | Notes                                                                                   |
+ | ----       | ----   | ------      | -------- | -----                                                                                   |
+ | key        | String |             | Y        |                                                                                         |
+ | ABTANumber | String | [A-Z0-9]{5} | N        | Required for retail requests                                                            |
+ | Password   | String | [A-Z0-9]{5} | N        | Required for retail requests. If sending this you should make your requests over https. |
 
 ### Request
 
 ```
-http://api.holidayextras.co.uk/v1/insurancecountries?ABTANumber=foo&Password=yourpassword&key=mytestkey
+https://api.holidayextras.co.uk/v1/insurancecountries?ABTANumber=foo&Password=yourpassword&key=mytestkey
 ```
 
 ### Reply
@@ -69,16 +69,16 @@ GET
 
 ### Parameters
 
- | Name       | Type   | Format      | Required | Notes                                                                                   | 
- | ----       | ----   | ------      | -------- | -----                                                                                   | 
- | key        | String |             | Y        |                                                                                         | 
- | ABTANumber | String | [A-Z0-9]{5} | N        | Required for retail requests                                                            | 
- | Password   | String | [A-Z0-9]{5} | N        | Required for retail requests. If sending this you should make your requests over https. | 
+ | Name       | Type   | Format      | Required | Notes                                                                                   |
+ | ----       | ----   | ------      | -------- | -----                                                                                   |
+ | key        | String |             | Y        |                                                                                         |
+ | ABTANumber | String | [A-Z0-9]{5} | N        | Required for retail requests                                                            |
+ | Password   | String | [A-Z0-9]{5} | N        | Required for retail requests. If sending this you should make your requests over https. |
 
 ### Request
 
 ```
-http://api.holidayextras.co.uk/v1/insurancecountries/EUROPELOW?ABTANumber=foo&Password=yourpassword&key=mytestkey
+https://api.holidayextras.co.uk/v1/insurancecountries/EUROPELOW?ABTANumber=foo&Password=yourpassword&key=mytestkey
 ```
 
 ### Reply
@@ -131,18 +131,18 @@ GET
 
 ### Parameters
 
- | Name       | Type   | Format      | Required | Notes | 
- | ----       | ----   | ------      | -------- | ----- | 
- | key        | String |             | Y        |       | 
- | ABTANumber | String | [A-Z0-9]{5} | N        |       | 
- | Password   | String | [A-Z0-9]{5} | N        |       | 
- | query      | String |             | Y        |       | 
+ | Name       | Type   | Format      | Required | Notes |
+ | ----       | ----   | ------      | -------- | ----- |
+ | key        | String |             | Y        |       |
+ | ABTANumber | String | [A-Z0-9]{5} | N        |       |
+ | Password   | String | [A-Z0-9]{5} | N        |       |
+ | query      | String |             | Y        |       |
 
 
 ### Request
 
 ```
-http://api.holidayextras.co.uk/v1/insurancecountries/search?key=mytestkey&ABTANumber=foo&Password=yourpassword&query=ire
+https://api.holidayextras.co.uk/v1/insurancecountries/search?key=mytestkey&ABTANumber=foo&Password=yourpassword&query=ire
 ```
 
 

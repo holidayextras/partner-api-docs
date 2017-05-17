@@ -21,26 +21,26 @@ POST
 
 ### Parameters
 
- | Name          | Data Type | Format     | Required | 
- | ----          | --------- | ------     | -------- | 
- | StartCustomer | String    | [0-9]{6}   | Y        | 
- | BusinessUnit  | String    | [0-9]{3}   | Y        | 
- | Operator      | String    | [A-Z]{3}   | Y        | 
- | ArrivalDate   | Date      | YYYY-MM-DD | Y        | 
- | ArrivalTime   | Time      | HHMM       | Y        | 
- | DepartDate    | Date      | YYYY-MM-DD | Y        | 
- | DepartTime    | Time      | HHMM       | Y        | 
- | Registration  | String    |            | N §     | 
- | CarMake       | String    |            | N §     | 
- | CarModel      | String    |            | N §     | 
- | CarColour     | String    |            | N §     | 
- | Title         | String    |            | Y        | 
- | Initial       | String    | [A-Z]{1}   | Y        | 
- | Surname       | String    |            | Y        | 
- | NumberOfPax   | Number    |            | Y        | 
- | Remarks       | String    |            | N        | 
- | key           | String    |            | Y        | 
- | token         | String    | [0-9]{9}   | Y        | 
+ | Name          | Data Type | Format     | Required |
+ | ----          | --------- | ------     | -------- |
+ | StartCustomer | String    | [0-9]{6}   | Y        |
+ | BusinessUnit  | String    | [0-9]{3}   | Y        |
+ | Operator      | String    | [A-Z]{3}   | Y        |
+ | ArrivalDate   | Date      | YYYY-MM-DD | Y        |
+ | ArrivalTime   | Time      | HHMM       | Y        |
+ | DepartDate    | Date      | YYYY-MM-DD | Y        |
+ | DepartTime    | Time      | HHMM       | Y        |
+ | Registration  | String    |            | N §     |
+ | CarMake       | String    |            | N §     |
+ | CarModel      | String    |            | N §     |
+ | CarColour     | String    |            | N §     |
+ | Title         | String    |            | Y        |
+ | Initial       | String    | [A-Z]{1}   | Y        |
+ | Surname       | String    |            | Y        |
+ | NumberOfPax   | Number    |            | Y        |
+ | Remarks       | String    |            | N        |
+ | key           | String    |            | Y        |
+ | token         | String    | [0-9]{9}   | Y        |
 
 § The fields required by the carpark are returned in the availability request, in the `<RequestFlags>` element.
 
@@ -60,7 +60,7 @@ You will need to turn this into a POST (Firefox / UrlParams / Get -> Post) to ma
 
 znt -> api
 ```html
-http://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA8?StartCustomer=111111&ArrivalDate=2010-10-19&ArrivalTime=1200&DepartDate=2010-10-27&DepartTime=1400&Initial=T&Operator=BJT&NumberOfPax=2&BusinessUnit=222&Registration=CP54JOV&Surname=Thompson&Title=Mr&key=foo&token=123456789
+https://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA8?StartCustomer=111111&ArrivalDate=2010-10-19&ArrivalTime=1200&DepartDate=2010-10-27&DepartTime=1400&Initial=T&Operator=BJT&NumberOfPax=2&BusinessUnit=222&Registration=CP54JOV&Surname=Thompson&Title=Mr&key=foo&token=123456789
 ```
 
 

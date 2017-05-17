@@ -14,9 +14,9 @@ For customers in contact with Holiday Extras, Munich (Germany) please contact <h
 
 You should point your application at our live system:
 
-http://api.holidayextras.co.uk/
+https://api.holidayextras.co.uk/
 
-You will then want to test your application, and make test bookings. Bookings made on your own credit/debit cards on the live system can be cancelled including any credit card charges incurred. You should send an email to <sales@holidayextras.com> specifying the booking references and the card holder's name. 
+You will then want to test your application, and make test bookings. Bookings made on your own credit/debit cards on the live system can be cancelled including any credit card charges incurred. You should send an email to <sales@holidayextras.com> specifying the booking references and the card holder's name.
 
 If you cancel online via the Holiday Extras website or by telephoning our call centre, these charges ** will not be refunded**.
 
@@ -41,4 +41,4 @@ We will then make test bookings. Once our QA team are satisfied that all is work
 
 <sales@holidayextras.com>
 
-For customers in contact with Holiday Extras, Munich (Germany) please email <hxapi-contact@holidayextras.de> for the GO LIVE procedure. 
+For customers in contact with Holiday Extras, Munich (Germany) please email <hxapi-contact@holidayextras.de> for the GO LIVE procedure.

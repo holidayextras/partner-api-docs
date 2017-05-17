@@ -18,10 +18,10 @@ GET
 
 ## Parameters
 
- | Name  | Data Type | Required | 
- | ----  | --------- | -------- | 
- | key   | Number    | Y        | 
- | type* | Number    | N        | 
+ | Name  | Data Type | Required |
+ | ----  | --------- | -------- |
+ | key   | Number    | Y        |
+ | type* | Number    | N        |
 
 * type - if you only require locations for a specific product, specify the product type as follows:
 
@@ -41,7 +41,7 @@ For European products please select
 ## Request
 
 ```
-http://api.holidayextras.co.uk/sandbox/v1/location?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/location?key=mytestkey
 ```
 
 
@@ -90,7 +90,7 @@ One you have this information you can then get a list of all sites at this locat
 ## Request
 
 ```
-http://api.holidayextras.co.uk/sandbox/v1/product/ABZ?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/product/ABZ?key=mytestkey
 ```
 
 For hotels we also have an option to list all of the hotel product codes, listing the location, hotel name, address and star rating
@@ -101,20 +101,20 @@ For hotels we also have an option to list all of the hotel product codes, listin
 http://www.hxstats.co.uk/hotel-list.php
 ```
 
-For European products please find an example of a request for all available airports 
+For European products please find an example of a request for all available airports
 
 ```
-http://api.holidayextras.co.uk/v1/location?key=mytestkey&type=carpark&system=de&lang=de
+https://api.holidayextras.co.uk/v1/location?key=mytestkey&type=carpark&system=de&lang=de
 ```
 
-and in addition with specific information 
+and in addition with specific information
 
-Hotels  
+Hotels
 ```
-http://api.holidayextras.co.uk/sandbox/v1/product/FRA?key=mytestkey&fields=latitude,longitude,address&System=ABG&type=8
+https://api.holidayextras.co.uk/sandbox/v1/product/FRA?key=mytestkey&fields=latitude,longitude,address&System=ABG&type=8
 ```
 
-Parking 
+Parking
 ```
-http://api.holidayextras.co.uk/sandbox/v1/product/FRA?key=mytestkey&fields=latitude,longitude,address&System=ABG&type=10
+https://api.holidayextras.co.uk/sandbox/v1/product/FRA?key=mytestkey&fields=latitude,longitude,address&System=ABG&type=10
 ```

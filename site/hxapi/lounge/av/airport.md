@@ -9,7 +9,7 @@
 
 where foo is the airport code
 
-e.g. http://api.holidayextras.co.uk/v1/lounge/LHR
+e.g. https://api.holidayextras.co.uk/v1/lounge/LHR
 
 
 ### Method
@@ -22,17 +22,17 @@ GET
 
 ### Parameters
 
- | Name        | Type    | Format      | Required | 
- | ----        | ----    | ------      | -------- | 
- | ABTANumber  | String  | [A-Z0-9]{5} | Y        | 
- | Password    | String  | [A-Z0-9]{5} | N*       | 
- | Initials    | String  | [A-Z]{3}    | N        | 
- | ArrivalDate | Date    | YYYY-MM-DD  | Y        | 
- | ArrivalTime | Time    | HHII        | Y        | 
- | Adults      | Integer |             | Y        | 
- | Children    | Integer |             | N        | 
- | key         | String  |             | Y        | 
- | token       | String  | [0-9]{9}    | Y        | 
+ | Name        | Type    | Format      | Required |
+ | ----        | ----    | ------      | -------- |
+ | ABTANumber  | String  | [A-Z0-9]{5} | Y        |
+ | Password    | String  | [A-Z0-9]{5} | N*       |
+ | Initials    | String  | [A-Z]{3}    | N        |
+ | ArrivalDate | Date    | YYYY-MM-DD  | Y        |
+ | ArrivalTime | Time    | HHII        | Y        |
+ | Adults      | Integer |             | Y        |
+ | Children    | Integer |             | N        |
+ | key         | String  |             | Y        |
+ | token       | String  | [0-9]{9}    | Y        |
 
 *Password field only required for agents. If sending, requests should be made over https.
 II = Minutes
@@ -42,7 +42,7 @@ II = Minutes
 
 
 ```html
-http://api.holidayextras.co.uk/v1/lounge/LHR?ABTANumber=WEB1&ArrivalDate=2016-10-03&ArrivalTime=1200&Adults=2&Children=1&key=mytestkey&token=123456789
+https://api.holidayextras.co.uk/v1/lounge/LHR?ABTANumber=WEB1&ArrivalDate=2016-10-03&ArrivalTime=1200&Adults=2&Children=1&key=mytestkey&token=123456789
 ```
 
 

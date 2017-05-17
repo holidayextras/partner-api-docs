@@ -14,7 +14,7 @@
 where foo is the Start booking reference
 
 
-e.g. http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10051848
+e.g. https://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10051848
 
 
 
@@ -38,25 +38,25 @@ If PaymentOutstanding reaches a negative figure, something has gone wrong. Your 
 
 ### Parameters
 
- | Name          | Type   | Format   | Required | 
- | ----          | ----   | ------   | -------- | 
- | StartCustomer | String | [0-9]{6} | Y        | 
- | BusinessUnit  | String | [0-9]{3} | Y        | 
- | Operator      | String | [A-Z]{3} | Y        | 
- | StartDate     | Date   |          | N        | 
- | EndDate       | Date   |          | N*       | 
- | PartyName     | String |          | N        | 
- | Location      | String |          | N        | 
- | Product       | String |          | N        | 
- | key           | String |          | Y        | 
- | token         | String | [0-9]{9} | Y        | 
+ | Name          | Type   | Format   | Required |
+ | ----          | ----   | ------   | -------- |
+ | StartCustomer | String | [0-9]{6} | Y        |
+ | BusinessUnit  | String | [0-9]{3} | Y        |
+ | Operator      | String | [A-Z]{3} | Y        |
+ | StartDate     | Date   |          | N        |
+ | EndDate       | Date   |          | N*       |
+ | PartyName     | String |          | N        |
+ | Location      | String |          | N        |
+ | Product       | String |          | N        |
+ | key           | String |          | Y        |
+ | token         | String | [0-9]{9} | Y        |
 
 * EndDate parameter is required IF StartDate has a value.
 
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213905?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=mytestkey
+https://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213905?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=mytestkey
 ```
 
 
@@ -139,7 +139,7 @@ http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213905?StartCustome
 ### Request
 
 ```
-http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=mytestkey
+https://api.holidayextras.co.uk/de-start/v1/sandbox/booking/?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=mytestkey
 ```
 
 
@@ -216,21 +216,21 @@ http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/?StartCustomer=111111
 
 ZNT -> API
 ```
-http://api.holidayextras.co.uk/de-start/v1/sandbox/booking/?StartCustomer=111111&BusinessUnit=222&Operator=BJT&StartDate=01Jun09&EndDate=01Mar10&key=mytestkey
+https://api.holidayextras.co.uk/de-start/v1/sandbox/booking/?StartCustomer=111111&BusinessUnit=222&Operator=BJT&StartDate=01Jun09&EndDate=01Mar10&key=mytestkey
 ```
 
 API -> Chauntry
 ```xml
-<API_Request System="ABG" Version="1.0" Product="HotelWithParking" Customer="A" RequestCode="11" Session="111222333">                                                                                                  <Agent>                                                                         
-	<StartCustomer>111111</StartCustomer>                                           
-	<BusinessUnit>222</BusinessUnit>                                                
-	<Operator>JMB</Operator>                                                        
-</Agent>                                                                        
-<Itinerary>                                                                     
+<API_Request System="ABG" Version="1.0" Product="HotelWithParking" Customer="A" RequestCode="11" Session="111222333">                                                                                                  <Agent>
+	<StartCustomer>111111</StartCustomer>
+	<BusinessUnit>222</BusinessUnit>
+	<Operator>JMB</Operator>
+</Agent>
+<Itinerary>
 	<StartRef></StartRef>
         <StartDate>01JUN09</StartDate>
         <EndDate>01APR10</EndDate>
-</Itinerary>                                                                    
+</Itinerary>
 </API_Request>
 ```
 
@@ -303,7 +303,7 @@ This search will return up to 100 results, in the order of booking eg oldest fir
 
 znt -> api
 ```
-http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/?StartCustomer=111111&BusinessUnit=222&Operator=BJT&StartDate=23JUN09&EndDate=23MAR10&PartyName=TEST&Product=HotelWithParking&Location=DUS6&key=mytestkey
+https://api.holidayextras.co.uk/de-start/sandbox/v1/booking/?StartCustomer=111111&BusinessUnit=222&Operator=BJT&StartDate=23JUN09&EndDate=23MAR10&PartyName=TEST&Product=HotelWithParking&Location=DUS6&key=mytestkey
 ```
 
 api -> chauntry
@@ -315,7 +315,7 @@ api -> chauntry
 	<Operator>JMB</Operator>
 </Agent>
 <Itinerary>
-	<StartRef></StartRef>                                                           
+	<StartRef></StartRef>
 	<StartDate>23Dec09</StartDate>
 	<EndDate>23Mar10</EndDate>
 	<PartyName>Test</PartyName>

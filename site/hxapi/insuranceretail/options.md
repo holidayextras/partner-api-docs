@@ -14,19 +14,19 @@ GET
 
 ### Parameters
 
- | Name          | Format       | Required | Notes                                                    | 
- | ----          | ------       | -------- | -----                                                    | 
- | key           | String       | Y        |                                                          | 
- | ABTANumber    | String       | Y        | Required to correctly calculate and attribute commission | 
- | Password      | String       | Y        |                                                          | 
- | StartDate     | Date         | Y        | § PolicyStart                                           | 
- | EndDate       | Date         | Y        | § PolicyEnd                                             | 
- | destinationID | Number       | Y        | §                                                       | 
- | schemePrice   | Number       | Y        | § SchemePrice (if retail, you can decide your own)      | 
- | birthDate[]   | Date Array   | Y        | *                                                        | 
- | title[]       | String Array | Y        | *                                                        | 
- | firstName[]   | String Array | Y        | *                                                        | 
- | lastName[]    | String Array | Y        | *                                                        | 
+ | Name          | Format       | Required | Notes                                                    |
+ | ----          | ------       | -------- | -----                                                    |
+ | key           | String       | Y        |                                                          |
+ | ABTANumber    | String       | Y        | Required to correctly calculate and attribute commission |
+ | Password      | String       | Y        |                                                          |
+ | StartDate     | Date         | Y        | § PolicyStart                                           |
+ | EndDate       | Date         | Y        | § PolicyEnd                                             |
+ | destinationID | Number       | Y        | §                                                       |
+ | schemePrice   | Number       | Y        | § SchemePrice (if retail, you can decide your own)      |
+ | birthDate[]   | Date Array   | Y        | *                                                        |
+ | title[]       | String Array | Y        | *                                                        |
+ | firstName[]   | String Array | Y        | *                                                        |
+ | lastName[]    | String Array | Y        | *                                                        |
 
 * It's recommended to specify keys (eg birthDate[0], title[0] rather than just birthDate[]) to avoid any risk of mixing up passenger details
 
@@ -35,7 +35,7 @@ GET
 ### Request
 
 ```
-http://api.holidayextras.co.uk/v1/insurancepolicy/188?ABTANumber=FOO&Password=FOO&EndDate=2011-10-20&StartDate=2011-10-10&birthDate[0]=1945-05-05&birthDate[1]=1955-01-01&destinationID=13&firstName[0]=test&firstName[1]=test&key=foo&lastName[0]=tests&lastName[1]=test&schemePrice=12.00&title[0]=Mr&title[1]=Mrs
+https://api.holidayextras.co.uk/v1/insurancepolicy/188?ABTANumber=FOO&Password=FOO&EndDate=2011-10-20&StartDate=2011-10-10&birthDate[0]=1945-05-05&birthDate[1]=1955-01-01&destinationID=13&firstName[0]=test&firstName[1]=test&key=foo&lastName[0]=tests&lastName[1]=test&schemePrice=12.00&title[0]=Mr&title[1]=Mrs
 ```
 
 ### Reply

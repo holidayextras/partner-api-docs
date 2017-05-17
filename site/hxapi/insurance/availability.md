@@ -14,24 +14,24 @@ GET
 
 ### Parameters
 
- | Name       | Format | Required | 
- | ----       | ------ | -------- | 
- | token      | String | Y        | 
- | key        | String | Y        | 
- | birthDate  | Array  | Y*       | 
- | StartDate  | Date   | Y        | 
- | EndDate    | Date   | Y        | 
- | ABTANumber | String | N        | 
- | Password   | String | N        | 
+ | Name       | Format | Required |
+ | ----       | ------ | -------- |
+ | token      | String | Y        |
+ | key        | String | Y        |
+ | birthDate  | Array  | Y*       |
+ | StartDate  | Date   | Y        |
+ | EndDate    | Date   | Y        |
+ | ABTANumber | String | N        |
+ | Password   | String | N        |
 
-###  birthDate[] 
+###  birthDate[]
 
 For convenience, 'age[]' is accepted as an alternative - it will generate dates of birth by assuming this day & month and change the year.
 
 ### Request (example 1)
 
 ```
-http://api.holidayextras.co.uk/v1/insurancepolicy/EUROPE?ABTANumber=FOO&EndDate=2010-10-20&StartDate=2010-10-10&key=foo&birthDate[]=1985-05-05
+https://api.holidayextras.co.uk/v1/insurancepolicy/EUROPE?ABTANumber=FOO&EndDate=2010-10-20&StartDate=2010-10-10&key=foo&birthDate[]=1985-05-05
 ```
 
 ### Reply (example 1)

@@ -15,7 +15,7 @@ Diese Anfrage liefert alle gültigen Locations und ihre Codes.
 ### Anfrage
 
 ```
-http://api.holidayextras.co.uk/sandbox/v1/location?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/location?key=mytestkey
 ```
 
 

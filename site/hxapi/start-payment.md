@@ -13,7 +13,7 @@
 
 where foo is the Start booking reference
 
-e.g. http://api.holidayextras.co.uk/v1/de/booking/10213904
+e.g. https://api.holidayextras.co.uk/v1/de/booking/10213904
 
 
 ## Full payment only
@@ -35,23 +35,23 @@ POST
 
 ### Parameters
 
- | Name            | Type    | Format                   | Required | 
- | ----            | ----    | ------                   | -------- | 
- | StartCustomer   | String  | [0-9]{6}                 | Y        | 
- | BusinessUnit    | String  | [0-9]{3}                 | N*       | 
- | Operator        | String  | [A-Z]{3}                 | Y        | 
- | CardNumber*     | String  | [0-9]{18}                | Y        | 
- | ExpiryDate      | Date    | MMYY                     | Y        | 
- | StartDate*      | Date    | MMYY                     | N        | 
- | IssueNumber*    | Integer | [0-9]{1,2}               | N        | 
- | Cardholder*     | String  |                          | Y        | 
- | AccountNumber§ | String  | [0-9]{?}                 | Y        | 
- | SortCode§      | String  | [0-9]{8}                 | Y        | 
- | AccountName§   | String  |                          | Y        | 
- | Amount          | Decimal | [0-9]{1-5}.[0-9]{2}      | Y        | 
- | BkgProduct±    | String  | CarPark,HotelWithParking | N        | 
- | key             | String  |                          | Y        | 
- | token           | String  | [0-9]{9}                 | Y        | 
+ | Name            | Type    | Format                   | Required |
+ | ----            | ----    | ------                   | -------- |
+ | StartCustomer   | String  | [0-9]{6}                 | Y        |
+ | BusinessUnit    | String  | [0-9]{3}                 | N*       |
+ | Operator        | String  | [A-Z]{3}                 | Y        |
+ | CardNumber*     | String  | [0-9]{18}                | Y        |
+ | ExpiryDate      | Date    | MMYY                     | Y        |
+ | StartDate*      | Date    | MMYY                     | N        |
+ | IssueNumber*    | Integer | [0-9]{1,2}               | N        |
+ | Cardholder*     | String  |                          | Y        |
+ | AccountNumber§ | String  | [0-9]{?}                 | Y        |
+ | SortCode§      | String  | [0-9]{8}                 | Y        |
+ | AccountName§   | String  |                          | Y        |
+ | Amount          | Decimal | [0-9]{1-5}.[0-9]{2}      | Y        |
+ | BkgProduct±    | String  | CarPark,HotelWithParking | N        |
+ | key             | String  |                          | Y        |
+ | token           | String  | [0-9]{9}                 | Y        |
 
 * For credit card payments only
 
@@ -70,7 +70,7 @@ POST
 (Convert to post)
 
 ```
-http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10213905?Amount=32.00&BkgProduct=CarPark&BusinessUnit=222&CardNumber=4111111111111111&Cardholder=T%20Test&ExpiryDate=0511&Operator=BJT&StartCustomer=111111&key=mytestkey&token=123456789
+https://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10213905?Amount=32.00&BkgProduct=CarPark&BusinessUnit=222&CardNumber=4111111111111111&Cardholder=T%20Test&ExpiryDate=0511&Operator=BJT&StartCustomer=111111&key=mytestkey&token=123456789
 ```
 
 #### Response
@@ -111,7 +111,7 @@ http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10213905?Amount=32.00
 #### Request
 (Convert to post)
 ```html
-http://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10213906?AccountName=T%20Test&AccountNumber=123456&Amount=32.00&BusinessUnit=222&Operator=BJT&SortCode=12345678&StartCustomer=111111&key=mytestkey&token=123456789
+https://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10213906?AccountName=T%20Test&AccountNumber=123456&Amount=32.00&BusinessUnit=222&Operator=BJT&SortCode=12345678&StartCustomer=111111&key=mytestkey&token=123456789
 ```
 
 #### Response

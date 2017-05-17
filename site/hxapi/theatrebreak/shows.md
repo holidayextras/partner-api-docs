@@ -15,16 +15,16 @@ GET
 
 ## Parameters
 
- | Name | Data Type | Required | 
- | ---- | --------- | -------- | 
- | key  | Number    | Y        | 
+ | Name | Data Type | Required |
+ | ---- | --------- | -------- |
+ | key  | Number    | Y        |
 
 
 
 ## Request
 
 ```
-http://api.holidayextras.co.uk/sandbox/v1/show?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/show?key=mytestkey
 ```
 
 

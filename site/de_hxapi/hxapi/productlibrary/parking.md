@@ -37,11 +37,11 @@ GET
 
 ### Parameter
 
- | Name   | Format | Required | 
- | ----   | ------ | -------- | 
- | token  | String | N        | 
- | key    | String | Y        | 
- | fields | String | N        | 
+ | Name   | Format | Required |
+ | ----   | ------ | -------- |
+ | token  | String | N        |
+ | key    | String | Y        |
+ | fields | String | N        |
 
 
 
@@ -50,7 +50,7 @@ GET
 ### Anfarge (Beispiel 1)
 
 ```
-http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=mytestkey
 ```
 
 
@@ -142,7 +142,7 @@ http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=
 ### Anfrage (Beispiel 2)
 
 ```
-http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=mytestkey&fields=name,longitude,latitude
+https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=mytestkey&fields=name,longitude,latitude
 ```
 
 
@@ -234,7 +234,7 @@ Ist das Parkplatzgelände überdacht oder unter freiem Himmel?
 
 Sellpoint Felder werden benutzt, um positive Aspekte des Produkts zu erwähnen.
 
-Mögliche Felder sind sellpoint_location, 
+Mögliche Felder sind sellpoint_location,
 sellpoint_terminal, sellpoint_transfers, sellpoint_parking, sellpoint_security.
 
 #### logo
@@ -272,7 +272,7 @@ Wenn der Kunde sein Terminal nicht kennt, diese Nachricht anzeigen.
 
 #### recommended
 
-Boolesch - 
+Boolesch -
 
 #### on_airport
 
@@ -309,7 +309,7 @@ Nur für HX.
 Anfragen nach deutschen Produkten liefern eine andere Reihe von Feldern. Eine Erläuterung dieser Felder steht gegenwärtig nicht zur Verfügung.
 
 ```
-http://api.holidayextras.co.uk/sandbox/v1/product/FRA0?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/product/FRA0?key=mytestkey
 ```
 
 

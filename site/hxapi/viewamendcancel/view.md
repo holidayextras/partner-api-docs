@@ -10,7 +10,7 @@
 
 where foo is the booking reference
 
-e.g. http://api.holidayextras.co.uk/v1/booking/ABCDE
+e.g. https://api.holidayextras.co.uk/v1/booking/ABCDE
 
 ### Method
 
@@ -25,13 +25,13 @@ GET
 
 ### Parameters
 
- | Name       | Type   | Format      | Required | 
- | ----       | ----   | ------      | -------- | 
- | ABTANumber | String | [A-Z0-9]{5} | Y        | 
- | Password   | String | [A-Z0-9]{5} | N*       | 
- | Initials   | String | [A-Z]{3}    | N        | 
- | Email      | email  | Valid email | Y        | 
- | key        | String |             | Y        | 
+ | Name       | Type   | Format      | Required |
+ | ----       | ----   | ------      | -------- |
+ | ABTANumber | String | [A-Z0-9]{5} | Y        |
+ | Password   | String | [A-Z0-9]{5} | N*       |
+ | Initials   | String | [A-Z]{3}    | N        |
+ | Email      | email  | Valid email | Y        |
+ | key        | String |             | Y        |
 
 
 This is a general request, is is therefore not product specific. So a booking of any type, i,e parking, hotel, lounge can be cancelled using the booking reference and the same request parameters it does not need to vary by product.
@@ -41,12 +41,12 @@ This is a general request, is is therefore not product specific. So a booking of
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/v1/booking/ABCDE?Email=email@address.com&key=mytestkey
+https://api.holidayextras.co.uk/v1/booking/ABCDE?Email=email@address.com&key=mytestkey
 ```
 
 For European products please use
 ```html
-http://api.holidayextras.co.uk/sandbox/v1/booking/BLBTS?key=mytestkey&ABTANumber=32877&Password=RADEN&System=ABG
+https://api.holidayextras.co.uk/sandbox/v1/booking/BLBTS?key=mytestkey&ABTANumber=32877&Password=RADEN&System=ABG
 ```
 
 delete sandbox to be directed to production

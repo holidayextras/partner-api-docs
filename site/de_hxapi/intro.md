@@ -2,7 +2,7 @@
 
 ---
 
-#  Was Sie brauchen 
+#  Was Sie brauchen
 
 Welche Platform und Programmiersprache Sie benutzen, um mit **HXAPI** zu interagieren, liegt bei Ihnen. Wir gehen davon aus, dass es in den häufigsten Fällen eine Web Anwendung ist, welche in PHP, Ruby o.ä. geschrieben ist. Jedoch könnten Sie **HXAPI** auch gleichermaßen per Mobiltelefon-Anwendung oder Internet Terminal verwenden.
 
@@ -17,7 +17,7 @@ Die einzigen Vorraussetzungen ist die Möglichkeit
 
 **HXAPI** akzeptiert [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) Anfragen. Jede Anfrage wird über **HTTP** unter Verwendung der Standardverfahren gemacht. Für den Datenabruf benutzen Sie immer das GET Verfahren. Um eine Buchung zu machen (und demzufolge eine neue Quelle zu erstellen), muss das POST Verfahren verwendet werden.
 
-http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2
+https://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2
 
 Eine URL kann, je nach Zugangsverfahren, unterschiedliche Funktionen haben. Die obige URL als Beispiel, liefert als GET Informationen über Verfügbarkeiten und Preise für den Parkplatz im gewählten Zeitraum. Wenn mit den korrekten Parametern "posted to", wird eine Buchung bei eben diesem Parkplatz gemacht und ein Link geliefert, unter dem Sie die Buchung einsehen können.
 
@@ -27,9 +27,9 @@ Immer wenn Sie neuen Code schreiben oder bestehende Funktionalität verändern, 
 
 Der nötige Ablauf, um von Development zu Live zu gelangen, ist [hier](golive) verdeutlicht.
 
-Development URL: http://api.holidayextras.co.uk/sandbox/
+Development URL: https://api.holidayextras.co.uk/sandbox/
 
-Live URL: http://api.holidayextras.co.uk/
+Live URL: https://api.holidayextras.co.uk/
 
 # Die ersten Schritte
 
@@ -38,16 +38,16 @@ Der einfachste Weg mit **HXAPI** zu beginnen, ist in einem Browser einige HTTP A
 Zunächst eine Anfrage nach Parkverfügbarkeiten:
 
 ```
-curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
+curl "https://api.holidayextras.co.uk/sandbox/v1/carpark/LGW?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
 ```
 Ein weiteres Beispiel - dieses fragt die Productbibliothek nach einem der in der Suche erhaltenen Parkplätze.
 ```
-curl "http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?token=000015778&key=mytestkey"
+curl "https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?token=000015778&key=mytestkey"
 ```
 Die bisherigen Beispiele haben XML geliefert - dies ist das Default Format. Sie können auch nach dem Output als Javascript Objekt fragen, indem Sie die Dateikennung auf ".js" stellen.
 ```
-curl "http://api.holidayextras.co.uk/sandbox/v1/carpark/LGW.js?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
-curl "http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&key=mytestkey"
+curl "https://api.holidayextras.co.uk/sandbox/v1/carpark/LGW.js?ArrivalDate=20Jan09&ArrivalTime=1200&DepartDate=27Jan09&DepartTime=1600&token=000015778&key=mytestkey"
+curl "https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&key=mytestkey"
 ```
 
 # Ergebnis Formate
@@ -63,15 +63,15 @@ curl "http://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=00001
 
 *  .txt - (No longer supported - as from Aug 16)
 
-http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?key=mytestkey
 
 ist das gleiche wie
 
-http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.xml?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.xml?key=mytestkey
 
 Dieselbe Anfrage mit Ergebnissen in Javascript
 
-http://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.js?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.js?key=mytestkey
 
 # Anwendungsschlüssel
 
@@ -118,7 +118,7 @@ Buchungen, die auf dem Test Server gemacht wurden, können mit einer Unsinns-Kre
 
 Bitte stornieren Sie Buchungen **nicht** mittels eines Anrufes in unserem Callcenter oder der Online-Stornierungs-Interface auf [www.holidayextras.com](http://www.holidayextras.com). Kreditkartengebühren werden **nicht erstattet**, wenn Sie einen dieser Wege wählen. Schicken Sie die Buchungsnummern an <sales@holidayextras.com> und **alle Gebühren werden erstattet**.
 
-# Anfragen 
+# Anfragen
 
 Klicken Sie auf die unten stehenden Links um ausführlichere Details der für jede Anfrage benötigten Parameter zu erhalten.
 

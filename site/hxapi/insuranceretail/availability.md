@@ -14,19 +14,19 @@ GET
 
 ### Parameters
 
- | Name        | Format | Required | Notes                                                                                                   | 
- | ----        | ------ | -------- | -----                                                                                                   | 
- | key         | String | Y        |                                                                                                         | 
- | ABTANumber  | String | Y        |                                                                                                         | 
- | Password    | String | Y        |                                                                                                         | 
- | birthDate[] | Array  | Y        | age[] is also accepted, but will use only year with today's date as the customer's day & month of birth | 
- | StartDate   | Date   | Y        |                                                                                                         | 
- | EndDate     | Date   | Y        |                                                                                                         | 
+ | Name        | Format | Required | Notes                                                                                                   |
+ | ----        | ------ | -------- | -----                                                                                                   |
+ | key         | String | Y        |                                                                                                         |
+ | ABTANumber  | String | Y        |                                                                                                         |
+ | Password    | String | Y        |                                                                                                         |
+ | birthDate[] | Array  | Y        | age[] is also accepted, but will use only year with today's date as the customer's day & month of birth |
+ | StartDate   | Date   | Y        |                                                                                                         |
+ | EndDate     | Date   | Y        |                                                                                                         |
 
 ### Request
 
 ```
-http://api.holidayextras.co.uk/v1/sandbox/insurancepolicy/EUROPELOW?ABTANumber=FOO&Password=FOO&StartDate=2012-10-10&EndDate=2012-10-20&key=foo&birthDate[0]=1985-05-05&birthDate[1]=1987-07-07
+https://api.holidayextras.co.uk/v1/sandbox/insurancepolicy/EUROPELOW?ABTANumber=FOO&Password=FOO&StartDate=2012-10-10&EndDate=2012-10-20&key=foo&birthDate[0]=1985-05-05&birthDate[1]=1987-07-07
 ```
 
 ### Reply

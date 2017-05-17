@@ -8,7 +8,7 @@
 
 where foo is the booking reference
 
-e.g. http://api.holidayextras.co.uk/v1/booking/ABCDE
+e.g. https://api.holidayextras.co.uk/v1/booking/ABCDE
 
 You should typically do a view request before an amend. In this way you'll have the booking details to prepopulate fields for your user.
 
@@ -16,7 +16,7 @@ You should typically do a view request before an amend. In this way you'll have 
 
 ## How to amend a booking
 
-Amending a booking is a two stage process, made to the same endpoint but with different parameters and via different methods. 
+Amending a booking is a two stage process, made to the same endpoint but with different parameters and via different methods.
 
 
 *  GET - Price check request - Optional. For changes which will affect the cost..
@@ -30,7 +30,7 @@ One way to implement this would be:
  3.  If no fields which change the price are altered, application posts the whole form.
  4.  If any fields which alter the price have been changed, your application does a GET and presents the new price, asking the customer to confirm they're happy with the new price.
  5.  If user confirms the new price, post the entire form including non-price sensitive changes.
-    
+
 
 You could present the user with their changes before sending the HTTP request, giving them a chance to confirm or return to editing their booking again.
 
@@ -65,32 +65,32 @@ This request does not affect the booking, no changes are confirmed at this point
 
  | Name           | Type   | Format             | Example    | Required
  | ----           | ----   | ------             | -------    | --------
- | ABTANumber     | String | [A-Z][0-9]{5}      | your agent | Y        | 
- | key            | String | [A-Z]{3}[0-9]      | mytestkey  | Y        | 
- | System         | String | [A-Z]{3}           | ABG        | Y*       | 
- | Password       | String | [A-Z]{5}           | PASSWORD   | Y        | 
- | Nights         | Int    | [0-9]              | 1          | Y        | 
- | HotelCode      | String | [A-Z]{6}           | FRAMAX     | Y        | 
- | ArrivalDate    | Date   | YYYY-MM-DD         | 2016-11-21 | Y        | 
- | ParkingDays    | Int    | [0-9]              | 8          | Y        | 
- | ParkingSpaces  | Int    | 1                  | 1          | Y        | 
- | BoardBasis     | String | [A-Z]{2}           | RO         | Y        | 
- | RoomCode[]     | String | [A-Z]{2-3}         | DBL        | Y        | 
- | TerminalCode   | String | [A-Z][0-9]{2}      | S or 1     | N        | 
- | ReturnFlight   | String | [A-Z]{2-3}[0-9]{3} | ABC123     | N        | 
- | Rooms          | Int    | [0-9]              | 1          | Y        | 
- | Adults         | Int    | [0-9]              | 2          | Y        | 
- | Children       | Int    | [0-9]              | 0          | Y        | 
- | Infants        | Int    | [0-9]              | 0          | Y        | 
- | Title          | String | [A-Z]              | Mr         | Y        | 
- | Initial        | String | [A-Z]              | T          | Y        | 
- | Surname        | String | [A-Z]              | Test       | Y        | 
- | NonSmoking     | String | [A-Z]{1}           | Y          | Y        | 
- | CarPickupDate  | Date   | YYYY-MM-DD         | 2016-11-19 | Y+       | 
- | CarPickupTime  | Time   | HHII               | 1200       | Y+       | 
- | CarDropOffTime | Time   | HHII               | 1200       | Y+       | 
- | ParkStart      | Date   | YYYY-MM-DD         | 2016-11-19 | Y+       | 
- | token          | String | [A-Z]              | generate   | Y        | 
+ | ABTANumber     | String | [A-Z][0-9]{5}      | your agent | Y        |
+ | key            | String | [A-Z]{3}[0-9]      | mytestkey  | Y        |
+ | System         | String | [A-Z]{3}           | ABG        | Y*       |
+ | Password       | String | [A-Z]{5}           | PASSWORD   | Y        |
+ | Nights         | Int    | [0-9]              | 1          | Y        |
+ | HotelCode      | String | [A-Z]{6}           | FRAMAX     | Y        |
+ | ArrivalDate    | Date   | YYYY-MM-DD         | 2016-11-21 | Y        |
+ | ParkingDays    | Int    | [0-9]              | 8          | Y        |
+ | ParkingSpaces  | Int    | 1                  | 1          | Y        |
+ | BoardBasis     | String | [A-Z]{2}           | RO         | Y        |
+ | RoomCode[]     | String | [A-Z]{2-3}         | DBL        | Y        |
+ | TerminalCode   | String | [A-Z][0-9]{2}      | S or 1     | N        |
+ | ReturnFlight   | String | [A-Z]{2-3}[0-9]{3} | ABC123     | N        |
+ | Rooms          | Int    | [0-9]              | 1          | Y        |
+ | Adults         | Int    | [0-9]              | 2          | Y        |
+ | Children       | Int    | [0-9]              | 0          | Y        |
+ | Infants        | Int    | [0-9]              | 0          | Y        |
+ | Title          | String | [A-Z]              | Mr         | Y        |
+ | Initial        | String | [A-Z]              | T          | Y        |
+ | Surname        | String | [A-Z]              | Test       | Y        |
+ | NonSmoking     | String | [A-Z]{1}           | Y          | Y        |
+ | CarPickupDate  | Date   | YYYY-MM-DD         | 2016-11-19 | Y+       |
+ | CarPickupTime  | Time   | HHII               | 1200       | Y+       |
+ | CarDropOffTime | Time   | HHII               | 1200       | Y+       |
+ | ParkStart      | Date   | YYYY-MM-DD         | 2016-11-19 | Y+       |
+ | token          | String | [A-Z]              | generate   | Y        |
 
 * Only required if your need European based products - pass in System=ABG
 + Required for Hotels with Parking
@@ -100,7 +100,7 @@ This request does not affect the booking, no changes are confirmed at this point
 ### Request
 
 ```html
-http://api.holidayextras.co.uk/booking/{REF}?ABTANumber=AGENT&key=mytestkey&Password=Password&Nights=1&HotelCode=FRAMAX&ArrivalDate=20Nov16&ParkingDays=8&ParkingSpaces=1&RoomCode[]=DZ&Rooms=1&Adults=2&Children=0&Infants=0
+https://api.holidayextras.co.uk/booking/{REF}?ABTANumber=AGENT&key=mytestkey&Password=Password&Nights=1&HotelCode=FRAMAX&ArrivalDate=20Nov16&ParkingDays=8&ParkingSpaces=1&RoomCode[]=DZ&Rooms=1&Adults=2&Children=0&Infants=0
 ```
 
 add System=ABG for European products
@@ -156,34 +156,34 @@ This request actually changes the details of the booking. It is a good idea to a
 
 ### Parameters
 
- | Name           | Type   | Format             | Example    | Required | 
- | ----           | ----   | ------             | -------    | -------- | 
- | ABTANumber     | String | [A-Z][0-9]{5}      | your agent | Y        | 
- | key            | String | [A-Z]{3}[0-9]      | mytestkey  | Y        | 
- | System         | String | [A-Z]{3}           | ABG        | Y*       | 
- | Password       | String | [A-Z]{5}           | PASSWORD   | Y        | 
- | Nights         | Int    | [0-9]              | 1          | Y        | 
- | HotelCode      | String | [A-Z]{6}           | FRAMAX     | Y        | 
- | ArrivalDate    | Date   | YYYY-MM-DD         | 2016-11-21 | Y        | 
- | ParkingDays    | Int    | [0-9]              | 8          | Y        | 
- | ParkingSpaces  | Int    | 1                  | 1          | Y        | 
- | BoardBasis     | String | [A-Z]{2}           | RO         | Y        | 
- | RoomCode[]     | String | [A-Z]{2-3}         | DBL        | Y        | 
- | TerminalCode   | String | [A-Z][0-9]{2}      | S or 1     | N        | 
- | ReturnFlight   | String | [A-Z]{2-3}[0-9]{3} | ABC123     | N        | 
- | Rooms          | Int    | [0-9]              | 1          | Y        | 
- | Adults         | Int    | [0-9]              | 2          | Y        | 
- | Children       | Int    | [0-9]              | 0          | Y        | 
- | Infants        | Int    | [0-9]              | 0          | Y        | 
- | Title          | String | [A-Z]              | Mr         | Y        | 
- | Initial        | String | [A-Z]              | T          | Y        | 
- | Surname        | String | [A-Z]              | Test       | Y        | 
- | NonSmoking     | String | [A-Z]{1}           | Y          | Y        | 
- | CarPickupDate  | Date   | YYYY-MM-DD         | 2016-11-19 | Y+       | 
- | CarPickupTime  | Time   | HHII               | 1200       | Y+       | 
- | CarDropOffTime | Time   | HHII               | 1200       | Y+       | 
- | ParkStart      | Date   | YYYY-MM-DD         | 2016-11-19 | Y+       | 
- | token          | String | [A-Z]              | generate   | Y        | 
+ | Name           | Type   | Format             | Example    | Required |
+ | ----           | ----   | ------             | -------    | -------- |
+ | ABTANumber     | String | [A-Z][0-9]{5}      | your agent | Y        |
+ | key            | String | [A-Z]{3}[0-9]      | mytestkey  | Y        |
+ | System         | String | [A-Z]{3}           | ABG        | Y*       |
+ | Password       | String | [A-Z]{5}           | PASSWORD   | Y        |
+ | Nights         | Int    | [0-9]              | 1          | Y        |
+ | HotelCode      | String | [A-Z]{6}           | FRAMAX     | Y        |
+ | ArrivalDate    | Date   | YYYY-MM-DD         | 2016-11-21 | Y        |
+ | ParkingDays    | Int    | [0-9]              | 8          | Y        |
+ | ParkingSpaces  | Int    | 1                  | 1          | Y        |
+ | BoardBasis     | String | [A-Z]{2}           | RO         | Y        |
+ | RoomCode[]     | String | [A-Z]{2-3}         | DBL        | Y        |
+ | TerminalCode   | String | [A-Z][0-9]{2}      | S or 1     | N        |
+ | ReturnFlight   | String | [A-Z]{2-3}[0-9]{3} | ABC123     | N        |
+ | Rooms          | Int    | [0-9]              | 1          | Y        |
+ | Adults         | Int    | [0-9]              | 2          | Y        |
+ | Children       | Int    | [0-9]              | 0          | Y        |
+ | Infants        | Int    | [0-9]              | 0          | Y        |
+ | Title          | String | [A-Z]              | Mr         | Y        |
+ | Initial        | String | [A-Z]              | T          | Y        |
+ | Surname        | String | [A-Z]              | Test       | Y        |
+ | NonSmoking     | String | [A-Z]{1}           | Y          | Y        |
+ | CarPickupDate  | Date   | YYYY-MM-DD         | 2016-11-19 | Y+       |
+ | CarPickupTime  | Time   | HHII               | 1200       | Y+       |
+ | CarDropOffTime | Time   | HHII               | 1200       | Y+       |
+ | ParkStart      | Date   | YYYY-MM-DD         | 2016-11-19 | Y+       |
+ | token          | String | [A-Z]              | generate   | Y        |
 
 * Only required if you need European based products - pass in System=ABG
 + Required for Hotels with Parking only
@@ -275,7 +275,7 @@ token:generate
         <NewPrice>89.00</NewPrice>
         <PriceDifference>-20.00</PriceDifference>
     </Pricing>
-    
+
 </API_Reply>
 ```
 
