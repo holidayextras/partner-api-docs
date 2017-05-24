@@ -13,7 +13,6 @@ These are the parking requests.
  | ------                   | --------                                                                            | ------ |
  | Availability at airport  | [https://api.holidayextras.co.uk/v1/carpark/foo](av/airport)           | GET    |
  | Availability at car park | [https://api.holidayextras.co.uk/v1/carpark/foo](av/carpark)           | GET    |
- | Space count at car park  | [https://api.holidayextras.co.uk/v1/carparkspaces/foo](spaces/carpark) | GET    |
  | Upgrades                 | [https://api.holidayextras.co.uk/v1/upgrade/foo](/hxapi/upgrade)                      | GET    |
  | Make booking at car park | [https://api.holidayextras.co.uk/v1/carpark/foo](bkg)                 | POST   |
 
