@@ -7,6 +7,10 @@ task :build do
   sh "bundle exec jekyll build"
 end
 
+task :start do
+  sh "bundle exec jekyll serve"
+end
+
 desc "Check generated HTML"
 task :html_proofer do
   require 'html-proofer'
