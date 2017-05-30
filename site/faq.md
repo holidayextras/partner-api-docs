@@ -73,11 +73,22 @@ else if x > CCardSurchargeMax
 Markup already added.
 
 
+##How is the "Total Price" for Parking calculated?
+
+The cost of the Credit Card surcharge applies to the price of parking + cancellation waiver (if taken).
+
+So in the reply for a booking request you may see something like this:
+```xml
+<AmountPaid>43.56</AmountPaid>
+<TotalPrice>42.06</TotalPrice>
+<CCSurchargeAmount>1.50</CCSurchargeAmount>
+<CanxWaiver>0.50</CanxWaiver>
+```
+
+You may expect ```<AmountPaid>``` to total £44.06 (because 42.06 + 1.50 + 0.50 = 44.06). This is not an error, the ```<CanxWaiver>``` amount has already been added to the parking price of £41.56 to create ```<TotalPrice>```, and the credit card surcharge is then applied to that value, giving ```<AmountPaid>```.
 
 
-
-
-## Do Holiday Extras need my IP address?
+## Does Holiday Extras need my IP address?
 
 No. We use a blacklist for unwelcome traffic, otherwise anyone can make requests to **HXAPI** as long as they use a valid key.
 
@@ -109,7 +120,3 @@ Car park details - We are asked to collect them in the name of the parking provi
 Error messages - we can provide you a list of error messages. It is planned to provide them in different languages.
 
 Booking number/ABTA number - the combination of both is always unique
-
-
-
-

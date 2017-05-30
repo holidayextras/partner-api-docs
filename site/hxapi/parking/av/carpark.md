@@ -1,237 +1,221 @@
----
-
----
-
 # Availability At Car Park
 
 [API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carpark](/hxapi/parking/av) > [Availability by Carpark](carpark)
 
-## /carpark/foo
-
-where foo is the carpark code
-
-e.g. https://api.holidayextras.co.uk/carpark/LHR2
+## Car Park Availability Request
 
 ### Method
 
 GET
 
-### Parameters
+### Endpoint
 
- | Name        | Type      | Format      | Required |
- | ----        | ----      | ------      | -------- |
- | ABTANumber  | String    | [A-Z0-9]{5} | Y        |
- | Initials    | String    | [A-Z]{3}    | N        |
- | NumberOfPax | Integer   |             | Y        |
- | ArrivalDate | Date      | YYYY-MM-DD  | Y        |
- | ArrivalTime | Time 24hr | HHSS        | Y        |
- | DepartDate  | Date      | YYYY-MM-DD  | Y        |
- | DepartTime  | Time 24hr | HHSS        | Y        |
- | top3        | Boolean   | [01]        | N        |
- | key         | String    |             | Y        |
- | token       | String    | [0-9]{9}    | Y        |
+The endpoint to use is (where "foo" is the car park code):
 
-
-
-
-[Example form](https://api.holidayextras.co.uk/form/carpark3?key=mytestkey)
-
-
-### Request
-
-```html
-https://api.holidayextras.co.uk/sandbox/v1/carpark/LGW2?NumberOfPax=2&ArrivalDate=2008-09-20&ArrivalTime=1200&DepartDate=2008-09-20&DepartTime=1400&key=**HXAPIKEY**&token=000001234&ABTANumber=**HXAGENTCODE**
+```
+https://api.holidayextras.co.uk/v1/carpark/foo
 ```
 
-#### top3
+For example, for _Purple Parking Park and Ride T2 at London Heathrow_ the endpoint is:
 
-If a value of 1 is passed in for the top3 param, then a maximum of three car parks will be returned, one on airport, one other park and ride, and one other meet and greet.
+```
+https://api.holidayextras.co.uk/carpark/LHH6
+```
+
+To find the airport locations available for car parking, please refer to the [locations endpoint.](/hxapi/locations)
+
+### Request Parameters
+
+NB: All parameter names are case sensitive.
+
+ | Name        | Data Type    | Format | Mandatory? | Additional Information |
+ | ----        | ----    | ------ | -------- | ---------------------- |
+ | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
+ | Password    | String  | [A-Z0-9] 5 chars | N*       | Password only required for Agent requests. <br>This will be confirmed to you by your Account Manager during set up.|
+ | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
+ | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
+ | token       | String  | [0-9] 9 chars                         | Y        | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token. |
+ | ArrivalDate | Date    | YYYY-MM-DD                             | Y        | Date customer drops vehicle at car park. |
+ | ArrivalTime | Time    | HHMM                                   | Y        | Time customer drops vehicle at car park.|
+ | DepartDate  | Date    | YYYY-MM-DD                             | Y        | Date customer picks up vehicle from car park.|
+ | DepartTime  | Time    | HHMM                                   | Y        | Time customer picks up vehicle from car park.|
+ | NumberOfPax | Integer | [0-9] 2 chars | N        | Number of passengers.|
+ | filter      | String  | [A-Z]                                  | N        | Pass in values "filter=on_airport", "filter=recommended" or "filter=meet_and_greet" to only show car parks meeting those criteria. You can filter by any field that comes back in the filter section of the API.|
+ | fields      | String  | [A-Z] a csv list of product info fields | N        | A list of product info fields can be passed in to return configurable product information e.g. fields=name,address,latitude,sellingpoint. |
+ | System      | String  | [A-Z] 3 chars | Y*       | The System defaults to "ABC". For European products, you need to pass in the value of "ABG"|
+ | lang        | String  | [A-Z] 2 chars | Y*       | Required for requests for European products. (Values available are "en", "de", "it", "es", "pt" and "nl".)|
+
+
+## Car Park Availability Response
+
+The car park availability response will return the specific product requested, so long as it has availability on the specific dates and durations. A summary of the request received can be found in the header field at the end of the response.
+
+For a detailed explanation of the fields returned, please see below:
+
+ | Field                | Additional Information |
+ | ----                 | ---------------------- |
+ | CarPark/TotalPrice   | The price of product _without_ any surcharges/fees added. |
+ | CarPark/NonDiscPrice | The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.|
+ | CarPark/RequestFlags | _NB: For European products, please see the separate table below._ <br>These flags list which details the car park operator requires from the customer. If a flag is returned with a 'Y' your application should send the corresponding field/value in the booking request.<br>Flags are only returned when required. The flags which can be returned are: <li>Registration <li>CarMake <li>CarModel <li>CarColour <li>OutFlight <li>ReturnFlight <li>OutTerminal <li>ReturnTerminal <li>Destination <li>MobileNum|
+ | CarPark/Filter       | The car park filters are returned, but as you are searching for a single product in this request these can be ignored. |
+ | CarPark/BookingURL   | The URL to POST the booking request to for this particular product. |
+ | CarPark/MoreInfoURL  | The link to more information about this product, sourced from the Product Library.|
+ | Pricing/CreditCardSurcharge | NB: This is only relevant for Intermediary Agents in Europe, where Holiday Extras is responsible for processing the payment, not the Agent. <br>The first step in the calculation is to determine the credit card surcharge payable (x), based on the value of the booking, using this formula: <br>x = (TotalPrice + the CanxWaiver) / 100 x CCardSurchargePercent <br>Second, to prevent the surcharge from exceeding certain boundaries we have min and max thresholds, which can be calculated as follows: <br>if x < CCardSurchargeMin; <br>x = CCardSurchargeMin <br>else if x > CCardSurchargeMax; <br>x = CCardSurchargeMax|
+ | Pricing/CancellationWaiver | We provide an optional cancellation waiver. If this is not added then cancellation will incur a fee. The fee is outlined in our terms and conditions. <br>NB: This value is not currently returned via the XML. |
+ | API_Header/Request  | The API returns every parameter and value you sent in the previous request. |
+
+#### European products only
+
+For European products only, the availability response will return a field called ```<CarDetFlags>```, which identifies the fields required when making a booking. (This is instead of the ```<RequestFlags>``` field which is returned for UK products only).
+
+For example: ```<CarDetFlags>``` NNNNNNNNNNNNNNNNNN ```</CarDetFlags>```
+
+ The order of the flags is always the same, and refers to these parameters respectively:
+
+  | Position | Parameter | Data Type | Format | Additional Information                            |
+  | -------- | -------------- | ---------------- | -----------                                                                        |
+  | 1        | Registration  | String | [A-Z0-9] 10 chars      | Vehicle registration number <br> NB: This field is not validated through the API. |
+  | 2        | CarMake        | String | [A-Z0-9] 10 chars | Make of vehicle, e.g. Audi.                                             |
+  | 3        | CarModel       | String | [A-Z0-9] 10 chars      | Model of vehicle, e.g. A6.                                               |
+  | 4        | CarColour      | String | [A-Z0-9] 10 chars      | Colour of vehicle, e.g. White.                                           |
+  | 5        | NumberOfPax    | Integer |[0-9]| Number of passengers in the vehicle.|
+  | 6        | CarDropoffTime | Time | HHMM             | Arrival time when you drop the vehicle off at the car park e.g 1000. |
+  | 7        | CarPickupTime  | Time | HHMM             | Return time, when you pick the vehicle up from the car park, e.g. 1600. |
+  | 8        | OutTerminal    | String | [A-Z0-9] 2 chars | Single letter or number representation of the terminal e.g N or S or 4 |
+  | 9        | OutFltNo       | String | [A-Z0-9] 10 chars      | Outbound flight number e.g. EZY123. |
+  | 10       | InFltNo        | String | [A-Z0-9] 10 chars      | Return flight number e.g. EZY124. |
+  | 11       | OutFltTime     | Time | HHMM             | Departure time of the outbound flight e.g. 1200. |
+  | 12       | InFltTime      | Time | HHMM             | Arrival time of the inbound flight e.g. 1500. |
+  | 13       | MobileNum      | String | [A-Z0-9] 15 chars      | Customer's mobile number. |
+  | 14       | ShipName       | String | [A-Z0-9] 20 chars      | Name of the ship, e.g. AIDA  |
+  | 15       | PierName       | String | [A-Z0-9] 20 chars      | Name of the pier or port where the ship is departing from |
+  | 16       | ChildSeat      | String | Y/N              | Is a child car seat needed? |
+  | 17       | AddlServices   | String | [A-Z0-9] 50 chars      | In this parameter you may add additional remarks regarding the booking. |
+  | 18       | RetTerminal    | String | [A-Z0-9] 2 chars       | Single letter or number representation of the terminal e.g N or S or 4 |
 
 
 
+## Worked Examples
 
+Below are worked examples of both the request and response for availability at an airport.
 
+### UK Products Availability Request
 
-### Reply
+```html
+https://api.holidayextras.co.uk/carpark/LHH6?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&ArrivalTime=1200&DepartDate=2017-12-08&DepartTime=1200&NumberOfPax=1
+```
+
+### UK Products Availability Response
 
 ```xml
 <?xml version="1.0"?>
 <API_Reply Product="CarPark" RequestCode="3" Result="OK">
-	<Pricing>
-		<CCardSurchargePercent>2.00</CCardSurchargePercent>
-		<CCardSurchargeAmount>1.50</CCardSurchargeAmount>
-		<CancellationWaiver>
-			<Waiver>0.50</Waiver>
-		</CancellationWaiver>
-	</Pricing>
-	<API_Header>
-		<Request>
-			<NumberOfPax>2</NumberOfPax>
-			<ArrivalDate>2008-09-20</ArrivalDate>
-			<ArrivalTime>1200</ArrivalTime>
-			<DepartDate>2008-09-20</DepartDate>
-			<DepartTime>1400</DepartTime>
-			<key>mytestkey</key>
-			<token>000001234</token>
-			<v>1</v>
-		</Request>
-	</API_Header>
-	<CarPark>
-		<TotalPrice>10.00</TotalPrice>
-		<RequestFlags>
-			<Registration>1</Registration>
-		</RequestFlags>
-		<Code>LGW2</Code>
-		<Name>Long Stay</Name>
-		<Filter>
-			<on_airport>1</on_airport>
-			<terminal>1</terminal>
-		</Filter>
-		<BookingURL>/api/sandbox/v1/carpark/LGW2</BookingURL>
-		<MoreInfoURL>/api/sandbox/v1/product/LGW2</MoreInfoURL>
-	</CarPark>
+    <CarPark>
+        <Name>Purple Parking Park and Ride T2</Name>
+        <Code>LHH6</Code>
+        <BookingURL>/carpark/HPLHH6</BookingURL>
+        <MoreInfoURL>/product/LHH6</MoreInfoURL>
+        <RequestFlags>
+            <CarColour>1</CarColour>
+            <CarMake>1</CarMake>
+            <CarModel>1</CarModel>
+            <Destination>1</Destination>
+            <MobileNum>1</MobileNum>
+            <OutFlight>1</OutFlight>
+            <OutTerminal>1</OutTerminal>
+            <Registration>1</Registration>
+            <ReturnFlight>1</ReturnFlight>
+            <ReturnTerminal>1</ReturnTerminal>
+        </RequestFlags>
+        <TotalPrice>85.95</TotalPrice>
+        <GatePrice>89.99</GatePrice>
+        <Filter>
+            <terminal>2</terminal>
+            <meet_and_greet>0</meet_and_greet>
+            <park_and_ride>1</park_and_ride>
+            <car_parked_for_you>1</car_parked_for_you>
+        </Filter>
+    </CarPark>
+    <Pricing>
+        <CCardSurchargePercent>2.20</CCardSurchargePercent>
+        <TotalPrice>85.95</TotalPrice>
+        <CCardSurchargeAmount>0.00</CCardSurchargeAmount>
+        <CancellationWaiver>
+            <Waiver>1.99</Waiver>
+        </CancellationWaiver>
+    </Pricing>
+    <SepaID/>
+    <API_Header>
+        <Request>
+            <ABTANumber>YourABTANumber</ABTANumber>
+            <Password>YourPassword</Password>
+            <Initials>YourInitials</Initials>
+            <key>YourKey</key>
+            <token>YourToken</token>
+            <ArrivalDate>2017-12-01</ArrivalDate>
+            <ArrivalTime>1200</ArrivalTime>
+            <DepartDate>2017-12-08</DepartDate>
+            <DepartTime>1200</DepartTime>
+            <NumberOfPax>1</NumberOfPax>
+        </Request>
+    </API_Header>
 </API_Reply>
-
-
 ```
 
+### European Products Availability Request
 
-
-
-### Fields Explained
-
-
-#### Pricing/CreditCardSurcharge
-
-
-
-Only relevant for intermediaries, agents levy their own fees. This element should be ignored by agents.
-
-Comprises of 3 elements
-
-*  CCardSurchargePercent
-
-*  CCardSurchargeMin
-
-*  CCardSurchargeMax
-
-The credit card surcharge IS applied to the TotalPrice + the Cancellation Waiver (see below). To prevent the surcharge from exceeding certain boundaries, we have min and max thresholds. If the amount does not come between those two figures, you should use the relevant threshold value.
-
-Pseudo code
+```html
+https://api.holidayextras.co.uk/carpark/MU01?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&ArrivalTime=1200&DepartDate=2017-12-08&DepartTime=1200&NumberOfPax=1&System=ABG
 ```
-x = ((TotalPrice + CanxWaiver) / 100 ) * CCardSurchargePercent
-if( x < CCardSurchargeMin)
-  x = CCardSurchargeMin
-else if x > CCardSurchargeMax
-  x = CCardSurchargeMax
+
+### European Products Availability Response
+
+```xml
+<?xml version="1.0"?>
+<API_Reply Product="CarPark" RequestCode="3" Result="OK">
+    <CarPark>
+        <Name>Parkservice Sky München</Name>
+        <Code>MU01</Code>
+        <BookingURL>/carpark/FRMU01</BookingURL>
+        <MoreInfoURL>/product/MU01</MoreInfoURL>
+        <RequestFlags/>
+        <TotalPrice>35.00</TotalPrice>
+        <GatePrice>0.00</GatePrice>
+        <CancellationRule>0</CancellationRule>
+        <CarDetFlags>NNNNNNNNYYNYNNNNNN</CarDetFlags>
+        <CarDetails>Y</CarDetails>
+        <DiscDates/>
+        <QRCodeProduct>N</QRCodeProduct>
+        <Filter>
+            <car_parked_for_you>1</car_parked_for_you>
+            <meet_and_greet>0</meet_and_greet>
+            <on_airport/>
+            <recommended/>
+            <special_offer_text>1</special_offer_text>
+            <valet_included>0</valet_included>
+        </Filter>
+    </CarPark>
+    <Pricing>
+        <CCardSurchargePercent>0.00</CCardSurchargePercent>
+        <TotalPrice>35.00</TotalPrice>
+        <CCardSurchargeAmount>0.00</CCardSurchargeAmount>
+    </Pricing>
+    <SepaID>DE11ZZZ00000633860</SepaID>
+    <API_Header>
+        <Request>
+            <ABTANumber>YourABTANumber</ABTANumber>
+            <Password>YourPassword</Password>
+            <Initials>YourInitials</Initials>
+            <key>YourKey</key>
+            <token>YourToken</token>
+            <ArrivalDate>2017-12-01</ArrivalDate>
+            <ArrivalTime>1200</ArrivalTime>
+            <DepartDate>2017-12-08</DepartDate>
+            <DepartTime>1200</DepartTime>
+            <NumberOfPax>1</NumberOfPax>
+            <System>ABG</System>
+            <lang>de</lang>
+        </Request>
+    </API_Header>
+</API_Reply>
 ```
-####  Pricing/CancellationWaiver
-
-only for UK
-
-We provide an optional cancellation waiver. If not taken up, cancellation will incur a fee. The fee is outlined in our terms and conditions. This value is not currently returned via the XML.
-
-#### API_Header/Request
-
-**HXAPI** returns every parameter you sent in the previous request, as you sent it. This is so your app doesn't have to remember anything not replied in the XML reply.
-
-#### CarPark/TotalPrice
-
-The price of product **WITHOUT** any surcharges/fees added.
-
-#### CarPark/NonDiscPrice
-
-Non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.
-
-#### CarPark/RequestFlags
-
-Flags listing which details the car park operator requires from the customer. If a flag is returned with a 'Y' your application should send the corresponding value in the booking request. These are not compulsory, the booking should still be made without these details, but it greatly reduces administrative work if they are completed. Flags are only returned when positive, if a field is not required the field will not be returned.
-
-The flags which might be returned are:
-
-
-*  Registration
-
-*  CarMake
-
-*  CarModel
-
-*  CarColour
-
-*  OutFlight
-
-*  ReturnFlight
-
-*  OutTerminal
-
-*  ReturnTerminal
-
-*  Destination
-
-*  MobileNum
-
-#### CarPark/Filter
-
-We have a filter mechanism on our site, to show only meet and greet products etc. The filters that apply to a product are returned here. Possible values are:
-
-
-*  meet_and_greet
-
-*  recommended
-
-*  on_airport
-
-*  terminal
-
-*  valet_included
-
-*  car_parked_for_you
-
-
-#### CarPark/BookingURL
-
-The URL to go to book this product.
-
-#### CarPark/MoreInfoURL
-
-Link to the product library information for this product.
-
-
-#### Europe CarParkDetailsFlag
-
-The availability response will identify a list of flags which identify the fields required to be POSTED when making a booking.
-
-e.g. <CarDetFlags>NNNNNNNNNNNNNNNNNN</CarDetFlags>
-
-The order of the flags refer to these POST parameter fields respectively:
-
-
-<CarDetFlags>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</CarDetFlags>
-
-
- | Position | POST Parameter | character length | what is it?                                                                        |
- | -------- | -------------- | ---------------- | -----------                                                                        |
- | 1        | Registration   | VARCHAR(10)      | This is the car registration                                                       |
- | 2        | CarMake        | VARCHAR(10)      | This is the make of the car e.g. Audi                                              |
- | 3        | CarModel       | VARCHAR(10)      | This is the model of the car e.g. A6                                               |
- | 4        | CarColour      | VARCHAR(10)      | This is the colour of the car e.g. White                                           |
- | 5        | NumberOfPax    | INT(2)           | This is the number of passengers in the vehicle e.g. 5                             |
- | 6        | CarDropoffTime | HHMM             | This is the Arrival Time when you drop the car off at the car park e.g 1000        |
- | 7        | CarPickupTime  | HHMM             | This is the time on leaving the car park when you pick up your car e.g. 1600       |
- | 8        | OutTerminal    | VARCHAR(2)       | This is the single letter or number representation of the terminal e.g N or S or 4 |
- | 9        | OutFltNo       | VARCHAR(10)      | This is the flight number e.g. EZY123                                              |
- | 10       | InFltNo        | VARCHAR(10)      | This is the flight number e.g. EZY124                                              |
- | 11       | OutFltTime     | HHMM             | This is the Departure Time of the outbound flight e.g. 1200                        |
- | 12       | InFltTime      | HHMM             | This is the Arrival Time of the inbound flight e.g. 1500                           |
- | 13       | MobileNum      | VARCHAR(15)      | This is the mobile number of the customer                                          |
- | 14       | ShipName       | VARCHAR(20)      | This is the name of the ship e.g. AIDA                                             |
- | 15       | PierName       | VARCHAR(20)      | This is the pier name                                                              |
- | 16       | ChildSeat      | Y/N              | Is a child car seat needed?                                                        |
- | 17       | AddlServices   | VARCHAR(50)      | This is a remarks line                                                             |
- | 18       | RetTerminal    | VARCHAR(2)       | This is the single letter or number representation of the terminal e.g N or S or 4 |
-
-
-
-### XSD
-
-To come

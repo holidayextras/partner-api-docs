@@ -2,398 +2,338 @@
 
 ---
 
-# Make booking at car park
+# Book Car Park
 
 [API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carpark](av) > [Make Booking](bkg)
 
-This must be a POST, as you are making a booking. It must be made over HTTPS. Intermediaries will be sending credit card information, Agents will send their login details so HTTPS is required in both instances.
-
-If you do not send the ABTANumber field (for agent code) then your booking will not be tracked to your agent code. For agent bookings, the Password field is also required, intermediaries do not have a password.
-
-
-To retrieve all details about the booking, perform a GET request to view the booking at the location specified in `<MoreInfoURL>`. [Instructions on how to view a booking](/hxapi/viewamendcancel/view).
-
-# Post-booking
-
-For parking products, once the booking has been made, you should include a barcode on your confirmation page and email. This is a simple representation of the booking reference and it just involves another call to the api. Details are available [here](/hxapi/barcode).
-
-## /carpark/foo
-
-where foo is the carpark code
-
-e.g. /carpark/LHR2
+## Car Park Booking Request
 
 ### Method
 
 POST
 
-### Parameters
+### Endpoint
 
-#### Intermediary
-
-We no longer accept card payments taken via the API - this will be updated to include a TOKEN to pass in payment.
-A new API service will be availble to obtain a token from a Credit Card number - you must prove that you are PCI compliant before this service is available for you.
-
- | Name                  | Data Type     | Format       | Required      |
- | ----                  | ---------     | ------       | --------      |
- | ABTANumber            | String        | [A-Z0-9]{5}  | Y             |
- | Initials              | String        | [A-Z]{3}     | N             |
- | ArrivalDate           | Date          | YYYY-MM-DD   | Y             |
- | ArrivalTime           | Time          | HHMM         | Y             |
- | DepartDate            | Date          | YYYY-MM-DD   | Y             |
- | DepartTime            | Time          | HHMM         | Y             |
- | Registration          | String        |              | N §          |
- | CarMake               | String        |              | N §          |
- | CarModel              | String        |              | N §          |
- | CarColour             | String        |              | N §          |
- | OutFlight             | String        |              | N §          |
- | ReturnFlight          | String        |              | N §          |
- | OutTerminal           | String        |              | N §          |
- | ReturnTerminal        | String        |              | N §          |
- | MobileNum             | String        |              | N §          |
- | Destination           | String        |              | N §          |
- | Title                 | String        |              | Y             |
- | Initial               | String        | [A-Z]{1}     | Y             |
- | Surname               | String        |              | Y             |
- | Address[]             | String        |              | Y             |
- | Town                  | String        |              | Y             |
- | County                | String        |              | Y             |
- | NumberOfPax           | Number        |              | Y             |
- | PostCode              | String        |              | Y             |
- | DayPhone              | String        |              | Y             |
- | Email                 | String        |              | Y             |
- | CardHolder            | String        |              | Y             |
- | CardToken             | String        | [0-9]{14-16} | Y             |
- | CV2                   | Integer       | [0-9]{3-4}   | Y             |
- | ExpiryDate            | Date          | MMYY         | Y             |
- | StartDate             | Date          | MMYY         | N*            |
- | IssueNumber           | Integer       |              | N*            |
- | Waiver                | Boolean       | 1/0          | N (default N) |
- | DataProtection        | Char          | Y/N          | N (default N) |
- | CustomerRef           | String        |              | N             |
- | key                   | String        |              | Y             |
- | token                 | String        | [0-9]{9}     | Y             |
- | Supplements[]         | String Array  |              | N             |
- | SupplementsAdults[]   | Integer Array |              | N             |
- | SupplementsChildren[] | Integer Array |              | N             |
- | SupplementsCount[]    | Integer Array |              | N             |
- | System                | String        | ABC/ABG      | N             |
- | PriceCheckFlag        | String        | Y            | Y             |
- | PriceCheckPrice       | Value         | 12.34        | Y             |
-
-
-* Only required for debit card purchases where card has one.
-
-+ DataProtection field - Does the customer consent to receiving offers from Holiday Extras. Y = Yes, will receive offers, N = Customer data is protected.
-
-OutTerminal & ReturnTerminal - Must comprise of airport code + identifier. Eg LGW2, LHR5 etc. If in doubt, the terminals (where appropriate) are available on a per location basis, from here (change the airport code for different airports):
-
-System is required to be set to ABG if you are processing bookings for European products and taking payment in Euros.
-Default is ABC for UK/GBP - it is not mandatory to send if you are processing bookings for UK based products or products being processed in GBP.
-
-#### Supplements
-
- | Param                 | Explanation                                                                                         |
- | -----                 | -----------                                                                                         |
- | Supplements[]         | An array of codes that identify the add-ons that supplement a hotel booking                         |
- | SupplementsAdults[]   | An array containing the number of adults for each supplement that is sold on a Per Person basis     |
- | SupplementsChildren[] | An array containing the number of children for each supplement that is sold on a Per Person basis   |
- | SupplementsCount[]    | An array containing the quantity of each supplement that is sold on a Per Booking or Per Room basis |
-
-##### Supplement Parameter examples
-
- | Supplements[]    | SupplementsAdults[SupplementCode] | SupplementsChildren[SupplementCode] | SupplementsCount[SupplementCode] | Supplement Basis | Explantation                                                                              |
- | -------------    | --------------------------------- | ----------------------------------- | -------------------------------- | ---------------- | ------------                                                                              |
- | SUPPLEMENT_CODE1 | 1                                 | 0                                   | 0                                | PER PERSON       | Booking Basis is PP so Adults and Children params are used, Count param is ignored        |
- | SUPPLEMENT_CODE2 | 1                                 | 1                                   | 0                                | PER PERSON       | Booking Basis is PP so Adults and Children params are used, Count param is ignored        |
- | SUPPLEMENT_CODE3 | 0                                 | 0                                   | 1                                | PER BOOKING      | Booking Basis is PB so Adults and Children params are used, Count param is ignored        |
- | SUPPLEMENT_CODE4 | 0                                 | 0                                   | 1                                | PER ROOM         | Booking Basis is PP so Count param is used and the Adults and Children params are ignored |
- | SUPPLEMENT_CODE5 | 0                                 | 0                                   | 2                                | PER ROOM         | Booking Basis is PP so Count param is used and the Adults and Children params are ignored |
-
-##### The same data as above expressed in the way that it should be submitted
-
- | Field                                   | Value              |
- | -----                                   | -----              |
- | Supplements[]                           | 'SUPPLEMENT_CODE1' |
- | Supplements[]                           | 'SUPPLEMENT_CODE2' |
- | Supplements[]                           | 'SUPPLEMENT_CODE3' |
- | Supplements[]                           | 'SUPPLEMENT_CODE4' |
- | Supplements[]                           | 'SUPPLEMENT_CODE5' |
- | Field                                   | Value              |
- | SupplementsAdults['SUPPLEMENT_CODE1']   | 1                  |
- | SupplementsAdults['SUPPLEMENT_CODE2']   | 1                  |
- | SupplementsAdults['SUPPLEMENT_CODE3']   | 0                  |
- | SupplementsAdults['SUPPLEMENT_CODE4']   | 0                  |
- | SupplementsAdults['SUPPLEMENT_CODE5']   | 0                  |
- | Field                                   | Value              |
- | SupplementsChildren['SUPPLEMENT_CODE1'] | 0                  |
- | SupplementsChildren['SUPPLEMENT_CODE2'] | 1                  |
- | SupplementsChildren['SUPPLEMENT_CODE3'] | 0                  |
- | SupplementsChildren['SUPPLEMENT_CODE4'] | 0                  |
- | SupplementsChildren['SUPPLEMENT_CODE5'] | 0                  |
- | Field                                   | Value              |
- | SupplementsCount['SUPPLEMENT_CODE1']    | 0                  |
- | SupplementsCount['SUPPLEMENT_CODE2']    | 0                  |
- | SupplementsCount['SUPPLEMENT_CODE3']    | 1                  |
- | SupplementsCount['SUPPLEMENT_CODE4']    | 1                  |
- | SupplementsCount['SUPPLEMENT_CODE5']    | 2                  |
-
-
-#### Terms and conditions Holiday Extras GmbH, Munich
-
-Please us the following link to display terms and conditions to the end consumer or agent. http://www.holidayextras.de/images/de-hx/pdf/agb.pdf
-For further languages please change /de-hx/ into nl-hx, it-hex, en-hx, pt-hx, fr-hx, es-hx.
-
-PriceCheckFlag and PriceCheckPrice are used to ensure that the price you have displayed to the customer at the availability stage will be booked at that price.  When you submit the request the price posted here will be compared to the live price in the system.  If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.  At this time the system will also update any availability cache so subsequent availability requests will then have the updated price.
-
-[https://api.holidayextras.co.uk/terminal/LGW?key=mytestkey](https://api.holidayextras.co.uk/terminal/LGW?key=mytestkey)
-
-#### Agent
-
- | Name                  | Data Type     | Format      | Required             |
- | ----                  | ---------     | ------      | --------             |
- | ABTANumber            | String        | [A-Z0-9]{5} | Y                    |
- | Password              | String        | [A-Z0-9]{5} | N                    |
- | Initials              | String        | [A-Z]{3}    | N                    |
- | ArrivalDate           | Date          | YYYY-MM-DD  | Y                    |
- | ArrivalTime           | Time          | HHMM        | Y                    |
- | DepartDate            | Date          | YYYY-MM-DD  | Y                    |
- | DepartTime            | Time          | HHMM        | Y                    |
- | Registration          | String        |             | N §                 |
- | CarMake               | String        |             | N §                 |
- | CarModel              | String        |             | N §                 |
- | CarColour             | String        |             | N §                 |
- | OutFlight             | String        |             | N §                 |
- | ReturnFlight          | String        |             | N §                 |
- | OutTerminal           | String        |             | N §                 |
- | ReturnTerminal        | String        |             | N§                  |
- | MobileNum             | String        |             | N §                 |
- | Destination           | String        |             | N §                 |
- | Title                 | String        |             | Y                    |
- | Initial               | String        | [A-Z]{1}    | Y                    |
- | Surname               | String        |             | Y                    |
- | Address[]             | String        |             | Y (can be set as NA) |
- | Town                  | String        |             | Y (can be set as NA) |
- | County                | String        |             | Y (can be set as NA) |
- | PostCode              | String        |             | Y (can be set as NA) |
- | Email                 | String        |             | Y (can be set as NA) |
- | NumberOfPax           | Number        |             | Y                    |
- | Waiver                | Boolean       | 1/0         | N (default N)        |
- | key                   | String        |             | Y                    |
- | token                 | String        | [0-9]{9}    | Y                    |
- | Supplements[]         | String Array  |             | N                    |
- | SupplementsAdults[]   | Integer Array |             | N                    |
- | SupplementsChildren[] | Integer Array |             | N                    |
- | SupplementsCount[]    | Integer Array |             | N                    |
- | System                | String        | ABC/ABG     | N                    |
- | PriceCheckFlag        | String        | Y           | Y                    |
- | PriceCheckPrice       | Value         | 12.34       | Y                    |
-
-§ The fields required by the carpark are returned in the availability request, in the `<RequestFlags>` element.
-
-Address, County, Town, PostCode and Email can be hardcoded as NA to enable booking
-
-
-For European products (system=ABG) please disregard keys "registration to destination" and use the keys "Europe CarParkDetailsFlag in section Availability at airport/car park.
-
-
-Terminal - Must comprise of airport code + identifier. Eg LGW2, LHR5 etc. If in doubt, the terminals (where appropriate) are available on a per location basis, from here (change the airport code for different airports):
-
-[https://api.holidayextras.co.uk/terminal/LGW?key=mytestkey](https://api.holidayextras.co.uk/terminal/LGW?key=mytestkey)
-
-System is required to be set to ABG if you are processing bookings for European products and taking payment in Euros.
-Default is ABC for UK/GBP - it is not mandatory to send if you are processing bookings for UK based products or products being processed in GBP.
-
-PriceCheckFlag and PriceCheckPrice are used to ensure that the price you have displayed to the customer at the availability stage will be booked at that price.  When you submit the request the price posted here will be compared to the live price in the system.  If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.  At this time the system will also update any availability cache so subsequent availability requests will then have the updated price.
-
-
-
-
-### Request
-
-#### Intermediary
+The endpoint to use is (where "foo" is the car park code):
 
 ```
-
-POST /sandbox/v1/carpark/LGV4 HTTP/1.1
-
-Host: api.holidayextras.co.uk
-
-...
-
-Accept-Language: en-us,en;q=0.5
-
-
-ABTANumber=**HXAGENTCODE**&Address%5B%5D=99%20Test%20St&ArrivalDate=2008-05-01&ArrivalTime=1200&CardHolder=Mr%20T%20Test&CardToken=12341234123412341234&Confirmation=Y&County=Testshire&DataProtection=Y&DayPhone=9999%209999&DepartDate=2008-05-08&DepartTime=1800&Email=test%40test.com&ExpiryDate=1208&Initial=T&NumberOfPax=2&PostCode=T1%201TT&Surname=Test&Title=Mr&Town=Testchester&key=**HXAPIKEY**&token=123456789
-
-
+https://api.holidayextras.co.uk/v1/carpark/foo
 ```
 
-
-
-#### Agent
+For example, for _Maple Manor Meet and Greet at London Gatwick North terminal_ the endpoint is:
 
 ```
-POST /sandbox/v1/carpark/LGW2 HTTP/1.1
-
-Host: api.holidayextras.co.uk
-
-...
-
-Content-Type: application/x-www-form-urlencoded
-
-Content-Length: 198
-
-
-ABTANumber=**HXAGENTCODE**&ArrivalDate=2008-09-20&ArrivalTime=1125&DepartDate=2008-09-28&DepartTime=1135&Initial=T&Initials=BJT&NumberOfPax=2&Password=**HXAGENTPASSWORD**&Surname=Test&Title=Mr&key=**HXAPIKEY**&token=000001234
+https://api.holidayextras.co.uk/v1/carpark/LGW4
 ```
 
+### Request Parameters
+
+The parameters _must_ be sent in the body of the request, as ```x-www-form-urlencoded``` data.
+
+NB: All parameter names are case sensitive.
+
+ | Name        | Data Type    | Format | Mandatory? | Additional Information |
+ | ----        | ----    | ------ | -------- | ---------------------- |
+ | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
+ | Password    | String  | [A-Z0-9] 5 chars | N*       | Password only required for Agent requests. <br>This will be confirmed to you by your Account Manager during set up.|
+ | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
+ | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
+ | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
+ | ArrivalDate | Date    | YYYY-MM-DD                             | Y        | Date customer drops vehicle at car park. |
+ | ArrivalTime | Time    | HHMM                                   | Y        | Time customer drops vehicle at car park.|
+ | DepartDate  | Date    | YYYY-MM-DD                             | Y        | Date customer picks up vehicle from car park.|
+ | DepartTime  | Time    | HHMM                                   | Y        | Time customer picks up vehicle from car park.|
+ | NumberOfPax | Integer | [0-9] 2 chars | Y        | Number of passengers.|
+| Title | String | [0-9] 4 chars | Y        | Title of lead passenger|
+| Initial | String | [A-Z] 1 chars | Y        | Initial of lead passenger|
+| Surname | String | [0-9] 20 chars | Y        | Surname of lead passenger|
+| Address[] | String | [0-9] 20 chars | Y        | First line of address (house name / number and road) of lead passenger <br>If you require more than 1 address line, then you can replicate this field and increment the number in square brackets, i.e. "Address[1]" for address line 2, and so on.<br>NB: This field can be set to NA|
+| Town | String | [0-9] 4 chars | Y        | Town of address <br>NB: This field can be set to NA|
+| County | String | [0-9] 4 chars | Y        | County of address <br>NB: This field can be set to NA|
+| PostCode | String | [0-9] 4 chars | Y        | Post code of address <br>NB: This field can be set to NA|
+| Email | String | [0-9] 4 chars | Y        | Email of lead passenger|
+| PriceCheckFlag | String | Y | Y        | Indicates a price check will be carried out prior to booking. <br>If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.|
+| PriceCheckPrice | Float | [0-9] | Y        | Price of the product, received from the availability request or price check. |
+| System      | String  | [A-Z] 3 chars | Y*       | The System defaults to "ABC". For European products, you need to pass in the value of "ABG"|
+
+### Request flags
+
+When you receive the availability response, it will indicate which request flags are required to be sent as part of the booking request.
+
+The request flags differ depending on the product's region and the supplier's requirements. A summary is below, but please see the relevant sections in the [availability endpoint documentation](/hxapi/av/airport).
+
+**UK Products**
+
+The ```<RequestFlags>``` field dictates which fields need to be sent as part of the booking request.
+
+**European Products**
+
+The availability response will return a list of 18 flags in the ```<CarDetFlags>``` field with a yes/no response to indicate if required. The order of the flags is always the same.
+
+### Payment
+
+In the UK, we are PCI DSS compliant and so we do not accept customers' payment details being passed to us via the API.
+
+Please contact your Account Manager if you have any questions concerning payment.
 
 
+## Car Park Booking Response
+
+The car park booking response will confirm that a booking has been placed in our system.
+
+For a detailed explanation of the fields returned, please see below:
+
+| Field                | Additional Information |
+| ----                 | ---------------------- |
+| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are 5 char alphanumeric (including "1"/"I" and "0"/"O"/Q").|
+| Booking/AgentComm  | Commission you have earned from this booking. |
+| CarDetails  | Confirmation of the vehicle details that were sent in the booking request. |
+| ClientDetails  | Confirmation of the lead passenger's details that were sent in the booking request. |
+| HandlingFee  | Any booking fees that are applicable for processing this transaction. Currently, we do not charge for processing bookings, so this figure will be zero. |
+| MoreInfoURL  | The URL for viewing the booking. See [view booking](/hxapi/viewamendcancel/view) for more details. |
+| CarPark  | Details of the car park that were sent in the booking request. |
+| API_Header/Request  | A list of parameters that were sent in the booking request. |
 
 
+### Booking Terms and Conditions
+
+It is important that the customer has access to the Terms and Conditions at the time of placing their booking and after. We highly recommend that these are made clear to the customer _before_ booking.
+
+For European products, please use the following link: http://www.holidayextras.de/images/de-hx/pdf/agb.pdf
+
+If you require translations of Terms and Conditions into other languages, you can simply change ``/de-hx/`` (German) into ``nl-hx`` (Dutch), ``it-hex`` (Italian), ``pt-hx`` (Portuguese), ``fr-hx`` (French), ``es-hx`` (Spanish) or ``en-hx`` (English).
 
 
+## Worked Examples
 
+Below are worked examples of both the request and response for booking car parking.
 
+### UK Products Booking Request
 
-### Reply
+```html
+https://api.holidayextras.co.uk/carpark/LGW4
+```
 
-#### Intermediary
+```
+    <Request>
+        <ABTANumber>YourABTA</ABTANumber>
+        <Password>YourPassword</Password>
+        <Initials>YourInitials</Initials>
+        <key>YourKey</key>
+        <token>YourToken</token>
+        <ArrivalDate>2017-12-01</ArrivalDate>
+        <ArrivalTime>1200</ArrivalTime>
+        <DepartDate>2017-12-08</DepartDate>
+        <DepartTime>1200</DepartTime>
+        <NumberOfPax>1</NumberOfPax>
+        <Title>MR</Title>
+        <Initial>T</Initial>
+        <Surname>TEST</Surname>
+        <Address>123 Test Street</Address>
+        <Town>Testville</Town>
+        <County>Testshire</County>
+        <PostCode>TE12 3ST</PostCode>
+        <Email>test@test.com</Email>
+        <PriceCheckFlag>Y</PriceCheckFlag>
+        <PriceCheckPrice>57.99</PriceCheckPrice>
+        <CarColour>White</CarColour>
+        <CarMake>Range Rover</CarMake>
+        <CarModel>Evoque</CarModel>
+        <Destination>Munich</Destination>
+        <OutFlight>EZY8985</OutFlight>
+        <OutTerminal>N</OutTerminal>
+        <Registration>TE17 STS</Registration>
+        <ReturnFlight>EZY8982</ReturnFlight>
+        <ReturnTerminal>N</ReturnTerminal>
+        <MobileNum>01234567890</MobileNum>
+    </Request>
+    ```
+
+### UK Products Booking Response
 
 ```xml
-
-<?xml version="1.0"?>
-<API_Reply Product="CarPark" RequestCode="4" Result="OK">
-	<Booking>
-		<BookingRef>A8GBV</BookingRef>
-		<MoreInfoURL>/sandbox/v1/booking/A8GBV</MoreInfoURL>
-	</Booking>
-	<Pricing>
-		<AmountPaid>91.80</AmountPaid>
-		<CCardSurchargePercent>2.00</CCardSurchargePercent>
-		<CCardSurchargeAmount>1.80</CCardSurchargeAmount>
-	</Pricing>
-	<API_Header>
-		<Request>
-			<Address>1 Test Street</Address>
-			<ArrivalDate>2008-09-20</ArrivalDate>
-			<ArrivalTime>1125</ArrivalTime>
-			<CardHolder>T Test</CardHolder>
-			<CardToken>1234123412341234</CardToken>
-			<County>Test</County>
-			<DataProtection>N</DataProtection>
-			<DayPhone>01303 222222</DayPhone>
-			<DepartDate>2008-09-28</DepartDate>
-			<DepartTime>1135</DepartTime>
-			<Email>tommo245@gmail.com</Email>
-			<ExpiryDate>2008-07-21</ExpiryDate>
-			<Initial>T</Initial>
-			<NumberOfPax>2</NumberOfPax>
-			<PostCode>CT203RP</PostCode>
-			<Surname>Test</Surname>
-			<Title>Mr</Title>
-			<Town>Test</Town>
-			<key>mytestkey</key>
-			<token>000001234</token>
-			<v>1</v>
-		</Request>
-	</API_Header>
-	<CarPark>
-		<TotalPrice>90.00</TotalPrice>
-		<ArrivalDate>2008-09-20</ArrivalDate>
-		<DepartDate>2008-09-28</DepartDate>
-		<ArrivalTime>1125</ArrivalTime>
-		<DepartTime>1135</DepartTime>
-		<Duration>8</Duration>
-		<NumberOfPax>2</NumberOfPax>
-		<Code>LGW2</Code>
-		<Name>Long Stay</Name>
-		<Filter>
-			<on_airport>1</on_airport>
-			<terminal>1</terminal>
-		</Filter>
-		<BookingURL>/sandbox/v1/carpark/LGW2</BookingURL>
-		<MoreInfoURL>/sandbox/v1/product/LGW2</MoreInfoURL>
-	</CarPark>
-</API_Reply>
-
-
-```
-
-#### Agent
-
-```xml
-
 <?xml version="1.0"?>
 <API_Reply Product="CarPark" RequestCode="5" Result="OK">
-	<Booking>
-		<BookingRef>A8GBW</BookingRef>
-		<AgentComm>13.50-</AgentComm>
-		<VATonComm>2.01-</VATonComm>
-	</Booking>
-	<API_Header>
-		<Request>
-			<ArrivalDate>2008-09-20</ArrivalDate>
-			<ArrivalTime>1125</ArrivalTime>
-			<DepartDate>2008-09-28</DepartDate>
-			<DepartTime>1135</DepartTime>
-			<Initial>T</Initial>
-			<NumberOfPax>2</NumberOfPax>
-			<Surname>Test</Surname>
-			<Title>Mr</Title>
-			<key>mytestkey</key>
-			<token>000001234</token>
-			<ABTANumber>FOO</ABTANumber>
-			<Password>FOO</Password>
-			<Initials>BJT</Initials>
-			<v>1</v>
-		</Request>
-	</API_Header>
-	<CarPark>
-		<TotalPrice>90.00</TotalPrice>
-		<ArrivalDate>2008-09-20</ArrivalDate>
-		<DepartDate>2008-09-28</DepartDate>
-		<ArrivalTime>1125</ArrivalTime>
-		<DepartTime>1135</DepartTime>
-		<Duration>8</Duration>
-		<NumberOfPax>2</NumberOfPax>
-		<Code>LGW2</Code>
-		<Name>Long Stay</Name>
-		<Filter>
-			<on_airport>1</on_airport>
-			<terminal>1</terminal>
-		</Filter>
-		<BookingURL>/sandbox/v1/carpark/LGW2</BookingURL>
-		<MoreInfoURL>/sandbox/v1/product/LGW2</MoreInfoURL>
-	</CarPark>
+    <Booking>
+        <BookingRef>YourBookingRef</BookingRef>
+        <AgentComm>7.25</AgentComm>
+        <VATonComm>0.00</VATonComm>
+    </Booking>
+    <CarDetails>
+        <Registration>TE17 STS</Registration>
+        <CarMake>RANGE ROVER</CarMake>
+        <CarModel>EVOQUE</CarModel>
+        <CarColour>WHITE</CarColour>
+        <OutFlight>EZY8985</OutFlight>
+        <Destination>MUNICH</Destination>
+        <MobileNum/>
+    </CarDetails>
+    <ClientDetails>
+        <Title>MR</Title>
+        <Initial>T</Initial>
+        <Surname>TEST</Surname>
+        <Email>test@test.com</Email>
+    </ClientDetails>
+    <HandlingFee>0.00</HandlingFee>
+    <MoreInfoURL>/booking/YourBookingRef</MoreInfoURL>
+    <CarPark>
+        <ArrivalDate>2017-12-01</ArrivalDate>
+        <DepartDate>2017-12-08</DepartDate>
+        <ArrivalTime>1200</ArrivalTime>
+        <DepartTime>1200</DepartTime>
+        <Duration>7</Duration>
+        <NumberOfPax>1</NumberOfPax>
+        <ReturnFlight>EZY8982</ReturnFlight>
+        <Code>LGW4</Code>
+        <TotalPrice>57.99</TotalPrice>
+        <Name>Maple Manor Meet and Greet North</Name>
+        <introduction>With 20 years' experience in providing a great service, Maple Manor Meet and Greet parking is a firm favourite with our customers and it's easy to see why. One of their professional, insured chauffeurs will meet you at the North terminal and park your car for you in a secured car park while you catch your flight. It couldn't be simpler and all for this low price. We only sell airport-approved Meet and Greet services and Maple Manor is no exception.</introduction>
+        <advance_purchase>1</advance_purchase>
+        <logo>//d1xcii4rs5n6co.cloudfront.net/libraryimages/LGW4_LGV0_LGT9_LGY8_thumbnail_logo.png</logo>
+        <BookingURL>/carpark/LGW4</BookingURL>
+        <MoreInfoURL>/product/LGW4</MoreInfoURL>
+    </CarPark>
+    <API_Header>
+        <Request>
+            <ABTANumber>YourABTANumber</ABTANumber>
+            <Password>YourPassword</Password>
+            <Initials>YourInitials</Initials>
+            <key>YourKey</key>
+            <token>YourToken</token>
+            <ArrivalDate>2017-12-01</ArrivalDate>
+            <ArrivalTime>1200</ArrivalTime>
+            <DepartDate>2017-12-08</DepartDate>
+            <DepartTime>1200</DepartTime>
+            <NumberOfPax>1</NumberOfPax>
+            <Title>MR</Title>
+            <Initial>T</Initial>
+            <Surname>TEST</Surname>
+            <Address>123 Test Street</Address>
+            <Town>Testville</Town>
+            <County>Testshire</County>
+            <PostCode>TE12 3ST</PostCode>
+            <Email>test@test.com</Email>
+            <PriceCheckFlag>Y</PriceCheckFlag>
+            <PriceCheckPrice>57.99</PriceCheckPrice>
+            <CarColour>White</CarColour>
+            <CarMake>Range Rover</CarMake>
+            <CarModel>Evoque</CarModel>
+            <Destination>Munich</Destination>
+            <OutFlight>EZY8985</OutFlight>
+            <OutTerminal>N</OutTerminal>
+            <Registration>TE17 STS</Registration>
+            <ReturnFlight>EZY8982</ReturnFlight>
+            <ReturnTerminal>N</ReturnTerminal>
+            <MobileNum>01234567890</MobileNum>
+        </Request>
+    </API_Header>
 </API_Reply>
-
 ```
 
+### European Products Booking Request
 
-### Fields Explained
+```
+https://api.holidayextras.co.uk/carpark/MU01
+```
 
-#### API_Header/Request/DataProtection
+```
+<Request>
+            <ABTANumber>YourABTANumber</ABTANumber>
+            <Password>YourPassword</Password>
+            <Initials>YourInitials</Initials>
+            <key>YourKey</key>
+            <token>YourToken</token>
+            <ArrivalDate>2017-12-01</ArrivalDate>
+            <ArrivalTime>1200</ArrivalTime>
+            <DepartDate>2017-12-08</DepartDate>
+            <DepartTime>1200</DepartTime>
+            <NumberOfPax>1</NumberOfPax>
+            <Title>HERR</Title>
+            <Initial>T</Initial>
+            <Surname>TEST</Surname>
+            <Address>123 Test Street</Address>
+            <Town>Testville</Town>
+            <County>Testshire</County>
+            <PostCode>TE12 3ST</PostCode>
+            <Email>test@test.com</Email>
+            <PriceCheckFlag>Y</PriceCheckFlag>
+            <PriceCheckPrice>35.00</PriceCheckPrice>
+            <System>ABG</System>
+            <OutFltNo>EZY8982</OutFltNo>
+            <InFltNo>EZY8985</InFltNo>
+            <InFltTime>1130</InFltTime>
+        </Request>
+```
 
-Indicates whether customer has opted to receive Holiday Extras offers.
+### European Products Booking Response
 
-Y = opted OUT ie data is protected
-N = opted IN
-
-#### Booking/MoreInfoURL
-
-In this context a link to view the booking details.
-
-#### CarPark/MoreInfoURL
-
-Product library information about the car park.
-
-#### Booking/AgentComm
-
-The amount of commission earned on the booking.
-
-#### Booking/VATonComm
-
-VAT payable on the commission.
-
+```xml
+<?xml version="1.0"?>
+<API_Reply Product="CarPark" RequestCode="4" Result="OK">
+    <Booking>
+        <BookingRef>YourBookingRef</BookingRef>
+    </Booking>
+    <MoreInfoURL>/carpark/YourBookingRef.de</MoreInfoURL>
+    <CarPark>
+        <ArrivalDate>2017-12-01</ArrivalDate>
+        <DepartDate>2017-12-08</DepartDate>
+        <ArrivalTime>1200</ArrivalTime>
+        <DepartTime>1200</DepartTime>
+        <Duration>7</Duration>
+        <NumberOfPax>1</NumberOfPax>
+        <ReturnFlight/>
+        <CarDetFlags>NNNNNNNNYYNYNNNNNN</CarDetFlags>
+        <Code>MU01</Code>
+        <Name>Parkservice Sky München</Name>
+        <BookingURL>/carpark/MU01.de</BookingURL>
+        <MoreInfoURL>/product/MU01.de</MoreInfoURL>
+        <TotalPrice>35.00</TotalPrice>
+        <GatePrice>0.00</GatePrice>
+    </CarPark>
+    <ClientDetails>
+        <Title>HERR</Title>
+        <Initial>T</Initial>
+        <Surname>TEST</Surname>
+        <Email>TEST@TEST.COM</Email>
+        <Town>TESTVILLE</Town>
+        <Postcode>TE12 3ST</Postcode>
+        <DayPhone>TBC</DayPhone>
+        <Remarks/>
+        <Address0>123 TEST STREET</Address0>
+        <DataProtection>Y</DataProtection>
+        <County>TESTSHIRE</County>
+        <Confirmation>Y</Confirmation>
+    </ClientDetails>
+    <Pricing>
+        <TotalPrice>35.00</TotalPrice>
+    </Pricing>
+    <API_Header>
+        <Request>
+            <ABTANumber>YourABTANumber</ABTANumber>
+            <Password>YourPassword</Password>
+            <Initials>YourInitials</Initials>
+            <key>YourKey</key>
+            <token>YourToken</token>
+            <ArrivalDate>2017-12-01</ArrivalDate>
+            <ArrivalTime>1200</ArrivalTime>
+            <DepartDate>2017-12-08</DepartDate>
+            <DepartTime>1200</DepartTime>
+            <NumberOfPax>1</NumberOfPax>
+            <Title>HERR</Title>
+            <Initial>T</Initial>
+            <Surname>TEST</Surname>
+            <Address>123 Test Street</Address>
+            <Town>Testville</Town>
+            <County>Testshire</County>
+            <PostCode>TE12 3ST</PostCode>
+            <Email>test@test.com</Email>
+            <PriceCheckFlag>Y</PriceCheckFlag>
+            <PriceCheckPrice>35.00</PriceCheckPrice>
+            <System>ABG</System>
+            <OutFltNo>EZY8982</OutFltNo>
+            <InFltNo>EZY8985</InFltNo>
+            <InFltTime>1130</InFltTime>
+        </Request>
+    </API_Header>
+</API_Reply>
+```

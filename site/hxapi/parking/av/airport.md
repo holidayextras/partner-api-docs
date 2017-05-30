@@ -14,13 +14,17 @@ GET
 
 ### Endpoint
 
-The endpoint to use is:
+The endpoint to use is (where "foo" is the location (airport) code):
 
+```
 https://api.holidayextras.co.uk/v1/carpark/foo
+```
 
-where foo is the location (airport) code
+For example, for London Gatwick the endpoint is:
 
-For example, for London Gatwick the endpoint is https://api.holidayextras.co.uk/v1/carpark/LGW
+```
+https://api.holidayextras.co.uk/v1/carpark/LGW
+```
 
 To find the airport locations available for car parking, please refer to the [locations endpoint.](/hxapi/locations)
 
@@ -28,18 +32,18 @@ To find the airport locations available for car parking, please refer to the [lo
 
 NB: All parameter names are case sensitive.
 
- | Name        | Type    | Format | Mandatory? | Additional Information |
+ | Name        | Data Type    | Format | Mandatory? | Additional Information |
  | ----        | ----    | ------ | -------- | ---------------------- |
- | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'.|
- | Password    | String  | [A-Z0-9] 5 chars | N*       | Password only required for Agent requests. |
+ | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
+ | Password    | String  | [A-Z0-9] 5 chars | N*       | Password only required for Agent requests. <br>This will be confirmed to you by your Account Manager during set up.|
  | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
- | key         | String  | [A-Z]                                  | Y        | |
- | token       | String  | [0-9] 9 chars                         | Y        | |
- | ArrivalDate | Date    | YYYY-MM-DD                             | Y        | |
- | ArrivalTime | Time    | HHMM                                   | Y        | |
- | DepartDate  | Date    | YYYY-MM-DD                             | Y        | |
- | DepartTime  | Time    | HHMM                                   | Y        | |
- | NumberOfPax | Integer |                                        | N        | |
+ | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
+ | token       | String  | [0-9] 9 chars                         | Y        | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token. |
+ | ArrivalDate | Date    | YYYY-MM-DD                             | Y        | Date customer drops vehicle at car park. |
+ | ArrivalTime | Time    | HHMM                                   | Y        | Time customer drops vehicle at car park.|
+ | DepartDate  | Date    | YYYY-MM-DD                             | Y        | Date customer picks up vehicle from car park.|
+ | DepartTime  | Time    | HHMM                                   | Y        | Time customer picks up vehicle from car park.|
+ | NumberOfPax | Integer | [0-9] 2 chars | N        | Number of passengers.|
  | filter      | String  | [A-Z]                                  | N        | Pass in values "filter=on_airport", "filter=recommended" or "filter=meet_and_greet" to only show car parks meeting those criteria. You can filter by any field that comes back in the filter section of the API.|
  | fields      | String  | [A-Z] a csv list of product info fields | N        | A list of product info fields can be passed in to return configurable product information e.g. fields=name,address,latitude,sellingpoint. |
  | top3        | Boolean | [0,1]                                   | N        | If a value of 1 is passed in for the top3 param, then a maximum of three car parks will be returned, one on airport, one park and ride, and one meet and greet. |
@@ -51,53 +55,48 @@ NB: All parameter names are case sensitive.
 
 The airport availability response will return all the products that have availability at the requested location on specific dates and durations. A summary of the request received can be found in the header field at the end of the response.
 
-For a detailed explanation of the fields, please see below:
+For a detailed explanation of the fields returned, please see below:
 
- | Field                | Notes |
+ | Field                | Additional Information |
  | ----                 | ---------------------- |
  | CarPark/TotalPrice   | The price of product _without_ any surcharges/fees added. |
  | CarPark/NonDiscPrice | The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.|
- | CarPark/RequestFlags | These flags list which details the car park operator requires from the customer. If a flag is returned with a 'Y' your application should send the corresponding field/value in the booking request.<br>Flags are only returned when required. The flags which can be returned are: <li>Registration <li>CarMake <li>CarModel <li>CarColour <li>OutFlight <li>ReturnFlight <li>OutTerminal <li>ReturnTerminal <li>Destination <li>MobileNum|
+ | CarPark/RequestFlags | _NB: For European products, please see the separate table below._ <br>These flags list which details the car park operator requires from the customer. If a flag is returned with a 'Y' your application should send the corresponding field/value in the booking request.<br>Flags are only returned when required. The flags which can be returned are: <li>Registration <li>CarMake <li>CarModel <li>CarColour <li>OutFlight <li>ReturnFlight <li>OutTerminal <li>ReturnTerminal <li>Destination <li>MobileNum|
  | CarPark/Filter       | We have a filter mechanism on our site, to show particular types of product, such as Meet and Greet. The filters that apply to a product are returned here. Possible values are: <li>meet_and_greet <li>recommended <li>on_airport <li>terminal <li>valet_included <li>car_parked_for_you. |
- | European flags to be added!!!! | The price of the product _without_ any surcharges/fees added. |
  | CarPark/BookingURL   | The URL to POST the booking request to for this particular product. |
  | CarPark/MoreInfoURL  | The link to more information about this product, sourced from the Product Library.|
  | Pricing/CreditCardSurcharge | NB: This is only relevant for Intermediary Agents in Europe, where Holiday Extras is responsible for processing the payment, not the Agent. <br>The first step in the calculation is to determine the credit card surcharge payable (x), based on the value of the booking, using this formula: <br>x = (TotalPrice + the CanxWaiver) / 100 x CCardSurchargePercent <br>Second, to prevent the surcharge from exceeding certain boundaries we have min and max thresholds, which can be calculated as follows: <br>if x < CCardSurchargeMin; <br>x = CCardSurchargeMin <br>else if x > CCardSurchargeMax; <br>x = CCardSurchargeMax|
  | Pricing/CancellationWaiver | We provide an optional cancellation waiver. If this is not added then cancellation will incur a fee. The fee is outlined in our terms and conditions. <br>NB: This value is not currently returned via the XML. |
  | API_Header/Request  | The API returns every parameter and value you sent in the previous request. |
 
-#### Europe CarParkDetailsFlag - CW to flesh out more
+#### European products only
 
- The availability response will identify a list of flags which identify the fields required to be POSTED when making a booking.
+For European products only, the availability response will return a field called ```<CarDetFlags>```, which identifies the fields required when making a booking. (This is instead of the ```<RequestFlags>``` field which is returned for UK products only).
 
- e.g. <CarDetFlags>NNNNNNNNNNNNNNNNNN</CarDetFlags>
+For example: ```<CarDetFlags>``` NNNNNNNNNNNNNNNNNN ```</CarDetFlags>```
 
- The order of the flags refer to these POST parameter fields respectively:
+ The order of the flags is always the same, and refers to these parameters respectively:
 
-
- <CarDetFlags>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</CarDetFlags>
-
-
-  | Position | POST Parameter | character length | what is it?                                                                        |
+  | Position | Parameter | Data Type | Format | Additional Information                            |
   | -------- | -------------- | ---------------- | -----------                                                                        |
-  | 1        | Registration   | VARCHAR(10)      | This is the car registration                                                       |
-  | 2        | CarMake        | VARCHAR(10)      | This is the make of the car e.g. Audi                                              |
-  | 3        | CarModel       | VARCHAR(10)      | This is the model of the car e.g. A6                                               |
-  | 4        | CarColour      | VARCHAR(10)      | This is the colour of the car e.g. White                                           |
-  | 5        | NumberOfPax    | INT(2)           | This is the number of passengers in the vehicle e.g. 5                             |
-  | 6        | CarDropoffTime | HHMM             | This is the Arrival Time when you drop the car off at the car park e.g 1000        |
-  | 7        | CarPickupTime  | HHMM             | This is the time on leaving the car park when you pick up your car e.g. 1600       |
-  | 8        | OutTerminal    | VARCHAR(2)       | This is the single letter or number representation of the terminal e.g N or S or 4 |
-  | 9        | OutFltNo       | VARCHAR(10)      | This is the flight number e.g. EZY123                                              |
-  | 10       | InFltNo        | VARCHAR(10)      | This is the flight number e.g. EZY124                                              |
-  | 11       | OutFltTime     | HHMM             | This is the Departure Time of the outbound flight e.g. 1200                        |
-  | 12       | InFltTime      | HHMM             | This is the Arrival Time of the inbound flight e.g. 1500                           |
-  | 13       | MobileNum      | VARCHAR(15)      | This is the mobile number of the customer                                          |
-  | 14       | ShipName       | VARCHAR(20)      | This is the name of the ship e.g. AIDA                                             |
-  | 15       | PierName       | VARCHAR(20)      | This is the pier name                                                              |
-  | 16       | ChildSeat      | Y/N              | Is a child car seat needed?                                                        |
-  | 17       | AddlServices   | VARCHAR(50)      | This is a remarks line                                                             |
-  | 18       | RetTerminal    | VARCHAR(2)       | This is the single letter or number representation of the terminal e.g N or S or 4 |
+  | 1        | Registration  | String | [A-Z0-9] 10 chars      | Vehicle registration number <br> NB: This field is not validated through the API. |
+  | 2        | CarMake        | String | [A-Z0-9] 10 chars | Make of vehicle, e.g. Audi.                                             |
+  | 3        | CarModel       | String | [A-Z0-9] 10 chars      | Model of vehicle, e.g. A6.                                               |
+  | 4        | CarColour      | String | [A-Z0-9] 10 chars      | Colour of vehicle, e.g. White.                                           |
+  | 5        | NumberOfPax    | Integer |[0-9]| Number of passengers in the vehicle.|
+  | 6        | CarDropoffTime | Time | HHMM             | Arrival time when you drop the vehicle off at the car park e.g 1000. |
+  | 7        | CarPickupTime  | Time | HHMM             | Return time, when you pick the vehicle up from the car park, e.g. 1600. |
+  | 8        | OutTerminal    | String | [A-Z0-9] 2 chars | Single letter or number representation of the terminal e.g N or S or 4 |
+  | 9        | OutFltNo       | String | [A-Z0-9] 10 chars      | Outbound flight number e.g. EZY123. |
+  | 10       | InFltNo        | String | [A-Z0-9] 10 chars      | Return flight number e.g. EZY124. |
+  | 11       | OutFltTime     | Time | HHMM             | Departure time of the outbound flight e.g. 1200. |
+  | 12       | InFltTime      | Time | HHMM             | Arrival time of the inbound flight e.g. 1500. |
+  | 13       | MobileNum      | String | [A-Z0-9] 15 chars      | Customer's mobile number. |
+  | 14       | ShipName       | String | [A-Z0-9] 20 chars      | Name of the ship, e.g. AIDA  |
+  | 15       | PierName       | String | [A-Z0-9] 20 chars      | Name of the pier or port where the ship is departing from |
+  | 16       | ChildSeat      | String | Y/N              | Is a child car seat needed? |
+  | 17       | AddlServices   | String | [A-Z0-9] 50 chars      | In this parameter you may add additional remarks regarding the booking. |
+  | 18       | RetTerminal    | String | [A-Z0-9] 2 chars       | Single letter or number representation of the terminal e.g N or S or 4 |
 
 
 
