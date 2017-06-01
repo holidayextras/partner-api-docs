@@ -60,7 +60,7 @@ NB: All parameter names are case sensitive.
 
 When you receive the availability response, it will indicate which request flags are required to be sent as part of the booking request.
 
-The request flags differ depending on the product's region and the supplier's requirements. A summary is below, but please see the relevant sections in the [availability endpoint documentation](/hxapi/av/airport).
+The request flags differ depending on the product's region and the supplier's requirements. A summary is below, but please see the relevant sections in the [availability endpoint documentation](/hxapi/parking/av/airport).
 
 #### UK Products
 

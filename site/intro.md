@@ -105,7 +105,7 @@ Each product generally follows the same journey:
 3. Make a booking;
 4. View the booking.
 
-Additional requests can be made for locations and additional product information. Please refer to each product's [detailed guide](/hxapi/endpoints) for more specific detail on the user journey.
+Additional requests can be made for locations and additional product information. Please refer to each product's [detailed guide](/hxapi/) for more specific detail on the user journey.
 
 ### Making Test Bookings
 
@@ -123,4 +123,4 @@ Further details on the procedure can be found in our section on [Go Live](/goliv
 
 ## Where to next?
 
-If you are ready to begin, we suggest you start with our [Detailed Guides](/hxapi/endpoints).
+If you are ready to begin, we suggest you start with our [Detailed Guides](/hxapi/).
