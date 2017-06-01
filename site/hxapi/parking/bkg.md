@@ -33,9 +33,9 @@ The parameters _must_ be sent in the body of the request, as ```x-www-form-urlen
 NB: All parameter names are case sensitive.
 
  | Name        | Data Type    | Format | Mandatory? | Additional Information |
- | ----        | ----    | ------ | -------- | ---------------------- |
+ | ----        | ----    | --------- | -------- | ---------------------- |
  | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
- | Password    | String  | [A-Z0-9] 5 chars | N*       | Password only required for Agent requests. <br>This will be confirmed to you by your Account Manager during set up.|
+ | Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
  | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
  | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
  | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
@@ -54,7 +54,7 @@ NB: All parameter names are case sensitive.
 | Email | String | [0-9] 4 chars | Y        | Email of lead passenger|
 | PriceCheckFlag | String | Y | Y        | Indicates a price check will be carried out prior to booking. <br>If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.|
 | PriceCheckPrice | Float | [0-9] | Y        | Price of the product, received from the availability request or price check. |
-| System      | String  | [A-Z] 3 chars | Y*       | The System defaults to "ABC". For European products, you need to pass in the value of "ABG"|
+| System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of ```System=ABG``` (the default is ```System=ABC```, which is UK products only). |
 
 ### Request flags
 
@@ -62,11 +62,11 @@ When you receive the availability response, it will indicate which request flags
 
 The request flags differ depending on the product's region and the supplier's requirements. A summary is below, but please see the relevant sections in the [availability endpoint documentation](/hxapi/av/airport).
 
-**UK Products**
+#### UK Products
 
 The ```<RequestFlags>``` field dictates which fields need to be sent as part of the booking request.
 
-**European Products**
+#### European Products
 
 The availability response will return a list of 18 flags in the ```<CarDetFlags>``` field with a yes/no response to indicate if required. The order of the flags is always the same.
 
@@ -75,6 +75,17 @@ The availability response will return a list of 18 flags in the ```<CarDetFlags>
 In the UK, we are PCI DSS compliant and so we do not accept customers' payment details being passed to us via the API.
 
 Please contact your Account Manager if you have any questions concerning payment.
+
+### Booking Terms and Conditions
+
+It is important that the customer has access to the Terms and Conditions at the time of placing their booking and after. We highly recommend that these are made clear to the customer _before_ booking.
+
+For European products, please use the following link:
+```
+http://www.holidayextras.de/images/de-hx/pdf/agb.pdf
+```
+
+If you require translations of Terms and Conditions into other languages, you can simply change ``/de-hx/`` (German) into ``nl-hx`` (Dutch), ``it-hex`` (Italian), ``pt-hx`` (Portuguese), ``fr-hx`` (French), ``es-hx`` (Spanish) or ``en-hx`` (English).
 
 
 ## Car Park Booking Response
@@ -85,7 +96,7 @@ For a detailed explanation of the fields returned, please see below:
 
 | Field                | Additional Information |
 | ----                 | ---------------------- |
-| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are 5 char alphanumeric (including "1"/"I" and "0"/"O"/Q").|
+| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are 5 char alphanumeric (including 1/I and 0/O/Q).|
 | Booking/AgentComm  | Commission you have earned from this booking. |
 | CarDetails  | Confirmation of the vehicle details that were sent in the booking request. |
 | ClientDetails  | Confirmation of the lead passenger's details that were sent in the booking request. |
@@ -93,16 +104,6 @@ For a detailed explanation of the fields returned, please see below:
 | MoreInfoURL  | The URL for viewing the booking. See [view booking](/hxapi/viewamendcancel/view) for more details. |
 | CarPark  | Details of the car park that were sent in the booking request. |
 | API_Header/Request  | A list of parameters that were sent in the booking request. |
-
-
-### Booking Terms and Conditions
-
-It is important that the customer has access to the Terms and Conditions at the time of placing their booking and after. We highly recommend that these are made clear to the customer _before_ booking.
-
-For European products, please use the following link: http://www.holidayextras.de/images/de-hx/pdf/agb.pdf
-
-If you require translations of Terms and Conditions into other languages, you can simply change ``/de-hx/`` (German) into ``nl-hx`` (Dutch), ``it-hex`` (Italian), ``pt-hx`` (Portuguese), ``fr-hx`` (French), ``es-hx`` (Spanish) or ``en-hx`` (English).
-
 
 ## Worked Examples
 

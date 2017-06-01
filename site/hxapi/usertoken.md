@@ -25,7 +25,7 @@ GET
 ## Request
 
 ```
-https://api.holidayextras.co.uk/v1/usertoken?key=mytestkey
+https://api.holidayextras.co.uk/v1/usertoken?key=YourKey
 ```
 
 

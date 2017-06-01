@@ -31,7 +31,7 @@ NB: All parameter names are case sensitive.
  | Name        | Data Type    | Format | Mandatory? | Additional Information |
  | ----        | ----    | ------ | -------- | ---------------------- |
  | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
- | Password    | String  | [A-Z0-9] 5 chars | N*       | Password only required for Agent requests. <br>This will be confirmed to you by your Account Manager during set up.|
+ | Password    | String  | [A-Z0-9] 5 chars | Y*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
  | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
  | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
  | token       | String  | [0-9] 9 chars                         | Y        | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token. |
@@ -40,10 +40,11 @@ NB: All parameter names are case sensitive.
  | DepartDate  | Date    | YYYY-MM-DD                             | Y        | Date customer picks up vehicle from car park.|
  | DepartTime  | Time    | HHMM                                   | Y        | Time customer picks up vehicle from car park.|
  | NumberOfPax | Integer | [0-9] 2 chars | N        | Number of passengers.|
- | filter      | String  | [A-Z]                                  | N        | Pass in values "filter=on_airport", "filter=recommended" or "filter=meet_and_greet" to only show car parks meeting those criteria. You can filter by any field that comes back in the filter section of the API.|
- | fields      | String  | [A-Z] a csv list of product info fields | N        | A list of product info fields can be passed in to return configurable product information e.g. fields=name,address,latitude,sellingpoint. |
- | System      | String  | [A-Z] 3 chars | Y*       | The System defaults to "ABC". For European products, you need to pass in the value of "ABG"|
- | lang        | String  | [A-Z] 2 chars | Y*       | Required for requests for European products. (Values available are "en", "de", "it", "es", "pt" and "nl".)|
+ | filter      | String  | [A-Z]                                  | N        | Pass in values ```filter=on_airport```, ```filter=recommended``` or ```filter=meet_and_greet``` to only show car parks meeting those criteria. You can filter by any field that comes back in the filter section of the API.|
+ | fields      | String  | [A-Z] a csv list of product info fields | N        | A list of product info fields can be passed in to return configurable product information e.g. ```fields=name,address,latitude,sellingpoint```. |
+ | top3        | Boolean | [0,1]                                   | N        | If a value of 1 is passed in for the top3 param, then a maximum of three car parks will be returned, one on airport, one park and ride, and one meet and greet. |
+ | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of ```System=ABG``` (the default is ```System=ABC```, which is UK products only). |
+ | lang        | String  | [A-Z] 2 chars | Y*       | Required for requests for European products. (Values available are ```en```, ```de```, ```it```, ```es```, ```pt``` and ```nl```.)|
 
 
 ## Car Park Availability Response
@@ -56,7 +57,7 @@ For a detailed explanation of the fields returned, please see below:
  | ----                 | ---------------------- |
  | CarPark/TotalPrice   | The price of product _without_ any surcharges/fees added. |
  | CarPark/NonDiscPrice | The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.|
- | CarPark/RequestFlags | _NB: For European products, please see the separate table below._ <br>These flags list which details the car park operator requires from the customer. If a flag is returned with a 'Y' your application should send the corresponding field/value in the booking request.<br>Flags are only returned when required. The flags which can be returned are: <li>Registration <li>CarMake <li>CarModel <li>CarColour <li>OutFlight <li>ReturnFlight <li>OutTerminal <li>ReturnTerminal <li>Destination <li>MobileNum|
+ | CarPark/RequestFlags | _NB: For European products, please see the separate table below._ <br>These flags list which details the car park operator requires from the customer. If a flag is returned with a 'Y' your application should send the corresponding field/value in the booking request.<br>Flags are only returned when required. The flags which can be returned are: ```Registration```, ```CarMake```, ```CarModel```, ```CarColour```, ```OutFlight```, ```ReturnFlight```, ```OutTerminal```, ```ReturnTerminal```, ```Destination```, ```MobileNum```.|
  | CarPark/Filter       | The car park filters are returned, but as you are searching for a single product in this request these can be ignored. |
  | CarPark/BookingURL   | The URL to POST the booking request to for this particular product. |
  | CarPark/MoreInfoURL  | The link to more information about this product, sourced from the Product Library.|

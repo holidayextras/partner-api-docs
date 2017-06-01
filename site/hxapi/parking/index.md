@@ -6,14 +6,9 @@
 
 [API Docs](/hxapi/) > product:[Parking](index)
 
-
-## Parking User Journey
-
-_Insert image_
-
 ## Parking Endpoints
 
-Here are the car parking endpoints:
+Here are the car parking specific endpoints:
 
  | Request | Endpoint | Method |
  | ------ | -------- | ------ |
@@ -21,12 +16,18 @@ Here are the car parking endpoints:
  | Availability at car park | [https://api.holidayextras.co.uk/v1/carpark/foo](av/carpark)        | GET    |
  | Make booking at car park | [https://api.holidayextras.co.uk/v1/carpark/foo](bkg)               | POST   |
 
+## Parking User Journey
+
+Below is a diagram detailing how the endpoints can be used to create a parking user journey. More information on each endpoint can be found in the detailed guides listed above.
+
+ ![Image of Parking User Journey](https://github.com/holidayextras/partner-api-docs/blob/master/site/_assets/Parking%20User%20Journey.001.png?raw=true)
+
 
 ## Parking Top Tips
 
 We have put together these top tips, which detail how to optimise your use of our API for providing parking to your customers.
 
-**Merging Product Library data into availability response**
+#### Merging Product Library data into availability response
 
 To save sending a separate ```https``` request for information from the Product Library, you can specify a comma-separated list of values to pull this information back with the availability request.
 
@@ -40,11 +41,11 @@ For example:
 
 Alternatively, the method for querying the product library as a separate request [is outlined here](/hxapi/productlibrary/parking).
 
-**Advance purchase**
+#### Advance purchase
 
 There is a field in the Product Library for car parks, named ``advance_purchase``. Advance purchase products are non-refundable and non-cancellable. As a result, the Cancellation Waiver must not be sold to customers purchasing a product with ``advance_purchase`` set to 1.
 
-**Request flags**
+#### Request flags
 
 The request flags brought back from availability searches indicate the fields required in the booking by the car park. You *must* retrieve this information from the customer at the time of booking.
 
