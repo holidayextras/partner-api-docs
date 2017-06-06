@@ -1,0 +1,28 @@
+#Car Hire
+
+- On the `Availability` page: The example request has incorrect date formats for `From` and `To`. eg: `06NOV16` should be `2016-10-06`
+- On the `Make Booking` page: The example endpoint states that it needs to be a `GET` request. This should instead be `POST`. We also do not state that requests need to be made using `x-www-form-urlencoded`.
+- Test bookings do not need to be notified / cancelled as they are done automatically in Flexible's system (using credentials FCH01HE)
+
+#Hotels
+
+
+#Lounges
+- Need to include pricecheckflag and pricecheckprice in lounge book requests - not clear in docs.
+
+
+#Parking
+- Registration plates are a string, we do not validate this in the API, a partner would need to validate the input if they so wished. (For our direct customers we have the car reg look up but as there is a cost attached to this per look up we have no plans to make this available outside of HX use).
+- The table of parameters for make booking focuses only on mandatory and non mandatory parameters for intermediary agents. Retail should be included as some of these aren't mandatory... although intermediary should be removed anyway as part of PCI updates as nobody uses it on intermediary basis to make bookings. They will only use it on occasions for requests
+- Needs to be clearer that need to add "FR" to start of product code when making a booking (check this is same for other products).
+
+#Germany 
+- Date format for UK needs to be reversed, i.e. DD-MM-YYYY
+
+
+#Product Library
+- Would be helpful if a full table of the info returned from product library, along with expected input format, e.g. integer, string, so partners do know what type of output to expect (currently says output should be 'self explanatory' in what it is).
+
+#General
+
+- Not clear that partners have to create their own booking confirmations (on screen or via email) - and to do that they need to use the view booking request.
