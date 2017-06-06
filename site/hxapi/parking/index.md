@@ -20,7 +20,7 @@ Here are the car parking specific endpoints:
 
 Below is a diagram detailing how the endpoints can be used to create a parking user journey. More information on each endpoint can be found in the detailed guides listed above.
 
- ![Image of Parking User Journey](https://github.com/holidayextras/partner-api-docs/blob/master/site/_assets/Parking%20User%20Journey.001.png?raw=true)
+ ![Image of Parking User Journey](Parking_User_Journey.png)
 
 
 ## Parking Top Tips
