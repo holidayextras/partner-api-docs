@@ -41,7 +41,7 @@ There is a field in the product library for hotels, named 'day_use_only'. Day us
 
 In order to establish whether the package includes parking for the night of the hotel stay the parking_includes_arrival field needs to be taken into account.
 
-<parking_includes_arrival>0</parking_includes_arrival> - This indicates  whether the parking period starts on the arrival date at the hotel or the next day when the customer is flying.
+`<parking_includes_arrival>0</parking_includes_arrival>` - This indicates  whether the parking period starts on the arrival date at the hotel or the next day when the customer is flying.
 
 So 0 means that the night of your stay is not counted, so there is free overnight parking, and the amount of days parking will be from the next day
 

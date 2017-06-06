@@ -6,126 +6,47 @@
 
 [API Docs](/hxapi/) > product:[Parking](index)
 
-These are the parking requests.
+## Parking Endpoints
+
+Here are the car parking specific endpoints:
+
+ | Request | Endpoint | Method |
+ | ------ | -------- | ------ |
+ | Availability at airport  | [https://api.holidayextras.co.uk/v1/carpark/foo](av/airport)        | GET    |
+ | Availability at car park | [https://api.holidayextras.co.uk/v1/carpark/foo](av/carpark)        | GET    |
+ | Make booking at car park | [https://api.holidayextras.co.uk/v1/carpark/foo](bkg)               | POST   |
+
+## Parking User Journey
+
+Below is a diagram detailing how the endpoints can be used to create a parking user journey. More information on each endpoint can be found in the detailed guides listed above.
+
+ ![Image of Parking User Journey](Parking_User_Journey.png)
 
 
- | Action                   | Endpoint                                                                            | Method |
- | ------                   | --------                                                                            | ------ |
- | Availability at airport  | [https://api.holidayextras.co.uk/v1/carpark/foo](av/airport)           | GET    |
- | Availability at car park | [https://api.holidayextras.co.uk/v1/carpark/foo](av/carpark)           | GET    |
- | Upgrades                 | [https://api.holidayextras.co.uk/v1/upgrade/foo](/hxapi/upgrade)                      | GET    |
- | Make booking at car park | [https://api.holidayextras.co.uk/v1/carpark/foo](bkg)                 | POST   |
+## Parking Top Tips
 
+We have put together these top tips, which detail how to optimise your use of our API for providing parking to your customers.
 
-# Important notices
+#### Merging Product Library data into availability response
 
-**Important!** These points have created problems for partners in the past.
+To save sending a separate `https` request for information from the Product Library, you can specify a comma-separated list of values to pull this information back with the availability request.
 
+Just specify a parameter named ``fields`` and include the Product Library field names there.
 
-## Merging product library data into availability response
+For example:
 
-You can specify a comma-separated list of fields to pull back from the product library. This overcomes the need for partners to do multiple HTTP requests. Just specify a parameter named 'fields' and include the product library field names there.
 ```
-eg...&fields=field_a,field_b,field_c
-```
-
-The method for querying the product library as a separate request [is outlined here](/hxapi/productlibrary/parking).
-
-## Advance purchase
-
-There is a field in the product library for car parks, named 'advance_purchase'. Advance purchase products are non-refundable and non-cancellable. As a result, the Cancellation Waiver must not be sold to customers purchasing a product with advance_purchase set to 1.
-
-
-## User token
-
-If your application does not grab a new user token for each user on your site before making requests to the carpark endpoint, we have no way of differentiating between your customers. We've had several partners send through the same number for every customer. This has made it difficult to trace bookings when a problem has required investigation. Please ensure that you request a User Token before doing any parking requests.
-
-[How to request a user token](/hxapi/usertoken)
-
-
-## Request flags
-
-The request flags brought back from availability searches indicate the fields required in the booking by the car park. You must retrieve this information from the customer. There are occasions where your booking will go through without sending this information but can fail later when importing the bookings to car parks. This causes us considerable administrative difficulties. Please, make sure your application sends all requested fields.
-
-```xml
-<RequestFlags>
-	<Registration>1</Registration>
-</RequestFlags>
+&fields=field_a,field_b,field_c
 ```
 
-## Total price  - <Pricing> element
+Alternatively, the method for querying the product library as a separate request [is outlined here](/hxapi/productlibrary/parking).
 
-The cost of the Credit Card surcharge applies to the price of parking + cancellation waiver (if taken).
+#### Advance purchase
 
-So in the reply for a booking request you may see something like
-```xml
-<AmountPaid>43.56</AmountPaid>
-<TotalPrice>42.06</TotalPrice>
-<CCSurchargeAmount>1.50</CCSurchargeAmount>
-<CanxWaiver>0.50</CanxWaiver>
-```
-... and expect <AmountPaid> to total £44.06 (because 42.06 + 1.50 + 0.50 = 44.06). This is not an error, the <CanxWaiver> amount has already been added to the parking price of £41.56 to create <TotalPrice>, and the credit card surcharge is then applied to that value, giving <AmountPaid>.
+There is a field in the Product Library for car parks, named ``advance_purchase``. Advance purchase products are non-refundable and non-cancellable. As a result, the Cancellation Waiver must not be sold to customers purchasing a product with ``advance_purchase`` set to 1.
 
+#### Request flags
 
-## Images
+The request flags brought back from availability searches indicate the fields required in the booking by the car park. You *must* retrieve this information from the customer at the time of booking.
 
-We have recently moved all our images into an internal image library. The paths provided in the API will no longer be valid.
-
-However for each of the products you will see a key called tripappimages - these are the best images to use.  There will be an array split by a ;
-
-e.g. https://api.holidayextras.co.uk/v1/product/LGW4.js?token=000015778&key=mytestkey&fields=tripappimages
-
-You can specify the specific product library fields you need using this syntax and adding fields=x,y,z, etc.
-
-The domain you can source them to is //static4.holidayextras.com
-
-You would need to replace /imageLibrary/Images/ with /libraryimages
-
-e.g. /imageLibrary/Images/81818-LGW-maple-manor-North2.png
-
-should be replaced with //static4.holidayextras.com/libraryimages/81818-LGW-maple-manor-North2.png
-
-
-## European Products ONLY
-
-Pass in System=ABG to access products in Europe.
-
-Default if System is not set should be System=ABC to access products in UK only.
-
-You will need to create a voucher for the customer yourself by using the following information from the product library, plus the information from the booking response:
-
-mandatory fields are:
-
-
-
-*  car park name <name> or <parkplatzname>
-
-*  car park adress <adresse>
-
-*  car park phone number <telefon>
-
-*  important information <hinweis>
-
-*  transfer information <transfer>
-
-*  approach <anfahrt>
-
-*  arrival <bei_der_anreise_>
-
-*  size of vehicle <pkw_groesse>
-
-optional fields are:
-
-*  departure <bei_der_abreise_>
-
-*  information for handicapped people <barrierefreier_zugang>
-
-*  security information <sicherheit>
-
-*  information on insurance <versicherung>
-
-Please always add our terms and conditions (refer to "make a booking at car park" section)
-Example:
-Service provider: Holiday Extras GmbH | Aidenbachstr. 52 | 81379 München | Germany. Terms and conditions of Holiday Extras, available at http://www.holidayextras.de/images/en-hx/pdf/agb.pdf, apply.
-
-
+There are occasions where your booking will go through without sending this information but can fail later when importing the bookings to car parks. This causes us considerable administrative difficulties and may result in your customer's booking being cancelled without notice.
