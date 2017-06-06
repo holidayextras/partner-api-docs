@@ -29,7 +29,7 @@ We have put together these top tips, which detail how to optimise your use of ou
 
 #### Merging Product Library data into availability response
 
-To save sending a separate ```https``` request for information from the Product Library, you can specify a comma-separated list of values to pull this information back with the availability request.
+To save sending a separate `https` request for information from the Product Library, you can specify a comma-separated list of values to pull this information back with the availability request.
 
 Just specify a parameter named ``fields`` and include the Product Library field names there.
 

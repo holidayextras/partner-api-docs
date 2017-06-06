@@ -30,4 +30,4 @@ As well as billing information we will need company details and traffic estimate
 [Download Direct Debit Mandate Insurance](http://secure.holidayextras.co.uk/images/apiForms/DDebitMandateInsurance.pdf)
 
 **Direct Debit Mandate for Germany/Europe ** -
-Please contact hxapi-contact@holidayextras.de to receive the SEPA mandate form.
+Please contact <hxapi-contact@holidayextras.de> to receive the SEPA mandate form.

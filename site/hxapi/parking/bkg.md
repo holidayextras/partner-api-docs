@@ -28,7 +28,7 @@ https://api.holidayextras.co.uk/v1/carpark/LGW4
 
 ### Request Parameters
 
-The parameters _must_ be sent in the body of the request, as ```x-www-form-urlencoded``` data.
+The parameters _must_ be sent in the body of the request, as `x-www-form-urlencoded` data.
 
 NB: All parameter names are case sensitive.
 
@@ -54,7 +54,7 @@ NB: All parameter names are case sensitive.
 | Email | String | [0-9] 4 chars | Y        | Email of lead passenger|
 | PriceCheckFlag | String | Y | Y        | Indicates a price check will be carried out prior to booking. <br>If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.|
 | PriceCheckPrice | Float | [0-9] | Y        | Price of the product, received from the availability request or price check. |
-| System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of ```System=ABG``` (the default is ```System=ABC```, which is UK products only). |
+| System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
 
 ### Request flags
 
@@ -64,11 +64,11 @@ The request flags differ depending on the product's region and the supplier's re
 
 #### UK Products
 
-The ```<RequestFlags>``` field dictates which fields need to be sent as part of the booking request.
+The `<RequestFlags>` field dictates which fields need to be sent as part of the booking request.
 
 #### European Products
 
-The availability response will return a list of 18 flags in the ```<CarDetFlags>``` field with a yes/no response to indicate if required. The order of the flags is always the same.
+The availability response will return a list of 18 flags in the `<CarDetFlags>` field with a yes/no response to indicate if required. The order of the flags is always the same.
 
 ### Payment
 
@@ -115,7 +115,7 @@ Below are worked examples of both the request and response for booking car parki
 https://api.holidayextras.co.uk/carpark/LGW4
 ```
 
-```
+```xml
     <Request>
         <ABTANumber>YourABTA</ABTANumber>
         <Password>YourPassword</Password>
@@ -148,7 +148,7 @@ https://api.holidayextras.co.uk/carpark/LGW4
         <ReturnTerminal>N</ReturnTerminal>
         <MobileNum>01234567890</MobileNum>
     </Request>
-    ```
+```
 
 ### UK Products Booking Response
 
@@ -237,7 +237,7 @@ https://api.holidayextras.co.uk/carpark/LGW4
 https://api.holidayextras.co.uk/carpark/MU01
 ```
 
-```
+```xml
 <Request>
             <ABTANumber>YourABTANumber</ABTANumber>
             <Password>YourPassword</Password>

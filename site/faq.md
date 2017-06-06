@@ -85,7 +85,7 @@ So in the reply for a booking request you may see something like this:
 <CanxWaiver>0.50</CanxWaiver>
 ```
 
-You may expect ```<AmountPaid>``` to total £44.06 (because 42.06 + 1.50 + 0.50 = 44.06). This is not an error, the ```<CanxWaiver>``` amount has already been added to the parking price of £41.56 to create ```<TotalPrice>```, and the credit card surcharge is then applied to that value, giving ```<AmountPaid>```.
+You may expect `<AmountPaid>` to total £44.06 (because 42.06 + 1.50 + 0.50 = 44.06). This is not an error, the `<CanxWaiver>` amount has already been added to the parking price of £41.56 to create `<TotalPrice>`, and the credit card surcharge is then applied to that value, giving `<AmountPaid>`.
 
 
 ## Does Holiday Extras need my IP address?

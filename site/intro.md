@@ -50,7 +50,7 @@ The detailed guides assume a level of programming knowledge. You should be famil
 
 ### API Design
 
-Our API has been designed following [RESTful principles]((https://en.wikipedia.org/wiki/Representational_state_transfer). Every request is made over ```https``` using the standard method. For data retrieval, you always use the GET method. For making a booking (thus creating a new resource), the POST method must be used.
+Our API has been designed following [RESTful principles](https://en.wikipedia.org/wiki/Representational_state_transfer). Every request is made over `https` using the standard method. For data retrieval, you always use the GET method. For making a booking (thus creating a new resource), the POST method must be used.
 
 A single URL can have different functions depending on the method used to access it. Using the following URL as an example with each method:
 
