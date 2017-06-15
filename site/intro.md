@@ -35,8 +35,8 @@ The platform and programming language you use to interact with our API is up to 
 The only system requirements are the ability to:
 
 
-*  make HTTPS requests;
-*  parse XML and/or JSON files.
+*  Make HTTPS requests;
+*  Parse XML and/or JSON files.
 
 ### Rate Limiting
 
