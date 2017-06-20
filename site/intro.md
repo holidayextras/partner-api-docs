@@ -46,7 +46,7 @@ Any abuse or misuse of our API may result in the application key being disabled 
 
 ## Overview of our API
 
-The detailed guides assume a level of programming knowledge. You should be familiar with HTTPS, XML, JavaScript and server-side programming. If you are not a programmer, you may prefer to read our [non-technical overview](/nontechoverview) first.
+The detailed guides assume a level of programming knowledge. You should be familiar with HTTPS, XML, JavaScript and server-side programming.
 
 ### API Design
 
