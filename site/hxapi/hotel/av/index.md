@@ -36,7 +36,7 @@ GET
  | ParkingDays    | Integer | [0,8,15]         | N        |                                                                                                                                             |
  | System         | Char    | [A-Z]{3}         | N        | Send ABG if looking for products based in Europe and prices in Euros                                                                        |
  | lang           | Char    | [A-Z]{2}         | N        | Send either en,de,nl,fr,es,pt to return any particular product information is respective language; used only when passing in a fields array |
- | Supplements    | String  | [Y/N]            | N        | Only for searches by hotel code - pass Y to retrieve a list of possible [upgrades](/hxapi/upgrade)                                  |
+                              |
 
 ### Request (one room)
 
@@ -315,5 +315,3 @@ else if x > CCardSurchargeMax
 #### API_Header/Request
 
 **HXAPI** returns every parameter you sent in the previous request, as you sent it. This is so your app doesn't have to remember anything not replied in the XML reply.
-
-

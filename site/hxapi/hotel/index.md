@@ -11,7 +11,6 @@ These are the hotel with parking requests. If available, the options returned ar
  | Action                                     | Endpoint                                                                         | Method |
  | ------                                     | --------                                                                         | ------ |
  | UK and Europe - Availability at hotel      | [https://api.holidayextras.co.uk/v1/sandbox/hotel/foo](av)            | GET    |
- | UK ONLY - Upgrades at hotel                | [https://api.holidayextras.co.uk/v1/sandbox/upgrade/foo](/hxapi/upgrade)           | GET    |
  | UK and Europe - Make booking at hotel      | [https://api.holidayextras.co.uk/v1/sandbox/hotel/foo](bkg)           | POST   |
  | DE ZNT linked - Availability at hotel      | [https://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](de-av)      | GET    |
  | DE ZNT linked - Room availability at hotel | [https://api.holidayextras.co.uk/v1/de/sandbox/hotel/foo](de-av-room) | GET    |
