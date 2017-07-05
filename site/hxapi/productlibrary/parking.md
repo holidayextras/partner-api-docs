@@ -30,7 +30,7 @@ GET
 ### Request (example 1)
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=generate&key=mytestkey
 ```
 
 
@@ -119,7 +119,7 @@ https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key
 ### Request (example 2)
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=mytestkey&fields=name,longitude,latitude
+https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=generate&key=mytestkey&fields=name,longitude,latitude
 ```
 
 
