@@ -2,205 +2,347 @@
 
 ---
 
-# Hotel Booking
-
-As with all bookings, this must be a POST and it must be made over HTTPS. Intermediaries will be sending credit card information, Agents will send their login details so HTTPS is required in both instances.
-
-If you do not send the ABTANumber field then your booking will not be tracked to your agent code. For agent bookings, the Password field is also required, intermediaries do not have a password.
-
-To retrieve all details about the booking, perform a [GET request to view the booking](/hxapi/viewamendcancel) at the location specified in `<MoreInfoURL>`.
-
-Currently, we can only accept 2 rooms per booking. If the customer needs more, you will need to make multiple requests. If an intermediary account, this would lead to multiple transactions on the credit card, and multiple charges, therefore we advise against it. Agents accounts do not suffer from this, they can make multiple requests as they process the payment themselves.
-
-## /hotel/foo
-
-where foo is the selected hotel code
-
-e.g. /hotel/LHRSOF
+## Hotel Booking Request
 
 ### Method
 
 POST
 
-### Parameters
+### Endpoint
 
- | Name                  | Type          | Format                           | Required (Agents) | Required (Intermediaries) | Notes                                                                                                                                                       | 
- | ----                  | ----          | ------                           | ----------------- | ------------------------- | -----                                                                                                                                                       | 
- | key                   | String        |                                  | Y                 | Y                         |                                                                                                                                                             | 
- | token                 | Integer       | [0-9]{9}                         | Y                 | Y                         |                                                                                                                                                             | 
- | ABTANumber            | String        | [A-Z0-9]{5}                      | Y                 | Y                         |                                                                                                                                                             | 
- | Password              | String        | [A-Z0-9]{5}                      | Y                 | N                         |                                                                                                                                                             | 
- | Initials              | String        | [A-Z]{3}                         | Y                 | N                         | Initials of the agent                                                                                                                                       | 
- | ArrivalDate           | Date          | DDMMMYY                          | Y                 | Y                         |                                                                                                                                                             | 
- | Nights                | Integer       | 1                                | Y                 | Y                         |                                                                                                                                                             | 
- | BoardBasis            | String        | [RO,BB]                          | Y                 | Y                         | for European products F or U                                                                                                                                | 
- | RoomCode              | String        | [roomcode](/hxapi/types/roomcode) | Y                 | Y                         |                                                                                                                                                             | 
- | Adults                | Integer       | [1-5]                            | Y                 | Y                         |                                                                                                                                                             | 
- | Children              | Integer       | [0-4]                            | Y                 | Y                         |                                                                                                                                                             | 
- | Infants               | Integer       | [0,1,2]                          | N                 | N                         |                                                                                                                                                             | 
- | SecondRoomCode        | String        | [roomcode](/hxapi/types/roomcode) | N                 | N                         | not possible for European products                                                                                                                          | 
- | SecondRoomAdults      | Integer       | [1-5]                            | N                 | N                         | not possible for European products                                                                                                                          | 
- | SecondRoomChildren    | Integer       | [0-4]                            | N                 | N                         | not possible for European products                                                                                                                          | 
- | SecondRoomInfants     | Integer       | [0,1,2]                          | N                 | N                         | not possible for European products                                                                                                                          | 
- | ParkingDays           | Integer       | [0,8,15]                         | Y                 | Y                         |                                                                                                                                                             | 
- | CarDropoffTime        | Time          | HHMM                             | Y*                | N                         | *ONLY required if ParkingDays > 0, UK only                                                                                                                  | 
- | CarPickupDate         | Date          | DDMMMYY                          | Y*                | N                         | *ONLY required if ParkingDays > 0 UK only                                                                                                                   | 
- | CarPickupTime         | Time          | HHMM                             | Y*                | N                         | *ONLY required if ParkingDays > 0 UK only                                                                                                                   | 
- | ReturnFlight          | String        |                                  | N                 | N                         |                                                                                                                                                             | 
- | TerminalCode          | String        |                                  | N                 | N                         |                                                                                                                                                             | 
- | Registration          | String        |                                  | N                 | N                         |                                                                                                                                                             | 
- | CarMake               | String        |                                  | N                 | N                         |                                                                                                                                                             | 
- | CarModel              | String        |                                  | N                 | N                         |                                                                                                                                                             | 
- | CarColour             | String        |                                  | N                 | N                         |                                                                                                                                                             | 
- | Title                 | String        |                                  | Y                 | Y                         | titles are: Mr,Mrs,Miss,Ms,Mstr,Mr/s,Dr,Rev,Prof,Sir, Mevr,Dhr                                                                                              | 
- | Initial               | String        | [A-Z]                            | Y                 | Y                         | Initial of the customer's name                                                                                                                              | 
- | Surname               | String        |                                  | Y                 | Y                         |                                                                                                                                                             | 
- | Address[]             | String        |                                  | Y                 | Y                         | Address[0] for first line, [1] for second line, [2] for third line                                                                                          | 
- | Town                  | String        |                                  | Y                 | Y                         |                                                                                                                                                             | 
- | County                | String        |                                  | Y                 | Y                         |                                                                                                                                                             | 
- | Country               | String        |                                  | Y                 | Y                         |                                                                                                                                                             | 
- | Postcode              | String        | UK Postcode                      | Y                 | Y                         |                                                                                                                                                             | 
- | DayPhone              | Phone Number  |                                  | N                 | N                         |                                                                                                                                                             | 
- | EvePhone              | Phone Number  |                                  | N                 | Y                         |                                                                                                                                                             | 
- | Email                 | Email         | Valid email address              | Y                 | Y                         |                                                                                                                                                             | 
- | CustomerRef           | String        |                                  | N                 | N                         |                                                                                                                                                             | 
- | Remarks               | String        |                                  | N                 | N                         | Pass in Remarks for notification such as COT REQUESTED in ROOM                                                                                              | 
- | Waiver                | Boolean       | [1,0]                            | Y                 | Y                         | Assumed 0 if not supplied                                                                                                                                   | 
- | DataProtection        | String        | [Y,N]                            | N                 | N                         | Does the customer consent to receiving offers from Holiday Extras. Y = Yes, will receive offers, N = Customer data is protected. Not required, default is N | 
- | PriceCheckPrice       | Int           | (00)0.00                         | Y                 | Y                         |                                                                                                                                                             | 
- | CardHolder            | String        |                                  | N                 | Y                         |                                                                                                                                                             | 
- | CardNumber            | String        | [0-9]{14-19}                     | N                 | Y                         |                                                                                                                                                             | 
- | CV2                   | Integer       | [0-9]{3}                         | N                 | Y                         |                                                                                                                                                             | 
- | ExpiryDate            | Date          | DDMM                             | N                 | Y                         |                                                                                                                                                             | 
- | StartDate             | Date          | DDMM                             | N                 | N                         |                                                                                                                                                             | 
- | IssueNumber           | Integer       |                                  | N                 | N                         |                                                                                                                                                             | 
- | Supplements[]         | String Array  |                                  | N                 | N                         | See Supplements below                                                                                                                                       | 
- | SupplementsAdults[]   | Integer Array |                                  | N                 | N                         | See Supplements below                                                                                                                                       | 
- | SupplementsChildren[] | Integer Array |                                  | N                 | N                         | See Supplements below                                                                                                                                       | 
- | SupplementsCount[]    | Integer Array |                                  | N                 | N                         | See Supplements below                                                                                                                                       | 
- | System                | String        | ABC/ABG                          | N                 |                          
- | PriceCheckFlag        | String        | Y                                | Y                 |                          
- | PriceCheckPrice       | Value         | 12.34                            | Y                 |                          
-
-+ DataProtection field - Does the customer consent to receiving offers from Holiday Extras. Y = Yes, will receive offers, N = Customer data is protected.
-
-System is required to be set to ABG if you are processing bookings for European products and taking payment in Euros.
-Default is ABC for UK/GBP - it is not mandatory to send if you are processing bookings for UK based products or products being processed in GBP.
-
-
-
-#### Terms and conditions Holiday Extras GmbH, Munich
-
-Please us the following link to display terms and conditions to the end consumer or agent. http://www.holidayextras.de/images/de-hx/pdf/agb.pdf
-For further languages please change /de-hx/ into nl-hx, it-hex, en-hx, pt-hx, fr-hx, es-hx.
-
-PriceCheckFlag and PriceCheckPrice are used to ensure that the price you have displayed to the customer at the availability stage will be booked at that price.  When you submit the request the price posted here will be compared to the live price in the system.  If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.  At this time the system will also update any availability cache so subsequent availability requests will then have the updated price. 
-
-#### Supplements
-
- | Param                 | Explanation                                                                                         | 
- | -----                 | -----------                                                                                         | 
- | Supplements[]         | An array of codes that identify the add-ons that supplement a hotel booking                         | 
- | SupplementsAdults[]   | An array containing the number of adults for each supplement that is sold on a Per Person basis     | 
- | SupplementsChildren[] | An array containing the number of children for each supplement that is sold on a Per Person basis   | 
- | SupplementsCount[]    | An array containing the quantity of each supplement that is sold on a Per Booking or Per Room basis | 
-
-##### Supplement Parameter examples
-
- | Supplements[]    | SupplementsAdults[SupplementCode] | SupplementsChildren[SupplementCode] | SupplementsCount[SupplementCode] | Supplement Basis | Explantation                                                                              | 
- | -------------    | --------------------------------- | ----------------------------------- | -------------------------------- | ---------------- | ------------                                                                              | 
- | SUPPLEMENT_CODE1 | 1                                 | 0                                   | 0                                | PER PERSON       | Booking Basis is PP so Adults and Children params are used, Count param is ignored        | 
- | SUPPLEMENT_CODE2 | 1                                 | 1                                   | 0                                | PER PERSON       | Booking Basis is PP so Adults and Children params are used, Count param is ignored        | 
- | SUPPLEMENT_CODE3 | 0                                 | 0                                   | 1                                | PER BOOKING      | Booking Basis is PB so Adults and Children params are used, Count param is ignored        | 
- | SUPPLEMENT_CODE4 | 0                                 | 0                                   | 1                                | PER ROOM         | Booking Basis is PP so Count param is used and the Adults and Children params are ignored | 
- | SUPPLEMENT_CODE5 | 0                                 | 0                                   | 2                                | PER ROOM         | Booking Basis is PP so Count param is used and the Adults and Children params are ignored | 
-
-##### The same data as above expressed in the way that it should be submitted
-
- | Field                                   | Value              | 
- | -----                                   | -----              | 
- | Supplements[]                           | 'SUPPLEMENT_CODE1' | 
- | Supplements[]                           | 'SUPPLEMENT_CODE2' | 
- | Supplements[]                           | 'SUPPLEMENT_CODE3' | 
- | Supplements[]                           | 'SUPPLEMENT_CODE4' | 
- | Supplements[]                           | 'SUPPLEMENT_CODE5' | 
- | Field                                   | Value              | 
- | SupplementsAdults['SUPPLEMENT_CODE1']   | 1                  | 
- | SupplementsAdults['SUPPLEMENT_CODE2']   | 1                  | 
- | SupplementsAdults['SUPPLEMENT_CODE3']   | 0                  | 
- | SupplementsAdults['SUPPLEMENT_CODE4']   | 0                  | 
- | SupplementsAdults['SUPPLEMENT_CODE5']   | 0                  | 
- | Field                                   | Value              | 
- | SupplementsChildren['SUPPLEMENT_CODE1'] | 0                  | 
- | SupplementsChildren['SUPPLEMENT_CODE2'] | 1                  | 
- | SupplementsChildren['SUPPLEMENT_CODE3'] | 0                  | 
- | SupplementsChildren['SUPPLEMENT_CODE4'] | 0                  | 
- | SupplementsChildren['SUPPLEMENT_CODE5'] | 0                  | 
- | Field                                   | Value              | 
- | SupplementsCount['SUPPLEMENT_CODE1']    | 0                  | 
- | SupplementsCount['SUPPLEMENT_CODE2']    | 0                  | 
- | SupplementsCount['SUPPLEMENT_CODE3']    | 1                  | 
- | SupplementsCount['SUPPLEMENT_CODE4']    | 1                  | 
- | SupplementsCount['SUPPLEMENT_CODE5']    | 2                  | 
-
-### Reply
-
-```xml
-
-<API_Reply Product="HotelWithParking" RequestCode="5" Result="OK">
-	<Booking>
-		<BookingRef>A8PBN</BookingRef>
-		<MoreInfoURL>/sandbox/v1/booking/A8PBN</MoreInfoURL>
-                <AgentComm>7.35-</AgentComm>
-                <VATonComm>0.96-</VATonComm>
-	</Booking>
-	<Itinerary>
-		<ArrivalDate>2009-10-15</ArrivalDate>
-		<Nights>1</Nights>
-		<BoardBasis>RO</BoardBasis>
-		<NonSmoking>N</NonSmoking>
-		<CarPickupDate>2009-10-22</CarPickupDate>
-		<CarDropoffTime>1100</CarDropoffTime>
-		<CarPickupTime>1200</CarPickupTime>
-		<ParkingDays>15</ParkingDays>
-		<ParkingSpaces>1</ParkingSpaces>
-		<ReturnFlight>AB123</ReturnFlight>
-		<TerminalCode>1</TerminalCode>
-		<Code>LHRNOV</Code>
-	</Itinerary>
-	<Room>
-		<Adults>2</Adults>
-		<Children>0</Children>
-		<Infants>0</Infants>
-		<Code>DBL</Code>
-	</Room>
-	<ClientDetails>
-		<Title>MR</Title>
-		<Initial>B</Initial>
-		<Surname>Test</Surname>
-		<Address>4</Address>
-		<Address a="2">TEST</Address>
-		<Town>TESTTOWN</Town>
-		<County>TESTCOUNTY</County>
-		<Postcode>CT223PP</Postcode>
-		<Country>ENGLAND</Country>
-		<EvePhone>01303200202</EvePhone>
-		<Email>BEN.THOMPSON@HOLIDAYEXTRAS.COM</Email>
-		<Waiver>Y</Waiver>
-		<WaiverAmount>5.00</WaiverAmount>
-	</ClientDetails>
-	<Pricing>
-		<WaiverValue/>
-	</Pricing>
-	<API_Header>
-		<Request>
-                ...
-		</Request>
-	</API_Header>
-</API_Reply>
+The endpoint to use is (where "foo" is the hotel code):
 
 ```
+https://api.holidayextras.co.uk/v1/hotel/foo
+```
+
+For example, for _Mercure at London Heathrow_ the endpoint is:
+
+```
+https://api.holidayextras.co.uk/v1/hotel/LHRMEA
+```
+
+### Request Parameters
+
+The parameters _must_ be sent in the body of the request, as `x-www-form-urlencoded` data.
+
+NB: All parameter names are case sensitive.
+
+ | Name        | Data Type    | Format | Mandatory? | Additional Information |
+ | ----        | ----    | --------- | -------- | ---------------------- |
+ | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
+ | Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
+ | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
+ | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
+ | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
+ | ArrivalDate | Date    | YYYY-MM-DD                             | Y        | Date customer arrives at hotel. |
+ | Nights | Integer  | 1, 2, 3, etc                                  | Y        | Number of nights the customer wants to stay in the hotel. |
+ | RoomType      | String  | [A-Z0-9] 2 chars | Y        | See [RoomCodes](/hxapi/types/roomcode) for a list of valid codes. |
+ | Adults | Integer       | [1-5] 1 char                           | Y                 | The number of adults occupying the room. |
+ | Children | Integer       | [0-4] 1 char                           | Y                 | The number of children occupying the room. |
+ | ParkingDays       | Integer  | [0-9] 2 chars | Y        | NB: The maximum duration accepted for ParkingDays is 30.|
+| Title | String | [0-9] 4 chars | Y        | Title of lead passenger|
+| Initial | String | [A-Z] 1 chars | Y        | Initial of lead passenger|
+| Surname | String | [0-9] 20 chars | Y        | Surname of lead passenger|
+| Address[] | String | [0-9] 20 chars | Y        | First line of address (house name / number and road) of lead passenger <br>If you require more than 1 address line, then you can replicate this field and increment the number in square brackets, i.e. "Address[1]" for address line 2, and so on.<br>NB: This field can be set to NA|
+| Town | String | [0-9] 4 chars | Y        | Town of address <br>NB: This field can be set to NA|
+| County | String | [0-9] 4 chars | Y        | County of address <br>NB: This field can be set to NA|
+| PostCode | String | [0-9] 4 chars | Y        | Post code of address <br>NB: This field can be set to NA|
+| DayPhone | Integer | [0-9] 15 chars max  | N                 | The customer's telephone number. |  
+| Email | String | [0-9] 4 chars | Y        | The email address of customer. |
+| CustomerRef | String | [0-9A-Z]| N | Enter your Customer Reference to help match bookings for accounting purposes. |
+| Remarks | String | [0-9A-Z] | N | Pass in Remarks for notification such as COT REQUESTED in ROOM |
+| Waiver | Boolean | [0,1]  | Y | Defaults to 0 if not supplied. |
+| DataProtection | String | [Y,N] | N | Does the customer consent to receiving offers from Holiday Extras? Y = Yes, will receive offers, N = No, customer data is protected. Defaults to No if not supplied. |                   
+| PriceCheckFlag | String | [Y] | Y | Indicates a price check will be carried out prior to booking. <br>If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.|                     
+| PriceCheckPrice | Float | [0-9] | Y        | Price of the product, received from the availability request or price check. |
+| System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
+| lang        | String  | [A-Z] 2 chars | Y*       | Required for requests for European products. (Values available are `en`, `de`, `it`, `es`, `pt` and `nl`.)|
+
+### Multiple rooms on same booking (UK only)
+
+Currently, we can only accept a maximum of 2 rooms per booking. If the customer needs more, you will need to make multiple requests. If an intermediary account, you should note that this would lead to multiple transactions on the credit card, and multiple charges, and therefore we advise against it.
+
+The additional parameters for including a second room are:
+
+| Name        | Data Type    | Format | Mandatory? | Additional Information |
+| ----        | ------------ | ------------- | -------- | ---------------------- |
+| SecondRoomType        | String  | [A-Z0-9] 2 chars | N*        | This parameter is mandatory if the customer wishes to book two rooms at the same time. <br>The room codes are as per [Room Codes](/hxapi/types/roomcode). |
+| SecondRoomCode        | String        | [Room Codes](/hxapi/types/roomcode) | N                 | NB: Please note that the room codes differ between availability and booking requests. |
+| SecondRoomAdults      | Integer       | [1-5] 1 char | N | The number of adults occupying the second room. |
+| SecondRoomChildren    | Integer       | [0-4] 1 char | N | The number of children occupying the second room. |
+
+### UK Hotels with parking
+
+The additional parameters for hotel with parking (where parking > 0 days) are:
+
+| Name        | Data Type    | Format | Mandatory? |
+| ----        | ----    | --------- | -------- |
+| CarDropoffTime        | Time   | HHMM    | Y  |
+| CarPickupDate         | Date   | DDMMMYY | Y  |
+| CarPickupTime         | Time   | HHMM    | Y  |
+| ReturnFlight          | String | [0-9A-Z] 10 chars | N |
+| TerminalCode          | String | [0-9A-Z] 3 chars  | N |
+| Registration          | String | [0-9A-Z] 10 chars | N |
+| CarMake               | String | [0-9A-Z] 15 chars | N |
+| CarModel              | String | [0-9A-Z] 15 chars | N |
+| CarColour             | String | [A-Z] 15 chars    | N |
+
+### Payment
+
+In the UK, we are PCI DSS compliant and so we do not accept customers' payment details being passed to us via the API.
+
+Please contact your Account Manager if you have any questions concerning payment.
+
+### Booking Terms and Conditions
+
+It is important that the customer has access to the Terms and Conditions at the time of placing their booking and after. We highly recommend that these are made clear to the customer _before_ booking.
+
+For European products, please use the following link:
+```
+http://www.holidayextras.de/images/de-hx/pdf/agb.pdf
+```
+
+If you require translations of Terms and Conditions into other languages, you can simply change ``/de-hx/`` (German) into ``nl-hx`` (Dutch), ``it-hex`` (Italian), ``pt-hx`` (Portuguese), ``fr-hx`` (French), ``es-hx`` (Spanish) or ``en-hx`` (English).
 
 
+## Hotel Booking Response
 
+The hotel booking response will confirm that a booking has been placed in our system.
 
+For a detailed explanation of the fields returned, please see below:
+
+| Field                | Additional Information |
+| ----                 | ---------------------- |
+| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are 5 char alphanumeric (including 1/I and 0/O/Q).|
+| Booking/AgentComm  | Commission you have earned from this booking. |
+| Itinerary | This section confirms details of the hotel on the booking. |
+| Room | This section confirms details of the room booked at the hotel. |
+| ClientDetails  | Confirmation of the customer's details that were sent in the booking request. |
+| Pricing |  Confirmation of the price paid by the customer for the hotel room. |
+| API_Header/Request  | A list of parameters that were sent in the booking request. |
+
+## Worked Examples
+
+Below are worked examples of both the request and response for booking hotels.
+
+### UK Hotel Booking Request - Room Only
+
+```html
+https://api.holidayextras.co.uk/v1/hotel/LHRMEA
+```
+
+```xml
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <key>YourKey</key>        
+      <token>YourToken</token>
+      <ArrivalDate>2017-12-01</ArrivalDate>        
+      <Nights>1</Nights>
+      <RoomCode>DBL</RoomCode>
+      <ParkingDays>0</ParkingDays>
+      <Adults>2</Adults>
+      <Children>0</Children>
+      <Title>Mr</Title>
+      <Initial>T</Initial>
+      <Surname>TEST</Surname>
+      <Address >1 Test Street</Address >
+      <Town>Testville</Town>
+      <County>Testshire</County>
+      <Postcode>TE1 STS</Postcode>
+      <DayPhone>01234567890</DayPhone>
+      <Email>test@test.com</Email>
+      <DataProtection>N</DataProtection>
+      <PriceCheckFlag>Y</PriceCheckFlag>
+      <PriceCheckPrice>55.00</PriceCheckPrice>
+      <v>1</v>
+    </Request>
+```
+
+### UK Hotel Booking Response - Room Only
+
+```xml
+<?xml version="1.0"?>
+<API_Reply Product="HotelWithParking" RequestCode="5" Result="OK">
+    <Booking>
+        <BookingRef>YourBookingRef</BookingRef>
+        <AgentComm>6.53</AgentComm>
+        <VATonComm>0.00</VATonComm>
+        <MoreInfoURL>/v1/booking/YourBookingRef</MoreInfoURL>
+    </Booking>
+    <Hotel/>
+    <Itinerary>
+        <TotalPrice>55.00</TotalPrice>
+        <ArrivalDate>2017-12-01</ArrivalDate>
+        <Nights>1</Nights>
+        <BoardBasis>RO</BoardBasis>
+        <NonSmoking>N</NonSmoking>
+        <ReturnFlight/>
+        <TerminalCode/>
+        <Code>LHRMEA</Code>
+        <Name>Mercure</Name>
+        <ParkingDays>0</ParkingDays>
+        <ParkingSpaces>0</ParkingSpaces>
+    </Itinerary>
+    <Room>
+        <Adults>2</Adults>
+        <Children>0</Children>
+        <Infants>0</Infants>
+        <Code>DBL</Code>
+    </Room>
+    <CarDetails>
+        <Registration/>
+        <CarMake/>
+        <CarModel/>
+        <CarColour/>
+    </CarDetails>
+    <ClientDetails>
+        <Title>MR</Title>
+        <Initial>T</Initial>
+        <Surname>TEST</Surname>
+        <Email>test@test.com</Email>
+        <Address/>
+        <Town/>
+        <County/>
+        <Postcode/>
+        <EvePhone/>
+    </ClientDetails>
+    <API_Header>
+        <Request>
+            <ABTANumber>YourABTANumber</ABTANumber>
+            <Password>YourPassword</Password>
+            <key>YourKey</key>
+            <token>YourToken</token>
+            <ArrivalDate>2017-12-01</ArrivalDate>
+            <Nights>1</Nights>
+            <RoomCode>DBL</RoomCode>
+            <ParkingDays>0</ParkingDays>
+            <Adults>2</Adults>
+            <Children>0</Children>
+            <Title>Mr</Title>
+            <Initial>T</Initial>
+            <Surname>TEST</Surname>
+            <Address >1 Test Street</Address >
+            <Town>Testville</Town>
+            <County>Testshire</County>
+            <Postcode>TE1 STS</Postcode>
+            <DayPhone>01234567890</DayPhone>
+            <Email>test@test.com</Email>
+            <DataProtection>N</DataProtection>
+            <PriceCheckFlag>Y</PriceCheckFlag>
+            <PriceCheckPrice>55.00</PriceCheckPrice>
+            <v>1</v>
+        </Request>
+    </API_Header>
+</API_Reply>
+```
+
+### European Hotel Booking Request
+
+```
+https://api.holidayextras.co.uk/v1/hotel/MUCLAN
+```
+
+```xml
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <key>YourKey</key>        
+      <token>YourToken</token>
+      <ArrivalDate>2017-12-01</ArrivalDate>        
+      <Nights>1</Nights>
+      <RoomCode>DZ</RoomCode>
+      <ParkingDays>0</ParkingDays>
+      <Adults>2</Adults>
+      <Children>0</Children>
+      <Title>Mr</Title>
+      <Initial>T</Initial>
+      <Surname>TEST</Surname>
+      <Address >1 Test Street</Address >
+      <Town>Testville</Town>
+      <County>Testshire</County>
+      <Postcode>TE1 STS</Postcode>
+      <DayPhone>01234567890</DayPhone>
+      <Email>test@test.com</Email>
+      <DataProtection>N</DataProtection>
+      <PriceCheckFlag>Y</PriceCheckFlag>
+      <PriceCheckPrice>120.00</PriceCheckPrice>
+      <v>1</v>
+    </Request>
+```
+
+### European Hotel Booking Response
+
+```xml
+<?xml version="1.0"?>
+<API_Reply Product="HotelWithParking" RequestCode="4" Result="OK">
+    <Booking>
+        <BookingRef>YourBookingRef</BookingRef>
+        <MoreInfoURL>/v1/booking/YourBookingRef.de</MoreInfoURL>
+    </Booking>
+    <Hotel/>
+    <Itinerary>
+        <ArrivalDate>2017-12-01</ArrivalDate>
+        <Nights>1</Nights>
+        <BoardBasis>F</BoardBasis>
+        <NonSmoking>N</NonSmoking>
+        <ParkingDays>0</ParkingDays>
+        <ParkingSpaces>0</ParkingSpaces>
+        <Code>MUCLAN</Code>
+        <Name>Schweigers Landgasthof</Name>
+    </Itinerary>
+    <Room>
+        <Adults>2</Adults>
+        <Children>0</Children>
+        <Infants>0</Infants>
+        <Code>DZ</Code>
+    </Room>
+    <ClientDetails>
+        <Title>Herr</Title>
+        <Initial>T</Initial>
+        <Surname>TEST</Surname>
+        <Email>TEST@TEST.COM</Email>
+        <Town>TESTVILLE</Town>
+        <Postcode>TE1 STS</Postcode>
+        <DayPhone>01234567890</DayPhone>
+        <Remarks/>
+        <Address0>1 Test Street</Address0>
+        <Address1>TBC</Address1>
+        <DataProtection>N</DataProtection>
+        <County>TESTSHIRE</County>
+    </ClientDetails>
+    <Pricing>
+        <Price>120.00</Price>
+    </Pricing>
+    <API_Header>
+        <Request>
+            <ABTANumber>YourABTANumber</ABTANumber>
+            <Password>YourPassword</Password>
+            <key>YourKey</key>
+            <token>YourToken</token>
+            <ArrivalDate>2017-12-01</ArrivalDate>
+            <Nights>1</Nights>
+            <RoomCode>DBL</RoomCode>
+            <ParkingDays>0</ParkingDays>
+            <Adults>2</Adults>
+            <Children>0</Children>
+            <Title>Mr</Title>
+            <Initial>T</Initial>
+            <Surname>TEST</Surname>
+            <Address0>1 Test Street</Address0>
+            <Town>Testville</Town>
+            <County>Testshire</County>
+            <Postcode>TE1 STS</Postcode>
+            <DayPhone>01234567890</DayPhone>
+            <Email>test@test.com</Email>
+            <DataProtection>N</DataProtection>
+            <PriceCheckFlag>Y</PriceCheckFlag>
+            <PriceCheckPrice>120.00</PriceCheckPrice>
+            <System>ABG</System>
+            <lang>de</lang>
+            <v>1</v>
+        </Request>
+    </API_Header>
+</API_Reply>
+```
