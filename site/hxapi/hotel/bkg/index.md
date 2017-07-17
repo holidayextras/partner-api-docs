@@ -10,10 +10,10 @@ POST
 
 ## Endpoint
 
-The endpoint to use is (where "foo" is the hotel code):
+The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/foo
+https://api.holidayextras.co.uk/v1/hotel/locationCode
 ```
 
 For example, for _Mercure at London Heathrow_ the endpoint is:
