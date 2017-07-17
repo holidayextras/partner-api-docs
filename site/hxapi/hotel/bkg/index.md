@@ -2,13 +2,13 @@
 
 ---
 
-## Hotel Booking Request
+# Hotel Booking Request
 
-### Method
+## Method
 
 POST
 
-### Endpoint
+## Endpoint
 
 The endpoint to use is (where "foo" is the hotel code):
 
@@ -22,7 +22,7 @@ For example, for _Mercure at London Heathrow_ the endpoint is:
 https://api.holidayextras.co.uk/v1/hotel/LHRMEA
 ```
 
-### Request Parameters
+## Request Parameters
 
 The parameters _must_ be sent in the body of the request, as `x-www-form-urlencoded` data.
 
@@ -59,7 +59,7 @@ NB: All parameter names are case sensitive.
 | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
 | lang        | String  | [A-Z] 2 chars | Y*       | Required for requests for European products. (Values available are `en`, `de`, `it`, `es`, `pt` and `nl`.)|
 
-### Multiple rooms on same booking (UK only)
+## Multiple rooms on same booking (UK only)
 
 Currently, we can only accept a maximum of 2 rooms per booking. If the customer needs more, you will need to make multiple requests. If an intermediary account, you should note that this would lead to multiple transactions on the credit card, and multiple charges, and therefore we advise against it.
 
@@ -72,7 +72,7 @@ The additional parameters for including a second room are:
 | SecondRoomAdults      | Integer       | [1-5] 1 char | N | The number of adults occupying the second room. |
 | SecondRoomChildren    | Integer       | [0-4] 1 char | N | The number of children occupying the second room. |
 
-### UK Hotels with parking
+## UK Hotels with parking
 
 The additional parameters for hotel with parking (where parking > 0 days) are:
 
@@ -88,13 +88,13 @@ The additional parameters for hotel with parking (where parking > 0 days) are:
 | CarModel              | String | [0-9A-Z] 15 chars | N |
 | CarColour             | String | [A-Z] 15 chars    | N |
 
-### Payment
+## Payment
 
 In the UK, we are PCI DSS compliant and so we do not accept customers' payment details being passed to us via the API.
 
 Please contact your Account Manager if you have any questions concerning payment.
 
-### Booking Terms and Conditions
+## Booking Terms and Conditions
 
 It is important that the customer has access to the Terms and Conditions at the time of placing their booking and after. We highly recommend that these are made clear to the customer _before_ booking.
 
@@ -106,7 +106,7 @@ http://www.holidayextras.de/images/de-hx/pdf/agb.pdf
 If you require translations of Terms and Conditions into other languages, you can simply change ``/de-hx/`` (German) into ``nl-hx`` (Dutch), ``it-hex`` (Italian), ``pt-hx`` (Portuguese), ``fr-hx`` (French), ``es-hx`` (Spanish) or ``en-hx`` (English).
 
 
-## Hotel Booking Response
+# Hotel Booking Response
 
 The hotel booking response will confirm that a booking has been placed in our system.
 
@@ -122,11 +122,11 @@ For a detailed explanation of the fields returned, please see below:
 | Pricing |  Confirmation of the price paid by the customer for the hotel room. |
 | API_Header/Request  | A list of parameters that were sent in the booking request. |
 
-## Worked Examples
+# Worked Examples
 
 Below are worked examples of both the request and response for booking hotels.
 
-### UK Hotel Booking Request - Room Only
+## UK Hotel Booking Request - Room Only
 
 ```html
 https://api.holidayextras.co.uk/v1/hotel/LHRMEA
@@ -160,7 +160,7 @@ https://api.holidayextras.co.uk/v1/hotel/LHRMEA
     </Request>
 ```
 
-### UK Hotel Booking Response - Room Only
+## UK Hotel Booking Response - Room Only
 
 ```xml
 <?xml version="1.0"?>
@@ -238,7 +238,7 @@ https://api.holidayextras.co.uk/v1/hotel/LHRMEA
 </API_Reply>
 ```
 
-### European Hotel Booking Request
+## European Hotel Booking Request
 
 ```
 https://api.holidayextras.co.uk/v1/hotel/MUCLAN
@@ -272,7 +272,7 @@ https://api.holidayextras.co.uk/v1/hotel/MUCLAN
     </Request>
 ```
 
-### European Hotel Booking Response
+## European Hotel Booking Response
 
 ```xml
 <?xml version="1.0"?>
