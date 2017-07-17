@@ -10,10 +10,10 @@ GET
 
 ### Endpoint
 
-The endpoint to use is (where "foo" is the location (airport) code):
+The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/foo
+https://api.holidayextras.co.uk/v1/hotel/locationCode
 ```
 
 For example, for London Heathrow the endpoint is:
