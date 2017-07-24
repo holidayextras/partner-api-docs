@@ -41,8 +41,8 @@ The body should be a well formatted JSON array, containing items which are objec
 
  | Name        | Data Type    | Format | Mandatory? | Additional Information |
  | ----        | ----    | ------ | -------- | ---------------------- |
- | hx_booking_ref  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. This will be confirmed to you by your Account Manager during set up.|
- | partner_booking_ref         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
+ | hx_booking_ref  | String  | [A-Z0-9] 5 chars | Y | HX full booking reference. |
+ | partner_booking_ref         | String  | [A-Z]                                  | Y        | The unique reference for the partner's booking. |
  | arrival       | String  | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)                         | Y        | New or current parking arrival date and time. |
  | depart | String | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | Y | New or current parking departure date and time. |
  | price | integer |  | Y | Booking amount in pence |
