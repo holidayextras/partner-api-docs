@@ -101,7 +101,7 @@ Below are worked examples of both the requests and responses for hotel availabil
 
 ### UK Hotel Availability Request - Room Only (zero days parking)
 
-```html
+```
 https://api.holidayextras.co.uk/v1/hotel/LHR?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&Nights=1&RoomType=T21&ParkingDays=0
 ```
 
@@ -199,7 +199,7 @@ NB: This is a shortened example compiled from a full availability response.
 
 ### UK Hotel Availability Request - Room with Parking
 
-```html
+```
 https://api.holidayextras.co.uk/v1/hotel/LHR?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&Nights=1&RoomType=T21&ParkingDays=8
 ```
 
@@ -304,7 +304,7 @@ NB: This is a shortened example compiled from a full availability response.
 
 ### European Hotel Availability Request - Room with Parking
 
-```html
+```
 https://api.holidayextras.co.uk/v1/hotel/MUC?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&Nights=1&RoomType=D20&ParkingDays=8&System=ABG&lang=de
 ```
 
