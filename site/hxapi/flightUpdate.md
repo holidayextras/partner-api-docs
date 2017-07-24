@@ -43,7 +43,6 @@ The body should be a well formatted JSON array:
     "price": 1234
   },
   {
-    "surname": "Jones",
     "hx_booking_ref": "HX124",
     "partner_booking_ref": "AB124",
     "arrival": "2017-03-04T12:12:12+0100",
