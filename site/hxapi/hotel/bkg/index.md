@@ -44,17 +44,17 @@ NB: All parameter names are case sensitive.
 | Title | String | [0-9] 4 chars | Y        | Title of lead passenger|
 | Initial | String | [A-Z] 1 chars | Y        | Initial of lead passenger|
 | Surname | String | [0-9] 20 chars | Y        | Surname of lead passenger|
-| Address[] | String | [0-9] 20 chars | Y        | First line of address (house name / number and road) of lead passenger <br>If you require more than 1 address line, then you can replicate this field and increment the number in square brackets, i.e. "Address[1]" for address line 2, and so on.<br>NB: This field can be set to NA|
-| Town | String | [0-9] 4 chars | Y        | Town of address <br>NB: This field can be set to NA|
-| County | String | [0-9] 4 chars | Y        | County of address <br>NB: This field can be set to NA|
-| PostCode | String | [0-9] 4 chars | Y        | Post code of address <br>NB: This field can be set to NA|
+| Address[] | String | [0-9] 20 chars | Y        | First line of address (house name / number and road) of lead passenger. If you require more than 1 address line, then you can replicate this field and increment the number in square brackets, i.e. "Address[1]" for address line 2, and so on. NB: This field can be set to NA|
+| Town | String | [0-9] 4 chars | Y        | Town of address. NB: This field can be set to NA|
+| County | String | [0-9] 4 chars | Y        | County of address. NB: This field can be set to NA|
+| PostCode | String | [0-9] 4 chars | Y        | Post code of address. NB: This field can be set to NA|
 | DayPhone | Integer | [0-9] 15 chars max  | N                 | The customer's telephone number. |  
 | Email | String | [0-9] 4 chars | Y        | The email address of customer. |
 | CustomerRef | String | [0-9A-Z]| N | Enter your Customer Reference to help match bookings for accounting purposes. |
 | Remarks | String | [0-9A-Z] | N | Pass in Remarks for notification such as COT REQUESTED in ROOM |
 | Waiver | Boolean | [0,1]  | Y | Defaults to 0 if not supplied. |
 | DataProtection | String | [Y,N] | N | Does the customer consent to receiving offers from Holiday Extras? Y = Yes, will receive offers, N = No, customer data is protected. Defaults to No if not supplied. |                   
-| PriceCheckFlag | String | [Y] | Y | Indicates a price check will be carried out prior to booking. <br>If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.|                     
+| PriceCheckFlag | String | [Y] | Y | Indicates a price check will be carried out prior to booking. If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.|                     
 | PriceCheckPrice | Float | [0-9] | Y        | Price of the product, received from the availability request or price check. |
 | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
 | lang        | String  | [A-Z] 2 chars | Y*       | Required for requests for European products. (Values available are `en`, `de`, `it`, `es`, `pt` and `nl`.)|
@@ -67,7 +67,7 @@ The additional parameters for including a second room are:
 
 | Name        | Data Type    | Format | Mandatory? | Additional Information |
 | ----        | ------------ | ------------- | -------- | ---------------------- |
-| SecondRoomType        | String  | [A-Z0-9] 2 chars | N*        | This parameter is mandatory if the customer wishes to book two rooms at the same time. <br>The room codes are as per [Room Codes](/hxapi/types/roomcode). |
+| SecondRoomType        | String  | [A-Z0-9] 2 chars | N*        | This parameter is mandatory if the customer wishes to book two rooms at the same time. The room codes are as per [Room Codes](/hxapi/types/roomcode). |
 | SecondRoomCode        | String        | [Room Codes](/hxapi/types/roomcode) | N                 | NB: Please note that the room codes differ between availability and booking requests. |
 | SecondRoomAdults      | Integer       | [1-5] 1 char | N | The number of adults occupying the second room. |
 | SecondRoomChildren    | Integer       | [0-4] 1 char | N | The number of children occupying the second room. |
@@ -99,6 +99,7 @@ Please contact your Account Manager if you have any questions concerning payment
 It is important that the customer has access to the Terms and Conditions at the time of placing their booking and after. We highly recommend that these are made clear to the customer _before_ booking.
 
 For European products, please use the following link:
+
 ```
 http://www.holidayextras.de/images/de-hx/pdf/agb.pdf
 ```
@@ -114,7 +115,7 @@ For a detailed explanation of the fields returned, please see below:
 
 | Field                | Additional Information |
 | ----                 | ---------------------- |
-| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are 5 char alphanumeric (including 1/I and 0/O/Q).|
+| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. NB: Our booking references are 5 char alphanumeric (including 1/I and 0/O/Q).|
 | Booking/AgentComm  | Commission you have earned from this booking. |
 | Itinerary | This section confirms details of the hotel on the booking. |
 | Room | This section confirms details of the room booked at the hotel. |
@@ -128,7 +129,7 @@ Below are worked examples of both the request and response for booking hotels.
 
 ## UK Hotel Booking Request - Room Only
 
-```html
+```
 https://api.holidayextras.co.uk/v1/hotel/LHRMEA
 ```
 
