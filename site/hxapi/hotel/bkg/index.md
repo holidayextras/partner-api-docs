@@ -78,8 +78,9 @@ The additional parameters for hotel with parking (where parking > 0 days) are:
 
 | Name        | Data Type    | Format | Mandatory? |
 | ----        | ----    | --------- | -------- |
+| CarDropoffDate        | Date   | YYYY-MM-DD    | Y  |
 | CarDropoffTime        | Time   | HHMM    | Y  |
-| CarPickupDate         | Date   | DDMMMYY | Y  |
+| CarPickupDate         | Date   | YYYY-MM-DD | Y  |
 | CarPickupTime         | Time   | HHMM    | Y  |
 | ReturnFlight          | String | [0-9A-Z] 10 chars | N |
 | TerminalCode          | String | [0-9A-Z] 3 chars  | N |
