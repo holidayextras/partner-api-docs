@@ -72,7 +72,7 @@ The availability response will return a list of 18 flags in the `<CarDetFlags>` 
 
 ### Payment
 
-In the UK, we are PCI DSS compliant and so we do not accept customers' payment details being passed to us via the API.
+In the UK, we are PCI DSS compliant and so we do not accept customers' payment details being passed to us via the API. Further details can be found in our section on [Payment](/hxapi/payment).
 
 Please contact your Account Manager if you have any questions concerning payment.
 

@@ -19,7 +19,7 @@ To make a payment using SEPA, the following fields must be included in the booki
 | Name | Data Type	| Format	| Mandatory?	| Additional Information |
 |------|------------|---------|-------------|------------------------|
 | AccountName | String |  | Y | Name on the account |
-| AccountNumber | String | See additional information | Y | The IBAN account number. The IBAN number structure comprises 2 character country code, 2 character check digits (integer), followed by up to 30 characters (integers). ![More information on IBAN.](http://www.sepaforcorporates.com/single-euro-payments-area/iban-number-format-sepa-country/) |
+| AccountNumber | String | See additional information | Y | The IBAN account number. The IBAN number structure comprises 2 character country code, 2 character check digits (integer), followed by up to 30 characters (integers). [More information on IBAN.](http://www.sepaforcorporates.com/single-euro-payments-area/iban-number-format-sepa-country/) |
 | SortCode | String |  | Y | The SEPA sort code |
 
 The following test details can be used in sandbox only:
@@ -35,10 +35,10 @@ To make a payment using credit or debit cards, you must use a different endpoint
 The endpoints that must be used are:
 
 Sandbox:
-```https://payment.holidayextras.co.uk/legacy/sandbox/```
+`https://payment.holidayextras.co.uk/legacy/sandbox/`
 
-Production: 
-```https://payment.holidayextras.co.uk/legacy/```
+Production:
+`https://payment.holidayextras.co.uk/legacy/`
 
 In order for us to process the payment, the following fields must be included in the booking request:
 
