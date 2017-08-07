@@ -91,7 +91,7 @@ The additional parameters for hotel with parking (where parking > 0 days) are:
 
 ## Payment
 
-In the UK, we are PCI DSS compliant and so we do not accept customers' payment details being passed to us via the API.
+In the UK, we are PCI DSS compliant and so we do not accept customers' payment details being passed to us via the API. Further details can be found in our section on [Payment](/hxapi/payment).
 
 Please contact your Account Manager if you have any questions concerning payment.
 
