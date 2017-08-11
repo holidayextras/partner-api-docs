@@ -2,32 +2,58 @@
 
 ---
 
-# Setting Up Your Account
+# Integration Process
 
-Before you can make requests to our API, the steps outlined below must be completed to create your account in the live and development environments.
+We aim to make the process for partners integrating with our API straightforward, by following these simple steps:
 
-These forms still need to be completed if you are already an agent/affiliate of Holiday Extras. The API requests must be made under a different code to your existing account, therefore we require new agreements.
+1. Create an account;
+2. Kick off call;
+3. Development phase;
+4. Certification;
+5. Go live.
+
+More details on each of these phases can be found below.
+
+## 1. Account Creation
+
+Before you can start interacting with our API, you must apply for a *retail agent API account*, even if you are already working with us. This involves completing the following three forms:
+
+1. [Sign Up Form](https://docs.google.com/forms/d/e/1FAIpQLSd1H4fp744DNt8mzwKt-7bh_xer3N2JbIHhNLRgUHwf2r9GZw/viewform?usp=sf_link)
+2. [Self Bill Agreement](http://secure.holidayextras.co.uk/images/apiForms/SelfBillv3.pdf)
+3. [Direct Debit Mandate](http://secure.holidayextras.co.uk/images/apiForms/DDebitMandate.pdf)
+
+NB: If you are a European partner, you will need to contact our [European Partnerships team](<hxapi-contact@holidayextras.de>) for a SEPA mandate.
 
 When completed, all forms should be sent by email to <sales@holidayextras.com>
 
 We will then send to you your account details and any further instructions for getting started.
 
-For customers in contact with Holiday Extras, Munich (Germany) please email <hxapi-contact@holidayextras.de>
+## 2. Kick off call
 
-## All Accounts
+Once your account has been created you will be assigned an Account Manager, who will support you throughout the integration process. The initial contact with your Account Manager will be either a conference call or face to face meeting (whichever is most practical), which will cover the following elements of your integration:
 
-As well as billing information we will need company details and traffic estimates. We need to manage server load. It is important that we plan for estimated levels of traffic. Applications which do not comply to our definition of reasonable behaviour (see terms and conditions) will have their requests restricted and may be suspended.
+- Overview of our API
+- Security and authentication
+- Infrastructure
+- Performance
+- API features and workflow
+- Support
 
-[Self Bill Agreement](http://secure.holidayextras.co.uk/images/apiForms/SelfBillv3.pdf)
+More details can be found in the [kick off document](https://docs.google.com/document/d/1dL6kF3_hpBIKeXeEUkehR22geAhpazD8V58EVSRrUKo/edit).
 
+## 3. Development phase
 
-## Agents Only
+During the development phase, your Account Manager will be contactable to answer any queries you may have.
 
-**Direct Debit Mandate** - Before your account can go live, we need this to authorise us to take the required from your bank account. The standard procedure is to invoice on a weekly basis.
+(Insert more detail here)
 
-[Download Direct Debit Mandate](http://secure.holidayextras.co.uk/images/apiForms/DDebitMandate.pdf)
+## 4. Certification
 
-[Download Direct Debit Mandate Insurance](http://secure.holidayextras.co.uk/images/apiForms/DDebitMandateInsurance.pdf)
+Insert more detail
+[certification checklist](https://docs.google.com/document/d/1W8cAttcx9l8VPSY999p0TzmrWifJyqIi3shxZVcrYTE/edit)
 
-**Direct Debit Mandate for Germany/Europe ** -
-Please contact <hxapi-contact@holidayextras.de> to receive the SEPA mandate form.
+## 5. Go Live
+
+Once we are satisfied that your integration meets the requirements in the certification check, then we will open your account up to our production systems.
+
+Insert more detail 
