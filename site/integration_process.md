@@ -16,19 +16,17 @@ More details on each of these steps can be found below.
 
 ## 1. Account Creation
 
-Before you can start interacting with our API, you must apply for an *API account*, even if you are already working with us. This involves completing the [sign up form](https://docs.google.com/forms/d/e/1FAIpQLSd1H4fp744DNt8mzwKt-7bh_xer3N2JbIHhNLRgUHwf2r9GZw/viewform?usp=sf_link), which is automatically submitted to us upon completion.
+Before you can start interacting with our API, you must apply for an *API account*, even if you are already working with us. Please complete the [sign up form](https://docs.google.com/forms/d/e/1FAIpQLSd1H4fp744DNt8mzwKt-7bh_xer3N2JbIHhNLRgUHwf2r9GZw/viewform?usp=sf_link), which is automatically submitted to us upon completion.
 
-You will also need to separately complete and email the following forms to us. Your account will not be set up until these forms have been received.
+You are also required to submit one of the following finance forms to us, depending on your region and the products you intend to integrate for:
 
-1. [Self Bill Agreement](http://secure.holidayextras.co.uk/images/apiForms/SelfBillv3.pdf)
-2. For UK Partners only: [Direct Debit Mandate](http://secure.holidayextras.co.uk/images/apiForms/DDebitMandate.pdf)
-3. For European Partners only: [SEPA Mandate](https://github.com/holidayextras/partner-api-docs/blob/master/site/hxapi/SEPA%20Basislastschriftmandat.pdf)
+- For UK Partners only, non-insurance products: [Direct Debit Mandate](https://github.com/holidayextras/partner-api-docs/blob/master/site/hxapi/NEW%20DD%20MANDATE%20RBS%20HX.pdf)
+- For UK Partners only, insurance products: [Direct Debit Mandate](https://github.com/holidayextras/partner-api-docs/blob/master/site/hxapi/NEW%20DD%20MANDATE%20RBS%20INS.pdf)
+- For European Partners only: [SEPA Mandate](https://github.com/holidayextras/partner-api-docs/blob/master/site/hxapi/SEPA%20Basislastschriftmandat.pdf)
 
-Once all the information has been received, we aim to set up the account within 24 hours (if submitted at weekends or bank holidays, this will not be processed until the following working day).
+Once all the information has been received, we aim to set up the account within 48 hours (if submitted at weekends or bank holidays, this will not be processed until the following working day).
 
-When completed, all forms should be sent by email to <sales@holidayextras.com>
-
-We will then send to you your account details and any further instructions for getting started.
+When completed, all forms should be sent by email to our [UK](mailto:sales@holidayextras.com) or [European](mailto:hxapi-contact@holidayextras.de) Partnerships teams (depending on your region). We will respond with your account details and any further instructions for getting started.
 
 ## 2. Kick off call
 

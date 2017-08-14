@@ -6,7 +6,7 @@
 
 ## Account Creation
 
-To use our API you first need to [set up an account](/accounts). To do this, please contact our Partnerships team, depending on your region:
+To use our API you first need to [set up an account](/integration_process). To do this, please contact our Partnerships team, depending on your region:
 
 For UK Partners: <sales@holidayextras.com>
 
