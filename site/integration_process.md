@@ -30,14 +30,7 @@ When completed, all forms should be sent by email to our [UK](mailto:sales@holid
 
 ## 2. Kick off call
 
-Once your account has been created you will be assigned an Account Manager, who will support you throughout the integration process. The initial contact with your Account Manager will be either a conference call or face to face meeting (whichever is most practical), which will cover the following elements of your integration:
-
-- Overview of our API
-- Security and authentication
-- Infrastructure
-- Performance
-- API features and workflow
-- Support
+Once your account has been created you will be assigned an Account Manager, who will support you throughout the integration process. The initial contact with your Account Manager will be either a conference call or face to face meeting (whichever is most practical), which will cover more detail around the scope of the integration and provide an overview of how our API works.
 
 More details can be found in the [kick off document](https://docs.google.com/document/d/1dL6kF3_hpBIKeXeEUkehR22geAhpazD8V58EVSRrUKo/edit).
 
