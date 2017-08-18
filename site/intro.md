@@ -98,8 +98,6 @@ Please do not cancel bookings by ringing our call centre or using the online can
 
 Before you can deploy your code to production and start making live bookings, we will need you to contact us to confirm how your application is interacting with our API and ensure all agreements are in place.
 
-Further details on the procedure can be found in our section on [Go Live](/golive)
-
 ## Where to next?
 
 If you are ready to begin, we suggest you start with our [Detailed Guides](/hxapi/).
