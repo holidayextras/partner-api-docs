@@ -2,13 +2,13 @@
 
 ---
 
-# Insurance quote
+# Insurance Schemes Availability
 
 [API Docs](/hxapi/) > product:[Insurance](/hxapi/insurance/availability)
 
-## Insurance Quote Request
+## Insurance Schemes Availability Request
 
-This endpoint will respond with a quotation for an insurance policy.
+This endpoint will respond with a quotation for a policy to be issued under an insurance scheme.
 
 ### Method
 
@@ -16,7 +16,7 @@ GET
 
 ### Endpoint
 
-To request the list of region codes, the endpoint to use is (where "foo" is the region code):
+To request the list of insurance schemes available, the endpoint to use is (where "foo" is the region code):
 
 ```
 https://api.holidayextras.co.uk/v1/insurancepolicy/foo
@@ -42,12 +42,12 @@ NB: All parameter names are case sensitive.
  | token | String | [0-9] 9 chars | Y | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token. |
  | StartDate | Date | YYYY-MM-DD | Y | Date customer wants policy to start (start date of trip if single trip, or up to 30 days from search date if annual trip) |
  | EndDate | Date | YYYY-MM-DD | N* | Date customer wants policy to end (return date of trip if single trip). NB: If no end date is provided, system will assume you are requesting an annual policy. |
- | birthDate | Date | YYYY-MM-DD | Y | Date of birth for customers. All customers requiring inclusion on this policy quote must provide their date of birth. You can add multiple people by ennumerating each date of birth in the format birthDate[0], birthDate[1], birthDate[2], and so on. |
+ | birthDate[] | Date | YYYY-MM-DD | Y | Date of birth for customers. All customers requiring inclusion on this policy quote must provide their date of birth. You can add multiple people by ennumerating each date of birth in the format birthDate[0], birthDate[1], birthDate[2], and so on. |
 
 
-## Insurance Quote Response
+## Insurance Schemes Availability Response
 
-The insurance quote response will return all the products that are available on the requested dates for that region. A summary of the request received can be found in the header field at the end of the response.
+The insurance schemes availability response will return all the products that are available on the requested dates for that region. A summary of the request received can be found in the header field at the end of the response.
 
 For a detailed explanation of the fields returned, please see below:
 
@@ -82,13 +82,13 @@ For a detailed explanation of the fields returned, please see below:
 
 Below are worked examples of both the request and response for insurance quote.
 
-### Insurance Quote Request
+### Insurance Schemes Availability Request
 
 ```
 https://api.holidayextras.co.uk/v1/insurancepolicy/EUROPELOW?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&StartDate=2017-12-01&birthDate[0]=1982-06-26&birthDate[1]=1986-11-19&EndDate=2017-12-08
 ```
 
-### Insurance Quote Response
+### Insurance Schemes Availability Response
 
 NB: This is a shortened example compiled from a full insurance quote response.
 
