@@ -20,4 +20,4 @@
 
 Below is a diagram detailing how the endpoints can be used to create an insurance user journey. More information on each endpoint can be found in the detailed guides listed above.
 
-![](https://github.com/holidayextras/partner-api-docs/blob/master/site/hxapi/insurance/Screen%20Shot%202017-09-01%20at%2013.29.04.png?raw=true)
+![](https://github.com/holidayextras/partner-api-docs/blob/master/site/hxapi/insurance/workflow.png)
