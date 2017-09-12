@@ -20,8 +20,6 @@ https://api.holidayextras.co.uk/v1/flightUpdate
 
 ### Request Parameters
 
-NB: All parameter names are case sensitive.
-
  | Name        | Data Type    | Format | Mandatory? | Additional Information |
  | ----        | ----    | ------ | -------- | ---------------------- |
  | ABTANumber | String | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. This will be confirmed to you by your Account Manager during set up. |
@@ -30,9 +28,31 @@ NB: All parameter names are case sensitive.
  | token | String | [0-9] 9 chars | Y | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token. |
  | notification_url | String | URL | N | Details of updates sent back to partner |
 
-### Request Body
+NB: All parameter names are case sensitive.
 
-The body should be a well formatted JSON array:
+#### Notification URL
+
+If a `notification_url` *is* provided, the endpoint will return immediately, and asynchronously send the status for the requested booking once they have been actioned.
+
+If a `notification_url` *is not* provided, the endpoint will process the request data synchronously and return the result of the process in the response.
+
+### Request Body Object Properties
+
+The body should be a well formatted JSON array, containing items which are objects with the following properties.
+
+ | Name        | Data Type    | Format | Mandatory? | Additional Information |
+ | ----        | ----    | ------ | -------- | ---------------------- |
+ | hx_booking_ref  | String  | [A-Z0-9] 5 chars | Y | HX full booking reference. |
+ | partner_booking_ref         | String  | [A-Z]                                  | Y        | The unique reference for the partner's booking. |
+ | arrival       | String  | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)                         | Y        | New or current parking arrival date and time. |
+ | depart | String | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | Y | New or current parking departure date and time. |
+ | price | integer |  | Y | Booking amount in pence |
+
+NB: All property names are case sensitive.
+
+### Request Body Example
+
+The above below shows two booking being sent, which each booking object as an element of the array:
 
 ```json
 [
@@ -45,7 +65,6 @@ The body should be a well formatted JSON array:
     "price": 1234
   },
   {
-    "surname": "Jones",
     "hx_booking_ref": "HX124",
     "partner_booking_ref": "AB124",
     "email": "customer2@hx.com",
@@ -55,8 +74,6 @@ The body should be a well formatted JSON array:
   }
 ]
 ```
-
-Please use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format for dates.
 
 ## Partner Notification
 
