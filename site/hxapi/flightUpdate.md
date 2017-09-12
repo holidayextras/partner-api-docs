@@ -23,6 +23,7 @@ https://api.holidayextras.co.uk/v1/flightUpdate
  | Name        | Data Type    | Format | Mandatory? | Additional Information |
  | ----        | ----    | ------ | -------- | ---------------------- |
  | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. This will be confirmed to you by your Account Manager during set up.|
+ | Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
  | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
  | token       | String  | [0-9] 9 chars                         | Y        | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token. |
  | notification_url | String | URL | N | Details of updates sent back to partner |
@@ -42,6 +43,7 @@ The body should be a well formatted JSON array, containing items which are objec
  | Name        | Data Type    | Format | Mandatory? | Additional Information |
  | ----        | ----    | ------ | -------- | ---------------------- |
  | hx_booking_ref  | String  | [A-Z0-9] 5 chars | Y | HX full booking reference. |
+ | email  | String  | [0-9A-Z] | Y        | The email address of customer. |
  | partner_booking_ref         | String  | [A-Z]                                  | Y        | The unique reference for the partner's booking. |
  | arrival       | String  | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)                         | Y        | New or current parking arrival date and time. |
  | depart | String | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | Y | New or current parking departure date and time. |
@@ -57,6 +59,7 @@ The above below shows two booking being sent, which each booking object as an el
 [
   {
     "hx_booking_ref": "HX123",
+    "email": "joe.bloggs@test.com",
     "partner_booking_ref": "AB123",
     "arrival": "2017-03-04T12:12:12Z",
     "depart": "2017-03-04T12:12:12Z",
@@ -64,6 +67,7 @@ The above below shows two booking being sent, which each booking object as an el
   },
   {
     "hx_booking_ref": "HX124",
+    "email": "jane.bloggs@test.com",
     "partner_booking_ref": "AB124",
     "arrival": "2017-03-04T12:12:12+0100",
     "depart": "2017-03-04T12:12:12+0100",
@@ -89,8 +93,13 @@ The body of this POST request will contain well formed JSON in the following for
     "partner_booking_ref": "AB124",
     "status": "ERR",
     "message": "booking not found"
+  },
+  {
+    "partner_booking_ref": "AB125",
+    "status": "ERR",
+    "message": "incorrect email address"
   }
 ]
 ```
 
-The example above shows two bookings that have been processed, the first update has succeeded, but the second has failed.
+The example above shows three bookings that have been processed, the first update has succeeded, but the second and third have failed.
