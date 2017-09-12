@@ -4,36 +4,15 @@
 
 #  Getting Started
 
-## Account Creation
+## Integration Process
 
-To use our API you first need to [set up an account](/accounts). To do this, please contact our Partnerships team, depending on your region:
-
-For UK Partners: <sales@holidayextras.com>
-
-For European Partners: <hxapi-contact@holidayextras.de>
-
-As part of the sign-up process you will be assigned an Account Manager, who will support you through the integration process.
-
-**Application Key**
-
-Every partner using our API is issued with an application ``key`` for identification. All requests must provide this key in order to receive a successful response, otherwise an error is returned.
-
-Your Account Manager  will provide you with your application key, as part of the sign up process.
-
-Your application key does not replace your Holiday Extras Agent Code (also known as your ABTA Number). For us to track bookings you must specify your Holiday Extras Agent Code, otherwise you will not be attributed the correct commission.
-
-**Agent Code**
-
-In addition to your application key, you must pass your Holiday Extras agent code. Agents (taking payment themselves) will need to send their password. Affiliates do not have a password, and so should not send one.
-
-You can have multiple applications using the same agent code, but you must use separate application keys for each application.
+In our experience, the most successful integrations (delivered on-time, free from defects) are the ones that follow our [integration process](/integration_process). Here you can find details on the process, including how to create an account.
 
 ## System requirements
 
 The platform and programming language you use to interact with our API is up to you. We expect the most common use case to be the creation of a web or mobile application.
 
 The only system requirements are the ability to:
-
 
 *  make HTTPS requests;
 *  parse XML and/or JSON files.
@@ -118,8 +97,6 @@ Please do not cancel bookings by ringing our call centre or using the online can
 ## Go Live Procedure
 
 Before you can deploy your code to production and start making live bookings, we will need you to contact us to confirm how your application is interacting with our API and ensure all agreements are in place.
-
-Further details on the procedure can be found in our section on [Go Live](/golive)
 
 ## Where to next?
 
