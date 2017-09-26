@@ -33,3 +33,4 @@ These endpoints are not product-specific. Please check the table below for detai
 |[Barcode](/hxapi/barcode)|Yes|No|
 |[Product library](/hxapi/productlibrary)|Yes|Yes|
 |[Managing a booking](/hxapi/viewamendcancel)|Yes|Yes|
+|[Update a booking's flight](/hxapi/flightUpdate)|Yes|No|
