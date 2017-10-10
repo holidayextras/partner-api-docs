@@ -17,6 +17,8 @@ The only system requirements are the ability to:
 *  make HTTPS requests;
 *  parse XML and/or JSON files.
 
+### Note: We have be permanently disabled all non-HTTPS access. Your systems will need to be making all of their API calls via HTTPS only.
+
 ### Rate Limiting
 
 Request limits are applied on a per-key basis. Thresholds can be adjusted if they prove too restrictive, but we need to protect our API from applications which make an unreasonable number of requests. There are distinct thresholds for the number of permissible requests per minute, per hour and per day. We reserve the right to alter these limits.
