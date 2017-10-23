@@ -43,6 +43,9 @@ NB: All parameter names are case sensitive.
  | StartDate | Date | YYYY-MM-DD | Y | Date customer wants policy to start (start date of trip if single trip, or up to 30 days from search date if annual trip) |
  | EndDate | Date | YYYY-MM-DD | N* | Date customer wants policy to end (return date of trip if single trip). NB: If no end date is provided, system will assume you are requesting an annual policy. |
  | birthDate[] | Date | YYYY-MM-DD | Y | Date of birth for customers. All customers requiring inclusion on this policy quote must provide their date of birth. You can add multiple people by ennumerating each date of birth in the format birthDate[0], birthDate[1], birthDate[2], and so on. |
+ | title[] | String | [A-Z] 4 chars | Y | Title for customers. All customers requiring inclusion on this policy quote must provide their title. You can add multiple people by ennumerating each title in the format title[0], title[1], title[2], and so on. |
+ | firstName[] | String | [A-Z] 15 chars | Y | First name for customers. All customers requiring inclusion on this policy quote must provide their first name. You can add multiple people by ennumerating each first name in the format firstName[0], firstName[1], firstName[2], and so on. |
+  | lastName[] | String | [A-Z] 15 chars | Y | Last name for customers. All customers requiring inclusion on this policy quote must provide their last name. You can add multiple people by ennumerating each last name in the format lastName[0], lastName[1], lastName[2], and so on. |
 
 
 ## Insurance Schemes Availability Response
@@ -85,7 +88,7 @@ Below are worked examples of both the request and response for insurance quote.
 ### Insurance Schemes Availability Request
 
 ```
-https://api.holidayextras.co.uk/v1/insurancepolicy/EUROPELOW?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&StartDate=2017-12-01&birthDate[0]=1982-06-26&birthDate[1]=1986-11-19&EndDate=2017-12-08
+https://api.holidayextras.co.uk/v1/insurancepolicy/EUROPELOW?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&StartDate=2017-12-01&EndDate=2017-12-08&birthDate[0]=1982-06-26&title[0]=Mr&firstName[0]=TEST&lastName[0]=TEST
 ```
 
 ### Insurance Schemes Availability Response
@@ -124,13 +127,16 @@ NB: This is a shortened example compiled from a full insurance quote response.
     </Quote>
     <API_Header>
         <Request>
-            <ABTANumber>ITEST</ABTANumber>
-            <Password>INSXL</Password>
+            <ABTANumber>YourABTANumber</ABTANumber>
+            <Password>YourPassword</Password>
+            <key>YourKey</key>
+            <token>YourToken</token>
             <StartDate>2017-12-01</StartDate>
-            <key>mytestkey</key>
-            <birthDate>1982-06-26</birthDate>
-            <birthDate>1986-11-19</birthDate>
             <EndDate>2017-12-08</EndDate>
+            <birthDate>1982-06-26</birthDate>
+            <title>Mr</title>
+            <firstName>TEST</firstName>
+            <lastName>TEST</lastName>
             <v>1</v>
         </Request>
     </API_Header>
