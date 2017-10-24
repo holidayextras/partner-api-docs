@@ -48,7 +48,7 @@ In order for us to process the payment, the following fields must be included in
 |------|------------|---------|-------------|------------------------|
 | CardNumber | String | [0-9] Max 16 chars | Y | Name on the account |
 | ExpiryDate | Date | MMYY | Y | The expiry date of the card |
-| CV2 | Integer | [0-9] 4 chars | Y | The 3 digit number printed in the signature space of most cards (For Amex only, it is a 4 digit number printed on the front of the card). Also known as "CVV" or "CVV2".  |
+| CV2 | Integer | [0-9] 4 chars | Y* | * This is a mandatory requirement for partners in the UK; for European partners this is discretionary. <br>The 3 digit number printed in the signature space of most cards (For Amex only, it is a 4 digit number printed on the front of the card). Also known as "CVV" or "CVV2".  |
 
 The following test details can be used in sandbox only:
 
