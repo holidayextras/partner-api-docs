@@ -41,8 +41,8 @@ For ease of reference, the current regions available are:
 | Code   | Region | Covered Countries |
 | ----   | ----------- | ----------------- |
 | UKROI  | UK & Ireland | UK, Republic of Ireland and Channel Islands   |
-| EUROPE | Europe Low-risk| All countries in Europe excluding Spain, Cyprus, Malta, Turkey and Greece |
-| EUROPE | Europe High-risk | All countries in Europe including Spain, Cyprus, Malta, Turkey and Greece |
+| EUROPELOW | Europe Low-risk| All countries in Europe excluding Spain, Cyprus, Malta, Turkey and Greece |
+| EUROPEHIGH | Europe High-risk | All countries in Europe including Spain, Cyprus, Malta, Turkey and Greece |
 | AUSNZ  | Australia & New Zealand | Australia, New Zealand, Cook Islands, Niue and Tokelau |
 | WWXUSA | Worldwide: all countries excluding USA | Full list of 156 countries worldwide, excluding USA, Canada and their territories |
 | WWIUSA | Worldwide: all countries including USA | Full list of 156 countries worldwide, including USA, Canada and their territories |
