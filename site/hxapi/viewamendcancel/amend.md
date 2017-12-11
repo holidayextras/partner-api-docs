@@ -222,6 +222,7 @@ ABTANumber=FOO&Address%5B%5D=45%20Test%20Street&ArrivalDate=2009-04-16&ArrivalTi
 <API_Reply Product="CarPark" RequestCode="14" Result="OK">
   <Booking>
     <BookingRef>A8LUM</BookingRef>
+    <PdfUrl>/v1/confirmation?email=test%40holidayextras.com&amp;booking_ref=HPA8LUM&amp;product_type=carparks</PdfUrl>
   </Booking>
   <CarDetails>
     <Registration></Registration>
@@ -279,3 +280,8 @@ ABTANumber=FOO&Address%5B%5D=45%20Test%20Street&ArrivalDate=2009-04-16&ArrivalTi
 </API_Reply>
 ```
 
+The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
+the confirmation email. Note that you will need to append the fields
+`ABTANumber`, `Password` and `key` to the link in order to authenticate.
+
+Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40holidayextras.com&booking_ref=HPA8LUM&product_type=carparks&ABTANumber=TESTG&Password=redacted&key=mytestkey
