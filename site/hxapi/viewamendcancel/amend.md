@@ -284,4 +284,4 @@ The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
 the confirmation email. Note that you will need to append the fields
 `ABTANumber`, `Password` and `key` to the link in order to authenticate.
 
-Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40holidayextras.com&booking_ref=HPA8LUM&product_type=carparks&ABTANumber=TESTG&Password=redacted&key=mytestkey
+Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test@holidayextras.com&booking_ref=HPA8LUM&product_type=carparks&ABTANumber=TESTG&Password=redacted&key=mytestkey
