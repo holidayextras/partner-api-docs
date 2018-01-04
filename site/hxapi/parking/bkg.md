@@ -159,7 +159,7 @@ https://api.holidayextras.co.uk/carpark/LGW4
         <BookingRef>YourBookingRef</BookingRef>
         <AgentComm>7.25</AgentComm>
         <VATonComm>0.00</VATonComm>
-        <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=HPABCDE&amp;product_type=carparks</PdfUrl>
+        <PdfURL>/v1/confirmation?email=test%40test.com&amp;booking_ref=HPABCDE&amp;product_type=carparks</PdfURL>
     </Booking>
     <CarDetails>
         <Registration>TE17 STS</Registration>
@@ -267,7 +267,7 @@ https://api.holidayextras.co.uk/carpark/MU01
         </Request>
 ```
 
-The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
+The `PdfURL` field contains a URL that can be used to retrieve a PDF copy of
 the confirmation email. Note that you will need to append the fields
 `ABTANumber`, `Password` and `key` to the link in order to authenticate.
 
@@ -280,7 +280,7 @@ Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40ho
 <API_Reply Product="CarPark" RequestCode="4" Result="OK">
     <Booking>
         <BookingRef>YourBookingRef</BookingRef>
-        <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=FRABCDE&amp;product_type=carparks</PdfUrl>
+        <PdfURL>/v1/confirmation?email=test%40test.com&amp;booking_ref=FRABCDE&amp;product_type=carparks</PdfURL>
     </Booking>
     <MoreInfoURL>/carpark/YourBookingRef.de</MoreInfoURL>
     <CarPark>
@@ -347,7 +347,7 @@ Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40ho
 </API_Reply>
 ```
 
-The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
+The `PdfURL` field contains a URL that can be used to retrieve a PDF copy of
 the confirmation email. Note that you will need to append the fields
 `ABTANumber`, `Password` and `key` to the link in order to authenticate.
 
