@@ -172,7 +172,7 @@ https://api.holidayextras.co.uk/v1/hotel/LHRMEA
         <AgentComm>6.53</AgentComm>
         <VATonComm>0.00</VATonComm>
         <MoreInfoURL>/v1/booking/YourBookingRef</MoreInfoURL>
-        <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=HPABCDE&amp;product_type=hotels</PdfUrl>
+        <PdfURL>/v1/confirmation?email=test%40test.com&amp;booking_ref=HPABCDE&amp;product_type=hotels</PdfURL>
     </Booking>
     <Hotel/>
     <Itinerary>
@@ -241,7 +241,7 @@ https://api.holidayextras.co.uk/v1/hotel/LHRMEA
 </API_Reply>
 ```
 
-The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
+The `PdfURL` field contains a URL that can be used to retrieve a PDF copy of
 the confirmation email. Note that you will need to append the fields
 `ABTANumber`, `Password` and `key` to the link in order to authenticate.
 
@@ -289,7 +289,7 @@ https://api.holidayextras.co.uk/v1/hotel/MUCLAN
     <Booking>
         <BookingRef>YourBookingRef</BookingRef>
         <MoreInfoURL>/v1/booking/YourBookingRef.de</MoreInfoURL>
-        <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=FRABCDE&amp;product_type=hotels</PdfUrl>
+        <PdfURL>/v1/confirmation?email=test%40test.com&amp;booking_ref=FRABCDE&amp;product_type=hotels</PdfURL>
     </Booking>
     <Hotel/>
     <Itinerary>
@@ -357,7 +357,7 @@ https://api.holidayextras.co.uk/v1/hotel/MUCLAN
 </API_Reply>
 ```
 
-The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
+The `PdfURL` field contains a URL that can be used to retrieve a PDF copy of
 the confirmation email. Note that you will need to append the fields
 `ABTANumber`, `Password` and `key` to the link in order to authenticate.
 
