@@ -4,7 +4,9 @@
 
 # Lounge
 
-| Action | Endpoint | Method |
+Here are the lounge specific endpoints:
+
+| Request | Endpoint | Method |
 | --- | --- | --- |
-| Available lounges at airport | [https://api.holidayextras.co.uk/v1/lounge/foo](av/airport) | GET |
-| Make lounge booking | [https://api.holidayextras.co.uk/v1/lounge/foo](bkg) | POST |
+| Availability of lounges at airport | [https://api.holidayextras.co.uk/v1/lounge/foo](av/airport) | GET |
+| Make booking for lounge | [https://api.holidayextras.co.uk/v1/lounge/foo](bkg) | POST |
