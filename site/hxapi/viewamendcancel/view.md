@@ -64,6 +64,7 @@ delete sandbox to be directed to production
     <AgentComm>0.10</AgentComm>
     <VATonComm>0.02</VATonComm>
     <Amendable>C</Amendable>
+    <PdfUrl>/v1/confirmation?email=test%40holidayextras.com&amp;booking_ref=HPABCDE&amp;product_type=carparks</PdfUrl>
   </Booking>
   <Itinerary>
     <Product>Parking</Product>
@@ -117,6 +118,12 @@ delete sandbox to be directed to production
 ### Fields Explained
 
 Most of these should be self explanatory, just the values from the booking.
+
+The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
+the confirmation email. Note that you will need to append the fields
+`ABTANumber`, `Password` and `key` to the link in order to authenticate.
+
+Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40holidayextras.com&booking_ref=HPABCDE&product_type=carparks&ABTANumber=WT314&Password=redacted&key=mytestkey
 
 #### /Booking/Amendable
 
