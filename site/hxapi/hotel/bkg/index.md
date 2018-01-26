@@ -36,7 +36,7 @@ NB: All parameter names are case sensitive.
  | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
  | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
  | ArrivalDate | Date    | YYYY-MM-DD                             | Y        | Date customer arrives at hotel. |
- | Nights | Integer  | 1, 2, 3, etc                                  | Y        | Number of nights the customer wants to stay in the hotel. |
+ | Nights | Integer  | 1, 2, 3, etc                                  | Y        | Number of nights the customer wants to stay in the hotel. NB: For European products it is only possible to book one night stays. |
  | RoomCode      | String  | [A-Z0-9] 2 chars | Y        | See [RoomCodes](/hxapi/types/roomcode) for a list of valid codes. |
  | Adults | Integer       | [1-5] 1 char                           | Y                 | The number of adults occupying the room. |
  | Children | Integer       | [0-4] 1 char                           | Y                 | The number of children occupying the room. |
