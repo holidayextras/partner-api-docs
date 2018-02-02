@@ -97,7 +97,7 @@ Please contact your Account Manager if you have any questions concerning payment
 
 ## Booking Terms and Conditions
 
-It is important that the customer has access to the Terms and Conditions at the time of placing their booking and after. We highly recommend that these are made clear to the customer _before_ booking.
+It is important that the customer has access to the Terms and Conditions at the time of placing their booking and after. We highly recommend that these are made clear to the customer _before_ booking. 
 
 For European products, please use the following link:
 
@@ -123,6 +123,12 @@ For a detailed explanation of the fields returned, please see below:
 | ClientDetails  | Confirmation of the customer's details that were sent in the booking request. |
 | Pricing |  Confirmation of the price paid by the customer for the hotel room. |
 | API_Header/Request  | A list of parameters that were sent in the booking request. |
+
+## Booking Confirmation
+
+We expect partners to create their own booking confirmations to send to customers, using the information provided in the booking response. 
+
+However, we also have capability to send booking confirmation emails ourselves on behalf of partners. This feature is not available as standard, and so if you wish to enable this please speak to your Account Manager.
 
 # Worked Examples
 
