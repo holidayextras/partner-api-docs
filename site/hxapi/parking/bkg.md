@@ -105,6 +105,12 @@ For a detailed explanation of the fields returned, please see below:
 | CarPark  | Details of the car park that were sent in the booking request. |
 | API_Header/Request  | A list of parameters that were sent in the booking request. |
 
+## Booking Confirmation
+
+We expect partners to create their own booking confirmations to send to customers, using the information provided in the booking response. 
+
+However, we also have capability to send booking confirmation emails ourselves on behalf of partners. This feature is not available as standard, and so if you wish to enable this please speak to your Account Manager.
+
 ## Worked Examples
 
 Below are worked examples of both the request and response for booking car parking.
