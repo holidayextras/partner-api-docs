@@ -16,7 +16,6 @@ Please check the table below for details of which products are available in each
 |[Hotels](/hxapi/hotel)|Yes|Yes|
 |[Lounges](/hxapi/lounge)|Yes|Yes|
 |[Insurance](/hxapi/insurance)|Yes|No|
-|[Car Hire](/hxapi/carhire)|Yes|No|
 
 
 
