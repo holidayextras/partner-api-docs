@@ -37,10 +37,9 @@ NB: All parameter names are case sensitive.
  | Name  | Data Type | Format | Mandatory? | Additional Information |
  | ----  | --------- | ------ | ---------- | ---------------------- |
  | channel | String | [A-Z] | Y | This will be supplied with your authentication credentials. |
- | business | String | [A-Z] | Y | This will be supplied with your authentication credentials. |
- | orderId | String | [A-Z] | Y | A unique ID to be used when making the payment. |
+ | paymentId | String | [A-Z] | Y | A unique ID to be used when making the payment. |
  | token   | String | [0-9] | Y | A tokenised card to make the payment against. |
- | orderReference | String | [A-Z] | Y | A reference used to group multiple payments together, doesn't need to be unique. |
+ | paymentReference | String | [A-Z] | Y | A reference used to group multiple payments together, doesn't need to be unique. |
  | amount | String | [0-9] | Y | The price (in pence) to be paid. |
 
 ## Payment Response
@@ -50,14 +49,9 @@ For a detailed explanation of the fields returned, please see below:
  | Field | Additional Information |
  | ----- | ---------------------- |
  | amount | The amount that has been paid |
- | creationTime | The time the payment was made |
- | currency | The currency used to make the payment |
  | id | The unique id of the payment |
- | reference | The reference of the payment |
  | status | The status of the payment |
- | totalAuthorizedAmount | The total amount authorised |
- | totalCapturedAmount | The total amount captured |
- | totalRefundedAmount | The total amount refunded for this orderId |
+ | error | The error if the payment fails |
 
 ## Examples
 
@@ -74,27 +68,34 @@ Below are examples of both the request and response for a new payment.
 
 ```
 {
-  "channel": "magenta",
-  "business": "insurance",
-  "orderId": "testOrderId",
+  "channel": "channel",
+  "paymentId": "testPaymentId",
   "token": "4111111111111111",
-  "orderReference": "testOrderRef",
+  "paymentReference": "testPaymentRef",
   "amount": "1234"
 }
 ```
 
 ### Payment Response
 
+
+#### Successful payment
+
 ```
 {
     "amount": 12.34,
-    "creationTime": "2018-02-08T11:37:50.399Z",
-    "currency": "GBP",
-    "id": "testOrderId",
-    "reference": "testOrderRef",
-    "status": "CAPTURED",
-    "totalAuthorizedAmount": 12.34,
-    "totalCapturedAmount": 12.34,
-    "totalRefundedAmount": 0
+    "id": "testPaymentId",
+    "status": "Success"
+}
+```
+
+#### Failed payment
+
+```
+{
+    "amount": 12.34,
+    "id": "testPaymentId",
+    "status": "Failed",
+    "error": "Failed to make payment"
 }
 ```

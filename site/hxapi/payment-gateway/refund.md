@@ -37,8 +37,7 @@ NB: All parameter names are case sensitive.
  | Name  | Data Type | Format | Mandatory? | Additional Information |
  | ----  | --------- | ------ | ---------- | ---------------------- |
  | channel | String | [A-Z] | Y | This will be supplied with your authentication credentials. |
-  | business | String | [A-Z] | Y | This will be supplied with your authentication credentials. |
- | orders | Array | [String, String] | Y | An array listing all payments made for this booking. |
+ | payments | Array | [String, String] | Y | An array listing all payments made for this booking. |
  | amount | String | [0-9] | Y | The price (in pence) to be refunded. |
 
 ## Refund Response
@@ -48,13 +47,9 @@ For a detailed explanation of the fields returned, please see below:
  | Field | Additional Information |
  | ----- | ---------------------- |
  | amount | The amount that has been refunded |
- | creationTime | The time the refund was made |
- | currency | The currency used to make the refund |
  | id | The unique id of the refund |
  | status | The status of the refund |
- | totalAuthorizedAmount | The total amount authorised |
- | totalCapturedAmount | The total amount captured |
- | totalRefundedAmount | The total amount refunded for this orderId |
+ | error | The error if the refund fails |
 
 ## Examples
 
@@ -71,24 +66,30 @@ Below are examples of both the request and response for a refund.
 
 ```
 {
-  "channel": "magenta",
-  "business": "insurance",
-  "orders": ["testOrderId"],
+  "channel": "channel",
+  "payment": ["testPaymentId1", "testPaymentId2"],
   "amount": "1234"
 }
 ```
 
 ### Refund Response
 
+#### Successful Refund
 ```
 {
     "amount": 12.34,
-    "creationTime": "2018-02-08T11:59:44.050Z",
-    "currency": "GBP",
-    "id": "REFUND-testOrderId",
-    "status": "EXCESSIVELY_REFUNDED",
-    "totalAuthorizedAmount": 0,
-    "totalCapturedAmount": 0,
-    "totalRefundedAmount": 12.34
+    "id": "REFUND-testPaymentId1",
+    "status": "Success"
+}
+```
+
+#### Failed Refund
+
+```
+{
+    "amount": 12.34,
+    "id": "REFUND-testOrderId1",
+    "status": "Fail",
+    "error": "Failed making refund"
 }
 ```
