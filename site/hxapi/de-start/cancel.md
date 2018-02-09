@@ -4,9 +4,7 @@
 
 # Cancel booking
 
-## /booking/foo
-
-where foo is the Start booking reference
+## /booking/<bookingRef>
 
 e.g. https://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10051848
 
@@ -73,7 +71,7 @@ Dry-run
       <ConfirmCancel>N</ConfirmCancel>
       <Operator>BJT</Operator>
       <StartCustomer>111111</StartCustomer>
-      <key>foo</key>
+      <key>testkey</key>
       <token>123456789</token>
       <CancelRef>testcanx</CancelRef>
       <system>de</system>
@@ -104,7 +102,7 @@ Confirmed cancel
       <ConfirmCancel>Y</ConfirmCancel>
       <Operator>BJT</Operator>
       <StartCustomer>123456</StartCustomer>
-      <key>foo</key>
+      <key>testkey</key>
       <token>123456789</token>
       <system>de</system>
       <System>ABG</System>

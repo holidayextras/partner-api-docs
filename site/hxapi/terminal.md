@@ -25,7 +25,7 @@ GET
 ## Request
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/terminal/LGW?key=foo
+https://api.holidayextras.co.uk/sandbox/v1/terminal/LGW?key=yourkey
 ```
 
 

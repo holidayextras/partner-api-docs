@@ -6,9 +6,7 @@
 
 This must be a POST, as you are making a booking. It must be made over HTTPS, you must enforce this.
 
-## /carpark/foo
-
-where foo is the carpark code
+## /carpark/<carParkCode>
 
 e.g. /carpark/FRA2
 
@@ -60,7 +58,7 @@ You will need to turn this into a POST (Firefox / UrlParams / Get -> Post) to ma
 
 znt -> api
 ```html
-https://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA8?StartCustomer=111111&ArrivalDate=2010-10-19&ArrivalTime=1200&DepartDate=2010-10-27&DepartTime=1400&Initial=T&Operator=BJT&NumberOfPax=2&BusinessUnit=222&Registration=CP54JOV&Surname=Thompson&Title=Mr&key=foo&token=123456789
+https://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA8?StartCustomer=111111&ArrivalDate=2010-10-19&ArrivalTime=1200&DepartDate=2010-10-27&DepartTime=1400&Initial=T&Operator=BJT&NumberOfPax=2&BusinessUnit=222&Registration=CP54JOV&Surname=Thompson&Title=Mr&key=testkey&token=123456789
 ```
 
 
@@ -150,7 +148,7 @@ api -> chauntry
       <StartCustomer>111111</StartCustomer>
       <Surname>Thompson</Surname>
       <Title>Mr</Title>
-      <key>foo</key>
+      <key>testkey</key>
       <token>123456789</token>
       <debug>1</debug>
       <system>de</system>

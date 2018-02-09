@@ -30,24 +30,24 @@ The file extension is also required, to tell the API to return the correct image
 ## Request
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo
+https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=yourkey
 ```
 
 So you can include it in your page as easily as...
 
 ```
-<img src="https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo" />
+<img src="https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=yourkey" />
 ```
 
 
 The image can be rotated to fit the side of a page:
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo&angle=90
+https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=yourkey&angle=90
 ```
 Or
 ```
-https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo&angle=270
+https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=yourkey&angle=270
 ```
 
 

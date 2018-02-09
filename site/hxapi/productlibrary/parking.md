@@ -6,9 +6,7 @@
 
 [API Docs](/hxapi/) > endpoint:[product](parking)
 
-## /product/foo
-
-Where **foo** is the car park code.
+## /product/<carParkCode>
 
 ### Method
 

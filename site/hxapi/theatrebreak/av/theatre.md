@@ -5,7 +5,7 @@
 # Theatre Break Availability
 
 
-## /theatrebreak/{foo}
+## /theatrebreak/<productCode>
 
 ### Method
 
