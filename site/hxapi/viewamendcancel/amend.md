@@ -18,7 +18,9 @@
 
 
 
-## /booking/<bookingRef>
+## /booking/foo
+
+where foo is the booking reference
 
 e.g. https://api.holidayextras.co.uk/v1/booking/ABCDE
 
@@ -100,7 +102,7 @@ This request does not affect the booking, no changes are confirmed at this point
 ### Request
 
 ```html
-https://api.holidayextras.co.uk/sandbox/booking/A8LUM?ArrivalDate=2009-02-10&ArrivalTime=1800&DepartDate=2009-02-20&DepartTime=2000&CarParkCode=MAN3&NumberOfPax=2&ABTANumber=myabtanumber&key=mytestkey
+https://api.holidayextras.co.uk/sandbox/booking/A8LUM?ArrivalDate=2009-02-10&ArrivalTime=1800&DepartDate=2009-02-20&DepartTime=2000&CarParkCode=MAN3&NumberOfPax=2&ABTANumber=FOO&key=mytestkey
 ```
 
 add System=ABG for European products
@@ -124,7 +126,7 @@ add System=ABG for European products
       <DepartDate>2009-02-20</DepartDate>
       <DepartTime>2000</DepartTime>
       <NumberOfPax>2</NumberOfPax>
-      <ABTANumber>myabtanymber</ABTANumber>
+      <ABTANumber>FOO</ABTANumber>
       <key>mytestkey</key>
       <Code>MAN3</Code>
     </Request>
@@ -207,7 +209,7 @@ Connection: keep-alive
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 297
 
-ABTANumber=myabtanumber&Address%5B%5D=45%20Test%20Street&ArrivalDate=2009-04-16&ArrivalTime=1200&CarParkCode=LGV4&Confirmation=Y&County=Kent&DepartDate=2009-04-23&DepartTime=1500&Email=test%40test.com&Initial=B&NumberOfPax=3&PostCode=CT202TT&Surname=Test&Title=Mr&Town=Test&key=mytestkey
+ABTANumber=FOO&Address%5B%5D=45%20Test%20Street&ArrivalDate=2009-04-16&ArrivalTime=1200&CarParkCode=LGV4&Confirmation=Y&County=Kent&DepartDate=2009-04-23&DepartTime=1500&Email=test%40test.com&Initial=B&NumberOfPax=3&PostCode=CT202TT&Surname=Test&Title=Mr&Town=Test&key=mytestkey
 
 ```
 
@@ -243,7 +245,7 @@ ABTANumber=myabtanumber&Address%5B%5D=45%20Test%20Street&ArrivalDate=2009-04-16&
   </Pricing>
   <API_Header>
     <Request>
-      <ABTANumber>myabtanumber</ABTANumber>
+      <ABTANumber>FOO</ABTANumber>
       <ArrivalDate>2009-02-10</ArrivalDate>
       <ArrivalTime>1800</ArrivalTime>
       <Confirmation>Y</Confirmation>

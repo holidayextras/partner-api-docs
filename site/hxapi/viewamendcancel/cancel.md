@@ -6,7 +6,9 @@
 
 
 
-## /booking/<bookingRef>
+## /booking/foo
+
+where foo is the booking reference
 
 e.g. https://api.holidayextras.co.uk/v1/booking/ABCDE
 
@@ -103,13 +105,13 @@ GET
 ### Request
 
 ```html
-https://api.holidayextras.co.uk/v1/booking/ABCDE?ABTANumber=youragentcode&Password=yourpassword&ConfirmCancel=N&CancelRef=voucher/initial&key=yourkey
+https://api.holidayextras.co.uk/v1/booking/ABCDE?ABTANumber=youragentcode&Password=yourpassword&ConfirmCancel=N&CancelRef=voucher/initial&key=foo
 ```
 
 For European products please add System=ABG
 
 ```html
-https://api.holidayextras.co.uk/v1/booking/ABCDE?ABTANumber=youragentcode&Password=yourpassword&ConfirmCancel=N&key=yourkey&System=ABG
+https://api.holidayextras.co.uk/v1/booking/ABCDE?ABTANumber=youragentcode&Password=yourpassword&ConfirmCancel=N&key=foo&System=ABG
 ```
 
 
@@ -138,7 +140,7 @@ https://api.holidayextras.co.uk/v1/booking/ABCDE?ABTANumber=youragentcode&Passwo
       <ABTANumber>youragentcode</ABTANumber>
       <Password>yourpassword</Password>
       <ConfirmCancel>N</ConfirmCancel>
-      <key>yourkey</key>
+      <key>foo</key>
       <v>1</v>
     </Request>
   </API_Header>
@@ -256,7 +258,7 @@ Connection: keep-alive
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 34
 
-ABTANumber=youragentcode&Password=yourpassword&key=yourkey&ConfirmCancel=Y&CancelRef=bookingRef
+ABTANumber=youragentcode&Password=yourpassword&key=foo&ConfirmCancel=Y&CancelRef=Foo
 ```
 
 
@@ -278,9 +280,9 @@ ABTANumber=youragentcode&Password=yourpassword&key=yourkey&ConfirmCancel=Y&Cance
     <Request>
       <ABTANumber>youragentcode</ABTANumber>
       <Password>yourpassword</Password>
-      <key>yourkey</key>
+      <key>foo</key>
       <ConfirmCancel>Y</ConfirmCancel>
-      <CancelRef>bookingRef</CancelRef>
+      <CancelRef>Foo</CancelRef>
       <v>1</v>
     </Request>
   </API_Header>
