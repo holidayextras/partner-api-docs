@@ -8,7 +8,7 @@ This must be a POST, as you are amending a booking. It must be made over HTTPS, 
 
 Unlike the normal amend process, you will not be asked for confirmation before completing this. There is only one request to send for amend-no-reprice
 
-## /booking/<bookingRef>
+## /booking/YourBookingRef
 
 
 ### Method

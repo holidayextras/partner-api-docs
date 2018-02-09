@@ -4,7 +4,7 @@
 
 # Cancel booking
 
-## /booking/<bookingRef>
+## /booking/YourBookingRef
 
 e.g. https://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10051848
 
