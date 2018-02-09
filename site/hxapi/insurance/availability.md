@@ -16,10 +16,10 @@ GET
 
 ### Endpoint
 
-To request the list of insurance schemes available, the endpoint to use is (where "foo" is the region code):
+To request the list of insurance schemes available, the endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/insurancepolicy/foo
+https://api.holidayextras.co.uk/v1/insurancepolicy/<regionCode>
 ```
 
 For example, to request a quote for a policy covering Europe (low risk), the endpoint is:

@@ -22,10 +22,10 @@ To request the list of region codes, the endpoint to use is:
 https://api.holidayextras.co.uk/v1/insurancecountries
 ```
 
-To request the list of countries within a given region code, the endpoint to use is (where "foo" is the region code):
+To request the list of countries within a given region code, the endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/insurancecountries/foo
+https://api.holidayextras.co.uk/v1/insurancecountries/<regionCode>
 ```
 
 For example, to request all the countries within Europe Low, the endpoint is:

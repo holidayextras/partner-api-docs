@@ -24,10 +24,10 @@ POST
 
 ### Endpoint
 
-To create an insurance policy, the endpoint to use is (where "foo" is the `certificateRef` from the options response):
+To create an insurance policy, the endpoint to use is (where `<certificateRef>` is the `certificateRef` from the options response):
 
 ```
-https://api.holidayextras.co.uk/v1/insurancepolicy/foo
+https://api.holidayextras.co.uk/v1/insurancepolicy/<certificateRef>
 ```
 
 ### Request Parameters
