@@ -13,7 +13,7 @@ POST
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/locationCode
+https://api.holidayextras.co.uk/v1/hotel/<locationCode>
 ```
 
 For example, for _Mercure at London Heathrow_ the endpoint is:
