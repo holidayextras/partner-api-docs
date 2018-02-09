@@ -6,9 +6,7 @@
 
 
 
-## /booking/foo
-
-where foo is the booking reference
+## /booking/<bookingRef>
 
 e.g. https://api.holidayextras.co.uk/v1/booking/ABCDE
 
@@ -34,7 +32,7 @@ GET
  | key        | String |             | Y        |
 
 
-This is a general request, is is therefore not product specific. So a booking of any type, i,e parking, hotel, lounge can be cancelled using the booking reference and the same request parameters it does not need to vary by product.
+This is a general request, is is therefore not product specific. So a booking of any type, i.e. parking, hotel, lounge can be cancelled using the booking reference and the same request parameters it does not need to vary by product.
 
 * Required for agents Agent bookings need not pass in the Email parameter.
 

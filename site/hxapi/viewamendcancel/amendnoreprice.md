@@ -18,9 +18,7 @@
 
 
 
-## /booking/foo
-
-where foo is the booking reference
+## /booking/<bookingRef>
 
 e.g. https://api.holidayextras.co.uk/v1/booking/ABCDE
 
@@ -36,7 +34,7 @@ Pass through any existing parameter that the Customer is not changing.
 
  | Name            | Type   | Format        | Required | Example                       |
  | ----            | ----   | ------        | -------- | -------                       |
- | ABTANumber      | String | [A-Z][0-9]    | Y        | foo - this is your agent code |
+ | ABTANumber      | String | [A-Z][0-9]    | Y        | yourabtanumber - this is your agent code |
  | key             | String | [A-Z][0-9]    | Y        | yourkey                       |
  | token           | String | [A-Z][0-9]    | Y        | yourtoken                     |
  | Registration    | String | [A-Z][0-9]    | Y        | AB12CDE                       |
@@ -98,7 +96,7 @@ Connection: keep-alive
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 297
 
-ABTANumber=FOO&Title=MR&Initial=T&Surname=TEST&Address[]=TEST&Town=TEST&County=TEST&PostCode=TEST&DayPhone=0123456789&EvePhone=0123456789&Email=test%40test.com&Registration=AB12CDE&CarMake=Test Make&CarModel=Test Model&CarColour=WHITE&OutFlight=AB123&MobileNum=0123456789&Destination=Maldives&&DepartTerminal=S&ArrivalTerminal=1&CarDropOffTime=1200&key=mytestkey&AmendNoReprice=1&Confirmation=Y&token=generate
+ABTANumber=myabtanumber&Title=MR&Initial=T&Surname=TEST&Address[]=TEST&Town=TEST&County=TEST&PostCode=TEST&DayPhone=0123456789&EvePhone=0123456789&Email=test%40test.com&Registration=AB12CDE&CarMake=Test Make&CarModel=Test Model&CarColour=WHITE&OutFlight=AB123&MobileNum=0123456789&Destination=Maldives&&DepartTerminal=S&ArrivalTerminal=1&CarDropOffTime=1200&key=mytestkey&AmendNoReprice=1&Confirmation=Y&token=generate
 
 ```
 

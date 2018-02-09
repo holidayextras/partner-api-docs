@@ -4,9 +4,7 @@
 
 # Amend Hotel Booking
 
-## /booking/foo
-
-where foo is the booking reference
+## /booking/<bookingRef>
 
 e.g. https://api.holidayextras.co.uk/v1/booking/ABCDE
 
