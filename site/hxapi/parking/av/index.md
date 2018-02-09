@@ -7,6 +7,6 @@
 [API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carpark](/hxapi/parking/av)
 
 
-## /carpark/<locationOrCarParkCode>
+## /carpark/LocationOrCarParkCode
 
-Where `<locationOrCarParkCode>` can be the location (Airport, Port etc) or a specific car park product code.
+Where `LocationOrCarParkCode` can be the location (Airport, Port etc) or a specific car park product code.

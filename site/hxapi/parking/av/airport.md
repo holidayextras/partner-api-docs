@@ -17,7 +17,7 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/<airportCode>
+https://api.holidayextras.co.uk/v1/carpark/AirportCode
 ```
 
 For example, for London Gatwick the endpoint is:

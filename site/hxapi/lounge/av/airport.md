@@ -15,7 +15,7 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/lounge/<airportCode>
+https://api.holidayextras.co.uk/v1/lounge/AirportCode
 ```
 
 For example, for lounge availability at Gatwick the endpoint is:

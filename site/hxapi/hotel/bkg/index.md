@@ -13,7 +13,7 @@ POST
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/<locationCode>
+https://api.holidayextras.co.uk/v1/hotel/LocationCode
 ```
 
 For example, for _Mercure at London Heathrow_ the endpoint is:
@@ -251,7 +251,7 @@ The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
 the confirmation email. Note that you will need to append the fields
 `ABTANumber`, `Password` and `key` to the link in order to authenticate.
 
-Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40holidayextras.com&booking_ref=HPABCDE&product_type=hotels&ABTANumber=WT314&Password=redacted&key=mytestkey
+Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40holidayextras.com&booking_ref=HPABCDE&product_type=hotels&ABTANumber=WT314&Password=redacted&key=YourKey
 
 ## European Hotel Booking Request
 
@@ -367,4 +367,4 @@ The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
 the confirmation email. Note that you will need to append the fields
 `ABTANumber`, `Password` and `key` to the link in order to authenticate.
 
-Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40holidayextras.com&booking_ref=FRABCDE&product_type=hotels&ABTANumber=WT314&Password=redacted&key=mytestkey
+Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40holidayextras.com&booking_ref=FRABCDE&product_type=hotels&ABTANumber=WT314&Password=redacted&key=YourKey

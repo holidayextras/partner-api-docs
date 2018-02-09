@@ -71,7 +71,7 @@ POST
 
 znt -> api
 ```
-https://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10524994/?BookingRef=FBKM6&BusinessUnit=001&CarDropoffTime=1200&CarPickupTime=1300&Confirmation=Y&County=testcountyaenderung&Email=test.email&Initial=T&Operator=BJT&Remarks=test&Surname=Testnameaenderung&Title=Herr&TraveltainmentCustomer=111111&holidayextras.com=&key=testkey
+https://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10524994/?BookingRef=FBKM6&BusinessUnit=001&CarDropoffTime=1200&CarPickupTime=1300&Confirmation=Y&County=testcountyaenderung&Email=test.email&Initial=T&Operator=BJT&Remarks=test&Surname=Testnameaenderung&Title=Herr&TraveltainmentCustomer=111111&holidayextras.com=&key=YourKey
 ```
 
 api -> chauntry
@@ -225,7 +225,7 @@ chauntry -> api
             <Title>Herr</Title>
             <TraveltainmentCustomer>111111</TraveltainmentCustomer>
             <holidayextras_com/>
-            <key>testkey</key>
+            <key>YourKey</key>
             <system>de</system>
             <System>ABG</System>
         </Request>
@@ -317,7 +317,7 @@ Note this is the same as request chauntry -> api
             <Title>Herr</Title>
             <TraveltainmentCustomer>111111</TraveltainmentCustomer>
             <holidayextras_com/>
-            <key>testkey</key>
+            <key>YourKey</key>
             <system>de</system>
             <System>ABG</System>
         </Request>

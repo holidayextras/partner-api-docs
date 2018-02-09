@@ -11,7 +11,7 @@
 
 
 
-## /carpark/<airportCode>
+## /carpark/AirportCode
 
 e.g. https://api.holidayextras.co.uk/de-start/v1/carpark/FRA
 

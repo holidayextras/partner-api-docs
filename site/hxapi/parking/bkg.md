@@ -17,7 +17,7 @@ POST
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/<carParkCode>
+https://api.holidayextras.co.uk/v1/carpark/CarParkCode
 ```
 
 For example, for _Maple Manor Meet and Greet at London Gatwick North terminal_ the endpoint is:

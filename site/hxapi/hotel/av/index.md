@@ -13,7 +13,7 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/<locationCode>
+https://api.holidayextras.co.uk/v1/hotel/LocationCode
 ```
 
 For example, for London Heathrow the endpoint is:

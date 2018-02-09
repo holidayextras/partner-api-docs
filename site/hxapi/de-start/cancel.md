@@ -40,12 +40,12 @@ The cancel has 2 modes which differ only in the value of the ConfirmCancel param
 
 Dry-run
 ```html
-https://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213896?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=mytestkey&ConfirmCancel=N&CancelRef=TestCnx
+https://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213896?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=YourKey&ConfirmCancel=N&CancelRef=TestCnx
 ```
 
 Confirmed cancel
 ```html
-https://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213896?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=mytestkey&CancelRef=HolidayCancelled&ConfirmCancel=Y
+https://api.holidayextras.co.uk/de-start/v1/sandbox/booking/10213896?StartCustomer=111111&BusinessUnit=222&Operator=BJT&key=YourKey&CancelRef=HolidayCancelled&ConfirmCancel=Y
 ```
 
 
@@ -71,7 +71,7 @@ Dry-run
       <ConfirmCancel>N</ConfirmCancel>
       <Operator>BJT</Operator>
       <StartCustomer>111111</StartCustomer>
-      <key>testkey</key>
+      <key>YourKey</key>
       <token>123456789</token>
       <CancelRef>testcanx</CancelRef>
       <system>de</system>
@@ -102,7 +102,7 @@ Confirmed cancel
       <ConfirmCancel>Y</ConfirmCancel>
       <Operator>BJT</Operator>
       <StartCustomer>123456</StartCustomer>
-      <key>testkey</key>
+      <key>YourKey</key>
       <token>123456789</token>
       <system>de</system>
       <System>ABG</System>
