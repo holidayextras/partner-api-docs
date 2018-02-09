@@ -14,10 +14,10 @@ POST
 
 ### Endpoint
 
-The endpoint to use is (where "foo" is the car park code):
+The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/foo
+https://api.holidayextras.co.uk/v1/carpark/<carParkCode>
 ```
 
 For example, for _Maple Manor Meet and Greet at London Gatwick North terminal_ the endpoint is:
