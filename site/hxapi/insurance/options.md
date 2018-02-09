@@ -16,10 +16,10 @@ GET
 
 ### Endpoint
 
-To request the list of options available for the selected insurance scheme, the endpoint to use is (where "foo" is the SchemeCode, found in the [insurance scheme availability response](availability)):
+To request the list of options available for the selected insurance scheme, the endpoint to use is (where `SchemeCode` is returned in the [insurance scheme availability response](availability)):
 
 ```
-https://api.holidayextras.co.uk/v1/insurancepolicy/foo
+https://api.holidayextras.co.uk/v1/insurancepolicy/SchemeCode
 ```
 
 For example, to request the options available for `SchemeCode` "8673" (Europe low risk, single trip), the endpoint is:

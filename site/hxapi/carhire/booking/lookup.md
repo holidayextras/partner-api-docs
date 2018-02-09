@@ -7,7 +7,7 @@
 [API Docs](/hxapi/) > product:[Car Hire](/hxapi/carhire) > endpoint:[lookup booking](lookup)
 
 ```html
-GET: /carHire-booking/<bookingReference>
+GET: /carHire-booking/YourBookingRef
 ```
 
 ## Request

@@ -12,10 +12,10 @@ POST
 
 ### Endpoint
 
-The endpoint to use is (where "foo" is the lounge code):
+The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/lounge/foo
+https://api.holidayextras.co.uk/v1/lounge/LoungeCode
 ```
 
 For example, for _Plaza Premium T5 lounge - 3 hours at London Heathrow Airport_ the endpoint is:
