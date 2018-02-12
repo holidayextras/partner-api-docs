@@ -7,7 +7,7 @@
 
 [API Docs](/hxapi/) > product:[amend](/hxapi/viewamendcancel/amend_complex)
 
-The booking details that can be changed for a  amend are as follows:
+The booking details that can be changed for a complex amend are as follows:
 
 - Arrival date or time;
 - Depart date or time.
