@@ -4,7 +4,7 @@
 
 # View Booking
 
-[API Docs](/hxapi/) > product:[view](/hxapi/view)
+[API Docs](/hxapi/) > product:[view](/hxapi/viewamendcancel/view)
 
 ## View Booking Request
 
