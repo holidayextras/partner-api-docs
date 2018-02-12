@@ -2,290 +2,171 @@
 
 ---
 
-# Cancel
+# Cancel Booking
 
+[API Docs](/hxapi/) > product:[cancel](/hxapi/viewamendcancel/cancel)
 
+## Cancel Booking Request
 
-## /booking/foo
+Cancelling a booking is a two-stage process:
 
-where foo is the booking reference
-
-e.g. https://api.holidayextras.co.uk/v1/booking/ABCDE
-
-Cancelling a booking is a two step process. You must first request the details of the booking via a GET, present them to the customer to confirm. You can then cancel the booking via POST.
-
-## Preliminary cancellation request
+1. Check if the booking is cancellable, and any charges for doing so, using the GET method outlined below;
+2. Cancel the booking using the POST method outlined below.
 
 ### Method
 
-GET
+GET / POST
+
+### Endpoint
+
+The endpoint to use is (where `YourBookingRef` is the Holiday Extras booking reference):
+
+```
+https://api.holidayextras.co.uk/v1/booking/YourBookingRef
+```
+
+### Request Parameters
+
+#### Step 1: Check if booking is cancellable (GET)
+
+NB: All parameter names are case sensitive.
+
+ | Name        | Data Type    | Format | Mandatory? | Additional Information |
+ | ----        | ----    | --------- | -------- | ---------------------- |
+ | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
+ | Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
+ | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
+ | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
+ | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
+| System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
+| ConfirmCancel      | String  | 1 chars | Y       | Set this to `N` for this initial step. |
+| CancelRef | String | [A-Z] 10 chars | Y | The reference for the cancellation, e.g. agent's initials.
+
+#### Step 2: Cancel booking (POST)
+
+NB: All parameter names are case sensitive.
+
+ | Name        | Data Type    | Format | Mandatory? | Additional Information |
+ | ----        | ----    | --------- | -------- | ---------------------- |
+ | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
+ | Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
+ | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
+ | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
+ | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
+| System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
+| ConfirmCancel      | String  | 1 chars | Y       | Set this to `Y` for the cancellation step. |
+| CancelRef | String | [A-Z] 10 chars | Y | The reference for the cancellation, e.g. agent's initials.
 
 
+## Cancel Booking Response
 
+The cancel booking response will confirm that a booking has been cancelled in our system.
 
+For a detailed explanation of the fields returned, please see below:
 
+| Field                | Additional Information |
+| ----                 | ---------------------- |
+| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are 5 char alphanumeric (including 1/I and 0/O/Q).|
+| Cancel/RefundAmount | This shows the amount to be refunded to the customer. |
+| API_Header/Request  | A list of parameters that were sent in the booking request. |
 
-### Parameters
+### Credit Card Fees
 
- | Name            | Type   | Format   | Required |
- | ----            | ----   | ------   | -------- |
- | CreditCardLast4 | Int    | [0-9]{4} | N*       |
- | key             | String |          | Y        |
+As of 12th January 2018 we no longer charge credit card fees, in line with the Payment Services Directive (PSD2). This applies to both UK and EU products.
 
+## Worked examples
 
+Below are worked examples of both the request and response for cancelling a booking.
 
-
-This is a general request, is is therefore not product specific. So a booking of any type, i,e parking, hotel, lounge can be cancelled using the booking reference and the same request parameters it does not need to vary by product.
-
-
-### Request
+### Cancel Booking Request - Step 1
 
 ```html
-https://api.holidayextras.co.uk/v1/booking/ABCDE?CreditCardLast4=1111&key=mytestkey
+https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ConfirmCancel=N&CancelRef=YourCancelRef
 ```
 
-
-
-
-
-
-
-
-### Reply
+### Cancel Booking Response - Step 1
 
 ```xml
-
-<?xml version="1.0" ?>
-<API_Reply System="ABC" Version="1.0" Product="Cancel" Customer="A" Session="999999999" RequestCode="9" Result="OK">
-  <Booking>
-    <BookingRef>ABCDE</BookingRef>
-  </Booking>
-  <Cancel>
-    <CancelFee>0.00</CancelFee>
-    <CancelInfo>~61There is no charge for cancelling this booking</CancelInfo>
-  </Cancel>
-  <API_Header>
-    <Request>
-      <key>mytestkey</key>
-      <CreditCardLast4>1111</CreditCardLast4>
-    </Request>
-  </API_Header>
+<?xml version="1.0"?>
+<API_Reply Result="OK">
+    <Booking>
+        <BookingRef>YourBookingRef</BookingRef>
+    </Booking>
+    <Cancel>
+        <CancelFee>0.00</CancelFee>
+        <CancelRef/>
+        <CancelInfo>There is no charge for cancelling this booking</CancelInfo>
+        <RefundAmount>35.92</RefundAmount>
+    </Cancel>
+    <API_Header>
+        <Request>
+            <ABTANumber>YourABTANumber</ABTANumber>
+            <Password>YourPassword</Password>
+            <key>YourKey</key>
+            <token>YourToken</token>
+            <ConfirmCancel>N</ConfirmCancel>
+            <CancelRef>YourCancelRef</CancelRef>
+            <v>1</v>
+        </Request>
+    </API_Header>
 </API_Reply>
 ```
 
-At this point, the booking has not been cancelled. This first request just checks that the booking can be cancelled and shows whether or not there is a fee for cancelling. Please do not be tempted to skip this step, the customer should be informed if they are not going to be refunded the full amount.
-
-## Preliminary cancellation request (Agents Only)
-
-### Method
-
-GET
-
-
-
-
-
-
-### Parameters
-
- | Name          | Type   | Format                  | Required |
- | ----          | ----   | ------                  | -------- |
- | ABTANumber    | String |                         | Y        |
- | Password      | String |                         | Y        |
- | ConfirmCancel | String | N                       | Y        |
- | CancelRef     | String | Initials or Voucher ref | Y        |
- | key           | String |                         | Y        |
-
-
-
-
-
-
-
-### Request
+### Cancel Booking Request - Step 2
 
 ```html
-https://api.holidayextras.co.uk/v1/booking/ABCDE?ABTANumber=youragentcode&Password=yourpassword&ConfirmCancel=N&CancelRef=voucher/initial&key=foo
+https://api.holidayextras.co.uk/v1/booking/YourBookingRef
 ```
-
-For European products please add System=ABG
-
-```html
-https://api.holidayextras.co.uk/v1/booking/ABCDE?ABTANumber=youragentcode&Password=yourpassword&ConfirmCancel=N&key=foo&System=ABG
-```
-
-
-
-
-
-
-
-
-### Reply
 
 ```xml
-
-<?xml version="1.0" ?>
-<API_Reply System="ABC" Version="1.0" Product="Cancel" Customer="A" Session="999999999" RequestCode="9" Result="OK">
-  <Booking>
-    <BookingRef>ABCDE</BookingRef>
-  </Booking>
-  <Cancel>
-    <CancelFee>0.00</CancelFee>
-    <CancelInfo>There is no charge for cancelling this booking</CancelInfo>
-    <RefundAmount>52.24</RefundAmount>
-  </Cancel>
-  <API_Header>
     <Request>
-      <ABTANumber>youragentcode</ABTANumber>
-      <Password>yourpassword</Password>
-      <ConfirmCancel>N</ConfirmCancel>
-      <key>foo</key>
-      <v>1</v>
+        <ABTANumber>YourABTA</ABTANumber>
+        <Password>YourPassword</Password>
+        <Initials>YourInitials</Initials>
+        <key>YourKey</key>
+        <token>YourToken</token>
+        <ConfirmCancel>Y</ConfirmCancel>
+        <CancelRef>YourCancelRef</CancelRef>
     </Request>
-  </API_Header>
+```
+
+### Cancel Booking Response - Step 2
+
+```xml
+<?xml version="1.0"?>
+<API_Reply Result="OK">
+    <Booking>
+        <BookingRef>YourBookingRef</BookingRef>
+    </Booking>
+    <Cancel>
+        <CancelFee>0.00</CancelFee>
+        <CancelRef>06684</CancelRef>
+        <CancelInfo>Please retrieve your client's copy of voucher as booking will be reinstated if used</CancelInfo>
+        <RefundAmount>35.92</RefundAmount>
+    </Cancel>
+    <API_Header>
+        <Request>
+            <ABTANumber>YourABTANumber</ABTANumber>
+            <Password>YourPassword</Password>
+            <key>YourKey</key>
+            <token>YourToken</token>
+            <ConfirmCancel>Y</ConfirmCancel>
+            <CancelRef>YourCancelRef</CancelRef>
+            <v>1</v>
+        </Request>
+    </API_Header>
 </API_Reply>
 ```
 
-At this point, the booking has not been cancelled. This first request just checks that the booking can be cancelled and shows whether or not there is a fee for cancelling. Please do not be tempted to skip this step, the customer should be informed if they are not going to be refunded the full amount.
+## Cancelling bookings made with a credit or debit card
 
-## Confirm cancellation request
+A small number of agents in Europe pass through payment details in our API (for historic reasons). The method for cancelling these products differs slightly in that an extra parameter is required to authenticate against the booking. The extra parameter is identified below.
 
+| Name        | Data Type    | Format | Mandatory? | Additional Information |
+| CreditCardLast4 | Integer | [0-9] 4 chars | Y | These are the last 4 digits on the card that the customer used to make payment. |
 
-### Method
-
-Post
-
-
-
-### Parameters
-
-
- | Name            | Type   | Format   | Required |
- | ----            | ----   | ------   | -------- |
- | CreditCardLast4 | Int    | [0-9]{4} | N*       |
- | key             | String |          | Y        |
- | ConfirmCancel   | String | Y/N      | Y        |
-
-
-
-
-
-### Request
+The cancellation request must be POSTed against the following endpoint:
 
 ```
-https://api.holidayextras.co.uk/booking/ABCDE
-
-POST /booking/ABCDE HTTP/1.1
-Host: api.holidayextras.co.uk
-User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.1) Gecko/2008070206 Firefox/3.0.1
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-us,en;q=0.5
-Accept-Encoding: gzip,deflate
-Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
-Keep-Alive: 300
-Connection: keep-alive
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 34
-
-CreditCardLast4=5383&key=mytestkey&ConfirmCancel=Y
-```
-
-
-
-### Response
-
-```xml
-<?xml version="1.0" ?>
-<API_Reply System="ABC" Version="1.0" Product="Cancel" Customer="A" Session="999999999" RequestCode="9" Result="OK">
-  <Booking>
-    <BookingRef>RV5ZB</BookingRef>
-  </Booking>
-  <Cancel>
-    <CancelFee>0.00</CancelFee>
-    <CancelRef>NZ805</CancelRef>
-    <CancelInfo>Please be aware your booking will be reinstated if your booking confirmation voucher is used</CancelInfo>
-  </Cancel>
-  <API_Header>
-    <Request>
-      <CreditCardLast4>5383</CreditCardLast4>
-      <key>mytestkey</key>
-      <ConfirmCancel>Y</ConfirmCancel>
-    </Request>
-  </API_Header>
-</API_Reply>
-
-```
-
-## Confirm cancellation request (Agents Only)
-
-
-### Method
-
-Post
-
-
-
-### Parameters
-
-
- | Name          | Type   | Format | Required |
- | ----          | ----   | ------ | -------- |
- | ABTANumber    | String |        | Y        |
- | Password      | String |        | Y        |
- | ConfirmCancel | String | Y/N    | Y        |
- | CancelRef     | String |        | Y        |
- | key           | String |        | Y        |
-
-
-
-
-
-### Request
-
-```
-https://api.holidayextras.co.uk/booking/ABCDE
-
-POST /booking/ABCDE HTTP/1.1
-Host: api.holidayextras.co.uk
-User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.0.1) Gecko/2008070206 Firefox/3.0.1
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-us,en;q=0.5
-Accept-Encoding: gzip,deflate
-Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
-Keep-Alive: 300
-Connection: keep-alive
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 34
-
-ABTANumber=youragentcode&Password=yourpassword&key=foo&ConfirmCancel=Y&CancelRef=Foo
-```
-
-
-### Response
-
-```xml
-<?xml version="1.0" ?>
-<API_Reply System="ABC" Version="1.0" Product="Cancel" Customer="A" Session="999999999" RequestCode="9" Result="OK">
-<Booking>
-    <BookingRef>ABCDE</BookingRef>
-  </Booking>
-  <Cancel>
-    <CancelFee>0.00</CancelFee>
-    <CancelRef>12345</CancelRef>
-    <CancelInfo>Please retrieve your client&#39;s copy of voucher as booking will be reinstated if used</CancelInfo>
-    <RefundAmount>52.24</RefundAmount>
-  </Cancel>
-  <API_Header>
-    <Request>
-      <ABTANumber>youragentcode</ABTANumber>
-      <Password>yourpassword</Password>
-      <key>foo</key>
-      <ConfirmCancel>Y</ConfirmCancel>
-      <CancelRef>Foo</CancelRef>
-      <v>1</v>
-    </Request>
-  </API_Header>
-</API_Reply>
-
+https://payment.holidayextras.co.uk/legacy/
 ```
