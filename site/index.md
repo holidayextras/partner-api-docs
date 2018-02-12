@@ -34,9 +34,9 @@ We reserve the right to remove outdated and unused functionality, and make chang
 
 ## Payment Gateway Guides
 
-These endpoints for the [Payment Gateway](/hxapi/payment-gateway). Please check the table below for details of which endpoints are available.
+These endpoints for the [Payment Gateway](/payment-gateway). Please check the table below for details of which endpoints are available.
 
 |Payment Endpoints|UK|Europe|
 |-----------------|--|------|
-|[Pay](/hxapi/payment-gateway)|Yes|Yes|
-|[Refund](/hxapi/payment-gateway)|Yes|Yes|
+|[Pay](/payment-gateway)|Yes|Yes|
+|[Refund](/payment-gateway)|Yes|Yes|

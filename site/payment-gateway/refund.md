@@ -4,7 +4,7 @@
 
 # Payment Gateway: Refund
 
-[API Docs](/hxapi/) > [Payment Gateway](refund)
+[API Docs](/payment-gateway/) > [Payment Gateway](refund)
 
 ## Refund Request
 

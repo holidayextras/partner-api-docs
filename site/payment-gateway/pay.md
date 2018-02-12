@@ -4,7 +4,7 @@
 
 # Payment Gateway: Pay
 
-[API Docs](/hxapi/) > [Payment Gateway](pay)
+[API Docs](/payment-gateway/) > [Payment Gateway](pay)
 
 ## Payment Request
 
