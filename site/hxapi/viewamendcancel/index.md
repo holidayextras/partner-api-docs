@@ -10,11 +10,10 @@
 
 Here are the endpoints for managing a booking:
 
-| View booking | [https://api.holidayextras.co.uk/v1/booking/foo](view) | GET |
-| Amend booking - Parking | [https://api.holidayextras.co.uk/v1/booking/foo](amend) | GET & POST |
-| Amend booking - Hotels | [https://api.holidayextras.co.uk/v1/booking/foo](amendhotels) | GET & POST |
-| Amend booking (Parking and Hotels) - Personal Details only - no reprice | [https://api.holidayextras.co.uk/v1/booking/foo](amendnoreprice) | GET & POST |
-| Cancel booking | [https://api.holidayextras.co.uk/v1/booking/foo](cancel) | GET & POST |
+| View booking | [https://api.holidayextras.co.uk/v1/booking/YourBookingRef](view) | GET |
+| Amend booking - Parking | To be added soon (amend no reprice) | POST |
+| Amend booking - Hotels | To be added soon](amend reprice) | POST |
+| Cancel booking | [https://api.holidayextras.co.uk/v1/booking/YourBookingRef](cancel) | POST |
 
 ## Manage A Booking Top Tips
 
