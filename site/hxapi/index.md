@@ -33,12 +33,3 @@ These endpoints are not product-specific. Please check the table below for detai
 |[Product library](/hxapi/productlibrary)|Yes|Yes|
 |[Managing a booking](/hxapi/viewamendcancel)|Yes|Yes|
 |[Update a booking's flight](/hxapi/flightUpdate)|Yes|No|
-
-## Payment Gateway Guides
-
-These endpoints for the [Payment Gateway](/hxapi/payment-gateway). Please check the table below for details of which endpoints are available.
-
-|Payment Endpoints|UK|Europe|
-|-----------------|--|------|
-|[Pay](/hxapi/payment-gateway)|Yes|Yes|
-|[Refund](/hxapi/payment-gateway)|Yes|Yes|

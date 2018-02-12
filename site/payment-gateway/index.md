@@ -4,7 +4,7 @@
 
 # Payment Gateway
 
-[API Docs](/hxapi/) > [Payment Gateway](index)
+[API Docs](/index) > [Payment Gateway](index)
 
 ## Integration guide
 
