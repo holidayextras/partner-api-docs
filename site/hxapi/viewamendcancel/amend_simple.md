@@ -2,11 +2,6 @@
 
 ---
 
-
----
-
----
-
 # Amend Booking - simple (no reprice)
 
 [API Docs](/hxapi/) > product:[amend](/hxapi/viewamendcancel/amend_simple)
