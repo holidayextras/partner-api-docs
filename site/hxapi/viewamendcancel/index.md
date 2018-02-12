@@ -2,12 +2,26 @@
 
 ---
 
-# View / Amend / Cancel
+# Manage A Booking
 
-Whether the customer intends to cancel or amend the booking, we recommend you always perform a view request first. That way you will be able to present the user with all relevant information about the booking.
+[API Docs](/hxapi/) > product:[viewamendcancel](index)
 
-| View booking | [https://api.holidayextras.co.uk/v1/booking/foo](view) | GET |
-| Amend booking - Parking | [https://api.holidayextras.co.uk/v1/booking/foo](amend) | GET & POST |
-| Amend booking - Hotels | [https://api.holidayextras.co.uk/v1/booking/foo](amendhotels) | GET & POST |
-| Amend booking (Parking and Hotels) - Personal Details only - no reprice | [https://api.holidayextras.co.uk/v1/booking/foo](amendnoreprice) | GET & POST |
-| Cancel booking | [https://api.holidayextras.co.uk/v1/booking/foo](cancel) | GET & POST |
+## Manage A Booking Endpoints
+
+Here are the endpoints for managing a booking:
+
+| View booking | [https://api.holidayextras.co.uk/v1/booking/YourBookingRef](view) | GET |
+| Amend booking - Parking | To be added soon (amend no reprice) | POST |
+| Amend booking - Hotels | To be added soon](amend reprice) | POST |
+| Cancel booking | [https://api.holidayextras.co.uk/v1/booking/YourBookingRef](cancel) | POST |
+
+## Manage A Booking Top Tips
+
+The three methods provided will enable your customers via your integration to manage their own booking online.
+
+### Amending a booking
+
+We allow both simple and complex amends:
+
+- A ***simple amend*** is where the booking details are updated, without affecting the price. This is also known as an "amend no re-price". For example, adding a car registration number to a parking booking.
+- A ***complex amend*** is where the booking details are updated and this does affect the price. This is also known as an "amend re-price". For example, changing the date of a booking.
