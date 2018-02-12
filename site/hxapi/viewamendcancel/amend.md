@@ -4,7 +4,7 @@
 
 # Amend Booking - no reprice
 
-[API Docs](/hxapi/) > product:[amend](/hxapi/amend)
+[API Docs](/hxapi/) > product:[amend](/hxapi/viewamendcancel/amend)
 
 ## Amend Booking Request - no reprice
 
