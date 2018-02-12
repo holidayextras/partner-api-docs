@@ -16,7 +16,7 @@ The booking details that can be changed for a simple amend are as follows:
 - Lead passenger name;
 - Email address;
 - In the case of parking or hotel plus parking bookings, car registration (and other car details);
-- Flight numbers.
+- Flight numbers (if you are updating multiple flight numbers then you may prefer to use the [Flight Update](hxapi/flightUpdate.md) method instead (which permits batch updates).
 
 
 ## Amend Booking Request
