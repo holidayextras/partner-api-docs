@@ -4,7 +4,7 @@
 
 # Payment Gateway: Integration
 
-[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Integration](/payment-gateway/integration/)
+[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Integration](/payment-gateway/integration)
 
 ## How it works
 
