@@ -49,7 +49,6 @@ For a detailed explanation of the fields returned, please see below:
  | Field | Additional Information |
  | ----- | ---------------------- |
  | amount | The amount that has been paid |
- | id | The unique id of the payment |
  | status | The status of the payment |
  | error | The error if the payment fails |
 
@@ -94,7 +93,6 @@ Below are examples of both the request and response for a new payment.
 ```
 {
     "amount": 12.34,
-    "id": "testPaymentId",
     "status": "Failed",
     "error": "Failed to make payment"
 }

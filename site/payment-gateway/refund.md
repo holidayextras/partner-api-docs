@@ -47,7 +47,6 @@ For a detailed explanation of the fields returned, please see below:
  | Field | Additional Information |
  | ----- | ---------------------- |
  | amount | The amount that has been refunded |
- | id | The unique id of the refund |
  | status | The status of the refund |
  | error | The error if the refund fails |
 
@@ -88,7 +87,6 @@ Below are examples of both the request and response for a refund.
 ```
 {
     "amount": 12.34,
-    "id": "REFUND-testOrderId1",
     "status": "Fail",
     "error": "Failed making refund"
 }
