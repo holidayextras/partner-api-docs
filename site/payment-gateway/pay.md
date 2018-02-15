@@ -28,7 +28,7 @@ https://api.holidayextras.co.uk/v1/pay
 | ----  | --------- | ------ | ---------- | ---------------------- |
 | Content-Type | String | `application/json` | Y | This should always be `application/json` |
 | auth   | String | `username:password` | Y | This will be created and provided to you, and is required with every request.|
-| Accept | String | `V1` | N | Defaults to V1. To use a different version please provide a different value. |
+| Accept | String | `application/vnd.holidayextras.v1+json` | N | To use a different version please provide a different value. |
 
 ### Request Parameters
 
