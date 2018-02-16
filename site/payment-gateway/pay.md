@@ -37,8 +37,8 @@ NB: All parameter names are case sensitive.
  | Name  | Data Type | Format | Mandatory? | Additional Information |
  | ----  | --------- | ------ | ---------- | ---------------------- |
  | channel | String | [A-Z] | Y | This will be supplied with your authentication credentials. |
- | paymentId | String | [A-Z] | Y | A unique ID to be used when making the payment. |
- | token   | String | [0-9] | Y | A tokenised card to make the payment against. |
+ | paymentId | String | [A-Z] | Y | A unique ID to be used when making the payment. This cannot already exist otherwise payment will fail. |
+ | token   | String | [0-9] | Y | A tokenised card to make the payment against. This needs to exist already, otherwise payment will fail. |
  | paymentReference | String | [A-Z] | Y | A reference used to group multiple payments together, doesn't need to be unique. |
  | amount | String | [0-9] | Y | The price (in pence) to be paid. |
 
@@ -62,7 +62,7 @@ Below are examples of both the request and response for a new payment.
 
 **HEADERS** <br />
 `Content-Type: application/json` <br />
-`Accept: v1` <br />
+`Accept: application/vnd.holidayextras.v1+json` <br />
 `auth: testUser:testPassword`
 
 ```

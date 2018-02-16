@@ -60,7 +60,7 @@ Below are examples of both the request and response for a refund.
 
 **HEADERS** <br />
 `Content-Type: application/json` <br />
-`Accept: v1` <br />
+`Accept: application/vnd.holidayextras.v1+json` <br />
 `auth: testUser:testPassword`
 
 ```
