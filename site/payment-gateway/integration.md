@@ -68,7 +68,7 @@ window.hxPayment.configure({
 </script>
 ```
 
-**NOTE:** When you're integratiing the payment script you will need to use its staging version located at https://payment-gateway-staging.holidayextras.co.uk/payment.staging.1.0.0.min.js
+**NOTE:** When you're integrating the payment script you will need to use its staging version located at https://payment-gateway-staging.holidayextras.co.uk/payment.staging.1.0.0.min.js
 
 The placeholder div is used by the payment script to put the appropriate DOM elements it needs in order to get the customer card details.
 
