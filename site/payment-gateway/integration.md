@@ -23,6 +23,8 @@ The frontend payment script will need a placeholder provided by you which will s
 
 Then you will need to make a POST request to our payment gateway API with that token for making a payment.
 
+**NOTE:** When integrating you will need to test against the staging environment which is located at https://payment-gateway-staging.holidayextras.co.uk
+
 ## Getting Setup
 
 This explains the step by step process of getting setup in order to be able to access the Payment Gateway.
@@ -57,7 +59,7 @@ Here is a very simple example snippet that demonstrates this:
 ... any other content you have on your page
 
 <!-- Add the frontend payment script -->
-<script src="https://api.holidayextras.co.uk/payment-gateway/payment.1.0.0.min.js"></script>
+<script src="https://payment-gateway.holidayextras.co.uk/payment.1.0.0.min.js"></script>
 <!-- Configure the script -->
 <script>
 window.hxPayment.configure({
@@ -65,6 +67,8 @@ window.hxPayment.configure({
 })
 </script>
 ```
+
+**NOTE:** When you're integrating the payment script you will need to use its staging version located at https://payment-gateway-staging.holidayextras.co.uk/payment.staging.1.0.0.min.js
 
 The placeholder div is used by the payment script to put the appropriate DOM elements it needs in order to get the customer card details.
 

@@ -38,5 +38,5 @@ These endpoints for the [Payment Gateway](/payment-gateway). Please check the ta
 
 |Payment Endpoints|UK|Europe|
 |-----------------|--|------|
-|[Pay](/payment-gateway)|Yes|Yes|
-|[Refund](/payment-gateway)|Yes|Yes|
+|[Pay](/payment-gateway/pay)|Yes|Yes|
+|[Refund](/payment-gateway/refund)|Yes|Yes|

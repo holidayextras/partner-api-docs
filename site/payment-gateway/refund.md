@@ -4,7 +4,7 @@
 
 # Payment Gateway: Refund
 
-[API Docs](/payment-gateway/) > [Payment Gateway](refund)
+[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Refund](refund)
 
 ## Refund Request
 
@@ -19,7 +19,7 @@ POST
 To make a refund, the endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/refund
+https://payment-gateway.holidayextras.co.uk/refund
 ```
 
 ### Request Headers
@@ -27,7 +27,7 @@ https://api.holidayextras.co.uk/v1/refund
 | Name  | Data Type | Format | Mandatory? | Additional Information |
 | ----  | --------- | ------ | ---------- | ---------------------- |
 | Content-Type | String | `application/json` | Y | This should always be `application/json` |
-| auth   | String | `username:password` | Y | This will be created and provided to you, and is required with every request.|
+| Authorization   | String | `Basic dXNlcm5hbWU6cGFzc3dvcmQ=` | Y | Base64 encoded string for the `username:password` credentials which will be created and provided to you. This header is required with every request.|
 | Accept | String | `application/vnd.holidayextras.v1+json` | N | To use a different version please provide a different value. |
 
 ### Request Parameters
@@ -56,12 +56,12 @@ Below are examples of both the request and response for a refund.
 
 ### Refund Request
 
-**POST**  `https://api.holidayextras.co.uk/v1/pay`
+**POST**  `https://payment-gateway.holidayextras.co.uk/refund`
 
 **HEADERS** <br />
 `Content-Type: application/json` <br />
 `Accept: application/vnd.holidayextras.v1+json` <br />
-`auth: testUser:testPassword`
+`Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=`
 
 ```
 {
@@ -78,7 +78,7 @@ Below are examples of both the request and response for a refund.
 {
     "amount": 12.34,
     "id": "REFUND-testPaymentId1",
-    "status": "Success"
+    "status": "SUCCESS"
 }
 ```
 
@@ -87,7 +87,7 @@ Below are examples of both the request and response for a refund.
 ```
 {
     "amount": 12.34,
-    "status": "Fail",
+    "status": "FAIL",
     "error": "Failed making refund"
 }
 ```

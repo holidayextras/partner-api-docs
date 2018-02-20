@@ -4,7 +4,7 @@
 
 # Payment Gateway: Pay
 
-[API Docs](/payment-gateway/) > [Payment Gateway](pay)
+[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Pay](pay)
 
 ## Payment Request
 
@@ -19,7 +19,7 @@ POST
 To make a payment, the endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/pay
+https://payment-gateway.holidayextras.co.uk/pay
 ```
 
 ### Request Headers
@@ -27,7 +27,7 @@ https://api.holidayextras.co.uk/v1/pay
 | Name  | Data Type | Format | Mandatory? | Additional Information |
 | ----  | --------- | ------ | ---------- | ---------------------- |
 | Content-Type | String | `application/json` | Y | This should always be `application/json` |
-| auth   | String | `username:password` | Y | This will be created and provided to you, and is required with every request.|
+| Authorization   | String | `Basic dXNlcm5hbWU6cGFzc3dvcmQ=` | Y | Base64 encoded string for the `username:password` credentials which will be created and provided to you. This header is required with every request.|
 | Accept | String | `application/vnd.holidayextras.v1+json` | N | To use a different version please provide a different value. |
 
 ### Request Parameters
@@ -58,12 +58,12 @@ Below are examples of both the request and response for a new payment.
 
 ### Payment Request
 
-**POST**  `https://api.holidayextras.co.uk/v1/pay`
+**POST**  `https://payment-gateway.holidayextras.co.uk/pay`
 
 **HEADERS** <br />
 `Content-Type: application/json` <br />
 `Accept: application/vnd.holidayextras.v1+json` <br />
-`auth: testUser:testPassword`
+`Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=`
 
 ```
 {
@@ -84,7 +84,7 @@ Below are examples of both the request and response for a new payment.
 {
     "amount": 12.34,
     "id": "testPaymentId",
-    "status": "Success"
+    "status": "SUCCESS"
 }
 ```
 
@@ -93,7 +93,7 @@ Below are examples of both the request and response for a new payment.
 ```
 {
     "amount": 12.34,
-    "status": "Failed",
+    "status": "FAIL",
     "error": "Failed to make payment"
 }
 ```
