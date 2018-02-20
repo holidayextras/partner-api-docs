@@ -16,10 +16,10 @@ The correct steps to get setup can be found in our [guide to getting setup.](int
 
 | Request | Endpoint | Method |
 | ------- | -------- | ------ |
-| Make Payment | [https://api.holidayextras.co.uk/v1/pay](pay) | POST |
+| Make Payment | [https://payment-gateway.holidayextras.co.uk/pay](pay) | POST |
 
 ## Refund
 
 | Request | Endpoint | Method |
 | ------- | -------- | ------ |
-| Make Refund | [https://api.holidayextras.co.uk/v1/refund](refund) | POST |
+| Make Refund | [https://payment-gateway.holidayextras.co.uk/refund](refund) | POST |
