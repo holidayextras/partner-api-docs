@@ -71,6 +71,8 @@ window.hxPayment.configure({
 
 **NOTE:** When you're integrating the payment script you will need to use its staging version located at https://payment-gateway-staging.holidayextras.co.uk/payment.staging.1.0.0.min.js
 
+The `defaultToPayframe` options is provided for making the integration process easier as it removes the additional security step we have in our call centre. The solution we have requires additional telephony software that we use which is not provided with this API. Not having the telephony solution when integrating the payment script would make it impossible to complete the integration, so this option just disables that step (only in the staging environment).
+
 The placeholder div is used by the payment script to put the appropriate DOM elements it needs in order to get the customer card details.
 
 The fields that get created are:
