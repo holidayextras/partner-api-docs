@@ -141,3 +141,4 @@ NB: This is a shortened example compiled from a full EU hotel location response.
         </Request>
     </API_Header>
 </API_Reply>
+```
