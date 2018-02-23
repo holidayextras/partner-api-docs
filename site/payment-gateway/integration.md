@@ -63,7 +63,8 @@ Here is a very simple example snippet that demonstrates this:
 <!-- Configure the script -->
 <script>
 window.hxPayment.configure({
-  paymentFailed: false // you will need to dynamically provide the value for this
+  paymentFailed: false, // you will need to dynamically provide the value for this
+  defaultToPayframe: true // you will need to set this only in your local test environment when integrating the payment script
 })
 </script>
 ```
