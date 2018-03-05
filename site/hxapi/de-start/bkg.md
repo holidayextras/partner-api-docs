@@ -15,7 +15,7 @@ POST
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/de-start/v1/carpark/CarParkCode
+https://payment.holidayextras.co.uk/legacy/carpark/CarParkCode
 ```
 
 ### Request Parameters
@@ -28,7 +28,7 @@ NB: All parameter names are case sensitive.
 | ----          | --------- | -----------    | ---------- | ---------------------- |
 | StartCustomer | String    | [0-9] 6 chars  | Y          | This will be assigned to you by your Account Manager during set up. |
 | BusinessUnit  | String    | [0-9] 3 chars  | Y          | This will be assigned to you by your Account Manager during set up. |
-| Operator      | String    | [A-Z] 3 chars  | Y          | This will be assigned to you by your Account Manager during set up. |
+| Operator      | String    | [A-Z] 3 chars  | Y          | This always defaults to `BJT`. |
 | key           | String    | [A-Z] 10 chars | Y          | This will be assigned to you by your Account Manager during set up. |
 | token         | String    | [0-9] 9 chars  | Y          | This is the same token used in the availability request. |
 | ArrivalDate   | Date      | YYYY-MM-DD     | Y          | Date customer drops vehicle at car park. |
@@ -81,7 +81,7 @@ Below are worked examples of both the request and response for booking car parki
 ### Car Park Booking Request - DE-Start method
 
 ```html
-https://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA8
+https://payment.holidayextras.co.uk/legacy/carpark/FRA8
 ```
 
 ```xml

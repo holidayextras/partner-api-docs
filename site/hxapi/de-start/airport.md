@@ -26,7 +26,7 @@ NB: All parameter names are case sensitive.
 | ----          | --------- | -----------    | ---------- | ---------------------- |
 | StartCustomer | String    | [0-9] 6 chars  | Y          | This will be assigned to you by your Account Manager during set up. |
 | BusinessUnit  | String    | [0-9] 3 chars  | Y          | This will be assigned to you by your Account Manager during set up. |
-| Operator      | String    | [A-Z] 3 chars  | Y          | This will be assigned to you by your Account Manager during set up. |
+| Operator      | String    | [A-Z] 3 chars  | Y          | This always defaults to `BJT`. |
 | key           | String    | [A-Z] 10 chars | Y          | This will be assigned to you by your Account Manager during set up. |
 | token         | String    | [0-9] 9 chars  | Y          | This is the same token used in the availability request. |
 | ArrivalDate   | Date      | YYYY-MM-DD     | Y          | Date customer drops vehicle at car park. |
