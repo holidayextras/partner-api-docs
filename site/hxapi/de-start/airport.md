@@ -2,82 +2,64 @@
 
 ---
 
-# Availability At Airport
+# Availability at Car Park - DE-Start method
 
-
-
-
-
-
-
-
-## /carpark/AirportCode
-
-e.g. https://api.holidayextras.co.uk/de-start/v1/carpark/FRA
+## Car Park Availability Request
 
 ### Method
 
 GET
 
+### Endpoint
 
+The endpoint to use is:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Parameters
-
- | Name          | Type    | Format     | Required |
- | ----          | ----    | ------     | -------- |
- | StartCustomer | String  | [0-9]{6}   | Y        |
- | BusinessUnit  | String  | [0-9]{3}   | Y        |
- | Operator      | String  | [A-Z]{3}   | Y        |
- | ArrivalDate   | Date    | YYYY-MM-DD | Y        |
- | ArrivalTime   | Time    | HHSS       | Y        |
- | DepartDate    | Date    | YYYY-MM-DD | Y        |
- | DepartTime    | Time    | HHSS       | Y        |
- | NumberOfPax   | Integer |            | N        |
- | filter        | String  | [A-Z]      | N§      |
- | key           | String  |            | Y        |
- | token         | String  | [0-9]{9}   | Y        |
-
-* Password only required for agent requests. If sending this you should make your availability requests over https.
-
-§ Pass in filter=on_airport or filter=recommended or filter=meet_and_greet to only show car parks meeting those criteria. You can filter by any field that comes back in the filter section of the xml.
-
-
-
-
-
-### Request
-
-```html
-https://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA?StartCustomer=111111&BusinessUnit=222&Operator=BJT&ArrivalDate=2010-02-20&ArrivalTime=1200&DepartDate=2010-02-27&DepartTime=1400&NumberOfPax=2&key=mytestkey&token=000001234
+```
+https://api.holidayextras.co.uk/de-start/v1/carpark/CarParkCode
 ```
 
+### Request Parameters
+
+NB: All parameter names are case sensitive.
+
+| Name          | Data Type | Format         | Mandatory? | Additional Information |
+| ----          | --------- | -----------    | ---------- | ---------------------- |
+| StartCustomer | String    | [0-9] 6 chars  | Y          | This will be assigned to you by your Account Manager during set up. |
+| BusinessUnit  | String    | [0-9] 3 chars  | Y          | This will be assigned to you by your Account Manager during set up. |
+| Operator      | String    | [A-Z] 3 chars  | Y          | This will be assigned to you by your Account Manager during set up. |
+| key           | String    | [A-Z] 10 chars | Y          | This will be assigned to you by your Account Manager during set up. |
+| token         | String    | [0-9] 9 chars  | Y          | This is the same token used in the availability request. |
+| ArrivalDate   | Date      | YYYY-MM-DD     | Y          | Date customer drops vehicle at car park. |
+| ArrivalTime   | Time      | HHMM           | Y          | Time customer drops vehicle at car park.|
+| DepartDate    | Date      | YYYY-MM-DD     | Y          | Date customer picks up vehicle from car park.|
+| DepartTime    | Time      | HHMM           | Y          | Time customer picks up vehicle from car park.|
+| NumberOfPax   | Integer   | [0-9] 2 chars  | Y          | Number of passengers. |
 
 
+## Car Park Availability Response
 
+The car park booking response will confirm that a booking has been placed in our system.
 
+For a detailed explanation of the fields returned, please see below:
 
+| Field                | Additional Information |
+| ----                 | ---------------------- |
+| CarPark/TotalPrice   | Amount payable by the customer. |
+| CarPark/BookingURL   | The URL to POST the booking request to for this particular product. |
+| CarPark/MoreInfoURL  | The link to more information about this product, sourced from the Product Library.|  
+| API_Header/Request  | The API returns every parameter and value you sent in the previous request. |
 
+## Worked Examples
 
+Below are worked examples of both the request and response for availability for car parking using the DE-Start method.
 
+### Car Park Availability Request - DE-Start method
 
+```html
+https://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA8?StartCustomer=YourStartCustomer&BusinessUnit=YourBusinessUnit&IInitials=BJT&ArrivalDate=2018-12-01&ArrivalTime=1200&DepartDate=2018-12-08&DepartTime=1400&NumberOfPax=1&key=YourKey&token=YourToken
+```
 
-
-
-
-### Reply
+### Car Park Availability Response - DE-Start method
 
 ```xml
 <?xml version="1.0" ?>
@@ -87,121 +69,26 @@ https://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA?StartCustomer=11
     <TotalPrice>160.00</TotalPrice>
     <GatePrice>0.00</GatePrice>
     <Name>Airparks Parkhaus Frankfurt - Winterspecial</Name>
-    <Code>FRA2</Code>
+    <Code>FRA8</Code>
     <Filter>
       <recommended>1</recommended>
     </Filter>
-    <BookingURL>/sandbox/carpark/FRA2</BookingURL>
-    <MoreInfoURL>/sandbox/product/FRA2</MoreInfoURL>
+    <BookingURL>/carpark/FRA2</BookingURL>
+    <MoreInfoURL>/product/FRA2</MoreInfoURL>
   </CarPark>
   <API_Header>
     <Request>
-      <StartCustomer>111111</StartCustomer>
-      <BusinessUnit>222</BusinessUnit>
+      <StartCustomer>YourStartCustomer</StartCustomer>
+      <BusinessUnit>YourBusinessUnit</BusinessUnit>
       <Initials>BJT</Initials>
-      <ArrivalDate>2010-02-20</ArrivalDate>
+      <ArrivalDate>2018-12-01</ArrivalDate>
       <ArrivalTime>1200</ArrivalTime>
-      <DepartDate>2010-02-27</DepartDate>
+      <DepartDate>2018-12-08</DepartDate>
       <DepartTime>1400</DepartTime>
-      <NumberOfPax>2</NumberOfPax>
-      <key>mytestkey</key>
-      <token>000001234</token>
-      <system>de</system>
-      <System>ABG</System>
+      <NumberOfPax>1</NumberOfPax>
+      <key>YourKey</key>
+      <token>YourToken</token>
     </Request>
   </API_Header>
 </API_Reply>
-
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Fields Explained
-
-#### CarPark/TotalPrice
-
-The price of product **WITHOUT** any surcharges/fees added.
-
-#### CarPark/NonDiscPrice
-
-Non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.
-
-#### CarPark/RequestFlags
-
-Flags listing which details the car park operator requires from the customer. If a flag is returned with a 'Y' your application should send the corresponding field/value in the booking request. These are not compulsory, the booking should still be made without these details, but it greatly reduces administrative work if they are completed. Flags are only returned when positive, if a field is not required the field will not be returned.
-
-The flags which can be returned are:
-
-
-*  Registration
-
-*  CarMake
-
-*  CarModel
-
-*  CarColour
-
-*  OutFlight
-
-*  ReturnFlight
-
-*  OutTerminal
-
-*  ReturnTerminal
-
-*  Destination
-
-*  MobileNum
-
-#### CarPark/Filter
-
-We have a filter mechanism on our site, to show only meet and greet products etc. The filters that apply to a product are returned here. Possible values are:
-
-
-*  meet_and_greet
-
-*  recommended
-
-*  on_airport
-
-*  terminal
-
-*  valet_included
-
-*  car_parked_for_you
-
-
-#### CarPark/BookingURL
-
-The URL to go to book this product.
-
-#### CarPark/MoreInfoURL
-
-Link to the product library information for this product.
-
-
-#### API_Header/Request
-
-**HXAPI** returns every parameter you sent in the previous request, as you sent it. This is so your app doesn't have to remember anything not replied in the XML reply.
-
-
-
