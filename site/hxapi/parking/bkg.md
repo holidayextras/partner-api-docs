@@ -305,6 +305,7 @@ Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40ho
         <TotalPrice>35.00</TotalPrice>
         <GatePrice>0.00</GatePrice>
     </CarPark>
+    <BarCode>/barcode/YourBookingRef.png?key=YourKey</BarCode>
     <ClientDetails>
         <Title>HERR</Title>
         <Initial>T</Initial>

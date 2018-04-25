@@ -55,6 +55,7 @@ For a detailed explanation of the fields returned, please see below:
 | Pricing | This block will return details of the price paid by the customer. |
 | VAT | Please ignore this block. |
 | CustRef | If you have passed in a Customer Reference with your original booking request, it will return here. |
+| BarCode | A link to generate a bar code for the booking confirmation. |
 | API_Header/Request  | A list of parameters that were sent in the view booking request. |
 
 ## Worked Examples
@@ -157,6 +158,7 @@ https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANum
         <VATNo>844 2814 25</VATNo>
     </VAT>
     <CustRef/>
+    <BarCode>/barcode/YourBookingRef.png?key=YourKey</BarCode>
     <RequestFlags>
         <Registration>Y</Registration>
         <CarMake>Y</CarMake>
