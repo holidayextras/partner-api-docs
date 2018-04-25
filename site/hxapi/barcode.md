@@ -4,8 +4,6 @@
 
 # Barcode
 
-currently in use only in UK
-
 An increasing number of car parks, and other products, are updating the way they operate to introduce scanning systems in order to speed up arrival procedures. You will be required to include a 2D barcode on every customer confirmation. The only instance where you should not include a 2D barcode is when a car park stipulates that a QR code is required.
 
 This endpoint simply enables you to specify a booking reference and receive a **Code128** barcode representation of that in return.
