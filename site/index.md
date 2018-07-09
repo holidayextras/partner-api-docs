@@ -31,7 +31,6 @@ e.g. addition of new products and functionality or significant changes to struct
 We reserve the right to remove outdated and unused functionality, and make changes that may result in deprecation of existing methods. Where this occurs, we will contact you via your Account Manager to advise. Older methods of using the API will be supported for a period of time whilst updates are made by our partners.
 
 
-
 ## Payment Gateway Guides
 
 These endpoints for the [Payment Gateway](/payment-gateway). Please check the table below for details of which endpoints are available.
