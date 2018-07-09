@@ -198,6 +198,28 @@ https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANum
 </API_Reply>
 ```
 
+
+### Fields Explained
+
+Most of these should be self explanatory, just the values from the booking.
+
+The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
+the confirmation email. Note that you will need to append the fields
+`ABTANumber`, `Password` and `key` to the link in order to authenticate.
+
+Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test@holidayextras.com&booking_ref=HPABCDE&product_type=carparks&ABTANumber=WT314&Password=redacted&key=mytestkey
+
+#### /Booking/Amendable
+
+Possible values
+
+
+*  Y - booking can be amended or cancelled
+
+*  N - booking cannot be amended or cancelled (advance purchase product etc)
+
+*  C - booking has been cancelled
+
 ### European Products View Booking Request (for a hotel room only)
 
 ```
