@@ -66,7 +66,7 @@ Below are examples of both the request and response for a refund.
 ```
 {
   "channel": "channel",
-  "payment": ["testPaymentId1", "testPaymentId2"],
+  "payments": ["testPaymentId1", "testPaymentId2"],
   "amount": "1234"
 }
 ```
