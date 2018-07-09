@@ -4,8 +4,6 @@
 
 # Barcode
 
-currently in use only in UK
-
 An increasing number of car parks, and other products, are updating the way they operate to introduce scanning systems in order to speed up arrival procedures. You will be required to include a 2D barcode on every customer confirmation. The only instance where you should not include a 2D barcode is when a car park stipulates that a QR code is required.
 
 This endpoint simply enables you to specify a booking reference and receive a **Code128** barcode representation of that in return.
@@ -30,24 +28,24 @@ The file extension is also required, to tell the API to return the correct image
 ## Request
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo
+https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=YourKey
 ```
 
 So you can include it in your page as easily as...
 
 ```
-<img src="https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo" />
+<img src="https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=YourKey" />
 ```
 
 
 The image can be rotated to fit the side of a page:
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo&angle=90
+https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=YourKey&angle=90
 ```
 Or
 ```
-https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=foo&angle=270
+https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=YourKey&angle=270
 ```
 
 

@@ -13,7 +13,7 @@ POST
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/locationCode
+https://api.holidayextras.co.uk/v1/hotel/LocationCode
 ```
 
 For example, for _Mercure at London Heathrow_ the endpoint is:
@@ -36,7 +36,7 @@ NB: All parameter names are case sensitive.
  | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
  | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
  | ArrivalDate | Date    | YYYY-MM-DD                             | Y        | Date customer arrives at hotel. |
- | Nights | Integer  | 1, 2, 3, etc                                  | Y        | Number of nights the customer wants to stay in the hotel. |
+ | Nights | Integer  | 1, 2, 3, etc                                  | Y        | Number of nights the customer wants to stay in the hotel. NB: For European products it is only possible to book one night stays. |
  | RoomCode      | String  | [A-Z0-9] 2 chars | Y        | See [RoomCodes](/hxapi/types/roomcode) for a list of valid codes. |
  | Adults | Integer       | [1-5] 1 char                           | Y                 | The number of adults occupying the room. |
  | Children | Integer       | [0-4] 1 char                           | Y                 | The number of children occupying the room. |
@@ -59,7 +59,7 @@ NB: All parameter names are case sensitive.
 | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
 | lang        | String  | [A-Z] 2 chars | Y*       | Required for requests for European products. (Values available are `en`, `de`, `it`, `es`, `pt` and `nl`.)|
 
-## Multiple rooms on same booking (UK only)
+## Multiple rooms on same booking
 
 Currently, we can only accept a maximum of 2 rooms per booking. If the customer needs more, you will need to make multiple requests. If an intermediary account, you should note that this would lead to multiple transactions on the credit card, and multiple charges, and therefore we advise against it.
 
@@ -97,7 +97,7 @@ Please contact your Account Manager if you have any questions concerning payment
 
 ## Booking Terms and Conditions
 
-It is important that the customer has access to the Terms and Conditions at the time of placing their booking and after. We highly recommend that these are made clear to the customer _before_ booking.
+It is important that the customer has access to the Terms and Conditions at the time of placing their booking and after. We highly recommend that these are made clear to the customer _before_ booking. 
 
 For European products, please use the following link:
 
@@ -123,6 +123,12 @@ For a detailed explanation of the fields returned, please see below:
 | ClientDetails  | Confirmation of the customer's details that were sent in the booking request. |
 | Pricing |  Confirmation of the price paid by the customer for the hotel room. |
 | API_Header/Request  | A list of parameters that were sent in the booking request. |
+
+## Booking Confirmation
+
+We expect partners to create their own booking confirmations to send to customers, using the information provided in the booking response. 
+
+However, we also have capability to send booking confirmation emails ourselves on behalf of partners. This feature is not available as standard, and so if you wish to enable this please speak to your Account Manager.
 
 # Worked Examples
 
@@ -245,7 +251,7 @@ The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
 the confirmation email. Note that you will need to append the fields
 `ABTANumber`, `Password` and `key` to the link in order to authenticate.
 
-Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40holidayextras.com&booking_ref=HPABCDE&product_type=hotels&ABTANumber=WT314&Password=redacted&key=mytestkey
+Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40holidayextras.com&booking_ref=HPABCDE&product_type=hotels&ABTANumber=WT314&Password=redacted&key=YourKey
 
 ## European Hotel Booking Request
 
@@ -361,4 +367,4 @@ The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
 the confirmation email. Note that you will need to append the fields
 `ABTANumber`, `Password` and `key` to the link in order to authenticate.
 
-Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40holidayextras.com&booking_ref=FRABCDE&product_type=hotels&ABTANumber=WT314&Password=redacted&key=mytestkey
+Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40holidayextras.com&booking_ref=FRABCDE&product_type=hotels&ABTANumber=WT314&Password=redacted&key=YourKey

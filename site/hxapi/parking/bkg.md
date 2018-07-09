@@ -14,10 +14,10 @@ POST
 
 ### Endpoint
 
-The endpoint to use is (where "foo" is the car park code):
+The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/foo
+https://api.holidayextras.co.uk/v1/carpark/CarParkCode
 ```
 
 For example, for _Maple Manor Meet and Greet at London Gatwick North terminal_ the endpoint is:
@@ -104,6 +104,12 @@ For a detailed explanation of the fields returned, please see below:
 | MoreInfoURL  | The URL for viewing the booking. See [view booking](/hxapi/viewamendcancel/view) for more details. |
 | CarPark  | Details of the car park that were sent in the booking request. |
 | API_Header/Request  | A list of parameters that were sent in the booking request. |
+
+## Booking Confirmation
+
+We expect partners to create their own booking confirmations to send to customers, using the information provided in the booking response. 
+
+However, we also have capability to send booking confirmation emails ourselves on behalf of partners. This feature is not available as standard, and so if you wish to enable this please speak to your Account Manager.
 
 ## Worked Examples
 
@@ -299,6 +305,7 @@ Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40ho
         <TotalPrice>35.00</TotalPrice>
         <GatePrice>0.00</GatePrice>
     </CarPark>
+    <BarCode>/barcode/YourBookingRef.png?key=YourKey</BarCode>
     <ClientDetails>
         <Title>HERR</Title>
         <Initial>T</Initial>

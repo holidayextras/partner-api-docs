@@ -2,119 +2,143 @@
 
 ---
 
-# Location
+## Locations Request
 
-## Method
+All available locations can be requested by specific product type, e.g. car parking. 
+
+### Method
 
 GET
 
+### Endpoint
 
-
-
-
-
-
-
-
-## Parameters
-
- | Name  | Data Type | Required |
- | ----  | --------- | -------- |
- | key   | Number    | Y        |
- | type* | Number    | N        |
-
-* type - if you only require locations for a specific product, specify the product type as follows:
-
-
-*  &type=1 - parking
-
-*  &type=2 - hotels (with and without parking)
-
-*  &type=3 - lounges
-
-For European products please select
-
-*  &type=10 - parking
-
-*  &type=8  -  hotels
-
-## Request
+The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/location?key=mytestkey
+https://api.holidayextras.co.uk/v1/location
 ```
 
+### Request Parameters
 
+NB: All parameter names are case sensitive.
 
+ | Name        | Data Type    | Format | Mandatory? | Additional Information |
+ | ----        | ----    | ------ | -------- | ---------------------- |
+ | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
+ | token       | String  | [0-9] 9 chars                         | Y        | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token. |
+ 
+ Product and market specific parameters:
+ 
+ | Market | Product | Parameters             | 
+ |--------|---------|------------------------|
+ | UK     | Parking | type=1                 |
+ | UK     | Hotels  | type=2                 |
+ | UK     | Lounges | type=3                 |
+ | EU     | Parking | type=carpark&system=de |
+ | EU     | Hotels  | type=hotel&system=de   |
+ | EU     | Lounges | type=lounge&system=de  |
+ 
+ 
+## Hotel Availability Response
 
+For a detailed explanation of the fields returned, please see below:
 
-## Reply
+ | Field                | Additional Information |
+ |----------------------|------------------------|
+ | Code | Location code to be used in the product specific request. |
+ | Name | Location name. |
+ | MoreInfoURL |  Link to the location entry in product library - this URL can be called to retrieve content relating to that location. |
+ | Type | Type of location. |
+ | API_Header/Request | The API returns every parameter and value you sent in the previous request.  |
 
+## Worked Examples
+
+Below are worked examples of both the requests and responses for locations.
+
+### UK Parking Location Request
+
+```
+https://api.holidayextras.co.uk/v1/location?key=YourKey&token=YourToken&type=1
+```
+
+### UK Parking Location Response
+
+NB: This is a shortened example compiled from a full UK parking location response.
 
 ```xml
-<?xml version="1.0" ?>
-<API_Reply>
-  <Product>
-    <Code>ABZ</Code>
-    <Name>Aberdeen</Name>
-    <MoreInfoURL>/sandbox/v1/product/ABZ</MoreInfoURL>
-    <Type>airport</Type>
-  </Product>
-  <Product>
-    <Code>BFS</Code>
-    <Name>Belfast</Name>
-    <MoreInfoURL>/sandbox/v1/product/BFS</MoreInfoURL>
-    <Type>airport</Type>
-  </Product>
-  <Product>
-    <Code>BHX</Code>
-    <Name>Birmingham</Name>
-    <MoreInfoURL>/sandbox/v1/product/BHX</MoreInfoURL>
-    <Type>airport</Type>
-  </Product>
-  .
-  .
-  .
-  <API_Header>
-    <Request>
-      <key>mytestkey</key>
-      <v>1</v>
-    </Request>
-  </API_Header>
+<?xml version="1.0"?>
+<API_Reply Result="OK">
+    <Product>
+        <Code>ABZ</Code>
+        <Name>Aberdeen</Name>
+        <MoreInfoURL>/v1/product/ABZ</MoreInfoURL>
+        <Type>airport</Type>
+    </Product>
+    <Product>
+        <Code>BFS</Code>
+        <Name>Belfast International</Name>
+        <MoreInfoURL>/v1/product/BFS</MoreInfoURL>
+        <Type>airport</Type>
+    </Product>
+    <Product>
+        <Code>BHD</Code>
+        <Name>Belfast City (George Best)</Name>
+        <MoreInfoURL>/v1/product/BHD</MoreInfoURL>
+        <Type>airport</Type>
+    </Product>
+ <API_Header>
+        <Request>
+            <ABTANumber>YourABTANumber</ABTANumber>
+            <Password>YourPassword</Password>
+            <key>YourKey</key>
+            <token>YourToken</token>
+            <type>1</type>
+            <key>mytestkey</key>
+            <v>1</v>
+        </Request>
+    </API_Header>
 </API_Reply>
 ```
 
-
-One you have this information you can then get a list of all sites at this location if required, example show below:
-
-## Request
+### EU Hotel Location Request
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/product/ABZ?key=mytestkey
+https://api.holidayextras.co.uk/v1/location?key=YourKey&token=YourToken&type=hotel&system=de
 ```
 
-For hotels we also have an option to list all of the hotel product codes, listing the location, hotel name, address and star rating
+### EU Hotel Location Response
 
-## Request
+NB: This is a shortened example compiled from a full EU hotel location response.
 
-```
-http://www.hxstats.co.uk/hotel-list.php
-```
-
-For European products please find an example of a request for all available airports
-
-```
-https://api.holidayextras.co.uk/v1/location?key=mytestkey&type=carpark&system=de&lang=de
-```
-
-and in addition with specific information
-
-Hotels
-```
-https://api.holidayextras.co.uk/sandbox/v1/product/FRA?key=mytestkey&fields=latitude,longitude,address&System=ABG&type=8
-```
-
-Parking
-```
-https://api.holidayextras.co.uk/sandbox/v1/product/FRA?key=mytestkey&fields=latitude,longitude,address&System=ABG&type=10
+```xml
+<?xml version="1.0"?>
+<API_Reply Result="OK">
+    <Product>
+        <Code>AMS</Code>
+        <Name>Amsterdam (Schiphol)</Name>
+        <MoreInfoURL>/v1/product/AMS</MoreInfoURL>
+        <Type>german_airport</Type>
+    </Product>
+    <Product>
+        <Code>BER</Code>
+        <Name>Berlin Brandenburg</Name>
+        <MoreInfoURL>/v1/product/BER</MoreInfoURL>
+        <Type>german_airport</Type>
+    </Product>
+    <Product>
+        <Code>BGY</Code>
+        <Name>Bergamo</Name>
+        <MoreInfoURL>/v1/product/BGY</MoreInfoURL>
+        <Type>german_airport</Type>
+    </Product>
+ <API_Header>
+        <Request>
+            <key>YourKey</key>
+            <token>YourToken</token>
+            <type>hotel</type>
+            <system>de</system>
+            <v>1</v>
+        </Request>
+    </API_Header>
+</API_Reply>
 ```

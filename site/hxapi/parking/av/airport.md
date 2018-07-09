@@ -14,10 +14,10 @@ GET
 
 ### Endpoint
 
-The endpoint to use is (where "foo" is the location (airport) code):
+The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/foo
+https://api.holidayextras.co.uk/v1/carpark/AirportCode
 ```
 
 For example, for London Gatwick the endpoint is:
@@ -46,7 +46,7 @@ NB: All parameter names are case sensitive.
  | NumberOfPax | Integer | [0-9] 2 chars | N        | Number of passengers.|
  | filter      | String  | [A-Z]                                  | N        | Pass in values `filter=on_airport`, `filter=recommended` or `filter=meet_and_greet` to only show car parks meeting those criteria. You can filter by any field that comes back in the filter section of the API.|
  | fields      | String  | [A-Z] a csv list of product info fields | N        | A list of product info fields can be passed in to return configurable product information e.g. `fields=name,address,latitude,sellingpoint`. |
- | top3        | Boolean | [0,1]                                   | N        | If a value of 1 is passed in for the top3 param, then a maximum of three car parks will be returned, one on airport, one park and ride, and one meet and greet. |
+ | top3        | Boolean | [0,1]                                   | N        | If a value of `1` is passed in for the top3 param, then a maximum of three car parks will be returned, one on airport, one park and ride, and one meet and greet. |
  | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
  | lang        | String  | [A-Z] 2 chars | Y*       | Required for requests for European products. (Values available are `en`, `de`, `it`, `es`, `pt` and `nl`.)|
 

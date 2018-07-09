@@ -6,9 +6,7 @@
 
 [API Docs](/hxapi/) > endpoint:[product](parking)
 
-## /product/foo
-
-Where **foo** is the car park code.
+## /product/CarParkCode
 
 ### Method
 
@@ -98,6 +96,7 @@ https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key
 		<car_parked_for_you>1</car_parked_for_you>
 		<filter>all|N|0|Y|N</filter>
 		<postcode>RH1 5JH</postcode>
+		<accessible>0</accessible>
 	</Product>
 	<API_Header>
 		<Request>
@@ -272,6 +271,10 @@ Boolean - does the car park park the vehicles for the customer?
 
 HX use only
 
+#### accessible
+
+Boolean - is the product accessible for disabled customers?
+
 
 
 
@@ -331,6 +334,7 @@ https://api.holidayextras.co.uk/sandbox/v1/product/FRA0?key=mytestkey
 		<company_logo>airparks.png</company_logo>
 		<lat_hms>50:05:47</lat_hms>
 		<long_hms>8:35:17</long_hms>
+		<accessible>0</accessible>
 	</Product>
 	<API_Header>
 		<Request>

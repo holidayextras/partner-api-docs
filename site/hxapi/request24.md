@@ -8,9 +8,7 @@ This must be a POST, as you are amending a booking. It must be made over HTTPS, 
 
 Unlike the normal amend process, you will not be asked for confirmation before completing this. There is only one request to send for amend-no-reprice
 
-## /booking/foo
-
-where foo is the start ref
+## /booking/YourBookingRef
 
 
 ### Method
@@ -73,7 +71,7 @@ POST
 
 znt -> api
 ```
-https://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10524994/?BookingRef=FBKM6&BusinessUnit=001&CarDropoffTime=1200&CarPickupTime=1300&Confirmation=Y&County=testcountyaenderung&Email=test.email&Initial=T&Operator=BJT&Remarks=test&Surname=Testnameaenderung&Title=Herr&TraveltainmentCustomer=111111&holidayextras.com=&key=foo
+https://api.holidayextras.co.uk/de-start/sandbox/v1/booking/10524994/?BookingRef=FBKM6&BusinessUnit=001&CarDropoffTime=1200&CarPickupTime=1300&Confirmation=Y&County=testcountyaenderung&Email=test.email&Initial=T&Operator=BJT&Remarks=test&Surname=Testnameaenderung&Title=Herr&TraveltainmentCustomer=111111&holidayextras.com=&key=YourKey
 ```
 
 api -> chauntry
@@ -227,7 +225,7 @@ chauntry -> api
             <Title>Herr</Title>
             <TraveltainmentCustomer>111111</TraveltainmentCustomer>
             <holidayextras_com/>
-            <key>foo</key>
+            <key>YourKey</key>
             <system>de</system>
             <System>ABG</System>
         </Request>
@@ -319,7 +317,7 @@ Note this is the same as request chauntry -> api
             <Title>Herr</Title>
             <TraveltainmentCustomer>111111</TraveltainmentCustomer>
             <holidayextras_com/>
-            <key>foo</key>
+            <key>YourKey</key>
             <system>de</system>
             <System>ABG</System>
         </Request>
