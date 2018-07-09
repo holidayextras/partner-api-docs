@@ -178,7 +178,7 @@ https://api.holidayextras.co.uk/v1/hotel/LHRMEA
         <AgentComm>6.53</AgentComm>
         <VATonComm>0.00</VATonComm>
         <MoreInfoURL>/v1/booking/YourBookingRef</MoreInfoURL>
-        <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=HPABCDE&amp;product_type=hotels</PdfUrl>
+        <PdfUrl>/v1/confirmation?email=test@test.com&booking_ref=HPABCDE&product_type=hotels</PdfUrl>
     </Booking>
     <Hotel/>
     <Itinerary>
