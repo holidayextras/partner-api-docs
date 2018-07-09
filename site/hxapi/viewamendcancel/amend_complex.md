@@ -109,7 +109,7 @@ https://api.holidayextras.co.uk/booking/YourBookingRef
     </ClientDetails>
     <Booking>
         <BookingRef>YourBookingRef</BookingRef>
-        <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=YourBookingRef&amp;product_type=hotels</PdfUrl>
+        <PdfUrl>/v1/confirmation?email=test@test.com&booking_ref=YourBookingRef&product_type=hotels</PdfUrl>
         <AgentComm>931</AgentComm>
         <VATonComm/>
     </Booking>
