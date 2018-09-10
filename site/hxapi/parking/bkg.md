@@ -96,7 +96,7 @@ For a detailed explanation of the fields returned, please see below:
 
 | Field                | Additional Information |
 | ----                 | ---------------------- |
-| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are 5 char alphanumeric (including 1/I and 0/O/Q).|
+| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are up to 12 char alphanumeric (including 1/I and 0/O/Q).|
 | Booking/AgentComm  | Commission you have earned from this booking. |
 | CarDetails  | Confirmation of the vehicle details that were sent in the booking request. |
 | ClientDetails  | Confirmation of the lead passenger's details that were sent in the booking request. |

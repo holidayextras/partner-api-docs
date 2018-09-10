@@ -19,7 +19,7 @@ GET
  | Name       | Data Type    | Format         | Required |
  | ----       | ---------    | ------         | -------- |
  | key        | Number       |                | Y        |
- | BookingRef | Alphanumeric | [A-z,0-9]{5}   | Y        |
+ | BookingRef | Alphanumeric | [A-z,0-9]{5,12}   | Y        |
  | angle      | Numeric      | Multiple of 90 | N        |
 
 

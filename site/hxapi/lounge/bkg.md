@@ -69,14 +69,14 @@ For a detailed explanation of the fields returned, please see below:
 
 | Field                | Additional Information |
 | ----                 | ---------------------- |
-| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are 5 char alphanumeric (including 1/I and 0/O/Q).|
+| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are up to 12 char alphanumeric (including 1/I and 0/O/Q).|
 | Booking/AgentComm  | Commission you have earned from this booking. |
 | Booking/MoreInfoURL  | The URL for viewing the booking. See [view booking](/hxapi/viewamendcancel/view) for more details. |
 | API_Header/Request  | A list of parameters that were sent in the booking request. |
 
 ## Booking Confirmation
 
-We expect partners to create their own booking confirmations to send to customers, using the information provided in the booking response. 
+We expect partners to create their own booking confirmations to send to customers, using the information provided in the booking response.
 
 However, we also have capability to send booking confirmation emails ourselves on behalf of partners. This feature is not available as standard, and so if you wish to enable this please speak to your Account Manager.
 

@@ -44,7 +44,7 @@ For a detailed explanation of the fields returned, please see below:
 
 | Field                | Additional Information |
 | ----                 | ---------------------- |
-| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are 5 char alphanumeric (including 1/I and 0/O/Q).|
+| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are up to 12 char alphanumeric (including 1/I and 0/O/Q).|
 | Booking/Amendable | This will return one of the following: `Y` = booking can be amended; `N` = booking cannot be amended; `C` = booking has been cancelled; `S` = booking is same day so cannot be amended or cancelled. |
 | Booking/CanxDate | If the booking has been cancelled, the date on which it was will return here. |
 | Booking/AgentComm  | Commission you have earned from this booking. |

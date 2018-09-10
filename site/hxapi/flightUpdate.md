@@ -42,7 +42,7 @@ The body should be a well formatted JSON array, containing items which are objec
 
  | Name        | Data Type    | Format | Mandatory? | Additional Information |
  | ----        | ----    | ------ | -------- | ---------------------- |
- | hx_booking_ref | String | [A-Z0-9] 5 chars | Y | HX full booking reference. |
+ | hx_booking_ref | String | [A-Z0-9] 5-12 chars | Y | HX full booking reference. |
  | partner_booking_ref | String  | [A-Z] | Y | The unique reference for the partner's booking. |
  | email | String | email | Y | The email address registered with the booking. |
  | arrival | String | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | Y | New or current parking arrival date and time. |
