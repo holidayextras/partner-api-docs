@@ -22,7 +22,7 @@ POST
  | StartCustomer  | String    | [0-9]{6}   | Y        |
  | BusinessUnit   | String    | [0-9]{3}   | Y        |
  | Operator       | String    | [A-Z]{3}   | Y        |
- | BookingRef     | String    | N §{5}    | Y        |
+ | BookingRef     | String    | N §{5,12}    | Y        |
  | ReturnFlight   |           |            | N        |
  | Remarks        | String    |            | N        |
  | Registration   | String    | N §       | Y        |

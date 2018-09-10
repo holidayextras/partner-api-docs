@@ -116,7 +116,7 @@ For a detailed explanation of the fields returned, please see below:
 
 | Field                | Additional Information |
 | ----                 | ---------------------- |
-| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. NB: Our booking references are 5 char alphanumeric (including 1/I and 0/O/Q).|
+| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. NB: Our booking references are up to 12 char alphanumeric (including 1/I and 0/O/Q).|
 | Booking/AgentComm  | Commission you have earned from this booking. |
 | Itinerary | This section confirms details of the hotel on the booking. |
 | Room | This section confirms details of the room booked at the hotel. |
