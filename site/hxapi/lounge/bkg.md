@@ -39,8 +39,9 @@ NB: All parameter names are case sensitive.
  | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
  | ArrivalDate | Date    | YYYY-MM-DD                             | Y        | Date customer wishes to enter the lounge. |
  | ArrivalTime | Time    | HHMM                                   | Y        | Time customer wishes to enter the lounge.|
- | Adults      | Integer | [0-4] 1 char | Y        | Number of adults requiring entry to the lounge. Please note: a maximum of 4 passengers is permitted on any one booking. |
- | Children    | Integer | [0-3] 1 char | N        | Number of children requiring entry to the lounge. Please note: a maximum of 4 passengers is permitted on any one booking. |
+ | Adults      | Integer | [0-4] 1 char | Y        | Number of adults requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking. |
+ | Children    | Integer | [0-3] 1 char | N        | Number of children requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking. |
+ | Infants     | Integer | 1 char | Y        | Number of infants requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking. |
  | Title | String | [0-9] 4 chars | Y        | Title of lead passenger|
  | Initial | String | [A-Z] 1 chars | Y        | Initial of lead passenger|
  | Surname | String | [0-9] 20 chars | Y        | Surname of lead passenger|
