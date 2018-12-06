@@ -43,8 +43,8 @@ NB: All parameter names are case sensitive.
  | token       | String  | [0-9] 9 chars                         | Y        | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token. |
  | ArrivalDate | Date    | YYYY-MM-DD                             | Y        | Date customer arrives at hotel. |
  | Nights      | Integer  | 1, 2, 3, etc                                  | Y        | Number of nights the customer wants to stay in the hotel. NB: For European products it is only possible to book one night stays.|
- | RoomType      | String  | [A-Z0-9] 2 chars | Y        | See [RoomCodes](/hxapi/types/roomcode) for a list of valid codes. |
- | SecondRoomType        | String  | [A-Z0-9] 2 chars | N*        | NB: This feature is only available in the UK. <br>This parameter is mandatory if the customer wishes to book two rooms at the same time. <br>The room codes are as per RoomType. |
+ | RoomType      | String  | [A-Z0-9] 3 chars | Y        | See [RoomCodes](/hxapi/types/roomcode) for a list of valid codes. |
+ | SecondRoomType        | String  | [A-Z0-9] 3 chars | N*        | NB: This feature is only available in the UK. <br>This parameter is mandatory if the customer wishes to book two rooms at the same time. <br>The room codes are as per RoomType. |
  | ParkingDays       | Integer  | [0-9] 2 chars | Y        | NB: The maximum duration accepted for ParkingDays is 30.|
  | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
  | lang        | String  | [A-Z] 2 chars | Y*       | Required for requests for European products. (Values available are `en`, `de`, `it`, `es`, `pt` and `nl`.)|

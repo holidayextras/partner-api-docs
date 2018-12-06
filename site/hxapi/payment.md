@@ -20,7 +20,7 @@ To make a payment using SEPA, the following fields must be included in the booki
 |------|------------|---------|-------------|------------------------|
 | AccountName | String | [A-Z0-9] | Y | Name on the account |
 | AccountNumber | String | See additional information | Y | The IBAN account number. The IBAN number structure comprises 2 character country code, 2 character check digits (integer), followed by up to 30 characters (integers). [More information on IBAN.](http://www.sepaforcorporates.com/single-euro-payments-area/iban-number-format-sepa-country/) |
-| SortCode | String | [0-9] 11 chars  | Y | The SEPA sort code |
+| SortCode | String | [A-Z0-9] 11 chars  | Y | The SEPA sort code |
 
 The following test details can be used in sandbox only:
 

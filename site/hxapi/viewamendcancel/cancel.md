@@ -40,7 +40,7 @@ NB: All parameter names are case sensitive.
  | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
 | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
 | ConfirmCancel      | String  | 1 chars | Y       | Set this to `N` for this initial step. |
-| CancelRef | String | [A-Z] 10 chars | Y | The reference for the cancellation, e.g. agent's initials.
+| CancelRef | String | [A-Z0-9] 10 chars | Y | The reference for the cancellation, e.g. agent's initials.
 
 #### Step 2: Cancel booking (POST)
 
@@ -55,7 +55,7 @@ NB: All parameter names are case sensitive.
  | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
 | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
 | ConfirmCancel      | String  | 1 chars | Y       | Set this to `Y` for the cancellation step. |
-| CancelRef | String | [A-Z] 10 chars | Y | The reference for the cancellation, e.g. agent's initials.
+| CancelRef | String | [A-Z0-9] 10 chars | Y | The reference for the cancellation, e.g. agent's initials.
 
 
 ## Cancel Booking Response

@@ -43,7 +43,7 @@ For all amend booking requests, you will need to send these parameters:
  | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
  | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
  | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
- | Email | String | [0-9] 4 chars | Y        | Email address used to make the booking (i.e. the email address of the lead passenger)|
+ | Email | String | [A-Z0-9] 50 chars| Y        | Email address used to make the booking (i.e. the email address of the lead passenger)|
 | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
 
 In order to amend the booking with the new details, you only need to pass in the specific parameters you want to amend. For a simple amend these are as follows:
@@ -53,11 +53,11 @@ In order to amend the booking with the new details, you only need to pass in the
 | Title | String | [0-9] 4 chars | Y        | Title of lead passenger|
 | Initial | String | [A-Z] 1 chars | Y        | Initial of lead passenger|
 | Surname | String | [0-9] 20 chars | Y        | Surname of lead passenger|
-| Address[] | String | [0-9] 20 chars | Y        | First line of address (house name / number and road) of lead passenger. NB: This field can be set to NA|
-| Town | String | [0-9] 4 chars | Y        | Town of address. NB: This field can be set to NA|
-| County | String | [0-9] 4 chars | Y        | County of address. NB: This field can be set to NA|
-| PostCode | String | [0-9] 4 chars | Y        | Post code of address. NB: This field can be set to NA|
-| Email | String | [0-9] 4 chars | Y        | The email address of customer. |
+| Address[] | String | [A-Z0-9] 25 chars | Y        | First line of address (house name / number and road) of lead passenger. NB: This field can be set to NA|
+| Town | String | [A-Z] 20 chars | Y        | Town of address. NB: This field can be set to NA|
+| County | String | [A-Z] 20 chars | Y        | County of address. NB: This field can be set to NA|
+| PostCode | String | [A-Z0-9] 10 chars| Y        | Post code of address. NB: This field can be set to NA|
+| Email | String | [A-Z0-9] 50 chars | Y        | The email address of customer. |
 
 #### For parking bookings:
 

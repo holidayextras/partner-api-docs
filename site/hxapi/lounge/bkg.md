@@ -42,17 +42,17 @@ NB: All parameter names are case sensitive.
  | Adults      | Integer | [0-4] 1 char | Y        | Number of adults requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking. |
  | Children    | Integer | [0-3] 1 char | N        | Number of children requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking. |
  | Infants     | Integer | 1 char | Y        | Number of infants requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking. |
- | Title | String | [0-9] 4 chars | Y        | Title of lead passenger|
+ | Title | String | [A-Z] 4 chars | Y        | Title of lead passenger|
  | Initial | String | [A-Z] 1 chars | Y        | Initial of lead passenger|
- | Surname | String | [0-9] 20 chars | Y        | Surname of lead passenger|
- | Address[] | String | [0-9] 20 chars | Y        | First line of address (house name / number and road) of lead passenger <br>If you require more than 1 address line, then you can replicate this field and increment the number in square brackets, i.e. "Address[1]" for address line 2, and so on.<br>NB: This field can be set to NA|
- | Town | String | [0-9] 4 chars | Y        | Town of address <br>NB: This field can be set to NA|
- | County | String | [0-9] 4 chars | Y        | County of address <br>NB: This field can be set to NA|
- | PostCode | String | [0-9] 4 chars | Y        | Post code of address <br>NB: This field can be set to NA|
- | Email | String | [0-9] 4 chars | Y        | Email of lead passenger|
- | MobileNum | String | [0-9] 15 char | Y | Mobile phone number of lead passenger. |
+ | Surname | String | [A-Z] 20 chars | Y        | Surname of lead passenger|
+ | Address[] | String | [A-Z0-9] 25 chars | Y        | First line of address (house name / number and road) of lead passenger <br>If you require more than 1 address line, then you can replicate this field and increment the number in square brackets, i.e. "Address[1]" for address line 2, and so on.<br>NB: This field can be set to NA|
+ | Town | String | [A-Z] 20 chars | Y        | Town of address <br>NB: This field can be set to NA|
+ | County | String | [A-Z] 20 chars | Y        | County of address <br>NB: This field can be set to NA|
+ | PostCode | String | [A-Z0-9] 10 chars | Y        | Post code of address <br>NB: This field can be set to NA|
+ | Email | String | [A-Z0-9] 50 chars | Y        | Email of lead passenger|
+ | MobileNum | String | [0-9] 20 char | Y | Mobile phone number of lead passenger. |
  | PriceCheckFlag | String | Y | Y        | Indicates a price check will be carried out prior to booking. <br>If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.|
- | PriceCheckPrice | Float | [0-9] | Y        | Price of the product, received from the availability request or price check. |
+ | PriceCheckPrice | Float | [0-9] 8 chars | Y        | Price of the product, received from the availability request or price check. |
  | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
 
 ### Payment
