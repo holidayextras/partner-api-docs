@@ -17,7 +17,7 @@ The only system requirements are the ability to:
 *  make HTTPS requests;
 *  parse XML and/or JSON files.
 
-### Note: We have be permanently disabled all non-HTTPS access. Your systems will need to be making all of their API calls via HTTPS only.
+### Note: We have permanently disabled all non-HTTPS access. Your systems will need to be making all of their API calls via HTTPS only.
 
 ### Rate Limiting
 

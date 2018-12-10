@@ -36,7 +36,7 @@ The endpoints that must be used are:
 
 Sandbox:
 
-`https://payment.holidayextras.co.uk/legacy/sandbox/`
+`https://payment-staging.holidayextras.co.uk/legacy/sandbox/`
 
 Production:
 

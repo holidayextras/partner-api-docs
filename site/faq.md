@@ -73,7 +73,7 @@ else if x > CCardSurchargeMax
 Markup already added.
 
 
-##How is the "Total Price" for Parking calculated?
+## How is the "Total Price" for Parking calculated?
 
 The cost of the Credit Card surcharge applies to the price of parking + cancellation waiver (if taken).
 
