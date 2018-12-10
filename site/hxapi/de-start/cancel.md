@@ -32,7 +32,7 @@ NB: All parameter names are case sensitive.
  | Name        | Data Type    | Format | Mandatory? | Additional Information |
  | ----        | ----    | --------- | -------- | ---------------------- |
  | StartCustomer  | String  | [0-9] 6 chars | Y | This will be assigned to you by your Account Manager during set up.|
- | BusinessUnit   | String  | 0-9] 3 chars  | Y | This will be assigned to you by your Account Manager during set up.|
+ | BusinessUnit   | String  | [0-9] 3 chars  | Y | This will be assigned to you by your Account Manager during set up.|
  | Operator       | String  | [A-Z] 3 chars | Y | This always defaults to `BJT`. |
  | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
  | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
@@ -51,7 +51,7 @@ NB: All parameter names are case sensitive.
 | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
 | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
 | ConfirmCancel      | String  | 1 chars | Y       | Set this to `N` for this initial step. |
-| CancelRef | String | [A-Z] 10 chars | Y | The reference for the cancellation, e.g. agent's initials. |
+| CancelRef | String | [A-Z0-9] 10 chars | Y | The reference for the cancellation, e.g. agent's initials. |
 
 ## Cancel Booking Response - DE-Start Method
 

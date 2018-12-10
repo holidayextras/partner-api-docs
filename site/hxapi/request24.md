@@ -22,49 +22,55 @@ POST
  | StartCustomer  | String    | [0-9]{6}   | Y        |
  | BusinessUnit   | String    | [0-9]{3}   | Y        |
  | Operator       | String    | [A-Z]{3}   | Y        |
- | BookingRef     | String    | N §{5,12}    | Y        |
- | ReturnFlight   |           |            | N        |
- | Remarks        | String    |            | N        |
- | Registration   | String    | N §       | Y        |
- | Pax            | Number    | N          | N        |
- | CarMake        | String    | N §       | N        |
- | CarModel       | String    | N §       | N        |
- | CarColour      | String    | N §       | N        |
- | OutFltNo       | String    | N §       | N        |
- | InFltNo        | String    | N §       | N        |
+ | BookingRef     | String    | [A-Z0-9] {5,12} | Y        |
+ | ReturnFlight   |           | [A-Z0-9] {10} | N        |
+ | Remarks        | String    | [A-Z0-9] {60} | N        |
+ | Registration   | String    | [A-Z0-9] {10} | Y        |
+ | Pax            | Number    | [0-9] {2} | N        |
+ | CarMake        | String    | [A-Z0-9] {10} | N        |
+ | CarModel       | String    | [A-Z0-9] {10} | N        |
+ | CarColour      | String    | [A-Z0-9] {10} | N        |
+ | OutFltNo       | String    | [A-Z0-9] {10} | N        |
+ | InFltNo        | String    | [A-Z0-9] {10} | N        |
  | OutFltTime     | Number    | HHMM       | N        |
  | InFltTime      | Number    | HHMM       | N        |
- | OutTerminal    |           |            | N        |
- | RetTerminal    |           |            | N        |
- | ShipName       |           |            | N        |
- | PierName       |           |            | N        |
- | ChildSeat      | Boolean   |            | N        |
- | AddlServices   | Boolean   |            | N        |
- | MobileNum      |           |            | N        |
+ | OutTerminal    |           | [A-Z0-9] {4} | N        |
+ | RetTerminal    |           | [A-Z0-9] {4} | N        |
+ | ShipName       |           | [A-Z0-9] {20} | N        |
+ | PierName       |           | [A-Z0-9] {20} | N        |
+ | ChildSeat      | Boolean   | [Y/N] | N        |
+ | AddlServices   | Boolean   | [Y/N]| N        |
+ | MobileNum      |           | [A-Z0-9] {15} | N        |
  | CarDropoffTime | Number    | HHMM       | N        |
  | CarPickupTime  | Number    | HHMM       | N        |
- | Title          | String    | [A-Z]      | Y        |
- | Initial        | String    | [A-Z]{1}   | Y        |
- | Surname        | String    | [A-Z]      | Y        |
- | Address        | Striing   | N §       | N        |
- | Town           | String    | N §       | N        |
- | County         | String    | N §       | N        |
- | PostCode       | String    | N §       | N        |
- | DayPhone       |           |            | N        |
- | EvePhone       |           |            | N        |
+ | Title          | String    | [A-Z] {4}| Y        |
+ | Initial        | String    | [A-Z] {1} | Y        |
+ | Surname        | String    | [A-Z] {15} | Y        |
+ | Address        | Striing   | [A-Z0-9] {25} | N        |
+ | Town           | String    | [A-Z0-9] {20} | N        |
+ | County         | String    | [A-Z0-9] {20} | N        |
+ | PostCode       | String    | [A-Z0-9] {10} | N        |
+ | DayPhone       |           | [A-Z0-9] {20} | N        |
+ | EvePhone       |           | [A-Z0-9] {20} | N        |
  | Confirmation   | Boolean   | [Y/N]      | Y        |
- | DataProtection | Boolean   | true/false | N        |
- | Email          | String    | N §       | N        |
- | InvoiceReqd    | Boolean   | true/false | N        |
- | TaxType        |           |            | N        |
- | TaxLocation    |           |            | N        |
- | lang           |           |            | N        |
- | HouseNumber    |           |            | N        |
- | Country        | String    | N §       | N        |
- | Company        | String    | N §       | N        |
- | CustomerVAT    |           |            | N        |
-
-
+ | DataProtection | Boolean   | [Y/N] | N        |
+ | Email          | String    | [A-Z0-9] {50}| N        |
+ | InvoiceReqd    | Boolean   | [Y/N]| N        |
+ | TaxType        | String    | [A-Z0-9] {2} | N        |
+ | TaxLocation    | String    | [A-Z0-9] {3} | N        |
+ | InvLanguage    | String    | [A-Z0-9] {2} | N        |
+ | InvHouseNo     | Integer   | [0-9] {4}    | N        |
+ | InvCountry     | String    | [A-Z0-9] {20} | N        |
+ | InvStreet      | String    | [A-Z0-9] {20} | N        |
+ | InvTown        | String    | [A-Z0-9] {20} | N        |
+ | InvPostcode    | String    | [A-Z0-9] {10} | N        |
+ | InvCompany     | String    | [A-Z0-9] {40} | N        |
+ | CustVATNo      | String    | [A-Z0-9] {10} | N        |
+ | SupplierVATId  | String    | [A-Z0-9] {15} | N        |
+ | InvTitle      | String    | [A-Z0-9] {4} | N        |
+ | InvFirstName      | String    | [A-Z0-9] {20} | N        |
+ | InvSurname      | String    | [A-Z0-9] {15} | N        |
+ | InvEmail      | String    | [A-Z0-9] {50} | N        |
 
 
 ### Requests

@@ -44,7 +44,7 @@ For all amend booking requests, you will need to send these parameters:
  | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
  | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
  | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
- | Email | String | [0-9] 4 chars | Y        | Email address used to make the booking (i.e. the email address of the lead passenger)|
+ | Email | String | [A-Z0-9] 50 chars | Y        | Email address used to make the booking (i.e. the email address of the lead passenger)|
 | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
 
 In order to amend the booking with the new details, you only need to pass in the specific parameters you want to amend. For a complex amend these are as follows:

@@ -37,21 +37,21 @@ NB: All parameter names are case sensitive.
  | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
  | ArrivalDate | Date    | YYYY-MM-DD                             | Y        | Date customer arrives at hotel. |
  | Nights | Integer  | 1, 2, 3, etc                                  | Y        | Number of nights the customer wants to stay in the hotel. NB: For European products it is only possible to book one night stays. |
- | RoomCode      | String  | [A-Z0-9] 2 chars | Y        | See [RoomCodes](/hxapi/types/roomcode) for a list of valid codes. |
+ | RoomCode      | String  | [A-Z0-9] 3 chars | Y        | See [RoomCodes](/hxapi/types/roomcode) for a list of valid codes. |
  | Adults | Integer       | [1-5] 1 char                           | Y                 | The number of adults occupying the room. |
  | Children | Integer       | [0-4] 1 char                           | Y                 | The number of children occupying the room. |
  | ParkingDays       | Integer  | [0-9] 2 chars | Y        | NB: The maximum duration accepted for ParkingDays is 30.|
-| Title | String | [0-9] 4 chars | Y        | Title of lead passenger|
+| Title | String | [A-Z] 4 chars | Y        | Title of lead passenger|
 | Initial | String | [A-Z] 1 chars | Y        | Initial of lead passenger|
-| Surname | String | [0-9] 20 chars | Y        | Surname of lead passenger|
-| Address[] | String | [0-9] 20 chars | Y        | First line of address (house name / number and road) of lead passenger. If you require more than 1 address line, then you can replicate this field and increment the number in square brackets, i.e. "Address[1]" for address line 2, and so on. NB: This field can be set to NA|
-| Town | String | [0-9] 4 chars | Y        | Town of address. NB: This field can be set to NA|
-| County | String | [0-9] 4 chars | Y        | County of address. NB: This field can be set to NA|
-| PostCode | String | [0-9] 4 chars | Y        | Post code of address. NB: This field can be set to NA|
-| DayPhone | Integer | [0-9] 15 chars max  | N                 | The customer's telephone number. |  
-| Email | String | [0-9] 4 chars | Y        | The email address of customer. |
-| CustomerRef | String | [0-9A-Z]| N | Enter your Customer Reference to help match bookings for accounting purposes. |
-| Remarks | String | [0-9A-Z] | N | Pass in Remarks for notification such as COT REQUESTED in ROOM |
+| Surname | String | [A-Z] 20 chars | Y        | Surname of lead passenger|
+| Address[] | String | [A-Z0-9] 25 chars | Y        | First line of address (house name / number and road) of lead passenger. If you require more than 1 address line, then you can replicate this field and increment the number in square brackets, i.e. "Address[1]" for address line 2, and so on. NB: This field can be set to NA|
+| Town | String | [A-Z] 20 chars | Y        | Town of address. NB: This field can be set to NA|
+| County | String | [A-Z] 20 chars | Y        | County of address. NB: This field can be set to NA|
+| PostCode | String | [A-Z0-9] 10 chars | Y        | Post code of address. NB: This field can be set to NA|
+| DayPhone | Integer | [0-9] 20 chars max  | N                 | The customer's telephone number. |  
+| Email | String | [A-Z0-9] 50 chars | Y        | The email address of customer. |
+| CustomerRef | String | [0-9A-Z] 20 chars| N | Enter your Customer Reference to help match bookings for accounting purposes. |
+| Remarks | String | [0-9A-Z] 60 chars| N | Pass in Remarks for notification such as COT REQUESTED in ROOM |
 | Waiver | Boolean | [0,1]  | Y | Defaults to 0 if not supplied. |
 | DataProtection | String | [Y,N] | N | Does the customer consent to receiving offers from Holiday Extras? Y = Yes, will receive offers, N = No, customer data is protected. Defaults to No if not supplied. |                   
 | PriceCheckFlag | String | [Y] | Y | Indicates a price check will be carried out prior to booking. If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.|                     
@@ -83,11 +83,11 @@ The additional parameters for hotel with parking (where parking > 0 days) are:
 | CarPickupDate         | Date   | YYYY-MM-DD | Y  |
 | CarPickupTime         | Time   | HHMM    | Y  |
 | ReturnFlight          | String | [0-9A-Z] 10 chars | N |
-| TerminalCode          | String | [0-9A-Z] 3 chars  | N |
+| TerminalCode          | String | [0-9A-Z] 2 chars  | N |
 | Registration          | String | [0-9A-Z] 10 chars | N |
-| CarMake               | String | [0-9A-Z] 15 chars | N |
-| CarModel              | String | [0-9A-Z] 15 chars | N |
-| CarColour             | String | [A-Z] 15 chars    | N |
+| CarMake               | String | [0-9A-Z] 10 chars | N |
+| CarModel              | String | [0-9A-Z] 10 chars | N |
+| CarColour             | String | [A-Z] 10 chars    | N |
 
 ## Payment
 
@@ -97,7 +97,7 @@ Please contact your Account Manager if you have any questions concerning payment
 
 ## Booking Terms and Conditions
 
-It is important that the customer has access to the Terms and Conditions at the time of placing their booking and after. We highly recommend that these are made clear to the customer _before_ booking. 
+It is important that the customer has access to the Terms and Conditions at the time of placing their booking and after. We highly recommend that these are made clear to the customer _before_ booking.
 
 For European products, please use the following link:
 
@@ -126,7 +126,7 @@ For a detailed explanation of the fields returned, please see below:
 
 ## Booking Confirmation
 
-We expect partners to create their own booking confirmations to send to customers, using the information provided in the booking response. 
+We expect partners to create their own booking confirmations to send to customers, using the information provided in the booking response.
 
 However, we also have capability to send booking confirmation emails ourselves on behalf of partners. This feature is not available as standard, and so if you wish to enable this please speak to your Account Manager.
 
