@@ -153,6 +153,13 @@
       <td>Y*</td>
       <td>Required for requests for European products. (Values available are <code class="highlighter-rouge">en</code>, <code class="highlighter-rouge">de</code>, <code class="highlighter-rouge">it</code>, <code class="highlighter-rouge">es</code>, <code class="highlighter-rouge">pt</code> and <code class="highlighter-rouge">nl</code>.)</td>
     </tr>
+    <tr>
+      <td>Terminal</td>
+      <td>String</td>
+      <td>[A-Z1-9] 1 char</td>
+      <td>N</td>
+      <td>An optional field when requesting hotel and parking that will filter the availble results to those that serve the given terminal. Terminal options can be found using the <a href="/hxapi/terminal">Terminal</a> request, where the name of the terminal is a word only the first character is needed for this request ( eg. N for the North terminal ).</td>
+    </tr>
   </tbody>
 </table>
 
