@@ -17,6 +17,7 @@ The purpose of this documentation is to enable you to quickly on-board with our 
 
 |Version Number|Date|Details|
 |--------------|----|-------|
+| 1.10.0 | 25th January 2019 | Added optional `Terminal` param for hotel with parking requests. |
 |1.9.6 | 6th December 2018 | Updated sandbox hostname for legacy payments (EU) |
 |1.9.5 | 3rd October 2018 | Mandatory Infants parameter added for Lounges.|
 |1.9.4 | 10th September 2018 | Holidayextras booking ref field size increased from 5 to 12 characters.|
