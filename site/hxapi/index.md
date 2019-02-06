@@ -33,6 +33,7 @@ These endpoints are not product-specific. Please check the table below for detai
 |[Product library](/hxapi/productlibrary)|Yes|Yes|
 |[Managing a booking](/hxapi/viewamendcancel)|Yes|Yes|
 |[Update a booking's flight](/hxapi/flightUpdate)|Yes|No|
+|[Bundles](/hxapi/bundles)|Yes|No|
 
 ## "DE-Start" Product Guides
 

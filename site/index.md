@@ -17,6 +17,7 @@ The purpose of this documentation is to enable you to quickly on-board with our 
 
 |Version Number|Date|Details|
 |--------------|----|-------|
+| 1.11.0 | 6th February 2019 | Added docs explaining bundle products |
 | 1.10.0 | 25th January 2019 | Added optional `Terminal` param for hotel with parking requests. |
 |1.9.6 | 6th December 2018 | Updated sandbox hostname for legacy payments (EU) |
 |1.9.5 | 3rd October 2018 | Mandatory Infants parameter added for Lounges.|
