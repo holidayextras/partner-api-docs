@@ -73,7 +73,7 @@ E.g
 ...
 ```
 
-The product code of the supplement will also be returned in the booking response which can be used to retrieve product specific content in the [product library](/hxapi/productlibrary) request that can be displayed on booking confirmations.
+The product code of the supplement will also be returned in the booking response which can be used to retrieve product specific content in the [product library](/hxapi/productlibrary) request that can be displayed on booking confirmations. When creating confirmation emails be sure to highlight that the supplement has been added as a part of this booking.
 
 ## Post Booking
 
