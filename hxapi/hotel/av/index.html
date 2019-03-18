@@ -224,6 +224,10 @@
       <td><em>NB: Please ignore this field as it is for internal use only.</em></td>
     </tr>
     <tr>
+      <td>Hotel/lead_time_cancellation</td>
+      <td>This is the number of days before the booking starts that the product will switch from flexible to non-flexible.</td>
+    </tr>
+    <tr>
       <td>API_Header/Request</td>
       <td>The API returns every parameter and value you sent in the previous request.</td>
     </tr>
@@ -253,6 +257,24 @@
 <h3 id="mystery--un-named-products">Mystery / Un-named Products</h3>
 
 <p>There are some hotels in which the name field will not provide the name of the hotel e.g <code class="highlighter-rouge">&lt;Name&gt;Mystery 4-star hotel&lt;/Name&gt;</code>.  The name of these hotels should not be provided to the customer until the booking is made, along with other identifying details such as address, hotel images, restaurant names etc.</p>
+
+<h3 id="lead-time-cancellation">Lead time cancellation</h3>
+
+<p>Flexible bookings become non flexible within a certain timeframe before the stay date ie booking turns non flexible within 30 days of stay.</p>
+
+<p>Scenario 1</p>
+<ul>
+  <li>Flexible booking made outside 60 days of stay.</li>
+  <li>Cancellation policy - only able to canx up to 30 days before stay date.</li>
+  <li>Booking is non flex within 30 days of stay date.</li>
+</ul>
+
+<p>Scenario 2</p>
+<ul>
+  <li>Flexible booking made inside 60 days of stay date.</li>
+  <li>Cancellation policy - only able to canx up to 3 days before stay date.</li>
+  <li>Booking is non flex within 3 days of stay date.</li>
+</ul>
 
 <h2 id="worked-examples">Worked Examples</h2>
 
@@ -285,6 +307,7 @@
         <span class="nt">&lt;BoardBasis&gt;</span>RO<span class="nt">&lt;/BoardBasis&gt;</span>
         <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
         <span class="nt">&lt;NonDiscPrice&gt;</span>45.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;lead_time_cancellation&gt;</span>30<span class="nt">&lt;/lead_time_cancellation&gt;</span>
         <span class="nt">&lt;parking_includes_arrival&gt;</span>1<span class="nt">&lt;/parking_includes_arrival&gt;</span>
         <span class="nt">&lt;noncancellable_nonrefundable&gt;</span>1<span class="nt">&lt;/noncancellable_nonrefundable&gt;</span>
         <span class="nt">&lt;advance_purchase&gt;</span>1<span class="nt">&lt;/advance_purchase&gt;</span>
@@ -303,6 +326,7 @@
         <span class="nt">&lt;BoardBasis&gt;</span>RO<span class="nt">&lt;/BoardBasis&gt;</span>
         <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
         <span class="nt">&lt;NonDiscPrice&gt;</span>85.50<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;lead_time_cancellation&gt;</span>30<span class="nt">&lt;/lead_time_cancellation&gt;</span>
         <span class="nt">&lt;noncancellable_nonrefundable&gt;</span>1<span class="nt">&lt;/noncancellable_nonrefundable&gt;</span>
         <span class="nt">&lt;Filter&gt;</span>
             <span class="nt">&lt;day_use_only&gt;</span>0<span class="nt">&lt;/day_use_only&gt;</span>
