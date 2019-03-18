@@ -69,6 +69,7 @@ For a detailed explanation of the fields returned, please see below:
  | Hotel/ParkingDays | This returns the number of days parking available. <br>NB: This may differ from the value requested, due to parking packages usually being set up in the system as either 4, 8 or 15 days. |
  | Hotel/CarPark | If your request included car parking, this is the car park code. |
  | Hotel/Filter | *NB: Please ignore this field as it is for internal use only.* |
+ | Hotel/lead_time_cancellation | This is the number of days before the booking starts that the product will switch from flexible to non-flexible. |
  | API_Header/Request | The API returns every parameter and value you sent in the previous request.  |
 
  \* Where two rooms have been requested, these fields represent the total of adults and children across all rooms. Additional fields will show the individual room occupancy:  `FirstRoomAdults`, `FirstRoomChildren`, `SecondRoomAdults` and `SecondRoomChildren`.
@@ -95,6 +96,20 @@ Where this field is set to 0, this means the night of the hotel stay is not incl
 ### Mystery / Un-named Products
 
 There are some hotels in which the name field will not provide the name of the hotel e.g `<Name>Mystery 4-star hotel</Name>`.  The name of these hotels should not be provided to the customer until the booking is made, along with other identifying details such as address, hotel images, restaurant names etc.
+
+### Lead time cancellation
+
+Flexible bookings become non flexible within a certain timeframe before the stay date ie booking turns non flexible within 30 days of stay. 
+
+Scenario 1
+* Flexible booking made outside 60 days of stay.
+* Cancellation policy - only able to canx up to 30 days before stay date.
+* Booking is non flex within 30 days of stay date.
+
+Scenario 2
+* Flexible booking made inside 60 days of stay date.
+* Cancellation policy - only able to canx up to 3 days before stay date.
+* Booking is non flex within 3 days of stay date.
 
 ## Worked Examples
 
@@ -129,6 +144,7 @@ NB: This is a shortened example compiled from a full availability response.
         <BoardBasis>RO</BoardBasis>
         <ParkingDays>0</ParkingDays>
         <NonDiscPrice>45.00</NonDiscPrice>
+        <lead_time_cancellation>30</lead_time_cancellation>
         <parking_includes_arrival>1</parking_includes_arrival>
         <noncancellable_nonrefundable>1</noncancellable_nonrefundable>
         <advance_purchase>1</advance_purchase>
@@ -147,6 +163,7 @@ NB: This is a shortened example compiled from a full availability response.
         <BoardBasis>RO</BoardBasis>
         <ParkingDays>0</ParkingDays>
         <NonDiscPrice>85.50</NonDiscPrice>
+        <lead_time_cancellation>30</lead_time_cancellation>
         <noncancellable_nonrefundable>1</noncancellable_nonrefundable>
         <Filter>
             <day_use_only>0</day_use_only>
