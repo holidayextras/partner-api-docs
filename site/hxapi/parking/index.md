@@ -50,3 +50,6 @@ There is a field in the Product Library for car parks, named ``advance_purchase`
 The request flags brought back from availability searches indicate the fields required in the booking by the car park. You *must* retrieve this information from the customer at the time of booking.
 
 There are occasions where your booking will go through without sending this information but can fail later when importing the bookings to car parks. This causes us considerable administrative difficulties and may result in your customer's booking being cancelled without notice.
+
+#### Good to go meet and greet
+New product types which are amendable by dates and times but cannot be cancelled.  The response will return `CanAmendCantCancel` set to either 1 or 0.
