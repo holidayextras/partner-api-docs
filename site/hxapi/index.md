@@ -42,3 +42,9 @@ This documentation relates to an existing integration with a partner in Germany.
 |Product Endpoints|UK|Europe|
 |-----------------|--|------|
 |[DE-Start](/hxapi/de-start)|No|Yes|
+
+## API Errors
+
+List of errors that can be returned from the API.
+
+[Errors](/hxapi/errors)
