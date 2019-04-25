@@ -13,6 +13,7 @@ You can specify the fields you want returned. Simply add the parameter fields an
 
 The purpose of most of the fields should be self-explanatory. If there is anything you do not understand, please email <sales@holidayextras.com>. There are no guarantees about the types of data returned, you should make no assumptions about a specific field being an integer etc.
 
+Data returned should not be cached locally for periods of time greater than one day (24 hours).
+
 
 [Parking - Specific car park information](parking)
-
