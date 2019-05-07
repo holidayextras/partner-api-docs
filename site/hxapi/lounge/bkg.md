@@ -54,6 +54,7 @@ NB: All parameter names are case sensitive.
  | PriceCheckFlag | String | Y | Y        | Indicates a price check will be carried out prior to booking. <br>If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.|
  | PriceCheckPrice | Float | [0-9] 8 chars | Y        | Price of the product, received from the availability request or price check. |
  | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
+ | Waiver	| Boolean	[0,1]	| Y	| Defaults to 0 if not supplied. |
 
 ### Payment
 
