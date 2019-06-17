@@ -5,6 +5,7 @@ cache: bundler
 rvm:
   - 2.3.1
 before_install:
+  - git config --global user.email travis@holidayextras.com
   - gem update --system
   - gem --version
 deploy:
