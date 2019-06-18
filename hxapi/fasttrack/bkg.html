@@ -29,9 +29,9 @@
         <div class="panel panel-primary">
           <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
             <div class="panel-body">
-  <h1 id="book-lounge">Book Lounge</h1>
+  <h1 id="book-fasttrack">Book FastTrack</h1>
 
-<h2 id="lounge-booking-request">Lounge Booking Request</h2>
+<h2 id="fasttrack-booking-request">FastTrack Booking Request</h2>
 
 <h3 id="method">Method</h3>
 
@@ -41,12 +41,12 @@
 
 <p>The endpoint to use is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/lounge/LoungeCode
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/fasttrack/FastTrackCode
 </code></pre></div></div>
 
-<p>For example, for <em>Plaza Premium T5 lounge - 3 hours at London Heathrow Airport</em> the endpoint is:</p>
+<p>For example, for <em>Plaza Premium T5 fasttrack - 3 hours at London Heathrow Airport</em> the endpoint is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/lounge/LHRPA5
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/fasttrack/LHRPA5
 </code></pre></div></div>
 
 <h3 id="request-parameters">Request Parameters</h3>
@@ -106,35 +106,35 @@
       <td>Date</td>
       <td>YYYY-MM-DD</td>
       <td>Y</td>
-      <td>Date customer wishes to enter the lounge.</td>
+      <td>Date customer wishes to enter the fasttrack.</td>
     </tr>
     <tr>
       <td>ArrivalTime</td>
       <td>Time</td>
       <td>HHMM</td>
       <td>Y</td>
-      <td>Time customer wishes to enter the lounge.</td>
+      <td>Time customer wishes to enter the fasttrack.</td>
     </tr>
     <tr>
       <td>Adults</td>
       <td>Integer</td>
       <td>[0-4] 1 char</td>
       <td>Y</td>
-      <td>Number of adults requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking.</td>
+      <td>Number of adults requiring entry to the fasttrack. Please note: a maximum of 6 passengers is permitted on any one booking.</td>
     </tr>
     <tr>
       <td>Children</td>
       <td>Integer</td>
       <td>[0-3] 1 char</td>
       <td>N</td>
-      <td>Number of children requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking.</td>
+      <td>Number of children requiring entry to the fasttrack. Please note: a maximum of 6 passengers is permitted on any one booking.</td>
     </tr>
     <tr>
       <td>Infants</td>
       <td>Integer</td>
       <td>1 char</td>
       <td>Y</td>
-      <td>Number of infants requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking.</td>
+      <td>Number of infants requiring entry to the fasttrack. Please note: a maximum of 6 passengers is permitted on any one booking.</td>
     </tr>
     <tr>
       <td>Title</td>
@@ -236,9 +236,9 @@
 
 <p>Please contact your Account Manager if you have any questions concerning payment.</p>
 
-<h2 id="lounge-booking-response">Lounge Booking Response</h2>
+<h2 id="fasttrack-booking-response">FastTrack Booking Response</h2>
 
-<p>The lounge booking response will confirm that a booking has been placed in our system.</p>
+<p>The fasttrack booking response will confirm that a booking has been placed in our system.</p>
 
 <p>For a detailed explanation of the fields returned, please see below:</p>
 
@@ -271,17 +271,15 @@
 
 <h2 id="booking-confirmation">Booking Confirmation</h2>
 
-<p>We expect partners to create their own booking confirmations to send to customers, using the information provided in the booking response.</p>
-
-<p>However, we also have capability to send booking confirmation emails ourselves on behalf of partners. This feature is not available as standard, and so if you wish to enable this please speak to your Account Manager.</p>
+<p>We expect partners to create their own booking confirmations to send to customers, using the information provided in the booking response <EmailConfirmationAttachments>.</EmailConfirmationAttachments></p>
 
 <h2 id="worked-examples">Worked Examples</h2>
 
-<p>Below are worked examples of both the request and response for booking a lounge.</p>
+<p>Below are worked examples of both the request and response for booking a fasttrack.</p>
 
 <h3 id="uk-products-booking-request">UK Products Booking Request</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/lounge/LHRPO3
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/fastTrack/APMANSF11
 </code></pre></div></div>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;Request&gt;</span>
@@ -312,110 +310,44 @@
 <h3 id="uk-products-booking-response">UK Products Booking Response</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
-<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"Lounge"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;Booking&gt;</span>
-        <span class="nt">&lt;BookingRef&gt;</span>YourBookingRef<span class="nt">&lt;/BookingRef&gt;</span>
-        <span class="nt">&lt;AgentComm&gt;</span>7.00<span class="nt">&lt;/AgentComm&gt;</span>
-        <span class="nt">&lt;VATonComm&gt;</span>0.00<span class="nt">&lt;/VATonComm&gt;</span>
-        <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/booking/YourBookingRef<span class="nt">&lt;/MoreInfoURL&gt;</span>
-    <span class="nt">&lt;/Booking&gt;</span>
-    <span class="nt">&lt;API_Header&gt;</span>
-        <span class="nt">&lt;Request&gt;</span>
-            <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
-            <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
-            <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
-            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
-            <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
-            <span class="nt">&lt;ArrivalDate&gt;</span>2018-12-01<span class="nt">&lt;/ArrivalDate&gt;</span>
-            <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
-            <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
-            <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
-            <span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
-            <span class="nt">&lt;Title&gt;</span>Mr<span class="nt">&lt;/Title&gt;</span>
-            <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
-            <span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
-            <span class="nt">&lt;Address&gt;</span>123 Test Street<span class="nt">&lt;/Address&gt;</span>
-            <span class="nt">&lt;Town&gt;</span>Testville<span class="nt">&lt;/Town&gt;</span>
-            <span class="nt">&lt;County&gt;</span>Testshire<span class="nt">&lt;/County&gt;</span>
-            <span class="nt">&lt;PostCode&gt;</span>TE12 3ST<span class="nt">&lt;/PostCode&gt;</span>
-            <span class="nt">&lt;Email&gt;</span>test@test.com<span class="nt">&lt;/Email&gt;</span>
-            <span class="nt">&lt;MobileNum&gt;</span>01234567890<span class="nt">&lt;/MobileNum&gt;</span>
-            <span class="nt">&lt;PriceCheckFlag&gt;</span>Y<span class="nt">&lt;/PriceCheckFlag&gt;</span>
-            <span class="nt">&lt;PriceCheckPrice&gt;</span>70.00<span class="nt">&lt;/PriceCheckPrice&gt;</span>
-            <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
-        <span class="nt">&lt;/Request&gt;</span>
-    <span class="nt">&lt;/API_Header&gt;</span>
-<span class="nt">&lt;/API_Reply&gt;</span>
-</code></pre></div></div>
-
-<h3 id="european-products-booking-request">European Products Booking Request</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/lounge/HAMLHL
-</code></pre></div></div>
-
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;Request&gt;</span>
-        <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
-        <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
-        <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
-        <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
-        <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
-        <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
-        <span class="nt">&lt;ArrivalDate&gt;</span>2018-12-01<span class="nt">&lt;/ArrivalDate&gt;</span>
-        <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
-        <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
-        <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
-        <span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
-        <span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
-        <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
-        <span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
-        <span class="nt">&lt;Address&gt;</span>123 Test Street<span class="nt">&lt;/Address&gt;</span>
-        <span class="nt">&lt;Town&gt;</span>Testville<span class="nt">&lt;/Town&gt;</span>
-        <span class="nt">&lt;County&gt;</span>Testshire<span class="nt">&lt;/County&gt;</span>
-        <span class="nt">&lt;PostCode&gt;</span>TE12 3ST<span class="nt">&lt;/PostCode&gt;</span>
-        <span class="nt">&lt;Email&gt;</span>test@test.com<span class="nt">&lt;/Email&gt;</span>
-        <span class="nt">&lt;MobileNum&gt;</span>01234567890<span class="nt">&lt;/MobileNum&gt;</span>
-        <span class="nt">&lt;PriceCheckFlag&gt;</span>Y<span class="nt">&lt;/PriceCheckFlag&gt;</span>
-        <span class="nt">&lt;PriceCheckPrice&gt;</span>70.00<span class="nt">&lt;/PriceCheckPrice&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"FastTrack"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>APBBFKBX<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;AgentComm&gt;</span>1.25<span class="nt">&lt;/AgentComm&gt;</span>
+    <span class="nt">&lt;VATonComm&gt;</span>0.21<span class="nt">&lt;/VATonComm&gt;</span>
+    <span class="nt">&lt;MoreInfoURL&gt;</span>v1/booking/APBBFKBX<span class="nt">&lt;/MoreInfoURL&gt;</span>
+    <span class="nt">&lt;EmailConfirmationAttachments&gt;</span>
+      <span class="nt">&lt;name&gt;</span>Fast Track Voucher<span class="nt">&lt;/name&gt;</span>
+      <span class="nt">&lt;source&gt;</span>https://voucher-staging.holidayextras.co.uk/voucher/fastTrack?email=dimitar.kod%40gmail.com<span class="err">&amp;</span>booking_ref=APBBFKBX<span class="err">&amp;</span>agent=TESTX<span class="err">&amp;</span>productType=fastTrack<span class="err">&amp;</span>productCode=MANSF1<span class="nt">&lt;/source&gt;</span>
+      <span class="nt">&lt;type&gt;</span>text/html<span class="nt">&lt;/type&gt;</span>
+    <span class="nt">&lt;/EmailConfirmationAttachments&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+      <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+      <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2018-12-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+      <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+      <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+      <span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
+      <span class="nt">&lt;Title&gt;</span>Mr<span class="nt">&lt;/Title&gt;</span>
+      <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+      <span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
+      <span class="nt">&lt;Address&gt;</span>123 Test Street<span class="nt">&lt;/Address&gt;</span>
+      <span class="nt">&lt;Town&gt;</span>Testville<span class="nt">&lt;/Town&gt;</span>
+      <span class="nt">&lt;County&gt;</span>Testshire<span class="nt">&lt;/County&gt;</span>
+      <span class="nt">&lt;PostCode&gt;</span>TE12 3ST<span class="nt">&lt;/PostCode&gt;</span>
+      <span class="nt">&lt;Email&gt;</span>test@test.com<span class="nt">&lt;/Email&gt;</span>
+      <span class="nt">&lt;MobileNum&gt;</span>01234567890<span class="nt">&lt;/MobileNum&gt;</span>
+      <span class="nt">&lt;PriceCheckFlag&gt;</span>Y<span class="nt">&lt;/PriceCheckFlag&gt;</span>
+      <span class="nt">&lt;PriceCheckPrice&gt;</span>70.00<span class="nt">&lt;/PriceCheckPrice&gt;</span>
+      <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
     <span class="nt">&lt;/Request&gt;</span>
-</code></pre></div></div>
-
-<h3 id="european-products-booking-response">European Products Booking Response</h3>
-
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
-<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"Lounge"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;Booking&gt;</span>
-        <span class="nt">&lt;BookingRef&gt;</span>YourBookingRef<span class="nt">&lt;/BookingRef&gt;</span>
-        <span class="nt">&lt;AgentComm&gt;</span>5.44<span class="nt">&lt;/AgentComm&gt;</span>
-        <span class="nt">&lt;VATonComm&gt;</span>0.00<span class="nt">&lt;/VATonComm&gt;</span>
-        <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/booking/YourBookingRef<span class="nt">&lt;/MoreInfoURL&gt;</span>
-    <span class="nt">&lt;/Booking&gt;</span>
-    <span class="nt">&lt;API_Header&gt;</span>
-        <span class="nt">&lt;Request&gt;</span>
-            <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
-            <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
-            <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
-            <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
-            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
-            <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
-            <span class="nt">&lt;ArrivalDate&gt;</span>2018-12-01<span class="nt">&lt;/ArrivalDate&gt;</span>
-            <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
-            <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
-            <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
-            <span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
-            <span class="nt">&lt;Title&gt;</span>Mr<span class="nt">&lt;/Title&gt;</span>
-            <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
-            <span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
-            <span class="nt">&lt;Address&gt;</span>123 Test Street<span class="nt">&lt;/Address&gt;</span>
-            <span class="nt">&lt;Town&gt;</span>Testville<span class="nt">&lt;/Town&gt;</span>
-            <span class="nt">&lt;County&gt;</span>Testshire<span class="nt">&lt;/County&gt;</span>
-            <span class="nt">&lt;PostCode&gt;</span>TE12 3ST<span class="nt">&lt;/PostCode&gt;</span>
-            <span class="nt">&lt;Email&gt;</span>test@test.com<span class="nt">&lt;/Email&gt;</span>
-            <span class="nt">&lt;MobileNum&gt;</span>01234567890<span class="nt">&lt;/MobileNum&gt;</span>
-            <span class="nt">&lt;PriceCheckFlag&gt;</span>Y<span class="nt">&lt;/PriceCheckFlag&gt;</span>
-            <span class="nt">&lt;PriceCheckPrice&gt;</span>70.00<span class="nt">&lt;/PriceCheckPrice&gt;</span>
-            <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
-        <span class="nt">&lt;/Request&gt;</span>
-    <span class="nt">&lt;/API_Header&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
 <span class="nt">&lt;/API_Reply&gt;</span>
 </code></pre></div></div>
 
