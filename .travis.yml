@@ -5,12 +5,12 @@ cache: bundler
 rvm:
   - 2.3.1
 before_install:
-  - git config --global user.email travis@holidayextras.com
   - gem update --system
   - gem --version
 deploy:
   provider: script
   script: scripts/deploy.sh
+  github_token: $GH_TOKEN
   skip_cleanup: true
   on:
     branch: master
