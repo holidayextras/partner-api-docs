@@ -40,6 +40,7 @@ NB: All parameter names are case sensitive.
  | DepartDate  | Date    | YYYY-MM-DD                             | Y        | Date customer picks up vehicle from car park.|
  | DepartTime  | Time    | HHMM                                   | Y        | Time customer picks up vehicle from car park.|
  | NumberOfPax | Integer | [0-9] 2 chars | N        | Number of passengers.|
+ | OutFlight   | String  | [A-Z0-9] 9 chars | N | This is also known as an 'flight number'. <br>Used to establish which terminal the customer is flying from using our look up tool and return products specific to that terminal. |
  | filter      | String  | [A-Z]                                  | N        | Pass in values `filter=on_airport`, `filter=recommended` or `filter=meet_and_greet` to only show car parks meeting those criteria. You can filter by any field that comes back in the filter section of the API.|
  | fields      | String  | [A-Z] a csv list of product info fields | N        | A list of product info fields can be passed in to return configurable product information e.g. `fields=name,address,latitude,sellingpoint`. |
  | top3        | Boolean | [0,1]                                   | N        | If a value of `1` is passed in for the `top3` param, then a maximum of three car parks will be returned, one on airport, one park and ride, and one meet and greet. |
