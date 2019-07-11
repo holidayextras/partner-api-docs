@@ -39,11 +39,9 @@ NB: All parameter names are case sensitive.
 | token       | String  | [0-9] 9 chars                         | Y        | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token. |
 | ArrivalDate | Date    | YYYY-MM-DD  | Y        | Date customer enters the fasttrack. |
 | ArrivalTime | Time    | HHMM       | Y        | Time customer enters the fasttrack. |
-| Adults      | Integer | [0-4] 1 char | Y        | Number of adults requiring entry to the fasttrack. Please note: a maximum of 6 passengers is permitted on any one booking. |
-| Children    | Integer | [0-3] 1 char | N        | Number of children requiring entry to the fasttrack. Please note: a maximum of 6 passengers is permitted on any one booking. |
+| Adults      | Integer | [0-4] 1 char | Y        | Number of adults requiring entry to the fasttrack. |
+| Children    | Integer | [0-3] 1 char | N        | Number of children requiring entry to the fasttrack. |
 | OutFlight   | String  | [A-Z0-9] 9 chars | N | This is also known as an 'flight number'. <br>Used to establish which terminal the customer is flying from using our look up tool and return products specific to that terminal. |
-| System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
-| lang        | String  | [A-Z] 2 chars | Y*       | Required for requests for European products. (Values available are `en`, `de`, `it`, `es`, `pt` and `nl`.)|
 
 ## FastTrack Availability Response
 
