@@ -120,14 +120,14 @@
       <td>Integer</td>
       <td>[0-4] 1 char</td>
       <td>Y</td>
-      <td>Number of adults requiring entry to the fasttrack. Please note: a maximum of 6 passengers is permitted on any one booking.</td>
+      <td>Number of adults requiring entry to the fasttrack.</td>
     </tr>
     <tr>
       <td>Children</td>
       <td>Integer</td>
       <td>[0-3] 1 char</td>
       <td>N</td>
-      <td>Number of children requiring entry to the fasttrack. Please note: a maximum of 6 passengers is permitted on any one booking.</td>
+      <td>Number of children requiring entry to the fasttrack.</td>
     </tr>
     <tr>
       <td>OutFlight</td>
@@ -135,20 +135,6 @@
       <td>[A-Z0-9] 9 chars</td>
       <td>N</td>
       <td>This is also known as an ‘flight number’. <br />Used to establish which terminal the customer is flying from using our look up tool and return products specific to that terminal.</td>
-    </tr>
-    <tr>
-      <td>System</td>
-      <td>String</td>
-      <td>[A-Z] 3 chars</td>
-      <td>Y*</td>
-      <td>For European products, you need to pass in the value of <code class="highlighter-rouge">System=ABG</code> (the default is <code class="highlighter-rouge">System=ABC</code>, which is UK products only).</td>
-    </tr>
-    <tr>
-      <td>lang</td>
-      <td>String</td>
-      <td>[A-Z] 2 chars</td>
-      <td>Y*</td>
-      <td>Required for requests for European products. (Values available are <code class="highlighter-rouge">en</code>, <code class="highlighter-rouge">de</code>, <code class="highlighter-rouge">it</code>, <code class="highlighter-rouge">es</code>, <code class="highlighter-rouge">pt</code> and <code class="highlighter-rouge">nl</code>.)</td>
     </tr>
   </tbody>
 </table>
