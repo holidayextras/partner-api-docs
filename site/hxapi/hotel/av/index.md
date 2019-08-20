@@ -49,6 +49,7 @@ NB: All parameter names are case sensitive.
  | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
  | lang        | String  | [A-Z] 2 chars | Y*       | Required for requests for European products. (Values available are `en`, `de`, `it`, `es`, `pt` and `nl`.)|
  | Terminal | String | [A-Z1-9] 1 char | N | An optional field when requesting hotel and parking that will filter the availble results to those that serve the given terminal. Terminal options can be found using the [Terminal](/hxapi/terminal) request, where the name of the terminal is a word only the first character is needed for this request ( eg. N for the North terminal ). |
+ | fields      | String  | [A-Z] a csv list of product info fields | N        | A list of product info fields can be passed in to return configurable product information e.g. `fields=name,address,latitude,sellingpoint`. |
 
 
 ## Hotel Availability Response
