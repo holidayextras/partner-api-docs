@@ -1,9 +1,14 @@
 sudo: false
 dist: trusty
 language: ruby
-cache:
 rvm:
   - 2.3.1
+cache:
+  directories:
+  - $HOME/tmp/.htmlproofer #https://github.com/gjtorikian/html-proofer/issues/381
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
 before_install:
   - gem update --system
   - gem --version

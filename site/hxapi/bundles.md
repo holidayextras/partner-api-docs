@@ -1,3 +1,7 @@
+---
+
+---
+
 # Bundles
 
 Some results that are returned from availability on the API will be what we call bundles, these consist of a main product, such as a hotel, bundled together with an additional supplement, like a dinner.
