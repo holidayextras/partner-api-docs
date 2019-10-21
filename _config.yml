@@ -26,6 +26,7 @@ include: ["CNAME"] # retain CNAME on deploy
 markdown: kramdown
 theme: minima
 highlighter: rouge
+permalink: pretty
 gems:
   - jekyll-feed
 defaults:

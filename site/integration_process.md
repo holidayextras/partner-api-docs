@@ -26,8 +26,8 @@ Please complete the [sign up form](https://docs.google.com/forms/d/e/1FAIpQLSd1H
 
 You are also required to submit one of the following finance forms to us, depending on your region:
 
-- For UK Partners: [Direct Debit Mandate](hxapi/DD_MANDATE_RBS_HX.pdf)
-- For European Partners: [SEPA Mandate](hxapi/SEPA_Basislastschriftmandat.pdf)
+- For UK Partners: [Direct Debit Mandate](/hxapi/DD_MANDATE_RBS_HX.pdf)
+- For European Partners: [SEPA Mandate](/hxapi/SEPA_Basislastschriftmandat.pdf)
 
 Once all the information has been received, we aim to set up the account within 48 hours (if submitted at weekends or bank holidays, this will not be processed until the following working day).
 

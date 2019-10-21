@@ -4,7 +4,7 @@
 
 # Lookup Locations
 
-[API Docs](/hxapi/) > product:[Car Hire](/hxapi/carhire) > endpoint:[locations](locations)
+[API Docs](/hxapi/) > product:[Car Hire](/hxapi/carhire) > endpoint:[locations](/hxapi/carhire/locations)
 
 ```html
 GET: /carHire/locations

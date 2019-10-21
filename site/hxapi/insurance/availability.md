@@ -28,7 +28,7 @@ For example, to request a quote for a policy covering Europe (low risk), the end
 https://api.holidayextras.co.uk/v1/insurancepolicy/EUROPELOW
 ```
 
-To find the list of available regions, please refer to the section on [insurance countries](countries).
+To find the list of available regions, please refer to the section on [insurance countries](/hxapi/insurance/countries).
 
 ### Request Parameters
 

@@ -4,7 +4,7 @@
 
 # Lookup Booking
 
-[API Docs](/hxapi/) > product:[Car Hire](/hxapi/carhire) > endpoint:[lookup booking](lookup)
+[API Docs](/hxapi/) > product:[Car Hire](/hxapi/carhire) > endpoint:[lookup booking](/hxapi/carhire/booking/lookup)
 
 ```html
 GET: /carHire-booking/YourBookingRef

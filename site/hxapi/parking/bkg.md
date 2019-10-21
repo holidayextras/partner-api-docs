@@ -4,7 +4,7 @@
 
 # Book Car Park
 
-[API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carpark](av) > [Make Booking](bkg)
+[API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carpark](/hxapi/parking/av) > [Make Booking](/hxapi/parking/bkg)
 
 ## Car Park Booking Request
 

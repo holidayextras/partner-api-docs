@@ -4,7 +4,7 @@
 
 # Availability
 
-[API Docs](/hxapi/) > product:[Car Hire](/hxapi/carhire) > endpoint:[availability](availability)
+[API Docs](/hxapi/) > product:[Car Hire](/hxapi/carhire) > endpoint:[availability](/hxapi/carhire/availability)
 
 ```html
 GET: /carHire/products
