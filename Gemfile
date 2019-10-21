@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.3.1"
+ruby "2.4.6"
 
 gem 'html-proofer'
 gem 'rake'
