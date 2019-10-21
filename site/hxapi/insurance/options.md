@@ -16,7 +16,7 @@ GET
 
 ### Endpoint
 
-To request the list of options available for the selected insurance scheme, the endpoint to use is (where `SchemeCode` is returned in the [insurance scheme availability response](availability)):
+To request the list of options available for the selected insurance scheme, the endpoint to use is (where `SchemeCode` is returned in the [insurance scheme availability response](/hxapi/insurance/availability)):
 
 ```
 https://api.holidayextras.co.uk/v1/insurancepolicy/SchemeCode
@@ -44,8 +44,8 @@ NB: All parameter names are case sensitive.
  | title[] | String | [A-Z] 4 chars | Y | Customer's title. All customers requiring inclusion on this policy must provide their title. You can add multiple people by enumerating each title in the format title[0], title[1], title[2], and so on. |
  | firstName[] | String | [A-Z] 15 chars | Y | Customer's first name. All customers requiring inclusion on this policy must provide their first name in full (initials will not be accepted). You can add multiple people by enumerating each first name in the format firstName[0], firstName[1], firstName[2], and so on. |
  | lastName[] | String | [A-Z] 15 chars | Y | Customer's last name. All customers requiring inclusion on this policy must provide their last name in full. You can add multiple people by enumerating each last name in the format lastName[0], lastName[1], lastName[2], and so on. |
- | destinationID | Integer | [0-9] 2 chars | Y | Found in the [insurance scheme availability response](availability) |
- | schemePrice | Float | [0-9] | Y | Found in the [insurance scheme availability response](availability) |
+ | destinationID | Integer | [0-9] 2 chars | Y | Found in the [insurance scheme availability response](/hxapi/insurance/availability) |
+ | schemePrice | Float | [0-9] | Y | Found in the [insurance scheme availability response](/hxapi/insurance/availability) |
 
 
 ## Insurance Schemes Options Response

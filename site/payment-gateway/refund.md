@@ -4,7 +4,7 @@
 
 # Payment Gateway: Refund
 
-[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Refund](refund)
+[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Refund](/payment-gateway/refund)
 
 ## Refund Request
 

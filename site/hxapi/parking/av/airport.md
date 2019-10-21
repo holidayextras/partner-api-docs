@@ -4,7 +4,7 @@
 
 # Availability At Airport
 
-[API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carpark](/hxapi/parking/av) > request:[Availability by Airport](airport)
+[API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carpark](/hxapi/parking/av) > request:[Availability by Airport](/hxapi/parking/av/airport)
 
 ## Airport Availability Request
 

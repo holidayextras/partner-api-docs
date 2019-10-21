@@ -4,7 +4,7 @@
 
 # Payment Gateway: Pay
 
-[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Pay](pay)
+[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Pay](/payment-gateway/pay)
 
 ## Payment Request
 

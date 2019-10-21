@@ -4,7 +4,7 @@
 
 # Availability At Car Park
 
-[API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carpark](/hxapi/parking/av) > [Availability by Carpark](carpark)
+[API Docs](/hxapi/) > product:[Parking](/hxapi/parking) > endpoint:[carpark](/hxapi/parking/av) > [Availability by Carpark](/hxapi/parking/av/carpark)
 
 ## Car Park Availability Request
 
