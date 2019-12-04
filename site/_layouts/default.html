@@ -22,12 +22,18 @@
   </head>
   <body>
     <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
-       <div class="container">
-         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
-       </div>
-     </nav>
+      <div class="container">
+        <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a>
+      </div>
+    </nav>
     <div class="container block-md">
       <main role="main">
+        <div class="pull-right" style="margin: 35px 20px">
+          <form method="get" action="/search">
+            <input type="text" id="search-box" name="query">
+            <input type="submit" value="Search">
+          </form>
+        </div>
         <div class="panel panel-primary">
           <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
             {{ content }}
