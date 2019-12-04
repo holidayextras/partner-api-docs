@@ -7,7 +7,7 @@
 
       for (var i = 0; i < results.length; i++) {
         var item = store[results[i].ref];
-        appendString += '<li style="margin-top: 20px">';
+        appendString += '<li>';
         appendString += '<a href="' + item.url + '"><h3>' + item.title + '</h3></a>';
         if (searchTerm) {
           var index = item.content.toLowerCase().indexOf(searchTerm.toLowerCase());
