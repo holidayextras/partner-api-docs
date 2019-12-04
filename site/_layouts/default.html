@@ -19,13 +19,35 @@
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+    <script>
+      window.store = {
+        {% for page in site.pages %}
+          "{{ page.url | slugify }}": {
+            "title": "{{ page.title | xml_escape }}",
+            "author": "{{ page.author | xml_escape }}",
+            "category": "{{ page.category | xml_escape }}",
+            "content": {{ page.content | strip_html | strip_newlines | jsonify }},
+            "url": "{{ page.url | xml_escape }}"
+          }
+          {% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      };
+    </script>
+    <script src="/js/lunr.js"></script>
   </head>
   <body>
     <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
        <div class="container">
-         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
+         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a>
        </div>
      </nav>
+     <form method="get">
+        <label for="search-box">Search</label>
+        <input type="text" id="search-box" name="query">
+        <input type="submit" value="search">
+      </form>
+
+      <ul id="search-results"></ul>
     <div class="container block-md">
       <main role="main">
         <div class="panel panel-primary">
@@ -34,5 +56,112 @@
         </div>
       </main>
     </div>
+
+    <script type="text/javascript">
+      function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split('&');
+
+        for (var i = 0; i < vars.length; i++) {
+          var pair = vars[i].split('=');
+
+          if (pair[0] === variable) {
+            return decodeURIComponent(pair[1].replace(/\+/g, '%20'));
+          }
+        }
+      }
+
+      var searchTerm = getQueryVariable('query');
+
+      function displaySearchResults(results, store) {
+        var searchResults = document.getElementById('search-results');
+
+        if (results.length) { // Are there any results?
+          var appendString = '';
+
+          for (var i = 0; i < results.length; i++) {  // Iterate over the results
+            var item = store[results[i].ref];
+            appendString += '<li><a href="' + item.url + '"><h3>' + item.title + '</h3></a>';
+            appendString += '<p>' + item.content.substring(0, 150) + '...</p></li>';
+          }
+
+          searchResults.innerHTML = appendString;
+        } else {
+          searchResults.innerHTML = '<li>No results found</li>';
+        }
+      }
+
+      if (searchTerm) {
+        document.getElementById('search-box').setAttribute("value", searchTerm);
+
+        // Initalize lunr with the fields it will be searching on. I've given title
+        // a boost of 10 to indicate matches on this field are more important.
+        var idx = lunr(function () {
+          this.field('id');
+          this.field('title', { boost: 10 });
+          this.field('author');
+          this.field('category');
+          this.field('content');
+
+          function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split('&');
+
+            for (var i = 0; i < vars.length; i++) {
+              var pair = vars[i].split('=');
+
+              if (pair[0] === variable) {
+                return decodeURIComponent(pair[1].replace(/\+/g, '%20'));
+              }
+            }
+          }
+
+          var searchTerm = getQueryVariable('query');
+
+          function displaySearchResults(results, store) {
+            var searchResults = document.getElementById('search-results');
+
+            if (results.length) { // Are there any results?
+              var appendString = '';
+
+              for (var i = 0; i < results.length; i++) {  // Iterate over the results
+                var item = store[results[i].ref];
+                appendString += '<li><a href="' + item.url + '"><h3>' + item.title + '</h3></a>';
+                appendString += '<p>' + item.content.substring(0, 150) + '...</p></li>';
+              }
+
+              searchResults.innerHTML = appendString;
+            } else {
+              searchResults.innerHTML = '<li>No results found</li>';
+            }
+          }
+
+          if (searchTerm) {
+            document.getElementById('search-box').setAttribute("value", searchTerm);
+
+            // Initalize lunr with the fields it will be searching on. I've given title
+            // a boost of 10 to indicate matches on this field are more important.
+            var idx = lunr(function () {
+              this.field('id');
+              this.field('title', { boost: 10 });
+              this.field('author');
+              this.field('category');
+              this.field('content');
+              for (var key in window.store) { // Add the data to lunr
+                this.add({
+                  'id': key,
+                  'title': window.store[key].title,
+                  'author': window.store[key].author,
+                  'category': window.store[key].category,
+                  'content': window.store[key].content
+                });
+              }
+            });
+            var results = idx.search(searchTerm); // Get lunr to perform a search
+            displaySearchResults(results, window.store); // We'll write this in the next section
+          }
+        });
+      }
+    </script>
   </body>
 </html>
