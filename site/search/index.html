@@ -5,6 +5,8 @@ layout: default
   <ul id="search-results"></ul>
 </div>
 
+<script src="/js/lunr-2-3-7.min.js"></script>
+<script src="/js/search.js"></script>
 <script>
   window.store = {
     {% for page in site.pages %}
@@ -16,6 +18,22 @@ layout: default
       {% unless forloop.last %},{% endunless %}
     {% endfor %}
   };
+
+  (function() {
+    // Once we're in the search page, we don't need to do a real page reload (form submission)
+    // because we already have the necessary data and lunr instance.
+    var isSearchPage = document.location.pathname.toLowerCase().indexOf('search') !== -1;
+    if (isSearchPage) {
+      var form = document.getElementById('search-form');
+      form.onsubmit = function(ev) {
+        ev.preventDefault();
+
+        window.history.pushState('', '', '/search/?query=' + document.getElementById('search-box').value);
+        SEARCH.search();
+      }
+    }
+
+    SEARCH.initialize()
+    SEARCH.search()
+  })();
 </script>
-<script src="/js/lunr-2-3-7.min.js"></script>
-<script src="/js/search.js"></script>
