@@ -15,6 +15,8 @@
     <meta name="description" content="{{ description }}">
     <link rel="stylesheet" href="/css/api-docs.css">
     <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
@@ -22,17 +24,24 @@
   </head>
   <body>
     <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
-       <div class="container">
-         <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a> 
-       </div>
-     </nav>
+      <div class="container">
+        <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a>
+      </div>
+    </nav>
     <div class="container block-md">
       <main role="main">
+        <div class="pull-right" style="margin: 35px 20px">
+          <form method="get" action="/search" id="search-form">
+            <input type="text" name="query" id="search-box">
+            <input type="submit" value="Search">
+          </form>
+        </div>
         <div class="panel panel-primary">
           <div class="panel-heading"><div class="h1">Holiday Extras API</div></div>
             {{ content }}
         </div>
       </main>
     </div>
+    <script src="/js/uikit.min.js"></script>
   </body>
 </html>
