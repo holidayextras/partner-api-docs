@@ -10,6 +10,8 @@
 
 This endpoint will take payment using a token and required payment parameters.
 
+**Note**: Token payment is currently available for Level 5 Germany agents only.
+
 ### Method
 
 POST
