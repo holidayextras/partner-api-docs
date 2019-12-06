@@ -371,100 +371,232 @@ Note the `.js` extension.
 
 NB: This is a shortened example compiled from a full availability response.
 
+{% codetabs %}
+{% codetab XML %}
 ```xml
 <?xml version="1.0"?>
-<API_Reply Product="CarPark" RequestCode="1" Result="OK" cached="1" expires="2017-05-26 18:26:20">
-    <CarPark>
-        <Name>Parkservice Sky München</Name>
-        <Code>MU01</Code>
-        <BookingURL>/carpark/FRMU01</BookingURL>
-        <MoreInfoURL>/product/MU01</MoreInfoURL>
-        <RequestFlags/>
-        <NonDiscPrice>35.00</NonDiscPrice>
-        <TotalPrice>35.00</TotalPrice>
-        <GatePrice>0.00</GatePrice>
-        <CancellationRule>0</CancellationRule>
-        <CarDetFlags>NNNNNNNNYYNYNNNNNN</CarDetFlags>
-        <CarDetails>Y</CarDetails>
-        <DiscDates/>
-        <QRCodeProduct>N</QRCodeProduct>
-        <Filter>
-            <car_parked_for_you>1</car_parked_for_you>
-            <meet_and_greet>0</meet_and_greet>
-            <on_airport/>
-            <recommended/>
-            <special_offer_text>1</special_offer_text>
-            <valet_included>0</valet_included>
-        </Filter>
-    </CarPark>
-    <CarPark>
-        <Name>Airparks Parkplatz München</Name>
-        <Code>MUC8</Code>
-        <BookingURL>/carpark/FRMUC8</BookingURL>
-        <MoreInfoURL>/product/MUC8</MoreInfoURL>
-        <RequestFlags/>
-        <NonDiscPrice>54.00</NonDiscPrice>
-        <TotalPrice>54.00</TotalPrice>
-        <GatePrice>0.00</GatePrice>
-        <CancellationRule>0</CancellationRule>
-        <CarDetFlags>NNNNNNNNNNNNNNNNNN</CarDetFlags>
-        <CarDetails>Y</CarDetails>
-        <DiscDates/>
-        <QRCodeProduct>N</QRCodeProduct>
-        <Filter>
-            <car_parked_for_you>1</car_parked_for_you>
-            <meet_and_greet>0</meet_and_greet>
-            <on_airport/>
-            <recommended>0</recommended>
-            <special_offer_text>0</special_offer_text>
-            <valet_included>0</valet_included>
-        </Filter>
-        <equivalent_product>MUCC</equivalent_product>
-    </CarPark>
-    <CarPark>
-        <Name>Airparks Parkplatz München Frühbucher</Name>
-        <Code>MUCC</Code>
-        <BookingURL>/carpark/FRMUCC</BookingURL>
-        <MoreInfoURL>/product/MUCC</MoreInfoURL>
-        <RequestFlags/>
-        <NonDiscPrice>49.00</NonDiscPrice>
-        <TotalPrice>49.00</TotalPrice>
-        <GatePrice>0.00</GatePrice>
-        <CancellationRule>0</CancellationRule>
-        <CarDetFlags>NNNNNNNNNNNNNNNNNN</CarDetFlags>
-        <CarDetails>Y</CarDetails>
-        <DiscDates/>
-        <QRCodeProduct>N</QRCodeProduct>
-        <Filter>
-            <car_parked_for_you>1</car_parked_for_you>
-            <meet_and_greet>0</meet_and_greet>
-            <on_airport/>
-            <recommended/>
-            <special_offer_text>1</special_offer_text>
-            <valet_included>0</valet_included>
-        </Filter>
-    </CarPark>
-    <Pricing>
-       <CCardSurchargePercent>0.00</CCardSurchargePercent>
-       <CCardSurchargeMin>0.00</CCardSurchargeMin>
-       <CCardSurchargeMax>0.00</CCardSurchargeMax>
-   </Pricing>
-   <SepaID>DE11ZZZ00000633860</SepaID>
-   <API_Header>
-       <Request>
-           <ABTANumber>YourABTANumber</ABTANumber>
-           <Password>YourPassword</Password>
-           <Initials>YourInitials</Initials>
-           <key>YourKey</key>
-           <token>YourToken</token>
-           <ArrivalDate>2017-12-01</ArrivalDate>
-           <ArrivalTime>1200</ArrivalTime>
-           <DepartDate>2017-12-08</DepartDate>
-           <DepartTime>1200</DepartTime>
-           <NumberOfPax>1</NumberOfPax>
-           <System>ABG</System>
-           <lang>de</lang>
-       </Request>
-   </API_Header>
+<API_Reply Product="CarPark" RequestCode="1" Result="OK" cached="1" expires="2019-12-06 18:07:40">
+  <CarPark>
+    <Name>Airparks Parkplatz München Frühbucher</Name>
+    <Code>MUCC</Code>
+    <BookingURL>/carpark/FRMUCC</BookingURL>
+    <MoreInfoURL>/product/MUCC</MoreInfoURL>
+    <RequestFlags/>
+    <NonDiscPrice>46.00</NonDiscPrice>
+    <TotalPrice>46.00</TotalPrice>
+    <GatePrice>0.00</GatePrice>
+    <CancellationRule>0</CancellationRule>
+    <CarDetFlags>NNNNNNNNNNNNNNNNNN</CarDetFlags>
+    <CarDetails>Y</CarDetails>
+    <DiscDates/>
+    <Filter>
+      <car_parked_for_you>1</car_parked_for_you>
+      <meet_and_greet>0</meet_and_greet>
+      <park_and_stroll/>
+      <on_airport/>
+      <recommended/>
+      <special_offer_text>1</special_offer_text>
+      <valet_included>0</valet_included>
+      <park_and_ride>1</park_and_ride>
+    </Filter>
+  </CarPark>
+  <CarPark>
+    <Name>Parkservice Sky München</Name>
+    <Code>MU01</Code>
+    <BookingURL>/carpark/FRMU01</BookingURL>
+    <MoreInfoURL>/product/MU01</MoreInfoURL>
+    <RequestFlags/>
+    <NonDiscPrice>28.00</NonDiscPrice>
+    <TotalPrice>28.00</TotalPrice>
+    <GatePrice>0.00</GatePrice>
+    <CancellationRule>0</CancellationRule>
+    <CarDetFlags>NNNNNNNNYYNYNNNNNN</CarDetFlags>
+    <CarDetails>Y</CarDetails>
+    <DiscDates/>
+    <Filter>
+      <car_parked_for_you>0</car_parked_for_you>
+      <meet_and_greet>0</meet_and_greet>
+      <park_and_stroll/>
+      <on_airport/>
+      <recommended/>
+      <special_offer_text>0</special_offer_text>
+      <valet_included>0</valet_included>
+      <park_and_ride>1</park_and_ride>
+    </Filter>
+  </CarPark>
+  <CarPark>
+    <Name>Parkservice Sky München Winteraktion</Name>
+    <Code>MU03</Code>
+    <BookingURL>/carpark/FRMU03</BookingURL>
+    <MoreInfoURL>/product/MU03</MoreInfoURL>
+    <RequestFlags/>
+    <NonDiscPrice>39.99</NonDiscPrice>
+    <TotalPrice>39.99</TotalPrice>
+    <GatePrice>0.00</GatePrice>
+    <CancellationRule>0</CancellationRule>
+    <CarDetFlags>NNNNNNNNYYNYNNNNNN</CarDetFlags>
+    <CarDetails>Y</CarDetails>
+    <DiscDates/>
+    <Filter>
+      <car_parked_for_you>0</car_parked_for_you>
+      <meet_and_greet>0</meet_and_greet>
+      <park_and_stroll/>
+      <on_airport/>
+      <recommended/>
+      <special_offer_text>1</special_offer_text>
+      <valet_included>0</valet_included>
+      <park_and_ride>1</park_and_ride>
+    </Filter>
+  </CarPark>
+  <Pricing>
+    <CCardSurchargePercent>0.00</CCardSurchargePercent>
+    <CCardSurchargeMin>0.00</CCardSurchargeMin>
+    <CCardSurchargeMax>0.00</CCardSurchargeMax>
+  </Pricing>
+  <SepaID>DE11ZZZ00000633860</SepaID>
+  <API_Header>
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <Initials>YourInitials</Initials>
+      <key>YourKey</key>
+      <token>YourToken</token>
+      <ArrivalDate>2020-01-07</ArrivalDate>
+      <ArrivalTime>1200</ArrivalTime>
+      <DepartDate>2020-01-08</DepartDate>
+      <DepartTime>1200</DepartTime>
+      <NumberOfPax>1</NumberOfPax>
+      <System>ABG</System>
+      <lang>en</lang>
+    </Request>
+  </API_Header>
 </API_Reply>
 ```
+{% endcodetab %}
+{% codetab JSON %}
+```json
+{
+  "API_Reply": {
+    "ATTRIBUTES": {
+      "Product": "CarPark",
+      "RequestCode": 1,
+      "Result": "OK",
+      "cached": true,
+      "expires": "2019-12-06 18:26:33"
+    },
+    "CarPark": [
+      {
+        "ATTRIBUTES": [],
+        "Name": "Airparks Parkplatz München Frühbucher",
+        "Code": "MUCC",
+        "BookingURL": "/carpark/FRMUCC.js",
+        "MoreInfoURL": "/product/MUCC.js",
+        "_latitude": 48.35101,
+        "_longitude": 11.8348,
+        "RequestFlags": {},
+        "NonDiscPrice": 46,
+        "TotalPrice": 46,
+        "GatePrice": "0.00",
+        "CancellationRule": "0",
+        "CarDetFlags": "NNNNNNNNNNNNNNNNNN",
+        "CarDetails": "Y",
+        "DiscDates": "",
+        "Filter": {
+          "car_parked_for_you": 1,
+          "meet_and_greet": "0",
+          "park_and_stroll": "",
+          "on_airport": null,
+          "recommended": null,
+          "special_offer_text": 1,
+          "valet_included": "0",
+          "park_and_ride": 1
+        }
+      },
+      {
+        "ATTRIBUTES": [],
+        "Name": "Parkservice Sky München",
+        "Code": "MU01",
+        "BookingURL": "/carpark/FRMU01.js",
+        "MoreInfoURL": "/product/MU01.js",
+        "_latitude": 48.384242,
+        "_longitude": 11.778148,
+        "RequestFlags": {},
+        "NonDiscPrice": 28,
+        "TotalPrice": 28,
+        "GatePrice": "0.00",
+        "CancellationRule": "0",
+        "CarDetFlags": "NNNNNNNNYYNYNNNNNN",
+        "CarDetails": "Y",
+        "DiscDates": "",
+        "Filter": {
+          "car_parked_for_you": "0",
+          "meet_and_greet": "0",
+          "park_and_stroll": "",
+          "on_airport": null,
+          "recommended": null,
+          "special_offer_text": "0",
+          "valet_included": "0",
+          "park_and_ride": 1
+        }
+      },
+      {
+        "ATTRIBUTES": [],
+        "Name": "Parkservice Sky München Winteraktion",
+        "Code": "MU03",
+        "BookingURL": "/carpark/FRMU03.js",
+        "MoreInfoURL": "/product/MU03.js",
+        "_latitude": 48.384242,
+        "_longitude": 11.778148,
+        "RequestFlags": {},
+        "NonDiscPrice": 39.99,
+        "TotalPrice": 39.99,
+        "GatePrice": "0.00",
+        "CancellationRule": "0",
+        "CarDetFlags": "NNNNNNNNYYNYNNNNNN",
+        "CarDetails": "Y",
+        "DiscDates": "",
+        "Filter": {
+          "car_parked_for_you": "0",
+          "meet_and_greet": "0",
+          "park_and_stroll": "",
+          "on_airport": null,
+          "recommended": null,
+          "special_offer_text": 1,
+          "valet_included": "0",
+          "park_and_ride": 1
+        }
+      }
+    ],
+    "Pricing": {
+      "CCardSurchargePercent": "0.00",
+      "CCardSurchargeMin": "0.00",
+      "CCardSurchargeMax": "0.00"
+    },
+    "SepaID": "DE11ZZZ00000633860",
+    "API_Header": {
+      "Request": {
+        "ABTANumber": "YourABTANumber",
+        "Password": "YourPassword",
+        "Initials": "YourInitials",
+        "key": "YourKey",
+        "token": "YourToken",
+        "ArrivalDate": "2020-01-07",
+        "ArrivalTime": 1200,
+        "DepartDate": "2020-01-08",
+        "DepartTime": 1200,
+        "NumberOfPax": 1,
+        "System": "ABG",
+        "lang": "en",
+        "format": "js"
+      }
+    }
+  }
+}
+```
+{% endcodetab %}
+{% endcodetabs %}
+
+
+
+
+
