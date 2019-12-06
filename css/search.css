@@ -1,0 +1,14 @@
+ul#search-results {
+  margin: 0;
+  list-style-position: inside;
+  list-style: disc;
+}
+
+ul#search-results > li {
+  margin: 15px 0;
+}
+
+ul#search-results > li > a,
+ul#search-results > li > h3 {
+  display: block;
+}
