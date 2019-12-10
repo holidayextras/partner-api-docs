@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/api-docs.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
@@ -52,7 +53,7 @@
 
 <p>The endpoint to use is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/flightUpdate
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/flightUpdate
 </code></pre></div></div>
 
 <h3 id="request-parameters">Request Parameters</h3>
@@ -110,9 +111,9 @@
 
 <h4 id="notification-url">Notification URL</h4>
 
-<p>If a <code class="highlighter-rouge">notification_url</code> <em>is</em> provided, the endpoint will return immediately, and asynchronously send the status for the requested booking once they have been actioned.</p>
+<p>If a <code class="language-plaintext highlighter-rouge">notification_url</code> <em>is</em> provided, the endpoint will return immediately, and asynchronously send the status for the requested booking once they have been actioned.</p>
 
-<p>If a <code class="highlighter-rouge">notification_url</code> <em>is not</em> provided, the endpoint will process the request data synchronously and return the result of the process in the response.</p>
+<p>If a <code class="language-plaintext highlighter-rouge">notification_url</code> <em>is not</em> provided, the endpoint will process the request data synchronously and return the result of the process in the response.</p>
 
 <h3 id="request-body-object-properties">Request Body Object Properties</h3>
 
@@ -202,7 +203,7 @@
 
 <h2 id="partner-notification">Partner Notification</h2>
 
-<p>Once the bookings contained in a request have been processed the status will be POST’ed back to the partner using the given <code class="highlighter-rouge">notification_url</code>.</p>
+<p>Once the bookings contained in a request have been processed the status will be POST’ed back to the partner using the given <code class="language-plaintext highlighter-rouge">notification_url</code>.</p>
 
 <p>The body of this POST request will contain well formed JSON in the following format:</p>
 
@@ -227,5 +228,6 @@
         </div>
       </main>
     </div>
+    <script src="/js/uikit.min.js"></script>
   </body>
 </html>

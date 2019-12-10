@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/api-docs.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
@@ -55,9 +56,9 @@
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p>The endpoint to use is (where <code class="highlighter-rouge">YourBookingRef</code> is the Holiday Extras booking reference):</p>
+<p>The endpoint to use is (where <code class="language-plaintext highlighter-rouge">YourBookingRef</code> is the Holiday Extras booking reference):</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef
 </code></pre></div></div>
 
 <h3 id="request-parameters">Request Parameters</h3>
@@ -117,14 +118,14 @@
       <td>String</td>
       <td>[A-Z] 3 chars</td>
       <td>Y*</td>
-      <td>For European products, you need to pass in the value of <code class="highlighter-rouge">System=ABG</code> (the default is <code class="highlighter-rouge">System=ABC</code>, which is UK products only).</td>
+      <td>For European products, you need to pass in the value of <code class="language-plaintext highlighter-rouge">System=ABG</code> (the default is <code class="language-plaintext highlighter-rouge">System=ABC</code>, which is UK products only).</td>
     </tr>
     <tr>
       <td>ConfirmCancel</td>
       <td>String</td>
       <td>1 chars</td>
       <td>Y</td>
-      <td>Set this to <code class="highlighter-rouge">N</code> for this initial step.</td>
+      <td>Set this to <code class="language-plaintext highlighter-rouge">N</code> for this initial step.</td>
     </tr>
     <tr>
       <td>CancelRef</td>
@@ -191,14 +192,14 @@
       <td>String</td>
       <td>[A-Z] 3 chars</td>
       <td>Y*</td>
-      <td>For European products, you need to pass in the value of <code class="highlighter-rouge">System=ABG</code> (the default is <code class="highlighter-rouge">System=ABC</code>, which is UK products only).</td>
+      <td>For European products, you need to pass in the value of <code class="language-plaintext highlighter-rouge">System=ABG</code> (the default is <code class="language-plaintext highlighter-rouge">System=ABC</code>, which is UK products only).</td>
     </tr>
     <tr>
       <td>ConfirmCancel</td>
       <td>String</td>
       <td>1 chars</td>
       <td>Y</td>
-      <td>Set this to <code class="highlighter-rouge">Y</code> for the cancellation step.</td>
+      <td>Set this to <code class="language-plaintext highlighter-rouge">Y</code> for the cancellation step.</td>
     </tr>
     <tr>
       <td>CancelRef</td>
@@ -347,7 +348,7 @@
 
 <p>The cancellation request must be POSTed against the following endpoint:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://payment.holidayextras.co.uk/legacy/
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://payment.holidayextras.co.uk/legacy/
 </code></pre></div></div>
 
 </div>
@@ -355,5 +356,6 @@
         </div>
       </main>
     </div>
+    <script src="/js/uikit.min.js"></script>
   </body>
 </html>

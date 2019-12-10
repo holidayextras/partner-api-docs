@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/api-docs.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
@@ -48,17 +49,17 @@
 
 <p>The endpoint to use is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/fastTrack/FastTrackCode
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/fastTrack/FastTrackCode
 </code></pre></div></div>
 
 <p>For example, for FastTrack Terminal 1 at Manchester airport the endpoint is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/fastTrack/APMANSF1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/fastTrack/APMANSF1
 </code></pre></div></div>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
-<p>The parameters <em>must</em> be sent in the body of the request, as <code class="highlighter-rouge">x-www-form-urlencoded</code> data.</p>
+<p>The parameters <em>must</em> be sent in the body of the request, as <code class="language-plaintext highlighter-rouge">x-www-form-urlencoded</code> data.</p>
 
 <p>NB: All parameter names are case sensitive.</p>
 
@@ -225,7 +226,7 @@
       <td>String</td>
       <td>[A-Z] 3 chars</td>
       <td>Y*</td>
-      <td>For European products, you need to pass in the value of <code class="highlighter-rouge">System=ABG</code> (the default is <code class="highlighter-rouge">System=ABC</code>, which is UK products only).</td>
+      <td>For European products, you need to pass in the value of <code class="language-plaintext highlighter-rouge">System=ABG</code> (the default is <code class="language-plaintext highlighter-rouge">System=ABC</code>, which is UK products only).</td>
     </tr>
     <tr>
       <td>Waiver</td>
@@ -286,7 +287,7 @@
 
 <h3 id="uk-products-booking-request">UK Products Booking Request</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/fastTrack/APMANSF11
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/fastTrack/APMANSF11
 </code></pre></div></div>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;Request&gt;</span>
@@ -363,5 +364,6 @@
         </div>
       </main>
     </div>
+    <script src="/js/uikit.min.js"></script>
   </body>
 </html>

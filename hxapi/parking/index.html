@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/api-docs.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
@@ -83,20 +84,20 @@
 
 <h4 id="merging-product-library-data-into-availability-response">Merging Product Library data into availability response</h4>
 
-<p>To save sending a separate <code class="highlighter-rouge">https</code> request for information from the Product Library, you can specify a comma-separated list of values to pull this information back with the availability request.</p>
+<p>To save sending a separate <code class="language-plaintext highlighter-rouge">https</code> request for information from the Product Library, you can specify a comma-separated list of values to pull this information back with the availability request.</p>
 
-<p>Just specify a parameter named <code class="highlighter-rouge">fields</code> and include the Product Library field names there.</p>
+<p>Just specify a parameter named <code class="language-plaintext highlighter-rouge">fields</code> and include the Product Library field names there.</p>
 
 <p>For example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&amp;fields=field_a,field_b,field_c
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&amp;fields=field_a,field_b,field_c
 </code></pre></div></div>
 
 <p>Alternatively, the method for querying the product library as a separate request <a href="/hxapi/productlibrary/parking">is outlined here</a>.</p>
 
 <h4 id="advance-purchase">Advance purchase</h4>
 
-<p>There is a field in the Product Library for car parks, named <code class="highlighter-rouge">advance_purchase</code>. Advance purchase products are non-refundable and non-cancellable. As a result, the Cancellation Waiver must not be sold to customers purchasing a product with <code class="highlighter-rouge">advance_purchase</code> set to 1.</p>
+<p>There is a field in the Product Library for car parks, named <code class="language-plaintext highlighter-rouge">advance_purchase</code>. Advance purchase products are non-refundable and non-cancellable. As a result, the Cancellation Waiver must not be sold to customers purchasing a product with <code class="language-plaintext highlighter-rouge">advance_purchase</code> set to 1.</p>
 
 <h4 id="request-flags">Request flags</h4>
 
@@ -105,12 +106,13 @@
 <p>There are occasions where your booking will go through without sending this information but can fail later when importing the bookings to car parks. This causes us considerable administrative difficulties and may result in your customer’s booking being cancelled without notice.</p>
 
 <h4 id="good-to-go-meet-and-greet">Good to go meet and greet</h4>
-<p>New product types which are amendable by dates and times but cannot be cancelled.  The response will return <code class="highlighter-rouge">CanAmendCantCancel</code> set to either 1 or 0.</p>
+<p>New product types which are amendable by dates and times but cannot be cancelled.  The response will return <code class="language-plaintext highlighter-rouge">CanAmendCantCancel</code> set to either 1 or 0.</p>
 
 </div>
 
         </div>
       </main>
     </div>
+    <script src="/js/uikit.min.js"></script>
   </body>
 </html>

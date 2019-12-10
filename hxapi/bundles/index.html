@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/api-docs.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
@@ -44,7 +45,7 @@
 
 <h2 id="availability">Availability</h2>
 
-<p>Bundles can be identified by their product code, which has an additional element preceding the main product code joined by a <code class="highlighter-rouge">+</code>.</p>
+<p>Bundles can be identified by their product code, which has an additional element preceding the main product code joined by a <code class="language-plaintext highlighter-rouge">+</code>.</p>
 
 <p>E.g</p>
 
@@ -57,13 +58,13 @@
 </code></pre></div></div>
 
 <p>The price given will be for the entire bundle including the supplement with the current passenger quantity ( determined by the given <a href="/hxapi/types/roomcode">room code</a> ).
-A <a href="/hxapi/productlibrary">product library</a> request can be made with the complete bundle product code to get content related to the package as a whole instead of simply the main product. E.g <code class="highlighter-rouge">/v1/product/MANCCT+B519</code></p>
+A <a href="/hxapi/productlibrary">product library</a> request can be made with the complete bundle product code to get content related to the package as a whole instead of simply the main product. E.g <code class="language-plaintext highlighter-rouge">/v1/product/MANCCT+B519</code></p>
 
 <h2 id="booking">Booking</h2>
 
-<p>The <code class="highlighter-rouge">BookingURL</code> element will contain the full product code that must be supplied when a bundle is to be booked, this will ensure that system books the main product as well as the appropriate supplement. When booking a bundle on a hotel search the quantity of the supplement will be determined by the given room occupancy in the <code class="highlighter-rouge">Adults</code> and <code class="highlighter-rouge">Children</code> fields.</p>
+<p>The <code class="language-plaintext highlighter-rouge">BookingURL</code> element will contain the full product code that must be supplied when a bundle is to be booked, this will ensure that system books the main product as well as the appropriate supplement. When booking a bundle on a hotel search the quantity of the supplement will be determined by the given room occupancy in the <code class="language-plaintext highlighter-rouge">Adults</code> and <code class="language-plaintext highlighter-rouge">Children</code> fields.</p>
 
-<p>The booking response for a bundle booking will show the main product and the booked supplement as seperate elements. The <code class="highlighter-rouge">TotalPrice</code> field will contain the full price of the booking, but the supplement price will also be shown separately under the <code class="highlighter-rouge">CurrentSupplements</code> block.</p>
+<p>The booking response for a bundle booking will show the main product and the booked supplement as seperate elements. The <code class="language-plaintext highlighter-rouge">TotalPrice</code> field will contain the full price of the booking, but the supplement price will also be shown separately under the <code class="language-plaintext highlighter-rouge">CurrentSupplements</code> block.</p>
 
 <p>E.g</p>
 
@@ -113,12 +114,13 @@ A <a href="/hxapi/productlibrary">product library</a> request can be made with t
 
 <h2 id="post-booking">Post Booking</h2>
 
-<p>A bundle booking can be amended or cancelled following the same rules as a general product. The supplement has a <code class="highlighter-rouge">Canx</code> field in the booking response that will define if that particular add-on can be cancelled as part of the booking. It is not currently possible to amend the quantity of the supplement or remove it from the booking using the API.</p>
+<p>A bundle booking can be amended or cancelled following the same rules as a general product. The supplement has a <code class="language-plaintext highlighter-rouge">Canx</code> field in the booking response that will define if that particular add-on can be cancelled as part of the booking. It is not currently possible to amend the quantity of the supplement or remove it from the booking using the API.</p>
 
 </div>
 
         </div>
       </main>
     </div>
+    <script src="/js/uikit.min.js"></script>
   </body>
 </html>

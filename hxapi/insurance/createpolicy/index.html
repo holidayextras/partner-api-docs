@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/api-docs.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
@@ -60,9 +61,9 @@
 
 <h3 id="endpoint">Endpoint</h3>
 
-<p>To create an insurance policy, the endpoint to use is (where <code class="highlighter-rouge">CertificateRef</code> is returned in the options response):</p>
+<p>To create an insurance policy, the endpoint to use is (where <code class="language-plaintext highlighter-rouge">CertificateRef</code> is returned in the options response):</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/insurancepolicy/CertificateRef
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/insurancepolicy/CertificateRef
 </code></pre></div></div>
 
 <h3 id="request-parameters">Request Parameters</h3>
@@ -153,7 +154,7 @@
       <td>Array</td>
       <td>[A-Z0-9]</td>
       <td>N</td>
-      <td>Per policy options require <code class="highlighter-rouge">schemeoptionID</code>, <code class="highlighter-rouge">optionRateID</code>, <code class="highlighter-rouge">optionPrice</code> and <code class="highlighter-rouge">optionIPT</code>. Per person options also require the <code class="highlighter-rouge">CertificateClientID</code> of the person they are for. Per person options can be submitted multiple times with different CertificateClientIDs. This should be sent as a multidimensional array/hash. See the worked examples below for more information.</td>
+      <td>Per policy options require <code class="language-plaintext highlighter-rouge">schemeoptionID</code>, <code class="language-plaintext highlighter-rouge">optionRateID</code>, <code class="language-plaintext highlighter-rouge">optionPrice</code> and <code class="language-plaintext highlighter-rouge">optionIPT</code>. Per person options also require the <code class="language-plaintext highlighter-rouge">CertificateClientID</code> of the person they are for. Per person options can be submitted multiple times with different CertificateClientIDs. This should be sent as a multidimensional array/hash. See the worked examples below for more information.</td>
     </tr>
   </tbody>
 </table>
@@ -214,7 +215,7 @@
     </tr>
     <tr>
       <td>Scheme</td>
-      <td>This block provides a summary of the scheme details, including links to the policy wording and key facts. It also returns the <code class="highlighter-rouge">PolicyNumber</code>, which is required in all communication with us post booking, including where the customer needs to make a claim.</td>
+      <td>This block provides a summary of the scheme details, including links to the policy wording and key facts. It also returns the <code class="language-plaintext highlighter-rouge">PolicyNumber</code>, which is required in all communication with us post booking, including where the customer needs to make a claim.</td>
     </tr>
     <tr>
       <td>PolicyOptions</td>
@@ -259,10 +260,10 @@
 
 <h3 id="create-insurance-policy-request-1">Create Insurance Policy Request</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/insurancepolicy/YourCertificateRef
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/insurancepolicy/YourCertificateRef
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;Request&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;Request&gt;
       &lt;ABTANumber&gt;YourABTANumber&lt;/ABTANumber&gt;
       &lt;Password&gt;YourPassword&lt;/Password&gt;
       &lt;key&gt;YourKey&lt;/key&gt;
@@ -406,5 +407,6 @@
         </div>
       </main>
     </div>
+    <script src="/js/uikit.min.js"></script>
   </body>
 </html>

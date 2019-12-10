@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/api-docs.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
@@ -67,11 +68,11 @@
 
 <h3 id="api-design">API Design</h3>
 
-<p>Our API has been designed following <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful principles</a>. Every request is made over <code class="highlighter-rouge">https</code> using the standard method. For data retrieval, you always use the GET method. For making a booking (thus creating a new resource), the POST method must be used.</p>
+<p>Our API has been designed following <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful principles</a>. Every request is made over <code class="language-plaintext highlighter-rouge">https</code> using the standard method. For data retrieval, you always use the GET method. For making a booking (thus creating a new resource), the POST method must be used.</p>
 
 <p>A single URL can have different functions depending on the method used to access it. Using the following URL as an example with each method:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/LGW2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/LGW2
 </code></pre></div></div>
 
 <p>GET - returns availability and pricing information for that car park;</p>
@@ -97,17 +98,17 @@
   <li>.js</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?key=YourKey
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?key=YourKey
 </code></pre></div></div>
 
 <p>is the same as</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.xml?key=YourKey
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.xml?key=YourKey
 </code></pre></div></div>
 
 <p>The same query, with results in javascript</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.js?key=YourKey
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.js?key=YourKey
 </code></pre></div></div>
 
 <h3 id="user-journey">User Journey</h3>
@@ -144,5 +145,6 @@
         </div>
       </main>
     </div>
+    <script src="/js/uikit.min.js"></script>
   </body>
 </html>

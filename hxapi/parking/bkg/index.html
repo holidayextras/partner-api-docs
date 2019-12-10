@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/api-docs.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
@@ -50,17 +51,17 @@
 
 <p>The endpoint to use is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/CarParkCode
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/CarParkCode
 </code></pre></div></div>
 
 <p>For example, for <em>Maple Manor Meet and Greet at London Gatwick North terminal</em> the endpoint is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/LGW4
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/LGW4
 </code></pre></div></div>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
-<p>The parameters <em>must</em> be sent in the body of the request, as <code class="highlighter-rouge">x-www-form-urlencoded</code> data.</p>
+<p>The parameters <em>must</em> be sent in the body of the request, as <code class="language-plaintext highlighter-rouge">x-www-form-urlencoded</code> data.</p>
 
 <p>NB: All parameter names are case sensitive.</p>
 
@@ -220,7 +221,7 @@
       <td>String</td>
       <td>[A-Z] 3 chars</td>
       <td>Y*</td>
-      <td>For European products, you need to pass in the value of <code class="highlighter-rouge">System=ABG</code> (the default is <code class="highlighter-rouge">System=ABC</code>, which is UK products only).</td>
+      <td>For European products, you need to pass in the value of <code class="language-plaintext highlighter-rouge">System=ABG</code> (the default is <code class="language-plaintext highlighter-rouge">System=ABC</code>, which is UK products only).</td>
     </tr>
   </tbody>
 </table>
@@ -233,11 +234,11 @@
 
 <h4 id="uk-products">UK Products</h4>
 
-<p>The <code class="highlighter-rouge">&lt;RequestFlags&gt;</code> field dictates which fields need to be sent as part of the booking request.</p>
+<p>The <code class="language-plaintext highlighter-rouge">&lt;RequestFlags&gt;</code> field dictates which fields need to be sent as part of the booking request.</p>
 
 <h4 id="european-products">European Products</h4>
 
-<p>The availability response will return a list of 18 flags in the <code class="highlighter-rouge">&lt;CarDetFlags&gt;</code> field with a yes/no response to indicate if required. The order of the flags is always the same.</p>
+<p>The availability response will return a list of 18 flags in the <code class="language-plaintext highlighter-rouge">&lt;CarDetFlags&gt;</code> field with a yes/no response to indicate if required. The order of the flags is always the same.</p>
 
 <h3 id="payment">Payment</h3>
 
@@ -250,10 +251,10 @@
 <p>It is important that the customer has access to the Terms and Conditions at the time of placing their booking and after. We highly recommend that these are made clear to the customer <em>before</em> booking.</p>
 
 <p>For European products, please use the following link:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://www.holidayextras.de/images/de-hx/pdf/agb.pdf
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://www.holidayextras.de/images/de-hx/pdf/agb.pdf
 </code></pre></div></div>
 
-<p>If you require translations of Terms and Conditions into other languages, you can simply change <code class="highlighter-rouge">/de-hx/</code> (German) into <code class="highlighter-rouge">nl-hx</code> (Dutch), <code class="highlighter-rouge">it-hex</code> (Italian), <code class="highlighter-rouge">pt-hx</code> (Portuguese), <code class="highlighter-rouge">fr-hx</code> (French), <code class="highlighter-rouge">es-hx</code> (Spanish) or <code class="highlighter-rouge">en-hx</code> (English).</p>
+<p>If you require translations of Terms and Conditions into other languages, you can simply change <code class="language-plaintext highlighter-rouge">/de-hx/</code> (German) into <code class="language-plaintext highlighter-rouge">nl-hx</code> (Dutch), <code class="language-plaintext highlighter-rouge">it-hex</code> (Italian), <code class="language-plaintext highlighter-rouge">pt-hx</code> (Portuguese), <code class="language-plaintext highlighter-rouge">fr-hx</code> (French), <code class="language-plaintext highlighter-rouge">es-hx</code> (Spanish) or <code class="language-plaintext highlighter-rouge">en-hx</code> (English).</p>
 
 <h2 id="car-park-booking-response">Car Park Booking Response</h2>
 
@@ -436,7 +437,7 @@
 
 <h3 id="european-products-booking-request">European Products Booking Request</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/MU01
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/MU01
 </code></pre></div></div>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Request&gt;</span>
@@ -467,9 +468,9 @@
         <span class="nt">&lt;/Request&gt;</span>
 </code></pre></div></div>
 
-<p>The <code class="highlighter-rouge">PdfUrl</code> field contains a URL that can be used to retrieve a PDF copy of
+<p>The <code class="language-plaintext highlighter-rouge">PdfUrl</code> field contains a URL that can be used to retrieve a PDF copy of
 the confirmation email. Note that you will need to append the fields
-<code class="highlighter-rouge">ABTANumber</code>, <code class="highlighter-rouge">Password</code> and <code class="highlighter-rouge">key</code> to the link in order to authenticate.</p>
+<code class="language-plaintext highlighter-rouge">ABTANumber</code>, <code class="language-plaintext highlighter-rouge">Password</code> and <code class="language-plaintext highlighter-rouge">key</code> to the link in order to authenticate.</p>
 
 <p>Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test@holidayextras.com&amp;booking_ref=HPABCDE&amp;product_type=carparks&amp;ABTANumber=WT314&amp;Password=redacted&amp;key=mytestkey</p>
 
@@ -547,9 +548,9 @@ the confirmation email. Note that you will need to append the fields
 <span class="nt">&lt;/API_Reply&gt;</span>
 </code></pre></div></div>
 
-<p>The <code class="highlighter-rouge">PdfUrl</code> field contains a URL that can be used to retrieve a PDF copy of
+<p>The <code class="language-plaintext highlighter-rouge">PdfUrl</code> field contains a URL that can be used to retrieve a PDF copy of
 the confirmation email. Note that you will need to append the fields
-<code class="highlighter-rouge">ABTANumber</code>, <code class="highlighter-rouge">Password</code> and <code class="highlighter-rouge">key</code> to the link in order to authenticate.</p>
+<code class="language-plaintext highlighter-rouge">ABTANumber</code>, <code class="language-plaintext highlighter-rouge">Password</code> and <code class="language-plaintext highlighter-rouge">key</code> to the link in order to authenticate.</p>
 
 <p>Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40holidayextras.com&amp;booking_ref=FRABCDE&amp;product_type=carparks&amp;ABTANumber=WT314&amp;Password=redacted&amp;key=mytestkey</p>
 
@@ -558,5 +559,6 @@ the confirmation email. Note that you will need to append the fields
         </div>
       </main>
     </div>
+    <script src="/js/uikit.min.js"></script>
   </body>
 </html>

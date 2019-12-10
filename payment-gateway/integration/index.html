@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/api-docs.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
@@ -67,11 +68,11 @@
 
 <h3 id="1-ask-for-authentication-credentials">1. Ask for authentication credentials</h3>
 
-<p>You need to contact your Holiday Extras representative to get your authentication credentials created. These credentials are required with every request made to the Payment Gateway endpoints. Without them, you will not be able to access these endpoints. The authentication credentials should be passed in an <code class="highlighter-rouge">auth</code> header, demonstrated in each of endpoints documentation.</p>
+<p>You need to contact your Holiday Extras representative to get your authentication credentials created. These credentials are required with every request made to the Payment Gateway endpoints. Without them, you will not be able to access these endpoints. The authentication credentials should be passed in an <code class="language-plaintext highlighter-rouge">auth</code> header, demonstrated in each of endpoints documentation.</p>
 
 <h3 id="2-ask-for-a-channel">2. Ask for a channel</h3>
 
-<p>When integrating with the Payment Gateway, we will provide you with a channel to pass in the body of every request. This is for us to use to determine who is using our Payment Gateway. Please see the endpoint documentation for usage on the <code class="highlighter-rouge">channel</code> parameter.</p>
+<p>When integrating with the Payment Gateway, we will provide you with a channel to pass in the body of every request. This is for us to use to determine who is using our Payment Gateway. Please see the endpoint documentation for usage on the <code class="language-plaintext highlighter-rouge">channel</code> parameter.</p>
 
 <h3 id="3-integrate-the-frontend-payment-script">3. Integrate the frontend payment script</h3>
 
@@ -108,7 +109,7 @@
 
 <p><strong>NOTE:</strong> When you’re integrating the payment script you will need to use its staging version located at https://payment-gateway-staging.holidayextras.co.uk/payment.staging.1.0.0.min.js</p>
 
-<p>The <code class="highlighter-rouge">defaultToPayframe</code> option is provided for making the integration process easier as it removes the additional security step we have in our contact centre. The solution we have requires additional telephony software that we use which is not provided with this API. Not having the telephony solution when integrating the payment script would make it impossible to complete the integration, so this option just disables that step (only in the staging environment).</p>
+<p>The <code class="language-plaintext highlighter-rouge">defaultToPayframe</code> option is provided for making the integration process easier as it removes the additional security step we have in our contact centre. The solution we have requires additional telephony software that we use which is not provided with this API. Not having the telephony solution when integrating the payment script would make it impossible to complete the integration, so this option just disables that step (only in the staging environment).</p>
 
 <p>The placeholder div is used by the payment script to put the appropriate DOM elements it needs in order to get the customer card details.</p>
 
@@ -131,5 +132,6 @@
         </div>
       </main>
     </div>
+    <script src="/js/uikit.min.js"></script>
   </body>
 </html>

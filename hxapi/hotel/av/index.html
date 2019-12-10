@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/api-docs.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
@@ -46,17 +47,17 @@
 
 <p>The endpoint to use is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LocationCode
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LocationCode
 </code></pre></div></div>
 
 <p>For example, for London Heathrow the endpoint is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHR
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHR
 </code></pre></div></div>
 
 <p>If you know the specific hotel code, then you can request availability by entering that into the endpoint. For example, for the Hilton at London Heathrow the endpoint is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHRHIL
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHRHIL
 </code></pre></div></div>
 
 <p>To find the airport locations available for hotels, please refer to the <a href="/hxapi/locations">locations endpoint.</a></p>
@@ -151,14 +152,14 @@
       <td>String</td>
       <td>[A-Z] 3 chars</td>
       <td>Y*</td>
-      <td>For European products, you need to pass in the value of <code class="highlighter-rouge">System=ABG</code> (the default is <code class="highlighter-rouge">System=ABC</code>, which is UK products only).</td>
+      <td>For European products, you need to pass in the value of <code class="language-plaintext highlighter-rouge">System=ABG</code> (the default is <code class="language-plaintext highlighter-rouge">System=ABC</code>, which is UK products only).</td>
     </tr>
     <tr>
       <td>lang</td>
       <td>String</td>
       <td>[A-Z] 2 chars</td>
       <td>Y*</td>
-      <td>Required for requests for European products. (Values available are <code class="highlighter-rouge">en</code>, <code class="highlighter-rouge">de</code>, <code class="highlighter-rouge">it</code>, <code class="highlighter-rouge">es</code>, <code class="highlighter-rouge">pt</code> and <code class="highlighter-rouge">nl</code>.)</td>
+      <td>Required for requests for European products. (Values available are <code class="language-plaintext highlighter-rouge">en</code>, <code class="language-plaintext highlighter-rouge">de</code>, <code class="language-plaintext highlighter-rouge">it</code>, <code class="language-plaintext highlighter-rouge">es</code>, <code class="language-plaintext highlighter-rouge">pt</code> and <code class="language-plaintext highlighter-rouge">nl</code>.)</td>
     </tr>
     <tr>
       <td>Terminal</td>
@@ -172,7 +173,7 @@
       <td>String</td>
       <td>[A-Z] a csv list of product info fields</td>
       <td>N</td>
-      <td>A list of product info fields can be passed in to return configurable product information e.g. <code class="highlighter-rouge">fields=name,address,latitude,sellingpoint</code>.</td>
+      <td>A list of product info fields can be passed in to return configurable product information e.g. <code class="language-plaintext highlighter-rouge">fields=name,address,latitude,sellingpoint</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -199,7 +200,7 @@
     </tr>
     <tr>
       <td>Hotel/RequestFlags</td>
-      <td>These flags list which details the car park operator requires from the customer. If a flag is returned with a ‘Y’ your application should send the corresponding field/value in the booking request. <br />Flags are only returned when required. The flags which can be returned are: <code class="highlighter-rouge">Registration</code>, <code class="highlighter-rouge">CarMake</code>, <code class="highlighter-rouge">CarModel</code>, <code class="highlighter-rouge">CarColour</code>, <code class="highlighter-rouge">OutFlight</code>, <code class="highlighter-rouge">ReturnFlight</code>, <code class="highlighter-rouge">OutTerminal</code>, <code class="highlighter-rouge">ReturnTerminal</code>, <code class="highlighter-rouge">Destination</code>, <code class="highlighter-rouge">MobileNum</code></td>
+      <td>These flags list which details the car park operator requires from the customer. If a flag is returned with a ‘Y’ your application should send the corresponding field/value in the booking request. <br />Flags are only returned when required. The flags which can be returned are: <code class="language-plaintext highlighter-rouge">Registration</code>, <code class="language-plaintext highlighter-rouge">CarMake</code>, <code class="language-plaintext highlighter-rouge">CarModel</code>, <code class="language-plaintext highlighter-rouge">CarColour</code>, <code class="language-plaintext highlighter-rouge">OutFlight</code>, <code class="language-plaintext highlighter-rouge">ReturnFlight</code>, <code class="language-plaintext highlighter-rouge">OutTerminal</code>, <code class="language-plaintext highlighter-rouge">ReturnTerminal</code>, <code class="language-plaintext highlighter-rouge">Destination</code>, <code class="language-plaintext highlighter-rouge">MobileNum</code></td>
     </tr>
     <tr>
       <td>Hotel/Price</td>
@@ -248,7 +249,7 @@
   </tbody>
 </table>
 
-<p>* Where two rooms have been requested, these fields represent the total of adults and children across all rooms. Additional fields will show the individual room occupancy:  <code class="highlighter-rouge">FirstRoomAdults</code>, <code class="highlighter-rouge">FirstRoomChildren</code>, <code class="highlighter-rouge">SecondRoomAdults</code> and <code class="highlighter-rouge">SecondRoomChildren</code>.</p>
+<p>* Where two rooms have been requested, these fields represent the total of adults and children across all rooms. Additional fields will show the individual room occupancy:  <code class="language-plaintext highlighter-rouge">FirstRoomAdults</code>, <code class="language-plaintext highlighter-rouge">FirstRoomChildren</code>, <code class="language-plaintext highlighter-rouge">SecondRoomAdults</code> and <code class="language-plaintext highlighter-rouge">SecondRoomChildren</code>.</p>
 
 <h2 id="key-information-on-hotels">Key Information on Hotels</h2>
 
@@ -256,21 +257,21 @@
 
 <h3 id="advance-purchase">Advance purchase</h3>
 
-<p>Advance purchase products are non-refundable and non-cancellable. As a result, Cancellation Waiver must <em>not</em> be sold to customers purchasing a product with <code class="highlighter-rouge">advance_purchase</code> set to 1.</p>
+<p>Advance purchase products are non-refundable and non-cancellable. As a result, Cancellation Waiver must <em>not</em> be sold to customers purchasing a product with <code class="language-plaintext highlighter-rouge">advance_purchase</code> set to 1.</p>
 
 <h3 id="day-use-only">Day Use Only</h3>
 
-<p>There is a field in the product library for hotels, named <code class="highlighter-rouge">day_use_only</code>. Day use products must not be sold to customers wishing to have an overnight stay where <code class="highlighter-rouge">day_use_only</code> is set to 1.</p>
+<p>There is a field in the product library for hotels, named <code class="language-plaintext highlighter-rouge">day_use_only</code>. Day use products must not be sold to customers wishing to have an overnight stay where <code class="language-plaintext highlighter-rouge">day_use_only</code> is set to 1.</p>
 
 <h3 id="parking-includes-arrival">Parking Includes Arrival</h3>
 
-<p>In order to establish whether the package includes parking for the night of the hotel stay the <code class="highlighter-rouge">parking_includes_arrival</code> field needs to be taken into account.</p>
+<p>In order to establish whether the package includes parking for the night of the hotel stay the <code class="language-plaintext highlighter-rouge">parking_includes_arrival</code> field needs to be taken into account.</p>
 
 <p>Where this field is set to 0, this means the night of the hotel stay is not included as there is free overnight parking. Parking stay will start from the following day. Where it is set to 1, this means that parking starts from the date the customer checks into the hotel.</p>
 
 <h3 id="mystery--un-named-products">Mystery / Un-named Products</h3>
 
-<p>There are some hotels in which the name field will not provide the name of the hotel e.g <code class="highlighter-rouge">&lt;Name&gt;Mystery 4-star hotel&lt;/Name&gt;</code>.  The name of these hotels should not be provided to the customer until the booking is made, along with other identifying details such as address, hotel images, restaurant names etc.</p>
+<p>There are some hotels in which the name field will not provide the name of the hotel e.g <code class="language-plaintext highlighter-rouge">&lt;Name&gt;Mystery 4-star hotel&lt;/Name&gt;</code>.  The name of these hotels should not be provided to the customer until the booking is made, along with other identifying details such as address, hotel images, restaurant names etc.</p>
 
 <h3 id="lead-time-cancellation">Lead time cancellation</h3>
 
@@ -296,7 +297,7 @@
 
 <h3 id="uk-hotel-availability-request---room-only-zero-days-parking">UK Hotel Availability Request - Room Only (zero days parking)</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHR?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;Nights=1&amp;RoomType=T21&amp;ParkingDays=0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHR?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;Nights=1&amp;RoomType=T21&amp;ParkingDays=0
 </code></pre></div></div>
 
 <h3 id="uk-hotel-availability-response---room-only-zero-days-parking">UK Hotel Availability Response - Room Only (zero days parking)</h3>
@@ -394,7 +395,7 @@
 
 <h3 id="uk-hotel-availability-request---room-with-parking">UK Hotel Availability Request - Room with Parking</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHR?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;Nights=1&amp;RoomType=T21&amp;ParkingDays=8
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHR?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;Nights=1&amp;RoomType=T21&amp;ParkingDays=8
 </code></pre></div></div>
 
 <h3 id="uk-hotel-availability-response---room-with-parking">UK Hotel Availability Response - Room with Parking</h3>
@@ -497,7 +498,7 @@
 
 <h3 id="european-hotel-availability-request---room-with-parking">European Hotel Availability Request - Room with Parking</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/MUC?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;Nights=1&amp;RoomType=D20&amp;ParkingDays=8&amp;System=ABG&amp;lang=de
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/MUC?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;Nights=1&amp;RoomType=D20&amp;ParkingDays=8&amp;System=ABG&amp;lang=de
 </code></pre></div></div>
 
 <h3 id="european-hotel-availability-response---room-with-parking">European Hotel Availability Response - Room with Parking</h3>
@@ -580,5 +581,6 @@
         </div>
       </main>
     </div>
+    <script src="/js/uikit.min.js"></script>
   </body>
 </html>

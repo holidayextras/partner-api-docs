@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/api-docs.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
@@ -48,12 +49,12 @@
 
 <p>The endpoint to use is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://payment.holidayextras.co.uk/legacy/carpark/CarParkCode
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://payment.holidayextras.co.uk/legacy/carpark/CarParkCode
 </code></pre></div></div>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
-<p>The parameters <em>must</em> be sent in the body of the request, as <code class="highlighter-rouge">x-www-form-urlencoded</code> data.</p>
+<p>The parameters <em>must</em> be sent in the body of the request, as <code class="language-plaintext highlighter-rouge">x-www-form-urlencoded</code> data.</p>
 
 <p>NB: All parameter names are case sensitive.</p>
 
@@ -87,7 +88,7 @@
       <td>String</td>
       <td>[A-Z] 3 chars</td>
       <td>Y</td>
-      <td>This always defaults to <code class="highlighter-rouge">BJT</code>.</td>
+      <td>This always defaults to <code class="language-plaintext highlighter-rouge">BJT</code>.</td>
     </tr>
     <tr>
       <td>key</td>
@@ -197,7 +198,7 @@
   </tbody>
 </table>
 
-<p>§ The fields required by the carpark are returned in the availability request, in the <code class="highlighter-rouge">&lt;RequestFlags&gt;</code> element.</p>
+<p>§ The fields required by the carpark are returned in the availability request, in the <code class="language-plaintext highlighter-rouge">&lt;RequestFlags&gt;</code> element.</p>
 
 <h3 id="request-flags">Request flags</h3>
 
@@ -349,5 +350,6 @@
         </div>
       </main>
     </div>
+    <script src="/js/uikit.min.js"></script>
   </body>
 </html>

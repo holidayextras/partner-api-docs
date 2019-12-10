@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/api-docs.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
@@ -48,12 +49,12 @@
 
 <p>The endpoint to use is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/lounge/AirportCode
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/lounge/AirportCode
 </code></pre></div></div>
 
 <p>For example, for lounge availability at Gatwick the endpoint is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/lounge/LGW
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/lounge/LGW
 </code></pre></div></div>
 
 <p>To find the airport locations available for lounges, please refer to the <a href="/hxapi/locations">locations endpoint.</a></p>
@@ -155,21 +156,21 @@
       <td>String</td>
       <td>[A-Z] 3 chars</td>
       <td>Y*</td>
-      <td>For European products, you need to pass in the value of <code class="highlighter-rouge">System=ABG</code> (the default is <code class="highlighter-rouge">System=ABC</code>, which is UK products only).</td>
+      <td>For European products, you need to pass in the value of <code class="language-plaintext highlighter-rouge">System=ABG</code> (the default is <code class="language-plaintext highlighter-rouge">System=ABC</code>, which is UK products only).</td>
     </tr>
     <tr>
       <td>lang</td>
       <td>String</td>
       <td>[A-Z] 2 chars</td>
       <td>Y*</td>
-      <td>Required for requests for European products. (Values available are <code class="highlighter-rouge">en</code>, <code class="highlighter-rouge">de</code>, <code class="highlighter-rouge">it</code>, <code class="highlighter-rouge">es</code>, <code class="highlighter-rouge">pt</code> and <code class="highlighter-rouge">nl</code>.)</td>
+      <td>Required for requests for European products. (Values available are <code class="language-plaintext highlighter-rouge">en</code>, <code class="language-plaintext highlighter-rouge">de</code>, <code class="language-plaintext highlighter-rouge">it</code>, <code class="language-plaintext highlighter-rouge">es</code>, <code class="language-plaintext highlighter-rouge">pt</code> and <code class="language-plaintext highlighter-rouge">nl</code>.)</td>
     </tr>
     <tr>
       <td>fields</td>
       <td>String</td>
       <td>[A-Z] a csv list of product info fields</td>
       <td>N</td>
-      <td>A list of product info fields can be passed in to return configurable product information e.g. <code class="highlighter-rouge">fields=name,address,latitude,sellingpoint</code>.</td>
+      <td>A list of product info fields can be passed in to return configurable product information e.g. <code class="language-plaintext highlighter-rouge">fields=name,address,latitude,sellingpoint</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -221,7 +222,7 @@
 
 <h3 id="uk-products-availability-request">UK Products Availability Request</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/lounge/LHR?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2018-12-01&amp;ArrivalTime=1200&amp;Adults=2&amp;Children=0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/lounge/LHR?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2018-12-01&amp;ArrivalTime=1200&amp;Adults=2&amp;Children=0
 </code></pre></div></div>
 
 <h3 id="uk-products-availability-response">UK Products Availability Response</h3>
@@ -303,7 +304,7 @@
 
 <h3 id="european-products-availability-request">European Products Availability Request</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/lounge/HAM?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2018-12-01&amp;ArrivalTime=1200&amp;Adults=2&amp;Children=0&amp;System=ABG&amp;lang=de
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/lounge/HAM?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2018-12-01&amp;ArrivalTime=1200&amp;Adults=2&amp;Children=0&amp;System=ABG&amp;lang=de
 </code></pre></div></div>
 
 <h3 id="european-products-availability-response">European Products Availability Response</h3>
@@ -355,5 +356,6 @@
         </div>
       </main>
     </div>
+    <script src="/js/uikit.min.js"></script>
   </body>
 </html>
