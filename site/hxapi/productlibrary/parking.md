@@ -43,7 +43,6 @@ https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key
 ### Reply (example 1)
 
 ```xml
-
 <?xml version="1.0"?>
 <API_Reply>
 	<Product>
