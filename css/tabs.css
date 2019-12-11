@@ -95,7 +95,7 @@
   padding: 0;
   list-style: none;
 }
-.uk-switcher > :not(.uk-active) {
+.uk-switcher > .uk-hidden {
   display: none;
 }
 .uk-switcher > * > :last-child {
