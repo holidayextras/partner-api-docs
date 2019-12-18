@@ -31,13 +31,12 @@ https://api.holidayextras.co.uk/v1/booking/YourBookingRef
 
 NB: All parameter names are case sensitive.
 
- | Name        | Data Type    | Format | Mandatory? | Additional Information |
- | ----        | ----    | --------- | -------- | ---------------------- |
- | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
- | Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
- | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
- | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
- | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
+| Name        | Data Type    | Format | Mandatory? | Additional Information |
+| ----        | ----    | --------- | -------- | ---------------------- |
+| ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
+| Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
+| Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
+| key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
 | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
 | ConfirmCancel      | String  | 1 chars | Y       | Set this to `N` for this initial step. |
 | CancelRef | String | [A-Z0-9] 10 chars | Y | The reference for the cancellation, e.g. agent's initials.
@@ -46,13 +45,12 @@ NB: All parameter names are case sensitive.
 
 NB: All parameter names are case sensitive.
 
- | Name        | Data Type    | Format | Mandatory? | Additional Information |
- | ----        | ----    | --------- | -------- | ---------------------- |
- | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
- | Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
- | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
- | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
- | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
+| Name        | Data Type    | Format | Mandatory? | Additional Information |
+| ----        | ----    | --------- | -------- | ---------------------- |
+| ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
+| Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
+| Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
+| key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
 | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
 | ConfirmCancel      | String  | 1 chars | Y       | Set this to `Y` for the cancellation step. |
 | CancelRef | String | [A-Z0-9] 10 chars | Y | The reference for the cancellation, e.g. agent's initials.
@@ -81,7 +79,7 @@ Below are worked examples of both the request and response for cancelling a book
 ### Cancel Booking Request - Step 1
 
 ```html
-https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ConfirmCancel=N&CancelRef=YourCancelRef
+https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&ConfirmCancel=N&CancelRef=YourCancelRef
 ```
 
 ### Cancel Booking Response - Step 1
@@ -103,7 +101,6 @@ https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANum
             <ABTANumber>YourABTANumber</ABTANumber>
             <Password>YourPassword</Password>
             <key>YourKey</key>
-            <token>YourToken</token>
             <ConfirmCancel>N</ConfirmCancel>
             <CancelRef>YourCancelRef</CancelRef>
             <v>1</v>
@@ -124,7 +121,6 @@ https://api.holidayextras.co.uk/v1/booking/YourBookingRef
         <Password>YourPassword</Password>
         <Initials>YourInitials</Initials>
         <key>YourKey</key>
-        <token>YourToken</token>
         <ConfirmCancel>Y</ConfirmCancel>
         <CancelRef>YourCancelRef</CancelRef>
     </Request>
@@ -149,7 +145,6 @@ https://api.holidayextras.co.uk/v1/booking/YourBookingRef
             <ABTANumber>YourABTANumber</ABTANumber>
             <Password>YourPassword</Password>
             <key>YourKey</key>
-            <token>YourToken</token>
             <ConfirmCancel>Y</ConfirmCancel>
             <CancelRef>YourCancelRef</CancelRef>
             <v>1</v>
