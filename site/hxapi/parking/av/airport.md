@@ -22,9 +22,19 @@ https://api.holidayextras.co.uk/v1/carpark/AirportCode
 
 For example, for London Gatwick the endpoint is:
 
+{% codetabs %}
+{% codetab XML %}
 ```
 https://api.holidayextras.co.uk/v1/carpark/LGW
 ```
+{% endcodetab %}
+{% codetab JSON %}
+```
+https://api.holidayextras.co.uk/v1/carpark/LGW.js
+```
+Note the `.js` extension.
+{% endcodetab %}
+{% endcodetabs %}
 
 To find the airport locations available for car parking, please refer to the [locations endpoint.](/hxapi/locations)
 
@@ -64,8 +74,8 @@ For a detailed explanation of the fields returned, please see below:
  | CarPark/NonDiscPrice | The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.|
  | CarPark/RequestFlags | _NB: For European products, please see the separate table below._ <br>These flags list which details the car park operator requires from the customer. If a flag is returned with a 'Y' your application should send the corresponding field/value in the booking request.<br>Flags are only returned when required. The flags which can be returned are: `Registration`, `CarMake`, `CarModel`, `CarColour`, `OutFlight`, `ReturnFlight`, `OutTerminal`, `ReturnTerminal`, `Destination`, `MobileNum`.|
  | CarPark/Filter       | We have a filter mechanism on our site, to show particular types of product, such as Meet and Greet. The filters that apply to a product are returned here. Possible values are: `meet_and_greet`, `recommended`, `on_airport`, `terminal`, `valet_included`, `car_parked_for_you`. |
- | CarPark/BookingURL   | The URL to POST the booking request to for this particular product. |
- | CarPark/MoreInfoURL  | The link to more information about this product, sourced from the Product Library.|
+ | CarPark/BookingURL   | The URL to POST the booking request to for this particular product. Note: The product code **includes** prefix. |
+ | CarPark/MoreInfoURL  | The link to more information about this product, sourced from the Product Library. Note: The product code **doesn't include** prefix. |
  | Pricing/CreditCardSurcharge | NB: This is only relevant for Intermediary Agents in Europe, where Holiday Extras is responsible for processing the payment, not the Agent. <br>The first step in the calculation is to determine the credit card surcharge payable (x), based on the value of the booking, using this formula: <br>x = (TotalPrice + the CanxWaiver) / 100 x CCardSurchargePercent <br>Second, to prevent the surcharge from exceeding certain boundaries we have min and max thresholds, which can be calculated as follows: <br>if x < CCardSurchargeMin; <br>x = CCardSurchargeMin <br>else if x > CCardSurchargeMax; <br>x = CCardSurchargeMax|
  | Pricing/CancellationWaiver | We provide an optional cancellation waiver. If this is not added then cancellation will incur a fee. The fee is outlined in our terms and conditions. <br>NB: This value is not currently returned via the XML. |
  | API_Header/Request  | The API returns every parameter and value you sent in the previous request. |

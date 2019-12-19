@@ -28,7 +28,7 @@ A [product library](/hxapi/productlibrary) request can be made with the complete
 
 ## Booking
 
-The `BookingURL` element will contain the full product code that must be supplied when a bundle is to be booked, this will ensure that system books the main product as well as the appropriate supplement. When booking a bundle on a hotel search the quantity of the supplement will be determined by the given room occupancy in the `Adults` and `Children` fields.
+The `BookingURL` element will contain the full product code, including prefix, that must be supplied when a bundle is to be booked, this will ensure that system books the main product as well as the appropriate supplement. When booking a bundle on a hotel search the quantity of the supplement will be determined by the given room occupancy in the `Adults` and `Children` fields.
 
 The booking response for a bundle booking will show the main product and the booked supplement as seperate elements. The `TotalPrice` field will contain the full price of the booking, but the supplement price will also be shown separately under the `CurrentSupplements` block.
 
