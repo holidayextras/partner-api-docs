@@ -18,22 +18,31 @@ GET
 
 The endpoint to use is (where `YourBookingRef` is the Holiday Extras booking reference):
 
+{% codetabs %}
+{% codetab XML %}
 ```
 https://api.holidayextras.co.uk/v1/booking/YourBookingRef
 ```
+{% endcodetab %}
+{% codetab JSON %}
+```
+https://api.holidayextras.co.uk/v1/booking/YourBookingRef.js
+```
+Note the `.js` extension.
+{% endcodetab %}
+{% endcodetabs %}
 
 ### Request Parameters
 
 NB: All parameter names are case sensitive.
 
- | Name        | Data Type    | Format | Mandatory? | Additional Information |
- | ----        | ----    | --------- | -------- | ---------------------- |
- | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
- | Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
- | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
- | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
- | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
- | Email | String | [A-Z0-9] 50 chars | Y        | Email address used to make the booking (i.e. the email address of the lead passenger)|
+| Name        | Data Type    | Format | Mandatory? | Additional Information |
+| ----        | ----    | --------- | -------- | ---------------------- |
+| ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
+| Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
+| Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
+| key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
+| Email | String | [A-Z0-9] 50 chars | Y        | Email address used to make the booking (i.e. the email address of the lead passenger)|
 | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
 
 ## View Booking Response
@@ -64,140 +73,301 @@ Below are worked examples of both the request and response for view a booking.
 
 ### UK Products View Booking Request (for a car park)
 
-```html
-https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&Email=test@test.com
+{% codetabs %}
+{% codetab XML %}
 ```
+https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com
+```
+{% endcodetab %}
+{% codetab JSON %}
+```
+https://api.holidayextras.co.uk/v1/booking/YourBookingRef.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com
+```
+Note the `.js` extension.
+{% endcodetab %}
+{% endcodetabs %}
 
 ### UK Products View Booking Response (for a car park)
 
+{% codetabs %}
+{% codetab XML %}
 ```xml
 <?xml version="1.0"?>
-<API_Reply System="ABC" Version="1.0" Product="General" Customer="A" Session="703010076" RequestCode="7" Result="OK">
-    <Agent>YourABTA</Agent>
-    <Booking>
-        <BookingRef>YourBookingRef</BookingRef>
-        <Amendable>Y</Amendable>
-        <CanxDate/>
-        <CCode/>
-        <BasketRef/>
-        <AgentComm>4.49</AgentComm>
-        <VATonComm>0.00</VATonComm>
-        <Brand>HX</Brand>
-        <Domain/>
-        <Lang/>
-        <Platform/>
-        <FraudBooking/>
-        <SupplierReference/>
-        <Cancellable/>
-        <BookingDate>2018-02-09</BookingDate>
-        <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=YourBookingRef&amp;product_type=carparks</PdfUrl>
-    </Booking>
-    <Itinerary>
-        <Product>Parking</Product>
-        <ArrivalDate>2018-12-01</ArrivalDate>
-        <LastAmendDate/>
-        <Remarks/>
-        <FlightNum>EZY8985</FlightNum>
-        <ArrivalTime>1200</ArrivalTime>
-        <Location>MAN</Location>
-        <ReturnDate/>
-        <CarDropoffTime>1200</CarDropoffTime>
-        <CarPickupDate>2018-12-08</CarPickupDate>
-        <CarPickupTime>1200</CarPickupTime>
-        <ParkingDays/>
-        <ParkingSpaces>01</ParkingSpaces>
-        <ReturnFlight>EZY8982</ReturnFlight>
-        <TerminalCode>N</TerminalCode>
-        <CarParkCode>MAR1</CarParkCode>
-        <DepartDate>2018-12-08</DepartDate>
-        <DepartTime>1200</DepartTime>
-        <Duration>8</Duration>
-        <NumberOfPax>1</NumberOfPax>
-        <ValetParking>N</ValetParking>
-        <PPTS/>
-        <ParkStart/>
-        <ParkTo/>
-        <Code>MAR1</Code>
-        <Name>APH</Name>
-    </Itinerary>
-    <ClientDetails>
-        <Title>MR</Title>
-        <Initial>T</Initial>
-        <Surname>TEST</Surname>
-        <Address/>
-        <Address/>
-        <Address/>
-        <Town/>
-        <County/>
-        <Postcode/>
-        <DayPhone>01234567890</DayPhone>
-        <EvePhone>01234567890</EvePhone>
-        <Email>test@test.com</Email>
-        <DataProtection/>
-        <HistoryText/>
-        <SourceRef/>
-    </ClientDetails>
-    <Pricing>
-        <AmountPaid>35.92</AmountPaid>
-        <AmountDue>0.00</AmountDue>
-        <TotalPrice>35.92</TotalPrice>
-        <CCardSurchargeAmount>0.00</CCardSurchargeAmount>
-        <BasePrice>35.92</BasePrice>
-        <Refund/>
-        <GrossPrice>35.92</GrossPrice>
-        <Currency>GBP</Currency>
-    </Pricing>
-    <VAT>
-        <BKgexcVAT>29.93</BKgexcVAT>
-        <CWexcVAT>0.00</CWexcVAT>
-        <CCexcVAT>0.00</CCexcVAT>
-        <BkgExemptVAT>0.00</BkgExemptVAT>
-        <Nettotal>29.93</Nettotal>
-        <VATAMT>5.99</VATAMT>
-        <GrossTotal>35.92</GrossTotal>
-        <VATNo>844 2814 25</VATNo>
-    </VAT>
-    <CustRef/>
-    <BarCode>/barcode/YourBookingRef.png?key=YourKey</BarCode>
-    <RequestFlags>
-        <Registration>Y</Registration>
-        <CarMake>Y</CarMake>
-        <CarModel>Y</CarModel>
-        <CarColour>Y</CarColour>
-        <CreditCard>N</CreditCard>
-        <ReturnFlight>Y</ReturnFlight>
-        <Terminal>N</Terminal>
-        <Destination>N</Destination>
-        <MobileNum>N</MobileNum>
-        <OutFlight>N</OutFlight>
-        <OutTerminal>N</OutTerminal>
-        <ReturnTerminal>N</ReturnTerminal>
-    </RequestFlags>
-    <CarDetails>
-        <Registration>TE17 STS</Registration>
-        <CarMake>RANGE ROVER</CarMake>
-        <CarModel>EVOQUE</CarModel>
-        <CarColour>WHITE</CarColour>
-        <OutFlight>EZY8985</OutFlight>
-        <OutTerminal>N</OutTerminal>
-        <RetTerminal>N</RetTerminal>
-        <Mobile>01234567890</Mobile>
-        <Destination>MUNICH</Destination>
-    </CarDetails>
-    <CurrentSupplements/>
-    <API_Header>
-        <Request>
-            <ABTANumber>YourABTANumber</ABTANumber>
-            <Password>YourPassword</Password>
-            <key>YourKey</key>
-            <token>YourToken</token>
-            <Email>test@test.com</Email>
-            <v>1</v>
-        </Request>
-    </API_Header>
+<API_Reply System="ABC" Version="1.0" Product="General" Customer="A" Session="037862022" RequestCode="7" Result="OK">
+  <Agent>YourABTA</Agent>
+  <Booking>
+    <BookingRef>YourBookingRef</BookingRef>
+    <Amendable>Y</Amendable>
+    <CanxDate/>
+    <CCode/>
+    <BasketRef/>
+    <CustomerCode/>
+    <AgentComm>4.49</AgentComm>
+    <VATonComm>0.00</VATonComm>
+    <Brand>HX</Brand>
+    <Domain/>
+    <Lang/>
+    <Platform/>
+    <FraudBooking/>
+    <SupplierReference/>
+    <Cancellable/>
+    <BookingDate>2019-12-18</BookingDate>
+    <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=YourBookingRef&amp;product_type=carparks</PdfUrl>
+  </Booking>
+  <Itinerary>
+    <Product>Parking</Product>
+    <ArrivalDate>2020-01-01</ArrivalDate>
+    <LastAmendDate/>
+    <Remarks/>
+    <FlightNum/>
+    <ArrivalTime>1200</ArrivalTime>
+    <Location>LBA</Location>
+    <ReturnDate/>
+    <CarDropoffTime>1200</CarDropoffTime>
+    <CarPickupDate>2020-01-02</CarPickupDate>
+    <CarPickupTime>1300</CarPickupTime>
+    <ParkingDays/>
+    <ParkingSpaces>01</ParkingSpaces>
+    <ReturnFlight>-</ReturnFlight>
+    <TerminalCode>....</TerminalCode>
+    <CarParkCode>LBY6</CarParkCode>
+    <DepartDate>2020-01-02</DepartDate>
+    <DepartTime>1300</DepartTime>
+    <Duration>2</Duration>
+    <NumberOfPax>2</NumberOfPax>
+    <ValetParking>N</ValetParking>
+    <PPTS/>
+    <ParkStart/>
+    <ParkTo/>
+    <Code>LBY6</Code>
+    <Name>Short Stay</Name>
+  </Itinerary>
+  <ClientDetails>
+    <Title>MR</Title>
+    <Initial>T</Initial>
+    <Surname>TEST</Surname>
+    <Address/>
+    <Address/>
+    <Address/>
+    <Town/>
+    <County/>
+    <Postcode>CT214JF</Postcode>
+    <DayPhone>01234567890</DayPhone>
+    <EvePhone>01234567890</EvePhone>
+    <Email>test@test.com</Email>
+    <DataProtection/>
+    <HistoryText/>
+    <GUID/>
+    <SourceRef/>
+  </ClientDetails>
+  <Pricing>
+    <AmountPaid>20.00</AmountPaid>
+    <AmountDue>0.00</AmountDue>
+    <TotalPrice>20.00</TotalPrice>
+    <CCardSurchargeAmount>0.00</CCardSurchargeAmount>
+    <BasePrice>20.00</BasePrice>
+    <Refund/>
+    <GrossPrice>20.00</GrossPrice>
+    <SourcePriced>Y</SourcePriced>
+    <Currency>GBP</Currency>
+  </Pricing>
+  <VAT>
+    <BKgexcVAT>16.67</BKgexcVAT>
+    <CWexcVAT>0.00</CWexcVAT>
+    <CCexcVAT>0.00</CCexcVAT>
+    <BkgExemptVAT>0.00</BkgExemptVAT>
+    <Nettotal>16.67</Nettotal>
+    <VATAMT>3.33</VATAMT>
+    <GrossTotal>20.00</GrossTotal>
+    <VATNo>844 2814 25</VATNo>
+  </VAT>
+  <CustRef/>
+  <RequestFlags>
+    <Registration>Y</Registration>
+    <CarMake>Y</CarMake>
+    <CarModel>Y</CarModel>
+    <CarColour>Y</CarColour>
+    <CreditCard>N</CreditCard>
+    <ReturnFlight>Y</ReturnFlight>
+    <Terminal>N</Terminal>
+    <Destination>N</Destination>
+    <MobileNum>N</MobileNum>
+    <OutFlight>N</OutFlight>
+    <OutTerminal>N</OutTerminal>
+    <ReturnTerminal>N</ReturnTerminal>
+  </RequestFlags>
+  <CarDetails>
+    <Registration>S585RRW</Registration>
+    <CarMake>VAUXHALL</CarMake>
+    <CarModel>CORSA</CarModel>
+    <CarColour>WHITE</CarColour>
+    <OutFlight>-</OutFlight>
+    <OutTerminal/>
+    <RetTerminal/>
+    <Mobile>01234567890</Mobile>
+    <Destination>-</Destination>
+  </CarDetails>
+  <CurrentSupplements/>
+  <BarCode/>
+  <QRCode/>
+  <API_Header>
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <key>YourKey</key>
+      <Email>test@test.com</Email>
+    </Request>
+  </API_Header>
 </API_Reply>
 ```
-
+{% endcodetab %}
+{% codetab JSON %}
+```json
+{
+  "API_Reply": {
+    "ATTRIBUTES": {
+      "System": "ABC",
+      "Version": 1,
+      "Product": "General",
+      "Customer": "A",
+      "Session": 825247870,
+      "RequestCode": 7,
+      "Result": "OK"
+    },
+    "Agent": "YourABTA",
+    "Booking": {
+      "BookingRef": "YourBookingRef",
+      "Amendable": "Y",
+      "CanxDate": "",
+      "CCode": "",
+      "BasketRef": "",
+      "CustomerCode": " ",
+      "AgentComm": "4.49",
+      "VATonComm": "0.00",
+      "Brand": "HX",
+      "Domain": "",
+      "Lang": "",
+      "Platform": "",
+      "FraudBooking": "",
+      "SupplierReference": "",
+      "Cancellable": "",
+      "BookingDate": "2019-12-18",
+      "PdfUrl": "/v1/confirmation?email=test%40test.com&amp;booking_ref=YourBookingRef&amp;product_type=carparks"
+    },
+    "Itinerary": {
+      "Product": "Parking",
+      "ArrivalDate": "2020-01-01",
+      "LastAmendDate": "2019-12-18",
+      "Remarks": "",
+      "FlightNum": "",
+      "ArrivalTime": 1200,
+      "Location": "LBA",
+      "ReturnDate": "",
+      "CarDropoffTime": 1200,
+      "CarPickupDate": "2020-01-02",
+      "CarPickupTime": 1300,
+      "ParkingDays": "",
+      "ParkingSpaces": "01",
+      "ReturnFlight": "-",
+      "TerminalCode": "....",
+      "CarParkCode": "LBY6",
+      "DepartDate": "2020-01-02",
+      "DepartTime": 1300,
+      "Duration": 2,
+      "NumberOfPax": 2,
+      "ValetParking": "N",
+      "PPTS": "",
+      "ParkStart": "",
+      "ParkTo": "",
+      "Code": "LBY6",
+      "Name": "Short Stay",
+      "_longitude": -1.659618,
+      "_latitude": 53.869218
+    },
+    "ClientDetails": {
+      "Title": "MR",
+      "Initial": "T",
+      "Surname": "TEST",
+      "Address": [
+        "TBC",
+        "TBC",
+        ""
+      ],
+      "Town": "",
+      "County": "",
+      "Postcode": "CT214JF",
+      "DayPhone": 01234567890,
+      "EvePhone": 01234567890,
+      "Email": "test@test.com",
+      "DataProtection": "N",
+      "HistoryText": "",
+      "GUID": "",
+      "SourceRef": ""
+    },
+    "Pricing": {
+      "AmountPaid": 20,
+      "AmountDue": "0.00",
+      "TotalPrice": 20,
+      "CCardSurchargeAmount": "0.00",
+      "BasePrice": 20,
+      "Refund": "",
+      "GrossPrice": 20,
+      "SourcePriced": "Y",
+      "Currency": "GBP"
+    },
+    "VAT": {
+      "BKgexcVAT": 16.67,
+      "CWexcVAT": "0.00",
+      "CCexcVAT": "0.00",
+      "BkgExemptVAT": "0.00",
+      "Nettotal": 16.67,
+      "VATAMT": 3.33,
+      "GrossTotal": 20,
+      "VATNo": "844 2814 25"
+    },
+    "CustRef": "TAU113190",
+    "RequestFlags": {
+      "Registration": "Y",
+      "CarMake": "Y",
+      "CarModel": "Y",
+      "CarColour": "Y",
+      "CreditCard": "N",
+      "ReturnFlight": "Y",
+      "Terminal": "N",
+      "Destination": "N",
+      "MobileNum": "N",
+      "OutFlight": "N",
+      "OutTerminal": "N",
+      "ReturnTerminal": "N"
+    },
+    "CarDetails": {
+      "Registration": "S585RRW",
+      "CarMake": "VAUXHALL",
+      "CarModel": "CORSA",
+      "CarColour": "WHITE",
+      "OutFlight": "-",
+      "OutTerminal": "",
+      "RetTerminal": "",
+      "Mobile": 01234567890,
+      "Destination": "-"
+    },
+    "CurrentSupplements": "",
+    "BarCode": "",
+    "QRCode": "",
+    "API_Header": {
+      "Request": {
+        "ABTANumber": "YourABTANumber",
+        "Password": "YourPassword",
+        "key": "YourKey",
+        "Email": "test@test.com",
+        "format": "js"
+      }
+    }
+  }
+}
+```
+{% endcodetab %}
+{% endcodetabs %}
 
 ### Fields Explained
 
@@ -223,7 +393,7 @@ Possible values
 ### European Products View Booking Request (for a hotel room only)
 
 ```
-https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&Email=test@test.com&System=ABG
+https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com&System=ABG
 ```
 
 ### European Products View Booking Response (for a hotel room only)
@@ -324,7 +494,6 @@ https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANum
             <ABTANumber>YourABTANumber</ABTANumber>
             <Password>YourPassword</Password>
             <key>YourKey</key>
-            <token>YourToken</token>
             <Email>test@test.com</Email>
             <System>ABG</System>
             <v>1</v>

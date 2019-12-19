@@ -36,14 +36,13 @@ NB: All parameter names are case sensitive.
 
 For all amend booking requests, you will need to send these parameters:
 
- | Name        | Data Type    | Format | Mandatory? | Additional Information |
- | ----        | ----    | --------- | -------- | ---------------------- |
- | ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
- | Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
- | Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
- | key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
- | token       | String  | [0-9] 9 chars                         | Y        | This is the same token used in the availability request. |
- | Email | String | [A-Z0-9] 50 chars| Y        | Email address used to make the booking (i.e. the email address of the lead passenger)|
+| Name        | Data Type    | Format | Mandatory? | Additional Information |
+| ----        | ----    | --------- | -------- | ---------------------- |
+| ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
+| Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
+| Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
+| key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
+| Email | String | [A-Z0-9] 50 chars| Y        | Email address used to make the booking (i.e. the email address of the lead passenger)|
 | System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
 
 In order to amend the booking with the new details, you only need to pass in the specific parameters you want to amend. For a simple amend these are as follows:
@@ -88,7 +87,6 @@ https://api.holidayextras.co.uk/booking/YourBookingRef
         <Password>YourPassword</Password>
         <Initials>YourInitials</Initials>
         <key>YourKey</key>
-        <token>YourToken</token>
         <Title>MR</Title>
         <Initial>A</Initial>
         <Surname>TESTA</Surname>
@@ -152,7 +150,6 @@ https://api.holidayextras.co.uk/booking/YourBookingRef
             <Password>YourPassword</Password>
             <Initials>YourInitials</Initials>
             <key>YourKey</key>
-            <token>YourToken</token>
             <ArrivalDate>2018-12-01</ArrivalDate>
             <ArrivalTime>1200</ArrivalTime>
             <DepartDate>2018-12-08</DepartDate>
