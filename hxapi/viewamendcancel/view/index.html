@@ -50,8 +50,28 @@
 
 <p>The endpoint to use is (where <code class="language-plaintext highlighter-rouge">YourBookingRef</code> is the Holiday Extras booking reference):</p>
 
+<ul class="uk-tab" data-uk-switcher="{connect:'#c020feb9-f1b3-470d-817b-e9f5bf141d8b'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="c020feb9-f1b3-470d-817b-e9f5bf141d8b" class="uk-switcher uk-margin">
+
+	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef
 </code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef.js
+</code></pre></div></div>
+<p>Note the <code class="language-plaintext highlighter-rouge">.js</code> extension.</p>
+</li>
+
+</ul>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -95,13 +115,6 @@
       <td>[A-Z]</td>
       <td>Y</td>
       <td>This will be assigned to you by your Account Manager during set up.</td>
-    </tr>
-    <tr>
-      <td>token</td>
-      <td>String</td>
-      <td>[0-9] 9 chars</td>
-      <td>Y</td>
-      <td>This is the same token used in the availability request.</td>
     </tr>
     <tr>
       <td>Email</td>
@@ -195,137 +208,319 @@
 
 <h3 id="uk-products-view-booking-request-for-a-car-park">UK Products View Booking Request (for a car park)</h3>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber<span class="err">&amp;</span>Password=YourPassword<span class="err">&amp;</span>Initials=YourInitials<span class="err">&amp;</span>key=YourKey<span class="err">&amp;</span>token=YourToken<span class="err">&amp;</span>Email=test@test.com
+<ul class="uk-tab" data-uk-switcher="{connect:'#ac0cefec-c39f-4484-aebc-264cd02a095c'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="ac0cefec-c39f-4484-aebc-264cd02a095c" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
 </code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef.js?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
+</code></pre></div></div>
+<p>Note the <code class="language-plaintext highlighter-rouge">.js</code> extension.</p>
+</li>
+
+</ul>
 
 <h3 id="uk-products-view-booking-response-for-a-car-park">UK Products View Booking Response (for a car park)</h3>
 
+<ul class="uk-tab" data-uk-switcher="{connect:'#2a4d76d6-4658-4662-a534-51b9105d1835'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="2a4d76d6-4658-4662-a534-51b9105d1835" class="uk-switcher uk-margin">
+
+	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
-<span class="nt">&lt;API_Reply</span> <span class="na">System=</span><span class="s">"ABC"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"General"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"703010076"</span> <span class="na">RequestCode=</span><span class="s">"7"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;Agent&gt;</span>YourABTA<span class="nt">&lt;/Agent&gt;</span>
-    <span class="nt">&lt;Booking&gt;</span>
-        <span class="nt">&lt;BookingRef&gt;</span>YourBookingRef<span class="nt">&lt;/BookingRef&gt;</span>
-        <span class="nt">&lt;Amendable&gt;</span>Y<span class="nt">&lt;/Amendable&gt;</span>
-        <span class="nt">&lt;CanxDate/&gt;</span>
-        <span class="nt">&lt;CCode/&gt;</span>
-        <span class="nt">&lt;BasketRef/&gt;</span>
-        <span class="nt">&lt;AgentComm&gt;</span>4.49<span class="nt">&lt;/AgentComm&gt;</span>
-        <span class="nt">&lt;VATonComm&gt;</span>0.00<span class="nt">&lt;/VATonComm&gt;</span>
-        <span class="nt">&lt;Brand&gt;</span>HX<span class="nt">&lt;/Brand&gt;</span>
-        <span class="nt">&lt;Domain/&gt;</span>
-        <span class="nt">&lt;Lang/&gt;</span>
-        <span class="nt">&lt;Platform/&gt;</span>
-        <span class="nt">&lt;FraudBooking/&gt;</span>
-        <span class="nt">&lt;SupplierReference/&gt;</span>
-        <span class="nt">&lt;Cancellable/&gt;</span>
-        <span class="nt">&lt;BookingDate&gt;</span>2018-02-09<span class="nt">&lt;/BookingDate&gt;</span>
-        <span class="nt">&lt;PdfUrl&gt;</span>/v1/confirmation?email=test%40test.com<span class="ni">&amp;amp;</span>booking_ref=YourBookingRef<span class="ni">&amp;amp;</span>product_type=carparks<span class="nt">&lt;/PdfUrl&gt;</span>
-    <span class="nt">&lt;/Booking&gt;</span>
-    <span class="nt">&lt;Itinerary&gt;</span>
-        <span class="nt">&lt;Product&gt;</span>Parking<span class="nt">&lt;/Product&gt;</span>
-        <span class="nt">&lt;ArrivalDate&gt;</span>2018-12-01<span class="nt">&lt;/ArrivalDate&gt;</span>
-        <span class="nt">&lt;LastAmendDate/&gt;</span>
-        <span class="nt">&lt;Remarks/&gt;</span>
-        <span class="nt">&lt;FlightNum&gt;</span>EZY8985<span class="nt">&lt;/FlightNum&gt;</span>
-        <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
-        <span class="nt">&lt;Location&gt;</span>MAN<span class="nt">&lt;/Location&gt;</span>
-        <span class="nt">&lt;ReturnDate/&gt;</span>
-        <span class="nt">&lt;CarDropoffTime&gt;</span>1200<span class="nt">&lt;/CarDropoffTime&gt;</span>
-        <span class="nt">&lt;CarPickupDate&gt;</span>2018-12-08<span class="nt">&lt;/CarPickupDate&gt;</span>
-        <span class="nt">&lt;CarPickupTime&gt;</span>1200<span class="nt">&lt;/CarPickupTime&gt;</span>
-        <span class="nt">&lt;ParkingDays/&gt;</span>
-        <span class="nt">&lt;ParkingSpaces&gt;</span>01<span class="nt">&lt;/ParkingSpaces&gt;</span>
-        <span class="nt">&lt;ReturnFlight&gt;</span>EZY8982<span class="nt">&lt;/ReturnFlight&gt;</span>
-        <span class="nt">&lt;TerminalCode&gt;</span>N<span class="nt">&lt;/TerminalCode&gt;</span>
-        <span class="nt">&lt;CarParkCode&gt;</span>MAR1<span class="nt">&lt;/CarParkCode&gt;</span>
-        <span class="nt">&lt;DepartDate&gt;</span>2018-12-08<span class="nt">&lt;/DepartDate&gt;</span>
-        <span class="nt">&lt;DepartTime&gt;</span>1200<span class="nt">&lt;/DepartTime&gt;</span>
-        <span class="nt">&lt;Duration&gt;</span>8<span class="nt">&lt;/Duration&gt;</span>
-        <span class="nt">&lt;NumberOfPax&gt;</span>1<span class="nt">&lt;/NumberOfPax&gt;</span>
-        <span class="nt">&lt;ValetParking&gt;</span>N<span class="nt">&lt;/ValetParking&gt;</span>
-        <span class="nt">&lt;PPTS/&gt;</span>
-        <span class="nt">&lt;ParkStart/&gt;</span>
-        <span class="nt">&lt;ParkTo/&gt;</span>
-        <span class="nt">&lt;Code&gt;</span>MAR1<span class="nt">&lt;/Code&gt;</span>
-        <span class="nt">&lt;Name&gt;</span>APH<span class="nt">&lt;/Name&gt;</span>
-    <span class="nt">&lt;/Itinerary&gt;</span>
-    <span class="nt">&lt;ClientDetails&gt;</span>
-        <span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
-        <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
-        <span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
-        <span class="nt">&lt;Address/&gt;</span>
-        <span class="nt">&lt;Address/&gt;</span>
-        <span class="nt">&lt;Address/&gt;</span>
-        <span class="nt">&lt;Town/&gt;</span>
-        <span class="nt">&lt;County/&gt;</span>
-        <span class="nt">&lt;Postcode/&gt;</span>
-        <span class="nt">&lt;DayPhone&gt;</span>01234567890<span class="nt">&lt;/DayPhone&gt;</span>
-        <span class="nt">&lt;EvePhone&gt;</span>01234567890<span class="nt">&lt;/EvePhone&gt;</span>
-        <span class="nt">&lt;Email&gt;</span>test@test.com<span class="nt">&lt;/Email&gt;</span>
-        <span class="nt">&lt;DataProtection/&gt;</span>
-        <span class="nt">&lt;HistoryText/&gt;</span>
-        <span class="nt">&lt;SourceRef/&gt;</span>
-    <span class="nt">&lt;/ClientDetails&gt;</span>
-    <span class="nt">&lt;Pricing&gt;</span>
-        <span class="nt">&lt;AmountPaid&gt;</span>35.92<span class="nt">&lt;/AmountPaid&gt;</span>
-        <span class="nt">&lt;AmountDue&gt;</span>0.00<span class="nt">&lt;/AmountDue&gt;</span>
-        <span class="nt">&lt;TotalPrice&gt;</span>35.92<span class="nt">&lt;/TotalPrice&gt;</span>
-        <span class="nt">&lt;CCardSurchargeAmount&gt;</span>0.00<span class="nt">&lt;/CCardSurchargeAmount&gt;</span>
-        <span class="nt">&lt;BasePrice&gt;</span>35.92<span class="nt">&lt;/BasePrice&gt;</span>
-        <span class="nt">&lt;Refund/&gt;</span>
-        <span class="nt">&lt;GrossPrice&gt;</span>35.92<span class="nt">&lt;/GrossPrice&gt;</span>
-        <span class="nt">&lt;Currency&gt;</span>GBP<span class="nt">&lt;/Currency&gt;</span>
-    <span class="nt">&lt;/Pricing&gt;</span>
-    <span class="nt">&lt;VAT&gt;</span>
-        <span class="nt">&lt;BKgexcVAT&gt;</span>29.93<span class="nt">&lt;/BKgexcVAT&gt;</span>
-        <span class="nt">&lt;CWexcVAT&gt;</span>0.00<span class="nt">&lt;/CWexcVAT&gt;</span>
-        <span class="nt">&lt;CCexcVAT&gt;</span>0.00<span class="nt">&lt;/CCexcVAT&gt;</span>
-        <span class="nt">&lt;BkgExemptVAT&gt;</span>0.00<span class="nt">&lt;/BkgExemptVAT&gt;</span>
-        <span class="nt">&lt;Nettotal&gt;</span>29.93<span class="nt">&lt;/Nettotal&gt;</span>
-        <span class="nt">&lt;VATAMT&gt;</span>5.99<span class="nt">&lt;/VATAMT&gt;</span>
-        <span class="nt">&lt;GrossTotal&gt;</span>35.92<span class="nt">&lt;/GrossTotal&gt;</span>
-        <span class="nt">&lt;VATNo&gt;</span>844 2814 25<span class="nt">&lt;/VATNo&gt;</span>
-    <span class="nt">&lt;/VAT&gt;</span>
-    <span class="nt">&lt;CustRef/&gt;</span>
-    <span class="nt">&lt;BarCode&gt;</span>/barcode/YourBookingRef.png?key=YourKey<span class="nt">&lt;/BarCode&gt;</span>
-    <span class="nt">&lt;RequestFlags&gt;</span>
-        <span class="nt">&lt;Registration&gt;</span>Y<span class="nt">&lt;/Registration&gt;</span>
-        <span class="nt">&lt;CarMake&gt;</span>Y<span class="nt">&lt;/CarMake&gt;</span>
-        <span class="nt">&lt;CarModel&gt;</span>Y<span class="nt">&lt;/CarModel&gt;</span>
-        <span class="nt">&lt;CarColour&gt;</span>Y<span class="nt">&lt;/CarColour&gt;</span>
-        <span class="nt">&lt;CreditCard&gt;</span>N<span class="nt">&lt;/CreditCard&gt;</span>
-        <span class="nt">&lt;ReturnFlight&gt;</span>Y<span class="nt">&lt;/ReturnFlight&gt;</span>
-        <span class="nt">&lt;Terminal&gt;</span>N<span class="nt">&lt;/Terminal&gt;</span>
-        <span class="nt">&lt;Destination&gt;</span>N<span class="nt">&lt;/Destination&gt;</span>
-        <span class="nt">&lt;MobileNum&gt;</span>N<span class="nt">&lt;/MobileNum&gt;</span>
-        <span class="nt">&lt;OutFlight&gt;</span>N<span class="nt">&lt;/OutFlight&gt;</span>
-        <span class="nt">&lt;OutTerminal&gt;</span>N<span class="nt">&lt;/OutTerminal&gt;</span>
-        <span class="nt">&lt;ReturnTerminal&gt;</span>N<span class="nt">&lt;/ReturnTerminal&gt;</span>
-    <span class="nt">&lt;/RequestFlags&gt;</span>
-    <span class="nt">&lt;CarDetails&gt;</span>
-        <span class="nt">&lt;Registration&gt;</span>TE17 STS<span class="nt">&lt;/Registration&gt;</span>
-        <span class="nt">&lt;CarMake&gt;</span>RANGE ROVER<span class="nt">&lt;/CarMake&gt;</span>
-        <span class="nt">&lt;CarModel&gt;</span>EVOQUE<span class="nt">&lt;/CarModel&gt;</span>
-        <span class="nt">&lt;CarColour&gt;</span>WHITE<span class="nt">&lt;/CarColour&gt;</span>
-        <span class="nt">&lt;OutFlight&gt;</span>EZY8985<span class="nt">&lt;/OutFlight&gt;</span>
-        <span class="nt">&lt;OutTerminal&gt;</span>N<span class="nt">&lt;/OutTerminal&gt;</span>
-        <span class="nt">&lt;RetTerminal&gt;</span>N<span class="nt">&lt;/RetTerminal&gt;</span>
-        <span class="nt">&lt;Mobile&gt;</span>01234567890<span class="nt">&lt;/Mobile&gt;</span>
-        <span class="nt">&lt;Destination&gt;</span>MUNICH<span class="nt">&lt;/Destination&gt;</span>
-    <span class="nt">&lt;/CarDetails&gt;</span>
-    <span class="nt">&lt;CurrentSupplements/&gt;</span>
-    <span class="nt">&lt;API_Header&gt;</span>
-        <span class="nt">&lt;Request&gt;</span>
-            <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
-            <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
-            <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
-            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
-            <span class="nt">&lt;Email&gt;</span>test@test.com<span class="nt">&lt;/Email&gt;</span>
-            <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
-        <span class="nt">&lt;/Request&gt;</span>
-    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">System=</span><span class="s">"ABC"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Product=</span><span class="s">"General"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"037862022"</span> <span class="na">RequestCode=</span><span class="s">"7"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Agent&gt;</span>YourABTA<span class="nt">&lt;/Agent&gt;</span>
+  <span class="nt">&lt;Booking&gt;</span>
+    <span class="nt">&lt;BookingRef&gt;</span>YourBookingRef<span class="nt">&lt;/BookingRef&gt;</span>
+    <span class="nt">&lt;Amendable&gt;</span>Y<span class="nt">&lt;/Amendable&gt;</span>
+    <span class="nt">&lt;CanxDate/&gt;</span>
+    <span class="nt">&lt;CCode/&gt;</span>
+    <span class="nt">&lt;BasketRef/&gt;</span>
+    <span class="nt">&lt;CustomerCode/&gt;</span>
+    <span class="nt">&lt;AgentComm&gt;</span>4.49<span class="nt">&lt;/AgentComm&gt;</span>
+    <span class="nt">&lt;VATonComm&gt;</span>0.00<span class="nt">&lt;/VATonComm&gt;</span>
+    <span class="nt">&lt;Brand&gt;</span>HX<span class="nt">&lt;/Brand&gt;</span>
+    <span class="nt">&lt;Domain/&gt;</span>
+    <span class="nt">&lt;Lang/&gt;</span>
+    <span class="nt">&lt;Platform/&gt;</span>
+    <span class="nt">&lt;FraudBooking/&gt;</span>
+    <span class="nt">&lt;SupplierReference/&gt;</span>
+    <span class="nt">&lt;Cancellable/&gt;</span>
+    <span class="nt">&lt;BookingDate&gt;</span>2019-12-18<span class="nt">&lt;/BookingDate&gt;</span>
+    <span class="nt">&lt;PdfUrl&gt;</span>/v1/confirmation?email=test%40test.com<span class="ni">&amp;amp;</span>booking_ref=YourBookingRef<span class="ni">&amp;amp;</span>product_type=carparks<span class="nt">&lt;/PdfUrl&gt;</span>
+  <span class="nt">&lt;/Booking&gt;</span>
+  <span class="nt">&lt;Itinerary&gt;</span>
+    <span class="nt">&lt;Product&gt;</span>Parking<span class="nt">&lt;/Product&gt;</span>
+    <span class="nt">&lt;ArrivalDate&gt;</span>2020-01-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+    <span class="nt">&lt;LastAmendDate/&gt;</span>
+    <span class="nt">&lt;Remarks/&gt;</span>
+    <span class="nt">&lt;FlightNum/&gt;</span>
+    <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+    <span class="nt">&lt;Location&gt;</span>LBA<span class="nt">&lt;/Location&gt;</span>
+    <span class="nt">&lt;ReturnDate/&gt;</span>
+    <span class="nt">&lt;CarDropoffTime&gt;</span>1200<span class="nt">&lt;/CarDropoffTime&gt;</span>
+    <span class="nt">&lt;CarPickupDate&gt;</span>2020-01-02<span class="nt">&lt;/CarPickupDate&gt;</span>
+    <span class="nt">&lt;CarPickupTime&gt;</span>1300<span class="nt">&lt;/CarPickupTime&gt;</span>
+    <span class="nt">&lt;ParkingDays/&gt;</span>
+    <span class="nt">&lt;ParkingSpaces&gt;</span>01<span class="nt">&lt;/ParkingSpaces&gt;</span>
+    <span class="nt">&lt;ReturnFlight&gt;</span>-<span class="nt">&lt;/ReturnFlight&gt;</span>
+    <span class="nt">&lt;TerminalCode&gt;</span>....<span class="nt">&lt;/TerminalCode&gt;</span>
+    <span class="nt">&lt;CarParkCode&gt;</span>LBY6<span class="nt">&lt;/CarParkCode&gt;</span>
+    <span class="nt">&lt;DepartDate&gt;</span>2020-01-02<span class="nt">&lt;/DepartDate&gt;</span>
+    <span class="nt">&lt;DepartTime&gt;</span>1300<span class="nt">&lt;/DepartTime&gt;</span>
+    <span class="nt">&lt;Duration&gt;</span>2<span class="nt">&lt;/Duration&gt;</span>
+    <span class="nt">&lt;NumberOfPax&gt;</span>2<span class="nt">&lt;/NumberOfPax&gt;</span>
+    <span class="nt">&lt;ValetParking&gt;</span>N<span class="nt">&lt;/ValetParking&gt;</span>
+    <span class="nt">&lt;PPTS/&gt;</span>
+    <span class="nt">&lt;ParkStart/&gt;</span>
+    <span class="nt">&lt;ParkTo/&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>LBY6<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Short Stay<span class="nt">&lt;/Name&gt;</span>
+  <span class="nt">&lt;/Itinerary&gt;</span>
+  <span class="nt">&lt;ClientDetails&gt;</span>
+    <span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
+    <span class="nt">&lt;Initial&gt;</span>T<span class="nt">&lt;/Initial&gt;</span>
+    <span class="nt">&lt;Surname&gt;</span>TEST<span class="nt">&lt;/Surname&gt;</span>
+    <span class="nt">&lt;Address/&gt;</span>
+    <span class="nt">&lt;Address/&gt;</span>
+    <span class="nt">&lt;Address/&gt;</span>
+    <span class="nt">&lt;Town/&gt;</span>
+    <span class="nt">&lt;County/&gt;</span>
+    <span class="nt">&lt;Postcode&gt;</span>CT214JF<span class="nt">&lt;/Postcode&gt;</span>
+    <span class="nt">&lt;DayPhone&gt;</span>01234567890<span class="nt">&lt;/DayPhone&gt;</span>
+    <span class="nt">&lt;EvePhone&gt;</span>01234567890<span class="nt">&lt;/EvePhone&gt;</span>
+    <span class="nt">&lt;Email&gt;</span>test@test.com<span class="nt">&lt;/Email&gt;</span>
+    <span class="nt">&lt;DataProtection/&gt;</span>
+    <span class="nt">&lt;HistoryText/&gt;</span>
+    <span class="nt">&lt;GUID/&gt;</span>
+    <span class="nt">&lt;SourceRef/&gt;</span>
+  <span class="nt">&lt;/ClientDetails&gt;</span>
+  <span class="nt">&lt;Pricing&gt;</span>
+    <span class="nt">&lt;AmountPaid&gt;</span>20.00<span class="nt">&lt;/AmountPaid&gt;</span>
+    <span class="nt">&lt;AmountDue&gt;</span>0.00<span class="nt">&lt;/AmountDue&gt;</span>
+    <span class="nt">&lt;TotalPrice&gt;</span>20.00<span class="nt">&lt;/TotalPrice&gt;</span>
+    <span class="nt">&lt;CCardSurchargeAmount&gt;</span>0.00<span class="nt">&lt;/CCardSurchargeAmount&gt;</span>
+    <span class="nt">&lt;BasePrice&gt;</span>20.00<span class="nt">&lt;/BasePrice&gt;</span>
+    <span class="nt">&lt;Refund/&gt;</span>
+    <span class="nt">&lt;GrossPrice&gt;</span>20.00<span class="nt">&lt;/GrossPrice&gt;</span>
+    <span class="nt">&lt;SourcePriced&gt;</span>Y<span class="nt">&lt;/SourcePriced&gt;</span>
+    <span class="nt">&lt;Currency&gt;</span>GBP<span class="nt">&lt;/Currency&gt;</span>
+  <span class="nt">&lt;/Pricing&gt;</span>
+  <span class="nt">&lt;VAT&gt;</span>
+    <span class="nt">&lt;BKgexcVAT&gt;</span>16.67<span class="nt">&lt;/BKgexcVAT&gt;</span>
+    <span class="nt">&lt;CWexcVAT&gt;</span>0.00<span class="nt">&lt;/CWexcVAT&gt;</span>
+    <span class="nt">&lt;CCexcVAT&gt;</span>0.00<span class="nt">&lt;/CCexcVAT&gt;</span>
+    <span class="nt">&lt;BkgExemptVAT&gt;</span>0.00<span class="nt">&lt;/BkgExemptVAT&gt;</span>
+    <span class="nt">&lt;Nettotal&gt;</span>16.67<span class="nt">&lt;/Nettotal&gt;</span>
+    <span class="nt">&lt;VATAMT&gt;</span>3.33<span class="nt">&lt;/VATAMT&gt;</span>
+    <span class="nt">&lt;GrossTotal&gt;</span>20.00<span class="nt">&lt;/GrossTotal&gt;</span>
+    <span class="nt">&lt;VATNo&gt;</span>844 2814 25<span class="nt">&lt;/VATNo&gt;</span>
+  <span class="nt">&lt;/VAT&gt;</span>
+  <span class="nt">&lt;CustRef/&gt;</span>
+  <span class="nt">&lt;RequestFlags&gt;</span>
+    <span class="nt">&lt;Registration&gt;</span>Y<span class="nt">&lt;/Registration&gt;</span>
+    <span class="nt">&lt;CarMake&gt;</span>Y<span class="nt">&lt;/CarMake&gt;</span>
+    <span class="nt">&lt;CarModel&gt;</span>Y<span class="nt">&lt;/CarModel&gt;</span>
+    <span class="nt">&lt;CarColour&gt;</span>Y<span class="nt">&lt;/CarColour&gt;</span>
+    <span class="nt">&lt;CreditCard&gt;</span>N<span class="nt">&lt;/CreditCard&gt;</span>
+    <span class="nt">&lt;ReturnFlight&gt;</span>Y<span class="nt">&lt;/ReturnFlight&gt;</span>
+    <span class="nt">&lt;Terminal&gt;</span>N<span class="nt">&lt;/Terminal&gt;</span>
+    <span class="nt">&lt;Destination&gt;</span>N<span class="nt">&lt;/Destination&gt;</span>
+    <span class="nt">&lt;MobileNum&gt;</span>N<span class="nt">&lt;/MobileNum&gt;</span>
+    <span class="nt">&lt;OutFlight&gt;</span>N<span class="nt">&lt;/OutFlight&gt;</span>
+    <span class="nt">&lt;OutTerminal&gt;</span>N<span class="nt">&lt;/OutTerminal&gt;</span>
+    <span class="nt">&lt;ReturnTerminal&gt;</span>N<span class="nt">&lt;/ReturnTerminal&gt;</span>
+  <span class="nt">&lt;/RequestFlags&gt;</span>
+  <span class="nt">&lt;CarDetails&gt;</span>
+    <span class="nt">&lt;Registration&gt;</span>S585RRW<span class="nt">&lt;/Registration&gt;</span>
+    <span class="nt">&lt;CarMake&gt;</span>VAUXHALL<span class="nt">&lt;/CarMake&gt;</span>
+    <span class="nt">&lt;CarModel&gt;</span>CORSA<span class="nt">&lt;/CarModel&gt;</span>
+    <span class="nt">&lt;CarColour&gt;</span>WHITE<span class="nt">&lt;/CarColour&gt;</span>
+    <span class="nt">&lt;OutFlight&gt;</span>-<span class="nt">&lt;/OutFlight&gt;</span>
+    <span class="nt">&lt;OutTerminal/&gt;</span>
+    <span class="nt">&lt;RetTerminal/&gt;</span>
+    <span class="nt">&lt;Mobile&gt;</span>01234567890<span class="nt">&lt;/Mobile&gt;</span>
+    <span class="nt">&lt;Destination&gt;</span>-<span class="nt">&lt;/Destination&gt;</span>
+  <span class="nt">&lt;/CarDetails&gt;</span>
+  <span class="nt">&lt;CurrentSupplements/&gt;</span>
+  <span class="nt">&lt;BarCode/&gt;</span>
+  <span class="nt">&lt;QRCode/&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+      <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+      <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;Email&gt;</span>test@test.com<span class="nt">&lt;/Email&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
 <span class="nt">&lt;/API_Reply&gt;</span>
 </code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"API_Reply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"System"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"General"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Session"</span><span class="p">:</span><span class="w"> </span><span class="mi">825247870</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RequestCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourABTA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Booking"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"BookingRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourBookingRef"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amendable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CanxDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"BasketRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CustomerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AgentComm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.49"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"VATonComm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HX"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"FraudBooking"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SupplierReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Cancellable"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"BookingDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-18"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PdfUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/confirmation?email=test%40test.com&amp;amp;booking_ref=YourBookingRef&amp;amp;product_type=carparks"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Itinerary"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parking"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ArrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"LastAmendDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-18"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Remarks"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"FlightNum"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ArrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LBA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReturnDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CarDropoffTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CarPickupDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-02"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CarPickupTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1300</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ParkingDays"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ParkingSpaces"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReturnFlight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TerminalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"...."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CarParkCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LBY6"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DepartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-02"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DepartTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1300</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"NumberOfPax"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ValetParking"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PPTS"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ParkStart"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ParkTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LBY6"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Short Stay"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"_longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.659618</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"_latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">53.869218</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"ClientDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MR"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Initial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Surname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"TBC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"TBC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">""</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"Town"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"County"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CT214JF"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DayPhone"</span><span class="p">:</span><span class="w"> </span><span class="mi">01234567890</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"EvePhone"</span><span class="p">:</span><span class="w"> </span><span class="mi">01234567890</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@test.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DataProtection"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"HistoryText"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"GUID"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SourceRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Pricing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"AmountPaid"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AmountDue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TotalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CCardSurchargeAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"BasePrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Refund"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"GrossPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SourcePriced"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"VAT"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"BKgexcVAT"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.67</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CWexcVAT"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CCexcVAT"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"BkgExemptVAT"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Nettotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.67</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"VATAMT"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.33</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"GrossTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"VATNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"844 2814 25"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"CustRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TAU113190"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RequestFlags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Registration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CarMake"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CarModel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CarColour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReturnFlight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MobileNum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OutFlight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OutTerminal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReturnTerminal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"CarDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Registration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S585RRW"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CarMake"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VAUXHALL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CarModel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CORSA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CarColour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WHITE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OutFlight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"OutTerminal"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RetTerminal"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Mobile"</span><span class="p">:</span><span class="w"> </span><span class="mi">01234567890</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"CurrentSupplements"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"BarCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"QRCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"API_Header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ABTANumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourABTANumber"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourPassword"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourKey"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@test.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"js"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+</li>
+
+</ul>
 
 <h3 id="fields-explained">Fields Explained</h3>
 
@@ -355,7 +550,7 @@ the confirmation email. Note that you will need to append the fields
 
 <h3 id="european-products-view-booking-request-for-a-hotel-room-only">European Products View Booking Request (for a hotel room only)</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;Email=test@test.com&amp;System=ABG
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com&amp;System=ABG
 </code></pre></div></div>
 
 <h3 id="european-products-view-booking-response-for-a-hotel-room-only">European Products View Booking Response (for a hotel room only)</h3>
@@ -455,7 +650,6 @@ the confirmation email. Note that you will need to append the fields
             <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
             <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
             <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
-            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
             <span class="nt">&lt;Email&gt;</span>test@test.com<span class="nt">&lt;/Email&gt;</span>
             <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
             <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>

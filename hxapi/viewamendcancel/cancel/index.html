@@ -104,13 +104,6 @@
       <td>This will be assigned to you by your Account Manager during set up.</td>
     </tr>
     <tr>
-      <td>token</td>
-      <td>String</td>
-      <td>[0-9] 9 chars</td>
-      <td>Y</td>
-      <td>This is the same token used in the availability request.</td>
-    </tr>
-    <tr>
       <td>System</td>
       <td>String</td>
       <td>[A-Z] 3 chars</td>
@@ -178,13 +171,6 @@
       <td>This will be assigned to you by your Account Manager during set up.</td>
     </tr>
     <tr>
-      <td>token</td>
-      <td>String</td>
-      <td>[0-9] 9 chars</td>
-      <td>Y</td>
-      <td>This is the same token used in the availability request.</td>
-    </tr>
-    <tr>
       <td>System</td>
       <td>String</td>
       <td>[A-Z] 3 chars</td>
@@ -247,7 +233,7 @@
 
 <h3 id="cancel-booking-request---step-1">Cancel Booking Request - Step 1</h3>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber<span class="err">&amp;</span>Password=YourPassword<span class="err">&amp;</span>key=YourKey<span class="err">&amp;</span>token=YourToken<span class="err">&amp;</span>ConfirmCancel=N<span class="err">&amp;</span>CancelRef=YourCancelRef
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber<span class="err">&amp;</span>Password=YourPassword<span class="err">&amp;</span>key=YourKey<span class="err">&amp;</span>ConfirmCancel=N<span class="err">&amp;</span>CancelRef=YourCancelRef
 </code></pre></div></div>
 
 <h3 id="cancel-booking-response---step-1">Cancel Booking Response - Step 1</h3>
@@ -268,7 +254,6 @@
             <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
             <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
             <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
-            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
             <span class="nt">&lt;ConfirmCancel&gt;</span>N<span class="nt">&lt;/ConfirmCancel&gt;</span>
             <span class="nt">&lt;CancelRef&gt;</span>YourCancelRef<span class="nt">&lt;/CancelRef&gt;</span>
             <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
@@ -287,7 +272,6 @@
         <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
         <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
         <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
-        <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
         <span class="nt">&lt;ConfirmCancel&gt;</span>Y<span class="nt">&lt;/ConfirmCancel&gt;</span>
         <span class="nt">&lt;CancelRef&gt;</span>YourCancelRef<span class="nt">&lt;/CancelRef&gt;</span>
     <span class="nt">&lt;/Request&gt;</span>
@@ -311,7 +295,6 @@
             <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
             <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
             <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
-            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
             <span class="nt">&lt;ConfirmCancel&gt;</span>Y<span class="nt">&lt;/ConfirmCancel&gt;</span>
             <span class="nt">&lt;CancelRef&gt;</span>YourCancelRef<span class="nt">&lt;/CancelRef&gt;</span>
             <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
