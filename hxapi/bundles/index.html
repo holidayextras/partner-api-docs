@@ -59,7 +59,7 @@ A <a href="/hxapi/productlibrary">product library</a> request can be made with t
 
 <h2 id="booking">Booking</h2>
 
-<p>The <code class="language-plaintext highlighter-rouge">BookingURL</code> element will contain the full product code that must be supplied when a bundle is to be booked, this will ensure that system books the main product as well as the appropriate supplement. When booking a bundle on a hotel search the quantity of the supplement will be determined by the given room occupancy in the <code class="language-plaintext highlighter-rouge">Adults</code> and <code class="language-plaintext highlighter-rouge">Children</code> fields.</p>
+<p>The <code class="language-plaintext highlighter-rouge">BookingURL</code> element will contain the full product code, including prefix, that must be supplied when a bundle is to be booked, this will ensure that system books the main product as well as the appropriate supplement. When booking a bundle on a hotel search the quantity of the supplement will be determined by the given room occupancy in the <code class="language-plaintext highlighter-rouge">Adults</code> and <code class="language-plaintext highlighter-rouge">Children</code> fields.</p>
 
 <p>The booking response for a bundle booking will show the main product and the booked supplement as seperate elements. The <code class="language-plaintext highlighter-rouge">TotalPrice</code> field will contain the full price of the booking, but the supplement price will also be shown separately under the <code class="language-plaintext highlighter-rouge">CurrentSupplements</code> block.</p>
 
