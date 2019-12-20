@@ -1,0 +1,120 @@
+@font-face {
+  font-family: HolidayExtrasSans;
+  font-weight: 400;
+  font-display: auto;
+  font-style: normal;
+  src: url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Regular.eot);
+  src: url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Regular.eot?#iefix) format('embedded-opentype'),
+  url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Regular.woff2) format('woff2'),
+  url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Regular.woff) format('woff'),
+  url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Regular.ttf) format('truetype');  
+}
+
+@font-face {
+  font-family: HolidayExtrasSans;
+  font-weight: 700;
+  font-display: auto;
+  font-style: normal;
+  src: url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Bold.eot);
+  src: url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Bold.eot?#iefix) format('embedded-opentype'),
+  url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Bold.woff2) format('woff2'),
+  url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Bold.woff) format('woff'),
+  url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Bold.ttf) format('truetype');
+}
+
+@font-face{
+  font-family: HolidayExtrasSans-Light;
+  src: url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Light.eot);
+  src: url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Light.eot?#iefix) format('embedded-opentype'),
+  url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Light.woff2) format('woff2'),
+  url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Light.woff) format('woff'),
+  url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Light.ttf) format('truetype'),
+  url(https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/fonts/HolidayExtrasSans-Light.svg#HolidayExtrasSans-Light) format('svg')
+}
+
+body {
+  font-family: HolidayExtrasSans-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #232323;
+}
+
+.h1, .h2, .h3, .h4, h1, h2, h3, h4 {
+  font-weight: 400;
+  line-height: 1;
+}
+
+p, pre {
+  margin: 0 0 12px;
+}
+
+a {
+  color: #0099db;
+  text-decoration: none;
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+table > thead > tr > th {
+  padding: 8px;
+  border-bottom: 2px solid #dddddd;
+}
+
+table > tbody > tr:nth-of-type(2n+1) {
+  background-color: #f9f9f9;
+}
+
+table > tbody > tr > td {
+  padding: 8px;
+  border-top: 1px solid #dddddd;
+}
+
+main {
+  margin-top: 80px;
+}
+
+nav.navbar {
+  padding: 8px 0;
+  background: #542e91;
+}
+
+nav.navbar a.navbar-brand {
+  min-width: 115px;
+  min-height: 75px;
+  /* svg with fallback to png */
+  background: url('/images/HolidayExtras-logo-stacked-transparent.png');
+  background: url('/images/HolidayExtras-logo-stacked-transparent.svg'), linear-gradient(transparent, transparent);
+  background-size: cover;
+}
+
+nav.navbar a.navbar-title {
+  margin: 12px 15px 0 15px;
+  font-size: 30px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+nav.navbar form.navbar-form {
+  margin-top: 14px;
+}
+
+nav.navbar form.navbar-form div.input-group input {
+  width: 250px;
+  border: 1px solid #261346;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  font-size: 15px;
+}
+
+nav.navbar form.navbar-form div.input-group button {
+  border: 1px solid #261346;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  color: #542e91;
+}

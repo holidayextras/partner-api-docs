@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <title></title>
     <meta name="description" content="">
-    <link rel="stylesheet" href="/css/api-docs.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
     <link rel="stylesheet" href="/css/tabs.css">
@@ -14,26 +15,29 @@
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
   </head>
   <body>
-    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
-      <div class="container">
-        <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
       </div>
-    </nav>
-    <div class="container block-md">
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
       <main role="main">
-        <div class="pull-right" style="margin: 35px 20px">
-          <form method="get" action="/search" id="search-form">
-            <input type="text" name="query" id="search-box">
-            <input type="submit" value="Search">
-          </form>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <div class="h1">
-              <a href="/" style="color:#232323; text-decoration:none;">Holiday Extras API</a>
-            </div>
-          </div>
-            <div class="panel-body">
+        <div class="panel-body">
   <h1 id="view-booking">View Booking</h1>
 
 <p><a href="/hxapi/">API Docs</a> &gt; product:<a href="/hxapi/viewamendcancel/view">view</a></p>
@@ -50,7 +54,7 @@
 
 <p>The endpoint to use is (where <code class="language-plaintext highlighter-rouge">YourBookingRef</code> is the Holiday Extras booking reference):</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#c020feb9-f1b3-470d-817b-e9f5bf141d8b'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#ff09f3cf-4324-4f01-ac26-72cd65611b6a'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -58,7 +62,7 @@
 
 </ul>
 
-<ul id="c020feb9-f1b3-470d-817b-e9f5bf141d8b" class="uk-switcher uk-margin">
+<ul id="ff09f3cf-4324-4f01-ac26-72cd65611b6a" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef
@@ -208,7 +212,7 @@
 
 <h3 id="uk-products-view-booking-request-for-a-car-park">UK Products View Booking Request (for a car park)</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#ac0cefec-c39f-4484-aebc-264cd02a095c'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#cba8cf22-299f-4666-97f2-99687a692b6d'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -216,7 +220,7 @@
 
 </ul>
 
-<ul id="ac0cefec-c39f-4484-aebc-264cd02a095c" class="uk-switcher uk-margin">
+<ul id="cba8cf22-299f-4666-97f2-99687a692b6d" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
@@ -233,7 +237,7 @@
 
 <h3 id="uk-products-view-booking-response-for-a-car-park">UK Products View Booking Response (for a car park)</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#2a4d76d6-4658-4662-a534-51b9105d1835'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#cb459641-dd33-477c-a78d-cfefddf6d92d'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -241,7 +245,7 @@
 
 </ul>
 
-<ul id="2a4d76d6-4658-4662-a534-51b9105d1835" class="uk-switcher uk-margin">
+<ul id="cb459641-dd33-477c-a78d-cfefddf6d92d" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -661,7 +665,6 @@ the confirmation email. Note that you will need to append the fields
 
 </div>
 
-        </div>
       </main>
     </div>
     <script src="/js/code-snippets.js"></script>

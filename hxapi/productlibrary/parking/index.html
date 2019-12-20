@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <title></title>
     <meta name="description" content="">
-    <link rel="stylesheet" href="/css/api-docs.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
     <link rel="stylesheet" href="/css/tabs.css">
@@ -14,26 +15,29 @@
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
   </head>
   <body>
-    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
-      <div class="container">
-        <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
       </div>
-    </nav>
-    <div class="container block-md">
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
       <main role="main">
-        <div class="pull-right" style="margin: 35px 20px">
-          <form method="get" action="/search" id="search-form">
-            <input type="text" name="query" id="search-box">
-            <input type="submit" value="Search">
-          </form>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <div class="h1">
-              <a href="/" style="color:#232323; text-decoration:none;">Holiday Extras API</a>
-            </div>
-          </div>
-            <div class="panel-body">
+        <div class="panel-body">
   <h1 id="product-library---car-park">Product Library - Car Park</h1>
 
 <p><a href="/hxapi/">API Docs</a> &gt; endpoint:<a href="/hxapi/productlibrary/parking">product</a></p>
@@ -75,7 +79,7 @@
 
 <h3 id="request-example-1">Request (example 1)</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#6263271b-98ec-41d5-90de-3b88fe78d7d5'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#df7677e0-a83f-4376-afb5-44c099e52d30'}">
 
 	<li class="uk-active"><a href="#">Live (XML)</a></li>
 
@@ -87,7 +91,7 @@
 
 </ul>
 
-<ul id="6263271b-98ec-41d5-90de-3b88fe78d7d5" class="uk-switcher uk-margin">
+<ul id="df7677e0-a83f-4376-afb5-44c099e52d30" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/product/LGW4/lite?token=000015778&amp;key=mytestkey
@@ -115,7 +119,7 @@
 
 <h3 id="reply-example-1">Reply (example 1)</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#06ece750-0f24-4dce-a0e5-7241e5bb7a90'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#2d1001ca-43b0-40f3-8981-fe439498655f'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -123,7 +127,7 @@
 
 </ul>
 
-<ul id="06ece750-0f24-4dce-a0e5-7241e5bb7a90" class="uk-switcher uk-margin">
+<ul id="2d1001ca-43b0-40f3-8981-fe439498655f" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -506,7 +510,7 @@ Please call Maple Manor to enquire about or to book this service.<span class="nt
 
 <h3 id="request-example-2">Request (example 2)</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#4e92107e-4979-4dfc-9fe8-bd65046db702'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#5674b32c-011e-4fad-ad40-4f2dce4f8911'}">
 
 	<li class="uk-active"><a href="#">Live (XML)</a></li>
 
@@ -518,7 +522,7 @@ Please call Maple Manor to enquire about or to book this service.<span class="nt
 
 </ul>
 
-<ul id="4e92107e-4979-4dfc-9fe8-bd65046db702" class="uk-switcher uk-margin">
+<ul id="5674b32c-011e-4fad-ad40-4f2dce4f8911" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/product/LGW4/lite?token=000015778&amp;key=mytestkey&amp;fields=name,longitude,latitude
@@ -546,7 +550,7 @@ Please call Maple Manor to enquire about or to book this service.<span class="nt
 
 <h3 id="reply-example-2">Reply (example 2)</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#b069c83e-2269-4f99-8ab9-40c1476ca9d3'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#d63464d3-53e1-422b-a8c0-c67ba6c9a5be'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -554,7 +558,7 @@ Please call Maple Manor to enquire about or to book this service.<span class="nt
 
 </ul>
 
-<ul id="b069c83e-2269-4f99-8ab9-40c1476ca9d3" class="uk-switcher uk-margin">
+<ul id="d63464d3-53e1-422b-a8c0-c67ba6c9a5be" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -734,7 +738,7 @@ sellpoint_terminal, sellpoint_transfers, sellpoint_parking, sellpoint_security.<
 
 <p>Requests for German products return a different set of fields. Explanation of fields not currently available.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#4ceb668e-1dd5-4acd-8eee-ce2fda791c8a'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#b2bff1f7-29df-40b7-bcda-69794fe545a3'}">
 
 	<li class="uk-active"><a href="#">Live (XML)</a></li>
 
@@ -746,7 +750,7 @@ sellpoint_terminal, sellpoint_transfers, sellpoint_parking, sellpoint_security.<
 
 </ul>
 
-<ul id="4ceb668e-1dd5-4acd-8eee-ce2fda791c8a" class="uk-switcher uk-margin">
+<ul id="b2bff1f7-29df-40b7-bcda-69794fe545a3" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/product/FRA0?key=mytestkey
@@ -774,7 +778,7 @@ sellpoint_terminal, sellpoint_transfers, sellpoint_parking, sellpoint_security.<
 
 <h3 id="reply-example-3">Reply (example 3)</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#c3841979-22d5-4ef8-b0f3-12c1b97fa3b0'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#1c45c52e-4768-41ab-9669-3e922490bfdc'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -782,7 +786,7 @@ sellpoint_terminal, sellpoint_transfers, sellpoint_parking, sellpoint_security.<
 
 </ul>
 
-<ul id="c3841979-22d5-4ef8-b0f3-12c1b97fa3b0" class="uk-switcher uk-margin">
+<ul id="1c45c52e-4768-41ab-9669-3e922490bfdc" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -1058,7 +1062,6 @@ Avoid charges by adding the Flexi Package or contacting the travel agency.<span 
 
 </div>
 
-        </div>
       </main>
     </div>
     <script src="/js/code-snippets.js"></script>

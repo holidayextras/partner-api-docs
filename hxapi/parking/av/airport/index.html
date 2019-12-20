@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <title></title>
     <meta name="description" content="">
-    <link rel="stylesheet" href="/css/api-docs.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/search.css">
     <link rel="stylesheet" href="/css/tabs.css">
@@ -14,26 +15,29 @@
     <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
   </head>
   <body>
-    <nav role="nav" class="navbar navbar-default hidden-print navbar-static-top">
-      <div class="container">
-        <a class="navbar-brand" href="https://www.holidayextras.co.uk">Holiday Extras</a>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
       </div>
-    </nav>
-    <div class="container block-md">
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
       <main role="main">
-        <div class="pull-right" style="margin: 35px 20px">
-          <form method="get" action="/search" id="search-form">
-            <input type="text" name="query" id="search-box">
-            <input type="submit" value="Search">
-          </form>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <div class="h1">
-              <a href="/" style="color:#232323; text-decoration:none;">Holiday Extras API</a>
-            </div>
-          </div>
-            <div class="panel-body">
+        <div class="panel-body">
   <h1 id="availability-at-airport">Availability At Airport</h1>
 
 <p><a href="/hxapi/">API Docs</a> &gt; product:<a href="/hxapi/parking">Parking</a> &gt; endpoint:<a href="/hxapi/parking/av">carpark</a> &gt; request:<a href="/hxapi/parking/av/airport">Availability by Airport</a></p>
@@ -53,7 +57,7 @@
 
 <p>For example, for London Gatwick the endpoint is:</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#c7ee8c37-3e1d-4bc9-b4bc-593b236514fe'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#4ce32853-4ea4-4e28-be13-7ba0682052c0'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -61,7 +65,7 @@
 
 </ul>
 
-<ul id="c7ee8c37-3e1d-4bc9-b4bc-593b236514fe" class="uk-switcher uk-margin">
+<ul id="4ce32853-4ea4-4e28-be13-7ba0682052c0" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/LGW
@@ -415,7 +419,7 @@
 
 <h3 id="uk-products-availability-request">UK Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#81b84eba-b184-4219-a78a-f3ac861ed207'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#3dd31504-4310-4cc2-a40c-2fce97f0cb7f'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -423,7 +427,7 @@
 
 </ul>
 
-<ul id="81b84eba-b184-4219-a78a-f3ac861ed207" class="uk-switcher uk-margin">
+<ul id="3dd31504-4310-4cc2-a40c-2fce97f0cb7f" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/LGW?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2020-01-07&amp;ArrivalTime=1200&amp;DepartDate=2020-01-08&amp;DepartTime=1200&amp;NumberOfPax=1
@@ -442,7 +446,7 @@
 
 <p>NB: This is a shortened example compiled from a full availability response.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#bb4e1e59-3bd4-40c5-969e-62281026c7c9'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#e76691f6-a65d-487a-8f88-c307a2351f2c'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -450,7 +454,7 @@
 
 </ul>
 
-<ul id="bb4e1e59-3bd4-40c5-969e-62281026c7c9" class="uk-switcher uk-margin">
+<ul id="e76691f6-a65d-487a-8f88-c307a2351f2c" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -678,7 +682,7 @@
 
 <h3 id="european-products-availability-request">European Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#c91132e9-5827-4735-b2fc-016cfb6efb21'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#8d52d1c2-41e2-4072-8fb7-4e1ef5790674'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -686,7 +690,7 @@
 
 </ul>
 
-<ul id="c91132e9-5827-4735-b2fc-016cfb6efb21" class="uk-switcher uk-margin">
+<ul id="8d52d1c2-41e2-4072-8fb7-4e1ef5790674" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/MUC?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;ArrivalTime=1200&amp;DepartDate=2017-12-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;System=ABG&amp;lang=en
@@ -705,7 +709,7 @@
 
 <p>NB: This is a shortened example compiled from a full availability response.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#c035570a-27a1-488e-9c1f-5c33dbcf567a'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#9549981a-ddec-4ae4-bff4-658fcfe70140'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -713,7 +717,7 @@
 
 </ul>
 
-<ul id="c035570a-27a1-488e-9c1f-5c33dbcf567a" class="uk-switcher uk-margin">
+<ul id="9549981a-ddec-4ae4-bff4-658fcfe70140" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -942,7 +946,6 @@
 
 </div>
 
-        </div>
       </main>
     </div>
     <script src="/js/code-snippets.js"></script>
