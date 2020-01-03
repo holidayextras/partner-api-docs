@@ -21,6 +21,13 @@ The purpose of this documentation is to enable you to quickly on-board with our 
 
 |Version Number|Date|Details|
 |--------------|----|-------|
+| 1.12.0 | 20th December 2019 | Updated docs UI look & layout |
+| 1.11.6 | 18th December 2019 | Clarifying that token is no longer needed in view/amend/cancel booking |
+| 1.11.5 | 13th December 2019 | Highlighting that BookingURL contains product prefix  |
+| 1.11.4 | 11th December 2019 | Updated the Product Library / Car Park page |
+| 1.11.3 | 6th December 2019 | Added JSON examples alongside with the XML requests/responses on some pages |
+| 1.11.2 | 5th December 2019 | Updated the Payment Gateway page with explaining who is able to use tokens |
+| 1.11.1 | 4th December 2019 | Added search functionality |
 | 1.11.0 | 27th March 2019 | Added docs explaining bundle products |
 | 1.10.0 | 25th January 2019 | Added optional `Terminal` param for hotel with parking requests. |
 |1.9.6 | 6th December 2018 | Updated sandbox hostname for legacy payments (EU) |
