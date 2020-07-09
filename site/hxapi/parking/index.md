@@ -39,7 +39,7 @@ For example:
 &fields=field_a,field_b,field_c
 ```
 
-Alternatively, the method for querying the product library as a separate request [is outlined here](/hxapi/productlibrary/parking).
+Alternatively, the method for querying the product library as a separate request [is outlined here](/hxapi/productlibrary/index).
 
 #### Advance purchase
 
