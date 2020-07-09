@@ -1,0 +1,119 @@
+{
+  "API_Reply": {
+    "Product": [
+      {
+        "parkplatzname": "Airparks Parkplatz Frankfurt - Winterspecial",
+        "language": "en",
+        "tax_location": "GER",
+        "tax_type": "SP",
+        "umsatzsteuer_id": "DE813463160",
+        "terminallocated": "0",
+        "car_parked_for_you": "0",
+        "meet_and_greet": "0",
+        "valet_included": "0",
+        "mindestparkdauer": 1,
+        "maximum_stay": 35,
+        "release_days": "0",
+        "adresse": "Lärchenstraße 133, 65933 Frankfurt am Main",
+        "adresse_navigation": "Lärchenstr. 131, 65933 Frankfurt am Main",
+        "ghost_product_alternative_content": "Das Airparks Parkplatz Frankfurt Winterspecial ist bei unseren Kunden sehr beliebt und zu ihrem Reisetermin leider ausgebucht. ",
+        "telefon": "+49 (0)69 / 175 148 65 oder +49 (0)176 / 100 311 54",
+        "sellingpoint": "Book now: our winter special is only available for a limited time. Note new cancellation policy.",
+        "hinweis": "<strong>Dieses Angebot gilt für Anreisen ab 02.11.2019 und späteste Rückreise am 04.04.2020. Es ist umbuchbar und stornierbar und gilt nur solange der Vorrat reicht. Bitte beachten Sie, dass bei Umbuchungen gegebenenfalls ein Aufpreis anfallen kann. Die Maximalparkdauer beträgt 35 Tage.</strong><br />\r\n<strong>Bringen Sie bitte Ihre Buchungsbestätigung und Ihre Flugdetails (Flugnummer des Rückfluges und Ankunftszeit in Frankfurt) mit zum Check-in des Parkplatzes.</strong><br />\r\nDer Shuttletransfer erfolgt zum Terminal 1. Alle Gäste, die ab Terminal 2 fliegen, können ab Terminal 1 kostenfrei mit der Sky Line oder dem Flughafen-Shuttle-Bus (alle paar Minuten) zum Terminal 2 fahren. <br />\r\nDer Transfer ist für maximal 5 Personen möglich. Unser Tipp: Setzen Sie Ihre Mitfahrer zuerst am Flughafen ab! <br />\r\nWir empfehlen Ihnen, ca. 2,5 Stunden vor Ihrer Abflugzeit am Parkplatz anzureisen. Bitte beachten Sie dies bei der Angabe Ihrer Anreisezeit, da ansonsten kein pünktlicher Transfer gewährleistet werden kann. ",
+        "anfahrt": "<strong>Aus allen Richtungen:</strong> Auf die A3 in Richtung Frankfurter Kreuz/ Flughafen Frankfurt fahren. In Höhe des Flughafens Frankfurt von der A3 auf die B43 in Richtung Kelsterbach/ Industriepark Höchst abfahren. NICHT auf die B43 in Richtung Kelsterbach abbiegen sondern, sondern weiter geradeaus fahren auf der B40. Nach weiteren 1,5 km rechts abbiegen auf die B40A in Richtung Frankfurt-Stadtmitte. Nach ungefähr 4 km auf gelangt man auf die Mainzer Landstraße. Dort den Gebäudekomplex TOOM Markt/ Promarkt/ Cinestar passieren und anschließend an der Ampel rechts abbiegen in die Straße \"In der Schildwacht\". Nach ungefähr 400 m am Ende der Straße erneut rechts abbiegen in die Lärchenstraße. Nach weiteren 300 m erreicht man auf der linken Seite die Airparks-Einfahrt.\r\n<br />\r\nBitte darauf achten, dass man der Ausschilderung zum Airparks-Parkplatz (Lärchenstraße 133) und nicht zum Airparks-Parkhaus folgt!  <br />",
+        "anfahrt_kurz": "<strong>Aus allen Richtungen:</strong> Auf die A3 in Richtung Frankfurter Kreuz/ Flughafen Frankfurt fahren. In Höhe des Flughafens Frankfurt von der A3 auf die B43 in Richtung Kelsterbach/ Industriepark Höchst abfahren. NICHT auf die B43 in Richtung Kelsterbach abbiegen sondern, sondern weiter geradeaus fahren auf der B40. Nach weiteren 1,5 km rechts abbiegen auf die B40A in Richtung Frankfurt-Stadtmitte. Nach ungefähr 4 km auf gelangt man auf die Mainzer Landstraße. Dort den Gebäudekomplex TOOM Markt/ Promarkt/ Cinestar passieren und anschließend an der Ampel rechts abbiegen in die Straße \"In der Schildwacht\". Nach ungefähr 400 m am Ende der Straße erneut rechts abbiegen in die Lärchenstraße. Nach weiteren 300 m erreicht man auf der linken Seite die Airparks-Einfahrt.\r\n<br />\r\nBitte darauf achten, dass man der Ausschilderung zum Airparks-Parkplatz (Lärchenstraße 133) und nicht zum Airparks-Parkhaus folgt!  <br />",
+        "transfer": "Bustransfer von 02:00-00:40 Uhr zum Flughafen und zurück inklusive. Der Shuttle fährt alle 20 Minuten nach festem Fahrplan zu jeder vollen Stunde, 20 und 40 Minuten nach jeder vollen Stunde. Transferdauer: ca. 10 Minuten. <br /> <br />\r\nDer Shuttleservice erfolgt zum Busbahnhof am Terminal 1. Alle Gäste, die ab Terminal 2 fliegen, können von hier mit dem \"Flughafen-Shuttle-Bus\" oder der \"Sky Line\" kostenlos weiterfahren.",
+        "shuttle_von": "0200",
+        "shuttle_bis": "0040",
+        "shuttle_frequency": "alle 20 Minuten",
+        "transfer_kurzform": "Transfer von 02:00 bis 00:40 Uhr alle 20 Min. inklusive. Transferdauer: ca. 10 Minuten.",
+        "transfer_kurz": "Bustransfer von 02:00-00:40 Uhr inklusive. Der Transfer fährt zum Terminal 1, zum Terminal 2 fährt kostenfrei die Sky Line.\r\n ",
+        "tripappintroduction": "From now on there will be an administrative charge of at least 10 EUR for the cancellation of the car park on the day after the booking. \r\nAvoid charges by adding the Flexi Package or contacting the travel agency.\r\n<br />\r\n<br />\r\n<strong>Entfernung zum Flughafen</strong>\r\n<br />\r\nTransferdauer: ca. 10 Minuten\r\n<br />\r\n<br />\r\n<strong>Sicherheit</strong>\r\n<br />\r\nEingezäunter, beleuchteter, videoüberwachter und 24 Stunden personell besetzter Parkplatz. Es finden regelmäßige Kontrollgänge statt.\r\n<br />\r\n<br />\r\n<strong>Hinweis</strong>\r\n<br />\r\n<strong>Dieses Angebot gilt für Anreisen ab 02.11.2019 und späteste Rückreise am 04.04.2020. Es ist umbuchbar und stornierbar und gilt nur solange der Vorrat reicht. Bitte beachten Sie, dass bei Umbuchungen gegebenenfalls ein Aufpreis anfallen kann. Die Maximalparkdauer beträgt 35 Tage.</strong><br />\r\n<strong>Bringen Sie bitte Ihre Buchungsbestätigung und Ihre Flugdetails (Flugnummer des Rückfluges und Ankunftszeit in Frankfurt) mit zum Check-in des Parkplatzes.</strong><br />\r\nDer Shuttletransfer erfolgt zum Terminal 1. Alle Gäste, die ab Terminal 2 fliegen, können ab Terminal 1 kostenfrei mit der Sky Line oder dem Flughafen-Shuttle-Bus (alle paar Minuten) zum Terminal 2 fahren. <br />\r\nDer Transfer ist für maximal 5 Personen möglich. Unser Tipp: Setzen Sie Ihre Mitfahrer zuerst am Flughafen ab! <br />\r\nWir empfehlen Ihnen, ca. 2,5 Stunden vor Ihrer Abflugzeit am Parkplatz anzureisen. Bitte beachten Sie dies bei der Angabe Ihrer Anreisezeit, da ansonsten kein pünktlicher Transfer gewährleistet werden kann. \r\n<br />\r\n<br />\r\n<strong>Barrierefreier Zugang</strong>\r\n<br />\r\nBehindertengerechte Stellplätze sind auf Anfrage verfügbar. Der Transferbus ist bedingt behindertengerecht.\r\n<br />\r\n<br />\r\n<strong>Pkw Groesse</strong>\r\n<br />\r\nMax. Höhe: unbegrenzt; max. Breite: 2,00 m; max. Länge: 5,00 m; größere PKW bis 6 m Länge bzw. 2,30 m Breite auf Anfrage beim Kundenservice und gegen Aufpreis von 10,- EUR vor Ort möglich. Über 6 m Länge bzw. 2,30 m Breite tätigen Sie bitte 2 Buchungen und melden die Übergröße nach der Buchung am Parkplatz an.\r\n<br />\r\n<br />\r\n<strong>Versicherung</strong>\r\n<br />\r\nHaftpflichtversicherung für den Betrieb des Parkplatzes entsprechend den gesetzlichen Bestimmungen.\r\n<br />\r\n<br />\r\n<strong>Adresse</strong>\r\n<br />\r\nLärchenstraße 133, 65933 Frankfurt am Main\r\n<br />\r\n<br /> \r\n<strong>Parkplatzbetreibertipp</strong>\r\n<br />\r\nEs stehen Frauenparkplätze zur Verfügung. Gern erhalten Sie auch kostenfrei Starthilfe.",
+        "videoid": "rf1jZK4pkNI",
+        "shuttle_times": "2:00 - 00:40 Uhr",
+        "transferdauer": "ca. 10 Minuten",
+        "entfernung_zum_flughafen": "Transferdauer: ca. 10 Minuten",
+        "transfer_time": 10,
+        "transfer_minutes": 10,
+        "sicherheit": "Eingezäunter, beleuchteter, videoüberwachter und 24 Stunden personell besetzter Parkplatz. Es finden regelmäßige Kontrollgänge statt.",
+        "sicherheit_kurzform": "Eingezäunter, beleuchteter, 24h personell besetzter, videoüberwachter und regelmäßig kontrollierter Parkplatz.",
+        "bei_der_anreise_": "Bitte fahren Sie auf dem Airparks-Parkplatz bis zum Empfang und halten Sie dort auf den gelb markierten Check-in Parkplätzen. <font color=\"#FF0000\"><strong>Bringen Sie bitte Ihre Buchungsbestätigung und Ihre Flugdetails mit (Flugnummer Ihre Rückflugs (z.B. LH 2374) und Ihre Ankunftszeit in Frankfurt).</strong></font> Die Flugdetails benötigen wir zur besseren Koordinierung Ihres Rücktransfers. Unser Personal erklärt Ihnen kurz den Shuttleservice und weist Ihnen den Stellplatz für Ihr Fahrzeug zu.",
+        "bei_der_abreise": "Begeben Sie sich bitte nach der Gepäckausgabe und nach der Zollabfertigung zum Airparks Shuttle Treffpunkt in der ANKUNFTS-EBENE nach der Halle A auf dem angrenzenden Parkplatz P 29 (Terminalgebäude verlassen, links gehen bis zum Ende von Halle A). Die blaue Linie fährt von 02:00-00:40 Uhr alle 20 Minuten nach festem Fahrplan zum Airparks Parkplatz Lärchenstraße und zum Airparks Parkhaus Frankfurt (Abfahrt jeweils zu jeder vollen Stunde, um 20 und 40 Minuten nach jeder vollen Stunde). Bitte NICHT in die rote Linie einsteigen, diese fährt zu einem anderen Parkplatz! <br /> \r\n<strong>Bitte beachten Sie:</strong> Unsere Parkleistungen werden nach Kalendertagen abgerechnet. Sofern Sie weitere Kalendertage wie in Ihrer Buchung angegeben nutzen werden, müssen diese nachgebucht werden.",
+        "barrierefreier_zugang": "Behindertengerechte Stellplätze sind auf Anfrage verfügbar. Der Transferbus ist bedingt behindertengerecht.",
+        "pkw_groesse": "Max. Höhe: unbegrenzt; max. Breite: 2,00 m; max. Länge: 5,00 m; größere PKW bis 6 m Länge bzw. 2,30 m Breite auf Anfrage beim Kundenservice und gegen Aufpreis von 10,- EUR vor Ort möglich. Über 6 m Länge bzw. 2,30 m Breite tätigen Sie bitte 2 Buchungen und melden die Übergröße nach der Buchung am Parkplatz an.",
+        "kindersitz": "Kindersitze und Sitzerhöhungen sind nicht erforderlich da ein Linienbus als Shuttlefahrzeug eingesetzt wird.",
+        "parkplatzbetreibertipp": "Es stehen Frauenparkplätze zur Verfügung. Gern erhalten Sie auch kostenfrei Starthilfe.",
+        "produktinfolink": "Ausführliche Produktinformationen zum Ausdrucken finden Sie unter http://www.holidayextras.de/produktinfos.html",
+        "versicherung": "Haftpflichtversicherung für den Betrieb des Parkplatzes entsprechend den gesetzlichen Bestimmungen.",
+        "discount_type": "%",
+        "prodlogo": "/imageLibrary/Images/b0c/AP-P-Fra-Winter.gif",
+        "recommended": "0",
+        "airparks_owned": "yes",
+        "on_airport": "0",
+        "distance_miles": 9,
+        "latitude": 50.0964,
+        "longitude": 8.5892,
+        "company_logo": "airparks.png",
+        "company_name": "Airparks",
+        "google_map": "<a href=\"http://bit.ly/nWlatb\">http://bit.ly/nWlatb</a>",
+        "logo": "/imageLibrary/Images/Airparks.gif",
+        "zusatzvermerk": "This offer is valid for arrivals from the 3rd of November 2018 and departures not later than the 12th of April 2019. The maximum parking duration is 35 days. The Airparks Winter-Special is amendable, cancelable and bookable only while stocks last. There might be an additional charge for amendments.",
+        "merchandising": "From now on there will be an administrative charge of at least 10 EUR for the cancellation of the car park on the day after the booking. \r\nAvoid charges by adding the Flexi Package or contacting the travel agency.",
+        "special_offer_text": "Winterspecial",
+        "tripappimages": "/imageLibrary/Images/FRA0_Icon_Test.png;/imageLibrary/Images/FRA890_N_01_2019.jpg;/imageLibrary/Images/FRA890_N_02_2019.jpg;/imageLibrary/Images/FRA890_N_03_2019.jpg;/imageLibrary/Images/FRA890_N_04_2019.jpg;/imageLibrary/Images/FRA890_N_05_2019.jpg;/imageLibrary/Images/FRA890_N_06_2019.jpg",
+        "parent": "FRA",
+        "child": "0",
+        "type": 10,
+        "lang": "en",
+        "archived": "0",
+        "name": "Airparks Open Air Car Park Frankfurt Winterspecial",
+        "ghost": "0",
+        "_airport": "FRA",
+        "_a_tax_location": [
+          "GER"
+        ],
+        "_a_tax_type": [
+          "SP"
+        ],
+        "base_product": "",
+        "_prodcode": "FRA0",
+        "_updated_date": "2019-09-23",
+        "bestseller": "yes",
+        "_base_name": null,
+        "videoid_version": {
+          "hx": "rf1jZK4pkNI",
+          "HX": "rf1jZK4pkNI"
+        },
+        "_a_equivalent_prod_for_airparks": [],
+        "_a_equivalent_product": [],
+        "_filter": {
+          "car_parked_for_you": "0",
+          "meet_and_greet": "0",
+          "valet_included": "0",
+          "recommended": "0",
+          "on_airport": "0",
+          "special_offer_text": "Winterspecial"
+        },
+        "_a_terminal": [],
+        "_a_ghost_upsell_products": [],
+        "_a_test_transfer": [],
+        "_default_lang": "de",
+        "_prodtype": "GermanParking",
+        "_generated": "2019-12-05 15:16:15",
+        "lang_en_archived": "false",
+        "unnamed": "",
+        "accessible": ""
+      }
+    ],
+    "ATTRIBUTES": {
+      "Result": "OK"
+    },
+    "API_Header": {
+      "Request": {
+        "key": "mytestkey",
+        "v": 1,
+        "format": "js"
+      }
+    }
+  }
+}
