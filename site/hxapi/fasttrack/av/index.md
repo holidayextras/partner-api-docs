@@ -52,14 +52,23 @@ For a detailed explanation of the fields returned, please see below:
 
 
 
-| Field                  | Additional Information                                                                                      |
-|------------------------|-------------------------------------------------------------------------------------------------------------|
-| FastTrack/Price        | The price of product _without_ any surcharges/fees added.                                                   |
-| FastTrack/NonDiscPrice | The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison. |
-| FastTrack/Name         | The name of the fasttrack.                                                                                  |
-| FastTrack/Code         | The product code for the fasttrack, which must be used in the booking request.                              |
-| FastTrack/BookingURL   | The URL to POST the booking request to for this particular product.                                         |
-| FastTrack/MoreInfoURL  | The link to more information about this product, sourced from the Product Library.                          |
+| Field                      | Additional Information                                                                                      |
+|----------------------------|-------------------------------------------------------------------------------------------------------------|
+| FastTrack/Name             | The name of the fasttrack.                                                                                  |
+| FastTrack/Code             | The product code for the fasttrack, which must be used in the booking request.                              |
+| FastTrack/BookingURL       | The URL to POST the booking request to for this particular product.                                         |
+| FastTrack/MoreInfoURL      | The link to more information about this product, sourced from the Product Library.                          |
+| FastTrack/Price            | The price of product _without_ any surcharges/fees added.                                                   |
+| FastTrack/NonDiscPrice     | The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison. |
+| FastTrack/SalesCurrency    | Three character identifier for the sale currency to qualify the price                                       |
+| FastTrack/Images/Src       | Link to a image for the product. Prepend with `https:`                                                      |
+| FastTrack/Description      | Product description                                                                                         |
+| FastTrack/Logo             | Link to a logo for the product. Prepend with `https:`                                                       |
+| FastTrack/ExtraInformation | Extended description of the product                                                                         |
+| IsRefundable               | Whether the product can be refunded                                                                         |
+| AirportLocation            | The location code for the product airport                                                                   |
+| Terminal                   | The airport terminal of the product                                                                         |
+
 
 
 ## Worked Examples

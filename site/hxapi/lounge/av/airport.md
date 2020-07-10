@@ -59,12 +59,15 @@ For a detailed explanation of the fields returned, please see below:
 
 | Field               | Additional Information                                                                                      |
 |---------------------|-------------------------------------------------------------------------------------------------------------|
-| Lounge/Price        | The price of product _without_ any surcharges/fees added.                                                   |
-| Lounge/NonDiscPrice | The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison. |
 | Lounge/Name         | The name of the lounge.                                                                                     |
 | Lounge/Code         | The product code for the lounge, which must be used in the booking request.                                 |
 | Lounge/BookingURL   | The URL to POST the booking request to for this particular product.                                         |
 | Lounge/MoreInfoURL  | The link to more information about this product, sourced from the Product Library.                          |
+| Lounge/NonDiscPrice | The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison. |
+| Lounge/Price        | The price of product _without_ any surcharges/fees added.                                                   |
+| Lounge/terminal     | The terminal the lounge is in                                                                               |
+| API_Header/Request  | The API returns every parameter and value you sent in the previous request.                                 |
+
 
 
 ## Worked Examples

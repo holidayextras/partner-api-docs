@@ -30,7 +30,7 @@ These endpoints are not product-specific. Please check the table below for detai
 |[User token](/hxapi/usertoken)|Yes|Yes|
 |[Location](/hxapi/locations)|Yes|Yes|
 |[Terminal](/hxapi/terminal)|Yes|No|
-|[Barcode](/hxapi/barcode)|Yes|No|
+|[Barcode / QRCode](/hxapi/barcode)|Yes|No|
 |[Product library](/hxapi/productlibrary)|Yes|Yes|
 |[Managing a booking](/hxapi/viewamendcancel)|Yes|Yes|
 |[Update a booking's flight](/hxapi/flightUpdate)|Yes|No|

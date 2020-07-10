@@ -9,23 +9,26 @@ An increasing number of car parks, and other products, are updating the way they
 This endpoint simply enables you to specify a booking reference and receive a **Code128** barcode representation of that in return.
 
 In our experience, the size can be scaled down, but you must keep the proportions the same to prevent blurring.
-## Method
+
+### URL
+
+/barcode/{bookingRef}
+
+### Method
 
 GET
 
-
 ## Parameters
 
- | Name       | Data Type    | Format         | Required |
- | ----       | ---------    | ------         | -------- |
- | key        | Number       |                | Y        |
- | BookingRef | Alphanumeric | [A-z,0-9]{5,12}   | Y        |
- | angle      | Numeric      | Multiple of 90 | N        |
+| Name  | Data Type | Format         | Required |
+|-------|-----------|----------------|----------|
+| key   | Number    |                | Y        |
+| angle | Numeric   | Multiple of 90 | N        |
 
 
 The file extension is also required, to tell the API to return the correct image headers.
 
-## Request
+#### Request
 
 ```
 https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=YourKey
@@ -49,7 +52,7 @@ https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=YourKey&angle=2
 ```
 
 
-## Reply
+#### Reply
 
 The reply in this case will be an image, not XML.
 
@@ -57,6 +60,16 @@ The reply in this case will be an image, not XML.
 
 You can establish whether a car park requires a QR code by including the parameter '&fields=qr_code' within your request. The response will either be '0' or '1'.
 
-To enable a QR code you use google charts, just add the booking ref as value for chl=  ​so in the example below the booking ref would be HX123.​
+A QR code can be generated in the same fashion as a barcode, just call the `/qrcode/` API.
 
-[http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=HX123&chld=H%7C0](http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=HX123&chld=H%7C0)
+#### Request
+
+```
+https://api.holidayextras.co.uk/sandbox/v1/qrcode/ABCDE.png?key=YourKey
+```
+
+So you can include it in your page as easily as...
+
+```
+<img src="https://api.holidayextras.co.uk/sandbox/v1/qrcode/ABCDE.png?key=YourKey" />
+```
