@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<API_Reply Result="OK" expires="2020-07-10 14:25:38" cached="1" Product="General" System="ABC" Version="1.0" Customer="A" Session="123456789" RequestCode="12">
+    <Itinerary>
+        <SiteCode>LGWSOF</SiteCode>
+    </Itinerary>
+    <Supplement>
+        <Code>AIRHLG</Code>
+        <Name>Flight compensation checker</Name>
+        <Per>B</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description>Claim up to £550 per person.</description>
+        <supplement_type>Payment</supplement_type>
+        <Date>2020-11-03</Date>
+        <Price>5.00</Price>
+        <NonDiscPrice>5.00</NonDiscPrice>
+        <DiscAmt>0.00</DiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>AIRHLI</Code>
+        <Name>Flight compensation checker</Name>
+        <Per>B</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description>Claim up to £550 per person.</description>
+        <supplement_type>Payment</supplement_type>
+        <Date>2020-11-03</Date>
+        <Price>3.00</Price>
+        <NonDiscPrice>3.00</NonDiscPrice>
+        <DiscAmt>0.00</DiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>CBNOFF</Code>
+        <Name>Trees for Cities</Name>
+        <Per>B</Per>
+        <Canx>N</Canx>
+        <Filter/>
+        <description>Do your bit for the environment. One tree can make a world of difference.</description>
+        <supplement_type>Charity Donation</supplement_type>
+        <Date>2020-11-03</Date>
+        <Price>1.00</Price>
+        <NonDiscPrice>1.00</NonDiscPrice>
+        <DiscAmt>0.00</DiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>GADCOA</Code>
+        <Name>Insure your Mobile and your Gadgets</Name>
+        <Per>B</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description>£2,000 of cover for theft, loss &amp; accidental damage when travelling.</description>
+        <supplement_type>gadget cover</supplement_type>
+        <Date>2020-11-03</Date>
+        <Price>9.99</Price>
+        <NonDiscPrice>9.99</NonDiscPrice>
+        <DiscAmt>0.00</DiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>LGWSOD</Code>
+        <Name>Urban Cafe 2-course dinner</Name>
+        <Per>P</Per>
+        <Canx>Y</Canx>
+        <Filter>
+            <primary_for_product_type>1</primary_for_product_type>
+            <wistia>1</wistia>
+        </Filter>
+        <description>Two tasty courses for less than you'd normally pay for one.</description>
+        <supplement_type>Dinner</supplement_type>
+        <Date>2020-11-03</Date>
+        <AdPrice>20.00</AdPrice>
+        <NonDiscAdPrice>20.00</NonDiscAdPrice>
+        <AdDiscAmt>0.00</AdDiscAmt>
+        <ChPrice>20.00</ChPrice>
+        <NonDiscChPrice>20.00</NonDiscChPrice>
+        <ChDiscAmt>0.00</ChDiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>LGWSOE</Code>
+        <Name>Luxury room upgrade</Name>
+        <Per>R</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description>Plush room, mini bar and access to the hotel's exclusive Club Lounge.</description>
+        <supplement_type>Luxury</supplement_type>
+        <Date>2020-11-03</Date>
+        <only_for_adults>1</only_for_adults>
+        <Price>70.00</Price>
+        <NonDiscPrice>70.00</NonDiscPrice>
+        <DiscAmt>0.00</DiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>LGWSOS</Code>
+        <Name>Superior room upgrade</Name>
+        <Per>R</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description>A more luxurious room, wifi and mineral water all included.</description>
+        <supplement_type>Luxury</supplement_type>
+        <Date>2020-11-03</Date>
+        <only_for_adults>1</only_for_adults>
+        <Price>30.00</Price>
+        <NonDiscPrice>30.00</NonDiscPrice>
+        <DiscAmt>0.00</DiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>LGWASC</Code>
+        <Name>Club Aspire North Lounge</Name>
+        <Per>P</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description>Something modern. Food &amp; drink, work &amp; rest zones, charge points &amp; wifi.</description>
+        <supplement_type>Lounge</supplement_type>
+        <Date>2020-11-04</Date>
+        <AdPrice>28.00</AdPrice>
+        <NonDiscAdPrice>28.00</NonDiscAdPrice>
+        <AdDiscAmt>0.00</AdDiscAmt>
+        <ChPrice>18.50</ChPrice>
+        <NonDiscChPrice>18.50</NonDiscChPrice>
+        <ChDiscAmt>0.00</ChDiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>LGWSOB</Code>
+        <Name>Buffet breakfast</Name>
+        <Per>P</Per>
+        <Canx>Y</Canx>
+        <Filter>
+            <wistia>1</wistia>
+        </Filter>
+        <description>Save time by booking a big and delicious breakfast now.</description>
+        <supplement_type>Breakfast</supplement_type>
+        <Date>2020-11-04</Date>
+        <AdPrice>19.00</AdPrice>
+        <NonDiscAdPrice>19.00</NonDiscAdPrice>
+        <AdDiscAmt>0.00</AdDiscAmt>
+        <ChPrice>19.00</ChPrice>
+        <NonDiscChPrice>19.00</NonDiscChPrice>
+        <ChDiscAmt>0.00</ChDiscAmt>
+    </Supplement>
+    <API_Header>
+        <Request>
+            <ABTANumber>WEB1</ABTANumber>
+            <key>ONLIN</key>
+            <token>ef008a98-9434-11e1-af41-123143040224</token>
+            <ArrivalDate>2020-11-03</ArrivalDate>
+            <ArrivalTime>12:30</ArrivalTime>
+            <DepartDate>2020-11-11</DepartDate>
+            <DepartTime>13:45</DepartTime>
+            <v>1</v>
+        </Request>
+    </API_Header>
+</API_Reply>
