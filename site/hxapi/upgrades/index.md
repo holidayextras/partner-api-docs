@@ -7,7 +7,8 @@
 [API Docs](/hxapi/) > [Product Upgrades](/hxapi/upgrades)
 
 ## Upgrades Availability Request
-Upgrades can be requested on a per product basis.
+
+Upgrades are currently only supported for parking, hotel and lounge bookings. Upgrades can be requested on a per product basis.
 
 #### Method
 
