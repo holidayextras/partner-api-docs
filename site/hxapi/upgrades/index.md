@@ -4,7 +4,7 @@
 
 # Product Upgrades
 
-[API Docs](/hxapi/) > [Product Upgrades](upgrades)
+[API Docs](/hxapi/) > [Product Upgrades](/hxapi/upgrades)
 
 ## Upgrades Availability Request
 Upgrades can be requested on a per product basis.
