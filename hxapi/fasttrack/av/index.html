@@ -145,6 +145,13 @@
       <td>N</td>
       <td>This is also known as an ‘flight number’. <br />Used to establish which terminal the customer is flying from using our look up tool and return products specific to that terminal.</td>
     </tr>
+    <tr>
+      <td>Terminal</td>
+      <td>String</td>
+      <td>[A-Z1-9] 1 char</td>
+      <td>N</td>
+      <td>An optional field when requesting hotel and parking that will filter the availble results to those that serve the given terminal. Terminal options can be found using the <a href="/hxapi/terminal">Terminal</a> request, where the name of the terminal is a word only the first character is needed for this request ( eg. N for the North terminal ).</td>
+    </tr>
   </tbody>
 </table>
 
@@ -163,14 +170,6 @@
   </thead>
   <tbody>
     <tr>
-      <td>FastTrack/Price</td>
-      <td>The price of product <em>without</em> any surcharges/fees added.</td>
-    </tr>
-    <tr>
-      <td>FastTrack/NonDiscPrice</td>
-      <td>The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.</td>
-    </tr>
-    <tr>
       <td>FastTrack/Name</td>
       <td>The name of the fasttrack.</td>
     </tr>
@@ -185,6 +184,46 @@
     <tr>
       <td>FastTrack/MoreInfoURL</td>
       <td>The link to more information about this product, sourced from the Product Library.</td>
+    </tr>
+    <tr>
+      <td>FastTrack/Price</td>
+      <td>The price of product <em>without</em> any surcharges/fees added.</td>
+    </tr>
+    <tr>
+      <td>FastTrack/NonDiscPrice</td>
+      <td>The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.</td>
+    </tr>
+    <tr>
+      <td>FastTrack/SalesCurrency</td>
+      <td>Three character identifier for the sale currency to qualify the price</td>
+    </tr>
+    <tr>
+      <td>FastTrack/Images/Src</td>
+      <td>Link to a image for the product. Prepend with <code class="language-plaintext highlighter-rouge">https:</code></td>
+    </tr>
+    <tr>
+      <td>FastTrack/Description</td>
+      <td>Product description</td>
+    </tr>
+    <tr>
+      <td>FastTrack/Logo</td>
+      <td>Link to a logo for the product. Prepend with <code class="language-plaintext highlighter-rouge">https:</code></td>
+    </tr>
+    <tr>
+      <td>FastTrack/ExtraInformation</td>
+      <td>Extended description of the product</td>
+    </tr>
+    <tr>
+      <td>IsRefundable</td>
+      <td>Whether the product can be refunded</td>
+    </tr>
+    <tr>
+      <td>AirportLocation</td>
+      <td>The location code for the product airport</td>
+    </tr>
+    <tr>
+      <td>Terminal</td>
+      <td>The airport terminal of the product</td>
     </tr>
   </tbody>
 </table>
@@ -228,28 +267,28 @@
     <span class="nt">&lt;Logo&gt;</span>//d1xcii4rs5n6co.cloudfront.net/libraryimages/81386-MAN-fasttrack-core.png<span class="nt">&lt;/Logo&gt;</span>
     <span class="nt">&lt;ExtraInformation&gt;</span>
      <span class="nt">&lt;h2&gt;</span> What is it?<span class="nt">&lt;/h2&gt;</span>
-       
+
      <span class="nt">&lt;p&gt;</span>The Security FastTrack pass gives you access to the priority lane at the airport’s security checks. You’ll whizz past the standard queue, giving you more time to relax in departures before your flight. <span class="nt">&lt;/p&gt;</span>
-     
+
      <span class="nt">&lt;p&gt;</span> Once you book we’ll email you the passes, so make sure you print them and take them with you, or have them ready on your mobile phone. There’ll be a voucher each with a barcode, which you’ll need to scan at the entrance before you go through. <span class="nt">&lt;/p&gt;</span>
-     
+
      <span class="nt">&lt;h2&gt;</span>When can I use it?<span class="nt">&lt;/h2&gt;</span>
-     <span class="nt">&lt;p&gt;</span>Available 2.30am - 11pm.<span class="nt">&lt;/p&gt;</span> 
-     
+     <span class="nt">&lt;p&gt;</span>Available 2.30am - 11pm.<span class="nt">&lt;/p&gt;</span>
+
      <span class="nt">&lt;h2&gt;</span> Is it the same price for children?<span class="nt">&lt;/h2&gt;</span>
      <span class="nt">&lt;p&gt;</span>Yes, the pass is £5 per person.<span class="nt">&lt;/p&gt;</span>
-     
+
      <span class="nt">&lt;h2&gt;</span>The small print:<span class="nt">&lt;/h2&gt;</span>
      <span class="nt">&lt;p&gt;</span>You won't need this service if you have mobility issues or small children with pushchairs as there's already a dedicated lane.<span class="nt">&lt;/p&gt;</span>
-     
+
      <span class="nt">&lt;p&gt;</span>Jet 2 passengers who have purchased FastTrack tickets must use the security lanes located on Departure level 5, in Terminal 1. <span class="nt">&lt;/p&gt;</span>
-     
+
      <span class="nt">&lt;p&gt;</span>Security FastTrack tickets can only be used once for the date you have booked.<span class="nt">&lt;/p&gt;</span>
-     
-     
+
+
      <span class="nt">&lt;p&gt;</span> If you have booked more than one ticket the vouchers will all be in the lead passenger’s name.<span class="nt">&lt;/p&gt;</span>
-     
-     
+
+
      <span class="nt">&lt;p&gt;</span>All FastTrack's terms and conditions will apply to you, so please read them <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.manchesterairport.co.uk/terms-and-conditions/fasttrack/"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>here.<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
     <span class="nt">&lt;/ExtraInformation&gt;</span>
     <span class="nt">&lt;PaymentSurcharge&gt;</span>
@@ -289,9 +328,9 @@
     <span class="nt">&lt;AccessPassImage&gt;</span>//d1xcii4rs5n6co.cloudfront.net/libraryimages/fasttrack.jpg<span class="nt">&lt;/AccessPassImage&gt;</span>
     <span class="nt">&lt;ImportantInformation&gt;</span>
       With this special, VIP pass through security, you could be the first through the gate. We'll give you one voucher for all passengers, so make sure you hold the square, patterned barcode on your own voucher under the special camera at the entrance before you go through. You’ll then need to do the same with your boarding pass. <span class="nt">&lt;br</span> <span class="nt">/&gt;</span> <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>You can only use the Fast Track once, on the day you’ve booked. Even though Fast Track customers get their own lane through security, all the normal airport security rules will still apply. Since the airport already has its own special lanes for customers with mobility issues or those with small children, they won't need to use this service.<span class="nt">&lt;br</span> <span class="nt">/&gt;&lt;br</span> <span class="nt">/&gt;</span>
- 
+
       Jet 2 customers who have purchased Fast Track tickets must use the security lanes located on Departure level 5 in Terminal 1. <span class="nt">&lt;br</span> <span class="nt">/&gt;</span> <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
- 
+
       <span class="nt">&lt;p&gt;&lt;b&gt;</span>Please ensure you have read the Airport's <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.manchesterairport.co.uk/terms-and-conditions/fasttrack/"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>Terms and Conditions.<span class="nt">&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;</span>
     <span class="nt">&lt;/ImportantInformation&gt;</span>
     <span class="nt">&lt;AirportLocation&gt;</span>Manchester<span class="nt">&lt;/AirportLocation&gt;</span>
@@ -361,9 +400,9 @@
     <span class="nt">&lt;AccessPassImage&gt;</span>//d1xcii4rs5n6co.cloudfront.net/libraryimages/fasttrack.jpg<span class="nt">&lt;/AccessPassImage&gt;</span>
     <span class="nt">&lt;ImportantInformation&gt;</span>
       With this special, VIP pass through security, you could be the first through the gate. We'll give you one voucher for all passengers, so make sure you hold the square, patterned barcode on your own voucher under the special camera at the entrance before you go through. You’ll then need to do the same with your boarding pass. <span class="nt">&lt;br</span> <span class="nt">/&gt;</span> <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>You can only use the Fast Track once, on the day you’ve booked. Even though Fast Track customers get their own lane through security, all the normal airport security rules will still apply. Since the airport already has its own special lanes for customers with mobility issues or those with small children, they won't need to use this service.<span class="nt">&lt;br</span> <span class="nt">/&gt;&lt;br</span> <span class="nt">/&gt;</span>
- 
+
       Jet 2 customers who have purchased Fast Track tickets must use the security lanes located on Departure level 5 in Terminal 1. <span class="nt">&lt;br</span> <span class="nt">/&gt;</span> <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
- 
+
       <span class="nt">&lt;p&gt;&lt;b&gt;</span>Please ensure you have read the Airport's <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.manchesterairport.co.uk/terms-and-conditions/fasttrack/"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>Terms and Conditions.<span class="nt">&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;</span>
     <span class="nt">&lt;/ImportantInformation&gt;</span>
     <span class="nt">&lt;AirportLocation&gt;</span>Manchester<span class="nt">&lt;/AirportLocation&gt;</span>
@@ -433,9 +472,9 @@
     <span class="nt">&lt;AccessPassImage&gt;</span>//d1xcii4rs5n6co.cloudfront.net/libraryimages/fasttrack.jpg<span class="nt">&lt;/AccessPassImage&gt;</span>
     <span class="nt">&lt;ImportantInformation&gt;</span>
       With this special, VIP pass through security, you could be the first through the gate. We'll give you one voucher for all passengers, so make sure you hold the square, patterned barcode on your own voucher under the special camera at the entrance before you go through. You’ll then need to do the same with your boarding pass. <span class="nt">&lt;br</span> <span class="nt">/&gt;</span> <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>You can only use the Fast Track once, on the day you’ve booked. Even though Fast Track customers get their own lane through security, all the normal airport security rules will still apply. Since the airport already has its own special lanes for customers with mobility issues or those with small children, they won't need to use this service.<span class="nt">&lt;br</span> <span class="nt">/&gt;&lt;br</span> <span class="nt">/&gt;</span>
- 
+
       Jet 2 customers who have purchased Fast Track tickets must use the security lanes located on Departure level 5 in Terminal 1. <span class="nt">&lt;br</span> <span class="nt">/&gt;</span> <span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
- 
+
       <span class="nt">&lt;p&gt;&lt;b&gt;</span>Please ensure you have read the Airport's <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.manchesterairport.co.uk/terms-and-conditions/fasttrack/"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>Terms and Conditions.<span class="nt">&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;</span>
     <span class="nt">&lt;/ImportantInformation&gt;</span>
     <span class="nt">&lt;AirportLocation&gt;</span>Manchester<span class="nt">&lt;/AirportLocation&gt;</span>

@@ -57,7 +57,7 @@
 
 <p>For example, for London Gatwick the endpoint is:</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#0df84299-a5a3-476a-8424-449e8d48d7d1'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#20d0157c-7833-444d-8476-16aa3119ab2c'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -65,7 +65,7 @@
 
 </ul>
 
-<ul id="0df84299-a5a3-476a-8424-449e8d48d7d1" class="uk-switcher uk-margin">
+<ul id="20d0157c-7833-444d-8476-16aa3119ab2c" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/LGW
@@ -175,6 +175,13 @@
       <td>This is also known as an ‘flight number’. <br />Used to establish which terminal the customer is flying from using our look up tool and return products specific to that terminal.</td>
     </tr>
     <tr>
+      <td>Terminal</td>
+      <td>String</td>
+      <td>[A-Z1-9] 1 char</td>
+      <td>N</td>
+      <td>An optional field when requesting hotel and parking that will filter the availble results to those that serve the given terminal. Terminal options can be found using the <a href="/hxapi/terminal">Terminal</a> request, where the name of the terminal is a word only the first character is needed for this request ( eg. N for the North terminal ).</td>
+    </tr>
+    <tr>
       <td>filter</td>
       <td>String</td>
       <td>[A-Z]</td>
@@ -227,20 +234,12 @@
   </thead>
   <tbody>
     <tr>
-      <td>CarPark/TotalPrice</td>
-      <td>The price of product <em>without</em> any surcharges/fees added.</td>
+      <td>CarPark/Name</td>
+      <td>The name of the product</td>
     </tr>
     <tr>
-      <td>CarPark/NonDiscPrice</td>
-      <td>The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.</td>
-    </tr>
-    <tr>
-      <td>CarPark/RequestFlags</td>
-      <td><em>NB: For European products, please see the separate table below.</em> <br />These flags list which details the car park operator requires from the customer. If a flag is returned with a ‘Y’ your application should send the corresponding field/value in the booking request.<br />Flags are only returned when required. The flags which can be returned are: <code class="language-plaintext highlighter-rouge">Registration</code>, <code class="language-plaintext highlighter-rouge">CarMake</code>, <code class="language-plaintext highlighter-rouge">CarModel</code>, <code class="language-plaintext highlighter-rouge">CarColour</code>, <code class="language-plaintext highlighter-rouge">OutFlight</code>, <code class="language-plaintext highlighter-rouge">ReturnFlight</code>, <code class="language-plaintext highlighter-rouge">OutTerminal</code>, <code class="language-plaintext highlighter-rouge">ReturnTerminal</code>, <code class="language-plaintext highlighter-rouge">Destination</code>, <code class="language-plaintext highlighter-rouge">MobileNum</code>.</td>
-    </tr>
-    <tr>
-      <td>CarPark/Filter</td>
-      <td>We have a filter mechanism on our site, to show particular types of product, such as Meet and Greet. The filters that apply to a product are returned here. Possible values are: <code class="language-plaintext highlighter-rouge">meet_and_greet</code>, <code class="language-plaintext highlighter-rouge">recommended</code>, <code class="language-plaintext highlighter-rouge">on_airport</code>, <code class="language-plaintext highlighter-rouge">terminal</code>, <code class="language-plaintext highlighter-rouge">valet_included</code>, <code class="language-plaintext highlighter-rouge">car_parked_for_you</code>.</td>
+      <td>CarPark/Code</td>
+      <td>The product code</td>
     </tr>
     <tr>
       <td>CarPark/BookingURL</td>
@@ -251,12 +250,44 @@
       <td>The link to more information about this product, sourced from the Product Library. Note: The product code <strong>doesn’t include</strong> prefix.</td>
     </tr>
     <tr>
+      <td>CarPark/RequestFlags</td>
+      <td>_NB. In Europe this will be replaced with <code class="language-plaintext highlighter-rouge">&lt;CarDetFlags&gt;</code>, see below for more info on these.These flags list which details the car park operator requires from the customer. If a flag is returned with a ‘Y’ your application should send the corresponding field/value in the booking request.<br />Flags are only returned when required. The flags which can be returned are: <code class="language-plaintext highlighter-rouge">Registration</code>, <code class="language-plaintext highlighter-rouge">CarMake</code>, <code class="language-plaintext highlighter-rouge">CarModel</code>, <code class="language-plaintext highlighter-rouge">CarColour</code>, <code class="language-plaintext highlighter-rouge">OutFlight</code>, <code class="language-plaintext highlighter-rouge">ReturnFlight</code>, <code class="language-plaintext highlighter-rouge">OutTerminal</code>, <code class="language-plaintext highlighter-rouge">ReturnTerminal</code>, <code class="language-plaintext highlighter-rouge">Destination</code>, <code class="language-plaintext highlighter-rouge">MobileNum</code>.</td>
+    </tr>
+    <tr>
+      <td>CarPark/NonDiscPrice</td>
+      <td>The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.</td>
+    </tr>
+    <tr>
+      <td>CarPark/TotalPrice</td>
+      <td>The price of product <em>without</em> any surcharges/fees added.</td>
+    </tr>
+    <tr>
+      <td>CarPark/GatePrice</td>
+      <td>If available, the price of product if you were to turn up on the day.</td>
+    </tr>
+    <tr>
+      <td>CarPark/CanAmendCantCancel</td>
+      <td>Whether the product can be amend but not cancelled.</td>
+    </tr>
+    <tr>
+      <td>CarPark/CancellationFeeExceptions</td>
+      <td>If the carpark has non-standard cancellation fees.</td>
+    </tr>
+    <tr>
+      <td>CarPark/AmendmentFeeExceptions</td>
+      <td>If the carpark has non-standard amendment fees.</td>
+    </tr>
+    <tr>
+      <td>CarPark/Filter</td>
+      <td>We have a filter mechanism on our site, to show particular types of product, such as Meet and Greet. The filters that apply to a product are returned here. Possible values are: <code class="language-plaintext highlighter-rouge">meet_and_greet</code>, <code class="language-plaintext highlighter-rouge">recommended</code>, <code class="language-plaintext highlighter-rouge">on_airport</code>, <code class="language-plaintext highlighter-rouge">terminal</code>, <code class="language-plaintext highlighter-rouge">valet_included</code>, <code class="language-plaintext highlighter-rouge">car_parked_for_you</code>.</td>
+    </tr>
+    <tr>
       <td>Pricing/CreditCardSurcharge</td>
       <td>NB: This is only relevant for Intermediary Agents in Europe, where Holiday Extras is responsible for processing the payment, not the Agent. <br />The first step in the calculation is to determine the credit card surcharge payable (x), based on the value of the booking, using this formula: <br />x = (TotalPrice + the CanxWaiver) / 100 x CCardSurchargePercent <br />Second, to prevent the surcharge from exceeding certain boundaries we have min and max thresholds, which can be calculated as follows: <br />if x &lt; CCardSurchargeMin; <br />x = CCardSurchargeMin <br />else if x &gt; CCardSurchargeMax; <br />x = CCardSurchargeMax</td>
     </tr>
     <tr>
-      <td>Pricing/CancellationWaiver</td>
-      <td>We provide an optional cancellation waiver. If this is not added then cancellation will incur a fee. The fee is outlined in our terms and conditions. <br />NB: This value is not currently returned via the XML.</td>
+      <td>Pricing/CancellationWaiver/Waiver</td>
+      <td>We provide an optional cancellation waiver. If this is not added then cancellation will incur a fee. This returns the cancellation fee cost.</td>
     </tr>
     <tr>
       <td>API_Header/Request</td>
@@ -265,7 +296,7 @@
   </tbody>
 </table>
 
-<h4 id="european-products-only">European products only</h4>
+<h4 id="cardetflags-europe-only">CarDetFlags (Europe Only)</h4>
 
 <p>For European products only, the availability response will return a field called <code class="language-plaintext highlighter-rouge">&lt;CarDetFlags&gt;</code>, which identifies the fields required when making a booking. (This is instead of the <code class="language-plaintext highlighter-rouge">&lt;RequestFlags&gt;</code> field which is returned for UK products only).</p>
 
@@ -419,7 +450,7 @@
 
 <h3 id="uk-products-availability-request">UK Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#c97f9ac8-0ff1-4973-b249-8283c3061f8f'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#4b25ef61-775a-4916-b345-560920fb8e11'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -427,7 +458,7 @@
 
 </ul>
 
-<ul id="c97f9ac8-0ff1-4973-b249-8283c3061f8f" class="uk-switcher uk-margin">
+<ul id="4b25ef61-775a-4916-b345-560920fb8e11" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/LGW?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2020-01-07&amp;ArrivalTime=1200&amp;DepartDate=2020-01-08&amp;DepartTime=1200&amp;NumberOfPax=1
@@ -446,7 +477,7 @@
 
 <p>NB: This is a shortened example compiled from a full availability response.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#0b6a4440-ea81-4d0e-be7b-bf7c7acc9e43'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#cce30d30-a269-4040-9d06-f560ca72612f'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -454,7 +485,7 @@
 
 </ul>
 
-<ul id="0b6a4440-ea81-4d0e-be7b-bf7c7acc9e43" class="uk-switcher uk-margin">
+<ul id="cce30d30-a269-4040-9d06-f560ca72612f" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -682,7 +713,7 @@
 
 <h3 id="european-products-availability-request">European Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#9f871c9b-44c0-4025-8eff-99fd844b87dd'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#19ca96b3-c1c8-486b-b1fd-c6db98affb91'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -690,7 +721,7 @@
 
 </ul>
 
-<ul id="9f871c9b-44c0-4025-8eff-99fd844b87dd" class="uk-switcher uk-margin">
+<ul id="19ca96b3-c1c8-486b-b1fd-c6db98affb91" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/MUC?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;ArrivalTime=1200&amp;DepartDate=2017-12-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;System=ABG&amp;lang=en
@@ -709,7 +740,7 @@
 
 <p>NB: This is a shortened example compiled from a full availability response.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#67cab455-cb5b-497b-a9cd-f81dfaed2954'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#4d04dc5c-ccd7-40e7-9f8f-803f39bd2d19'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -717,7 +748,7 @@
 
 </ul>
 
-<ul id="67cab455-cb5b-497b-a9cd-f81dfaed2954" class="uk-switcher uk-margin">
+<ul id="4d04dc5c-ccd7-40e7-9f8f-803f39bd2d19" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>

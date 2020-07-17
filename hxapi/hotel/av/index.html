@@ -192,6 +192,14 @@
   </thead>
   <tbody>
     <tr>
+      <td>Hotel/Name</td>
+      <td>The name of the product</td>
+    </tr>
+    <tr>
+      <td>Hotel/Code</td>
+      <td>The product code</td>
+    </tr>
+    <tr>
       <td>Hotel/BookingURL</td>
       <td>The URL to POST the booking request to for this particular product.</td>
     </tr>
@@ -230,6 +238,26 @@
     <tr>
       <td>Hotel/ParkingDays</td>
       <td>This returns the number of days parking available. <br />NB: This may differ from the value requested, due to parking packages usually being set up in the system as either 4, 8 or 15 days.</td>
+    </tr>
+    <tr>
+      <td>Hotel/NonDiscPrice</td>
+      <td>The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.</td>
+    </tr>
+    <tr>
+      <td>Hotel/CancellationFeeExceptions</td>
+      <td>If the hotel has non-standard cancellation fees.</td>
+    </tr>
+    <tr>
+      <td>Hotel/AmendmentFeeExceptions</td>
+      <td>If the hotel has non-standard amendment fees.</td>
+    </tr>
+    <tr>
+      <td>Hotel/noncancellable_nonrefundable</td>
+      <td>Is this hotel noncancellable or non-refundable?</td>
+    </tr>
+    <tr>
+      <td>Hotel/parking_includes_arrival</td>
+      <td>If parking during the customer’s hotel stay included in their parking package</td>
     </tr>
     <tr>
       <td>Hotel/CarPark</td>
@@ -574,7 +602,7 @@
             <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
         <span class="nt">&lt;/Request&gt;</span>
     <span class="nt">&lt;/API_Header&gt;</span>
-<span class="nt">&lt;/API_Reply&gt;</span>   
+<span class="nt">&lt;/API_Reply&gt;</span>
 </code></pre></div></div>
 
 </div>

@@ -153,6 +153,13 @@
       <td>This is also known as an ‘flight number’. <br />Used to establish which terminal the customer is flying from using our look up tool and return products specific to that terminal.</td>
     </tr>
     <tr>
+      <td>Terminal</td>
+      <td>String</td>
+      <td>[A-Z1-9] 1 char</td>
+      <td>N</td>
+      <td>An optional field when requesting hotel and parking that will filter the availble results to those that serve the given terminal. Terminal options can be found using the <a href="/hxapi/terminal">Terminal</a> request, where the name of the terminal is a word only the first character is needed for this request ( eg. N for the North terminal ).</td>
+    </tr>
+    <tr>
       <td>System</td>
       <td>String</td>
       <td>[A-Z] 3 chars</td>
@@ -191,14 +198,6 @@
   </thead>
   <tbody>
     <tr>
-      <td>Lounge/Price</td>
-      <td>The price of product <em>without</em> any surcharges/fees added.</td>
-    </tr>
-    <tr>
-      <td>Lounge/NonDiscPrice</td>
-      <td>The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.</td>
-    </tr>
-    <tr>
       <td>Lounge/Name</td>
       <td>The name of the lounge.</td>
     </tr>
@@ -213,6 +212,22 @@
     <tr>
       <td>Lounge/MoreInfoURL</td>
       <td>The link to more information about this product, sourced from the Product Library.</td>
+    </tr>
+    <tr>
+      <td>Lounge/NonDiscPrice</td>
+      <td>The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.</td>
+    </tr>
+    <tr>
+      <td>Lounge/Price</td>
+      <td>The price of product <em>without</em> any surcharges/fees added.</td>
+    </tr>
+    <tr>
+      <td>Lounge/terminal</td>
+      <td>The terminal the lounge is in</td>
+    </tr>
+    <tr>
+      <td>API_Header/Request</td>
+      <td>The API returns every parameter and value you sent in the previous request.</td>
     </tr>
   </tbody>
 </table>
