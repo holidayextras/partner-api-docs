@@ -19,6 +19,12 @@ We recommend using the [view booking](/hxapi/viewamendcancel/view) method first,
 
 You can then run a GET booking request using the amend endpoint and methodology detailed here to check the new amount (increase / decrease in price from original booking).
 
+The recommended process for amending a booking is as follows.
+
+1.  Call the [view booking](/hxapi/viewamendcancel/view) method to ensure that you have all the details required from the most up to date record of the booking.
+2.  Compose the amendment request as per the details below i.e. include the date change details. Then send this request as a `GET` rather than a `POST`. This will return the details of the pricing change.
+3.  If the client is happy with the pricing change then resend the request as a `POST` this will confirm and commit the changes.
+
 ### Method
 
 POST
@@ -37,24 +43,60 @@ NB: All parameter names are case sensitive.
 
 For all amend booking requests, you will need to send these parameters:
 
-| Name        | Data Type    | Format | Mandatory? | Additional Information |
-| ----        | ----    | --------- | -------- | ---------------------- |
-| ABTANumber  | String  | [A-Z0-9] 5 chars | Y | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.|
-| Password    | String  | [A-Z0-9] 5 chars | N*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.|
-| Initials    | String  | [A-Z] 3 chars | N  | The initials of the Operator / Agent. |
-| key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
-| Email | String | [A-Z0-9] 50 chars | Y        | Email address used to make the booking (i.e. the email address of the lead passenger)|
-| System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
+| Name       | Data Type | Format            | Mandatory? | Additional Information                                                                                                                                          |
+|------------|-----------|-------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ABTANumber | String    | [A-Z0-9] 5 chars  | Y          | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.                                                 |
+| Password   | String    | [A-Z0-9] 5 chars  | N*         | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up. |
+| Initials   | String    | [A-Z] 3 chars     | N          | The initials of the Operator / Agent.                                                                                                                           |
+| key        | String    | [A-Z]             | Y          | This will be assigned to you by your Account Manager during set up.                                                                                             |
+| Email      | String    | [A-Z0-9] 50 chars | Y          | Email address used to make the booking (i.e. the email address of the lead passenger)                                                                           |
+| System     | String    | [A-Z] 3 chars     | Y*         | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only).                                  |
 
 In order to amend the booking with the new details, you only need to pass in the specific parameters you want to amend. For a complex amend these are as follows:
 
-| Name        | Data Type    | Format | Mandatory? | Additional Information |
-| ----        | ----    | --------- | -------- | ---------------------- |
-| ArrivalDate | Date    | YYYY-MM-DD                             | Y        | Date customer drops vehicle at car park. |
-| ArrivalTime | Time    | HHMM                                   | Y        | Time customer drops vehicle at car park.|
-| DepartDate  | Date    | YYYY-MM-DD                             | Y        | Date customer picks up vehicle from car park.|
-| DepartTime  | Time    | HHMM                                   | Y        | Time customer picks up vehicle from car park.|
+| Name          | Data Type | Format     | Mandatory? | Additional Information                                                                                         |
+|---------------|-----------|------------|------------|----------------------------------------------------------------------------------------------------------------|
+| ArrivalDate   | Date      | YYYY-MM-DD | Y          | Date customer drops vehicle at car park.                                                                       |
+| ArrivalTime   | Time      | HHMM       | Y          | Time customer drops vehicle at car park.                                                                       |
+| DepartDate    | Date      | YYYY-MM-DD | Y          | Date customer picks up vehicle from car park.                                                                  |
+| DepartTime    | Time      | HHMM       | Y          | Time customer picks up vehicle from car park.                                                                  |
+| Supplements[] | -         | -          | N          | Amend supplement details by sending the parameters to amend. See [below](#upgrade-amendments) for more details |
 
+### Upgrade Amendments
+
+As with [booking upgrades](/hxapi/parking/bkg#booking-upgrades) it is possible to supply an array of `Supplements` to the amendment request to change the details of booked upgrades.
+To make amendments you need to specify the code of the upgrade to be changed and the fields you wish to change. The available fields are as below.
+
+| Name     | Data Type | Format | Mandatory? | Additional Information                                                                              |
+|----------|-----------|--------|------------|-----------------------------------------------------------------------------------------------------|
+| Adults   | Integer   | [0-9]  | N          | When specified the `Children` parameter must also be specified otherwise it will be assumed to be 0 |
+| Children | Integer   | [0-9]  | N          | When specified the `Adults` parameter must also be specified otherwise it will be assumed to be 0   |
+| Quantity | Integer   | [0-9]  | N          | Change the required quantity of per booking or per room upgrades                                    |
+| Remove   | -         | -      | N          | The presence of this field will cause the upgrade to be removed from the booking                    |
+
+To add new upgrades you just need to include the upgrade details in the same fashion as when booking an upgrade.
+
+## Get Amendment Price Response
+
+This response will be given when a `GET` version of this request is sent. This should be used to retrieve the new price before committing to amendments.
+
+| Name                       | Additional Information                                                                                                                                                         |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Pricing/OriginalPrice      | The price paid for the booking before any amendments                                                                                                                           |
+| Pricing/NewPrice           | The price to be paid if the amendments are confirmed                                                                                                                           |
+| Pricing/CanxWaiver         | The cost of any cancellation waiver that may be on the booking                                                                                                                 |
+| Pricing/Duration           | The new duration of the stay                                                                                                                                                   |
+| Pricing/MinPricingDuration | The smallest duration of stay that the price can be increased by. For example if only increasing by 1 day but the MinPricingDuration is 3 days you will be charged for 3 days. |
+| Pricing/PriceDifference    | The difference between the originally paid price and the new price                                                                                                             |
+| Carpark/Code               | Code of the booked product                                                                                                                                                     |
+| Carpark/Name               | Name of the booked product                                                                                                                                                     |
+| Carpark/MoreInfoURL        |                                                                                                                                                                                |
+| Carpark/BookingURL         |                                                                                                                                                                                |
+| BarCode                    |                                                                                                                                                                                |
+| QRCode                     |                                                                                                                                                                                |
+| API_Header/Request         | Copy of the original request params                                                                                                                                            |
+
+*\*NOTE\** If the `Pricing/PriceDifference` is negative the minus sign will be a suffix e.g. `<PriceDifference>7.00-</PriceDifference>`
 
 ## Amend Booking Response
 
@@ -66,7 +108,9 @@ For a detailed explanation of the fields returned, please see the respective boo
 
 Below are worked examples of both the request and response for amending (complex) a booking.
 
-### Amend Booking Request (complex for a hotel)
+### Amend Booking (complex for a hotel)
+
+#### Request
 
 The original booking was made for a hotel staying on 1st December 2018 with 8 days parking.
 
@@ -75,85 +119,34 @@ https://api.holidayextras.co.uk/booking/YourBookingRef
 ```
 
 ```xml
-    <Request>
-        <ABTANumber>YourABTA</ABTANumber>
-        <Password>YourPassword</Password>
-        <Initials>YourInitials</Initials>
-        <key>YourKey</key>
-        <ArrivalDate>2018-12-02</ArrivalDate>
-        <ParkingDays>15</ParkingDays>
-    </Request>
+{% include_relative examples/_amend_uk_hotel_booking_request.xml %}
 ```
 
-### Amend Booking Response (complex for a hotel)
+#### Response
 
 ```xml
-<?xml version="1.0"?>
-<API_Reply System="ABC" Version="1" Product="Hotel" Customer="A" Session="999999999" RequestCode="14" Result="OK">
-    <CarDetails>
-        <Registration>TEST123</Registration>
-        <CarMake/>
-        <CarModel/>
-        <CarColour/>
-        <OutFlight>TBC</OutFlight>
-    </CarDetails>
-    <ClientDetails>
-        <Title>MRS</Title>
-        <Initial>T</Initial>
-        <Surname>TEST</Surname>
-        <Address/>
-        <DataProtection>Y</DataProtection>
-        <Email>test@test.com</Email>
-    </ClientDetails>
-    <Booking>
-        <BookingRef>YourBookingRef</BookingRef>
-        <PdfUrl>/v1/confirmation?email=test@test.com&booking_ref=YourBookingRef&product_type=hotels</PdfUrl>
-        <AgentComm>931</AgentComm>
-        <VATonComm/>
-    </Booking>
-    <Pricing>
-        <OriginalPrice>93.10</OriginalPrice>
-        <NewPrice>93.10</NewPrice>
-        <CCardSurchargeAmount>0.00</CCardSurchargeAmount>
-        <CanxWaiver>0.00</CanxWaiver>
-        <AmendmentFee>N/A</AmendmentFee>
-        <PriceDifference>N/A</PriceDifference>
-    </Pricing>
-    <Itinerary>
-        <ArrivalDate>2018-12-02</ArrivalDate>
-        <Nights>1</Nights>
-        <BoardBasis>RO</BoardBasis>
-        <Code>LHRMEP</Code>
-        <CarDropoffTime>0000</CarDropoffTime>
-        <CarPickupTime>0000</CarPickupTime>
-        <CarPickupDate>2018-12-17</CarPickupDate>
-        <ReturnFlight/>
-        <TerminalCode/>
-        <ParkingDays>15</ParkingDays>
-        <ParkingSpaces>1</ParkingSpaces>
-        <NonSmoking>Y</NonSmoking>
-    </Itinerary>
-    <Room>
-        <Rooms>1</Rooms>
-        <Adults>2</Adults>
-        <Children>0</Children>
-        <Infants>0</Infants>
-        <Price>93.10</Price>
-        <Code>DBL</Code>
-    </Room>
-    <API_Header>
-        <Request>
-            <ABTANumber>YourABTANumber</ABTANumber>
-            <Password>YourPassword</Password>
-            <key>YourKey</key>
-            <ArrivalDate>2018-12-02</ArrivalDate>
-            <Nights>1</Nights>
-            <RoomCode>DBL</RoomCode>
-            <ParkingDays>15</ParkingDays>
-            <PriceCheckFlag>Y</PriceCheckFlag>
-            <PriceCheckPrice>93.10</PriceCheckPrice>
-            <v>1</v>
-        </Request>
-    </API_Header>
-</API_Reply>
+{% include_relative examples/_amend_uk_hotel_booking_response.xml %}
+```
+
+### Amend Parking Booking With Upgrades
+Original booking made for 11th November 2020 with Fast track upgrade for 2 adults and 1 child
+
+#### Request
+
+```html
+https://api.holidayextras.co.uk/booking/YourBookingRef
+```
+
+```xml
+{% include_relative examples/_amend_uk_carpark_booking_upgrade_request.xml %}
+```
+
+#### Get Amendment Price Response
+```xml
+{% include_relative examples/_amend_uk_carpark_booking_upgrade_price_response.xml %}
+```
+
+#### Confirm Response
+```xml
+{% include_relative examples/_amend_uk_carpark_booking_upgrade_response.xml %}
 ```

@@ -1,0 +1,256 @@
+{
+  "API_Reply": {
+    "ATTRIBUTES": {
+      "System": "ABC",
+      "Version": 1,
+      "Product": "General",
+      "Customer": "A",
+      "Session": 383966573,
+      "RequestCode": 7,
+      "Result": "OK"
+    },
+    "Agent": "YourABTA",
+    "Booking": {
+      "BookingRef": "YourBookingRef",
+      "Amendable": "Y",
+      "CanxDate": "",
+      "CCode": "",
+      "BasketRef": "",
+      "AgentComm": "5.47",
+      "VATonComm": "0.00",
+      "Brand": "HX",
+      "Domain": "",
+      "Lang": "",
+      "Platform": "PARTNERAPI",
+      "FraudBooking": "",
+      "SupplierReference": "",
+      "Cancellable": "",
+      "BookingDate": "2020-07-15",
+      "PdfUrl": "/v1/confirmation?email=test%40test.com&amp;booking_ref=YourBookingRef&amp;product_type=carparks"
+    },
+    "Itinerary": {
+      "Product": "Parking",
+      "ArrivalDate": "2020-11-11",
+      "LastAmendDate": "",
+      "Remarks": "",
+      "FlightNum": "",
+      "ArrivalTime": 1230,
+      "Location": "STN",
+      "ReturnDate": "",
+      "CarDropoffTime": 1230,
+      "CarPickupDate": "2020-11-19",
+      "CarPickupTime": 1345,
+      "ParkingDays": "",
+      "ParkingSpaces": "01",
+      "ReturnFlight": "VIR19",
+      "TerminalCode": "....",
+      "CarParkCode": "STN5",
+      "DepartDate": "2020-11-19",
+      "DepartTime": 1345,
+      "Duration": 9,
+      "NumberOfPax": 1,
+      "ValetParking": "N",
+      "PPTS": "",
+      "ParkStart": "",
+      "ParkTo": "",
+      "Code": "STN5",
+      "Name": "Long Stay",
+      "_longitude": "0.214877",
+      "_latitude": 51.877156
+    },
+    "ClientDetails": {
+      "Title": "MR",
+      "Initial": "T",
+      "Surname": "TEST",
+      "Address": [
+        "TBC",
+        "TBC",
+        ""
+      ],
+      "Town": "",
+      "County": "",
+      "Postcode": "CT214JF",
+      "DayPhone": 1234567890,
+      "EvePhone": 1234567890,
+      "Email": "test@test.com",
+      "DataProtection": " ",
+      "HistoryText": "",
+      "SourceRef": ""
+    },
+    "Pricing": {
+      "AmountPaid": 72.98,
+      "AmountDue": "0.00",
+      "TotalPrice": 72.98,
+      "CCardSurchargeAmount": "0.00",
+      "BasePrice": 49.99,
+      "Refund": "",
+      "GrossPrice": 72.98,
+      "Currency": "GBP"
+    },
+    "VAT": {
+      "BKgexcVAT": 60.82,
+      "CWexcVAT": "0.00",
+      "CCexcVAT": "0.00",
+      "BkgExemptVAT": "0.00",
+      "Nettotal": 60.82,
+      "VATAMT": 12.16,
+      "GrossTotal": 72.98,
+      "VATNo": "844 2814 25"
+    },
+    "CustRef": "",
+    "RequestFlags": {
+      "Registration": "Y",
+      "CarMake": "Y",
+      "CarModel": "Y",
+      "CarColour": "Y",
+      "CreditCard": "N",
+      "ReturnFlight": "Y",
+      "Terminal": "Y",
+      "Destination": "Y",
+      "MobileNum": "Y",
+      "OutFlight": "Y",
+      "OutTerminal": "Y",
+      "ReturnTerminal": "Y"
+    },
+    "CarDetails": {
+      "Registration": "S585RRW",
+      "CarMake": "VAUXHALL",
+      "CarModel": "CORSA",
+      "CarColour": "WHITE",
+      "OutFlight": "-",
+      "OutTerminal": "",
+      "RetTerminal": "",
+      "Mobile": 1234567890,
+      "Destination": "-"
+    },
+    "CurrentSupplements": {
+      "Supplement": [
+        {
+          "Code": "HXOST1",
+          "Price": 1.99,
+          "NonDiscPrice": 1.99,
+          "DiscAmt": "0.00",
+          "Supplier": "PCO",
+          "Rule": "STANDARD",
+          "Req": "01",
+          "Per": "B",
+          "Adults": "0",
+          "Children": "0",
+          "Date": "2020-11-11",
+          "Canx": "Y",
+          "Remarks": ""
+        },
+        {
+          "Code": "STNSFS",
+          "Price": 21,
+          "NonDiscPrice": 21,
+          "DiscAmt": "0.00",
+          "Supplier": "MG3",
+          "Rule": "STANDARD",
+          "Req": "03",
+          "Per": "P",
+          "Adults": 2,
+          "Children": 1,
+          "Date": "2020-11-11",
+          "Canx": "Y",
+          "Remarks": "13:30"
+        }
+      ]
+    },
+    "AvailableSupplements": {
+      "Supplement": [
+        {
+          "Code": "STNSFS",
+          "Supplier": "MG3",
+          "Per": "P",
+          "Canx": "Y",
+          "Name": "Fast Track Security STN",
+          "AdPrice": 7,
+          "NonDiscAdPrice": 7,
+          "AdDiscAmt": "0.00",
+          "ChPrice": 7,
+          "NonDiscChPrice": 7,
+          "ChDiscAmt": "0.00",
+          "PerNight": "N"
+        },
+        {
+          "Code": "TXTPJI",
+          "Price": 1,
+          "NonDiscPrice": 1,
+          "DiscAmt": "0.00",
+          "Supplier": "TXT",
+          "Per": "B",
+          "Canx": "N",
+          "Name": "Parking And Journey Info Texts",
+          "PerNight": "N"
+        },
+        {
+          "Code": "TXTFIT",
+          "Price": 1,
+          "NonDiscPrice": 1,
+          "DiscAmt": "0.00",
+          "Supplier": "TXT",
+          "Per": "B",
+          "Canx": "N",
+          "Name": "Flight Information Texts",
+          "PerNight": "N"
+        },
+        {
+          "Code": "STNESP",
+          "Supplier": "MG3",
+          "Per": "P",
+          "Canx": "Y",
+          "Name": "Escape Lounge STN",
+          "AdPrice": 28,
+          "NonDiscAdPrice": 28,
+          "AdDiscAmt": "0.00",
+          "ChPrice": 20,
+          "NonDiscChPrice": 20,
+          "ChDiscAmt": "0.00",
+          "PerNight": "N"
+        },
+        {
+          "Code": "HXOST1",
+          "Price": 1.99,
+          "NonDiscPrice": 1.99,
+          "DiscAmt": "0.00",
+          "Supplier": "PCO",
+          "Per": "B",
+          "Canx": "Y",
+          "Name": "HX Overstay Protection",
+          "PerNight": "N"
+        },
+        {
+          "Code": "GADCOA",
+          "Price": 9.99,
+          "NonDiscPrice": 9.99,
+          "DiscAmt": "0.00",
+          "Supplier": "TGC",
+          "Per": "B",
+          "Canx": "Y",
+          "Name": "Gadget Cover",
+          "PerNight": "N"
+        },
+        {
+          "Code": "XXXPFC",
+          "Price": 1.99,
+          "NonDiscPrice": 1.99,
+          "DiscAmt": "0.00",
+          "Supplier": "HXC",
+          "Per": "B",
+          "Canx": "N",
+          "Name": "HX Postal Confirmation",
+          "PerNight": "N"
+        }
+      ]
+    },
+    "BarCode": "/v1/barcode/YourBookingRef.png?key=YourKey",
+    "QRCode": "/v1/qrcode/YourBookingRef.png?key=YourKey",
+    "API_Header": {
+      "Request": {
+        "v": 1,
+        "format": "js"
+      }
+    }
+  }
+}

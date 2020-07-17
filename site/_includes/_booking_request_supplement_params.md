@@ -1,0 +1,7 @@
+| Supplements/Code          | String    | [A-Z0-9] 5 chars | N          | Product code of the upgrade to book. See below for more info on booking upgrades                        |
+| Supplements/Date          | String    | YYYY-MM-DD       | Y          | The date to book the upgrade for. This should be brought forward from the upgrade availability request. |
+| Supplements/Quantity      | Integer   | [0-9]1 char      | Y*         | For per room/booking upgrades, specify the required quantity                                            |
+| Supplements/Adults        | Integer   | [0-9]1 char      | Y*         | For per person upgrades, specify the number of adult passes                                             |
+| Supplements/Children      | Integer   | [0-9]1 char      | Y*         | For per person upgrades, specify the number of child passes                                             |
+| Supplements/TotalPrice    | Float     | [0-9]            | Y          | Mandatory for all upgrades. The total price of the upgrade, accounting for total quantity               |
+| Supplements/LoungeArrival | String    | YYYY-MM-DD HH:mm | Y*         | Mandatory for Lounge upgrades. Specifies the time the client wishes to enter the lounge                 |

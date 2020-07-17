@@ -1,0 +1,25 @@
+<Request>
+  <ABTANumber>YourABTANumber</ABTANumber>
+  <Password>YourPassword</Password>
+  <key>YourKey</key>
+  <token>YourToken</token>
+  <ArrivalDate>2017-12-01</ArrivalDate>
+  <Nights>1</Nights>
+  <RoomCode>DZ</RoomCode>
+  <ParkingDays>0</ParkingDays>
+  <Adults>2</Adults>
+  <Children>0</Children>
+  <Title>Mr</Title>
+  <Initial>T</Initial>
+  <Surname>TEST</Surname>
+  <Address >1 Test Street</Address >
+  <Town>Testville</Town>
+  <County>Testshire</County>
+  <Postcode>TE1 STS</Postcode>
+  <DayPhone>01234567890</DayPhone>
+  <Email>test@test.com</Email>
+  <DataProtection>N</DataProtection>
+  <PriceCheckFlag>Y</PriceCheckFlag>
+  <PriceCheckPrice>120.00</PriceCheckPrice>
+  <v>1</v>
+</Request>

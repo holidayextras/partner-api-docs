@@ -1,0 +1,11 @@
+<Request>
+  <ABTANumber>YourABTA</ABTANumber>
+  <Password>YourPassword</Password>
+  <Initials>YourInitials</Initials>
+  <key>YourKey</key>
+  <Supplements>
+    <Code>STNSFS</Code>
+    <Adults>2</Adults>
+    <Children>2</Children>
+  </Supplements>
+</Request>

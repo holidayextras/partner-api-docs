@@ -1,0 +1,31 @@
+<Request>
+  <ABTANumber>YourABTANumber</ABTANumber>
+  <Password>YourPassword</Password>
+  <Initials>YourInitials</Initials>
+  <key>YourKey</key>
+  <token>YourToken</token>
+  <ArrivalDate>2020-11-08</ArrivalDate>
+  <ArrivalTime>1200</ArrivalTime>
+  <Adults>2</Adults>
+  <Children>0</Children>
+  <Infants>0</Infants>
+  <Title>MR</Title>
+  <Initial>T</Initial>
+  <Surname>TEST</Surname>
+  <Address>123 Test Street</Address>
+  <Town>Testville</Town>
+  <County>Testshire</County>
+  <PostCode>TE12 3ST</PostCode>
+  <Email>test@test.com</Email>
+  <MobileNum>01234567890</MobileNum>
+  <PriceCheckFlag>Y</PriceCheckFlag>
+  <PriceCheckPrice>70.00</PriceCheckPrice>
+  <Supplements>
+    <Code>HXODC1</Code>
+    <Date>2020-11-08</Date>
+    <Quantity>1</Quantity>
+    </Adults>
+    </Children>
+    <TotalPrice>2.99</TotalPrice>
+  </Supplements>
+</Request>

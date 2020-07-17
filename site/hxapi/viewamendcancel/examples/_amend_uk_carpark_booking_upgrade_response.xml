@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<API_Reply System="ABC" Version="1" Product="CarPark" Customer="A" Session="999999999" RequestCode="14" Result="OK">
+  <CarDetails>
+    <CarColour>White</CarColour>
+    <CarMake>Range Rover</CarMake>
+    <CarModel>Evoque</CarModel>
+    <Registration>TE17 STS</Registration>
+    <OutFlight/>
+  </CarDetails>
+  <ClientDetails>
+    <Title>MRS</Title>
+    <Initial>T</Initial>
+    <Surname>TEST</Surname>
+    <Address/>
+    <DataProtection>Y</DataProtection>
+    <Email>test@test.com</Email>
+  </ClientDetails>
+  <Booking>
+    <BookingRef>YourBookingRef</BookingRef>
+    <PdfUrl>/v1/confirmation?email=test@test.com&booking_ref=YourBookingRef&product_type=carparks</PdfUrl>
+  </Booking>
+  <Pricing>
+    <OriginalPrice>72.98</OriginalPrice>
+    <NewPrice>79.98</NewPrice>
+    <PriceDiff>7.00</PriceDiff>
+    <CCardSurchargeAmount>0.00</CCardSurchargeAmount>
+    <CanxWaiver>0.00</CanxWaiver>
+  </Pricing>
+  <CarPark>
+    <ArrivalDate>2020-11-11</ArrivalDate>
+    <DepartDate>2020-11-19</DepartDate>
+    <ArrivalTime>1230</ArrivalTime>
+    <DepartTime>1345</DepartTime>
+    <NumberOfPax>1</NumberOfPax>
+    <ReturnFlight>VIR19</ReturnFlight>
+    <Duration>8</Duration>
+    <Remarks/>
+    <Code>STN5</Code>
+    <Name>Long Stay</Name>
+    <MoreInfoURL>/v1/product/STN5</MoreInfoURL>
+    <distance_to_airport>On airport</distance_to_airport>
+    <introduction>We didn't think people thought about their airport parking before booking their holiday. But Stansted Long Stay is so smooth, so efficient, so easy to use, that one customer actually told us she might fly from Stansted just to use it again. Maybe she loved the great prices - it's almost always our best value car park at Stansted - or maybe the award-winning security. Or maybe, like most of our Stansted Long Stay customers, she was just happy with everything.</introduction>
+    <logo>/imageLibrary/Images/85730-official-stansted-airport-parking-long-stay.png</logo>
+    <BookingURL>/v1/carpark/STN5</BookingURL>
+    <Filter>
+      <meet_and_greet>0</meet_and_greet>
+    </Filter>
+  </CarPark>
+  <BarCode>/v1/barcode/YourBookingRef.png?key=YourKey</BarCode>
+  <QRCode>/v1/qrcode/YourBookingRef.png?key=YourKey</QRCode>
+  <API_Header>
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <key>YourKey</key>
+      <token>YourToken</token>
+      <Email>test@test.com</Email>
+      <Supplements>
+        <Code>STNSFS</Code>
+        <Adults>2</Adults>
+        <Children>2</Children>
+      </Supplements>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply>

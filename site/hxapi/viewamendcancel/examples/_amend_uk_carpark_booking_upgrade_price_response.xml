@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<API_Reply System="ABC" Version="1" Product="CarPark" Customer="A" Session="999999999" RequestCode="13" Result="OK">
+    <Pricing>
+        <OriginalPrice>72.98</OriginalPrice>
+        <NewPrice>79.98</NewPrice>
+        <CCardSurchargeAmount>0.00</CCardSurchargeAmount>
+        <CanxWaiver>0.00</CanxWaiver>
+        <Duration>8</Duration>
+        <MinPricingDuration>1</MinPricingDuration>
+        <PriceDifference>7.00</PriceDifference>
+    </Pricing>
+    <CarPark>
+        <Code>STN5</Code>
+        <Name>Long Stay</Name>
+        <MoreInfoURL>/v1/product/STN5</MoreInfoURL>
+        <BookingURL>/v1/carpark/STN5</BookingURL>
+        <Filter>
+            <meet_and_greet>0</meet_and_greet>
+        </Filter>
+    </CarPark>
+    <BarCode>/v1/barcode/YourBookingRef.png?key=YourKey</BarCode>
+    <QRCode>/v1/qrcode/YourBookingRef.png?key=YourKey</QRCode>
+    <API_Header>
+        <Request>
+            <v>1</v>
+        </Request>
+    </API_Header>
+</API_Reply>

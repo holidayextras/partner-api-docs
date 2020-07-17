@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<API_Reply Product="CarPark" RequestCode="5" Result="OK">
+  <Booking>
+    <BookingRef>YourBookingRef</BookingRef>
+    <AgentComm>7.25</AgentComm>
+    <VATonComm>0.00</VATonComm>
+    <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=HPABCDE&amp;product_type=carparks</PdfUrl>
+  </Booking>
+  <CarDetails>
+    <Registration>TE17 STS</Registration>
+    <CarMake>RANGE ROVER</CarMake>
+    <CarModel>EVOQUE</CarModel>
+    <CarColour>WHITE</CarColour>
+    <OutFlight>EZY8985</OutFlight>
+    <Destination>MUNICH</Destination>
+    <MobileNum/>
+  </CarDetails>
+  <ClientDetails>
+    <Title>MR</Title>
+    <Initial>T</Initial>
+    <Surname>TEST</Surname>
+    <Email>test@test.com</Email>
+  </ClientDetails>
+  <HandlingFee>0.00</HandlingFee>
+  <MoreInfoURL>/booking/YourBookingRef</MoreInfoURL>
+  <CarPark>
+    <ArrivalDate>2017-12-01</ArrivalDate>
+    <DepartDate>2017-12-08</DepartDate>
+    <ArrivalTime>1200</ArrivalTime>
+    <DepartTime>1200</DepartTime>
+    <Duration>7</Duration>
+    <NumberOfPax>1</NumberOfPax>
+    <ReturnFlight>EZY8982</ReturnFlight>
+    <Code>LGW4</Code>
+    <TotalPrice>57.99</TotalPrice>
+    <Name>Maple Manor Meet and Greet North</Name>
+    <introduction>With 20 years' experience in providing a great service, Maple Manor Meet and Greet parking is a firm favourite with our customers and it's easy to see why. One of their professional, insured chauffeurs will meet you at the North terminal and park your car for you in a secured car park while you catch your flight. It couldn't be simpler and all for this low price. We only sell airport-approved Meet and Greet services and Maple Manor is no exception.</introduction>
+    <advance_purchase>1</advance_purchase>
+    <logo>//d1xcii4rs5n6co.cloudfront.net/libraryimages/LGW4_LGV0_LGT9_LGY8_thumbnail_logo.png</logo>
+    <BookingURL>/carpark/LGW4</BookingURL>
+    <MoreInfoURL>/product/LGW4</MoreInfoURL>
+  </CarPark>
+  <API_Header>
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <Initials>YourInitials</Initials>
+      <key>YourKey</key>
+      <token>YourToken</token>
+      <ArrivalDate>2017-12-01</ArrivalDate>
+      <ArrivalTime>1200</ArrivalTime>
+      <DepartDate>2017-12-08</DepartDate>
+      <DepartTime>1200</DepartTime>
+      <NumberOfPax>1</NumberOfPax>
+      <Title>MR</Title>
+      <Initial>T</Initial>
+      <Surname>TEST</Surname>
+      <Address>123 Test Street</Address>
+      <Town>Testville</Town>
+      <County>Testshire</County>
+      <PostCode>TE12 3ST</PostCode>
+      <Email>test@test.com</Email>
+      <PriceCheckFlag>Y</PriceCheckFlag>
+      <PriceCheckPrice>57.99</PriceCheckPrice>
+      <CarColour>White</CarColour>
+      <CarMake>Range Rover</CarMake>
+      <CarModel>Evoque</CarModel>
+      <Registration>TE17 STS</Registration>
+      <Destination>Munich</Destination>
+      <OutFlight>EZY8985</OutFlight>
+      <OutTerminal>N</OutTerminal>
+      <ReturnFlight>EZY8982</ReturnFlight>
+      <ReturnTerminal>N</ReturnTerminal>
+      <MobileNum>01234567890</MobileNum>
+    </Request>
+  </API_Header>
+</API_Reply>

@@ -1,0 +1,26 @@
+<Request>
+  <ABTANumber>YourABTANumber</ABTANumber>
+  <Password>YourPassword</Password>
+  <Initials>YourInitials</Initials>
+  <key>YourKey</key>
+  <token>YourToken</token>
+  <ArrivalDate>2017-12-01</ArrivalDate>
+  <ArrivalTime>1200</ArrivalTime>
+  <DepartDate>2017-12-08</DepartDate>
+  <DepartTime>1200</DepartTime>
+  <NumberOfPax>1</NumberOfPax>
+  <Title>HERR</Title>
+  <Initial>T</Initial>
+  <Surname>TEST</Surname>
+  <Address>123 Test Street</Address>
+  <Town>Testville</Town>
+  <County>Testshire</County>
+  <PostCode>TE12 3ST</PostCode>
+  <Email>test@test.com</Email>
+  <PriceCheckFlag>Y</PriceCheckFlag>
+  <PriceCheckPrice>35.00</PriceCheckPrice>
+  <System>ABG</System>
+  <OutFltNo>EZY8982</OutFltNo>
+  <InFltNo>EZY8985</InFltNo>
+  <InFltTime>1130</InFltTime>
+</Request>

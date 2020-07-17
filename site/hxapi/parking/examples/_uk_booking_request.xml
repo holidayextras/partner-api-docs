@@ -1,0 +1,32 @@
+<Request>
+  <ABTANumber>YourABTA</ABTANumber>
+  <Password>YourPassword</Password>
+  <Initials>YourInitials</Initials>
+  <key>YourKey</key>
+  <token>YourToken</token>
+  <ArrivalDate>2017-12-01</ArrivalDate>
+  <ArrivalTime>1200</ArrivalTime>
+  <DepartDate>2017-12-08</DepartDate>
+  <DepartTime>1200</DepartTime>
+  <NumberOfPax>1</NumberOfPax>
+  <Title>MR</Title>
+  <Initial>T</Initial>
+  <Surname>TEST</Surname>
+  <Address>123 Test Street</Address>
+  <Town>Testville</Town>
+  <County>Testshire</County>
+  <PostCode>TE12 3ST</PostCode>
+  <Email>test@test.com</Email>
+  <PriceCheckFlag>Y</PriceCheckFlag>
+  <PriceCheckPrice>57.99</PriceCheckPrice>
+  <CarColour>White</CarColour>
+  <CarMake>Range Rover</CarMake>
+  <CarModel>Evoque</CarModel>
+  <Destination>Munich</Destination>
+  <OutFlight>EZY8985</OutFlight>
+  <OutTerminal>N</OutTerminal>
+  <Registration>TE17 STS</Registration>
+  <ReturnFlight>EZY8982</ReturnFlight>
+  <ReturnTerminal>N</ReturnTerminal>
+  <MobileNum>01234567890</MobileNum>
+</Request>

@@ -34,8 +34,11 @@ https://api.holidayextras.co.uk/v1/carpark/LGV4
 | token       | String    | [0-9] 9 chars    | Y          | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token.                                                                      |
 | ArrivalDate | String    | YYYY-MM-DD       | Y          | This should be the same as the `ArrivalDate` from the base product request.                                                                                     |
 | ArrivalTime | Time      | HHMM             | Y          | This should be the same as the `ArrivalTime` from the base product request.                                                                                     |
-| DepartDate  | Date      | YYYY-MM-DD       | Y          | This should be the same as the `DepartDate` from the base product request.                                                                                      |
-| DepartTime  | Time      | HHMM             | Y          | This should be the same as the `DepartTime` from the base product request.                                                                                      |
+| DepartDate  | Date      | YYYY-MM-DD       | N          | This should be the same as the `DepartDate` from the base product request.                                                                                      |
+| DepartTime  | Time      | HHMM             | N          | This should be the same as the `DepartTime` from the base product request.                                                                                      |
+| Adults      | Integer   | [0-9]            | Y*         | Mandatory for Lounge upgrade requests. Number of adults in the party                                                                                            |
+| Children    | Integer   | [0-9]            | Y*         | Mandatory for Lounge upgrade requests. Number of children in the party                                                                                          |
+
 
 ## Upgrade Availability Response
 
@@ -72,15 +75,15 @@ Upgrades can be for the day before travel, day of departure or day of return.
 
 {% codetabs %}
   {% codetab XML %}
-    ```
-      https://api.holidayextras.co.uk/v1/upgrade/STN5?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
-    ```
+  ```
+https://api.holidayextras.co.uk/v1/upgrade/STN5?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
+  ```
   {% endcodetab %}
 
   {% codetab JSON %}
-    ```
-      https://api.holidayextras.co.uk/v1/upgrade/STN5.js?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
-    ```
+```
+https://api.holidayextras.co.uk/v1/upgrade/STN5.js?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
+```
   {% endcodetab %}
 {% endcodetabs %}
 
@@ -88,15 +91,15 @@ Upgrades can be for the day before travel, day of departure or day of return.
 
 {% codetabs %}
   {% codetab XML %}
-    ```xml
-      {% include_relative examples/_example_1_response.xml %}
-    ```
+```xml
+{% include_relative examples/_example_1_response.xml %}
+```
   {% endcodetab %}
 
   {% codetab JSON %}
-    ```json
-      {% include_relative examples/example_1_response.json %}
-    ```
+```json
+{% include_relative examples/_example_1_response.json %}
+```
   {% endcodetab %}
 {% endcodetabs %}
 
@@ -106,15 +109,15 @@ Upgrades can be for the day before travel, day of departure or day of return.
 
 {% codetabs %}
   {% codetab XML %}
-    ```
-      https://api.holidayextras.co.uk/v1/upgrade/LGWSOF?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
-    ```
+```
+https://api.holidayextras.co.uk/v1/upgrade/LGWSOF?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
+```
   {% endcodetab %}
 
   {% codetab JSON %}
-    ```
-      https://api.holidayextras.co.uk/v1/upgrade/LGWSOF.js?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
-    ```
+```
+https://api.holidayextras.co.uk/v1/upgrade/LGWSOF.js?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
+```
   {% endcodetab %}
 {% endcodetabs %}
 
@@ -122,14 +125,14 @@ Upgrades can be for the day before travel, day of departure or day of return.
 
 {% codetabs %}
   {% codetab XML %}
-    ```xml
-      {% include_relative examples/_example_2_response.xml %}
-    ```
+```xml
+{% include_relative examples/_example_2_response.xml %}
+```
   {% endcodetab %}
 
   {% codetab JSON %}
-    ```json
-      {% include_relative examples/example_2_response.json %}
-    ```
+```json
+{% include_relative examples/_example_2_response.json %}
+```
   {% endcodetab %}
 {% endcodetabs %}
