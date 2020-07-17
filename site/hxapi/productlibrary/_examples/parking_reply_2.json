@@ -1,0 +1,24 @@
+{
+  "API_Reply": {
+    "Product": [
+      {
+        "name": "Maple Parking Meet and Greet North",
+        "longitude": -0.175491,
+        "latitude": 51.161308
+      }
+    ],
+    "ATTRIBUTES": {
+      "Result": "OK"
+    },
+    "API_Header": {
+      "Request": {
+        "token": "000015778",
+        "key": "mytestkey",
+        "fields": "name,longitude,latitude",
+        "v": 1,
+        "format": "js",
+        "version": "lite"
+      }
+    }
+  }
+}

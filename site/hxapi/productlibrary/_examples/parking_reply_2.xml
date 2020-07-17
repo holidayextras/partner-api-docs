@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<API_Reply Result="OK">
+  <Product>
+    <name>Maple Parking Meet and Greet North</name>
+    <longitude>-0.175491</longitude>
+    <latitude>51.161308</latitude>
+  </Product>
+  <API_Header>
+    <Request>
+      <token>000015778</token>
+      <key>mytestkey</key>
+      <fields>name,longitude,latitude</fields>
+      <v>1</v>
+      <version>lite</version>
+    </Request>
+  </API_Header>
+</API_Reply>

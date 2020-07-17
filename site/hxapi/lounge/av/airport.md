@@ -30,22 +30,23 @@ To find the airport locations available for lounges, please refer to the [locati
 
 NB: All parameter names are case sensitive.
 
-| Name        | Data Type    | Format      | Mandatory? | Additional Information |
-| ----        | ---------    | ------      | -----------| ---------------------- |
-| ABTANumber  | String       | [A-Z0-9] 5 chars | Y     | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up. |
-| Password    | String  | [A-Z0-9] 5 chars | Y*       | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up. |
-| Initials    | String  | [A-Z] 3 chars  | N        | The initials of the Operator / Agent. |
-| key         | String  | [A-Z]                                  | Y        | This will be assigned to you by your Account Manager during set up.|
-| token       | String  | [0-9] 9 chars                         | Y        | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token. |
-| ArrivalDate | Date    | YYYY-MM-DD  | Y        | Date customer enters the lounge. |
-| ArrivalTime | Time    | HHMM       | Y        | Time customer enters the lounge. |
-| Adults      | Integer | [0-4] 1 char | Y        | Number of adults requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking. |
-| Children    | Integer | [0-3] 1 char | N        | Number of children requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking. |
-| Infants     | Integer | 1 char       | N        | Number of infants requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking. |
-| OutFlight   | String  | [A-Z0-9] 9 chars | N | This is also known as an 'flight number'. <br>Used to establish which terminal the customer is flying from using our look up tool and return products specific to that terminal. |
-| System      | String  | [A-Z] 3 chars | Y*       | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only). |
-| lang        | String  | [A-Z] 2 chars | Y*       | Required for requests for European products. (Values available are `en`, `de`, `it`, `es`, `pt` and `nl`.)|
-| fields      | String  | [A-Z] a csv list of product info fields | N        | A list of product info fields can be passed in to return configurable product information e.g. `fields=name,address,latitude,sellingpoint`. |
+| Name        | Data Type | Format                                  | Mandatory? | Additional Information                                                                                                                                                                                                                                                                                                                        |
+|-------------|-----------|-----------------------------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ABTANumber  | String    | [A-Z0-9] 5 chars                        | Y          | This is also known as an 'agent code'. <br>This will be confirmed to you by your Account Manager during set up.                                                                                                                                                                                                                               |
+| Password    | String    | [A-Z0-9] 5 chars                        | Y*         | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.                                                                                                                                                                               |
+| Initials    | String    | [A-Z] 3 chars                           | N          | The initials of the Operator / Agent.                                                                                                                                                                                                                                                                                                         |
+| key         | String    | [A-Z]                                   | Y          | This will be assigned to you by your Account Manager during set up.                                                                                                                                                                                                                                                                           |
+| token       | String    | [0-9] 9 chars                           | Y          | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token.                                                                                                                                                                                                                                                    |
+| ArrivalDate | Date      | YYYY-MM-DD                              | Y          | Date customer enters the lounge.                                                                                                                                                                                                                                                                                                              |
+| ArrivalTime | Time      | HHMM                                    | Y          | Time customer enters the lounge.                                                                                                                                                                                                                                                                                                              |
+| Adults      | Integer   | [0-4] 1 char                            | Y          | Number of adults requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking.                                                                                                                                                                                                                       |
+| Children    | Integer   | [0-3] 1 char                            | N          | Number of children requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking.                                                                                                                                                                                                                     |
+| Infants     | Integer   | 1 char                                  | N          | Number of infants requiring entry to the lounge. Please note: a maximum of 6 passengers is permitted on any one booking.                                                                                                                                                                                                                      |
+| OutFlight   | String    | [A-Z0-9] 9 chars                        | N          | This is also known as an 'flight number'. <br>Used to establish which terminal the customer is flying from using our look up tool and return products specific to that terminal.                                                                                                                                                              |
+| Terminal    | String    | [A-Z1-9] 1 char                         | N          | An optional field when requesting hotel and parking that will filter the availble results to those that serve the given terminal. Terminal options can be found using the [Terminal](/hxapi/terminal) request, where the name of the terminal is a word only the first character is needed for this request ( eg. N for the North terminal ). |
+| System      | String    | [A-Z] 3 chars                           | Y*         | For European products, you need to pass in the value of `System=ABG` (the default is `System=ABC`, which is UK products only).                                                                                                                                                                                                                |
+| lang        | String    | [A-Z] 2 chars                           | Y*         | Required for requests for European products. (Values available are `en`, `de`, `it`, `es`, `pt` and `nl`.)                                                                                                                                                                                                                                    |
+| fields      | String    | [A-Z] a csv list of product info fields | N          | A list of product info fields can be passed in to return configurable product information e.g. `fields=name,address,latitude,sellingpoint`.                                                                                                                                                                                                   |
 
 
 ## Lounge Availability Response
@@ -56,14 +57,17 @@ For a detailed explanation of the fields returned, please see below:
 
 
 
- | Field                | Additional Information |
- | ----                 | ---------------------- |
- | Lounge/Price   | The price of product _without_ any surcharges/fees added. |
- | Lounge/NonDiscPrice | The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.|
- | Lounge/Name | The name of the lounge. |
- | Lounge/Code | The product code for the lounge, which must be used in the booking request. |
- | Lounge/BookingURL   | The URL to POST the booking request to for this particular product. |
- | Lounge/MoreInfoURL  | The link to more information about this product, sourced from the Product Library.|
+| Field               | Additional Information                                                                                      |
+|---------------------|-------------------------------------------------------------------------------------------------------------|
+| Lounge/Name         | The name of the lounge.                                                                                     |
+| Lounge/Code         | The product code for the lounge, which must be used in the booking request.                                 |
+| Lounge/BookingURL   | The URL to POST the booking request to for this particular product.                                         |
+| Lounge/MoreInfoURL  | The link to more information about this product, sourced from the Product Library.                          |
+| Lounge/NonDiscPrice | The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison. |
+| Lounge/Price        | The price of product _without_ any surcharges/fees added.                                                   |
+| Lounge/terminal     | The terminal the lounge is in                                                                               |
+| API_Header/Request  | The API returns every parameter and value you sent in the previous request.                                 |
+
 
 
 ## Worked Examples

@@ -1,0 +1,180 @@
+{
+  "API_Reply": {
+    "Product": [
+      {
+        "name": "Maple Parking Meet and Greet North",
+        "tripappcarparkname": "Maple Parking Meet and Greet North",
+        "terminal": "North",
+        "advance_purchase": "0",
+        "address": "Gatwick airport, <br />West Sussex<br />RH6 0LL",
+        "car_stored_at": "1 of 4 secured sites",
+        "telephone": "01293 652 299",
+        "mg_confirmation_phone_number": "You should call car park on 01293 652299 and choose option 1 when you're about 20 minutes from the terminal (which will normally be when you're on the M23).",
+        "fax": "01293 652 288",
+        "logo": "/imageLibrary/Images/3174-gatwick-airport-maple-parking-approved-operator.png",
+        "tripappimages": "/imageLibrary/Images/4686-maple-parking-meet-greet-25-years.png;/imageLibrary/Images/84684-gatwick-maple-manor-meet-and-greet-1.jpg;/imageLibrary/Images/84684-gatwick-maple-manor-meet-and-greet-4.jpg;/imageLibrary/Images/84684-gatwick-maple-manor-meet-and-greet-3.jpg;/imageLibrary/Images/84684-gatwick-maple-manor-meet-and-greet-5.jpg;/imageLibrary/Images/84684-gatwick-maple-manor-meet-and-greet-7-2.jpg;/imageLibrary/Images/84684-gatwick-maple-manor-meet-and-greet-6.jpg",
+        "brand_image": "/imageLibrary/Images/4686-maple-parking-meet-greet-25-years.png",
+        "mobile_image": "/imageLibrary/Images/4686-gatwick-airport-parking-mobile-mapleparkingM&GNorth.png",
+        "tripappcarparksellpoint": "You can't go wrong with Maple Parking's 25 years of experience.",
+        "tripappintroduction": "<strong>Drop-off at North Terminal. Stroll to check-in.</strong>\r\n \r\n<h2>Need to know:</h2>\r\n\r\nNorth Terminal: Drive your car to the Sofitel hotel car park and head to the dedicated meet & greet area. Park in a meet and greet bay and look out for a uniformed driver.<br />\r\nWalk to the terminal in 3 minutes. <br />\r\n \r\nWhen you get back give the driver a call to let them know you're ready and your car will be returned to you where you were met on arrival.\r\n \r\n<h2> Accessibility: </h2>\r\n \r\nThis service is suitable for customers with limited mobility, as a shuttle bus is not required\r\n \r\n<h2>Security:</h2>\r\n \r\nThe car park is secured by: <br />\r\n- Fencing <br />\r\n- Manned 24 hours a day <br />\r\n \r\n<h2>The small print:</h2>\r\n \r\n- Your car will be parked in a secured compound, up to 6 miles from the airport. <br />\r\n \r\n- There is no height restriction at the North terminal, but a 2m restriction for the South.<br />\r\n \r\n- Maple Parking can only take cars that fit into a standard size parking space, which is 2.4m x 4.8m. <br />\r\n \r\n- Maple Parking cannot accept vehicles with 8 or more seats. <br />\r\n\r\n- Any extra days' parking is £10 per day. <br />\r\n \r\n- All airport fees are included. <br />\r\n\r\n- Booking confirmations must be printed and taken with you.\r\n \r\n",
+        "tripapptransfertip": "Drop off near the terminal, just a few minutes walk from check-in.",
+        "tripappcarparkstory": "<strong>North Terminal</strong> - head to the Sofitel car park, take a ticket. Follow signs for 'meet & greet operators' - walk to the terminal in 3 minutes.\r\n<br />\r\n<h2>Returning to the airport:</h2>\r\n \r\n- Once you've collected your luggage, call the car park to request the driver to meet you with the car. You'll be given instructions on where to meet your driver. <br />\r\n \r\nAt their discretion, Maple Parking will give you up until midnight on the date you have booked to collect your car. If you go into the next day you will be charged £10 per day.\r\n\r\n",
+        "directions": "<strong> Here are your directions to the car park:</strong><br />\r\n- For satnavs use postcode RH6 0PJ but only as far as the main North Terminal roundabout<br /> \r\n- As you enter the North Terminal from the main roundabout, stay in the right-hand lane for \"Drop Off and Hotels\".<br />\r\n- Keep in the right-hand lane following signs for \"hotels\" and \"Sofitel Hotel\". <br />\r\n- Keep driving towards the pedestrian traffic lights between the two hotels. <br />\r\n- Turn right immediately after the traffic lights into the Sofitel car park.<br />\r\n- Take a ticket from the barrier and keep it for the driver.<br />\r\n- Once in the car park follow signs for \"meet & greet operators\". <br />\r\n- When you arrive in the dedicated meet & greet area, park in a meet and greet bay and look out for a uniformed driver.<br />\r\n- If you need any help finding the meeting point then please call Maple Parking on 01293 533 000 and select option 1.<br />\r\n- Walk to the terminal in 3 minutes.<br />\r\n",
+        "arrival_procedures": "You don't need to call Maple Parking on your way to the airport unless your travel plans have changed. If you do need to contact the car park on the day call them on 01293 652 299 and choose option 1.<br />\r\n\r\nWhen you reach the car park: <strong>Take at ticket the barrier and keep it for the driver.</strong> Once in the car park follow signs for \"meet & greet operators\". When you arrive in the dedicated meet & greet area, park in a meet and greet bay and look out for a uniformed driver.\r\n<br />\r\n- Take all of your belongings out of the car, including your car park ticket.<br />\r\n- The driver will take a photo and check your car over for damage.<br />\r\n- Give them your booking confirmation and car keys, as well as your return flight information.  <br /> \r\n- Walk to the terminal in 3 minutes.<br /><br />\r\n\r\nIf you are arriving back to another terminal, please check with the driver when dropping off your car for the new instructions.\r\n",
+        "departure_procedures": "Once you've collected your luggage, call the car park on 01293 533 000 and select option 1, to let Maple Parking know that you are ready for your car. <br /> \r\n\r\n- As you exit North Terminal International Arrivals, turn right and exit the building<br /> \r\n- Once outside, cross both roads and keep heading straight ahead between the car parks, under the covered walkway to the main terminal forecourt.<br />\r\n- Once at the main terminal forecourt, you will see the Sofitel hotel.<br />\r\n- Cross the road at the pedestrian lights and bear left through the Sofitel car park - following signs for \"Meet & Greet Operators\" located within the hotel car park.<br />\r\n- Your car will be returned by our uniformed staff in the meet and greet reception area.<br />\r\n<strong>Please be aware that if you don't collect your car within 20 minutes of calling the car park you'll need to pay the Short Stay parking fee. If you are returning earlier than the date or time that you booked, please ring Maple Parking on 01293 533 000, 24 hours in advance to avoid any delays.</strong>\r\n<br />\r\n\r\nMaple Parking will need to confirm your identity and you'll be asked to check over your car again, then your keys will be handed back to you along with a ticket to get out of the car park. <br /> If you get back early, call Maple Parking as soon as you can. They need as much notice as possible to get your car ready so you aren't kept waiting. You won't get a refund for any unused parking time.<br /> Please be aware that if you are late in collecting your car after your phone call to say you're ready to be met, you may incur additional charges from the car park. If you are delayed on your return you will be charged £10 per day by Maple Parking.<br />",
+        "meet_and_greet": 1,
+        "car_parked_for_you": 1,
+        "has_electric_charging": "0",
+        "keep_keys": "0",
+        "maximum_car_size": "Maple Parking can only take cars that fit into a standard size parking space, which is 2.4m x 4.8m. You'll be charged extra if your car is too large. Minibuses and vehicles with 8 or more seats can't be taken for Meet and Greet services. If you have a specially adapted vehicle this will need to be checked with the car park. To see if Maple Parking can take your vehicle, call us on 0800 093 5478.<br /><br />\r\n\r\n\r\nIf your vehicle is taller than 1.80m please inform the car park when you call and they will meet you in an alternative area outside the car park. <br /> <br />",
+        "information": "It's your responsibility to make sure that your vehicle's road tax is valid, it holds a valid MOT certificate and is roadworthy. If your car isn't legal or safe to drive, Maple Parking won't be able to drive it to the car park, and you also won't be able to get a refund.<br /><br />\r\n\r\n\r\nMaple Parking can only take cars that fit into a standard size parking space, which is 2.4m x 4.8m. If your vehicle is taller than 1.8m please inform the car park when you call and they will meet you in an alternative area outside the car park. Minibuses and vehicles with 8 or more seats are not accepted.<br /><br />\r\n\r\nIf you have a specially adapted vehicle this will need to be checked with the car park. To see if Maple Parking can take your vehicle, call 0800 093 5478.<br /><br />\r\n\r\nIf using a Sat Nav please use postcode: RH6 0NX. Please note it is best to follow the directions to get to the correct meeting point as this Satnav postcode gives an approximate location. <br /> <br />\r\n\r\nAny extra days' parking is £10 per day. <br /> <br />\r\n\r\nBooking confirmations must be printed and taken with you.\r\n\r\n",
+        "why_bookone": "Our cheapest Meet and Greet at the North terminal is also our most popular - it's airport approved too.",
+        "why_booktwo": "Maple Parking Meet and Greet is a member of the Gatwick Airport Approved Operator scheme. This means that they have been audited and inspected by the airport to ensure they meet customer service standards.",
+        "why_bookthree": "Eliminate transfers with this popular Meet and Greet service.",
+        "why_bookfour": "Your car will be parked at a secured compound with security fencing, monitored 24 hours a day.",
+        "introduction": "With 20 years' experience in providing a great service, Maple Parking Meet and Greet parking is a firm favourite with our customers and it's easy to see why. One of their professional, insured chauffeurs will meet you at the North terminal and park your car for you in a secured car park while you catch your flight. It couldn't be simpler and all for this low price. We only sell airport-approved Meet and Greet services and Maple Parking is no exception.",
+        "security_measures": "While you're away, your car will be stored in a secured car park. All have been awarded the police Park Mark award, the Trading Standards Authority's Buy With Confidence award and are approved by Gatwick airport. All of the car parks are surrounded by a fence and are either manned 24 hours, have CCTV in use, or have dedicated 24 hour security patrols.",
+        "disabled_facilities": "The car park welcomes bookings from owners of specially adapted vehicles. However, this must be by prior arrangement to ensure availability of appropriately-trained drivers. To see if the car park can take your vehicle, call us on 0800 093 5478.",
+        "park_mark": 1,
+        "transfer_frequency": "0",
+        "transfer_earliest": "00:01",
+        "transfer_latest": "23:59",
+        "transfer_time": "0",
+        "equivalent_product": "LGO8",
+        "insurance": "Parking is always at the vehicle owner's own risk and subject to the car park's Terms & Conditions of storage. <br /> <br />\r\nThe car park use experienced drivers who are fully insured to drive your vehicle on the public highway. All cars parked or stored with Maple Manor will be on a proven direct negligence basis. Any claims for loss or damage must be made prior to  the vehicle being handed over.",
+        "other_services_provided": "Maple Manor now offer a valeting service from just &pound;9.95. <br />\r\nPlease call Maple Manor to enquire about or to book this service.",
+        "alternative_product_code_post": "LGU6",
+        "awin_commission_group": "GATWICKOFFSITEPARKING",
+        "upsell_upgrades": "LGWMMC,LGWNNT,LGWASC,LGWNNM,GADCOA,LGWMME",
+        "latitude": 51.161308,
+        "longitude": -0.175491,
+        "tripapplogo": "0",
+        "opening_periods": "365 days a year",
+        "gateprice": "£10.00 per day - subject to change",
+        "bestseller": "Yes",
+        "convenient": "It doesn't get more convenient than a Meet and Greet service. With Maple Manor parking at Gatwick airport you're met at the terminal on arrival and your car is delivered to you on your return. Cut out the hassle of parking and save time on transfers by booking a convenient Meet and Greet service with Maple Manor.",
+        "distance_miles": "0.8",
+        "upgrades_available": 1,
+        "tfhrpricing": "daily",
+        "bestselleroverride": "LGZ1",
+        "default_img": "/images/prodlib/LGW8/LGW8.jpg",
+        "premium_product": "Y",
+        "custom_msg": "Premium service",
+        "browser_description": "Maple Manor Meet and Greet Parking takes the hassle out of parking your car and getting transfers to and from the airport. You will be met by a fully insured, experienced, uniformed driver who park your car for you at a fully secured car park just a short drive from the terminal.",
+        "browser_title": "Maple Manor Parking Gatwick",
+        "features": "Meet & Greet",
+        "keyword_meta": "maple manor gatwick, gatwick airport maple manor parking, maple manor parking gatwick, maple manor parking, gatwick airport parking, maple manor, maple, manor, gatwick parking, meet, greet",
+        "on_airport": "0",
+        "security_barrier": 1,
+        "security_fencing": 1,
+        "security_patrols": 1,
+        "sellpoint_location": "Avoid the hassle of parking and be met at the airport terminal.",
+        "sellpoint_parking": "Secured compound with security fencing, monitored 24 hours a day.\r\n",
+        "sellpoint_security": "Secured compound with security fencing, monitored 24 hours a day.",
+        "sellpoint_terminal": "Officially our lowest priced Meet and Greet service at Gatwick.",
+        "sellpoint_transfers": "Eliminate transfers with this superb Meet and Greet service.",
+        "show_for_mobile": 1,
+        "terminal_unknown": "If you do not know your terminal, you will need to call to confirm at least 24 hours before your arrival. Please follow the instructions on your confirmation.",
+        "transfers": "No transfers are required. Once your car is picked up you proceed directly to check in.",
+        "undercover_parking": "Not available.",
+        "bcp_priority": 892,
+        "custom_pins": "Drop-off point,51.161825797546975,-0.17751036811205267,m&g.png,pin1,N",
+        "snow_cancellations": "Standard T&Cs",
+        "snow_overdue": "Standard charge",
+        "snow_past_date_bookings": "Standard T&Cs",
+        "priority": 892,
+        "parent": "LGW",
+        "child": 4,
+        "type": 1,
+        "lang": "en",
+        "archived": "0",
+        "unnamed": "",
+        "ghost": "0",
+        "_airport": "LGW",
+        "postcode": "RH6 0LL",
+        "_a_tfhrpricing": [
+          "daily"
+        ],
+        "_a_terminal_lozenge": [],
+        "base_product": "",
+        "_prodcode": "LGW4",
+        "_updated_date": "2019-12-02",
+        "_base_name": null,
+        "_a_name": [
+          "Maple Parking Meet and Greet"
+        ],
+        "_a_unnamed": [],
+        "_a_tripappcarparkname": [
+          "Maple Parking Meet and Greet North"
+        ],
+        "_a_terminal": [
+          "North"
+        ],
+        "_group": {
+          "terminal": [
+            "North"
+          ],
+          "meet_and_greet": [
+            1
+          ],
+          "on_airport": [
+            "0"
+          ]
+        },
+        "_a_tripappmaincode": [],
+        "_a_car_stored_at": [
+          "1 of 4 secured sites"
+        ],
+        "_a_telephone": [
+          "01293 652 299"
+        ],
+        "_a_mg_confirmation_phone_number": [
+          "You should call car park on 01293 652299 and choose option 1 when you're about 20 minutes from the terminal (which will normally be when you're on the M23)."
+        ],
+        "_a_wistia_key": [],
+        "_filter": {
+          "meet_and_greet": 1
+        },
+        "_a_copy_reviews_from": [],
+        "_a_equivalent_flex_products": [],
+        "_a_equivalent_product": [
+          "LGO8"
+        ],
+        "_a_alternative_product_code_post": [
+          "LGU6"
+        ],
+        "_a_ghost_upsell_products": [],
+        "_a_upsell_products": [],
+        "_a_upsell_upgrades": [
+          "LGWMMC",
+          "LGWNNT",
+          "LGWASC",
+          "LGWNNM",
+          "GADCOA",
+          "LGWMME"
+        ],
+        "_a_gateprice": [
+          "£10.00 per day - subject to change"
+        ],
+        "_a_brand": [],
+        "_default_lang": "en",
+        "_prodtype": "CarParks",
+        "_generated": "2019-12-02 14:08:59",
+        "lang_en_archived": "false",
+        "accessible": ""
+      }
+    ],
+    "ATTRIBUTES": {
+      "Result": "OK"
+    },
+    "API_Header": {
+      "Request": {
+        "token": "000015778",
+        "key": "mytestkey",
+        "v": 1,
+        "format": "js",
+        "version": "lite"
+      }
+    }
+  }
+}
