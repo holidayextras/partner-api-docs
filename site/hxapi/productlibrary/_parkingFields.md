@@ -6,7 +6,7 @@
 | tripappcarparkname                                           | Name of the product                                                                                               | Availability page and confirmation             |
 | terminal                                                     | Advise which terminal product is available for                                                                    |                                                |
 | advance\_purchase                                            | If it's flexible or non flexible \(if yes it's non flex so this must be highlighted to customer before purchase\) | Availability page and confirmation             |
-| on\_airport                                                  |
+| on\_airport                                                  |                                                                                                                   |                                                |
 | meet\_and\_greet                                             | Used to highlight whenther the car par is located on\-airport, off\-airport or meet and greet                     | Availability page and confirmation             |
 | transfer\_frequency                                          | How frequently the transfer runs                                                                                  | Availability page and confirmation             |
 | transfer\_time                                               | How long the transfer takes                                                                                       | Availability page and confirmation             |
@@ -29,13 +29,15 @@
 
 #### Optional
 
-| KEY                     | PURPOSE OF KEY                                   | WHERE TO DISPLAY                  |
-|-------------------------|--------------------------------------------------|-----------------------------------|
-| logo                    | Official logo for the car park                   | Availbility page and confirmation |
-| longitude               | Map                                              | Info tab on availability page     |
-| latitude                | Map                                              | Info tab on availability page     |
-| tripappimages           | Image gallery                                    | Info tab on availability page     |
-| videoid                 | Video of the car park from Youtube               | Info tab on availability page     |
-| tripappcarparksellpoint | Short summary/sell point on                      | Info tab on availability page     |
-| tripapptransfertip      | Short summary of the transfer times              | Info tab on availability page     |
-| tripappcarparkstory     | More information on the transfer times/freq/cost | Info tab on availability page     |
+| KEY                     | PURPOSE OF KEY                                     | WHERE TO DISPLAY                  |
+|-------------------------|----------------------------------------------------|-----------------------------------|
+| logo                    | Official logo for the car park                     | Availbility page and confirmation |
+| longitude               | Map                                                | Info tab on availability page     |
+| latitude                | Map                                                | Info tab on availability page     |
+| tripappimages           | Image gallery                                      | Info tab on availability page     |
+| videoid                 | Video of the car park from Youtube                 | Info tab on availability page     |
+| tripappcarparksellpoint | Short summary/sell point on                        | Info tab on availability page     |
+| tripapptransfertip      | Short summary of the transfer times                | Info tab on availability page     |
+| tripappcarparkstory     | More information on the transfer times/freq/cost   | Info tab on availability page     |
+| covid_copy              | Description of covid procedures in place           | Info tab on availability page     |
+| covid_secure            | If the carpark is covid secure. Shows as a lozenge | Info tab on availability page     |
