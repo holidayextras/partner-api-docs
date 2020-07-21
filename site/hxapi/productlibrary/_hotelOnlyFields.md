@@ -30,14 +30,14 @@
 
 #### Optional
 
-| KEY                  | PURPOSE OF KEY                                                | WHERE TO DISPLAY                  |
-|----------------------|---------------------------------------------------------------|-----------------------------------|
-| logo                 | Logo for the hotel                                            | Availbility page and confirmation |
-| tripappimages        | Image gallery                                                 | Info tab on availability page     |
-| videoid              | Video of the hotel                                            | Info tab on availability page     |
-| longitude            | Map                                                           | Info tab on availability page     |
-| latitude             | Map                                                           | Info tab on availability page     |
-| tripappsellpoint1    | Summary/sell point of the hotel                               | Info tab on availability page     |
-| tripapptransferstory | Information about the transfers                               | Info tab on availability page     |
-| covid_copy           | Description of covid procedures in place                      | Info tab on availability page     |
-| covid_secure         | Flag highlighting whether covid secure measures are in place | Info tab on availability page     |
+| KEY                  | PURPOSE OF KEY                                                       | WHERE TO DISPLAY                  |
+|----------------------|----------------------------------------------------------------------|-----------------------------------|
+| logo                 | Logo for the hotel                                                   | Availbility page and confirmation |
+| tripappimages        | Image gallery                                                        | Info tab on availability page     |
+| videoid              | Video of the hotel                                                   | Info tab on availability page     |
+| longitude            | Map                                                                  | Info tab on availability page     |
+| latitude             | Map                                                                  | Info tab on availability page     |
+| tripappsellpoint1    | Summary/sell point of the hotel                                      | Info tab on availability page     |
+| tripapptransferstory | Information about the transfers                                      | Info tab on availability page     |
+| covid_copy           | Description of covid procedures in place                             | Info tab on availability page     |
+| covid_secure         | Boolean flag highlighting whether covid secure measures are in place | Info tab on availability page     |
