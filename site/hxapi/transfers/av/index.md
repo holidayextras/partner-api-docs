@@ -29,24 +29,27 @@ NB: All parameter names are case sensitive.
 
 | Name        | Data Type | Format           | Mandatory? | Additional Information                                                                                                |
 |-------------|-----------|------------------|------------|-----------------------------------------------------------------------------------------------------------------------|
-| ABTANumber  | String    | [A-Z0-9] 5 chars | Y          | This is also known as an 'agent code'. This will be confirmed to you by your Account Manager during set up            |
-| Password    | String    | [A-Z0-9] 5 chars | Y*         | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up                                                                                                                                             |
-| Initials    | String    | [A-Z] 3 chars    | N          | The initials of the Operator / Agent                                                                                  |
-| key         | String    | [A-Z]            | Y          | This will be assigned to you by your Account Manager during set up                                                    |
-| token       | String    | [0-9] 9 chars    | Y          | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token                             |
-| PickUp      | String    | [A-Z0-9]         | Y          | The IATA, TTI or Postcode (i.e `PickUp=AGP`)                                                                          |
-| PickUpType  | String    | [A-Z0-9]         | Y          | The type can either be `IATA`, `TTI` or `PC` (Postcode) (i.e `PickUpType=IATA`)                                       |
-| DropOff     | String    | [A-Z0-9]         | Y          | The IATA, TTI or Postcode (i.e `DropOff=85101062`)                                                                    |
-| DropOffType | String    | [A-Z0-9]         | Y          | The type can either be `IATA`, `TTI` or `PC` (Postcode) (i.e `DropOffType=TTI`)                                       |
-| FromDate    | Date      | YYYY-MM-DD       | Y          | Flight Arrival Date (`PickUpType` = `IATA`), Flight Departure Date (`DropOffType` = `IATA`), Preferred Date           |
-| FromTime    | Time      | HHMM             | Y          | Flight Arrival Time (`PickUpType` = `IATA`), Flight Departure Time (`DropOffType` = `IATA`), Preferred Time           |
-| ReturnDate  | Date      | YYYY-MM-DD       | N          | Flight Arrival Date (`DropOffType` = `IATA`), Flight Departure Date (`PickUpType` = `IATA`), Preferred Date           |
-| ReturnTime  | Time      | HHMM             | N          | Flight Arrival Time (`DropOffType` = `IATA`), Flight Departure Time (`PickUpType` = `IATA`), Preferred Time           |
-| Adults      | Integer   | [0-9]            | Y          | Number of Adults requiring a transfer                                                                                 |
-| Children    | Integer   | [0-9]            | N          | Number of Children requiring a transfer                                                                               |
-| Infants     | Integer   | [0-9]            | N          | Number of Infants requiring a transfer                                                                                |
-| OutFlight   | String    | [A-Z0-9]         | Y*         | A flight number is required if the journey involves being picked up or dropped off at an Airport                      |
-| ReturnFlight| String    | [A-Z0-9]         | N          | A flight number is required if the return journey involves being picked up or dropped off at an Airport               |
+| ABTANumber  | String    | [A-Z0-9] 5 chars | Y          | This is also known as an 'agent code'. This will be confirmed to you by your Account Manager during set up.           |
+| Password    | String    | [A-Z0-9] 5 chars | Y*         | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.                                                                                                                                            |
+| Initials    | String    | [A-Z] 3 chars    | N          | The initials of the Operator/Agent.                                                                                   |
+| key         | String    | [A-Z]            | Y          | This will be assigned to you by your Account Manager during set up.                                                   |
+| token       | String    | [0-9] 9 chars    | Y          | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token.                            |
+| PickUp      | String    | [A-Z0-9]         | Y          | The IATA, TTI or Postcode (i.e `PickUp=AGP`).                                                                         |
+| PickUpType  | String    | [A-Z0-9]         | Y          | The type can either be `IATA`, `TTI` or `PC` (Postcode) (i.e `PickUpType=IATA`).                                      |
+| DropOff     | String    | [A-Z0-9]         | Y          | The IATA, TTI or Postcode (i.e `DropOff=85101062`).                                                                   |
+| DropOffType | String    | [A-Z0-9]         | Y          | The type can either be `IATA`, `TTI` or `PC` (Postcode) (i.e `DropOffType=TTI`).                                      |
+| FromDate    | Date      | YYYY-MM-DD       | Y          | Flight Arrival Date (`PickUpType` = `IATA`), Flight Departure Date (`DropOffType` = `IATA`), Preferred Date.          |
+| FromTime    | Time      | HHMM             | Y          | Flight Arrival Time (`PickUpType` = `IATA`), Flight Departure Time (`DropOffType` = `IATA`), Preferred Time.          |
+| ReturnDate  | Date      | YYYY-MM-DD       | N          | Flight Arrival Date (`DropOffType` = `IATA`), Flight Departure Date (`PickUpType` = `IATA`), Preferred Date.          |
+| ReturnTime  | Time      | HHMM             | N          | Flight Arrival Time (`DropOffType` = `IATA`), Flight Departure Time (`PickUpType` = `IATA`), Preferred Time.          |
+| Adults      | Integer   | [0-9]            | Y          | Number of Adults requiring a transfer.                                                                                |
+| Children    | Integer   | [0-9]            | N          | Number of Children requiring a transfer.                                                                              |
+| Infants     | Integer   | [0-9]            | N          | Number of Infants requiring a transfer.                                                                               |
+| OutFlight   | String    | [A-Z0-9]         | Y*         | A flight number is required if the journey involves being picked up or dropped off at an Airport.                     |
+| ReturnFlight| String    | [A-Z0-9]         | N*         | A flight number is required if the return journey involves being picked up or dropped off at an Airport.              |
+
+#### Dates and Times
+It's important to note that availability should be requested with accurate dates and times. A good scenario would be if an Airport Transfer is required, where the `PickUp` would be an Airport and the `DropOff` would be a Hotel. The `FromDate` and `FromTime` should be the flight arrival date and time. If a return transfer is requested, then the `ReturnDate` and `ReturnTime` should be the flight departure date and time, our system will calculate an estimated pickup time from the Hotel.
 
 ## Availability Response
 
@@ -62,16 +65,16 @@ For a detailed explanation of the fields returned, please see below:
 | Transfers/MoreInfoURL      | N/A for Transfers.                                                                                          |
 | Transfers/TotalPrice       | The total price of the Transfer/s.                                                                          |
 | Transfers/NonDiscPrice     | If a discount has been applied, this is the total price before discount.                                    |
-| Transfers/SalesCurrency    | Three character identifier for the sale currency to qualify the price                                       |
-| Transfers/Images/Src       | Link to a image for the product. Prefix with `https:`                                                       |
-| Transfers/Images/Alt       | The alt tag for the image                                                                                   |
-| Transfers/Category         | This is the category of the Transfer/s (i.e `private_transfer`)                                             |
-| Transfers/Disclaimer       | Depending on supplier and transfer type, the Disclaimer will contain pickup details                         |
-| Transfers/ProviderDetails  | Shows the providers name and rating (if applicable)                                                         |
-| Transfers/Cancellation     | Shows the cancellation period before pickup date/time                                                       |
-| Transfers/VehicleDetails   | Details about the vehicle being used for the Transfer/s                                                     |
-| Transfers/OutboundTransfer | Details about the outbound transfer                                                                         |
-| Transfers/ReturnTransfer   | Details about the return transfer (This field will be `null` if no return was requested)                    |
+| Transfers/SalesCurrency    | Three character identifier for the sale currency to qualify the price.                                      |
+| Transfers/Images/Src       | Link to a image for the product. Prefix with `https:`.                                                      |
+| Transfers/Images/Alt       | The alt tag for the image.                                                                                  |
+| Transfers/Category         | This is the category of the Transfer/s (i.e `private_transfer`).                                            |
+| Transfers/Disclaimer       | Depending on supplier and transfer type, the Disclaimer will contain pickup details.                        |
+| Transfers/ProviderDetails  | Shows the providers name and rating (if applicable).                                                        |
+| Transfers/Cancellation     | Shows the cancellation period before pickup date/time.                                                      |
+| Transfers/VehicleDetails   | Details about the vehicle being used for the Transfer/s.                                                    |
+| Transfers/OutboundTransfer | Details about the outbound transfer.                                                                        |
+| Transfers/ReturnTransfer   | Details about the return transfer (This field will be `null` if no return was requested).                   |
 
 ### Example
 
