@@ -30,12 +30,11 @@
 
 #### Optional
 
-| KEY           | PURPOSE OF KEY                                    | WHERE TO DISPLAY                        |
-|---------------|---------------------------------------------------|-----------------------------------------|
-| logo          | Logo for the lounge                               | Availbility page and confirmation       |
-| tripappimages | Image gallery                                     | Info tab on availability page           |
-| videoid       | Video of the lounge                               | Video tab \- also autoplays in info tab |
-| covid_copy    | Description of covid procedures in place          | Info tab on availability page           |
-| covid_secure  | If the lounge is covid secure. Shows as a lozenge | Info tab on availability page           |
-
+| KEY           | PURPOSE OF KEY                                                       | WHERE TO DISPLAY                        |
+|---------------|----------------------------------------------------------------------|-----------------------------------------|
+| logo          | Logo for the lounge                                                  | Availbility page and confirmation       |
+| tripappimages | Image gallery                                                        | Info tab on availability page           |
+| videoid       | Video of the lounge                                                  | Video tab \- also autoplays in info tab |
+| covid_copy    | Description of covid procedures in place                             | Info tab on availability page           |
+| covid_secure  | Boolean flag highlighting whether covid secure measures are in place | Info tab on availability page           |
 
