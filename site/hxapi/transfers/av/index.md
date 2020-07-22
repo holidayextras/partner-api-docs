@@ -62,19 +62,37 @@ For a detailed explanation of the fields returned, please see below:
 | Transfers/Name             | The name of the Transfer.                                                                                   |
 | Transfers/Code             | The product code for the transfer, which must be used in the booking request.                               |
 | Transfers/BookingURL       | The URL to POST the booking request to for this particular product.                                         |
-| Transfers/MoreInfoURL      | N/A for Transfers.                                                                                          |
 | Transfers/TotalPrice       | The total price of the Transfer/s.                                                                          |
 | Transfers/NonDiscPrice     | If a discount has been applied, this is the total price before discount.                                    |
 | Transfers/SalesCurrency    | Three character identifier for the sale currency to qualify the price.                                      |
 | Transfers/Images/Src       | Link to a image for the product. Prefix with `https:`.                                                      |
 | Transfers/Images/Alt       | The alt tag for the image.                                                                                  |
-| Transfers/Category         | This is the category of the Transfer/s (i.e `private_transfer`).                                            |
+| Transfers/Category         | The category assigned to the Transfer/s, for the full list of categories [please see below](/hxapi/transfers/av/#transfer-categories). |
 | Transfers/Disclaimer       | Depending on supplier and transfer type, the Disclaimer will contain pickup details.                        |
 | Transfers/ProviderDetails  | Shows the providers name and rating (if applicable).                                                        |
 | Transfers/Cancellation     | Shows the cancellation period before pickup date/time.                                                      |
 | Transfers/VehicleDetails   | Details about the vehicle being used for the Transfer/s.                                                    |
 | Transfers/OutboundTransfer | Details about the outbound transfer.                                                                        |
 | Transfers/ReturnTransfer   | Details about the return transfer (This field will be `null` if no return was requested).                   |
+
+#### [Transfer Categories](#transfer-categories)
+
+Here are the available categories which may be returned, there will only be one category assigned to each Transfer:
+
+- shared_shuttle
+- speedy_shuttle
+- private_transfer
+- wheelchair_adapted
+- helicopter_transfer
+- water_taxi
+- shared_water_taxi
+- limo_transfer
+- private_coach
+- private_minibus
+- private_executive
+- land_and_water
+- train
+- suv
 
 ### Example
 
