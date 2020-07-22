@@ -20,7 +20,7 @@ https://api.holidayextras.co.uk/v1/transfers/search
 
 Here is an example:
 ```
-https://api.holidayextras.co.uk/v1/transfers/search?token=[TOKEN]&key=[KEY]&ABTANumber=[ABTA]&FromDate=2020-08-01&FromTime=1000&ToDate=2020-08-07&ToTime=1730&PickUp=AGP&PickUpType=IATA&DropOff=85101062&DropOffType=TTI&OutFlight=U28605&ReturnFlight=U28602&Adults=2
+https://api.holidayextras.co.uk/v1/transfers/search?token=[TOKEN]&key=[KEY]&ABTANumber=[ABTA]&FromDate=2020-08-01&FromTime=1000&ReturnDate=2020-08-07&ReturnTime=1730&PickUp=AGP&PickUpType=IATA&DropOff=85101062&DropOffType=TTI&OutFlight=U28605&ReturnFlight=U28602&Adults=2
 ```
 
 ### Request Parameters
