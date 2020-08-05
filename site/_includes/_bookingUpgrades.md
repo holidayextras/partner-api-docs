@@ -1,6 +1,6 @@
 ### Booking Upgrades
 
-It is possible to booking upgrade items at the same time as making a core product booking. Once the core product has been selected you must make an [Upgrade availability request](/hxapi/upgrades). Use the information in the response to pick the upgrades desired for the product. In the booking request any number of `Supplements` tags may be added but each must be for a unique upgrade. Multiple `Supplements` can be added in the request using the square bracket(`[]`) notation e.g.
+It is possible to booking upgrade items at the same time as making a core product booking. Once the core product has been selected you must make an [Upgrade availability request](/hxapi/upgrade). Use the information in the response to pick the upgrades desired for the product. In the booking request any number of `Supplements` tags may be added but each must be for a unique upgrade. Multiple `Supplements` can be added in the request using the square bracket(`[]`) notation e.g.
 
 ```http
 POST /v1/{{include.productType}}/{{include.productCode}} HTTP/1.1
