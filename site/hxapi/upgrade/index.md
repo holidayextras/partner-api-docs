@@ -4,7 +4,7 @@
 
 # Product Upgrades
 
-[API Docs](/hxapi/) > [Product Upgrades](/hxapi/upgrades)
+[API Docs](/hxapi/) > [Product Upgrades](/hxapi/upgrade)
 
 ## Upgrades Availability Request
 
@@ -16,12 +16,12 @@ GET
 
 #### Endpoint
 
-/upgrades/{productCode}
+/upgrade/{productCode}
 
 NB: Where `productCode` is the code of the base product i.e. the parking/hotel/lounge etc. product.
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/LGV4
+https://api.holidayextras.co.uk/v1/upgrade/LGV4
 ```
 
 ## Request Parameters
@@ -91,17 +91,17 @@ https://api.holidayextras.co.uk/v1/upgrade/STN5.js?ABTANumber=YourABTANumber&Pas
 #### Response
 
 {% codetabs %}
-  {% codetab XML %}
+{% codetab XML %}
 ```xml
 {% include_relative examples/_example_1_response.xml %}
 ```
-  {% endcodetab %}
+{% endcodetab %}
 
-  {% codetab JSON %}
+{% codetab JSON %}
 ```json
 {% include_relative examples/_example_1_response.json %}
 ```
-  {% endcodetab %}
+{% endcodetab %}
 {% endcodetabs %}
 
 ### Example 1 - Hotel Upgrades
@@ -109,31 +109,31 @@ https://api.holidayextras.co.uk/v1/upgrade/STN5.js?ABTANumber=YourABTANumber&Pas
 #### Request
 
 {% codetabs %}
-  {% codetab XML %}
+{% codetab XML %}
 ```
 https://api.holidayextras.co.uk/v1/upgrade/LGWSOF?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
 ```
-  {% endcodetab %}
+{% endcodetab %}
 
-  {% codetab JSON %}
+{% codetab JSON %}
 ```
 https://api.holidayextras.co.uk/v1/upgrade/LGWSOF.js?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
 ```
-  {% endcodetab %}
+{% endcodetab %}
 {% endcodetabs %}
 
 #### Response
 
 {% codetabs %}
-  {% codetab XML %}
+{% codetab XML %}
 ```xml
 {% include_relative examples/_example_2_response.xml %}
 ```
-  {% endcodetab %}
+{% endcodetab %}
 
-  {% codetab JSON %}
+{% codetab JSON %}
 ```json
 {% include_relative examples/_example_2_response.json %}
 ```
-  {% endcodetab %}
+{% endcodetab %}
 {% endcodetabs %}
