@@ -17,6 +17,7 @@ Please check the table below for details of which products are available in each
 |[Lounges](/hxapi/lounge)|Yes|Yes|
 |[Insurance](/hxapi/insurance)|Yes|No|
 |[FastTrack](/hxapi/fasttrack)|Yes|No|
+|[Transfers](/hxapi/transfers)|Yes|Yes|
 
 
 

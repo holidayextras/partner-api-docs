@@ -1,6 +1,7 @@
 | Version Number | Date                | Details                                                                           |
 |----------------|---------------------|-----------------------------------------------------------------------------------|
-| 1.14.0         | 17th July 2020      | Document upgrades processes for availability/booking/post booking management      |
+| 1.15.0         | 1st September 2020  | Document upgrades processes for availability/booking/post booking management      |
+| 1.14.0         | 21st July 2020      | Updated docs. Added Transfers documentation for Availability and Make Booking     |
 | 1.13.0         | 10th July 2020      | Updated docs. Added new `RequiresQRCode` flag to parking booking responses        |
 | 1.12.0         | 20th December 2019  | Updated docs UI look & layout                                                     |
 | 1.11.6         | 18th December 2019  | Clarifying that token is no longer needed in view/amend/cancel booking            |

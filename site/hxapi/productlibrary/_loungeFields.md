@@ -31,10 +31,11 @@
 
 #### Optional
 
-| KEY                  | PURPOSE OF KEY                               | WHERE TO DISPLAY                        |
-|----------------------|----------------------------------------------|-----------------------------------------|
-| logo                 | Logo for the hotel                           | Availbility page and confirmation       |
-| tripappimages        | Image gallery                                | Info tab on availability page           |
-| videoid              | Video of the hotel                           | Video tab \- also autoplays in info tab |
-
+| KEY           | PURPOSE OF KEY                                                       | WHERE TO DISPLAY                        |
+|---------------|----------------------------------------------------------------------|-----------------------------------------|
+| logo          | Logo for the lounge                                                  | Availbility page and confirmation       |
+| tripappimages | Image gallery                                                        | Info tab on availability page           |
+| videoid       | Video of the lounge                                                  | Video tab \- also autoplays in info tab |
+| covid_copy    | Description of covid procedures in place                             | Info tab on availability page           |
+| covid_secure  | Boolean flag highlighting whether covid secure measures are in place | Info tab on availability page           |
 
