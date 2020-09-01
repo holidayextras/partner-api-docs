@@ -1,0 +1,8 @@
+<Request>
+  <ABTANumber>YourABTA</ABTANumber>
+  <Password>YourPassword</Password>
+  <Initials>YourInitials</Initials>
+  <key>YourKey</key>
+  <ArrivalDate>2018-12-02</ArrivalDate>
+  <ParkingDays>15</ParkingDays>
+</Request>

@@ -1,0 +1,166 @@
+{
+  "API_Reply": {
+      "ATTRIBUTES": {
+          "Result": "OK",
+          "expires": "2020-07-10 14:20:40",
+          "RequestCode": 2,
+          "Product": "CarPark",
+          "cached": true
+      },
+      "Hotel": "",
+      "Supplement": [
+          {
+              "Code": "CBNOFF",
+              "Name": "Trees for Cities",
+              "Per": "B",
+              "Canx": "N",
+              "Filter": {},
+              "description": "Do your bit for the environment. One tree can make a world of difference.",
+              "supplement_type": "Charity Donation",
+              "Date": "2020-11-03",
+              "Price": 1,
+              "NonDiscPrice": 1,
+              "DiscAmt": "0.00"
+          },
+          {
+              "Code": "GADCOA",
+              "Name": "Insure your Mobile and your Gadgets",
+              "Per": "B",
+              "Canx": "Y",
+              "Filter": {},
+              "description": "£2,000 of cover for theft, loss & accidental damage when travelling.",
+              "supplement_type": "gadget cover",
+              "Date": "2020-11-03",
+              "Price": 9.99,
+              "NonDiscPrice": 9.99,
+              "DiscAmt": "0.00"
+          },
+          {
+              "Code": "HEXBFE",
+              "Name": "booking fee",
+              "Per": "B",
+              "Canx": "Y",
+              "Filter": {},
+              "description": null,
+              "supplement_type": "Payment",
+              "Date": "2020-11-03",
+              "Price": "0.25",
+              "NonDiscPrice": "0.25",
+              "DiscAmt": "0.00"
+          },
+          {
+              "Code": "HXOST1",
+              "Name": "Late Return Cover",
+              "Per": "B",
+              "Canx": "Y",
+              "Filter": {},
+              "description": "Delayed flight? No need to worry about extra parking charges with the Holiday Extras late return cover",
+              "supplement_type": "Payment",
+              "Date": "2020-11-03",
+              "Price": 1.99,
+              "NonDiscPrice": 1.99,
+              "DiscAmt": "0.00"
+          },
+          {
+              "Code": "HXOST2",
+              "Name": "Late Return Cover",
+              "Per": "B",
+              "Canx": "Y",
+              "Filter": {},
+              "description": "Delayed flight? No need to worry about extra parking charges with the Holiday Extras late return cover",
+              "supplement_type": "Payment",
+              "Date": "2020-11-03",
+              "Price": 1.49,
+              "NonDiscPrice": 1.49,
+              "DiscAmt": "0.00"
+          },
+          {
+              "Code": "HXOSTE",
+              "Name": "14-day Delayed Return Service",
+              "Per": "B",
+              "Canx": "Y",
+              "Filter": {},
+              "description": " ",
+              "supplement_type": "Payment",
+              "Date": "2020-11-03",
+              "Price": 9.99,
+              "NonDiscPrice": 9.99,
+              "DiscAmt": "0.00"
+          },
+          {
+              "Code": "HXOSTN",
+              "Name": "Late Return Cover",
+              "Per": "B",
+              "Canx": "Y",
+              "Filter": {},
+              "description": "Delayed flight? No need to worry about extra parking charges with the Holiday Extras late return cover",
+              "supplement_type": "Payment",
+              "Date": "2020-11-03",
+              "Price": 1.99,
+              "NonDiscPrice": 1.99,
+              "DiscAmt": "0.00"
+          },
+          {
+              "Code": "STNESP",
+              "Name": "Escape Lounge",
+              "Per": "P",
+              "Canx": "Y",
+              "Filter": {},
+              "description": "Escape the hustle and bustle of the airport terminal and enjoy the calming atmosphere of the official airport lounge. Relax before your flight, catch up with last minute emails and enjoy complimentary freshly prepared food and drinks!",
+              "supplement_type": "Lounge",
+              "Date": "2020-11-03",
+              "AdPrice": 25.5,
+              "NonDiscAdPrice": 25.5,
+              "AdDiscAmt": "0.00",
+              "ChPrice": 19.2,
+              "NonDiscChPrice": 19.2,
+              "ChDiscAmt": "0.00"
+          },
+          {
+              "Code": "STNSFS",
+              "Name": "Security FastTrack",
+              "Per": "P",
+              "Canx": "Y",
+              "Filter": {},
+              "description": "Short on time? Take the fast track through security and you’ll fly through.\r\n",
+              "supplement_type": "At the airport",
+              "Date": "2020-11-03",
+              "AdPrice": 7,
+              "NonDiscAdPrice": 7,
+              "AdDiscAmt": "0.00",
+              "ChPrice": 7,
+              "NonDiscChPrice": 7,
+              "ChDiscAmt": "0.00"
+          },
+          {
+              "Code": "STNFTA",
+              "Name": "Passport Control FastTrack",
+              "Per": "P",
+              "Canx": "Y",
+              "Filter": {},
+              "description": "Dreading the wait in arrivals? The passport control FastTrack will have you home in no time.",
+              "supplement_type": "At the airport",
+              "Date": "2020-11-11",
+              "AdPrice": 7,
+              "NonDiscAdPrice": 7,
+              "AdDiscAmt": "0.00",
+              "ChPrice": 7,
+              "NonDiscChPrice": 7,
+              "ChDiscAmt": "0.00"
+          }
+      ],
+      "API_Header": {
+          "Request": {
+              "ABTANumber": "WEB1",
+              "key": "ONLIN",
+              "token": "ef008a98-9434-11e1-af41-123143040224",
+              "ArrivalDate": "2020-11-03",
+              "ArrivalTime": "12:30",
+              "DepartDate": "2020-11-11",
+              "DepartTime": "13:45",
+              "v": 1,
+              "format": "js"
+          }
+      }
+  }
+}

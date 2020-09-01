@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<API_Reply Product="Lounge" RequestCode="5" Result="OK">
+  <Booking>
+    <BookingRef>YourBookingRef</BookingRef>
+    <AgentComm>7.00</AgentComm>
+    <VATonComm>0.00</VATonComm>
+    <MoreInfoURL>/v1/booking/YourBookingRef</MoreInfoURL>
+  </Booking>
+  <CurrentSupplements>
+    <Code>HXODC1</Code>
+    <Name>Outbound Delay Cover</Name>
+    <Price>2.99</Price>
+    <NonDiscPrice>2.99</NonDiscPrice>
+    <Per>booking</Per>
+    <Adults>0</Adults>
+    <Children>0</Children>
+    <Date>2020-11-08</Date>
+    <Remarks/>
+    <Canx>Y</Canx>
+  </CurrentSupplements>
+  <API_Header>
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <key>YourKey</key>
+      <token>YourToken</token>
+      <Initials>YourInitials</Initials>
+      <ArrivalDate>2020-11-08</ArrivalDate>
+      <ArrivalTime>1200</ArrivalTime>
+      <Adults>2</Adults>
+      <Children>0</Children>
+      <Infants>0</Infants>
+      <Title>Mr</Title>
+      <Initial>T</Initial>
+      <Surname>TEST</Surname>
+      <Address>123 Test Street</Address>
+      <Town>Testville</Town>
+      <County>Testshire</County>
+      <PostCode>TE12 3ST</PostCode>
+      <Email>test@test.com</Email>
+      <MobileNum>01234567890</MobileNum>
+      <PriceCheckFlag>Y</PriceCheckFlag>
+      <PriceCheckPrice>70.00</PriceCheckPrice>
+      <Supplements>
+        <Code>HXODC1</Code>
+        <Quantity>1</Quantity>
+        <TotalPrice>2.99</TotalPrice>
+      </Supplements>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply>

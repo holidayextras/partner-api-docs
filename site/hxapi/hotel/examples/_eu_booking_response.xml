@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<API_Reply Product="HotelWithParking" RequestCode="4" Result="OK">
+  <Booking>
+    <BookingRef>YourBookingRef</BookingRef>
+    <MoreInfoURL>/v1/booking/YourBookingRef.de</MoreInfoURL>
+    <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=FRABCDE&amp;product_type=hotels</PdfUrl>
+  </Booking>
+  <Hotel/>
+  <Itinerary>
+    <ArrivalDate>2017-12-01</ArrivalDate>
+    <Nights>1</Nights>
+    <BoardBasis>F</BoardBasis>
+    <NonSmoking>N</NonSmoking>
+    <ParkingDays>0</ParkingDays>
+    <ParkingSpaces>0</ParkingSpaces>
+    <Code>MUCLAN</Code>
+    <Name>Schweigers Landgasthof</Name>
+  </Itinerary>
+  <Room>
+    <Adults>2</Adults>
+    <Children>0</Children>
+    <Infants>0</Infants>
+    <Code>DZ</Code>
+  </Room>
+  <ClientDetails>
+    <Title>Herr</Title>
+    <Initial>T</Initial>
+    <Surname>TEST</Surname>
+    <Email>TEST@TEST.COM</Email>
+    <Town>TESTVILLE</Town>
+    <Postcode>TE1 STS</Postcode>
+    <DayPhone>01234567890</DayPhone>
+    <Remarks/>
+    <Address0>1 Test Street</Address0>
+    <Address1>TBC</Address1>
+    <DataProtection>N</DataProtection>
+    <County>TESTSHIRE</County>
+  </ClientDetails>
+  <Pricing>
+    <Price>120.00</Price>
+  </Pricing>
+  <API_Header>
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <key>YourKey</key>
+      <token>YourToken</token>
+      <ArrivalDate>2017-12-01</ArrivalDate>
+      <Nights>1</Nights>
+      <RoomCode>DBL</RoomCode>
+      <ParkingDays>0</ParkingDays>
+      <Adults>2</Adults>
+      <Children>0</Children>
+      <Title>Mr</Title>
+      <Initial>T</Initial>
+      <Surname>TEST</Surname>
+      <Address0>1 Test Street</Address0>
+      <Town>Testville</Town>
+      <County>Testshire</County>
+      <Postcode>TE1 STS</Postcode>
+      <DayPhone>01234567890</DayPhone>
+      <Email>test@test.com</Email>
+      <DataProtection>N</DataProtection>
+      <PriceCheckFlag>Y</PriceCheckFlag>
+      <PriceCheckPrice>120.00</PriceCheckPrice>
+      <System>ABG</System>
+      <lang>de</lang>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply>

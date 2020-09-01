@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<API_Reply Result="OK" expires="2020-07-10 09:43:97" RequestCode="2" Product="CarPark" cached="1">
+    <Hotel/>
+    <Supplement>
+        <Code>CBNOFF</Code>
+        <Name>Trees for Cities</Name>
+        <Per>B</Per>
+        <Canx>N</Canx>
+        <Filter/>
+        <description>Do your bit for the environment. One tree can make a world of difference.</description>
+        <supplement_type>Charity Donation</supplement_type>
+        <Date>2020-11-03</Date>
+        <Price>1.00</Price>
+        <NonDiscPrice>1.00</NonDiscPrice>
+        <DiscAmt>0.00</DiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>GADCOA</Code>
+        <Name>Insure your Mobile and your Gadgets</Name>
+        <Per>B</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description>£2,000 of cover for theft, loss &amp; accidental damage when travelling.</description>
+        <supplement_type>gadget cover</supplement_type>
+        <Date>2020-11-03</Date>
+        <Price>9.99</Price>
+        <NonDiscPrice>9.99</NonDiscPrice>
+        <DiscAmt>0.00</DiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>HEXBFE</Code>
+        <Name>booking fee</Name>
+        <Per>B</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description/>
+        <supplement_type>Payment</supplement_type>
+        <Date>2020-11-03</Date>
+        <Price>0.25</Price>
+        <NonDiscPrice>0.25</NonDiscPrice>
+        <DiscAmt>0.00</DiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>HXOST1</Code>
+        <Name>Late Return Cover</Name>
+        <Per>B</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description>Delayed flight? No need to worry about extra parking charges with the Holiday Extras late return cover</description>
+        <supplement_type>Payment</supplement_type>
+        <Date>2020-11-03</Date>
+        <Price>1.99</Price>
+        <NonDiscPrice>1.99</NonDiscPrice>
+        <DiscAmt>0.00</DiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>HXOST2</Code>
+        <Name>Late Return Cover</Name>
+        <Per>B</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description>Delayed flight? No need to worry about extra parking charges with the Holiday Extras late return cover</description>
+        <supplement_type>Payment</supplement_type>
+        <Date>2020-11-03</Date>
+        <Price>1.49</Price>
+        <NonDiscPrice>1.49</NonDiscPrice>
+        <DiscAmt>0.00</DiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>HXOSTE</Code>
+        <Name>14-day Delayed Return Service</Name>
+        <Per>B</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description/>
+        <supplement_type>Payment</supplement_type>
+        <Date>2020-11-03</Date>
+        <Price>9.99</Price>
+        <NonDiscPrice>9.99</NonDiscPrice>
+        <DiscAmt>0.00</DiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>HXOSTN</Code>
+        <Name>Late Return Cover</Name>
+        <Per>B</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description>Delayed flight? No need to worry about extra parking charges with the Holiday Extras late return cover</description>
+        <supplement_type>Payment</supplement_type>
+        <Date>2020-11-03</Date>
+        <Price>1.99</Price>
+        <NonDiscPrice>1.99</NonDiscPrice>
+        <DiscAmt>0.00</DiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>STNESP</Code>
+        <Name>Escape Lounge</Name>
+        <Per>P</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description>Escape the hustle and bustle of the airport terminal and enjoy the calming atmosphere of the official airport lounge. Relax before your flight, catch up with last minute emails and enjoy complimentary freshly prepared food and drinks!</description>
+        <supplement_type>Lounge</supplement_type>
+        <Date>2020-11-03</Date>
+        <AdPrice>25.50</AdPrice>
+        <NonDiscAdPrice>25.50</NonDiscAdPrice>
+        <AdDiscAmt>0.00</AdDiscAmt>
+        <ChPrice>19.20</ChPrice>
+        <NonDiscChPrice>19.20</NonDiscChPrice>
+        <ChDiscAmt>0.00</ChDiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>STNSFS</Code>
+        <Name>Security FastTrack</Name>
+        <Per>P</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description>Short on time? Take the fast track through security and you’ll fly through.</description>
+        <supplement_type>At the airport</supplement_type>
+        <Date>2020-11-03</Date>
+        <AdPrice>7.00</AdPrice>
+        <NonDiscAdPrice>7.00</NonDiscAdPrice>
+        <AdDiscAmt>0.00</AdDiscAmt>
+        <ChPrice>7.00</ChPrice>
+        <NonDiscChPrice>7.00</NonDiscChPrice>
+        <ChDiscAmt>0.00</ChDiscAmt>
+    </Supplement>
+    <Supplement>
+        <Code>STNFTA</Code>
+        <Name>Passport Control FastTrack</Name>
+        <Per>P</Per>
+        <Canx>Y</Canx>
+        <Filter/>
+        <description>Dreading the wait in arrivals? The passport control FastTrack will have you home in no time.</description>
+        <supplement_type>At the airport</supplement_type>
+        <Date>2020-11-11</Date>
+        <AdPrice>7.00</AdPrice>
+        <NonDiscAdPrice>7.00</NonDiscAdPrice>
+        <AdDiscAmt>0.00</AdDiscAmt>
+        <ChPrice>7.00</ChPrice>
+        <NonDiscChPrice>7.00</NonDiscChPrice>
+        <ChDiscAmt>0.00</ChDiscAmt>
+    </Supplement>
+    <API_Header>
+        <Request>
+            <ABTANumber>WEB1</ABTANumber>
+            <key>ONLIN</key>
+            <token>ef008a98-9434-11e1-af41-123143040224</token>
+            <ArrivalDate>2020-11-03</ArrivalDate>
+            <ArrivalTime>12:30</ArrivalTime>
+            <DepartDate>2020-11-11</DepartDate>
+            <DepartTime>13:45</DepartTime>
+            <v>1</v>
+        </Request>
+    </API_Header>
+</API_Reply>

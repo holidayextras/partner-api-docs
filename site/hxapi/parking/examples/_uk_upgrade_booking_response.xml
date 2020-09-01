@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<API_Reply Product="CarPark" RequestCode="5" Result="OK">
+  <Booking>
+    <BookingRef>YourBookingRef</BookingRef>
+    <AgentComm>3.75</AgentComm>
+    <VATonComm>0.00</VATonComm>
+  </Booking>
+  <CarDetails>
+    <Registration>TE17 STS</Registration>
+    <CarMake>RANGE ROVER</CarMake>
+    <CarModel>EVOQUE</CarModel>
+    <CarColour>WHITE</CarColour>
+    <OutFlight/>
+    <Destination>-</Destination>
+    <MobileNum>01234567890</MobileNum>
+  </CarDetails>
+  <ClientDetails>
+    <Title>MR</Title>
+    <Initial>T</Initial>
+    <Surname>Test</Surname>
+    <Email>test@test.com</Email>
+  </ClientDetails>
+  <HandlingFee>0.00</HandlingFee>
+  <MoreInfoURL>/v1/booking/YourBookingRef</MoreInfoURL>
+  <CarPark>
+    <ArrivalDate>2020-11-08</ArrivalDate>
+    <DepartDate>2020-11-16</DepartDate>
+    <ArrivalTime>1230</ArrivalTime>
+    <DepartTime>1345</DepartTime>
+    <Duration>8</Duration>
+    <NumberOfPax>1</NumberOfPax>
+    <ReturnFlight>VIR19</ReturnFlight>
+    <Code>STN5</Code>
+    <TotalPrice>49.99</TotalPrice>
+    <Name>Long Stay</Name>
+    <introduction>We didn't think people thought about their airport parking before booking their holiday. But Stansted Long Stay is so smooth, so efficient, so easy to use, that one customer actually told us she might fly from Stansted just to use it again. Maybe she loved the great prices - it's almost always our best value car park at Stansted - or maybe the award-winning security. Or maybe, like most of our Stansted Long Stay customers, she was just happy with everything.</introduction>
+    <advance_purchase>1</advance_purchase>
+    <logo>//d1xcii4rs5n6co.cloudfront.net/libraryimages/85730-official-stansted-airport-parking-long-stay.png</logo>
+    <RequiresQRCode>0</RequiresQRCode>
+    <BookingURL>/v1/carpark/STN5</BookingURL>
+    <MoreInfoURL>/v1/product/STN5</MoreInfoURL>
+  </CarPark>
+  <BarCode>/v1/barcode/YourBookingRef.png?key=ONLIN</BarCode>
+  <QRCode>/v1/qrcode/YourBookingRef.png?key=ONLIN</QRCode>
+  <FastTrackVouchers>
+    <name>Fast Track Voucher</name>
+    <source>https://voucher.holidayextras.co.uk/voucher/fastTrack?email=YourEmail&amp;booking_ref=YourBookingRef&amp;agent=YourABTANumber&amp;productType=carparks&amp;productCode=STNSFS</source>
+    <type>text/html</type>
+  </FastTrackVouchers>
+  <API_Header>
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <Initials>YourInitials</Initials>
+      <key>YourKey</key>
+      <token>YourToken</token>
+      <ArrivalDate>2020-11-08</ArrivalDate>
+      <ArrivalTime>12:30</ArrivalTime>
+      <DepartDate>2020-11-16</DepartDate>
+      <DepartTime>13:45</DepartTime>
+      <Title>MR</Title>
+      <Initial>T</Initial>
+      <Surname>TEST</Surname>
+      <Address>123 Test Street</Address>
+      <Town>Testville</Town>
+      <County>Testshire</County>
+      <PostCode>TE12 3ST</PostCode>
+      <Email>test@test.com</Email>
+      <PriceCheckFlag>Y</PriceCheckFlag>
+      <PriceCheckPrice>50.05</PriceCheckPrice>
+      <CarColour>White</CarColour>
+      <CarMake>Range Rover</CarMake>
+      <CarModel>Evoque</CarModel>
+      <Registration>TE17 STS</Registration>
+      <ReturnFlight>VIR19</ReturnFlight>
+      <Supplement>
+        <Code>HXOST1</Code>
+        <Date>2017-12-01</Date>
+        <Quantity>1</Quantity>
+      </Supplement>
+      <Supplement>
+        <Code>STNSFS</Code>
+        <Date>2017-12-01</Date>
+        <Adults>2</Adults>
+        <Children>1</Children>
+      </Supplement>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply>

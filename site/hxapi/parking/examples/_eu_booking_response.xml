@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<API_Reply Product="CarPark" RequestCode="4" Result="OK">
+  <Booking>
+    <BookingRef>YourBookingRef</BookingRef>
+    <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=FRABCDE&amp;product_type=carparks</PdfUrl>
+  </Booking>
+  <MoreInfoURL>/carpark/YourBookingRef.de</MoreInfoURL>
+  <CarPark>
+    <ArrivalDate>2017-12-01</ArrivalDate>
+    <DepartDate>2017-12-08</DepartDate>
+    <ArrivalTime>1200</ArrivalTime>
+    <DepartTime>1200</DepartTime>
+    <Duration>7</Duration>
+    <NumberOfPax>1</NumberOfPax>
+    <ReturnFlight/>
+    <CarDetFlags>NNNNNNNNYYNYNNNNNN</CarDetFlags>
+    <Code>MU01</Code>
+    <Name>Parkservice Sky München</Name>
+    <BookingURL>/carpark/MU01.de</BookingURL>
+    <MoreInfoURL>/product/MU01.de</MoreInfoURL>
+    <TotalPrice>35.00</TotalPrice>
+    <GatePrice>0.00</GatePrice>
+  </CarPark>
+  <BarCode>/barcode/YourBookingRef.png?key=YourKey</BarCode>
+  <ClientDetails>
+    <Title>HERR</Title>
+    <Initial>T</Initial>
+    <Surname>TEST</Surname>
+    <Email>TEST@TEST.COM</Email>
+    <Town>TESTVILLE</Town>
+    <Postcode>TE12 3ST</Postcode>
+    <DayPhone>TBC</DayPhone>
+    <Remarks/>
+    <Address0>123 TEST STREET</Address0>
+    <DataProtection>Y</DataProtection>
+    <County>TESTSHIRE</County>
+    <Confirmation>Y</Confirmation>
+  </ClientDetails>
+  <Pricing>
+    <TotalPrice>35.00</TotalPrice>
+  </Pricing>
+  <API_Header>
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <Initials>YourInitials</Initials>
+      <key>YourKey</key>
+      <token>YourToken</token>
+      <ArrivalDate>2017-12-01</ArrivalDate>
+      <ArrivalTime>1200</ArrivalTime>
+      <DepartDate>2017-12-08</DepartDate>
+      <DepartTime>1200</DepartTime>
+      <NumberOfPax>1</NumberOfPax>
+      <Title>HERR</Title>
+      <Initial>T</Initial>
+      <Surname>TEST</Surname>
+      <Address>123 Test Street</Address>
+      <Town>Testville</Town>
+      <County>Testshire</County>
+      <PostCode>TE12 3ST</PostCode>
+      <Email>test@test.com</Email>
+      <PriceCheckFlag>Y</PriceCheckFlag>
+      <PriceCheckPrice>35.00</PriceCheckPrice>
+      <System>ABG</System>
+      <OutFltNo>EZY8982</OutFltNo>
+      <InFltNo>EZY8985</InFltNo>
+      <InFltTime>1130</InFltTime>
+    </Request>
+  </API_Header>
+</API_Reply>

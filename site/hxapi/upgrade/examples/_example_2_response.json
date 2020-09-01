@@ -1,0 +1,166 @@
+{
+  "API_Reply": {
+      "ATTRIBUTES": {
+          "Result": "OK",
+          "expires": "2020-07-10 14:22:16",
+          "cached": true,
+          "Product": "General",
+          "System": "ABC",
+          "Version": 1,
+          "Customer": "A",
+          "Session": 123456789,
+          "RequestCode": 12
+      },
+      "Itinerary": {
+          "SiteCode": "LGWSOF"
+      },
+      "Supplement": [
+          {
+              "Code": "AIRHLG",
+              "Name": "Flight compensation checker",
+              "Per": "B",
+              "Canx": "Y",
+              "Filter": {},
+              "description": "Claim up to £550 per person.\r\n\r\n",
+              "supplement_type": "Payment",
+              "Date": "2020-11-03",
+              "Price": 5,
+              "NonDiscPrice": 5,
+              "DiscAmt": "0.00"
+          },
+          {
+              "Code": "AIRHLI",
+              "Name": "Flight compensation checker",
+              "Per": "B",
+              "Canx": "Y",
+              "Filter": {},
+              "description": "Claim up to £550 per person.\r\n\r\n",
+              "supplement_type": "Payment",
+              "Date": "2020-11-03",
+              "Price": 3,
+              "NonDiscPrice": 3,
+              "DiscAmt": "0.00"
+          },
+          {
+              "Code": "CBNOFF",
+              "Name": "Trees for Cities",
+              "Per": "B",
+              "Canx": "N",
+              "Filter": {},
+              "description": "Do your bit for the environment. One tree can make a world of difference.",
+              "supplement_type": "Charity Donation",
+              "Date": "2020-11-03",
+              "Price": 1,
+              "NonDiscPrice": 1,
+              "DiscAmt": "0.00"
+          },
+          {
+              "Code": "GADCOA",
+              "Name": "Insure your Mobile and your Gadgets",
+              "Per": "B",
+              "Canx": "Y",
+              "Filter": {},
+              "description": "£2,000 of cover for theft, loss & accidental damage when travelling.",
+              "supplement_type": "gadget cover",
+              "Date": "2020-11-03",
+              "Price": 9.99,
+              "NonDiscPrice": 9.99,
+              "DiscAmt": "0.00"
+          },
+          {
+              "Code": "LGWSOD",
+              "Name": "Urban Cafe 2-course dinner",
+              "Per": "P",
+              "Canx": "Y",
+              "Filter": {
+                  "primary_for_product_type": 1,
+                  "wistia": 1
+              },
+              "description": "Two tasty courses for less than you'd normally pay for one.",
+              "supplement_type": "Dinner",
+              "Date": "2020-11-03",
+              "AdPrice": 20,
+              "NonDiscAdPrice": 20,
+              "AdDiscAmt": "0.00",
+              "ChPrice": 20,
+              "NonDiscChPrice": 20,
+              "ChDiscAmt": "0.00"
+          },
+          {
+              "Code": "LGWSOE",
+              "Name": "Luxury room upgrade",
+              "Per": "R",
+              "Canx": "Y",
+              "Filter": {},
+              "description": "Plush room, mini bar and access to the hotel's exclusive Club Lounge.",
+              "supplement_type": "Luxury",
+              "Date": "2020-11-03",
+              "only_for_adults": 1,
+              "Price": 70,
+              "NonDiscPrice": 70,
+              "DiscAmt": "0.00"
+          },
+          {
+              "Code": "LGWSOS",
+              "Name": "Superior room upgrade",
+              "Per": "R",
+              "Canx": "Y",
+              "Filter": {},
+              "description": "A more luxurious room, wifi and mineral water all included.",
+              "supplement_type": "Luxury",
+              "Date": "2020-11-03",
+              "only_for_adults": 1,
+              "Price": 30,
+              "NonDiscPrice": 30,
+              "DiscAmt": "0.00"
+          },
+          {
+              "Code": "LGWASC",
+              "Name": "Club Aspire North Lounge",
+              "Per": "P",
+              "Canx": "Y",
+              "Filter": {},
+              "description": "Something modern. Food & drink, work & rest zones, charge points & wifi.",
+              "supplement_type": "Lounge",
+              "Date": "2020-11-04",
+              "AdPrice": 28,
+              "NonDiscAdPrice": 28,
+              "AdDiscAmt": "0.00",
+              "ChPrice": 18.5,
+              "NonDiscChPrice": 18.5,
+              "ChDiscAmt": "0.00"
+          },
+          {
+              "Code": "LGWSOB",
+              "Name": "Buffet breakfast",
+              "Per": "P",
+              "Canx": "Y",
+              "Filter": {
+                  "wistia": 1
+              },
+              "description": "Save time by booking a big and delicious breakfast now.",
+              "supplement_type": "Breakfast",
+              "Date": "2020-11-04",
+              "AdPrice": 19,
+              "NonDiscAdPrice": 19,
+              "AdDiscAmt": "0.00",
+              "ChPrice": 19,
+              "NonDiscChPrice": 19,
+              "ChDiscAmt": "0.00"
+          }
+      ],
+      "API_Header": {
+          "Request": {
+              "ABTANumber": "WEB1",
+              "key": "ONLIN",
+              "token": "ef008a98-9434-11e1-af41-123143040224",
+              "ArrivalDate": "2020-11-03",
+              "ArrivalTime": "12:30",
+              "DepartDate": "2020-11-11",
+              "DepartTime": "13:45",
+              "v": 1,
+              "format": "js"
+          }
+      }
+  }
+}

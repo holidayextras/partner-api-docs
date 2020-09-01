@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<API_Reply Product="Lounge" RequestCode="5" Result="OK">
+  <Booking>
+    <BookingRef>YourBookingRef</BookingRef>
+    <AgentComm>5.44</AgentComm>
+    <VATonComm>0.00</VATonComm>
+    <MoreInfoURL>/v1/booking/YourBookingRef</MoreInfoURL>
+  </Booking>
+  <API_Header>
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <Initials>YourInitials</Initials>
+      <key>YourKey</key>
+      <token>YourToken</token>
+      <System>ABG</System>
+      <ArrivalDate>2018-12-01</ArrivalDate>
+      <ArrivalTime>1200</ArrivalTime>
+      <Adults>2</Adults>
+      <Children>0</Children>
+      <Infants>0</Infants>
+      <Title>Mr</Title>
+      <Initial>T</Initial>
+      <Surname>TEST</Surname>
+      <Address>123 Test Street</Address>
+      <Town>Testville</Town>
+      <County>Testshire</County>
+      <PostCode>TE12 3ST</PostCode>
+      <Email>test@test.com</Email>
+      <MobileNum>01234567890</MobileNum>
+      <PriceCheckFlag>Y</PriceCheckFlag>
+      <PriceCheckPrice>70.00</PriceCheckPrice>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply>

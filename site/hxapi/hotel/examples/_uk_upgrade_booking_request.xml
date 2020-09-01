@@ -1,0 +1,42 @@
+<Request>
+  <ABTANumber>YourABTANumber</ABTANumber>
+  <Password>YourPassword</Password>
+  <key>YourKey</key>
+  <token>YourToken</token>
+  <ArrivalDate>2020-11-10</ArrivalDate>
+  <Nights>1</Nights>
+  <RoomCode>DBL</RoomCode>
+  <ParkingDays>0</ParkingDays>
+  <Adults>2</Adults>
+  <Children>0</Children>
+  <Title>Mr</Title>
+  <Initial>T</Initial>
+  <Surname>TEST</Surname>
+  <Address >1 Test Street</Address >
+  <Town>Testville</Town>
+  <County>Testshire</County>
+  <Postcode>TE1 STS</Postcode>
+  <DayPhone>01234567890</DayPhone>
+  <Email>test@test.com</Email>
+  <DataProtection>N</DataProtection>
+  <PriceCheckFlag>Y</PriceCheckFlag>
+  <PriceCheckPrice>135.00</PriceCheckPrice>
+  <Supplements>
+    <Code>LGWSOE</Code>
+    <Date>2020-11-10</Date>
+    <Quantity>1</Quantity>
+    </Adults>
+    </Children>
+    <TotalPrice>40.00</TotalPrice>
+  </Supplements>
+  <Supplements>
+    <Code>LGWASC</Code>
+    <Date>2020-11-11</Date>
+    <LoungeArrival>2020-11-11 12:30</LoungeArrival>
+    </Quantity>
+    <Adults>2</Adults>
+    <Children>0</Children>
+    <TotalPrice>56.00</TotalPrice>
+  </Supplements>
+  <v>1</v>
+</Request>
