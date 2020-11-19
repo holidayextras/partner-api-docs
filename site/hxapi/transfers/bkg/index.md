@@ -47,7 +47,7 @@ NB: All parameter names are case sensitive.
 | FirstName   | String    | [A-Z]            | Y          | The lead passengers first name.                                                                                       |
 | LastName    | String    | [A-Z]            | Y          | The lead passengers last name.                                                                                        |
 | Email       | String    | [A-Z] 50 chars   | Y          | The lead passengers email address.                                                                                    |
-| DayPhone    | Integer   | [0-9] 20 chars   | N          | The lead passengers contact telephone number.                                                                         |
+| DayPhone    | Integer   | [0-9] 20 chars   | Y          | The lead passengers contact telephone number.                                                                         |
 | Price       | Float     | [0-9]            | Y          | The total price of the Transfer/s (This will be the value of the `TotalPrice` property returned in the availability response).                                                                                                                                                                        |
 
 #### Payment
