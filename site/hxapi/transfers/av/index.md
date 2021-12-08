@@ -27,26 +27,42 @@ https://api.holidayextras.co.uk/v1/transfers/search?token=[TOKEN]&key=[KEY]&ABTA
 
 NB: All parameter names are case sensitive.
 
-| Name        | Data Type | Format           | Mandatory? | Additional Information                                                                                                |
-|-------------|-----------|------------------|------------|-----------------------------------------------------------------------------------------------------------------------|
-| ABTANumber  | String    | [A-Z0-9] 5 chars | Y          | This is also known as an 'agent code'. This will be confirmed to you by your Account Manager during set up.           |
-| Password    | String    | [A-Z0-9] 5 chars | Y*         | Password required for retail agent requests - intermediaries do not require a password.<br>This will be confirmed to you by your Account Manager during set up.                                                                                                                                            |
-| Initials    | String    | [A-Z] 3 chars    | N          | The initials of the Operator/Agent.                                                                                   |
-| key         | String    | [A-Z]            | Y          | This will be assigned to you by your Account Manager during set up.                                                   |
-| token       | String    | [0-9] 9 chars    | Y          | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token.                            |
-| PickUp      | String    | [A-Z0-9]         | Y          | The IATA, TTI or Postcode (i.e `PickUp=AGP`).                                                                         |
-| PickUpType  | String    | [A-Z0-9]         | Y          | The type can either be `IATA`, `TTI` or `PC` (Postcode) (i.e `PickUpType=IATA`).                                      |
-| DropOff     | String    | [A-Z0-9]         | Y          | The IATA, TTI or Postcode (i.e `DropOff=85101062`).                                                                   |
-| DropOffType | String    | [A-Z0-9]         | Y          | The type can either be `IATA`, `TTI` or `PC` (Postcode) (i.e `DropOffType=TTI`).                                      |
-| FromDate    | Date      | YYYY-MM-DD       | Y          | Flight Arrival Date (`PickUpType` = `IATA`), Flight Departure Date (`DropOffType` = `IATA`), Preferred Date.          |
-| FromTime    | Time      | HHMM             | Y          | Flight Arrival Time (`PickUpType` = `IATA`), Flight Departure Time (`DropOffType` = `IATA`), Preferred Time.          |
-| ReturnDate  | Date      | YYYY-MM-DD       | N          | Flight Arrival Date (`DropOffType` = `IATA`), Flight Departure Date (`PickUpType` = `IATA`), Preferred Date.          |
-| ReturnTime  | Time      | HHMM             | N          | Flight Arrival Time (`DropOffType` = `IATA`), Flight Departure Time (`PickUpType` = `IATA`), Preferred Time.          |
-| Adults      | Integer   | [0-9]            | Y          | Number of Adults requiring a transfer.                                                                                |
-| Children    | Integer   | [0-9]            | N          | Number of Children requiring a transfer.                                                                              |
-| Infants     | Integer   | [0-9]            | N          | Number of Infants requiring a transfer.                                                                               |
-| OutFlight   | String    | [A-Z0-9]         | Y*         | A flight number is required if the journey involves being picked up or dropped off at an Airport.                     |
-| ReturnFlight| String    | [A-Z0-9]         | N*         | A flight number is required if the return journey involves being picked up or dropped off at an Airport.              |
+| Name               | Data Type | Format           | Mandatory? | Additional Information                                                                                                                                                                                                                                                                       |
+|--------------------|-----------|------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ABTANumber         | String    | [A-Z0-9] 5 chars | Y          | This is also known as an 'agent code'. This will be confirmed to you by your Account Manager during set up.                                                                                                                                                                                  |
+| Password           | String    | [A-Z0-9] 5 chars | Y*         | Password required for retail agent requests - intermediaries do not require a password.<br />This will be confirmed to you by your Account Manager during set up.                                                                                                                            |
+| Initials           | String    | [A-Z] 3 chars    | N          | The initials of the Operator/Agent.                                                                                                                                                                                                                                                          |
+| key                | String    | [A-Z]            | Y          | This will be assigned to you by your Account Manager during set up.                                                                                                                                                                                                                          |
+| token              | String    | [0-9] 9 chars    | Y          | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token.                                                                                                                                                                                                   |
+| PickUpType         | String    | [A-Z0-9]         | Y          | The type can either be `IATA`, `TTI`, `postal-address` or `PC` (Postcode) (i.e `PickUpType=IATA`).                                                                                                                                                                                           |
+| PickUp             | String    | [A-Z0-9]         | Y*         | The IATA, TTI or Postcode (i.e `PickUp=AGP`).<br />Not required for `postal-address`                                                                                                                                                                                                         |
+| PickUpName         | String    | [A-Z0-9]         | Y [^1]     | The pick up location name.                                                                                                                                                                                                                                                                   |
+| PickUpAddress[]    | String    | [A-Z0-9]         | Y [^1]     | First line of address (house name / number and road) of the destination.<br />If you require more than one address line, then you can replicate this field and increment the number in square brackets, i.e. "PickUpAddress[1]" for address line two. Up to a maximum of two address lines.  |
+| PickUpTown         | String    | [A-Z0-9]         | Y [^1]     | The pick up town name.                                                                                                                                                                                                                                                                       |
+| PickUpCounty       | String    | [A-Z0-9]         | Y [^1]     | The pick up county name.                                                                                                                                                                                                                                                                     |
+| PickUpPostcode     | String    | [A-Z0-9]         | Y [^1]     | The pick up postcode.                                                                                                                                                                                                                                                                        |
+| PickUpCountryCode  | String    | [A-Z] 2 chars    | Y [^1]     | The pick up country code in [ISO 3166-1 alpha-2](https://www.iso.org/iso-3166-country-codes.html) format.                                                                                                                                                                                    |
+| PickUpLongitude    | Float     | [0-9]            | Y [^1]     | The pick up location longitude.                                                                                                                                                                                                                                                              |
+| PickUpLatitude     | Float     | [0-9]            | Y [^1]     | The pick up location latitude.                                                                                                                                                                                                                                                               |
+| DropOffType        | String    | [A-Z0-9]         | Y          | The type can either be `IATA`, `TTI`, `postal-address` or `PC` (Postcode) (i.e `DropOffType=TTI`).                                                                                                                                                                                           |
+| DropOff            | String    | [A-Z0-9]         | Y*         | The IATA, TTI or Postcode (i.e `DropOff=85101062`).<br />Not required for `postal-address`                                                                                                                                                                                                   |
+| DropOffName        | String    | [A-Z0-9]         | Y [^1]     | The drop off location name.                                                                                                                                                                                                                                                                  |
+| DropOffAddress[]   | String    | [A-Z0-9]         | Y [^1]     | First line of address (house name / number and road) of the destination.<br />If you require more than one address line, then you can replicate this field and increment the number in square brackets, i.e. "DropOffAddress[1]" for address line two. Up to a maximum of two address lines. |
+| DropOffTown        | String    | [A-Z0-9]         | Y [^1]     | The drop off town name.                                                                                                                                                                                                                                                                      |
+| DropOffCounty      | String    | [A-Z0-9]         | Y [^1]     | The drop off county name.                                                                                                                                                                                                                                                                    |
+| DropOffPostcode    | String    | [A-Z0-9]         | Y [^1]     | The drop off postcode.                                                                                                                                                                                                                                                                       |
+| DropOffCountryCode | String    | [A-Z] 2 chars    | Y [^1]     | The drop off country code in [ISO 3166-1 alpha-2](https://www.iso.org/iso-3166-country-codes.html) format.                                                                                                                                                                                   |
+| DropOffLongitude   | Float     | [0-9]            | Y [^1]     | The drop off location longitude.                                                                                                                                                                                                                                                             |
+| DropOffLatitude    | Float     | [0-9]            | Y [^1]     | The drop off location latitude.                                                                                                                                                                                                                                                              |
+| FromDate           | Date      | YYYY-MM-DD       | Y          | Flight Arrival Date (`PickUpType` = `IATA`), Flight Departure Date (`DropOffType` = `IATA`), Preferred Date.                                                                                                                                                                                 |
+| FromTime           | Time      | HHMM             | Y          | Flight Arrival Time (`PickUpType` = `IATA`), Flight Departure Time (`DropOffType` = `IATA`), Preferred Time.                                                                                                                                                                                 |
+| ReturnDate         | Date      | YYYY-MM-DD       | N          | Flight Arrival Date (`DropOffType` = `IATA`), Flight Departure Date (`PickUpType` = `IATA`), Preferred Date.                                                                                                                                                                                 |
+| ReturnTime         | Time      | HHMM             | N          | Flight Arrival Time (`DropOffType` = `IATA`), Flight Departure Time (`PickUpType` = `IATA`), Preferred Time.                                                                                                                                                                                 |
+| Adults             | Integer   | [0-9]            | Y          | Number of Adults requiring a transfer.                                                                                                                                                                                                                                                       |
+| Children           | Integer   | [0-9]            | N          | Number of Children requiring a transfer.                                                                                                                                                                                                                                                     |
+| Infants            | Integer   | [0-9]            | N          | Number of Infants requiring a transfer.                                                                                                                                                                                                                                                      |
+| OutFlight          | String    | [A-Z0-9]         | Y*         | A flight number is required if the journey involves being picked up or dropped off at an Airport.                                                                                                                                                                                            |
+| ReturnFlight       | String    | [A-Z0-9]         | N*         | A flight number is required if the return journey involves being picked up or dropped off at an Airport.                                                                                                                                                                                     |
 
 #### Dates and Times
 It's important to note that availability should be requested with accurate dates and times. A good scenario would be if an Airport Transfer is required, where the `PickUp` would be an Airport and the `DropOff` would be a Hotel. The `FromDate` and `FromTime` should be the flight arrival date and time. If a return transfer is requested, then the `ReturnDate` and `ReturnTime` should be the flight departure date and time, our system will calculate an estimated pickup time from the Hotel.
@@ -497,10 +513,11 @@ Here are the available categories which may be returned, there will only be one 
         "SepaID": "",
         "API_Header": {
             "Request": {
-                "token": "d2d6dedd-606f-4f00-aa8c-526a358e927c",
-                "key": "TESTL",
-                "agent": "TESTL",
-                "Password": "Redacted",
+                "ABTANumber": "YourABTANumber",
+                "Password": "YourPassword",
+                "Initials": "YourInitials",
+                "key": "YourKey",
+                "token": "YourToken",
                 "FromDate": "2020-08-01",
                 "FromTime": 1000,
                 "ReturnDate": "2020-08-07",
@@ -519,3 +536,531 @@ Here are the available categories which may be returned, there will only be one 
     }
 }
 ```
+
+### Worked Examples
+
+Below are some worked examples of both the request and response when requesting transfers avalability.
+
+#### Airport to TTI
+##### Request
+
+{% codetabs %}
+{% codetab XML %}
+```
+https:///api.holidayextras.co.uk/v1/transfers/search?ABTANumber=YourABTANumber&Password=YourABTANumber&Initials=YourInitials&key=YourKey&token=YourToken&PickUp=ALC&PickUpType=IATA&DropOffType=TTI&DropOff=10147575&FromDate=2022-03-16&FromTime=1115&ReturnDate=2022-03-23&ReturnTime=1115&Adults=2&OutFlight=U28605&ReturnFlight=U28602
+```
+{% endcodetab %}
+{% codetab JSON %}
+```
+https:///api.holidayextras.co.uk/v1/transfers/search.js?ABTANumber=YourABTANumber&Password=YourABTANumber&Initials=YourInitials&key=YourKey&token=YourToken&PickUp=ALC&PickUpType=IATA&DropOffType=TTI&DropOff=10147575&FromDate=2022-03-16&FromTime=1115&ReturnDate=2022-03-23&ReturnTime=1115&Adults=2&OutFlight=U28605&ReturnFlight=U28602
+```
+Note the `.js` extension.
+{% endcodetab %}
+{% endcodetabs %}
+
+##### Response
+
+NB: This is a shortened example compiled from a full availability response.
+
+{% codetabs %}
+{% codetab XML %}
+```xml
+<API_Reply Product="Transfers" RequestCode="1" Result="OK" cached="1" expires="2021-12-07 13:06:41">
+  <Transfers>
+    <Name>Private Standard Car</Name>
+    <Code>TBHT1169922</Code>
+    <BookingURL>/transfers/TBHT1169922</BookingURL>
+    <MoreInfoURL/>
+    <TotalPrice>87.96</TotalPrice>
+    <NonDiscPrice>87.96</NonDiscPrice>
+    <SalesCurrency>GBP</SalesCurrency>
+    <Images>
+    <Src>//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg</Src>
+    <Alt>private standard</Alt>
+    </Images>
+    <Category>private_transfer</Category>
+    <Disclaimer>
+    <Title/>
+    <Message/>
+    </Disclaimer>
+    <ProviderDetails>
+    <ProviderName/>
+    <ProviderRating/>
+    </ProviderDetails>
+    <Cancellation>
+    <Period>72</Period>
+    <Percentage>100</Percentage>
+    <Fee>0</Fee>
+    </Cancellation>
+    <VehicleDetails>
+      <MinCapacity>1</MinCapacity>
+      <MaxCapacity>4</MaxCapacity>
+      <MinStops/>
+      <MaxStops/>
+      <Bags>4</Bags>
+      <NumberOfVehicles>1</NumberOfVehicles>
+      <IsPrivate>1</IsPrivate>
+      <Supplier/>
+      <Make/>
+    </VehicleDetails>
+    <OutboundTransfer>
+      <SupplierRef/>
+      <Origin>Alicante International Airport (Benidorm)</Origin>
+      <OriginAddress>Alicante International Airport (Benidorm), Alicante</OriginAddress>
+      <OriginIata>ALC</OriginIata>
+      <Destination>Hotel Rural Castillo De Biar</Destination>
+      <DestinationAddress>s/n, Carretera de Banyeres, 03410, Biar</DestinationAddress>
+      <DestinationIata/>
+      <JourneyTime>60</JourneyTime>
+      <DepartureDate/>
+      <DepartureTime/>
+      <ArrivalDate>16/03/2022</ArrivalDate>
+      <ArrivalTime>11:15</ArrivalTime>
+      <ReturnDate/>
+      <ReturnTime/>
+      <PickupDate>16/03/2022</PickupDate>
+      <PickupTime>11:15</PickupTime>
+      <JoiningInstructions/>
+      <ContactNumbers/>
+    </OutboundTransfer>
+    <ReturnTransfer>
+      <SupplierRef/>
+      <Origin>Hotel Rural Castillo De Biar</Origin>
+      <OriginAddress>s/n, Carretera de Banyeres, 03410, Biar</OriginAddress>
+      <OriginIata/>
+      <Destination>Alicante International Airport (Benidorm)</Destination>
+      <DestinationAddress>Alicante International Airport (Benidorm), Alicante</DestinationAddress>
+      <DestinationIata>ALC</DestinationIata>
+      <JourneyTime>60</JourneyTime>
+      <DepartureDate/>
+      <DepartureTime/>
+      <ArrivalDate/>
+      <ArrivalTime/>
+      <ReturnDate>23/03/2022</ReturnDate>
+      <ReturnTime>11:15</ReturnTime>
+      <PickupDate>23/03/2022</PickupDate>
+      <PickupTime>07:45</PickupTime>
+      <JoiningInstructions/>
+      <ContactNumbers/>
+    </ReturnTransfer>
+    <advance_purchase>1</advance_purchase>
+  </Transfers>
+  <Pricing/>
+  <SepaID/>
+  <API_Header>
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <Initials>YourInitials</Initials>
+      <key>YourKey</key>
+      <token>YourToken</token>
+      <PickUp>ALC</PickUp>
+      <PickUpType>IATA</PickUpType>
+      <DropOffType>TTI</DropOffType>
+      <DropOff>10147575</DropOff>
+      <FromDate>2022-03-16</FromDate>
+      <FromTime>1115</FromTime>
+      <ReturnDate>2022-03-23</ReturnDate>
+      <ReturnTime>1115</ReturnTime>
+      <Adults>2</Adults>
+      <OutFlight>U28605</OutFlight>
+      <ReturnFlight>U28602</ReturnFlight>
+    </Request>
+  </API_Header>
+</API_Reply>
+```
+{% endcodetab %}
+{% codetab JSON %}
+```json
+{
+  "API_Reply": {
+    "ATTRIBUTES": {
+      "Product": "Transfers",
+      "RequestCode": 1,
+      "Result": "OK",
+      "cached": true,
+      "expires": "2021-12-07 14:50:30"
+    },
+    "Transfers": [
+      {
+        "ATTRIBUTES": [],
+        "Name": "Private Standard Car",
+        "Code": "TBHT1169922",
+        "BookingURL": "/transfers/TBHT1169922.js",
+        "MoreInfoURL": null,
+        "TotalPrice": 87.96,
+        "NonDiscPrice": 87.96,
+        "SalesCurrency": "GBP",
+        "Images": [
+          {
+            "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg",
+            "Alt": "private standard"
+          }
+        ],
+        "Category": "private_transfer",
+        "Disclaimer": {
+          "Title": null,
+          "Message": null
+        },
+        "ProviderDetails": {
+          "ProviderName": "",
+          "ProviderRating": ""
+        },
+        "Cancellation": {
+          "Period": 72,
+          "Percentage": 100,
+          "Fee": 0
+        },
+        "VehicleDetails": {
+          "MinCapacity": 1,
+          "MaxCapacity": 4,
+          "MinStops": "",
+          "MaxStops": "",
+          "Bags": 4,
+          "NumberOfVehicles": 1,
+          "IsPrivate": true,
+          "Supplier": "",
+          "Make": ""
+        },
+        "OutboundTransfer": {
+          "SupplierRef": "",
+          "Origin": "Alicante International Airport (Benidorm)",
+          "OriginAddress": "Alicante International Airport (Benidorm), Alicante",
+          "OriginIata": "ALC",
+          "Destination": "Hotel Rural Castillo De Biar",
+          "DestinationAddress": "s/n, Carretera de Banyeres, 03410, Biar",
+          "DestinationIata": "",
+          "JourneyTime": 60,
+          "DepartureDate": null,
+          "DepartureTime": null,
+          "ArrivalDate": "2022-03-16",
+          "ArrivalTime": "11:15",
+          "ReturnDate": null,
+          "ReturnTime": null,
+          "PickupDate": "2022-03-16",
+          "PickupTime": "11:15",
+          "JoiningInstructions": null,
+          "ContactNumbers": null
+        },
+        "ReturnTransfer": {
+          "SupplierRef": "",
+          "Origin": "Hotel Rural Castillo De Biar",
+          "OriginAddress": "s/n, Carretera de Banyeres, 03410, Biar",
+          "OriginIata": "",
+          "Destination": "Alicante International Airport (Benidorm)",
+          "DestinationAddress": "Alicante International Airport (Benidorm), Alicante",
+          "DestinationIata": "ALC",
+          "JourneyTime": 60,
+          "DepartureDate": null,
+          "DepartureTime": null,
+          "ArrivalDate": null,
+          "ArrivalTime": null,
+          "ReturnDate": "2022-03-23",
+          "ReturnTime": "11:15",
+          "PickupDate": "2022-03-23",
+          "PickupTime": "07:45",
+          "JoiningInstructions": null,
+          "ContactNumbers": null
+        },
+        "advance_purchase": true
+      },
+    ],
+    "Pricing": {},
+    "SepaID": "",
+    "API_Header": {
+      "Request": {
+        "ABTANumber": "YourABTANumber",
+        "Password": "YourPassword",
+        "Initials": "YourInitials",
+        "key": "YourKey",
+        "token": "YourToken",
+        "PickUp": "ALC",
+        "PickUpType": "IATA",
+        "DropOffType": "TTI",
+        "DropOff": 10147575,
+        "FromDate": "2022-03-16",
+        "FromTime": 1115,
+        "ReturnDate": "2022-03-23",
+        "ReturnTime": 1115,
+        "Adults": 2,
+        "OutFlight": "U28605",
+        "ReturnFlight": "U28602",
+        "format": "js"
+      }
+    }
+  }
+}
+```
+{% endcodetab %}
+{% endcodetabs %}
+
+
+#### Airport to Postal Address
+##### Request
+{% codetabs %}
+{% codetab XML %}
+```
+https:///api.holidayextras.co.uk/v1/transfers/search?ABTANumber=YourABTANumber&Password=YourABTANumber&Initials=YourInitials&key=YourKey&token=YourToken&PickUp=ALC&PickUpType=IATA&DropOffType=postal-address&DropOffName=Hotel%20Rural%20Castillo%20De%20Biar&DropOffAddress[0]=Carretera%20de%20Banyeres&DropOffAddress[1]=s/n&DropOffTown=%20Biar&DropOffCounty=Alicante&DropOffPostcode=03410&DropOffCountryCode=ES&DropOffLongitude=-0.76832006&DropOffLatitude=38.63852215&Adults=2&FromDate=2022-03-16&FromTime=1115&ReturnDate=2022-03-23&ReturnTime=1115&OutFlight=U28605&ReturnFlight=U28602
+```
+{% endcodetab %}
+{% codetab JSON %}
+```
+https:///api.holidayextras.co.uk/v1/transfers/search.js?ABTANumber=YourABTANumber&Password=YourABTANumber&Initials=YourInitials&key=YourKey&token=YourToken&PickUp=ALC&PickUpType=IATA&DropOffType=postal-address&DropOffName=Hotel%20Rural%20Castillo%20De%20Biar&DropOffAddress[0]=Carretera%20de%20Banyeres&DropOffAddress[1]=s/n&DropOffTown=%20Biar&DropOffCounty=Alicante&DropOffPostcode=03410&DropOffCountryCode=ES&DropOffLongitude=-0.76832006&DropOffLatitude=38.63852215&Adults=2&FromDate=2022-03-16&FromTime=1115&ReturnDate=2022-03-23&ReturnTime=1115&OutFlight=U28605&ReturnFlight=U28602
+```
+Note the `.js` extension.
+{% endcodetab %}
+{% endcodetabs %}
+
+##### Response
+
+NB: This is a shortened example compiled from a full availability response.
+
+{% codetabs %}
+{% codetab XML %}
+```xml
+<API_Reply Product="Transfers" RequestCode="1" Result="OK" cached="1" expires="2021-12-07 16:31:35">
+  <Transfers>
+    <Name>Private Standard Car</Name>
+    <Code>TBHT1169922</Code>
+    <BookingURL>/transfers/TBHT1169922</BookingURL>
+    <MoreInfoURL/>
+    <TotalPrice>87.96</TotalPrice>
+    <NonDiscPrice>87.96</NonDiscPrice>
+    <SalesCurrency>GBP</SalesCurrency>
+    <Images>
+      <Src>//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg</Src>
+      <Alt>private standard</Alt>
+    </Images>
+    <Category>private_transfer</Category>
+    <Disclaimer>
+      <Title/>
+      <Message/>
+    </Disclaimer>
+    <ProviderDetails>
+      <ProviderName/>
+      <ProviderRating/>
+    </ProviderDetails>
+    <Cancellation>
+      <Period>72</Period>
+      <Percentage>100</Percentage>
+      <Fee>0</Fee>
+    </Cancellation>
+    <VehicleDetails>
+      <MinCapacity>1</MinCapacity>
+      <MaxCapacity>4</MaxCapacity>
+      <MinStops/>
+      <MaxStops/>
+      <Bags>4</Bags>
+      <NumberOfVehicles>1</NumberOfVehicles>
+      <IsPrivate>1</IsPrivate>
+      <Supplier/>
+      <Make/>
+    </VehicleDetails>
+    <OutboundTransfer>
+      <SupplierRef/>
+      <Origin>Alicante International Airport (Benidorm)</Origin>
+      <OriginAddress>Alicante International Airport (Benidorm), Alicante</OriginAddress>
+      <OriginIata>ALC</OriginIata>
+      <Destination>Hotel Rural Castillo De Biar</Destination>
+      <DestinationAddress>Hotel Rural Castillo De Biar, Carretera de Banyeres, s/n, Biar, Alicante, 03410, ES</DestinationAddress>
+      <DestinationIata/>
+      <JourneyTime>60</JourneyTime>
+      <DepartureDate/>
+      <DepartureTime/>
+      <ArrivalDate>16/03/2022</ArrivalDate>
+      <ArrivalTime>11:15</ArrivalTime>
+      <ReturnDate/>
+      <ReturnTime/>
+      <PickupDate>16/03/2022</PickupDate>
+      <PickupTime>11:15</PickupTime>
+      <JoiningInstructions/>
+      <ContactNumbers/>
+    </OutboundTransfer>
+    <ReturnTransfer>
+      <SupplierRef/>
+      <Origin>Hotel Rural Castillo De Biar</Origin>
+      <OriginAddress>Hotel Rural Castillo De Biar, Carretera de Banyeres, s/n, Biar, Alicante, 03410, ES</OriginAddress>
+      <OriginIata/>
+      <Destination>Alicante International Airport (Benidorm)</Destination>
+      <DestinationAddress>Alicante International Airport (Benidorm), Alicante</DestinationAddress>
+      <DestinationIata>ALC</DestinationIata>
+      <JourneyTime>60</JourneyTime>
+      <DepartureDate/>
+      <DepartureTime/>
+      <ArrivalDate/>
+      <ArrivalTime/>
+      <ReturnDate>23/03/2022</ReturnDate>
+      <ReturnTime>11:15</ReturnTime>
+      <PickupDate>23/03/2022</PickupDate>
+      <PickupTime>07:45</PickupTime>
+      <JoiningInstructions/>
+      <ContactNumbers/>
+    </ReturnTransfer>
+    <advance_purchase>1</advance_purchase>
+  </Transfers>
+  <Pricing/>
+  <SepaID/>
+  <API_Header>
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <Initials>YourInitials</Initials>
+      <key>YourKey</key>
+      <token>YourToken</token>
+      <PickUp>ALC</PickUp>
+      <PickUpType>IATA</PickUpType>
+      <DropOffType>postal-address</DropOffType>
+      <DropOffName>Hotel Rural Castillo De Biar</DropOffName>
+      <DropOffAddress>Carretera de Banyeres</DropOffAddress>
+      <DropOffAddress>s/n</DropOffAddress>
+      <DropOffTown>Biar</DropOffTown>
+      <DropOffCounty>Alicante</DropOffCounty>
+      <DropOffPostcode>03410</DropOffPostcode>
+      <DropOffCountryCode>ES</DropOffCountryCode>
+      <DropOffLongitude>-0.76832006</DropOffLongitude>
+      <DropOffLatitude>38.63852215</DropOffLatitude>
+      <FromDate>2022-03-16</FromDate>
+      <FromTime>1115</FromTime>
+      <ReturnDate>2022-03-23</ReturnDate>
+      <ReturnTime>1115</ReturnTime>
+      <Adults>2</Adults>
+      <OutFlight>U28605</OutFlight>
+      <ReturnFlight>U28602</ReturnFlight>
+    </Request>
+  </API_Header>
+</API_Reply>
+```
+{% endcodetab %}
+{% codetab JSON %}
+```json
+{
+  "API_Reply": {
+    "ATTRIBUTES": {
+      "Product": "Transfers",
+      "RequestCode": 1,
+      "Result": "OK",
+      "cached": true,
+      "expires": "2021-12-07 16:26:43"
+    },
+    "Transfers": [
+      {
+        "ATTRIBUTES": [],
+        "Name": "Private Standard Car",
+        "Code": "TBHT1169922",
+        "BookingURL": "/transfers/TBHT1169922.js",
+        "MoreInfoURL": null,
+        "TotalPrice": 87.96,
+        "NonDiscPrice": 87.96,
+        "SalesCurrency": "GBP",
+        "Images": [{
+          "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg",
+          "Alt": "private standard"
+        }],
+        "Category": "private_transfer",
+        "Disclaimer": {
+          "Title": null,
+          "Message": null
+        },
+        "ProviderDetails": {
+          "ProviderName": "",
+          "ProviderRating": ""
+        },
+        "Cancellation": {
+          "Period": 72,
+          "Percentage": 100,
+          "Fee": 0
+        },
+        "VehicleDetails": {
+          "MinCapacity": 1,
+          "MaxCapacity": 4,
+          "MinStops": "",
+          "MaxStops": "",
+          "Bags": 4,
+          "NumberOfVehicles": 1,
+          "IsPrivate": true,
+          "Supplier": "",
+          "Make": ""
+        },
+        "OutboundTransfer": {
+          "SupplierRef": "",
+          "Origin": "Alicante International Airport (Benidorm)",
+          "OriginAddress": "Alicante International Airport (Benidorm), Alicante",
+          "OriginIata": "ALC",
+          "Destination": "Hotel Rural Castillo De Biar",
+          "DestinationAddress": "Hotel Rural Castillo De Biar, Carretera de Banyeres, s/n,  Biar, Alicante, 03410, ES",
+          "DestinationIata": "",
+          "JourneyTime": 60,
+          "DepartureDate": null,
+          "DepartureTime": null,
+          "ArrivalDate": "2022-03-16",
+          "ArrivalTime": "11:15",
+          "ReturnDate": null,
+          "ReturnTime": null,
+          "PickupDate": "2022-03-16",
+          "PickupTime": "11:15",
+          "JoiningInstructions": null,
+          "ContactNumbers": null
+        },
+        "ReturnTransfer": {
+          "SupplierRef": "",
+          "Origin": "Hotel Rural Castillo De Biar",
+          "OriginAddress": "Hotel Rural Castillo De Biar, Carretera de Banyeres, s/n,  Biar, Alicante, 03410, ES",
+          "OriginIata": "",
+          "Destination": "Alicante International Airport (Benidorm)",
+          "DestinationAddress": "Alicante International Airport (Benidorm), Alicante",
+          "DestinationIata": "ALC",
+          "JourneyTime": 60,
+          "DepartureDate": null,
+          "DepartureTime": null,
+          "ArrivalDate": null,
+          "ArrivalTime": null,
+          "ReturnDate": "2022-03-23",
+          "ReturnTime": "11:15",
+          "PickupDate": "2022-03-23",
+          "PickupTime": "07:45",
+          "JoiningInstructions": null,
+          "ContactNumbers": null
+        },
+        "advance_purchase": true
+      }
+    ],
+    "Pricing": {},
+    "SepaID": "",
+    "API_Header": {
+      "Request": {
+        "ABTANumber": "YourABTANumber",
+        "Password": "YourPassword",
+        "Initials": "YourInitials",
+        "key": "YourKey",
+        "token": "YourToken",
+        "PickUp": "ALC",
+        "PickUpType": "IATA",
+        "DropOffType": "postal-address",
+        "DropOffName": "Hotel Rural Castillo De Biar",
+        "DropOffAddress": [
+          "Carretera de Banyeres",
+          "s/n"
+        ],
+        "DropOffTown": " Biar",
+        "DropOffCounty": "Alicante",
+        "DropOffPostcode": "03410",
+        "DropOffCountryCode": "ES",
+        "DropOffLongitude": -0.76832006,
+        "DropOffLatitude": 38.63852215,
+        "FromDate": "2022-03-16",
+        "FromTime": 1115,
+        "ReturnDate": "2022-03-23",
+        "ReturnTime": 1115,
+        "Adults": 2,
+        "OutFlight": "U28605",
+        "ReturnFlight": "U28602",
+        "format": "js"
+      }
+    }
+  }
+}
+```
+{% endcodetab %}
+{% endcodetabs %}
+
+[^1]: Only required when the location type is `postal-address`.
