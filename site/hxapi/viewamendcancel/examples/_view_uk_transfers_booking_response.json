@@ -1,0 +1,147 @@
+{
+  "API_Reply": {
+    "ATTRIBUTES": {
+      "System": "ABC",
+      "Product": "Transfers",
+      "RequestCode": 7,
+      "Result": "OK"
+    },
+    "Booking": {
+      "BookingRef": "BookingRef",
+      "SupplierRef": "SupplierReference",
+      "VoucherRef": "",
+      "Confirmed": true,
+      "DateBooked": "2021-12-22",
+      "DateCancelled": null,
+      "Customer": {
+        "Email": "test@test.com",
+        "Phone": "0234567890",
+        "Mobile": "0234567890",
+        "Title": "Mr",
+        "FirstName": "TEST",
+        "Surname": "TEST",
+        "LastName": "TEST",
+        "UserExtId": "CustomerExternalId"
+      },
+      "Product": {
+        "Code": "ProductCode",
+        "Price": 27665,
+        "SalesCurrency": "GBP",
+        "Name": "Private Minibus Transfer (1  -7 People)",
+        "Images": "",
+        "BrandImage": null,
+        "MobileImage": null,
+        "Videos": "",
+        "Discount": "",
+        "SimilarProducts": [],
+        "GroupingName": null,
+        "UpsellUpgrade": null,
+        "UpsellUpgrades": [],
+        "UpsellProducts": [],
+        "UpsellTitle": null,
+        "UpsellText": null,
+        "GhostUpsellProducts": [],
+        "SessionId": null,
+        "Type": "resortTransfer",
+        "Category": "Private Minibus Transfer (1  -7 People)",
+        "IsRecommended": "",
+        "RecommendationType": null,
+        "TransferCode": "TransferCode",
+        "Distance": "",
+        "PaymentSurcharge": "",
+        "DeparturePointType": "DeparturePointType",
+        "ArrivalPointType": "ArrivalPointType",
+        "Disclaimer": {
+          "Title": null,
+          "Message": null
+        },
+        "Accommodation": {
+          "Name": "AccommodationName",
+          "Address": ""
+        },
+        "JoiningInstructions": null,
+        "ProviderDetails": {
+          "ProviderName": "",
+          "ProviderRating": ""
+        },
+        "Cancellation": {
+          "Period": 48,
+          "Percentage": 100,
+          "Fee": 0
+        },
+        "VehicleDetails": {
+          "MinCapacity": 1,
+          "MaxCapacity": 7,
+          "MinStops": 0,
+          "MaxStops": 0,
+          "Bags": 2,
+          "NumberOfVehicles": 1,
+          "IsPrivate": true,
+          "Supplier": "Supplier",
+          "Make": ""
+        },
+        "OutboundTransfer": {
+          "SupplierRef": "",
+          "Origin": "OutboundTransferOrigin",
+          "OriginAddress": "",
+          "OriginIata": "",
+          "Destination": "OutboundTransferDestination",
+          "DestinationAddress": "",
+          "DestinationIata": "",
+          "JourneyTime": 60,
+          "DepartureDate": null,
+          "DepartureTime": null,
+          "ArrivalDate": "2022-03-16",
+          "ArrivalTime": "11:15",
+          "ReturnDate": null,
+          "ReturnTime": null,
+          "PickupDate": "2022-03-16",
+          "PickupTime": "11:15",
+          "JoiningInstructions": "OutboundTransferJoiningInstructions",
+          "ContactNumbers": {
+            "UkEmergencyTel": "",
+            "ReconfirmationTel": "",
+            "EmergencyTel": "OutboundTransferEmergencyTelephoneNumber"
+          }
+        },
+        "ReturnTransfer": {
+          "SupplierRef": "",
+          "Origin": "ReturnTransferOrigin",
+          "OriginAddress": "",
+          "OriginIata": "",
+          "Destination": "ReturnTransferDestination",
+          "DestinationAddress": "",
+          "DestinationIata": "",
+          "JourneyTime": 60,
+          "DepartureDate": "2022-03-23",
+          "DepartureTime": "11:15",
+          "ArrivalDate": null,
+          "ArrivalTime": null,
+          "ReturnDate": "2022-03-23",
+          "ReturnTime": "11:15",
+          "PickupDate": "2022-03-23",
+          "PickupTime": "08:15",
+          "JoiningInstructions": "ReturnTransferJoiningInstructions",
+          "ContactNumbers": {
+            "UkEmergencyTel": "",
+            "ReconfirmationTel": "",
+            "EmergencyTel": "ReturnTransferEmergencyTelephoneNumber"
+          }
+        }
+      },
+      "Amendable": "N",
+      "Addonable": "N"
+    },
+    "API_Header": {
+      "Request": {
+        "ABTANumber": "YourAbtaNumber",
+        "Password": "YourPassword",
+        "key": "YourKey",
+        "token": "YourToken",
+        "Email": "test@test.com",
+        "v": 1,
+        "format": "json"
+      }
+    }
+  }
+}

@@ -156,6 +156,40 @@ Note the `.js` extension.
 
 ---
 
+### UK Products View Booking (for a transfer)
+
+#### Request
+{% codetabs %}
+{% codetab XML %}
+```
+https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com
+```
+{% endcodetab %}
+{% codetab JSON %}
+```
+https://api.holidayextras.co.uk/v1/booking/YourBookingRef.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com
+```
+Note the `.js` extension.
+{% endcodetab %}
+{% endcodetabs %}
+
+#### Response
+
+{% codetabs %}
+{% codetab XML %}
+```xml
+{% include_relative examples/_view_uk_transfers_booking_response.xml %}
+```
+{% endcodetab %}
+{% codetab JSON %}
+```json
+{% include_relative examples/_view_uk_transfers_booking_response.json %}
+```
+{% endcodetab %}
+{% endcodetabs %}
+
+---
+
 ### European Products View Booking (for a hotel room only)
 
 #### Request

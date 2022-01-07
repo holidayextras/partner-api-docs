@@ -1,6 +1,7 @@
 | Version Number | Date                | Details                                                                           |
 |----------------|---------------------|-----------------------------------------------------------------------------------|
-| 1.16.0         | 7th December 2021   | Added `postal-address` location type to transfers
+| 1.16.1         | 22nd December 2021  | Added an example of viewing a transfers booking                                   |
+| 1.16.0         | 7th December 2021   | Added `postal-address` location type to transfers                                 |
 | 1.15.0         | 1st September 2020  | Document upgrades processes for availability/booking/post booking management      |
 | 1.14.0         | 21st July 2020      | Updated docs. Added Transfers documentation for Availability and Make Booking     |
 | 1.13.0         | 10th July 2020      | Updated docs. Added new `RequiresQRCode` flag to parking booking responses        |
