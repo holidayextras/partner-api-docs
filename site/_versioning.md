@@ -1,5 +1,6 @@
 | Version Number | Date                | Details                                                                           |
 |----------------|---------------------|-----------------------------------------------------------------------------------|
+| 1.17.0         | @TODO               | Added v2 of the Payment Gateway docs                                              |
 | 1.16.1         | 22nd December 2021  | Added an example of viewing a transfers booking                                   |
 | 1.16.0         | 7th December 2021   | Added `postal-address` location type to transfers                                 |
 | 1.15.0         | 1st September 2020  | Document upgrades processes for availability/booking/post booking management      |
