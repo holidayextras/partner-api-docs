@@ -2,15 +2,13 @@
 
 ---
 
-# Payment Gateway: Pay
+# Payment Gateway: Refund
 
-[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Pay](/payment-gateway/pay)
+[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Refund](/payment-gateway/v1/refund)
 
-## Payment Request
+## Refund Request
 
-This endpoint will take payment using a token and required payment parameters.
-
-**Note**: Token payment is currently available for Level 5 Germany agents only.
+This endpoint will make a refund based on existing payments.
 
 ### Method
 
@@ -18,10 +16,10 @@ POST
 
 ### Endpoint
 
-To make a payment, the endpoint to use is:
+To make a refund, the endpoint to use is:
 
 ```
-https://payment-gateway.holidayextras.co.uk/pay
+https://payment-gateway.holidayextras.co.uk/refund
 ```
 
 ### Request Headers
@@ -39,28 +37,26 @@ NB: All parameter names are case sensitive.
  | Name  | Data Type | Format | Mandatory? | Additional Information |
  | ----  | --------- | ------ | ---------- | ---------------------- |
  | channel | String | [A-Z] | Y | This will be supplied with your authentication credentials. |
- | paymentId | String | [A-Z] | Y | A unique ID to be used when making the payment. This cannot already exist otherwise payment will fail. |
- | token   | String | [0-9] | Y | A tokenised card to make the payment against. This needs to exist already, otherwise payment will fail. |
- | paymentReference | String | [A-Z] | Y | A reference used to group multiple payments together, doesn't need to be unique. |
- | amount | String | [0-9] | Y | The price (in pence) to be paid. |
+ | payments | Array | [String, String] | Y | An array listing all payments made for this booking. |
+ | amount | String | [0-9] | Y | The price (in pence) to be refunded. |
 
-## Payment Response
+## Refund Response
 
 For a detailed explanation of the fields returned, please see below:
 
  | Field | Additional Information |
  | ----- | ---------------------- |
- | amount | The amount that has been paid |
- | status | The status of the payment |
- | error | The error if the payment fails |
+ | amount | The amount that has been refunded |
+ | status | The status of the refund |
+ | error | The error if the refund fails |
 
 ## Examples
 
-Below are examples of both the request and response for a new payment.
+Below are examples of both the request and response for a refund.
 
-### Payment Request
+### Refund Request
 
-**POST**  `https://payment-gateway.holidayextras.co.uk/pay`
+**POST**  `https://payment-gateway.holidayextras.co.uk/refund`
 
 **HEADERS** <br />
 `Content-Type: application/json` <br />
@@ -70,32 +66,28 @@ Below are examples of both the request and response for a new payment.
 ```
 {
   "channel": "channel",
-  "paymentId": "testPaymentId",
-  "token": "4111111111111111",
-  "paymentReference": "testPaymentRef",
+  "payments": ["testPaymentId1", "testPaymentId2"],
   "amount": "1234"
 }
 ```
 
-### Payment Response
+### Refund Response
 
-
-#### Successful payment
-
+#### Successful Refund
 ```
 {
     "amount": 12.34,
-    "id": "testPaymentId",
+    "id": "REFUND-testPaymentId1",
     "status": "SUCCESS"
 }
 ```
 
-#### Failed payment
+#### Failed Refund
 
 ```
 {
     "amount": 12.34,
     "status": "FAIL",
-    "error": "Failed to make payment"
+    "error": "Failed making refund"
 }
 ```

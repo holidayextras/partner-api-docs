@@ -59,17 +59,18 @@ Here is a very simple example snippet that demonstrates this:
 ... any other content you have on your page
 
 <!-- Add the frontend payment script -->
-<script src="https://payment-gateway.holidayextras.co.uk/payment.1.0.0.min.js"></script>
+<script src="https://payment-gateway.holidayextras.co.uk/payment.2.0.0.min.js"></script>
 <!-- Configure the script -->
 <script>
 window.hxPayment.configure({
   paymentFailed: false, // you will need to dynamically provide the value for this
-  defaultToPayframe: true // you will need to set this only in your local test environment when integrating the payment script
+  defaultToPayframe: true, // you will need to set this only in your local test environment when integrating the payment script
+  emailInputFieldId: 'emailAdress' // The ID of the field used to collect the customer email address for booking
 })
 </script>
 ```
 
-**NOTE:** When you're integrating the payment script you will need to use its staging version located at https://payment-gateway-staging.holidayextras.co.uk/payment.staging.1.0.0.min.js
+**NOTE:** When you're integrating the payment script you will need to use its staging version located at https://payment-gateway-staging.holidayextras.co.uk/payment.staging.2.0.0.min.js
 
 The `defaultToPayframe` option is provided for making the integration process easier as it removes the additional security step we have in our contact centre. The solution we have requires additional telephony software that we use which is not provided with this API. Not having the telephony solution when integrating the payment script would make it impossible to complete the integration, so this option just disables that step (only in the staging environment).
 
