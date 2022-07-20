@@ -63,7 +63,9 @@ Here is a very simple example snippet that demonstrates this:
 <!-- Configure the script -->
 <script>
 window.hxPayment.configure({
-  emailInputFieldId: 'emailAddress' // The ID of the field used to collect the customer email address for booking
+  // Pass the field used to collect the customer email address
+  // This should be a plain DOM element, not wrapped in eg jQuery
+  emailInput: document.getElementById('id-for-your-element-collecting-the-email')
 })
 </script>
 ```
