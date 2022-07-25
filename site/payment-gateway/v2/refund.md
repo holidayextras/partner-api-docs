@@ -38,7 +38,7 @@ NB: All parameter names are case sensitive.
  | ----  | --------- | ------ | ---------- | ---------------------- |
  | channel | String | [A-Z] | Y | This will be supplied with your authentication credentials. |
  | payments | Array | [String, String] | Y | An array listing all payments made for this booking. |
- | amount | String | [0-9] | Y | The price (in pence) to be refunded. |
+ | amount | Integer | [0-9] | Y | The price (in pence) to be refunded. |
 
 ## Refund Response
 
@@ -67,7 +67,7 @@ Below are examples of both the request and response for a refund.
 {
   "channel": "channel",
   "payments": ["testPaymentId1", "testPaymentId2"],
-  "amount": "1234"
+  "amount": 1234
 }
 ```
 
