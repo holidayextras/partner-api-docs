@@ -4,7 +4,7 @@
 
 # Payment Gateway: Pay
 
-[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Pay](/payment-gateway/pay)
+[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Pay](/payment-gateway/v2/pay)
 
 ## Payment Request
 
@@ -30,7 +30,7 @@ https://payment-gateway.holidayextras.co.uk/pay
 | ----  | --------- | ------ | ---------- | ---------------------- |
 | Content-Type | String | `application/json` | Y | This should always be `application/json` |
 | Authorization   | String | `Basic dXNlcm5hbWU6cGFzc3dvcmQ=` | Y | Base64 encoded string for the `username:password` credentials which will be created and provided to you. This header is required with every request.|
-| Accept | String | `application/vnd.holidayextras.v1+json` | N | To use a different version please provide a different value. |
+| Accept | String | `application/vnd.holidayextras.v2+json` | N | To use a different version please provide a different value. |
 
 ### Request Parameters
 
@@ -39,10 +39,11 @@ NB: All parameter names are case sensitive.
  | Name  | Data Type | Format | Mandatory? | Additional Information |
  | ----  | --------- | ------ | ---------- | ---------------------- |
  | channel | String | [A-Z] | Y | This will be supplied with your authentication credentials. |
- | paymentId | String | [A-Z] | Y | A unique ID to be used when making the payment. This cannot already exist otherwise payment will fail. |
+ | paymentId | String | [0-9A-Z]{16} | N | A unique ID to be used when making the payment. This cannot already exist otherwise payment will fail. If this is not supplied, then one will be generated for this payment and returned as part of the result. |
  | token   | String | [0-9] | Y | A tokenised card to make the payment against. This needs to exist already, otherwise payment will fail. |
  | paymentReference | String | [A-Z] | Y | A reference used to group multiple payments together, doesn't need to be unique. |
- | amount | String | [0-9] | Y | The price (in pence) to be paid. |
+ | amount | Integer | [0-9] | Y | The price (in pence) to be paid. |
+ | currency | String | [A-Z]{3} | Y | ISO 4217 standard currency code for the currency of this payment |
 
 ## Payment Response
 
@@ -64,16 +65,16 @@ Below are examples of both the request and response for a new payment.
 
 **HEADERS** <br />
 `Content-Type: application/json` <br />
-`Accept: application/vnd.holidayextras.v1+json` <br />
+`Accept: application/vnd.holidayextras.v2+json` <br />
 `Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=`
 
 ```
 {
   "channel": "channel",
-  "paymentId": "testPaymentId",
   "token": "4111111111111111",
   "paymentReference": "testPaymentRef",
-  "amount": "1234"
+  "amount": 1234,
+  "currency": "GBP"
 }
 ```
 

@@ -4,7 +4,7 @@
 
 # Payment Gateway: Refund
 
-[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Refund](/payment-gateway/refund)
+[API Docs](/) > [Payment Gateway](/payment-gateway/) > [Refund](/payment-gateway/v2/refund)
 
 ## Refund Request
 
@@ -28,7 +28,7 @@ https://payment-gateway.holidayextras.co.uk/refund
 | ----  | --------- | ------ | ---------- | ---------------------- |
 | Content-Type | String | `application/json` | Y | This should always be `application/json` |
 | Authorization   | String | `Basic dXNlcm5hbWU6cGFzc3dvcmQ=` | Y | Base64 encoded string for the `username:password` credentials which will be created and provided to you. This header is required with every request.|
-| Accept | String | `application/vnd.holidayextras.v1+json` | N | To use a different version please provide a different value. |
+| Accept | String | `application/vnd.holidayextras.v2+json` | N | To use a different version please provide a different value. |
 
 ### Request Parameters
 
@@ -38,7 +38,7 @@ NB: All parameter names are case sensitive.
  | ----  | --------- | ------ | ---------- | ---------------------- |
  | channel | String | [A-Z] | Y | This will be supplied with your authentication credentials. |
  | payments | Array | [String, String] | Y | An array listing all payments made for this booking. |
- | amount | String | [0-9] | Y | The price (in pence) to be refunded. |
+ | amount | Integer | [0-9] | Y | The price (in pence) to be refunded. |
 
 ## Refund Response
 
@@ -60,14 +60,14 @@ Below are examples of both the request and response for a refund.
 
 **HEADERS** <br />
 `Content-Type: application/json` <br />
-`Accept: application/vnd.holidayextras.v1+json` <br />
+`Accept: application/vnd.holidayextras.v2+json` <br />
 `Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=`
 
 ```
 {
   "channel": "channel",
   "payments": ["testPaymentId1", "testPaymentId2"],
-  "amount": "1234"
+  "amount": 1234
 }
 ```
 

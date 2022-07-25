@@ -59,23 +59,23 @@ Here is a very simple example snippet that demonstrates this:
 ... any other content you have on your page
 
 <!-- Add the frontend payment script -->
-<script src="https://payment-gateway.holidayextras.co.uk/payment.1.0.0.min.js"></script>
+<script src="https://payment-gateway.holidayextras.co.uk/payment.2.0.0.min.js"></script>
 <!-- Configure the script -->
 <script>
 window.hxPayment.configure({
-  paymentFailed: false, // you will need to dynamically provide the value for this
-  defaultToPayframe: true // you will need to set this only in your local test environment when integrating the payment script
+  // Pass the field used to collect the customer email address
+  // This should be a plain DOM element, not wrapped in eg jQuery
+  emailInput: document.getElementById('id-for-your-element-collecting-the-email')
 })
 </script>
 ```
 
-**NOTE:** When you're integrating the payment script you will need to use its staging version located at https://payment-gateway-staging.holidayextras.co.uk/payment.staging.1.0.0.min.js
-
-The `defaultToPayframe` option is provided for making the integration process easier as it removes the additional security step we have in our contact centre. The solution we have requires additional telephony software that we use which is not provided with this API. Not having the telephony solution when integrating the payment script would make it impossible to complete the integration, so this option just disables that step (only in the staging environment).
+**NOTE:** When you're integrating the payment script you will need to use its staging version located at https://payment-gateway-staging.holidayextras.co.uk/payment.staging.2.0.0.min.js
 
 The placeholder div is used by the payment script to put the appropriate DOM elements it needs in order to get the customer card details.
 
 The fields that get created are:
+
 - expiry date input (needed for tokenising the card number)
 - token input (needed so that it gets submitted with your form to make a payment)
 - obfuscated card number input (will be used only if there were 2 failed attempts to get the card number via DTMF)
@@ -83,6 +83,4 @@ The fields that get created are:
 
 When the payment script loads on the page and gets configured, it will put those fields so the customer can input the expiry date and then trigger our DTMF system. If the customer successfully inputs their card number via DTMF in a secure way the script will populate the token field with the payment token. When the form gets submitted that token can be used on the backend to make a token payment.
 
-If DMTF fails 2 times the payment script will fallback to putting a card number input on the page which will be replaced by an iframe for inputting the card number in a secure way. Once the card number and expiry dates are populated, the script will again automatically populate the token field.
-
-You don't need to track the count of failures as this is done by the payment script. All you need to do is to provide a boolean value for the result of the last payment attempt. This should be done on each page load when the payment script gets configured.
+If DMTF fails 2 times the payment script will fallback to putting a card number input on the page which will be replaced by an iframe for inputting the card number in a secure way. Once the card number and expiry dates are populated, the script will again automatically populate the token field. You don't need to track the count of failures as this is done by the payment script.
