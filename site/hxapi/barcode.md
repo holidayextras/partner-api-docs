@@ -73,3 +73,16 @@ So you can include it in your page as easily as...
 ```
 <img src="https://api.holidayextras.co.uk/sandbox/v1/qrcode/ABCDE.png?key=YourKey" />
 ```
+
+<div id="qr_code"></div>
+If the Response contains `QRCodeValue` propery, you can use HEX Barcode generator to create a QR code
+
+```
+https://barcode-generator.dock-yard.io/?bcid=qrcode&text=ABCDE&eclevel=Q
+```
+
+You can also include it in your page
+
+```
+<img src="https://barcode-generator.dock-yard.io/?bcid=qrcode&text=ABCDE&eclevel=Q" />
+```
