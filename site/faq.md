@@ -99,7 +99,7 @@ No. We use a blacklist for unwelcome traffic, otherwise anyone can make requests
 
 You only need to cancel bookings made to the live server. You do not need to cancel bookings made on the development server, no payment is actually taken.
 
-Please do **not** cancel bookings by ringing our call centre or using the online cancellation interface at [www.holidayextras.com](http://www.holidayextras.com). Credit card charges will **not be refunded** to your card if you use either of these methods. Send the booking references to <sales@holidayextras.com> and **all charges will be refunded**.
+Please do **not** cancel bookings by ringing our call centre or using the online cancellation interface at [www.holidayextras.com](https://www.holidayextras.com). Credit card charges will **not be refunded** to your card if you use either of these methods. Send the booking references to <sales@holidayextras.com> and **all charges will be refunded**.
 
 ## FAQ Germany/European product specific (System=ABG)
 

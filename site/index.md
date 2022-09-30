@@ -4,7 +4,7 @@
 
 # Welcome to Holiday Extras
 
-[Holiday Extras](http://www.holidayextras.co.uk/) is the UK market leader for airport hotels and other travel ancillaries including airport parking, lounges, insurance and car hire.
+[Holiday Extras](https://www.holidayextras.com/) is the UK market leader for airport hotels and other travel ancillaries including airport parking, lounges, insurance and car hire.
 
 The purpose of this documentation is to enable you to quickly on-board with our API, so you can start searching for and booking our products in *just a few hours*.
 

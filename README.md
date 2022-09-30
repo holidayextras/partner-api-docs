@@ -11,8 +11,15 @@ Documentation to give to partners who would like to integrate with our API.
 Setting up ruby (only need to be done once per machine):
 
     curl -sSL https://get.rvm.io | bash -s stable
-    rvm install ruby-2.4.6
+    rvm install ruby-3.1.2
     gem install bundler
+
+Mac OSX users will need to point to the brew SSL libs
+
+    bundle config build.eventmachine --with-cppflags=-I$(brew --prefix openssl)/include
+
+Then finally
+
     bundle install
 
 ### Running locally

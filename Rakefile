@@ -1,4 +1,5 @@
 require 'rake-jekyll'
+require 'html-proofer'
 
 task default: %w[build html_proofer]
 
@@ -13,8 +14,8 @@ end
 
 desc "Check generated HTML"
 task :html_proofer do
-  require 'html-proofer'
-  options = { :assume_extension => true, :allow_hash_href => true, :disable_external => true }
+  #options = { :assume_extension => true, :allow_hash_href => true, :disable_external => true }
+  options = { :allow_hash_href => true, :disable_external => true }
   HTMLProofer.check_directory("./_site", options).run
 end
 
