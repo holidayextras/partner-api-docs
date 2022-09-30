@@ -34,4 +34,4 @@ Then open [http://127.0.0.1:4000/](http://127.0.0.1:4000/).
 
 ## Deployment
 
-Merges to master will automatically deploy changes via CI (currently running on travis-ci).
+Merges to master will automatically deploy changes via CI (currently running on github actions).
