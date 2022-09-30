@@ -36,3 +36,7 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rake
+    - name: Run deploy
+      # only deploy on master pushes
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+      run: bundle exec rake deploy
