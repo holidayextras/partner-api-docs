@@ -46,4 +46,4 @@ jobs:
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
       run: bundle exec rake deploy
       with:
-          GH-TOKEN: ${{ secrets.GH-TOKEN }}
+        GH-TOKEN: ${{ secrets.GH-TOKEN }}
