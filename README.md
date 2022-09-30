@@ -11,7 +11,7 @@ Documentation to give to partners who would like to integrate with our API.
 Setting up ruby (only need to be done once per machine):
 
     curl -sSL https://get.rvm.io | bash -s stable
-    rvm install ruby-2.4.6
+    rvm install ruby-2.6.8
     gem install bundler
     bundle install
 
