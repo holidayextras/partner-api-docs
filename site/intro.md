@@ -94,7 +94,7 @@ Bookings made against the test server can be made with a test credit card number
 
 However when you point your application to our live server, you will need to use a valid credit card: the bookings will be live and will need to be cancelled.
 
-Please do not cancel bookings by ringing our call centre or using the online cancellation interface at [www.holidayextras.com](http://www.holidayextras.com). Credit card charges will *not be refunded* to your card if you use either of these methods. Send the booking references to <sales@holidayextras.com> and all charges will be refunded.
+Please do not cancel bookings by ringing our call centre or using the online cancellation interface at [www.holidayextras.com](https://www.holidayextras.com). Credit card charges will *not be refunded* to your card if you use either of these methods. Send the booking references to <sales@holidayextras.com> and all charges will be refunded.
 
 ## Go Live Procedure
 
