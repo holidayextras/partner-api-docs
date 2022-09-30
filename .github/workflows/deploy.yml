@@ -9,7 +9,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ "ruby_update" ]
+    branches: [ "master" ]
 
 permissions:
   contents: read
