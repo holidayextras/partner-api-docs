@@ -12,12 +12,17 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  workflow_call:
+    secrets:
+      GH-TOKEN:
+        description: 'A github oauth token used for deployment'
+        required: true
 
 permissions:
   contents: read
 
 jobs:
-  test:
+  test_and_deploy:
 
     runs-on: ubuntu-latest
     strategy:
@@ -40,3 +45,5 @@ jobs:
       # only deploy on master pushes
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
       run: bundle exec rake deploy
+      with:
+          GH-TOKEN: ${{ secrets.GH-TOKEN }}
