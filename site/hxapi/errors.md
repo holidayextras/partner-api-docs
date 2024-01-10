@@ -4,7 +4,9 @@
 
 # Errors
 
-List of errors that can be returned from the API. Your application can handle the error by code.
+List of errors that can be returned from the API.
+
+Please ensure that your application can handle the errors by inspecting the error code only, do not use the error message as this is for debugging purposes only.
 
 | Error code           | Example message                                                                                                                                                                               | Description                                                                                 |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
@@ -22,6 +24,7 @@ List of errors that can be returned from the API. Your application can handle th
 | 0000                 | Invalid Email Address                                                                                                                                                                         | Missing email param while ammending a booking.                                              |
 | 0004                 | Product is not available                                                                                                                                                                      | Availability lookup product is not available.                                               |
 | 0037                 | Sorry, we have no availability for the dates and times selected.                                                                                                                              | Availability lookup does not find availability for dates and times provided in the request. |
+| 0037                 | Sorry, the availability timeout has been reached. Please try again.                                                                                                                              | Availability lookup does not find availability due to end supplier latency. |
 | 0051                 | Invalid Booking Number                                                                                                                                                                        |                                                                                             |
 | 0052                 | Your email address was not the one used to make this booking, please try again.                                                                                                               |                                                                                             |
 | 0053                 | This booking cannot be displayed.  If you are a Travel Agent please login and try again, or check you're logged in as the correct agent.  For additional assistance please call 0871 360 2422 |                                                                                             |
