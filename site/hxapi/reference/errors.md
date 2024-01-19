@@ -2,7 +2,7 @@
 
 ---
 
-# Errors
+# API Errors
 
 List of errors that can be returned from the API.
 
