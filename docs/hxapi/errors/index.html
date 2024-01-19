@@ -40,7 +40,9 @@
         <div class="panel-body">
   <h1 id="errors">Errors</h1>
 
-<p>List of errors that can be returned from the API. Your application can handle the error by code.</p>
+<p>List of errors that can be returned from the API.</p>
+
+<p>Please ensure that your application can handle the errors by inspecting the error code only, do not use the error message as this is for debugging purposes only.</p>
 
 <table>
   <thead>
@@ -120,6 +122,11 @@
       <td>0037</td>
       <td>Sorry, we have no availability for the dates and times selected.</td>
       <td>Availability lookup does not find availability for dates and times provided in the request.</td>
+    </tr>
+    <tr>
+      <td>0037</td>
+      <td>Sorry, the availability timeout has been reached. Please try again.</td>
+      <td>Availability lookup does not find availability due to end supplier latency.</td>
     </tr>
     <tr>
       <td>0051</td>
