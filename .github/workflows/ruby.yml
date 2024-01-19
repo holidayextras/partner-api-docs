@@ -29,9 +29,12 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rake
-    - name: Setup Git
-      uses: actions4git/setup-git@v1
+    #- name: Setup Git
+      #uses: actions4git/setup-git@v1
     - name: Update generated pages
       # only update docs on non master
       if: ${{ github.ref != 'refs/heads/master' }}
-      run: bundle exec rake dist
+      #run: bundle exec rake dist
+      uses: actions4git/add-commit-push@v1
+      with:
+        path: docs
