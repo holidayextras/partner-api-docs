@@ -28,5 +28,5 @@ task :deploy do
   Dir.chdir('_site')
   sh "git status"
   sh "git commit -am 'Deploy'"
-  #sh "git push"
+  sh "git push"
 end
