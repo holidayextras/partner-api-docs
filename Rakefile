@@ -22,6 +22,7 @@ end
 desc "Deploy site to production"
 task :deploy do
   sh "cp -a _site /tmp/"
+  sh "git pull origin gh-pages"
   sh "git checkout gh-pages"
   sh "rm -rf _site"
   sh "mv /tmp/_site ."
