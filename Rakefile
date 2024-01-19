@@ -27,6 +27,7 @@ task :deploy do
   Rake::Task["build"].invoke
   Dir.chdir('_site')
   sh "git status"
+  sh "git config --global user.name "'Github Actions'"
   sh "git commit -am 'Deploy'"
   sh "git push"
 end
