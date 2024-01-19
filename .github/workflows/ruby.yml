@@ -18,13 +18,12 @@ on:
         description: 'A github oauth token used for deployment'
         required: true
 
-permissions:
-  contents: write
-
 jobs:
   test_and_deploy:
 
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - uses: actions/checkout@v4
@@ -35,6 +34,7 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rake
+    - uses: actions4git/setup-git@v1
     - name: Run deploy
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}

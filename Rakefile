@@ -27,8 +27,8 @@ task :deploy do
   Rake::Task["build"].invoke
   Dir.chdir('_site')
   sh "git status"
-  sh "git config --global user.name `git log -1 --pretty=format:'%an'`"
-  sh "git config --global user.email `git log -1 --pretty=format:'%ae'`"
+  #sh "git config --global user.name `git log -1 --pretty=format:'%an'`"
+  #sh "git config --global user.email `git log -1 --pretty=format:'%ae'`"
   sh "git commit -am 'Deploy'"
   sh "git push"
 end
