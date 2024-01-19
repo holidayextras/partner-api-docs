@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="availability">Availability</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; product:<a href="/hxapi/carhire">Car Hire</a> &gt; endpoint:<a href="/hxapi/carhire/availability">availability</a></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET: /carHire/products
+</code></pre></div></div>
+
+<h2 id="request">Request</h2>
+
+<p>The following GET parameters are mandatory:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">key</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">From</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">YYYY-MM-DD</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">ArrivalTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">HHmm</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// 24 hour time format</span>
+<span class="dl">"</span><span class="s2">To</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">YYYY-MM-DD</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">DepartTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">HHmm</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// 24 hour time format</span>
+<span class="dl">"</span><span class="s2">PickupLocation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FL965</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// code from the locations request</span>
+<span class="dl">"</span><span class="s2">DropoffLocation</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FL965</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// code from the locations request</span>
+<span class="dl">"</span><span class="s2">DateOfBirth</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">YYYY-MM-DD</span><span class="dl">"</span><span class="p">,</span>
+<span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">123456789</span><span class="dl">"</span> <span class="c1">// user token</span>
+</code></pre></div></div>
+
+<p>Example request:</p>
+<ul class="uk-tab" data-uk-switcher="{connect:'#f95ef8f7-3dee-4b37-bd60-5c588943b189'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="f95ef8f7-3dee-4b37-bd60-5c588943b189" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/sandbox/carHire/products?key=1&amp;From=06NOV16&amp;ArrivalTime=1200&amp;To=13NOV&amp;DepartTime=1600&amp;PickupLocation=FL965&amp;DropoffLocation=FL965&amp;DateOfBirth=1990-10-13
+</code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/sandbox/carHire/products.js?key=1&amp;From=06NOV16&amp;ArrivalTime=1200&amp;To=13NOV&amp;DepartTime=1600&amp;PickupLocation=FL965&amp;DropoffLocation=FL965&amp;DateOfBirth=1990-10-13
+</code></pre></div></div>
+<p>Note the <code class="language-plaintext highlighter-rouge">.js</code> extension.</p>
+</li>
+
+</ul>
+
+<h2 id="response">Response</h2>
+
+<p>Car Hire returns all of each product’s content within the availability request (repeated elements omitted and represented by {…}).</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"API_Reply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CarHire"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RequestCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-03 12:53:25"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"CarHire"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PEUGEOT 208 AC or Similar"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FLERECMR"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BookingURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/carHire/FLERECMR.js"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MoreInfoURL"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PackageName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inclusive"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"VehicleType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Car"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Surcharge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"credit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"calculated"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">26223</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"min"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"debit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"calculated"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">25823</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Passengers"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EuropCar"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"TotalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">258.23</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"VehicleClass"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Economy"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"LuggageCapacity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PickupLocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amsterdam (Schipol) Airport"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"willDeliverVehicle"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"deliverySurcharge"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AANKOMSTPASSAGE 10"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARRIVAL HALL  WEST 3  'PLAZA'"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"address3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMSTERDAM"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"countryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Netherlands"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1118 AX"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31 20 3164190"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"locationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"At the airport"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"openingTimes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"mon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:30"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"tue"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:30"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"wed"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:30"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"thu"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:30"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"fri"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:30"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"sat"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:00"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"sun"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:00"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//static.europcar.com/carvisuals/partners/600x350/ECMR_NL.jpeg"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PEUGEOT 208 AC or Similar"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"AllowNoContent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Terms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//www.flexibleautos.com/TandCs/ER%20NL.html"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"complete"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EXCESS"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"There is an insurance excess of between 440 EUR and 660 EUR depending on car group."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FUEL"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cars will be supplied with a full tank of fuel and should be returned full otherwise the client will be charged for missing fuel plus a refuelling charge of 20 EUR + tax."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEPOSIT"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The lead driver must have a credit card in their name. A deposit will be taken from the card to cover fuel and the insurance excess."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADDITIONAL DRIVER"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The cost for an additional driver is payable locally 4.2 EUR + tax per day, maximum charge 42 EUR + tax per rental."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DRIVING LICENCE REQUIREMENTS"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All drivers must have held a full, valid national license. UK License for at least one year. Only the photo card part of the licence is required however if the driver also has a paper part, we recommend that they take this with them.   The driver must also provide an additional form of photographic ID in the form of a Full Valid Passport.</span><span class="se">\n\n</span><span class="s2">Overseas Licence: International driving permit is required with all non-European licences if the driving licence is written in a language or characters different to those of the renting country. Even when an International Driving License is required, a domestic licence must be provided."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BABY SEATS / BOOSTER SEATS"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Child seats are available on request at a cost of 4.2 EUR + tax per day, maximum charge 42 EUR + tax per rental."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGE RESTRICTIONS"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Minimum rental age is 21 years. </span><span class="se">\n\n</span><span class="s2">Minimum driving license period – 1 year."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GPS UNITS / NAVIGATION"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GPS units are available from airport locations at a cost of 10.08 EUR + tax per day, maximum charge 100.84 EUR + tax per rental."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OUT OF HOURS"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"On a request basis only at a charge of 25 EUR + tax."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DRIVING RESTRICTIONS"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The renter is allowed to drive in: Andorra, Austria, Belgium, France, Denmark, Finland, Germany, Ireland, Italy, Luxembourg, The Netherlands, Norway, Portugal, Spain (except Ceuta &amp; Melilla), Sweden, Switzerland and the United Kingdom."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GRACE PERIOD"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europcar allows a grace period of 30 minutes."</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WHATS NOT INCLUDED"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal Accident Insurance </span><span class="se">\n</span><span class="s2">Optional extras signed for locally</span><span class="se">\n</span><span class="s2">One Way Rental Charges </span><span class="se">\n</span><span class="s2">Parking Fines, Toll charges, congestions charges, Key Replacement</span><span class="se">\n</span><span class="s2">Tow Charges"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="nl">"fuelPolicy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cars will be supplied with a full tank of fuel and should be returned full otherwise the client will be charged for missing fuel plus a refuelling charge of 20 EUR + tax.&lt;br&gt;"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"excessPolicy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"There is an insurance excess of between 440 EUR and 660 EUR depending on car group.&lt;br&gt;"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"priceIncludes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"Unlimited Mileage"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Collision Damage Waiver (with Excess)"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Third Party Liability Insurance"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Theft Waiver (with Excess)"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Local Tax"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Airport Fee"</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">25823</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Doors"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SellingTexts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"FUEL - Full to Full"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"EXCESS - Standard Excess"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"OnRequest"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">258.23</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DropoffLocation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amsterdam (Schipol) Airport"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"willDeliverVehicle"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"deliverySurcharge"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AANKOMSTPASSAGE 10"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARRIVAL HALL  WEST 3  'PLAZA'"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"address3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMSTERDAM"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"countryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Netherlands"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1118 AX"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31 20 3164190"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"locationType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"At the airport"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"openingTimes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"mon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:30"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"tue"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:30"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"wed"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:30"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"thu"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:30"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"fri"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06:30"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"sat"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:00"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"sun"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:00"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:00"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Features"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"airConditioning"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"automaticTransmission"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SupplierData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"rateQualifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E162281612011054F0"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"baseProductCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"excessRefundPolicy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">4193</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Pricing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"CCardSurchargePercent"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CCardSurchargeMin"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CCardSurchargeMax"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"API_Header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"From"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-06"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ArrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"To"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-13"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DepartTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PickupLocation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL965"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DropoffLocation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FL965"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DateOfBirth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-10-10"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"js"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>

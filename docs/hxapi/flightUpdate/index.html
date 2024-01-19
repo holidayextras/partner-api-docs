@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="flight-update">Flight update</h1>
+
+<p>This allows partners to update the flight time on existing bookings.</p>
+
+<h2 id="booking-flight-update-request">Booking flight update request</h2>
+
+<p>This request is used when one or more bookings need to be updated with a new flight time.</p>
+
+<h3 id="method">Method</h3>
+
+<p>POST</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p>The endpoint to use is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/flightUpdate
+</code></pre></div></div>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Mandatory?</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y</td>
+      <td>This is also known as an ‘agent code’. This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y*</td>
+      <td>Password required for retail agent requests - intermediaries do not require a password. This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+      <td>This will be assigned to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9] 9 chars</td>
+      <td>Y</td>
+      <td>Please see <a href="/hxapi/usertoken">user token endpoint</a> for details of how to generate a token.</td>
+    </tr>
+    <tr>
+      <td>notification_url</td>
+      <td>String</td>
+      <td>URL</td>
+      <td>N</td>
+      <td>Details of updates sent back to partner</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>NB: All parameter names are case sensitive.</p>
+
+<h4 id="notification-url">Notification URL</h4>
+
+<p>If a <code class="language-plaintext highlighter-rouge">notification_url</code> <em>is</em> provided, the endpoint will return immediately, and asynchronously send the status for the requested booking once they have been actioned.</p>
+
+<p>If a <code class="language-plaintext highlighter-rouge">notification_url</code> <em>is not</em> provided, the endpoint will process the request data synchronously and return the result of the process in the response.</p>
+
+<h3 id="request-body-object-properties">Request Body Object Properties</h3>
+
+<p>The body should be a well formatted JSON array, containing items which are objects with the following properties.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Mandatory?</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>hx_booking_ref</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5-12 chars</td>
+      <td>Y</td>
+      <td>HX full booking reference.</td>
+    </tr>
+    <tr>
+      <td>partner_booking_ref</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+      <td>The unique reference for the partner’s booking.</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>String</td>
+      <td>[A-Z0-9] 50 chars</td>
+      <td>Y</td>
+      <td>The email address registered with the booking.</td>
+    </tr>
+    <tr>
+      <td>arrival</td>
+      <td>String</td>
+      <td><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></td>
+      <td>Y</td>
+      <td>New or current parking arrival date and time.</td>
+    </tr>
+    <tr>
+      <td>depart</td>
+      <td>String</td>
+      <td><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></td>
+      <td>Y</td>
+      <td>New or current parking departure date and time.</td>
+    </tr>
+    <tr>
+      <td>price</td>
+      <td>integer</td>
+      <td> </td>
+      <td>Y</td>
+      <td>Booking amount in pence</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>NB: All property names are case sensitive.</p>
+
+<h3 id="request-body-example">Request Body Example</h3>
+
+<p>The above below shows two booking being sent, which each booking object as an element of the array:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"hx_booking_ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HX123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"partner_booking_ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer1@hx.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"arrival"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-04T12:12:12Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"depart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-04T12:12:12Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"hx_booking_ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HX124"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"partner_booking_ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB124"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer2@hx.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"arrival"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-04T12:12:12+0100"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"depart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-04T12:12:12+0100"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="partner-notification">Partner Notification</h2>
+
+<p>Once the bookings contained in a request have been processed the status will be POST’ed back to the partner using the given <code class="language-plaintext highlighter-rouge">notification_url</code>.</p>
+
+<p>The body of this POST request will contain well formed JSON in the following format:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"partner_booking_ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"partner_booking_ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB124"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERR"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booking not found"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The example above shows two bookings that have been processed, the first update has succeeded, but the second has failed.</p>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>

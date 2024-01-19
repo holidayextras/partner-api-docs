@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="amend-booking---simple-no-reprice">Amend Booking - simple (no reprice)</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; product:<a href="/hxapi/viewamendcancel/amend_simple">amend</a></p>
+
+<p>The booking details that can be changed for a simple amend are as follows:</p>
+
+<ul>
+  <li>Lead passenger name;</li>
+  <li>Email address;</li>
+  <li>In the case of parking or hotel plus parking bookings, car registration (and other car details);</li>
+  <li>Flight numbers (if you are updating multiple flight numbers then you may prefer to use the <a href="/hxapi/flightUpdate">Flight Update</a> method instead (which permits batch updates).</li>
+</ul>
+
+<h2 id="amend-booking-request">Amend Booking Request</h2>
+
+<p>We recommend using the <a href="/hxapi/viewamendcancel/view">view booking</a> method first, to ensure that you have all the details required from the most up to date record of the booking.</p>
+
+<h3 id="method">Method</h3>
+
+<p>POST</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p>The endpoint to use is (where <code class="language-plaintext highlighter-rouge">YourBookingRef</code> is the Holiday Extras booking reference):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef
+</code></pre></div></div>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<p>NB: All parameter names are case sensitive.</p>
+
+<p>For all amend booking requests, you will need to send these parameters:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Mandatory?</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y</td>
+      <td>This is also known as an ‘agent code’. <br />This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>N*</td>
+      <td>Password required for retail agent requests - intermediaries do not require a password.<br />This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z] 3 chars</td>
+      <td>N</td>
+      <td>The initials of the Operator / Agent.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+      <td>This will be assigned to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>String</td>
+      <td>[A-Z0-9] 50 chars</td>
+      <td>Y</td>
+      <td>Email address used to make the booking (i.e. the email address of the lead passenger)</td>
+    </tr>
+    <tr>
+      <td>System</td>
+      <td>String</td>
+      <td>[A-Z] 3 chars</td>
+      <td>Y*</td>
+      <td>For European products, you need to pass in the value of <code class="language-plaintext highlighter-rouge">System=ABG</code> (the default is <code class="language-plaintext highlighter-rouge">System=ABC</code>, which is UK products only).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In order to amend the booking with the new details, you only need to pass in the specific parameters you want to amend. For a simple amend these are as follows:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Mandatory?</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td>[0-9] 4 chars</td>
+      <td>Y</td>
+      <td>Title of lead passenger</td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z] 1 chars</td>
+      <td>Y</td>
+      <td>Initial of lead passenger</td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td>[0-9] 20 chars</td>
+      <td>Y</td>
+      <td>Surname of lead passenger</td>
+    </tr>
+    <tr>
+      <td>Address[]</td>
+      <td>String</td>
+      <td>[A-Z0-9] 25 chars</td>
+      <td>Y</td>
+      <td>First line of address (house name / number and road) of lead passenger. NB: This field can be set to NA</td>
+    </tr>
+    <tr>
+      <td>Town</td>
+      <td>String</td>
+      <td>[A-Z] 20 chars</td>
+      <td>Y</td>
+      <td>Town of address. NB: This field can be set to NA</td>
+    </tr>
+    <tr>
+      <td>County</td>
+      <td>String</td>
+      <td>[A-Z] 20 chars</td>
+      <td>Y</td>
+      <td>County of address. NB: This field can be set to NA</td>
+    </tr>
+    <tr>
+      <td>PostCode</td>
+      <td>String</td>
+      <td>[A-Z0-9] 10 chars</td>
+      <td>Y</td>
+      <td>Post code of address. NB: This field can be set to NA</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>String</td>
+      <td>[A-Z0-9] 50 chars</td>
+      <td>Y</td>
+      <td>The email address of customer.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="for-parking-bookings">For parking bookings:</h4>
+
+<p>You may change any of the car details, as indicated in the <a href="/hxapi/parking/av/carpark">car park availability response.</a></p>
+
+<h2 id="amend-booking-response">Amend Booking Response</h2>
+
+<p>The amend booking response will return the booking record with all of the updated details.</p>
+
+<p>For a detailed explanation of the fields returned, please see the respective booking requests for <a href="/hxapi/hotel/bkg">hotels</a>, <a href="/hxapi/parking/bkg">parking</a> and <a href="/hxapi/lounge/bkg">lounges</a>.</p>
+
+<h2 id="worked-examples">Worked Examples</h2>
+
+<p>Below are worked examples of both the request and response for amending (simple) a booking.</p>
+
+<h3 id="uk-products-amend-booking-request-simple-for-a-car-park">UK Products Amend Booking Request (simple for a car park)</h3>
+
+<p>The original booking was made with test details of Mr T TEST:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/booking/YourBookingRef
+</code></pre></div></div>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;Request&gt;</span>
+        <span class="nt">&lt;ABTANumber&gt;</span>YourABTA<span class="nt">&lt;/ABTANumber&gt;</span>
+        <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+        <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
+        <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+        <span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
+        <span class="nt">&lt;Initial&gt;</span>A<span class="nt">&lt;/Initial&gt;</span>
+        <span class="nt">&lt;Surname&gt;</span>TESTA<span class="nt">&lt;/Surname&gt;</span>
+        <span class="nt">&lt;Address&gt;</span>123 Test Street<span class="nt">&lt;/Address&gt;</span>
+        <span class="nt">&lt;Town&gt;</span>Testville<span class="nt">&lt;/Town&gt;</span>
+        <span class="nt">&lt;County&gt;</span>Testshire<span class="nt">&lt;/County&gt;</span>
+        <span class="nt">&lt;PostCode&gt;</span>TE12 3ST<span class="nt">&lt;/PostCode&gt;</span>
+        <span class="nt">&lt;Email&gt;</span>test@test.com<span class="nt">&lt;/Email&gt;</span>
+        <span class="nt">&lt;Registration&gt;</span>TE17 STS<span class="nt">&lt;/Registration&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+</code></pre></div></div>
+
+<h3 id="uk-products-amend-booking-response-simple-for-a-car-park">UK Products Amend Booking Response (simple for a car park)</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">System=</span><span class="s">"ABC"</span> <span class="na">Version=</span><span class="s">"1"</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"999999999"</span> <span class="na">RequestCode=</span><span class="s">"14"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;CarDetails&gt;</span>
+        <span class="nt">&lt;Registration&gt;</span>TE17STS<span class="nt">&lt;/Registration&gt;</span>
+        <span class="nt">&lt;CarMake&gt;</span>RANGE ROVER<span class="nt">&lt;/CarMake&gt;</span>
+        <span class="nt">&lt;CarModel&gt;</span>EVOQUE<span class="nt">&lt;/CarModel&gt;</span>
+        <span class="nt">&lt;CarColour&gt;</span>WHITE<span class="nt">&lt;/CarColour&gt;</span>
+        <span class="nt">&lt;OutFlight&gt;</span>EZY8985<span class="nt">&lt;/OutFlight&gt;</span>
+    <span class="nt">&lt;/CarDetails&gt;</span>
+    <span class="nt">&lt;ClientDetails&gt;</span>
+        <span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
+        <span class="nt">&lt;Initial&gt;</span>A<span class="nt">&lt;/Initial&gt;</span>
+        <span class="nt">&lt;Surname&gt;</span>TESTA<span class="nt">&lt;/Surname&gt;</span>
+        <span class="nt">&lt;Address&gt;</span>123 TEST STREET<span class="nt">&lt;/Address&gt;</span>
+        <span class="nt">&lt;DataProtection&gt;</span>Y<span class="nt">&lt;/DataProtection&gt;</span>
+        <span class="nt">&lt;Email&gt;</span>test@test.com<span class="nt">&lt;/Email&gt;</span>
+    <span class="nt">&lt;/ClientDetails&gt;</span>
+    <span class="nt">&lt;Booking&gt;</span>
+        <span class="nt">&lt;BookingRef&gt;</span>YourBookingRef<span class="nt">&lt;/BookingRef&gt;</span>
+        <span class="nt">&lt;PdfUrl&gt;</span>/v1/confirmation?email=test@test.com<span class="err">&amp;</span>booking_ref=YourBookingRef<span class="err">&amp;</span>product_type=carparks<span class="nt">&lt;/PdfUrl&gt;</span>
+    <span class="nt">&lt;/Booking&gt;</span>
+    <span class="nt">&lt;CarPark&gt;</span>
+        <span class="nt">&lt;ArrivalDate&gt;</span>2018-12-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+        <span class="nt">&lt;DepartDate&gt;</span>2018-12-08<span class="nt">&lt;/DepartDate&gt;</span>
+        <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+        <span class="nt">&lt;DepartTime&gt;</span>1200<span class="nt">&lt;/DepartTime&gt;</span>
+        <span class="nt">&lt;NumberOfPax&gt;</span>1<span class="nt">&lt;/NumberOfPax&gt;</span>
+        <span class="nt">&lt;ReturnFlight&gt;</span>EZY8982<span class="nt">&lt;/ReturnFlight&gt;</span>
+        <span class="nt">&lt;Duration&gt;</span>7<span class="nt">&lt;/Duration&gt;</span>
+        <span class="nt">&lt;Remarks/&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>MAR1<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>APH<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/product/MAR1<span class="nt">&lt;/MoreInfoURL&gt;</span>
+        <span class="nt">&lt;distance_to_airport/&gt;</span>
+        <span class="nt">&lt;introduction&gt;</span>Holidays are about treating yourself and pushing the boat out. At APH Manchester, they believe you can have  a quality service and excellent security without it costing an arm and a leg. They also want to get you to the terminal swiftly - transfers take just five minutes, so you'll be at check-in with plenty of time to spend the pounds you've saved.<span class="nt">&lt;/introduction&gt;</span>
+        <span class="nt">&lt;logo&gt;</span>/imageLibrary/Images/manchester-aph-new-logo.jpg<span class="nt">&lt;/logo&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/v1/carpark/MAR1<span class="nt">&lt;/BookingURL&gt;</span>
+        <span class="nt">&lt;Filter&gt;</span>
+            <span class="nt">&lt;park_and_ride&gt;</span>1<span class="nt">&lt;/park_and_ride&gt;</span>
+            <span class="nt">&lt;meet_and_greet&gt;</span>0<span class="nt">&lt;/meet_and_greet&gt;</span>
+        <span class="nt">&lt;/Filter&gt;</span>
+    <span class="nt">&lt;/CarPark&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+            <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+            <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
+            <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;ArrivalDate&gt;</span>2018-12-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+            <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+            <span class="nt">&lt;DepartDate&gt;</span>2018-12-08<span class="nt">&lt;/DepartDate&gt;</span>
+            <span class="nt">&lt;DepartTime&gt;</span>1200<span class="nt">&lt;/DepartTime&gt;</span>
+            <span class="nt">&lt;NumberOfPax&gt;</span>1<span class="nt">&lt;/NumberOfPax&gt;</span>
+            <span class="nt">&lt;Title&gt;</span>MR<span class="nt">&lt;/Title&gt;</span>
+            <span class="nt">&lt;Initial&gt;</span>A<span class="nt">&lt;/Initial&gt;</span>
+            <span class="nt">&lt;Surname&gt;</span>TESTA<span class="nt">&lt;/Surname&gt;</span>
+            <span class="nt">&lt;Address&gt;</span>123 Test Street<span class="nt">&lt;/Address&gt;</span>
+            <span class="nt">&lt;Town&gt;</span>Testville<span class="nt">&lt;/Town&gt;</span>
+            <span class="nt">&lt;County&gt;</span>Testshire<span class="nt">&lt;/County&gt;</span>
+            <span class="nt">&lt;PostCode&gt;</span>TE12 3ST<span class="nt">&lt;/PostCode&gt;</span>
+            <span class="nt">&lt;Email&gt;</span>test@test.com<span class="nt">&lt;/Email&gt;</span>
+            <span class="nt">&lt;PriceCheckFlag&gt;</span>Y<span class="nt">&lt;/PriceCheckFlag&gt;</span>
+            <span class="nt">&lt;PriceCheckPrice&gt;</span>57.99<span class="nt">&lt;/PriceCheckPrice&gt;</span>
+            <span class="nt">&lt;CarColour&gt;</span>White<span class="nt">&lt;/CarColour&gt;</span>
+            <span class="nt">&lt;CarMake&gt;</span>Range Rover<span class="nt">&lt;/CarMake&gt;</span>
+            <span class="nt">&lt;CarModel&gt;</span>Evoque<span class="nt">&lt;/CarModel&gt;</span>
+            <span class="nt">&lt;Destination&gt;</span>Munich<span class="nt">&lt;/Destination&gt;</span>
+            <span class="nt">&lt;OutFlight&gt;</span>EZY8985<span class="nt">&lt;/OutFlight&gt;</span>
+            <span class="nt">&lt;OutTerminal&gt;</span>N<span class="nt">&lt;/OutTerminal&gt;</span>
+            <span class="nt">&lt;Registration&gt;</span>TE17 STS<span class="nt">&lt;/Registration&gt;</span>
+            <span class="nt">&lt;ReturnFlight&gt;</span>EZY8982<span class="nt">&lt;/ReturnFlight&gt;</span>
+            <span class="nt">&lt;ReturnTerminal&gt;</span>N<span class="nt">&lt;/ReturnTerminal&gt;</span>
+            <span class="nt">&lt;MobileNum&gt;</span>01234567890<span class="nt">&lt;/MobileNum&gt;</span>
+            <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre></div></div>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>

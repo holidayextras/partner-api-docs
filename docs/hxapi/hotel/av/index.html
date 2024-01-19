@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h2 id="hotel-availability-request">Hotel Availability Request</h2>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p>The endpoint to use is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LocationCode
+</code></pre></div></div>
+
+<p>For example, for London Heathrow the endpoint is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHR
+</code></pre></div></div>
+
+<p>If you know the specific hotel code, then you can request availability by entering that into the endpoint. For example, for the Hilton at London Heathrow the endpoint is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHRHIL
+</code></pre></div></div>
+
+<p>To find the airport locations available for hotels, please refer to the <a href="/hxapi/locations">locations endpoint.</a></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<p>NB: All parameter names are case sensitive.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Mandatory?</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y</td>
+      <td>This is also known as an ‘agent code’. <br />This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y*</td>
+      <td>Password required for retail agent requests - intermediaries do not require a password.<br />This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z] 3 chars</td>
+      <td>N</td>
+      <td>The initials of the Operator / Agent.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+      <td>This will be assigned to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9] 9 chars</td>
+      <td>Y</td>
+      <td>Please see <a href="/hxapi/usertoken">user token endpoint</a> for details of how to generate a token.</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+      <td>Date customer arrives at hotel.</td>
+    </tr>
+    <tr>
+      <td>Nights</td>
+      <td>Integer</td>
+      <td>1</td>
+      <td>Y</td>
+      <td>Number of nights the customer wants to stay in the hotel. NB: It is only possible to book one night stays.</td>
+    </tr>
+    <tr>
+      <td>RoomType</td>
+      <td>String</td>
+      <td>[A-Z0-9] 3 chars</td>
+      <td>Y</td>
+      <td>See <a href="/hxapi/types/roomcode">RoomCodes</a> for a list of valid codes.</td>
+    </tr>
+    <tr>
+      <td>SecondRoomType</td>
+      <td>String</td>
+      <td>[A-Z0-9] 3 chars</td>
+      <td>N*</td>
+      <td>NB: This feature is only available in the UK. <br />This parameter is mandatory if the customer wishes to book two rooms at the same time. (Max 2 rooms) <br />The room codes are as per RoomType.</td>
+    </tr>
+    <tr>
+      <td>ParkingDays</td>
+      <td>Integer</td>
+      <td>[0-9] 2 chars</td>
+      <td>Y</td>
+      <td>NB: The maximum duration accepted for ParkingDays is 30.</td>
+    </tr>
+    <tr>
+      <td>System</td>
+      <td>String</td>
+      <td>[A-Z] 3 chars</td>
+      <td>Y*</td>
+      <td>For European products, you need to pass in the value of <code class="language-plaintext highlighter-rouge">System=ABG</code> (the default is <code class="language-plaintext highlighter-rouge">System=ABC</code>, which is UK products only).</td>
+    </tr>
+    <tr>
+      <td>lang</td>
+      <td>String</td>
+      <td>[A-Z] 2 chars</td>
+      <td>Y*</td>
+      <td>Required for requests for European products. (Values available are <code class="language-plaintext highlighter-rouge">en</code>, <code class="language-plaintext highlighter-rouge">de</code>, <code class="language-plaintext highlighter-rouge">it</code>, <code class="language-plaintext highlighter-rouge">es</code>, <code class="language-plaintext highlighter-rouge">pt</code> and <code class="language-plaintext highlighter-rouge">nl</code>.)</td>
+    </tr>
+    <tr>
+      <td>Terminal</td>
+      <td>String</td>
+      <td>[A-Z1-9] 1 char</td>
+      <td>N</td>
+      <td>An optional field when requesting hotel and parking that will filter the availble results to those that serve the given terminal. Terminal options can be found using the <a href="/hxapi/terminal">Terminal</a> request, where the name of the terminal is a word only the first character is needed for this request ( eg. N for the North terminal ).</td>
+    </tr>
+    <tr>
+      <td>fields</td>
+      <td>String</td>
+      <td>[A-Z] a csv list of product info fields</td>
+      <td>N</td>
+      <td>A list of product info fields can be passed in to return configurable product information e.g. <code class="language-plaintext highlighter-rouge">fields=name,address,latitude,sellingpoint</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="hotel-availability-response">Hotel Availability Response</h2>
+
+<p>For a detailed explanation of the fields returned, please see below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hotel/Name</td>
+      <td>The name of the product</td>
+    </tr>
+    <tr>
+      <td>Hotel/Code</td>
+      <td>The product code</td>
+    </tr>
+    <tr>
+      <td>Hotel/BookingURL</td>
+      <td>The URL to POST the booking request to for this particular product.</td>
+    </tr>
+    <tr>
+      <td>Hotel/MoreInfoURL</td>
+      <td>The link to more information about this product, sourced from the Product Library.</td>
+    </tr>
+    <tr>
+      <td>Hotel/RequestFlags</td>
+      <td>These flags list which details the car park operator requires from the customer. If a flag is returned with a ‘Y’ your application should send the corresponding field/value in the booking request. <br />Flags are only returned when required. The flags which can be returned are: <code class="language-plaintext highlighter-rouge">Registration</code>, <code class="language-plaintext highlighter-rouge">CarMake</code>, <code class="language-plaintext highlighter-rouge">CarModel</code>, <code class="language-plaintext highlighter-rouge">CarColour</code>, <code class="language-plaintext highlighter-rouge">OutFlight</code>, <code class="language-plaintext highlighter-rouge">ReturnFlight</code>, <code class="language-plaintext highlighter-rouge">OutTerminal</code>, <code class="language-plaintext highlighter-rouge">ReturnTerminal</code>, <code class="language-plaintext highlighter-rouge">Destination</code>, <code class="language-plaintext highlighter-rouge">MobileNum</code></td>
+    </tr>
+    <tr>
+      <td>Hotel/Price</td>
+      <td>The price of product without any surcharges/fees added.</td>
+    </tr>
+    <tr>
+      <td>Hotel/PriceWithSurcharge</td>
+      <td><em>NB: Please ignore this field - we no longer accept new agents sending payment details via our API.</em></td>
+    </tr>
+    <tr>
+      <td>Hotel/Adults*</td>
+      <td>The maximum number of adults included in the room occupancy.</td>
+    </tr>
+    <tr>
+      <td>Hotel/Children*</td>
+      <td>The maximum number of children included in the room occupancy.</td>
+    </tr>
+    <tr>
+      <td>Hotel/RoomCode</td>
+      <td><em>NB: Please ignore this field as it relates to internal systems.</em></td>
+    </tr>
+    <tr>
+      <td>Hotel/BoardBasis</td>
+      <td><em>NB: Please ignore this field as it is no longer used and will be deprecated in future versions of the API.</em></td>
+    </tr>
+    <tr>
+      <td>Hotel/ParkingDays</td>
+      <td>This returns the number of days parking available. <br />NB: This may differ from the value requested, due to parking packages usually being set up in the system as either 4, 8 or 15 days.</td>
+    </tr>
+    <tr>
+      <td>Hotel/NonDiscPrice</td>
+      <td>The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.</td>
+    </tr>
+    <tr>
+      <td>Hotel/CancellationFeeExceptions</td>
+      <td>If the hotel has non-standard cancellation fees.</td>
+    </tr>
+    <tr>
+      <td>Hotel/AmendmentFeeExceptions</td>
+      <td>If the hotel has non-standard amendment fees.</td>
+    </tr>
+    <tr>
+      <td>Hotel/noncancellable_nonrefundable</td>
+      <td>Is this hotel noncancellable or non-refundable?</td>
+    </tr>
+    <tr>
+      <td>Hotel/parking_includes_arrival</td>
+      <td>If parking during the customer’s hotel stay included in their parking package</td>
+    </tr>
+    <tr>
+      <td>Hotel/CarPark</td>
+      <td>If your request included car parking, this is the car park code.</td>
+    </tr>
+    <tr>
+      <td>Hotel/Filter</td>
+      <td><em>NB: Please ignore this field as it is for internal use only.</em></td>
+    </tr>
+    <tr>
+      <td>Hotel/lead_time_cancellation</td>
+      <td>This is the number of days before the booking starts that the product will switch from flexible to non-flexible.</td>
+    </tr>
+    <tr>
+      <td>API_Header/Request</td>
+      <td>The API returns every parameter and value you sent in the previous request.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>* Where two rooms have been requested, these fields represent the total of adults and children across all rooms. Additional fields will show the individual room occupancy:  <code class="language-plaintext highlighter-rouge">FirstRoomAdults</code>, <code class="language-plaintext highlighter-rouge">FirstRoomChildren</code>, <code class="language-plaintext highlighter-rouge">SecondRoomAdults</code> and <code class="language-plaintext highlighter-rouge">SecondRoomChildren</code>.</p>
+
+<h2 id="key-information-on-hotels">Key Information on Hotels</h2>
+
+<p>Please read this section through carefully, as it contains useful information about restrictions on how hotels must be sold.</p>
+
+<h3 id="advance-purchase">Advance purchase</h3>
+
+<p>Advance purchase products are non-refundable and non-cancellable. As a result, Cancellation Waiver must <em>not</em> be sold to customers purchasing a product with <code class="language-plaintext highlighter-rouge">advance_purchase</code> set to 1.</p>
+
+<h3 id="day-use-only">Day Use Only</h3>
+
+<p>There is a field in the product library for hotels, named <code class="language-plaintext highlighter-rouge">day_use_only</code>. Day use products must not be sold to customers wishing to have an overnight stay where <code class="language-plaintext highlighter-rouge">day_use_only</code> is set to 1.</p>
+
+<h3 id="parking-includes-arrival">Parking Includes Arrival</h3>
+
+<p>In order to establish whether the package includes parking for the night of the hotel stay the <code class="language-plaintext highlighter-rouge">parking_includes_arrival</code> field needs to be taken into account.</p>
+
+<p>Where this field is set to 0, this means the night of the hotel stay is not included as there is free overnight parking. Parking stay will start from the following day. Where it is set to 1, this means that parking starts from the date the customer checks into the hotel.</p>
+
+<h3 id="mystery--un-named-products">Mystery / Un-named Products</h3>
+
+<p>There are some hotels in which the name field will not provide the name of the hotel e.g <code class="language-plaintext highlighter-rouge">&lt;Name&gt;Mystery 4-star hotel&lt;/Name&gt;</code>.  The name of these hotels should not be provided to the customer until the booking is made, along with other identifying details such as address, hotel images, restaurant names etc.</p>
+
+<h3 id="lead-time-cancellation">Lead time cancellation</h3>
+
+<p>Flexible bookings become non flexible within a certain timeframe before the stay date ie booking turns non flexible within 30 days of stay.</p>
+
+<p>Scenario 1</p>
+<ul>
+  <li>Flexible booking made outside 60 days of stay.</li>
+  <li>Cancellation policy - only able to canx up to 30 days before stay date.</li>
+  <li>Booking is non flex within 30 days of stay date.</li>
+</ul>
+
+<p>Scenario 2</p>
+<ul>
+  <li>Flexible booking made inside 60 days of stay date.</li>
+  <li>Cancellation policy - only able to canx up to 3 days before stay date.</li>
+  <li>Booking is non flex within 3 days of stay date.</li>
+</ul>
+
+<h2 id="worked-examples">Worked Examples</h2>
+
+<p>Below are worked examples of both the requests and responses for hotel availability.</p>
+
+<h3 id="uk-hotel-availability-request---room-only-zero-days-parking">UK Hotel Availability Request - Room Only (zero days parking)</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHR?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;Nights=1&amp;RoomType=T21&amp;ParkingDays=0
+</code></pre></div></div>
+
+<h3 id="uk-hotel-availability-response---room-only-zero-days-parking">UK Hotel Availability Response - Room Only (zero days parking)</h3>
+
+<p>NB: This is a shortened example compiled from a full availability response.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"21"</span> <span class="na">Result=</span><span class="s">"OK"</span> <span class="na">cached=</span><span class="s">"1"</span> <span class="na">expires=</span><span class="s">"2017-07-09 18:48:46"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Mercure<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LHRMEA<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/v1/hotel/HPLHRMEA<span class="nt">&lt;/BookingURL&gt;</span>
+        <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/product/LHRMEA<span class="nt">&lt;/MoreInfoURL&gt;</span>
+        <span class="nt">&lt;RequestFlags&gt;</span>
+            <span class="nt">&lt;ParkingIncludesArrival&gt;</span>1<span class="nt">&lt;/ParkingIncludesArrival&gt;</span>
+        <span class="nt">&lt;/RequestFlags&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>45.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;PriceWithSurcharge&gt;</span>45.90<span class="nt">&lt;/PriceWithSurcharge&gt;</span>
+        <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+        <span class="nt">&lt;Children&gt;</span>1<span class="nt">&lt;/Children&gt;</span>
+        <span class="nt">&lt;RoomCode&gt;</span>TRL<span class="nt">&lt;/RoomCode&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>RO<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>45.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;lead_time_cancellation&gt;</span>30<span class="nt">&lt;/lead_time_cancellation&gt;</span>
+        <span class="nt">&lt;parking_includes_arrival&gt;</span>1<span class="nt">&lt;/parking_includes_arrival&gt;</span>
+        <span class="nt">&lt;noncancellable_nonrefundable&gt;</span>1<span class="nt">&lt;/noncancellable_nonrefundable&gt;</span>
+        <span class="nt">&lt;advance_purchase&gt;</span>1<span class="nt">&lt;/advance_purchase&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Thistle T5<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LHRPAA<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/v1/hotel/HPLHRPAA<span class="nt">&lt;/BookingURL&gt;</span>
+        <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/product/LHRPAA<span class="nt">&lt;/MoreInfoURL&gt;</span>
+        <span class="nt">&lt;RequestFlags/&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>85.50<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;PriceWithSurcharge&gt;</span>87.21<span class="nt">&lt;/PriceWithSurcharge&gt;</span>
+        <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+        <span class="nt">&lt;Children&gt;</span>1<span class="nt">&lt;/Children&gt;</span>
+        <span class="nt">&lt;RoomCode&gt;</span>TRL<span class="nt">&lt;/RoomCode&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>RO<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>85.50<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;lead_time_cancellation&gt;</span>30<span class="nt">&lt;/lead_time_cancellation&gt;</span>
+        <span class="nt">&lt;noncancellable_nonrefundable&gt;</span>1<span class="nt">&lt;/noncancellable_nonrefundable&gt;</span>
+        <span class="nt">&lt;Filter&gt;</span>
+            <span class="nt">&lt;day_use_only&gt;</span>0<span class="nt">&lt;/day_use_only&gt;</span>
+        <span class="nt">&lt;/Filter&gt;</span>
+        <span class="nt">&lt;advance_purchase&gt;</span>1<span class="nt">&lt;/advance_purchase&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Hilton T5<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LHRHLT<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/v1/hotel/HPLHRHLT<span class="nt">&lt;/BookingURL&gt;</span>
+        <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/product/LHRHLT<span class="nt">&lt;/MoreInfoURL&gt;</span>
+        <span class="nt">&lt;RequestFlags&gt;</span>
+            <span class="nt">&lt;CarDropoffTime&gt;</span>1<span class="nt">&lt;/CarDropoffTime&gt;</span>
+            <span class="nt">&lt;CarPickupTime&gt;</span>1<span class="nt">&lt;/CarPickupTime&gt;</span>
+            <span class="nt">&lt;Registration&gt;</span>1<span class="nt">&lt;/Registration&gt;</span>
+        <span class="nt">&lt;/RequestFlags&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>99.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;PriceWithSurcharge&gt;</span>100.98<span class="nt">&lt;/PriceWithSurcharge&gt;</span>
+        <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+        <span class="nt">&lt;Children&gt;</span>1<span class="nt">&lt;/Children&gt;</span>
+        <span class="nt">&lt;RoomCode&gt;</span>TRL<span class="nt">&lt;/RoomCode&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>RO<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>99.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Pricing&gt;</span>
+        <span class="nt">&lt;CCardSurchargePercent&gt;</span>2.00<span class="nt">&lt;/CCardSurchargePercent&gt;</span>
+        <span class="nt">&lt;CCardSurchargeMin&gt;</span>0.00<span class="nt">&lt;/CCardSurchargeMin&gt;</span>
+        <span class="nt">&lt;CCardSurchargeMax&gt;</span>4.00<span class="nt">&lt;/CCardSurchargeMax&gt;</span>
+        <span class="nt">&lt;DCardSurchargePercent&gt;</span>0.00<span class="nt">&lt;/DCardSurchargePercent&gt;</span>
+        <span class="nt">&lt;DCardSurchargeMin&gt;</span>0.00<span class="nt">&lt;/DCardSurchargeMin&gt;</span>
+        <span class="nt">&lt;DCardSurchargeMax&gt;</span>0.00<span class="nt">&lt;/DCardSurchargeMax&gt;</span>
+        <span class="nt">&lt;WaiverValue&gt;</span>2.99<span class="nt">&lt;/WaiverValue&gt;</span>
+    <span class="nt">&lt;/Pricing&gt;</span>
+    <span class="nt">&lt;SepaID/&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+            <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+            <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
+            <span class="nt">&lt;ArrivalDate&gt;</span>2017-12-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+            <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+            <span class="nt">&lt;RoomType&gt;</span>T21<span class="nt">&lt;/RoomType&gt;</span>
+            <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+            <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre></div></div>
+
+<h3 id="uk-hotel-availability-request---room-with-parking">UK Hotel Availability Request - Room with Parking</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHR?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;Nights=1&amp;RoomType=T21&amp;ParkingDays=8
+</code></pre></div></div>
+
+<h3 id="uk-hotel-availability-response---room-with-parking">UK Hotel Availability Response - Room with Parking</h3>
+
+<p>NB: This is a shortened example compiled from a full availability response.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"21"</span> <span class="na">Result=</span><span class="s">"OK"</span> <span class="na">cached=</span><span class="s">"1"</span> <span class="na">expires=</span><span class="s">"2017-07-09 18:55:56"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Mercure with Purple Parking Meet and Greet<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LHRMPU<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/v1/hotel/HPLHRMPU<span class="nt">&lt;/BookingURL&gt;</span>
+        <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/product/LHRMPU<span class="nt">&lt;/MoreInfoURL&gt;</span>
+        <span class="nt">&lt;RequestFlags&gt;</span>
+            <span class="nt">&lt;CarColour&gt;</span>1<span class="nt">&lt;/CarColour&gt;</span>
+            <span class="nt">&lt;CarDropoffTime&gt;</span>1<span class="nt">&lt;/CarDropoffTime&gt;</span>
+            <span class="nt">&lt;CarMake&gt;</span>1<span class="nt">&lt;/CarMake&gt;</span>
+            <span class="nt">&lt;CarModel&gt;</span>1<span class="nt">&lt;/CarModel&gt;</span>
+            <span class="nt">&lt;CarPickupTime&gt;</span>1<span class="nt">&lt;/CarPickupTime&gt;</span>
+            <span class="nt">&lt;Registration&gt;</span>1<span class="nt">&lt;/Registration&gt;</span>
+            <span class="nt">&lt;ReturnFlight&gt;</span>1<span class="nt">&lt;/ReturnFlight&gt;</span>
+        <span class="nt">&lt;/RequestFlags&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>129.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;PriceWithSurcharge&gt;</span>131.58<span class="nt">&lt;/PriceWithSurcharge&gt;</span>
+        <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+        <span class="nt">&lt;Children&gt;</span>1<span class="nt">&lt;/Children&gt;</span>
+        <span class="nt">&lt;RoomCode&gt;</span>TRL<span class="nt">&lt;/RoomCode&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>RO<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>129.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;CarPark&gt;</span>LHR5<span class="nt">&lt;/CarPark&gt;</span>
+        <span class="nt">&lt;car_park_assoc&gt;</span>LHR5<span class="nt">&lt;/car_park_assoc&gt;</span>
+        <span class="nt">&lt;Filter&gt;</span>
+            <span class="nt">&lt;car_park_assoc&gt;</span>1<span class="nt">&lt;/car_park_assoc&gt;</span>
+        <span class="nt">&lt;/Filter&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Thistle T5 with parking at the hotel and breakfast<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LHRPAT<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/v1/hotel/HPLHRPAT<span class="nt">&lt;/BookingURL&gt;</span>
+        <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/product/LHRPAT<span class="nt">&lt;/MoreInfoURL&gt;</span>
+        <span class="nt">&lt;RequestFlags/&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>130.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;PriceWithSurcharge&gt;</span>132.60<span class="nt">&lt;/PriceWithSurcharge&gt;</span>
+        <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+        <span class="nt">&lt;Children&gt;</span>1<span class="nt">&lt;/Children&gt;</span>
+        <span class="nt">&lt;RoomCode&gt;</span>TRL<span class="nt">&lt;/RoomCode&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>RO<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>130.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;Filter&gt;</span>
+            <span class="nt">&lt;hotel_arrival_parking_ppts&gt;</span>1<span class="nt">&lt;/hotel_arrival_parking_ppts&gt;</span>
+            <span class="nt">&lt;hotel_return_parking_ppts&gt;</span>1<span class="nt">&lt;/hotel_return_parking_ppts&gt;</span>
+            <span class="nt">&lt;day_use_only&gt;</span>0<span class="nt">&lt;/day_use_only&gt;</span>
+        <span class="nt">&lt;/Filter&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+       <span class="nt">&lt;Name&gt;</span>Sheraton Skyline with parking at the hotel<span class="nt">&lt;/Name&gt;</span>
+       <span class="nt">&lt;Code&gt;</span>LHRSKA<span class="nt">&lt;/Code&gt;</span>
+       <span class="nt">&lt;BookingURL&gt;</span>/v1/hotel/HPLHRSKA<span class="nt">&lt;/BookingURL&gt;</span>
+       <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/product/LHRSKA<span class="nt">&lt;/MoreInfoURL&gt;</span>
+       <span class="nt">&lt;RequestFlags/&gt;</span>
+       <span class="nt">&lt;Price&gt;</span>134.00<span class="nt">&lt;/Price&gt;</span>
+       <span class="nt">&lt;PriceWithSurcharge&gt;</span>136.68<span class="nt">&lt;/PriceWithSurcharge&gt;</span>
+       <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+       <span class="nt">&lt;Children&gt;</span>1<span class="nt">&lt;/Children&gt;</span>
+       <span class="nt">&lt;RoomCode&gt;</span>TRL<span class="nt">&lt;/RoomCode&gt;</span>
+       <span class="nt">&lt;BoardBasis&gt;</span>RO<span class="nt">&lt;/BoardBasis&gt;</span>
+       <span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>
+       <span class="nt">&lt;NonDiscPrice&gt;</span>134.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+       <span class="nt">&lt;Filter&gt;</span>
+           <span class="nt">&lt;day_use_only&gt;</span>0<span class="nt">&lt;/day_use_only&gt;</span>
+       <span class="nt">&lt;/Filter&gt;</span>
+   <span class="nt">&lt;/Hotel&gt;</span>
+   <span class="nt">&lt;Pricing&gt;</span>
+        <span class="nt">&lt;CCardSurchargePercent&gt;</span>2.00<span class="nt">&lt;/CCardSurchargePercent&gt;</span>
+        <span class="nt">&lt;CCardSurchargeMin&gt;</span>0.00<span class="nt">&lt;/CCardSurchargeMin&gt;</span>
+        <span class="nt">&lt;CCardSurchargeMax&gt;</span>4.00<span class="nt">&lt;/CCardSurchargeMax&gt;</span>
+        <span class="nt">&lt;DCardSurchargePercent&gt;</span>0.00<span class="nt">&lt;/DCardSurchargePercent&gt;</span>
+        <span class="nt">&lt;DCardSurchargeMin&gt;</span>0.00<span class="nt">&lt;/DCardSurchargeMin&gt;</span>
+        <span class="nt">&lt;DCardSurchargeMax&gt;</span>0.00<span class="nt">&lt;/DCardSurchargeMax&gt;</span>
+        <span class="nt">&lt;WaiverValue&gt;</span>2.99<span class="nt">&lt;/WaiverValue&gt;</span>
+    <span class="nt">&lt;/Pricing&gt;</span>
+    <span class="nt">&lt;SepaID/&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+            <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+            <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
+            <span class="nt">&lt;ArrivalDate&gt;</span>2017-12-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+            <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+            <span class="nt">&lt;RoomType&gt;</span>T21<span class="nt">&lt;/RoomType&gt;</span>
+            <span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>
+            <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre></div></div>
+
+<h3 id="european-hotel-availability-request---room-with-parking">European Hotel Availability Request - Room with Parking</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/MUC?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;Nights=1&amp;RoomType=D20&amp;ParkingDays=8&amp;System=ABG&amp;lang=de
+</code></pre></div></div>
+
+<h3 id="european-hotel-availability-response---room-with-parking">European Hotel Availability Response - Room with Parking</h3>
+
+<p>NB: This is a shortened example compiled from a full availability response.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"21"</span> <span class="na">Result=</span><span class="s">"OK"</span> <span class="na">cached=</span><span class="s">"1"</span> <span class="na">expires=</span><span class="s">"2017-07-09 18:59:17"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Schweigers Landgasthof<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>MUCLAN<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/v1/hotel/FRMUCLAN<span class="nt">&lt;/BookingURL&gt;</span>
+        <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/product/MUCLAN<span class="nt">&lt;/MoreInfoURL&gt;</span>
+        <span class="nt">&lt;RequestFlags/&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>120.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;PriceWithSurcharge&gt;</span>NaN<span class="nt">&lt;/PriceWithSurcharge&gt;</span>
+        <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+        <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+        <span class="nt">&lt;RoomCode&gt;</span>DZ<span class="nt">&lt;/RoomCode&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>F<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>120.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Airporthotel Regent<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>MUCREG<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/v1/hotel/FRMUCREG<span class="nt">&lt;/BookingURL&gt;</span>
+        <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/product/MUCREG<span class="nt">&lt;/MoreInfoURL&gt;</span>
+        <span class="nt">&lt;RequestFlags/&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>97.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;PriceWithSurcharge&gt;</span>NaN<span class="nt">&lt;/PriceWithSurcharge&gt;</span>
+        <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+        <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+        <span class="nt">&lt;RoomCode&gt;</span>DZ<span class="nt">&lt;/RoomCode&gt;</span>
+        <span class="nt">&lt;BoardBasis&gt;</span>F<span class="nt">&lt;/BoardBasis&gt;</span>
+        <span class="nt">&lt;ParkingDays&gt;</span>15<span class="nt">&lt;/ParkingDays&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>97.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Hotel&gt;</span>
+          <span class="nt">&lt;Name&gt;</span>NH München Airport<span class="nt">&lt;/Name&gt;</span>
+          <span class="nt">&lt;Code&gt;</span>MUCAST<span class="nt">&lt;/Code&gt;</span>
+          <span class="nt">&lt;BookingURL&gt;</span>/v1/hotel/FRMUCAST<span class="nt">&lt;/BookingURL&gt;</span>
+          <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/product/MUCAST<span class="nt">&lt;/MoreInfoURL&gt;</span>
+          <span class="nt">&lt;RequestFlags/&gt;</span>
+          <span class="nt">&lt;Price&gt;</span>113.00<span class="nt">&lt;/Price&gt;</span>
+          <span class="nt">&lt;PriceWithSurcharge&gt;</span>NaN<span class="nt">&lt;/PriceWithSurcharge&gt;</span>
+          <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+          <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+          <span class="nt">&lt;RoomCode&gt;</span>DZ<span class="nt">&lt;/RoomCode&gt;</span>
+          <span class="nt">&lt;BoardBasis&gt;</span>U<span class="nt">&lt;/BoardBasis&gt;</span>
+          <span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>
+          <span class="nt">&lt;NonDiscPrice&gt;</span>113.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+    <span class="nt">&lt;/Hotel&gt;</span>
+    <span class="nt">&lt;Pricing&gt;</span>
+        <span class="nt">&lt;CCardSurchargePercent&gt;</span>0.00<span class="nt">&lt;/CCardSurchargePercent&gt;</span>
+        <span class="nt">&lt;CCardSurchargeMin&gt;</span>0.00<span class="nt">&lt;/CCardSurchargeMin&gt;</span>
+        <span class="nt">&lt;CCardSurchargeMax&gt;</span>0.00<span class="nt">&lt;/CCardSurchargeMax&gt;</span>
+    <span class="nt">&lt;/Pricing&gt;</span>
+    <span class="nt">&lt;SepaID/&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;ABTANumber&gt;</span>TESTG<span class="nt">&lt;/ABTANumber&gt;</span>
+            <span class="nt">&lt;Password&gt;</span>Redacted<span class="nt">&lt;/Password&gt;</span>
+            <span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;token&gt;</span>generate<span class="nt">&lt;/token&gt;</span>
+            <span class="nt">&lt;ArrivalDate&gt;</span>2017-12-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+            <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+            <span class="nt">&lt;RoomType&gt;</span>D20<span class="nt">&lt;/RoomType&gt;</span>
+            <span class="nt">&lt;ParkingDays&gt;</span>8<span class="nt">&lt;/ParkingDays&gt;</span>
+            <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+            <span class="nt">&lt;lang&gt;</span>de<span class="nt">&lt;/lang&gt;</span>
+            <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre></div></div>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>

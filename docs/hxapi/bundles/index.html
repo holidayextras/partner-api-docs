@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="bundles">Bundles</h1>
+
+<p>Some results that are returned from availability on the API will be what we call bundles, these consist of a main product, such as a hotel, bundled together with an additional supplement, like a dinner.</p>
+
+<p>Bundles are currently only available on hotel searches.</p>
+
+<h2 id="availability">Availability</h2>
+
+<p>Bundles can be identified by their product code, which has an additional element preceding the main product code joined by a <code class="language-plaintext highlighter-rouge">+</code>.</p>
+
+<p>E.g</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+<span class="nt">&lt;Name&gt;</span>Cresta Court with 2-course dinner<span class="nt">&lt;/Name&gt;</span>
+<span class="nt">&lt;Code&gt;</span>MANCCT+B519<span class="nt">&lt;/Code&gt;</span>
+<span class="nt">&lt;BookingURL&gt;</span>/v1/hotel/HPMANCCT+B519<span class="nt">&lt;/BookingURL&gt;</span>
+<span class="nt">&lt;Price&gt;</span>110.65<span class="nt">&lt;/Price&gt;</span>
+...
+</code></pre></div></div>
+
+<p>The price given will be for the entire bundle including the supplement with the current passenger quantity ( determined by the given <a href="/hxapi/types/roomcode">room code</a> ).
+A <a href="/hxapi/productlibrary">product library</a> request can be made with the complete bundle product code to get content related to the package as a whole instead of simply the main product. E.g <code class="language-plaintext highlighter-rouge">/v1/product/MANCCT+B519</code></p>
+
+<h2 id="booking">Booking</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">BookingURL</code> element will contain the full product code, including prefix, that must be supplied when a bundle is to be booked, this will ensure that system books the main product as well as the appropriate supplement. When booking a bundle on a hotel search the quantity of the supplement will be determined by the given room occupancy in the <code class="language-plaintext highlighter-rouge">Adults</code> and <code class="language-plaintext highlighter-rouge">Children</code> fields.</p>
+
+<p>The booking response for a bundle booking will show the main product and the booked supplement as seperate elements. The <code class="language-plaintext highlighter-rouge">TotalPrice</code> field will contain the full price of the booking, but the supplement price will also be shown separately under the <code class="language-plaintext highlighter-rouge">CurrentSupplements</code> block.</p>
+
+<p>E.g</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+<span class="nt">&lt;Booking&gt;</span>
+<span class="nt">&lt;BookingRef&gt;</span>XXXXX<span class="nt">&lt;/BookingRef&gt;</span>
+<span class="nt">&lt;AgentComm&gt;</span>12.41<span class="nt">&lt;/AgentComm&gt;</span>
+<span class="nt">&lt;VATonComm&gt;</span>2.07<span class="nt">&lt;/VATonComm&gt;</span>
+<span class="nt">&lt;MoreInfoURL&gt;</span>/v1/booking/XXXXX<span class="nt">&lt;/MoreInfoURL&gt;</span>
+<span class="nt">&lt;/Booking&gt;</span>
+<span class="nt">&lt;Hotel/&gt;</span>
+<span class="nt">&lt;Itinerary&gt;</span>
+<span class="nt">&lt;TotalPrice&gt;</span>110.65<span class="nt">&lt;/TotalPrice&gt;</span>
+<span class="nt">&lt;ArrivalDate&gt;</span>2019-03-10<span class="nt">&lt;/ArrivalDate&gt;</span>
+<span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+<span class="nt">&lt;BoardBasis&gt;</span>RO<span class="nt">&lt;/BoardBasis&gt;</span>
+<span class="nt">&lt;NonSmoking&gt;</span>N<span class="nt">&lt;/NonSmoking&gt;</span>
+<span class="nt">&lt;ReturnFlight/&gt;</span>
+<span class="nt">&lt;TerminalCode/&gt;</span>
+<span class="nt">&lt;Code&gt;</span>MANCCT<span class="nt">&lt;/Code&gt;</span>
+<span class="nt">&lt;Name/&gt;</span>
+<span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+<span class="nt">&lt;ParkingSpaces&gt;</span>0<span class="nt">&lt;/ParkingSpaces&gt;</span>
+<span class="nt">&lt;/Itinerary&gt;</span>
+<span class="nt">&lt;Room&gt;</span>
+<span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+<span class="nt">&lt;Children&gt;</span>1<span class="nt">&lt;/Children&gt;</span>
+<span class="nt">&lt;Infants&gt;</span>0<span class="nt">&lt;/Infants&gt;</span>
+<span class="nt">&lt;Code&gt;</span>TRL<span class="nt">&lt;/Code&gt;</span>
+<span class="nt">&lt;/Room&gt;</span>
+<span class="nt">&lt;CurrentSupplements&gt;</span>
+<span class="nt">&lt;Code&gt;</span>MANCDI<span class="nt">&lt;/Code&gt;</span>
+<span class="nt">&lt;Name&gt;</span>2-course dinner<span class="nt">&lt;/Name&gt;</span>
+<span class="nt">&lt;Price&gt;</span>29.90<span class="nt">&lt;/Price&gt;</span>
+<span class="nt">&lt;NonDiscPrice&gt;</span>29.90<span class="nt">&lt;/NonDiscPrice&gt;</span>
+<span class="nt">&lt;Per&gt;</span>person<span class="nt">&lt;/Per&gt;</span>
+<span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+<span class="nt">&lt;Children&gt;</span>1<span class="nt">&lt;/Children&gt;</span>
+<span class="nt">&lt;Date&gt;</span>2019-03-10<span class="nt">&lt;/Date&gt;</span>
+<span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+<span class="nt">&lt;Remarks/&gt;</span>
+<span class="nt">&lt;/CurrentSupplements&gt;</span>
+...
+</code></pre></div></div>
+
+<p>The product code of the supplement will also be returned in the booking response which can be used to retrieve product specific content in the <a href="/hxapi/productlibrary">product library</a> request that can be displayed on booking confirmations. When creating confirmation emails be sure to highlight that the supplement has been added as a part of this booking.</p>
+
+<h2 id="post-booking">Post Booking</h2>
+
+<p>A bundle booking can be amended or cancelled following the same rules as a general product. The supplement has a <code class="language-plaintext highlighter-rouge">Canx</code> field in the booking response that will define if that particular add-on can be cancelled as part of the booking. It is not currently possible to amend the quantity of the supplement or remove it from the booking using the API.</p>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>

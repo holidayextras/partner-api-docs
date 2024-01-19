@@ -21,12 +21,9 @@ end
 
 desc "Deploy site to production"
 task :deploy do
-  sh "cp -a _site /tmp/"
-  sh "git config pull.rebase true"
-  sh "git pull origin gh-pages"
-  sh "git checkout gh-pages"
-  sh "rm -rf _site"
-  sh "mv /tmp/_site ."
+  sh "rm -rf docs"
+  sh "cp -a _site docs"
+  Dir.chdir('docs')
   sh "git status"
   sh "git commit -am 'Deploy'"
   sh "git push"
