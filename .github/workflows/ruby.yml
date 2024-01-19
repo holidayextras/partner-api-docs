@@ -39,4 +39,5 @@ jobs:
         cd docs
         git status
         git commit -am "Update dist"
-        git push origin HEAD:${{ github.ref_name }}
+        echo "Pushing code to: ${{ github.head_ref }}"
+        git push origin HEAD:${{ github.head_ref }}
