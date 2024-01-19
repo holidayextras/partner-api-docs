@@ -12,11 +12,6 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-  workflow_call:
-    secrets:
-      GH_TOKEN:
-        description: 'A github oauth token used for deployment'
-        required: true
 
 jobs:
   test_and_deploy:
@@ -34,10 +29,14 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rake
-    - uses: actions4git/setup-git@v1
-    - name: Run deploy
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      # only deploy on master pushes
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-      run: bundle exec rake deploy
+    - name: Setup Git
+      uses: actions4git/setup-git@v1
+    - name: Commit generated pages
+      # only update docs on non master
+      if: ${{ github.ref != 'refs/heads/master' }}
+      run: |
+        bundle exec rake dist
+        cd docs
+        git status
+        git commit -am "Update dist"
+        git push origin HEAD:${{ github.head_ref }} --force
