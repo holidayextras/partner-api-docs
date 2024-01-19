@@ -19,6 +19,14 @@ task :html_proofer do
   HTMLProofer.check_directory("./_site", options).run
 end
 
-desc "Deploy site"
+desc "Deploy site to production"
 task :deploy do
+  sh "rm -rf _site"
+  sh "mkdir _site"
+  sh "git clone -b gh-pages `git config remote.origin.url` _site"
+  Rake::Task["build"].invoke
+  Dir.chdir('_site')
+  sh "git status"
+  sh "git commit -am 'Deploy'"
+  #sh "git push"
 end
