@@ -32,6 +32,6 @@ jobs:
     - name: Setup Git
       uses: actions4git/setup-git@v1
     - name: Update generated pages
-      # only deploy on non master pushes
-      if: ${{ github.event_name == 'push' && github.ref != 'refs/heads/master' }}
+      # only update docs on non master
+      if: ${{ github.ref != 'refs/heads/master' }}
       run: bundle exec rake dist
