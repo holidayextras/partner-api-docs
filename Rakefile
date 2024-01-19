@@ -21,10 +21,6 @@ end
 
 desc "Update production site content"
 task :dist do
-  sh "rm -rf docs"
-  sh "cp -a _site docs"
-  Dir.chdir('docs')
-  sh "git status"
-  sh "git commit -am 'Deploy' || true"
-  sh "git push"
+  sh "rm -rf docs/*"
+  sh "cp -a _site/* docs/"
 end

@@ -29,16 +29,12 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rake
-    - name: Copy site files
-      run: |
-        rm -rf docs/*
-        cp -a _site/* docs/
-        git status docs
     - name: Commit generated pages
       # only update docs on non master
       if: ${{ github.ref != 'refs/heads/master' }}
-      #run: bundle exec rake dist
-      uses: actions4git/add-commit-push@v1
-      with:
-        path: docs
-        commit-message: "Updating dist"
+      run: |
+        bundle exec rake dist
+        cd docs
+        git status
+        git commit -am "Update dist"
+        git push
