@@ -19,12 +19,12 @@ task :html_proofer do
   HTMLProofer.check_directory("./_site", options).run
 end
 
-desc "Deploy site to production"
-task :deploy do
+desc "Update production site content"
+task :dist do
   sh "rm -rf docs"
   sh "cp -a _site docs"
   Dir.chdir('docs')
   sh "git status"
-  sh "git commit -am 'Deploy'"
+  sh "git commit -am 'Deploy' || true"
   sh "git push"
 end
