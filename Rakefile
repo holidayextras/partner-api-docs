@@ -1,4 +1,4 @@
-require 'rake-jekyll'
+#require 'rake-jekyll'
 require 'html-proofer'
 
 task default: %w[build html_proofer]
@@ -8,6 +8,7 @@ task :build do
   sh "bundle exec jekyll build"
 end
 
+desc "Run the site locally"
 task :start do
   sh "bundle exec jekyll serve"
 end
@@ -19,4 +20,4 @@ task :html_proofer do
   HTMLProofer.check_directory("./_site", options).run
 end
 
-Rake::Jekyll::GitDeployTask.new(:deploy)
+#Rake::Jekyll::GitDeployTask.new(:deploy)
