@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="api-errors">API Errors</h1>
+
+<p>List of errors that can be returned from the API.</p>
+
+<p>Please ensure that your application can handle the errors by inspecting the error code only, do not use the error message as this is for debugging purposes only.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Error code</th>
+      <th>Example message</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TokenError</td>
+      <td>Missing token in request</td>
+      <td>Missing auth token in the request.</td>
+    </tr>
+    <tr>
+      <td>HtmlToPdfError</td>
+      <td>Failed to generate pdf</td>
+      <td>Faild to generate confirmation pdf.</td>
+    </tr>
+    <tr>
+      <td>Invalid agentCode</td>
+      <td>Invalid agent code</td>
+      <td>Agent code is not valid/provided in agent lookup request.</td>
+    </tr>
+    <tr>
+      <td>Agent Lookup Error</td>
+      <td>Unable to retrieve agent details - are you missing a password?</td>
+      <td>Agent lookup failed to retrieve agent details.</td>
+    </tr>
+    <tr>
+      <td>TerminalError</td>
+      <td>Failed to find any terminals</td>
+      <td>Request failed to retriave terminals data.</td>
+    </tr>
+    <tr>
+      <td>SMS Error</td>
+      <td>Missing params to reply to a customer<br />Message too long at {message.length} characters<br />No customerInteraction supplier<br />Failed to send sms message</td>
+      <td>Failed to send sms message.</td>
+    </tr>
+    <tr>
+      <td>MissingParameter</td>
+      <td>BookingRef is required<br />Address is required in url<br />Mobile number is required in url<br />location is required<br />registration is required</td>
+      <td>Required parameter is not provided in the request.</td>
+    </tr>
+    <tr>
+      <td>group-booking</td>
+      <td>For bookings of 7 or more people, please contact us to discuss your requirements</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>chauntry-unavailable</td>
+      <td>Chauntry: Server Unavailable</td>
+      <td>Request failed because Chauntry service is unavailable.</td>
+    </tr>
+    <tr>
+      <td>NoRows</td>
+      <td>Found nothing matching</td>
+      <td>Lookup return empty resultset.</td>
+    </tr>
+    <tr>
+      <td>405</td>
+      <td>To confirm a cancellation request you must use the POST method.</td>
+      <td>HTTP method is not allowed.</td>
+    </tr>
+    <tr>
+      <td>0000</td>
+      <td>Invalid Email Address</td>
+      <td>Missing email param while ammending a booking.</td>
+    </tr>
+    <tr>
+      <td>0004</td>
+      <td>Product is not available</td>
+      <td>Availability lookup product is not available.</td>
+    </tr>
+    <tr>
+      <td>0037</td>
+      <td>Sorry, we have no availability for the dates and times selected.</td>
+      <td>Availability lookup does not find availability for dates and times provided in the request.</td>
+    </tr>
+    <tr>
+      <td>0037</td>
+      <td>Sorry, the availability timeout has been reached. Please try again.</td>
+      <td>Availability lookup does not find availability due to end supplier latency.</td>
+    </tr>
+    <tr>
+      <td>0051</td>
+      <td>Invalid Booking Number</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>0052</td>
+      <td>Your email address was not the one used to make this booking, please try again.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>0053</td>
+      <td>This booking cannot be displayed.  If you are a Travel Agent please login and try again, or check you’re logged in as the correct agent.  For additional assistance please call 0871 360 2422</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>0071</td>
+      <td>Invalid ABTANumber and/or password</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>0071</td>
+      <td>No Upgrades for this Site</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>1435</td>
+      <td>Missing or empty mandatory Itinerary/ArrivalDate parameter</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>1441</td>
+      <td>Please make sure you have entered a depart date.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>1466</td>
+      <td>Missing or empty mandatory Adults field</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>9999</td>
+      <td>An unknown error occurred</td>
+      <td>Internal error occurred.</td>
+    </tr>
+    <tr>
+      <td>F0071</td>
+      <td>Availability requests require the following parameters: From, To, ArrivalTime, DepartTime, PickupLocation, DropoffLocation, DateOfBirth</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F0071</td>
+      <td>Invalid arrival date</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F0071</td>
+      <td>Invalid arrival date and/or time</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F0071</td>
+      <td>Bookings cannot be made for stays before today</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CRS000</td>
+      <td>Booking not found</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CRS001</td>
+      <td>Could not look up booking details</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CRS002</td>
+      <td>Saved name does not match one entered</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="reply">Reply</h2>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;API_Reply</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+    <span class="cp">&lt;?xml version="1.0"?&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        ...
+    <span class="nt">&lt;/API_Header&gt;</span>
+    <span class="nt">&lt;Error&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>ErrorCode<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Message&gt;</span>ErrorMessage<span class="nt">&lt;/Message&gt;</span>
+    <span class="nt">&lt;/Error&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre></div></div>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>
