@@ -46,8 +46,9 @@ This documentation relates to an existing integration with a partner in Germany.
 |-----------------|--|------|
 |[DE-Start](/hxapi/de-start)|No|Yes|
 
-## API Errors
+## Reference
 
-List of errors that can be returned from the API.
+Lists of conventions used in this API.
 
-[Errors](/hxapi/errors)
+* [API Errors](/hxapi/reference/errors)
+* [Titles](/hxapi/reference/titles)
