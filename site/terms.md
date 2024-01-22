@@ -2,7 +2,7 @@
 
 ---
 
-## Terms and conditions
+# Terms and conditions
 
 Holiday Extras UK Terms and conditions can be found here - http://www.holidayextras.co.uk/about-us/terms-and-conditions.html
 
