@@ -116,7 +116,7 @@ For example: `<CarDetFlags>` NNNNNNNNNNNNNNNNNN `</CarDetFlags>`
   | 17       | AddlServices   | String | [A-Z0-9] 50 chars      | In this parameter you may add additional remarks regarding the booking. |
   | 18       | RetTerminal    | String | [A-Z0-9] 2 chars       | Single letter or number representation of the terminal e.g N or S or 4 |
 
-
+NB: Where length restrictions have been noted in the above formats, any additional characters present in a field will be ignored.
 
 ## Worked Examples
 
