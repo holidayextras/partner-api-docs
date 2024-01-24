@@ -36,8 +36,8 @@ jobs:
       if: ${{ github.ref != 'refs/heads/master' }}
       run: |
         bundle exec rake dist
-        cd docs
         git add docs
+        cd docs
         git status
         git commit -am "Update dist"
         git push origin HEAD:${{ github.head_ref }} --force
