@@ -86,10 +86,7 @@ For example: `<CarDetFlags>` NNNNNNNNNNNNNNNNNN `</CarDetFlags>`
 
   | Position | Parameter | Data Type | Format | Additional Information                            |
   | -------- | -------------- | ---------------- | -----------                                                                        |
-  | 1        | Registration  | String | [A-Z0-9] 10 chars      | Vehicle registration number <br> NB: This field is not validated through the API. |
-  | 2        | CarMake        | String | [A-Z0-9] 10 chars | Make of vehicle, e.g. Audi.                                             |
-  | 3        | CarModel       | String | [A-Z0-9] 10 chars      | Model of vehicle, e.g. A6.                                               |
-  | 4        | CarColour      | String | [A-Z0-9] 10 chars      | Colour of vehicle, e.g. White.                                           |
+  {% include_relative _car_det_flags.md -%}
   | 5        | NumberOfPax    | Integer |[0-9]| Number of passengers in the vehicle.|
   | 6        | CarDropoffTime | Time | HHMM             | Arrival time when you drop the vehicle off at the car park e.g 1000. |
   | 7        | CarPickupTime  | Time | HHMM             | Return time, when you pick the vehicle up from the car park, e.g. 1600. |

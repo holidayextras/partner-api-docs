@@ -35,9 +35,9 @@ NB: All parameter names are case sensitive.
 | ArrivalTime   | Time      | HHMM           | Y          | Time customer drops vehicle at car park.|
 | DepartDate    | Date      | YYYY-MM-DD     | Y          | Date customer picks up vehicle from car park.|
 | DepartTime    | Time      | HHMM           | Y          | Time customer picks up vehicle from car park.|
-| Registration  | String    | [A-Z0-9] 10 chars  | N §    | Vehicle registration number. |
-| CarMake       | String    | [A-Z0-9] 10 chars  | N §    | The make of the car, e.g Audi. |
-| CarModel      | String    | [A-Z0-9] 10 chars  | N §    | The model of the car, e.g. A6. |
+| Registration  | String    | [A-Z0-9] 20 chars  | N §    | Vehicle registration number. |
+| CarMake       | String    | [A-Z0-9] 20 chars  | N §    | The make of the car, e.g Audi. |
+| CarModel      | String    | [A-Z0-9] 20 chars  | N §    | The model of the car, e.g. A6. |
 | CarColour     | String    | [A-Z] 10 chars     | N §    | The colour of the car, e.g. black. |
 | Title         | String    | [0-9] 4 chars  | Y          | Title of lead passenger. |
 | Initial       | String    | [A-Z] 1 chars  | Y          | Initial of lead passenger. |
@@ -45,7 +45,7 @@ NB: All parameter names are case sensitive.
 | NumberOfPax   | Integer   | [0-9] 2 chars  | Y          | Number of passengers. |
 | Remarks       | String    |  [A-Z0-9] 60 chars | N      | Any remarks the agent wishes to add to the booking. Please note, these are not passed through to the supplier. |
 
-§ The fields required by the carpark are returned in the availability request, in the `<RequestFlags>` element.
+NB: The fields required by the carpark are returned in the availability request, in the `<RequestFlags>` element.
 
 ### Request flags
 
