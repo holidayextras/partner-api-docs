@@ -40,4 +40,4 @@ jobs:
         cd docs
         git status
         git commit -am "Update dist"
-        git push origin HEAD:${{ github.head_ref }} --force
+        git push origin HEAD:master --force
