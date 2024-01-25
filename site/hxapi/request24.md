@@ -25,11 +25,11 @@ POST
  | BookingRef     | String    | [A-Z0-9] {5,12} | Y        |
  | ReturnFlight   |           | [A-Z0-9] {10} | N        |
  | Remarks        | String    | [A-Z0-9] {60} | N        |
- | Registration   | String    | [A-Z0-9] {10} | Y        |
  | Pax            | Number    | [0-9] {2} | N        |
- | CarMake        | String    | [A-Z0-9] {10} | N        |
- | CarModel       | String    | [A-Z0-9] {10} | N        |
- | CarColour      | String    | [A-Z0-9] {10} | N        |
+ | Registration   | String    | [A-Z0-9] {20} | Y        |
+ | CarMake        | String    | [A-Z0-9] {20} | N        |
+ | CarModel       | String    | [A-Z0-9] {20} | N        |
+ | CarColour      | String    | [A-Z0-9] {20} | N        |
  | OutFltNo       | String    | [A-Z0-9] {10} | N        |
  | InFltNo        | String    | [A-Z0-9] {10} | N        |
  | OutFltTime     | Number    | HHMM       | N        |
