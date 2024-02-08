@@ -1,0 +1,1 @@
+| filter | String | [A-Z] | N | Pass in values `filter=on_airport`, `filter=recommended` or `filter=meet_and_greet` to only show car parks meeting those criteria. You can filter by any field that comes back in the filter section of the API. Only a single filter can be used at once. |
