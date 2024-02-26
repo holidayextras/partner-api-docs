@@ -16,10 +16,20 @@ The endpoint to use is:
 ```
 https://api.holidayextras.co.uk/v1/transfers/[CODE]
 ```
+Where ```[CODE]``` is the product code received in the availability request of the product you want to book.
+
+Here is an example for the following Availability response: 
+```
+<Code>TBHT1169922</Code>
+<BookingURL>/transfers/TBHT1169922</BookingURL>
+...
+```
+Your Make Booking request will have the following URL: https://api.holidayextras.co.uk/v1/transfers/TBHT1169922
 
 ### Request Parameters
 
 The parameters _must_ be sent in the body of the request, as `x-www-form-urlencoded` data.
+
 
 NB: All parameter names are case sensitive.
 

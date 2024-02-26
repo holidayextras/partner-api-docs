@@ -46,6 +46,8 @@
 
 <p>When using the Transfer endpoints below, you will be able to search using various types of location data which will represent the transfers pickup and dropoff points. Currently, the API will accept IATA Codes, TTI Codes and Postcodes (Postcodes can be used for UK Transfers).</p>
 
+<p>You will need a token to call the api. To get the user token use the existing endpoint: <a href="https://docs.holidayextras.co.uk/hxapi/usertoken/">Get Token</a>.</p>
+
 <table>
   <thead>
     <tr>
@@ -65,10 +67,16 @@
       <td><a href="bkg">https://api.holidayextras.co.uk/v1/transfers/[TransferCode]</a></td>
       <td>POST</td>
     </tr>
+    <tr>
+      <td>Amend Booking</td>
+      <td>not supported</td>
+      <td>-</td>
+    </tr>
   </tbody>
 </table>
 
-<p>To View and Cancel your existing bookings, this can be done using the generic product based <a href="/hxapi/viewamendcancel/view/">View Booking</a> and <a href="/hxapi/viewamendcancel/cancel/">Cancel Booking</a> endpoints.</p>
+<p>To <strong>View</strong> and <strong>Cancel</strong> your existing bookings, this can be done using the generic product based <a href="/hxapi/viewamendcancel/view/">View Booking</a> and <a href="/hxapi/viewamendcancel/cancel/">Cancel Booking</a> endpoints.</p>
+
 
 </div>
 
