@@ -10,7 +10,7 @@
 
 When using the Transfer endpoints below, you will be able to search using various types of location data which will represent the transfers pickup and dropoff points. Currently, the API will accept IATA Codes, TTI Codes and Postcodes (Postcodes can be used for UK Transfers).
 
-To get the user token use the existing endpoint: [https://api.holidayextras.co.uk/v1/transfers/search](https://docs.holidayextras.co.uk/hxapi/usertoken/)](Get Token Endpoint)    
+To get the user token use the existing endpoint: [Get Token](https://docs.holidayextras.co.uk/hxapi/usertoken/) 
 
 
  | Action                     | Endpoint                                                                     | Method |
