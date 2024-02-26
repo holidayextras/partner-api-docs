@@ -16,7 +16,7 @@ The endpoint to use is:
 ```
 https://api.holidayextras.co.uk/v1/transfers/[CODE]
 ```
-Where [CODE] is the product code received in the availability request of the product you want to book.
+Where ```[CODE]``` is the product code received in the availability request of the product you want to book.
 Availability request example: 
 ```
 <Code>TBHT1169922</Code>
