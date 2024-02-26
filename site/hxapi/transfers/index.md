@@ -19,6 +19,6 @@ You will need a token to call the api. To get the user token use the existing en
  | Make Booking               | [https://api.holidayextras.co.uk/v1/transfers/[TransferCode]](bkg)           | POST   |
  | Amend Booking              | not supported                                                                |   -    |
 
-To View and Cancel your existing bookings, this can be done using the generic product based [View Booking](/hxapi/viewamendcancel/view/) and [Cancel Booking](/hxapi/viewamendcancel/cancel/) endpoints.
+To **View** and **Cancel** your existing bookings, this can be done using the generic product based [View Booking](/hxapi/viewamendcancel/view/) and [Cancel Booking](/hxapi/viewamendcancel/cancel/) endpoints.
 
 
