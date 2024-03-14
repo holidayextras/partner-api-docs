@@ -41,7 +41,6 @@ NB: All parameter names are case sensitive.
 | ArrivalTime     | Time          | HHMM              | Y          | Time customer wishes to enter the fasttrack.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Adults          | Integer       | [0-4] 1 char      | Y          | Number of adults requiring entry to the fasttrack.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Children        | Integer       | [0-3] 1 char      | N          | Number of children requiring entry to the fasttrack.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Infants         | Integer       | 1 char            | Y          | Number of infants requiring entry to the fasttrack.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Title           | String        | [A-Z] 4 chars     | Y          | Title of lead passenger                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Initial         | String        | [A-Z] 1 chars     | Y          | Initial of lead passenger                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Surname         | String        | [A-Z] 20 chars    | Y          | Surname of lead passenger                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -101,7 +100,6 @@ https://api.holidayextras.co.uk/v1/fastTrack/APMANSF11
         <ArrivalTime>1200</ArrivalTime>
         <Adults>2</Adults>
         <Children>0</Children>
-        <Infants>0</Infants>
         <Title>MR</Title>
         <Initial>T</Initial>
         <Surname>TEST</Surname>
@@ -143,7 +141,6 @@ https://api.holidayextras.co.uk/v1/fastTrack/APMANSF11
       <ArrivalTime>1200</ArrivalTime>
       <Adults>2</Adults>
       <Children>0</Children>
-      <Infants>0</Infants>
       <Title>Mr</Title>
       <Initial>T</Initial>
       <Surname>TEST</Surname>
