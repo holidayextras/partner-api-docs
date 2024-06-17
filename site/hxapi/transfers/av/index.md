@@ -90,6 +90,8 @@ For a detailed explanation of the fields returned, please see below:
 | Transfers/VehicleDetails   | Details about the vehicle being used for the Transfer/s.                                                    |
 | Transfers/OutboundTransfer | Details about the outbound transfer.                                                                        |
 | Transfers/ReturnTransfer   | Details about the return transfer (This field will be `null` if no return was requested).                   |
+| Transfers/PartnerOwnSupply | Product originates from partner’s own supply. Your account manager will confirm whether you should use this. |
+| Transfers/SupplierCost     | Supplier cost for this transfer. Only available for selected products and requests.                     |
 
 #### [Transfer Categories](#transfer-categories)
 
