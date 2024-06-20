@@ -200,7 +200,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "partnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -277,7 +278,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "partnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -354,7 +356,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "partnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -431,7 +434,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "partnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -508,7 +512,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "partnerOwnSupply": false
             }
         ],
         "Pricing": {},
@@ -646,6 +651,7 @@ NB: This is a shortened example compiled from a full availability response.
       <ContactNumbers/>
     </ReturnTransfer>
     <advance_purchase>1</advance_purchase>
+    <PartnerOwnSupply>false</PartnerOwnSupply>
   </Transfers>
   <Pricing/>
   <SepaID/>
@@ -764,7 +770,8 @@ NB: This is a shortened example compiled from a full availability response.
           "JoiningInstructions": null,
           "ContactNumbers": null
         },
-        "advance_purchase": true
+        "advance_purchase": true,
+        "partnerOwnSupply": false
       },
     ],
     "Pricing": {},
@@ -899,6 +906,7 @@ NB: This is a shortened example compiled from a full availability response.
       <ContactNumbers/>
     </ReturnTransfer>
     <advance_purchase>1</advance_purchase>
+    <PartnerOwnSupply>false</PartnerOwnSupply>
   </Transfers>
   <Pricing/>
   <SepaID/>
@@ -1023,7 +1031,8 @@ NB: This is a shortened example compiled from a full availability response.
           "JoiningInstructions": null,
           "ContactNumbers": null
         },
-        "advance_purchase": true
+        "advance_purchase": true,
+        "partnerOwnSupply": false
       }
     ],
     "Pricing": {},
