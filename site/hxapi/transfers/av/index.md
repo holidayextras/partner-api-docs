@@ -90,6 +90,8 @@ For a detailed explanation of the fields returned, please see below:
 | Transfers/VehicleDetails   | Details about the vehicle being used for the Transfer/s.                                                    |
 | Transfers/OutboundTransfer | Details about the outbound transfer.                                                                        |
 | Transfers/ReturnTransfer   | Details about the return transfer (This field will be `null` if no return was requested).                   |
+| Transfers/PartnerOwnSupply | Product originates from partner’s own supply. Your account manager will confirm whether you should use this. |
+| Transfers/SupplierCost     | Supplier cost for this transfer. Only available for selected products and requests.                     |
 
 #### [Transfer Categories](#transfer-categories)
 
@@ -198,7 +200,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "PartnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -275,7 +278,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "PartnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -352,7 +356,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "PartnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -429,7 +434,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "PartnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -506,7 +512,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "PartnerOwnSupply": false
             }
         ],
         "Pricing": {},
@@ -644,6 +651,7 @@ NB: This is a shortened example compiled from a full availability response.
       <ContactNumbers/>
     </ReturnTransfer>
     <advance_purchase>1</advance_purchase>
+    <PartnerOwnSupply>false</PartnerOwnSupply>
   </Transfers>
   <Pricing/>
   <SepaID/>
@@ -762,7 +770,8 @@ NB: This is a shortened example compiled from a full availability response.
           "JoiningInstructions": null,
           "ContactNumbers": null
         },
-        "advance_purchase": true
+        "advance_purchase": true,
+        "PartnerOwnSupply": false
       },
     ],
     "Pricing": {},
@@ -897,6 +906,7 @@ NB: This is a shortened example compiled from a full availability response.
       <ContactNumbers/>
     </ReturnTransfer>
     <advance_purchase>1</advance_purchase>
+    <PartnerOwnSupply>false</PartnerOwnSupply>
   </Transfers>
   <Pricing/>
   <SepaID/>
@@ -1021,7 +1031,8 @@ NB: This is a shortened example compiled from a full availability response.
           "JoiningInstructions": null,
           "ContactNumbers": null
         },
-        "advance_purchase": true
+        "advance_purchase": true,
+        "PartnerOwnSupply": false
       }
     ],
     "Pricing": {},
