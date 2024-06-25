@@ -201,7 +201,7 @@ Here are the available categories which may be returned, there will only be one 
                     "ContactNumbers": null
                 },
                 "advance_purchase": true,
-                "partnerOwnSupply": false
+                "PartnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -279,7 +279,7 @@ Here are the available categories which may be returned, there will only be one 
                     "ContactNumbers": null
                 },
                 "advance_purchase": true,
-                "partnerOwnSupply": false
+                "PartnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -357,7 +357,7 @@ Here are the available categories which may be returned, there will only be one 
                     "ContactNumbers": null
                 },
                 "advance_purchase": true,
-                "partnerOwnSupply": false
+                "PartnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -435,7 +435,7 @@ Here are the available categories which may be returned, there will only be one 
                     "ContactNumbers": null
                 },
                 "advance_purchase": true,
-                "partnerOwnSupply": false
+                "PartnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -513,7 +513,7 @@ Here are the available categories which may be returned, there will only be one 
                     "ContactNumbers": null
                 },
                 "advance_purchase": true,
-                "partnerOwnSupply": false
+                "PartnerOwnSupply": false
             }
         ],
         "Pricing": {},
@@ -771,7 +771,7 @@ NB: This is a shortened example compiled from a full availability response.
           "ContactNumbers": null
         },
         "advance_purchase": true,
-        "partnerOwnSupply": false
+        "PartnerOwnSupply": false
       },
     ],
     "Pricing": {},
@@ -1032,7 +1032,7 @@ NB: This is a shortened example compiled from a full availability response.
           "ContactNumbers": null
         },
         "advance_purchase": true,
-        "partnerOwnSupply": false
+        "PartnerOwnSupply": false
       }
     ],
     "Pricing": {},
