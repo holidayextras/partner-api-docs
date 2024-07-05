@@ -70,7 +70,7 @@
                 <MaxStops>0</MaxStops>
                 <Bags>2</Bags>
                 <NumberOfVehicles>1</NumberOfVehicles>
-                <IsPrivate>1</IsPrivate>
+                <IsPrivate>true</IsPrivate>
                 <Supplier>Supplier</Supplier>
                 <Make/>
             </VehicleDetails>
