@@ -136,7 +136,7 @@ Here are the available categories which may be returned, there will only be one 
                 "SalesCurrency": "GBP",
                 "Images": [
                     {
-                        "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/shuttlebus.jpeg",
+                        "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/shuttlebus.jpeg",
                         "Alt": "shuttlebus"
                     }
                 ],
@@ -214,7 +214,7 @@ Here are the available categories which may be returned, there will only be one 
                 "SalesCurrency": "GBP",
                 "Images": [
                     {
-                        "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/shuttlebus.jpeg",
+                        "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/shuttlebus.jpeg",
                         "Alt": "shuttlebus"
                     }
                 ],
@@ -292,7 +292,7 @@ Here are the available categories which may be returned, there will only be one 
                 "SalesCurrency": "GBP",
                 "Images": [
                     {
-                        "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg",
+                        "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg",
                         "Alt": "private standard"
                     }
                 ],
@@ -370,7 +370,7 @@ Here are the available categories which may be returned, there will only be one 
                 "SalesCurrency": "GBP",
                 "Images": [
                     {
-                        "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_luxury.jpeg",
+                        "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_luxury.jpeg",
                         "Alt": "private luxury"
                     }
                 ],
@@ -448,7 +448,7 @@ Here are the available categories which may be returned, there will only be one 
                 "SalesCurrency": "GBP",
                 "Images": [
                     {
-                        "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg",
+                        "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg",
                         "Alt": "private standard"
                     }
                 ],
@@ -582,7 +582,7 @@ NB: This is a shortened example compiled from a full availability response.
     <NonDiscPrice>87.96</NonDiscPrice>
     <SalesCurrency>GBP</SalesCurrency>
     <Images>
-    <Src>//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg</Src>
+    <Src>//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg</Src>
     <Alt>private standard</Alt>
     </Images>
     <Category>private_transfer</Category>
@@ -701,7 +701,7 @@ NB: This is a shortened example compiled from a full availability response.
         "SalesCurrency": "GBP",
         "Images": [
           {
-            "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg",
+            "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg",
             "Alt": "private standard"
           }
         ],
@@ -837,7 +837,7 @@ NB: This is a shortened example compiled from a full availability response.
     <NonDiscPrice>87.96</NonDiscPrice>
     <SalesCurrency>GBP</SalesCurrency>
     <Images>
-      <Src>//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg</Src>
+      <Src>//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg</Src>
       <Alt>private standard</Alt>
     </Images>
     <Category>private_transfer</Category>
@@ -963,7 +963,7 @@ NB: This is a shortened example compiled from a full availability response.
         "NonDiscPrice": 87.96,
         "SalesCurrency": "GBP",
         "Images": [{
-          "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg",
+          "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg",
           "Alt": "private standard"
         }],
         "Category": "private_transfer",
