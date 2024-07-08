@@ -161,7 +161,7 @@ Here are the available categories which may be returned, there will only be one 
                     "MaxStops": "",
                     "Bags": 1,
                     "NumberOfVehicles": 1,
-                    "IsPrivate": "",
+                    "IsPrivate": false,
                     "Supplier": ""
                 },
                 "OutboundTransfer": {
@@ -239,7 +239,7 @@ Here are the available categories which may be returned, there will only be one 
                     "MaxStops": "",
                     "Bags": 1,
                     "NumberOfVehicles": 1,
-                    "IsPrivate": "",
+                    "IsPrivate": false,
                     "Supplier": ""
                 },
                 "OutboundTransfer": {
@@ -606,7 +606,7 @@ NB: This is a shortened example compiled from a full availability response.
       <MaxStops/>
       <Bags>4</Bags>
       <NumberOfVehicles>1</NumberOfVehicles>
-      <IsPrivate>1</IsPrivate>
+      <IsPrivate>true</IsPrivate>
       <Supplier/>
       <Make/>
     </VehicleDetails>
@@ -861,7 +861,7 @@ NB: This is a shortened example compiled from a full availability response.
       <MaxStops/>
       <Bags>4</Bags>
       <NumberOfVehicles>1</NumberOfVehicles>
-      <IsPrivate>1</IsPrivate>
+      <IsPrivate>true</IsPrivate>
       <Supplier/>
       <Make/>
     </VehicleDetails>
