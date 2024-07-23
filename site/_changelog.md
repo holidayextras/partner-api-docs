@@ -1,6 +1,7 @@
 | Version Number | Date                | Details                                                                           |
 |----------------|---------------------|-----------------------------------------------------------------------------------|
-| 1.17.1         | 17th July 2024      | Changed Content-Type to `application/pdf` for view confirmation booking (pdf)     |
+| 1.17.2         | 17th July 2024      | Changed Content-Type to `application/pdf` for view confirmation booking (pdf)     |
+| 1.17.1         | 17th June 2024      | Added additional paramter for Availability Response `PartnerOwnSupply` and `SupplierCost`|
 | 1.17.0         | 25th July 2022      | Added v2 of the Payment Gateway docs                                              |
 | 1.16.1         | 22nd December 2021  | Added an example of viewing a transfers booking                                   |
 | 1.16.0         | 7th December 2021   | Added `postal-address` location type to transfers                                 |
