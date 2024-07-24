@@ -1,5 +1,6 @@
 | Version Number | Date                | Details                                                                           |
 |----------------|---------------------|-----------------------------------------------------------------------------------|
+| 1.17.1         | 24th July 2024      | Updated docs. Corrected car reg, make, model and colour field lengths               |
 | 1.17.0         | 25th July 2022      | Added v2 of the Payment Gateway docs                                              |
 | 1.16.1         | 22nd December 2021  | Added an example of viewing a transfers booking                                   |
 | 1.16.0         | 7th December 2021   | Added `postal-address` location type to transfers                                 |
