@@ -2,7 +2,7 @@
 
 ## Overview
 
-Documentation to give to partners who would like to integrate with our API.
+Documentation to give to partners who would like to integrate with our API. Hello!
 
 ## Contributing
 
