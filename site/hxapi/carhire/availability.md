@@ -17,7 +17,7 @@ The following GET parameters are mandatory:
 ```javascript
 "key": 1,
 "From": "YYYY-MM-DD",
-"ArrivalTime": "HHmm", // 24 hour time format
+"ArrivalTime": "HHmm", // 24 hour time format - hello
 "To": "YYYY-MM-DD",
 "DepartTime": "HHmm", // 24 hour time format
 "PickupLocation": "FL965", // code from the locations request
