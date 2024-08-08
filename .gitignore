@@ -5,5 +5,6 @@
 .bundle
 vendor
 .DS_Store
+.idea
 
 package-lock.json
