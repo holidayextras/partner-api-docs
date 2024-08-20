@@ -12,9 +12,10 @@ Here are the car parking specific endpoints:
 
  | Request | Endpoint | Method |
  | ------ | -------- | ------ |
- | Availability at airport  | [https://api.holidayextras.co.uk/v1/carpark/AirportCode](av/airport)        | GET    |
- | Availability at car park | [https://api.holidayextras.co.uk/v1/carpark/CarParkCode](av/carpark)        | GET    |
- | Make booking at car park | [https://api.holidayextras.co.uk/v1/carpark/CarParkCode](bkg)               | POST   |
+ | Availability at airport  | [https://api.holidayextras.co.uk/v1/carpark/AirportCode](av/airport)            | GET    |
+ | Availability at car park | [https://api.holidayextras.co.uk/v1/carpark/CarParkCode](av/carpark)            | GET    |
+ | Make booking at car park | [https://api.holidayextras.co.uk/v1/carpark/CarParkCode](bkg)                   | POST   |
+ | Pre-booking price check  | [https://api.holidayextras.co.uk/v1/carpark/CarParkCode/priceCheck](priceCheck) | GET    |
 
 ## Parking User Journey
 
