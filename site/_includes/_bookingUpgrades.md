@@ -15,10 +15,10 @@ For per `Person` upgrades the number of `Adult` and `Children` passes must be su
 
 #### Pricing
 
-A `TotalPrice` must be included with each supplment node. This should be calculated as follows;
+A `TotalPrice` must be included with each supplement node. This should be calculated as follows;
 
 - Per `Room` or per `Booking` - `Quantity` x `Price`
-- Per `Person` - (`Adults` x `AdPrice`) + (`Chilren` x `ChPrice`)
+- Per `Person` - (`Adults` x `AdPrice`) + (`Children` x `ChPrice`)
 
 *\*NOTE\** When booking upgrades the cost of the upgrades should not be added to the `PriceCheckPrice`. This should only reflect the price of the core product.
 
