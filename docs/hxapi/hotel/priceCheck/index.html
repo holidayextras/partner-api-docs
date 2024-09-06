@@ -385,8 +385,46 @@
       <td>TotalPrice</td>
       <td>This is the total price for the booking including all upgrades</td>
     </tr>
+    <tr>
+      <td>API_Header/Request</td>
+      <td>A list of parameters that were sent in the booking request.</td>
+    </tr>
   </tbody>
 </table>
+
+<h2 id="worked-examples">Worked Examples</h2>
+
+<p>Below are worked examples of both the request and response for the price check for hotels.</p>
+
+<h3 id="hotel-price-check-1">Hotel price check</h3>
+
+<h4 id="request">Request</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-07-01&amp;Nights=1&amp;RoomCode=DBL&amp;ParkingDays=0&amp;Adults=2&amp;Children=0
+</code></pre></div></div>
+
+<h4 id="response">Response</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;TotalPrice&gt;</span>125.00<span class="nt">&lt;/TotalPrice&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+            <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+            <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
+            <span class="nt">&lt;ArrivalDate&gt;</span>2025-07-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+            <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+            <span class="nt">&lt;RoomCode&gt;</span>DBL<span class="nt">&lt;/RoomCode&gt;</span>
+            <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+            <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+            <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre></div></div>
 
 </div>
 
