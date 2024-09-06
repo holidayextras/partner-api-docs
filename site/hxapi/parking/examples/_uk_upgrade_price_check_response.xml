@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<API_Reply Product="CarPark" RequestCode="5" Result="OK">
+  <TotalPrice>86.20</TotalPrice>
+  <API_Header>
+    <Request>
+      <ABTANumber>YourABTANumber</ABTANumber>
+      <Password>YourPassword</Password>
+      <Initials>YourInitials</Initials>
+      <key>YourKey</key>
+      <token>YourToken</token>
+      <ArrivalDate>2025-07-01</ArrivalDate>
+      <ArrivalTime>12:30</ArrivalTime>
+      <DepartDate>2025-07-08</DepartDate>
+      <DepartTime>13:45</DepartTime>
+      <NumberOfPax>1</NumberOfPax>
+      <Supplements>
+        <Code>HXOST1</Code>
+        <Date>2025-07-01</Date>
+        <Quantity>1</Quantity>
+      </Supplements>
+      <Supplements>
+        <Code>LHRSFS</Code>
+        <Date>2025-07-01</Date>
+        <Adults>2</Adults>
+        <Children>1</Children>
+      </Supplements>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply>
