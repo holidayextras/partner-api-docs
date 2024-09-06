@@ -86,3 +86,22 @@ The additional parameters for hotel with parking (where parking > 0 days) are:
 | Field                   | Additional Information                                                                                                                                                                                        |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | TotalPrice      | This is the total price for the booking including all upgrades |
+| API_Header/Request | A list of parameters that were sent in the booking request.                                                                                                                                               |
+
+## Worked Examples
+
+Below are worked examples of both the request and response for the price check for hotels.
+
+### Hotel price check
+
+#### Request
+
+```
+https://api.holidayextras.co.uk/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2025-07-01&Nights=1&RoomCode=DBL&ParkingDays=0&Adults=2&Children=0
+```
+
+#### Response
+
+```xml
+{% include_relative examples/_uk_price_check_room_only_response.xml %}
+```
