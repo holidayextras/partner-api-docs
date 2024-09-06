@@ -356,18 +356,18 @@
   </tbody>
 </table>
 
-<h2 id="worked-examples">Worked Examples</h2>
+<h1 id="worked-examples">Worked Examples</h1>
 
 <p>Below are worked examples of both the request and response for the price check for hotels.</p>
 
-<h3 id="uk-hotel-price-check">UK Hotel price check</h3>
+<h2 id="uk-hotel-price-check">UK Hotel price check</h2>
 
-<h4 id="request">Request</h4>
+<h3 id="request">Request</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-07-01&amp;Nights=1&amp;RoomCode=DBL&amp;ParkingDays=0&amp;Adults=2&amp;Children=0
 </code></pre></div></div>
 
-<h4 id="response">Response</h4>
+<h3 id="response">Response</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
@@ -390,14 +390,14 @@
 
 </code></pre></div></div>
 
-<h3 id="uk-hotel-price-check-with-upgrades">UK Hotel price check with Upgrades</h3>
+<h2 id="uk-hotel-price-check-with-upgrades">UK Hotel price check with Upgrades</h2>
 
-<h4 id="request-1">Request</h4>
+<h3 id="request-1">Request</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-07-10&amp;Nights=1&amp;RoomCode=DBL&amp;ParkingDays=0&amp;Adults=2&amp;Children=0&amp;Supplements[0][Code]=LGWSOE&amp;Supplements[0][Date]=2025-07-10&amp;Supplements[0][Quantity]=1&amp;Supplements[0][TotalPrice]=40.00&amp;Supplements[1][Code]=LGWASC&amp;Supplements[1][Date]=2025-07-11&amp;Supplements[1][Adults]=2&amp;Supplements[1][Children]=0&amp;Supplements[1][TotalPrice]=82.00
 </code></pre></div></div>
 
-<h4 id="response-1">Response</h4>
+<h3 id="response-1">Response</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
