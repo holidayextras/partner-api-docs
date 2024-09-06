@@ -332,42 +332,6 @@
       <td>HHMM</td>
       <td>Y</td>
     </tr>
-    <tr>
-      <td>ReturnFlight</td>
-      <td>String</td>
-      <td>[A-Z0-9] 10 chars</td>
-      <td>N</td>
-    </tr>
-    <tr>
-      <td>TerminalCode</td>
-      <td>String</td>
-      <td>[A-Z0-9] 2 chars</td>
-      <td>N</td>
-    </tr>
-    <tr>
-      <td>Registration</td>
-      <td>String</td>
-      <td>[A-Z0-9] 20 chars</td>
-      <td>N</td>
-    </tr>
-    <tr>
-      <td>CarMake</td>
-      <td>String</td>
-      <td>[A-Z0-9] 20 chars</td>
-      <td>N</td>
-    </tr>
-    <tr>
-      <td>CarModel</td>
-      <td>String</td>
-      <td>[A-Z0-9] 20 chars</td>
-      <td>N</td>
-    </tr>
-    <tr>
-      <td>CarColour</td>
-      <td>String</td>
-      <td>[A-Z0-9] 20 chars</td>
-      <td>N</td>
-    </tr>
   </tbody>
 </table>
 
@@ -385,8 +349,90 @@
       <td>TotalPrice</td>
       <td>This is the total price for the booking including all upgrades</td>
     </tr>
+    <tr>
+      <td>API_Header/Request</td>
+      <td>A list of parameters that were sent in the booking request.</td>
+    </tr>
   </tbody>
 </table>
+
+<h1 id="worked-examples">Worked Examples</h1>
+
+<p>Below are worked examples of both the request and response for the price check for hotels.</p>
+
+<h2 id="uk-hotel-price-check">UK Hotel price check</h2>
+
+<h3 id="request">Request</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-07-01&amp;Nights=1&amp;RoomCode=DBL&amp;ParkingDays=0&amp;Adults=2&amp;Children=0
+</code></pre></div></div>
+
+<h3 id="response">Response</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;TotalPrice&gt;</span>125.00<span class="nt">&lt;/TotalPrice&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+            <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+            <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
+            <span class="nt">&lt;ArrivalDate&gt;</span>2025-07-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+            <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+            <span class="nt">&lt;RoomCode&gt;</span>DBL<span class="nt">&lt;/RoomCode&gt;</span>
+            <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+            <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+            <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre></div></div>
+
+<h2 id="uk-hotel-price-check-with-upgrades">UK Hotel price check with Upgrades</h2>
+
+<h3 id="request-1">Request</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-07-10&amp;Nights=1&amp;RoomCode=DBL&amp;ParkingDays=0&amp;Adults=2&amp;Children=0&amp;Supplements[0][Code]=LGWSOE&amp;Supplements[0][Date]=2025-07-10&amp;Supplements[0][Quantity]=1&amp;Supplements[0][TotalPrice]=40.00&amp;Supplements[1][Code]=LGWASC&amp;Supplements[1][Date]=2025-07-11&amp;Supplements[1][Adults]=2&amp;Supplements[1][Children]=0&amp;Supplements[1][TotalPrice]=82.00
+</code></pre></div></div>
+
+<h3 id="response-1">Response</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;TotalPrice&gt;</span>247.00<span class="nt">&lt;/TotalPrice&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+      <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+      <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2025-07-10<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;Nights&gt;</span>1<span class="nt">&lt;/Nights&gt;</span>
+      <span class="nt">&lt;RoomCode&gt;</span>DBL<span class="nt">&lt;/RoomCode&gt;</span>
+      <span class="nt">&lt;ParkingDays&gt;</span>0<span class="nt">&lt;/ParkingDays&gt;</span>
+      <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+      <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+      <span class="nt">&lt;Supplements&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LGWSOE<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2025-07-10<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span>
+        <span class="nt">&lt;TotalPrice&gt;</span>40.00<span class="nt">&lt;/TotalPrice&gt;</span>
+      <span class="nt">&lt;/Supplements&gt;</span>
+      <span class="nt">&lt;Supplements&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LGWASC<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2025-07-11<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+        <span class="nt">&lt;Children&gt;</span>0<span class="nt">&lt;/Children&gt;</span>
+        <span class="nt">&lt;TotalPrice&gt;</span>82.00<span class="nt">&lt;/TotalPrice&gt;</span>
+      <span class="nt">&lt;/Supplements&gt;</span>
+      <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre></div></div>
 
 </div>
 

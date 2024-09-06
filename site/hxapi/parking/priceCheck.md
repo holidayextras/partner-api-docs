@@ -57,3 +57,36 @@ For further details on the upgrade parameters, see the [Booking request](/hxapi/
 | Field                   | Additional Information                                                                                                                                                                                        |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | TotalPrice      | This is the total price for the booking including all upgrades |
+| API_Header/Request      | A list of parameters that were sent in the booking request.                                                                                                                                                   |
+
+## Worked Examples
+
+Below are worked examples of both the request and response for the price check for parking.
+
+### UK Parking price check
+
+#### Request
+
+```
+https://api.holidayextras.co.uk/carpark/LHH6/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-07-01&ArrivalTime=1200&DepartDate=2025-07-08&DepartTime=1200&NumberOfPax=1
+```
+
+#### Response
+
+```xml
+{% include_relative examples/_uk_price_check_response.xml %}
+```
+
+### UK Parking price check with Upgrades
+
+#### Request
+
+```
+https://api.holidayextras.co.uk/carpark/LHH6/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-07-01&ArrivalTime=1230&DepartDate=2025-07-08&DepartTime=1345&NumberOfPax=1&Supplements[0][Code]=HXOST1&Supplements[0][Date]=2025-07-01&Supplements[0][Quantity]=1&Supplements[1][Code]=LHRSFS&Supplements[1][Date]=2025-07-01&Supplements[1][Adults]=2&Supplements[1][Children]=1
+```
+
+#### Response
+
+```xml
+{% include_relative examples/_uk_upgrade_price_check_response.xml %}
+```
