@@ -74,12 +74,6 @@ The additional parameters for hotel with parking (where parking > 0 days) are:
 | CarDropoffTime | Time      | HHMM              | Y          |
 | CarPickupDate  | Date      | YYYY-MM-DD        | Y          |
 | CarPickupTime  | Time      | HHMM              | Y          |
-| ReturnFlight   | String    | [A-Z0-9] 10 chars | N          |
-| TerminalCode   | String    | [A-Z0-9] 2 chars  | N          |
-| Registration   | String    | [A-Z0-9] 20 chars | N          |
-| CarMake        | String    | [A-Z0-9] 20 chars | N          |
-| CarModel       | String    | [A-Z0-9] 20 chars | N          |
-| CarColour      | String    | [A-Z0-9] 20 chars | N          |
 
 # Hotel Price Check Response
 
@@ -92,7 +86,7 @@ The additional parameters for hotel with parking (where parking > 0 days) are:
 
 Below are worked examples of both the request and response for the price check for hotels.
 
-### Hotel price check
+### UK Hotel price check
 
 #### Request
 
@@ -103,5 +97,19 @@ https://api.holidayextras.co.uk/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANu
 #### Response
 
 ```xml
-{% include_relative examples/_uk_price_check_room_only_response.xml %}
+{% include_relative examples/_uk_room_only_price_check_response.xml %}
+```
+
+### UK Hotel price check with Upgrades
+
+#### Request
+
+```
+https://api.holidayextras.co.uk/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2025-07-10&Nights=1&RoomCode=DBL&ParkingDays=0&Adults=2&Children=0&Supplements[0][Code]=LGWSOE&Supplements[0][Date]=2025-07-10&Supplements[0][Quantity]=1&Supplements[0][TotalPrice]=40.00&Supplements[1][Code]=LGWASC&Supplements[1][Date]=2025-07-11&Supplements[1][Adults]=2&Supplements[1][Children]=0&Supplements[1][TotalPrice]=82.00
+```
+
+#### Response
+
+```xml
+{% include_relative examples/_uk_upgrade_price_check_response.xml %}
 ```
