@@ -17,7 +17,7 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/LocationCode/priceCheck
+https://api.holidayextras.co.uk/v1/hotel/HotelProductCode/priceCheck
 ```
 
 For example, for _Mercure at London Heathrow_ the endpoint is:
