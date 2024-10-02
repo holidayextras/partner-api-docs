@@ -48,6 +48,8 @@
 
 <p><strong>Note</strong>: Token payment is currently available for Level 5 Germany agents only.</p>
 
+<p><strong>Note</strong>: We have added postalCode and countryCode as NatWest have started refusing payments without this information.</p>
+
 <h3 id="method">Method</h3>
 
 <p>POST</p>
@@ -215,7 +217,9 @@
   "token": "4111111111111111",
   "paymentReference": "testPaymentRef",
   "amount": 1234,
-  "currency": "GBP"
+  "currency": "GBP",
+  "postalCode": "CT21 4JF",
+  "countryCode": "GB"
 }
 </code></pre></div></div>
 
