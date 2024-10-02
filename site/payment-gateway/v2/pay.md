@@ -12,6 +12,8 @@ This endpoint will take payment using a token and required payment parameters.
 
 **Note**: Token payment is currently available for Level 5 Germany agents only.
 
+**Note**: We have added postalCode and countryCode as NatWest have started refusing payments without this information.
+
 ### Method
 
 POST
@@ -44,6 +46,9 @@ NB: All parameter names are case sensitive.
  | paymentReference | String | [A-Z] | Y | A reference used to group multiple payments together, doesn't need to be unique. |
  | amount | Integer | [0-9] | Y | The price (in pence) to be paid. |
  | currency | String | [A-Z]{3} | Y | ISO 4217 standard currency code for the currency of this payment |
+ | postalCode | String | [A-Z0-9] | N | The postal code for the payment's billing address. |
+ | countryCode | String | [A-Z]{2} | N | ISO 3166-1 alpha-2 standard country code for the billing address. |
+
 
 ## Payment Response
 
@@ -74,7 +79,9 @@ Below are examples of both the request and response for a new payment.
   "token": "4111111111111111",
   "paymentReference": "testPaymentRef",
   "amount": 1234,
-  "currency": "GBP"
+  "currency": "GBP",
+  "postalCode": "CT21 4JF",
+  "countryCode": "GB"
 }
 ```
 
