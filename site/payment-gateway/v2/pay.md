@@ -12,6 +12,8 @@ This endpoint will take payment using a token and required payment parameters.
 
 **Note**: Token payment is currently available for Level 5 Germany agents only.
 
+**Note**: We have added postalCode and countryCode as NatWest have started refusing payments without this information.
+
 ### Method
 
 POST
@@ -77,7 +79,9 @@ Below are examples of both the request and response for a new payment.
   "token": "4111111111111111",
   "paymentReference": "testPaymentRef",
   "amount": 1234,
-  "currency": "GBP"
+  "currency": "GBP",
+  "postalCode": "CT21 4JF",
+  "countryCode": "GB"
 }
 ```
 
