@@ -390,6 +390,14 @@
       <td>Transfers/ReturnTransfer</td>
       <td>Details about the return transfer (This field will be <code class="language-plaintext highlighter-rouge">null</code> if no return was requested).</td>
     </tr>
+    <tr>
+      <td>Transfers/PartnerOwnSupply</td>
+      <td>Product originates from partner’s own supply. Your account manager will confirm whether you should use this.</td>
+    </tr>
+    <tr>
+      <td>Transfers/SupplierCost</td>
+      <td>Supplier cost for this transfer. Only available for selected products and requests.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -437,7 +445,7 @@
                 </span><span class="nl">"SalesCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"Images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dfgkosjf6iw47.cloudfront.net/resortTransfers/shuttlebus.jpeg"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/shuttlebus.jpeg"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"Alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shuttlebus"</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">],</span><span class="w">
@@ -462,7 +470,7 @@
                     </span><span class="nl">"MaxStops"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Bags"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"NumberOfVehicles"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"IsPrivate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"IsPrivate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Supplier"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="nl">"OutboundTransfer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -501,7 +509,8 @@
                     </span><span class="nl">"JoiningInstructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"ContactNumbers"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
                 </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PartnerOwnSupply"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -514,7 +523,7 @@
                 </span><span class="nl">"SalesCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"Images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dfgkosjf6iw47.cloudfront.net/resortTransfers/shuttlebus.jpeg"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/shuttlebus.jpeg"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"Alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shuttlebus"</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">],</span><span class="w">
@@ -539,7 +548,7 @@
                     </span><span class="nl">"MaxStops"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Bags"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"NumberOfVehicles"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"IsPrivate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"IsPrivate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"Supplier"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="nl">"OutboundTransfer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -578,7 +587,8 @@
                     </span><span class="nl">"JoiningInstructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"ContactNumbers"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
                 </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PartnerOwnSupply"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -591,7 +601,7 @@
                 </span><span class="nl">"SalesCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"Images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"Alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private standard"</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">],</span><span class="w">
@@ -655,7 +665,8 @@
                     </span><span class="nl">"JoiningInstructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"ContactNumbers"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
                 </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PartnerOwnSupply"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -668,7 +679,7 @@
                 </span><span class="nl">"SalesCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"Images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_luxury.jpeg"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_luxury.jpeg"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"Alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private luxury"</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">],</span><span class="w">
@@ -732,7 +743,8 @@
                     </span><span class="nl">"JoiningInstructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"ContactNumbers"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
                 </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PartnerOwnSupply"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -745,7 +757,7 @@
                 </span><span class="nl">"SalesCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"Images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg"</span><span class="p">,</span><span class="w">
                         </span><span class="nl">"Alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private standard"</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">],</span><span class="w">
@@ -809,7 +821,8 @@
                     </span><span class="nl">"JoiningInstructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"ContactNumbers"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
                 </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"PartnerOwnSupply"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"Pricing"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
@@ -847,7 +860,7 @@
 <h4 id="airport-to-tti">Airport to TTI</h4>
 <h5 id="request">Request</h5>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#80261f6a-19d5-484d-bc22-53ad584cd644'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#853f8024-0203-4e80-aa97-da7caa589068'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -855,7 +868,7 @@
 
 </ul>
 
-<ul id="80261f6a-19d5-484d-bc22-53ad584cd644" class="uk-switcher uk-margin">
+<ul id="853f8024-0203-4e80-aa97-da7caa589068" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https:///api.holidayextras.co.uk/v1/transfers/search?ABTANumber=YourABTANumber&amp;Password=YourABTANumber&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;PickUp=ALC&amp;PickUpType=IATA&amp;DropOffType=TTI&amp;DropOff=10147575&amp;FromDate=2022-03-16&amp;FromTime=1115&amp;ReturnDate=2022-03-23&amp;ReturnTime=1115&amp;Adults=2&amp;OutFlight=U28605&amp;ReturnFlight=U28602
@@ -874,7 +887,7 @@
 
 <p>NB: This is a shortened example compiled from a full availability response.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#bee7dcb2-faba-46dc-b982-5463f3156e47'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#dbe1c596-1d9a-4bab-b66d-343064f1d18e'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -882,7 +895,7 @@
 
 </ul>
 
-<ul id="bee7dcb2-faba-46dc-b982-5463f3156e47" class="uk-switcher uk-margin">
+<ul id="dbe1c596-1d9a-4bab-b66d-343064f1d18e" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"Transfers"</span> <span class="na">RequestCode=</span><span class="s">"1"</span> <span class="na">Result=</span><span class="s">"OK"</span> <span class="na">cached=</span><span class="s">"1"</span> <span class="na">expires=</span><span class="s">"2021-12-07 13:06:41"</span><span class="nt">&gt;</span>
@@ -895,7 +908,7 @@
     <span class="nt">&lt;NonDiscPrice&gt;</span>87.96<span class="nt">&lt;/NonDiscPrice&gt;</span>
     <span class="nt">&lt;SalesCurrency&gt;</span>GBP<span class="nt">&lt;/SalesCurrency&gt;</span>
     <span class="nt">&lt;Images&gt;</span>
-    <span class="nt">&lt;Src&gt;</span>//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg<span class="nt">&lt;/Src&gt;</span>
+    <span class="nt">&lt;Src&gt;</span>//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg<span class="nt">&lt;/Src&gt;</span>
     <span class="nt">&lt;Alt&gt;</span>private standard<span class="nt">&lt;/Alt&gt;</span>
     <span class="nt">&lt;/Images&gt;</span>
     <span class="nt">&lt;Category&gt;</span>private_transfer<span class="nt">&lt;/Category&gt;</span>
@@ -919,7 +932,7 @@
       <span class="nt">&lt;MaxStops/&gt;</span>
       <span class="nt">&lt;Bags&gt;</span>4<span class="nt">&lt;/Bags&gt;</span>
       <span class="nt">&lt;NumberOfVehicles&gt;</span>1<span class="nt">&lt;/NumberOfVehicles&gt;</span>
-      <span class="nt">&lt;IsPrivate&gt;</span>1<span class="nt">&lt;/IsPrivate&gt;</span>
+      <span class="nt">&lt;IsPrivate&gt;</span>true<span class="nt">&lt;/IsPrivate&gt;</span>
       <span class="nt">&lt;Supplier/&gt;</span>
       <span class="nt">&lt;Make/&gt;</span>
     <span class="nt">&lt;/VehicleDetails&gt;</span>
@@ -964,6 +977,7 @@
       <span class="nt">&lt;ContactNumbers/&gt;</span>
     <span class="nt">&lt;/ReturnTransfer&gt;</span>
     <span class="nt">&lt;advance_purchase&gt;</span>1<span class="nt">&lt;/advance_purchase&gt;</span>
+    <span class="nt">&lt;PartnerOwnSupply&gt;</span>false<span class="nt">&lt;/PartnerOwnSupply&gt;</span>
   <span class="nt">&lt;/Transfers&gt;</span>
   <span class="nt">&lt;Pricing/&gt;</span>
   <span class="nt">&lt;SepaID/&gt;</span>
@@ -1013,7 +1027,7 @@
         </span><span class="nl">"SalesCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private standard"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -1082,7 +1096,8 @@
           </span><span class="nl">"JoiningInstructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
           </span><span class="nl">"ContactNumbers"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PartnerOwnSupply"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
       </span><span class="p">},</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"Pricing"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
@@ -1117,7 +1132,7 @@
 
 <h4 id="airport-to-postal-address">Airport to Postal Address</h4>
 <h5 id="request-1">Request</h5>
-<ul class="uk-tab" data-uk-switcher="{connect:'#1355a93b-75aa-4d17-a265-49c507a30cd8'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#14cbdf80-18b8-4c82-b161-179fcdbebf71'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -1125,7 +1140,7 @@
 
 </ul>
 
-<ul id="1355a93b-75aa-4d17-a265-49c507a30cd8" class="uk-switcher uk-margin">
+<ul id="14cbdf80-18b8-4c82-b161-179fcdbebf71" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https:///api.holidayextras.co.uk/v1/transfers/search?ABTANumber=YourABTANumber&amp;Password=YourABTANumber&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;PickUp=ALC&amp;PickUpType=IATA&amp;DropOffType=postal-address&amp;DropOffName=Hotel%20Rural%20Castillo%20De%20Biar&amp;DropOffAddress[0]=Carretera%20de%20Banyeres&amp;DropOffAddress[1]=s/n&amp;DropOffTown=%20Biar&amp;DropOffCounty=Alicante&amp;DropOffPostcode=03410&amp;DropOffCountryCode=ES&amp;DropOffLongitude=-0.76832006&amp;DropOffLatitude=38.63852215&amp;Adults=2&amp;FromDate=2022-03-16&amp;FromTime=1115&amp;ReturnDate=2022-03-23&amp;ReturnTime=1115&amp;OutFlight=U28605&amp;ReturnFlight=U28602
@@ -1144,7 +1159,7 @@
 
 <p>NB: This is a shortened example compiled from a full availability response.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#4efcd11a-4d5f-4ccc-887e-fe3da3bc4ef1'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#39197484-99a5-4560-a239-5bbb3fb955aa'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -1152,7 +1167,7 @@
 
 </ul>
 
-<ul id="4efcd11a-4d5f-4ccc-887e-fe3da3bc4ef1" class="uk-switcher uk-margin">
+<ul id="39197484-99a5-4560-a239-5bbb3fb955aa" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"Transfers"</span> <span class="na">RequestCode=</span><span class="s">"1"</span> <span class="na">Result=</span><span class="s">"OK"</span> <span class="na">cached=</span><span class="s">"1"</span> <span class="na">expires=</span><span class="s">"2021-12-07 16:31:35"</span><span class="nt">&gt;</span>
@@ -1165,7 +1180,7 @@
     <span class="nt">&lt;NonDiscPrice&gt;</span>87.96<span class="nt">&lt;/NonDiscPrice&gt;</span>
     <span class="nt">&lt;SalesCurrency&gt;</span>GBP<span class="nt">&lt;/SalesCurrency&gt;</span>
     <span class="nt">&lt;Images&gt;</span>
-      <span class="nt">&lt;Src&gt;</span>//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg<span class="nt">&lt;/Src&gt;</span>
+      <span class="nt">&lt;Src&gt;</span>//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg<span class="nt">&lt;/Src&gt;</span>
       <span class="nt">&lt;Alt&gt;</span>private standard<span class="nt">&lt;/Alt&gt;</span>
     <span class="nt">&lt;/Images&gt;</span>
     <span class="nt">&lt;Category&gt;</span>private_transfer<span class="nt">&lt;/Category&gt;</span>
@@ -1189,7 +1204,7 @@
       <span class="nt">&lt;MaxStops/&gt;</span>
       <span class="nt">&lt;Bags&gt;</span>4<span class="nt">&lt;/Bags&gt;</span>
       <span class="nt">&lt;NumberOfVehicles&gt;</span>1<span class="nt">&lt;/NumberOfVehicles&gt;</span>
-      <span class="nt">&lt;IsPrivate&gt;</span>1<span class="nt">&lt;/IsPrivate&gt;</span>
+      <span class="nt">&lt;IsPrivate&gt;</span>true<span class="nt">&lt;/IsPrivate&gt;</span>
       <span class="nt">&lt;Supplier/&gt;</span>
       <span class="nt">&lt;Make/&gt;</span>
     <span class="nt">&lt;/VehicleDetails&gt;</span>
@@ -1234,6 +1249,7 @@
       <span class="nt">&lt;ContactNumbers/&gt;</span>
     <span class="nt">&lt;/ReturnTransfer&gt;</span>
     <span class="nt">&lt;advance_purchase&gt;</span>1<span class="nt">&lt;/advance_purchase&gt;</span>
+    <span class="nt">&lt;PartnerOwnSupply&gt;</span>false<span class="nt">&lt;/PartnerOwnSupply&gt;</span>
   <span class="nt">&lt;/Transfers&gt;</span>
   <span class="nt">&lt;Pricing/&gt;</span>
   <span class="nt">&lt;SepaID/&gt;</span>
@@ -1290,7 +1306,7 @@
         </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">87.96</span><span class="p">,</span><span class="w">
         </span><span class="nl">"SalesCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Images"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-          </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private standard"</span><span class="w">
         </span><span class="p">}],</span><span class="w">
         </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private_transfer"</span><span class="p">,</span><span class="w">
@@ -1358,7 +1374,8 @@
           </span><span class="nl">"JoiningInstructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
           </span><span class="nl">"ContactNumbers"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PartnerOwnSupply"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"Pricing"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">

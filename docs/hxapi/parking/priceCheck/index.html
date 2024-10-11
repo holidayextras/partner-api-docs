@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="car-park-price-check">Car Park Price Check</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; product:<a href="/hxapi/parking">Parking</a> &gt; endpoint:<a href="/hxapi/parking/av">carpark</a> &gt; <a href="/hxapi/parking/priceCheck">Price Check</a></p>
+
+<h2 id="car-park-pre-booking-price-check-request">Car Park Pre-booking Price Check Request</h2>
+
+<p>The price check is an optional step to retrieve an up-to-date total price prior to booking.</p>
+
+<p>The parameters are similar to the Book request; the total price retrieved will include all ugprades specified.</p>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p>The endpoint to use is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/CarParkProductCode/priceCheck
+</code></pre></div></div>
+
+<p>For example, for <em>Maple Manor Meet and Greet at London Gatwick North terminal</em> the endpoint is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/LGW4/priceCheck
+</code></pre></div></div>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<p>NB: All parameter names are case sensitive.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Mandatory?</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y</td>
+      <td>This is also known as an ‘agent code’. <br />This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>N*</td>
+      <td>Password required for retail agent requests - intermediaries do not require a password.<br />This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z] 3 chars</td>
+      <td>N</td>
+      <td>The initials of the Operator / Agent.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+      <td>This will be assigned to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9] 9 chars</td>
+      <td>Y</td>
+      <td>This is the same token used in the availability request.</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+      <td>Date customer drops vehicle at car park.</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+      <td>Time customer drops vehicle at car park.</td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+      <td>Date customer picks up vehicle from car park.</td>
+    </tr>
+    <tr>
+      <td>DepartTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+      <td>Time customer picks up vehicle from car park.</td>
+    </tr>
+    <tr>
+      <td>NumberOfPax</td>
+      <td>Integer</td>
+      <td>[0-9] 2 chars</td>
+      <td>Y</td>
+      <td>Number of passengers.</td>
+    </tr>
+    <tr>
+      <td>System</td>
+      <td>String</td>
+      <td>[A-Z] 3 chars</td>
+      <td>Y*</td>
+      <td>For European products, you need to pass in the value of <code class="language-plaintext highlighter-rouge">System=ABG</code> (the default is <code class="language-plaintext highlighter-rouge">System=ABC</code>, which is UK products only).</td>
+    </tr>
+    <tr>
+      <td>Supplements/Code</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>N</td>
+      <td>Product code of the upgrade to book. See below for more info on booking upgrades</td>
+    </tr>
+    <tr>
+      <td>Supplements/Date</td>
+      <td>String</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+      <td>The date to book the upgrade for. This should be brought forward from the upgrade availability request.</td>
+    </tr>
+    <tr>
+      <td>Supplements/Quantity</td>
+      <td>Integer</td>
+      <td>[0-9]1 char</td>
+      <td>Y*</td>
+      <td>For per room/booking upgrades, specify the required quantity</td>
+    </tr>
+    <tr>
+      <td>Supplements/Adults</td>
+      <td>Integer</td>
+      <td>[0-9]1 char</td>
+      <td>Y*</td>
+      <td>For per person upgrades, specify the number of adult passes</td>
+    </tr>
+    <tr>
+      <td>Supplements/Children</td>
+      <td>Integer</td>
+      <td>[0-9]1 char</td>
+      <td>Y*</td>
+      <td>For per person upgrades, specify the number of child passes</td>
+    </tr>
+    <tr>
+      <td>Supplements/TotalPrice</td>
+      <td>Float</td>
+      <td>[0-9]</td>
+      <td>Y</td>
+      <td>Mandatory for all upgrades. The total price of the upgrade, accounting for total quantity</td>
+    </tr>
+    <tr>
+      <td>Supplements/LoungeArrival</td>
+      <td>String</td>
+      <td>YYYY-MM-DD HH:mm</td>
+      <td>Y*</td>
+      <td>Mandatory for Lounge upgrades. Specifies the time the client wishes to enter the lounge</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For further details on the upgrade parameters, see the <a href="/hxapi/parking/bkg">Booking request</a>.</p>
+
+<h2 id="car-park-price-check-response">Car Park Price Check Response</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TotalPrice</td>
+      <td>This is the total price for the booking including all upgrades</td>
+    </tr>
+    <tr>
+      <td>API_Header/Request</td>
+      <td>A list of parameters that were sent in the booking request.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="worked-examples">Worked Examples</h2>
+
+<p>Below are worked examples of both the request and response for the price check for parking.</p>
+
+<h3 id="uk-parking-price-check">UK Parking price check</h3>
+
+<h4 id="request">Request</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/LHH6/priceCheck?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-07-01&amp;ArrivalTime=1200&amp;DepartDate=2025-07-08&amp;DepartTime=1200&amp;NumberOfPax=1
+</code></pre></div></div>
+
+<h4 id="response">Response</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;TotalPrice&gt;</span>57.99<span class="nt">&lt;/TotalPrice&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+      <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+      <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
+      <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2025-07-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+      <span class="nt">&lt;DepartDate&gt;</span>2025-07-08<span class="nt">&lt;/DepartDate&gt;</span>
+      <span class="nt">&lt;DepartTime&gt;</span>1200<span class="nt">&lt;/DepartTime&gt;</span>
+      <span class="nt">&lt;NumberOfPax&gt;</span>1<span class="nt">&lt;/NumberOfPax&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre></div></div>
+
+<h3 id="uk-parking-price-check-with-upgrades">UK Parking price check with Upgrades</h3>
+
+<h4 id="request-1">Request</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/LHH6/priceCheck?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-07-01&amp;ArrivalTime=1230&amp;DepartDate=2025-07-08&amp;DepartTime=1345&amp;NumberOfPax=1&amp;Supplements[0][Code]=HXOST1&amp;Supplements[0][Date]=2025-07-01&amp;Supplements[0][Quantity]=1&amp;Supplements[1][Code]=LHRSFS&amp;Supplements[1][Date]=2025-07-01&amp;Supplements[1][Adults]=2&amp;Supplements[1][Children]=1
+</code></pre></div></div>
+
+<h4 id="response-1">Response</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;TotalPrice&gt;</span>86.20<span class="nt">&lt;/TotalPrice&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+      <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+      <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
+      <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2025-07-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;ArrivalTime&gt;</span>12:30<span class="nt">&lt;/ArrivalTime&gt;</span>
+      <span class="nt">&lt;DepartDate&gt;</span>2025-07-08<span class="nt">&lt;/DepartDate&gt;</span>
+      <span class="nt">&lt;DepartTime&gt;</span>13:45<span class="nt">&lt;/DepartTime&gt;</span>
+      <span class="nt">&lt;NumberOfPax&gt;</span>1<span class="nt">&lt;/NumberOfPax&gt;</span>
+      <span class="nt">&lt;Supplements&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>HXOST1<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2025-07-01<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span>
+      <span class="nt">&lt;/Supplements&gt;</span>
+      <span class="nt">&lt;Supplements&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LHRSFS<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2025-07-01<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+        <span class="nt">&lt;Children&gt;</span>1<span class="nt">&lt;/Children&gt;</span>
+      <span class="nt">&lt;/Supplements&gt;</span>
+      <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre></div></div>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>

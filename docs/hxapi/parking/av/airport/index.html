@@ -57,7 +57,7 @@
 
 <p>For example, for London Gatwick the endpoint is:</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#e5d2690b-3d36-4da5-9e5a-da1f86f5fad4'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#b1b446a4-d8c2-42ee-99a4-ad75c70f2e8f'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -65,7 +65,7 @@
 
 </ul>
 
-<ul id="e5d2690b-3d36-4da5-9e5a-da1f86f5fad4" class="uk-switcher uk-margin">
+<ul id="b1b446a4-d8c2-42ee-99a4-ad75c70f2e8f" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/LGW
@@ -279,7 +279,7 @@
     </tr>
     <tr>
       <td>CarPark/Filter</td>
-      <td>We have a filter mechanism on our site, to show particular types of product, such as Meet and Greet. The filters that apply to a product are returned here. Possible values are: <code class="language-plaintext highlighter-rouge">meet_and_greet</code>, <code class="language-plaintext highlighter-rouge">recommended</code>, <code class="language-plaintext highlighter-rouge">on_airport</code>, <code class="language-plaintext highlighter-rouge">terminal</code>, <code class="language-plaintext highlighter-rouge">valet_included</code>, <code class="language-plaintext highlighter-rouge">car_parked_for_you</code>.</td>
+      <td>We have a filter mechanism on our site, to show particular types of product, such as Meet and Greet. The filters that apply to a product are returned here. Possible values are: <code class="language-plaintext highlighter-rouge">meet_and_greet</code>, <code class="language-plaintext highlighter-rouge">recommended</code>, <code class="language-plaintext highlighter-rouge">terminal</code>, <code class="language-plaintext highlighter-rouge">on_airport</code>, <code class="language-plaintext highlighter-rouge">valet_included</code>, <code class="language-plaintext highlighter-rouge">car_parked_for_you</code>, <code class="language-plaintext highlighter-rouge">park_and_stroll</code> and <code class="language-plaintext highlighter-rouge">park_and_ride</code>.</td>
     </tr>
     <tr>
       <td>Pricing/CreditCardSurcharge</td>
@@ -326,21 +326,21 @@
       <td>2</td>
       <td>CarMake</td>
       <td>String</td>
-      <td>[A-Z0-9] 20 chars</td>
+      <td>[A-Z0-9] 25 chars</td>
       <td>Make of vehicle, e.g. Audi.</td>
     </tr>
     <tr>
       <td>3</td>
       <td>CarModel</td>
       <td>String</td>
-      <td>[A-Z0-9] 20 chars</td>
+      <td>[A-Z0-9] 25 chars</td>
       <td>Model of vehicle, e.g. A6.</td>
     </tr>
     <tr>
       <td>4</td>
       <td>CarColour</td>
       <td>String</td>
-      <td>[A-Z0-9] 20 chars</td>
+      <td>[A-Z0-9] 25 chars</td>
       <td>Colour of vehicle, e.g. White.</td>
     </tr>
     <tr>
@@ -452,7 +452,7 @@
 
 <h3 id="uk-products-availability-request">UK Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#de31f6d6-5a7f-44ce-aedc-f4071ec0483f'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#6d9a19ef-2083-4294-ac7f-5e4b017288c8'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -460,7 +460,7 @@
 
 </ul>
 
-<ul id="de31f6d6-5a7f-44ce-aedc-f4071ec0483f" class="uk-switcher uk-margin">
+<ul id="6d9a19ef-2083-4294-ac7f-5e4b017288c8" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/LGW?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2020-01-07&amp;ArrivalTime=1200&amp;DepartDate=2020-01-08&amp;DepartTime=1200&amp;NumberOfPax=1
@@ -479,7 +479,7 @@
 
 <p>NB: This is a shortened example compiled from a full availability response.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#f1f01764-4247-44cb-8974-94b4932efe6a'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#276ecfd0-5fe9-43f1-a920-c3f9ed4536f9'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -487,7 +487,7 @@
 
 </ul>
 
-<ul id="f1f01764-4247-44cb-8974-94b4932efe6a" class="uk-switcher uk-margin">
+<ul id="276ecfd0-5fe9-43f1-a920-c3f9ed4536f9" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -715,7 +715,7 @@
 
 <h3 id="european-products-availability-request">European Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#67bc4ee9-c5f6-42f5-91d7-5d0f75d70fe1'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#7ea6fab6-4ef0-48df-914c-9bcee224bf91'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -723,7 +723,7 @@
 
 </ul>
 
-<ul id="67bc4ee9-c5f6-42f5-91d7-5d0f75d70fe1" class="uk-switcher uk-margin">
+<ul id="7ea6fab6-4ef0-48df-914c-9bcee224bf91" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/MUC?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;ArrivalTime=1200&amp;DepartDate=2017-12-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;System=ABG&amp;lang=en
@@ -742,7 +742,7 @@
 
 <p>NB: This is a shortened example compiled from a full availability response.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#6205a460-72d4-42e2-a722-37faa171d03c'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#ff0022c4-5a3e-413b-a89f-78adad3f26cd'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -750,7 +750,7 @@
 
 </ul>
 
-<ul id="6205a460-72d4-42e2-a722-37faa171d03c" class="uk-switcher uk-margin">
+<ul id="ff0022c4-5a3e-413b-a89f-78adad3f26cd" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
