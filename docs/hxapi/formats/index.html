@@ -38,46 +38,26 @@
     <div class="container">
       <main role="main">
         <div class="panel-body">
-  <h1 id="hotels">Hotels</h1>
+  <h1 id="expanded-formats">Expanded Formats</h1>
 
-<p><a href="/hxapi/">API Docs</a> &gt; product:<a href="index">Hotels</a></p>
-
-<h2 id="hotel-endpoints">Hotel Endpoints</h2>
-
-<p>Here are the hotel specific endpoints:</p>
+<h2 id="car-details">Car Details</h2>
 
 <table>
-  <thead>
-    <tr>
-      <th>Action</th>
-      <th>Endpoint</th>
-      <th>Method</th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
-      <td>Availability at hotel</td>
-      <td><a href="av">https://api.holidayextras.co.uk/v1/hotel/LocationCode</a></td>
-      <td>GET</td>
+      <td>Parameter</td>
+      <td>Data Type</td>
+      <td>Format</td>
+      <td>Additional Information</td>
     </tr>
     <tr>
-      <td>Make booking at hotel</td>
-      <td><a href="bkg">https://api.holidayextras.co.uk/v1/hotel/LocationCode</a></td>
-      <td>POST</td>
-    </tr>
-    <tr>
-      <td>Pre-booking price check</td>
-      <td><a href="priceCheck">https://api.holidayextras.co.uk/v1/hotel/LocationCode/priceCheck</a></td>
-      <td>GET</td>
+      <td>Registration</td>
+      <td>String</td>
+      <td>[0-9A-ZÄ-Ü][0-9A-ZÄ-Ü -]*[0-9A-ZÄ-Ü] 20 chars</td>
+      <td>Vehicle registration number <br /> NB: This field is not validated through the API.</td>
     </tr>
   </tbody>
 </table>
-
-<p>Please note: All hotel requests include parking options of zero, 8 and 15 days parking. To make a request for a hotel only product, please select zero days parking.</p>
-
-<h2 id="hotel-user-journey">Hotel User Journey</h2>
-
-<p>To follow -</p>
 
 </div>
 

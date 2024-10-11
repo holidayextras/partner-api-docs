@@ -90,6 +90,8 @@ For a detailed explanation of the fields returned, please see below:
 | Transfers/VehicleDetails   | Details about the vehicle being used for the Transfer/s.                                                    |
 | Transfers/OutboundTransfer | Details about the outbound transfer.                                                                        |
 | Transfers/ReturnTransfer   | Details about the return transfer (This field will be `null` if no return was requested).                   |
+| Transfers/PartnerOwnSupply | Product originates from partner’s own supply. Your account manager will confirm whether you should use this. |
+| Transfers/SupplierCost     | Supplier cost for this transfer. Only available for selected products and requests.                     |
 
 #### [Transfer Categories](#transfer-categories)
 
@@ -134,7 +136,7 @@ Here are the available categories which may be returned, there will only be one 
                 "SalesCurrency": "GBP",
                 "Images": [
                     {
-                        "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/shuttlebus.jpeg",
+                        "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/shuttlebus.jpeg",
                         "Alt": "shuttlebus"
                     }
                 ],
@@ -159,7 +161,7 @@ Here are the available categories which may be returned, there will only be one 
                     "MaxStops": "",
                     "Bags": 1,
                     "NumberOfVehicles": 1,
-                    "IsPrivate": "",
+                    "IsPrivate": false,
                     "Supplier": ""
                 },
                 "OutboundTransfer": {
@@ -198,7 +200,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "PartnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -211,7 +214,7 @@ Here are the available categories which may be returned, there will only be one 
                 "SalesCurrency": "GBP",
                 "Images": [
                     {
-                        "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/shuttlebus.jpeg",
+                        "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/shuttlebus.jpeg",
                         "Alt": "shuttlebus"
                     }
                 ],
@@ -236,7 +239,7 @@ Here are the available categories which may be returned, there will only be one 
                     "MaxStops": "",
                     "Bags": 1,
                     "NumberOfVehicles": 1,
-                    "IsPrivate": "",
+                    "IsPrivate": false,
                     "Supplier": ""
                 },
                 "OutboundTransfer": {
@@ -275,7 +278,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "PartnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -288,7 +292,7 @@ Here are the available categories which may be returned, there will only be one 
                 "SalesCurrency": "GBP",
                 "Images": [
                     {
-                        "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg",
+                        "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg",
                         "Alt": "private standard"
                     }
                 ],
@@ -352,7 +356,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "PartnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -365,7 +370,7 @@ Here are the available categories which may be returned, there will only be one 
                 "SalesCurrency": "GBP",
                 "Images": [
                     {
-                        "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_luxury.jpeg",
+                        "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_luxury.jpeg",
                         "Alt": "private luxury"
                     }
                 ],
@@ -429,7 +434,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "PartnerOwnSupply": false
             },
             {
                 "ATTRIBUTES": [],
@@ -442,7 +448,7 @@ Here are the available categories which may be returned, there will only be one 
                 "SalesCurrency": "GBP",
                 "Images": [
                     {
-                        "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg",
+                        "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg",
                         "Alt": "private standard"
                     }
                 ],
@@ -506,7 +512,8 @@ Here are the available categories which may be returned, there will only be one 
                     "JoiningInstructions": null,
                     "ContactNumbers": null
                 },
-                "advance_purchase": true
+                "advance_purchase": true,
+                "PartnerOwnSupply": false
             }
         ],
         "Pricing": {},
@@ -575,7 +582,7 @@ NB: This is a shortened example compiled from a full availability response.
     <NonDiscPrice>87.96</NonDiscPrice>
     <SalesCurrency>GBP</SalesCurrency>
     <Images>
-    <Src>//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg</Src>
+    <Src>//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg</Src>
     <Alt>private standard</Alt>
     </Images>
     <Category>private_transfer</Category>
@@ -599,7 +606,7 @@ NB: This is a shortened example compiled from a full availability response.
       <MaxStops/>
       <Bags>4</Bags>
       <NumberOfVehicles>1</NumberOfVehicles>
-      <IsPrivate>1</IsPrivate>
+      <IsPrivate>true</IsPrivate>
       <Supplier/>
       <Make/>
     </VehicleDetails>
@@ -644,6 +651,7 @@ NB: This is a shortened example compiled from a full availability response.
       <ContactNumbers/>
     </ReturnTransfer>
     <advance_purchase>1</advance_purchase>
+    <PartnerOwnSupply>false</PartnerOwnSupply>
   </Transfers>
   <Pricing/>
   <SepaID/>
@@ -693,7 +701,7 @@ NB: This is a shortened example compiled from a full availability response.
         "SalesCurrency": "GBP",
         "Images": [
           {
-            "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg",
+            "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg",
             "Alt": "private standard"
           }
         ],
@@ -762,7 +770,8 @@ NB: This is a shortened example compiled from a full availability response.
           "JoiningInstructions": null,
           "ContactNumbers": null
         },
-        "advance_purchase": true
+        "advance_purchase": true,
+        "PartnerOwnSupply": false
       },
     ],
     "Pricing": {},
@@ -828,7 +837,7 @@ NB: This is a shortened example compiled from a full availability response.
     <NonDiscPrice>87.96</NonDiscPrice>
     <SalesCurrency>GBP</SalesCurrency>
     <Images>
-      <Src>//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg</Src>
+      <Src>//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg</Src>
       <Alt>private standard</Alt>
     </Images>
     <Category>private_transfer</Category>
@@ -852,7 +861,7 @@ NB: This is a shortened example compiled from a full availability response.
       <MaxStops/>
       <Bags>4</Bags>
       <NumberOfVehicles>1</NumberOfVehicles>
-      <IsPrivate>1</IsPrivate>
+      <IsPrivate>true</IsPrivate>
       <Supplier/>
       <Make/>
     </VehicleDetails>
@@ -897,6 +906,7 @@ NB: This is a shortened example compiled from a full availability response.
       <ContactNumbers/>
     </ReturnTransfer>
     <advance_purchase>1</advance_purchase>
+    <PartnerOwnSupply>false</PartnerOwnSupply>
   </Transfers>
   <Pricing/>
   <SepaID/>
@@ -953,7 +963,7 @@ NB: This is a shortened example compiled from a full availability response.
         "NonDiscPrice": 87.96,
         "SalesCurrency": "GBP",
         "Images": [{
-          "Src": "//dfgkosjf6iw47.cloudfront.net/resortTransfers/private_standard.jpeg",
+          "Src": "//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg",
           "Alt": "private standard"
         }],
         "Category": "private_transfer",
@@ -1021,7 +1031,8 @@ NB: This is a shortened example compiled from a full availability response.
           "JoiningInstructions": null,
           "ContactNumbers": null
         },
-        "advance_purchase": true
+        "advance_purchase": true,
+        "PartnerOwnSupply": false
       }
     ],
     "Pricing": {},
