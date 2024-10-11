@@ -1,5 +1,6 @@
 | Version Number | Date                | Details                                                                                    |
 |----------------|---------------------|--------------------------------------------------------------------------------------------|
+| 1.18.1         | 1st October 2024  | Added postalCode & countryCode to payment integration - v2/pay request params.                                       |
 | 1.18.0         | 6th September 2024  | Added price check endpoints for parking and hotels.                                        |
 | 1.17.4         | 9th August 2024     | Updated docs. Add a new error code for car registration number.                            |
 | 1.17.3         | 24th July 2024      | Changed Content-Type to `application/pdf` for view confirmation booking (pdf)              |
