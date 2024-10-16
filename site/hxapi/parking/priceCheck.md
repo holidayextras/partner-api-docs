@@ -54,6 +54,8 @@ For further details on the upgrade parameters, see the [Booking request](/hxapi/
 
 ## Car Park Price Check Response
 
+### Normal successful response
+
 | Field                   | Additional Information                                                                                                                                                                                        |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | TotalPrice      | This is the total price for the booking including all upgrades |
@@ -89,4 +91,32 @@ https://api.holidayextras.co.uk/carpark/LHH6/priceCheck?ABTANumber=YourABTANumbe
 
 ```xml
 {% include_relative examples/_uk_upgrade_price_check_response.xml %}
+```
+
+### Error example: no availability
+
+#### Request
+
+```
+https://api.holidayextras.co.uk/v1/carpark/GLF2/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&System=ABC&lang=en&ArrivalDate=2024-09-15&ArrivalTime=1300&DepartDate=2024-09-17&NumberOfPax=1
+```
+
+#### Response
+
+```xml
+{% include_relative examples/_uk_price_check_no_availability_response.xml %}
+```
+
+### Error example: request which is incorrect or can't be actioned
+
+#### Request
+
+```
+https://api.holidayextras.co.uk/v1/carpark/GLF2/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&System=ABC&lang=en&ArrivalDate=2024-11-15&ArrivalTime=2500&DepartDate=2024-11-17&NumberOfPax=1
+```
+
+#### Response
+
+```xml
+{% include_relative examples/_uk_price_check_incorrect_request_response.xml %}
 ```
