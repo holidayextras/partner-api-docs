@@ -113,3 +113,31 @@ https://api.holidayextras.co.uk/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANu
 ```xml
 {% include_relative examples/_uk_upgrade_price_check_response.xml %}
 ```
+
+## Error example: no availability
+
+### Request
+
+```
+https://api.holidayextras.co.uk/v1/hotel/LGWEUL/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&RoomCode=DBL&Adults=2&Children=0&Nights=1&ArrivalDate=2024-10-15
+```
+
+### Response
+
+```xml
+{% include_relative examples/_uk_booking_room_only_price_check_no_availability_response.xml %}
+```
+
+## Error example: validation error
+
+### Request
+
+```
+https://api.holidayextras.co.uk/v1/hotel/LGWEUL/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&RoomCode=DBL&Adults=2&Children=2&Nights=1&ArrivalDate=2024-11-15
+```
+
+### Response
+
+```xml
+{% include_relative examples/_uk_booking_room_only_price_check_validation_error_response.xml %}
+```

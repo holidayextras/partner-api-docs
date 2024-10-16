@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<API_Reply Result="ERROR">
+    <Error>
+        <Code>price-check</Code>
+        <Message>room validation error: Invalid number of guests for room DBL</Message>
+    </Error>
+    <API_Header>
+        <Request>
+            <ABTANumber>YourABTANumber</ABTANumber>
+            <Password>YourPassword</Password>
+            <key>YourKey</key>
+            <token>YourToken</token>
+            <System>ABC</System>
+            <lang>en</lang>
+            <RoomCode>DBL</RoomCode>
+            <Adults>2</Adults>
+            <Children>2</Children>
+            <Nights>1</Nights>
+            <ArrivalDate>2024-11-15</ArrivalDate>
+            <v>1</v>
+        </Request>
+    </API_Header>
+</API_Reply>
