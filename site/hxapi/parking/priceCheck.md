@@ -54,8 +54,6 @@ For further details on the upgrade parameters, see the [Booking request](/hxapi/
 
 ## Car Park Price Check Response
 
-### Normal successful response
-
 | Field                   | Additional Information                                                                                                                                                                                        |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | TotalPrice      | This is the total price for the booking including all upgrades |
