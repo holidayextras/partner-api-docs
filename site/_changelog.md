@@ -1,6 +1,6 @@
 | Version Number | Date                | Details                                                                                    |
 |----------------|---------------------|--------------------------------------------------------------------------------------------|
-| 1.18.3         | 21st October 2024   | Added examples for customerRef error                                                       |
+| 1.18.3         | 21st October 2024   | Added documentation for customerRef error                                                  |
 | 1.18.2         | 17th October 2024   | Added examples for priceCheck errors                                                       |
 | 1.18.1         | 1st October 2024    | Added postalCode & countryCode to payment integration - v2/pay request params.             |
 | 1.18.0         | 6th September 2024  | Added price check endpoints for parking and hotels.                                        |
