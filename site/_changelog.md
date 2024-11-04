@@ -1,5 +1,6 @@
 | Version Number | Date                | Details                                                                                    |
 |----------------|---------------------|--------------------------------------------------------------------------------------------|
+| 1.19.0         | 4th November 2024   | Added `QRCodeValueStr` for EU parking book responses                                       |
 | 1.19.0         | 30th October 2024   | Added customerRef for parking documentation                                                |
 | 1.18.3         | 21st October 2024   | Added documentation for customerRef error                                                  |
 | 1.18.2         | 17th October 2024   | Added examples for priceCheck errors                                                       |
