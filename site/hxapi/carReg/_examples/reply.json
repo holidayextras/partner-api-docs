@@ -1,0 +1,19 @@
+{
+  "API_Reply": {
+    "Registration": "AMS1",
+    "CarMake": "ROLLS ROYCE",
+    "CarModel": "GHOST",
+    "CarColour": "BLACK",
+    "Source": "D",
+    "ATTRIBUTES": {
+      "Result": "OK"
+    },
+    "API_Header": {
+      "Request": {
+        "key": "mytestkey",
+        "v": 1,
+        "format": "js"
+      }
+    }
+  }
+}
