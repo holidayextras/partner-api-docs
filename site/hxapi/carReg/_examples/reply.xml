@@ -1,0 +1,13 @@
+<API_Reply Result="OK">
+  <Registration>AMS1</Registration>
+  <CarMake>ROLLS ROYCE</CarMake>
+  <CarModel>GHOST</CarModel>
+  <CarColour>BLACK</CarColour>
+  <Source>D</Source>
+  <API_Header>
+    <Request>
+      <key>mytestkey</key>
+      <v>1</v>
+    </Request>
+  </API_Header>
+</API_Reply>
