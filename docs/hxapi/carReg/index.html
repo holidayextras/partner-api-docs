@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="car-registration">Car Registration</h1>
+
+<p>Retrieve information about a UK registered vehicle.</p>
+
+<h3 id="url">URL</h3>
+
+<p>/car_reg/{registration}</p>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Format</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>registration</td>
+      <td>String</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>Y</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="examples">Examples</h2>
+
+<h4 id="request">Request</h4>
+
+<ul class="uk-tab" data-uk-switcher="{connect:'#05a355b1-f4f7-4756-a534-1e929f66890d'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="05a355b1-f4f7-4756-a534-1e929f66890d" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/car_reg/AMS1?key=mytestkey
+</code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/car_reg/AMS1.js?key=mytestkey
+</code></pre></div></div>
+<p>Note the <code class="language-plaintext highlighter-rouge">.js</code> extension.</p>
+</li>
+
+</ul>
+
+<h4 id="response">Response</h4>
+
+<ul class="uk-tab" data-uk-switcher="{connect:'#afecf52b-29ea-4a63-b515-30928d82c4cf'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="afecf52b-29ea-4a63-b515-30928d82c4cf" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;API_Reply</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Registration&gt;</span>AMS1<span class="nt">&lt;/Registration&gt;</span>
+  <span class="nt">&lt;CarMake&gt;</span>ROLLS ROYCE<span class="nt">&lt;/CarMake&gt;</span>
+  <span class="nt">&lt;CarModel&gt;</span>GHOST<span class="nt">&lt;/CarModel&gt;</span>
+  <span class="nt">&lt;CarColour&gt;</span>BLACK<span class="nt">&lt;/CarColour&gt;</span>
+  <span class="nt">&lt;Source&gt;</span>D<span class="nt">&lt;/Source&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;key&gt;</span>mytestkey<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"API_Reply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Registration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMS1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CarMake"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ROLLS ROYCE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CarModel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GHOST"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CarColour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BLACK"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"API_Header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mytestkey"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"v"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"js"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+</li>
+
+</ul>
+
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>
