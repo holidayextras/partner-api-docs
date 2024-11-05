@@ -243,6 +243,8 @@
   </AvailableSupplements>
   <BarCode>/v1/barcode/YourBookingRef.png?key=YourKey</BarCode>
   <QRCode>/v1/qrcode/YourBookingRef.png?key=YourKey</QRCode>
+  <QRCodeValue>YourBookingRef</QRCode>
+  <QRCodeValueStr>YourBookingRef</QRCode>
   <API_Header>
     <Request>
       <v>1</v>

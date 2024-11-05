@@ -54,7 +54,7 @@
 
 <p>The endpoint to use is (where <code class="language-plaintext highlighter-rouge">YourBookingRef</code> is the Holiday Extras booking reference):</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#cf612f1c-8847-445f-8556-e5850fc0cf97'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#f2c955dc-1f2f-404b-9963-332fdb916f42'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -62,7 +62,7 @@
 
 </ul>
 
-<ul id="cf612f1c-8847-445f-8556-e5850fc0cf97" class="uk-switcher uk-margin">
+<ul id="f2c955dc-1f2f-404b-9963-332fdb916f42" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef
@@ -201,6 +201,10 @@
     </tr>
     <tr>
       <td>QRCodeValue</td>
+      <td>(EU only) Value of the QR code that comes with email confirmation. <a href="/hxapi/barcode#qr_code">More details about QR Code</a></td>
+    </tr>
+    <tr>
+      <td>QRCodeValueStr</td>
       <td>(EU only) Value of the QR code that comes with email confirmation. <a href="/hxapi/barcode#qr_code">More details about QR Code</a></td>
     </tr>
     <tr>
@@ -368,7 +372,7 @@ the confirmation email. Note that you will need to append the fields
 
 <h4 id="request">Request</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#67b6fd6d-6533-41fa-83c4-9c238199d64a'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#cce44ef4-ec61-4abe-bbc7-9522876385fa'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -376,7 +380,7 @@ the confirmation email. Note that you will need to append the fields
 
 </ul>
 
-<ul id="67b6fd6d-6533-41fa-83c4-9c238199d64a" class="uk-switcher uk-margin">
+<ul id="cce44ef4-ec61-4abe-bbc7-9522876385fa" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
@@ -393,7 +397,7 @@ the confirmation email. Note that you will need to append the fields
 
 <h4 id="response">Response</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#c8ae2018-050c-49ba-b4b8-8512a023724c'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#a5baef1f-3b95-459d-9e48-36d1001b7c2e'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -401,7 +405,7 @@ the confirmation email. Note that you will need to append the fields
 
 </ul>
 
-<ul id="c8ae2018-050c-49ba-b4b8-8512a023724c" class="uk-switcher uk-margin">
+<ul id="a5baef1f-3b95-459d-9e48-36d1001b7c2e" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -649,12 +653,15 @@ the confirmation email. Note that you will need to append the fields
   <span class="nt">&lt;/AvailableSupplements&gt;</span>
   <span class="nt">&lt;BarCode&gt;</span>/v1/barcode/YourBookingRef.png?key=YourKey<span class="nt">&lt;/BarCode&gt;</span>
   <span class="nt">&lt;QRCode&gt;</span>/v1/qrcode/YourBookingRef.png?key=YourKey<span class="nt">&lt;/QRCode&gt;</span>
+  <span class="nt">&lt;QRCodeValue&gt;</span>YourBookingRef<span class="nt">&lt;/QRCode&gt;</span>
+  <span class="nt">&lt;QRCodeValueStr&gt;</span>YourBookingRef<span class="nt">&lt;/QRCode&gt;</span>
   <span class="nt">&lt;API_Header&gt;</span>
     <span class="nt">&lt;Request&gt;</span>
       <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
     <span class="nt">&lt;/Request&gt;</span>
   <span class="nt">&lt;/API_Header&gt;</span>
 <span class="nt">&lt;/API_Reply&gt;</span>
+
 </code></pre></div></div>
 </li>
 
@@ -925,7 +932,7 @@ the confirmation email. Note that you will need to append the fields
 <h3 id="uk-products-view-booking-for-a-transfer">UK Products View Booking (for a transfer)</h3>
 
 <h4 id="request-1">Request</h4>
-<ul class="uk-tab" data-uk-switcher="{connect:'#35132b5a-45e3-4469-a225-d7fcd6a16310'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#5f268bc1-df18-4242-9544-41139cf5d0df'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -933,7 +940,7 @@ the confirmation email. Note that you will need to append the fields
 
 </ul>
 
-<ul id="35132b5a-45e3-4469-a225-d7fcd6a16310" class="uk-switcher uk-margin">
+<ul id="5f268bc1-df18-4242-9544-41139cf5d0df" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
@@ -950,7 +957,7 @@ the confirmation email. Note that you will need to append the fields
 
 <h4 id="response-1">Response</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#82a2b954-bac3-462c-9c80-a6af7dee8062'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#ea321ae3-9b96-442d-b874-4c44d1c442a5'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -958,7 +965,7 @@ the confirmation email. Note that you will need to append the fields
 
 </ul>
 
-<ul id="82a2b954-bac3-462c-9c80-a6af7dee8062" class="uk-switcher uk-margin">
+<ul id="ea321ae3-9b96-442d-b874-4c44d1c442a5" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
