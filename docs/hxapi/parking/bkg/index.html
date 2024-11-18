@@ -74,6 +74,7 @@
       <th>Format</th>
       <th>Mandatory?</th>
       <th>Additional Information</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -83,90 +84,7 @@
       <td>[A-Z0-9] 5 chars</td>
       <td>Y</td>
       <td>This is also known as an ‘agent code’. <br />This will be confirmed to you by your Account Manager during set up.</td>
-    </tr>
-    <tr>
-      <td>Password</td>
-      <td>String</td>
-      <td>[A-Z0-9] 5 chars</td>
-      <td>N*</td>
-      <td>Password required for retail agent requests - intermediaries do not require a password.<br />This will be confirmed to you by your Account Manager during set up.</td>
-    </tr>
-    <tr>
-      <td>Initials</td>
-      <td>String</td>
-      <td>[A-Z] 3 chars</td>
-      <td>N</td>
-      <td>The initials of the Operator / Agent.</td>
-    </tr>
-    <tr>
-      <td>key</td>
-      <td>String</td>
-      <td>[A-Z]</td>
-      <td>Y</td>
-      <td>This will be assigned to you by your Account Manager during set up.</td>
-    </tr>
-    <tr>
-      <td>token</td>
-      <td>String</td>
-      <td>[0-9] 9 chars</td>
-      <td>Y</td>
-      <td>This is the same token used in the availability request.</td>
-    </tr>
-    <tr>
-      <td>ArrivalDate</td>
-      <td>Date</td>
-      <td>YYYY-MM-DD</td>
-      <td>Y</td>
-      <td>Date customer drops vehicle at car park.</td>
-    </tr>
-    <tr>
-      <td>ArrivalTime</td>
-      <td>Time</td>
-      <td>HHMM</td>
-      <td>Y</td>
-      <td>Time customer drops vehicle at car park.</td>
-    </tr>
-    <tr>
-      <td>DepartDate</td>
-      <td>Date</td>
-      <td>YYYY-MM-DD</td>
-      <td>Y</td>
-      <td>Date customer picks up vehicle from car park.</td>
-    </tr>
-    <tr>
-      <td>DepartTime</td>
-      <td>Time</td>
-      <td>HHMM</td>
-      <td>Y</td>
-      <td>Time customer picks up vehicle from car park.</td>
-    </tr>
-    <tr>
-      <td>NumberOfPax</td>
-      <td>Integer</td>
-      <td>[0-9] 2 chars</td>
-      <td>Y</td>
-      <td>Number of passengers.</td>
-    </tr>
-    <tr>
-      <td>Title</td>
-      <td>String</td>
-      <td>[A-Z] 4 chars</td>
-      <td>Y</td>
-      <td>Title of lead passenger</td>
-    </tr>
-    <tr>
-      <td>Initial</td>
-      <td>String</td>
-      <td>[A-Z] 1 chars</td>
-      <td>Y</td>
-      <td>Initial of lead passenger</td>
-    </tr>
-    <tr>
-      <td>Surname</td>
-      <td>String</td>
-      <td>[A-Z] 20 chars</td>
-      <td>Y</td>
-      <td>Surname of lead passenger</td>
+      <td> </td>
     </tr>
     <tr>
       <td>Address[]</td>
@@ -174,13 +92,23 @@
       <td>[A-Z0-9] 25 chars</td>
       <td>Y</td>
       <td>First line of address (house name / number and road) of lead passenger <br />If you require more than 1 address line, then you can replicate this field and increment the number in square brackets, i.e. “Address[1]” for address line 2, and so on.<br />NB: This field can be set to NA</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>Town</td>
-      <td>String</td>
-      <td>[A-Z] 20 chars</td>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
       <td>Y</td>
-      <td>Town of address <br />NB: This field can be set to NA</td>
+      <td>Date customer drops vehicle at car park.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+      <td>Time customer drops vehicle at car park.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>County</td>
@@ -188,13 +116,31 @@
       <td>[A-Z] 20 chars</td>
       <td>Y</td>
       <td>County of address <br />NB: This field can be set to NA</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>PostCode</td>
+      <td>CustomerRef</td>
       <td>String</td>
-      <td>[A-Z0-9] 10 chars</td>
+      <td>[A-Z0-9] 20 chars</td>
+      <td>N</td>
+      <td>A unique reference code associated with the customer’s booking for tracking and reference purposes.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
       <td>Y</td>
-      <td>Post code of address <br />NB: This field can be set to NA</td>
+      <td>Date customer picks up vehicle from car park.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>DepartTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+      <td>Time customer picks up vehicle from car park.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>Email</td>
@@ -202,6 +148,55 @@
       <td>[A-Z0-9] 50 chars</td>
       <td>Y</td>
       <td>Email of lead passenger</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Initial</td>
+      <td>String</td>
+      <td>[A-Z] 1 chars</td>
+      <td>Y</td>
+      <td>Initial of lead passenger</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z] 3 chars</td>
+      <td>N</td>
+      <td>The initials of the Operator / Agent.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+      <td>This will be assigned to you by your Account Manager during set up.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>NumberOfPax</td>
+      <td>Integer</td>
+      <td>[0-9] 2 chars</td>
+      <td>Y</td>
+      <td>Number of passengers.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>N*</td>
+      <td>Password required for retail agent requests - intermediaries do not require a password.<br />This will be confirmed to you by your Account Manager during set up.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PostCode</td>
+      <td>String</td>
+      <td>[A-Z0-9] 10 chars</td>
+      <td>Y</td>
+      <td>Post code of address <br />NB: This field can be set to NA</td>
+      <td> </td>
     </tr>
     <tr>
       <td>PriceCheckFlag</td>
@@ -209,6 +204,7 @@
       <td>Y</td>
       <td>Y</td>
       <td>Indicates a price check will be carried out prior to booking. <br />If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>PriceCheckPrice</td>
@@ -216,6 +212,15 @@
       <td>[0-9]</td>
       <td>Y</td>
       <td>Price of the product, received from the availability request or price check.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Surname</td>
+      <td>String</td>
+      <td>[A-Z] 20 chars</td>
+      <td>Y</td>
+      <td>Surname of lead passenger</td>
+      <td> </td>
     </tr>
     <tr>
       <td>System</td>
@@ -223,6 +228,31 @@
       <td>[A-Z] 3 chars</td>
       <td>Y*</td>
       <td>For European products, you need to pass in the value of <code class="language-plaintext highlighter-rouge">System=ABG</code> (the default is <code class="language-plaintext highlighter-rouge">System=ABC</code>, which is UK products only).</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>String</td>
+      <td>[A-Z] 4 chars</td>
+      <td>Y</td>
+      <td>Title of lead passenger</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9] 9 chars</td>
+      <td>Y</td>
+      <td>This is the same token used in the availability request.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Town</td>
+      <td>String</td>
+      <td>[A-Z] 20 chars</td>
+      <td>Y</td>
+      <td>Town of address <br />NB: This field can be set to NA</td>
+      <td> </td>
     </tr>
     <tr>
       <td>Supplements/Code</td>
@@ -230,6 +260,7 @@
       <td>[A-Z0-9] 5 chars</td>
       <td>N</td>
       <td>Product code of the upgrade to book. See below for more info on booking upgrades</td>
+      <td> </td>
     </tr>
     <tr>
       <td>Supplements/Date</td>
@@ -237,6 +268,7 @@
       <td>YYYY-MM-DD</td>
       <td>Y</td>
       <td>The date to book the upgrade for. This should be brought forward from the upgrade availability request.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>Supplements/Quantity</td>
@@ -244,6 +276,7 @@
       <td>[0-9]1 char</td>
       <td>Y*</td>
       <td>For per room/booking upgrades, specify the required quantity</td>
+      <td> </td>
     </tr>
     <tr>
       <td>Supplements/Adults</td>
@@ -251,6 +284,7 @@
       <td>[0-9]1 char</td>
       <td>Y*</td>
       <td>For per person upgrades, specify the number of adult passes</td>
+      <td> </td>
     </tr>
     <tr>
       <td>Supplements/Children</td>
@@ -258,6 +292,7 @@
       <td>[0-9]1 char</td>
       <td>Y*</td>
       <td>For per person upgrades, specify the number of child passes</td>
+      <td> </td>
     </tr>
     <tr>
       <td>Supplements/TotalPrice</td>
@@ -265,6 +300,7 @@
       <td>[0-9]</td>
       <td>Y</td>
       <td>Mandatory for all upgrades. The total price of the upgrade, accounting for total quantity</td>
+      <td> </td>
     </tr>
     <tr>
       <td>Supplements/LoungeArrival</td>
@@ -272,6 +308,7 @@
       <td>YYYY-MM-DD HH:mm</td>
       <td>Y*</td>
       <td>Mandatory for Lounge upgrades. Specifies the time the client wishes to enter the lounge</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -487,6 +524,14 @@ For per <code class="language-plaintext highlighter-rouge">Person</code> upgrade
     <tr>
       <td>QRCode</td>
       <td>URL to the QR code for the booking. Prepend with <code class="language-plaintext highlighter-rouge">https://api.holidayextras.co.uk/</code></td>
+    </tr>
+    <tr>
+      <td>QRCodeValue</td>
+      <td>(EU only) Value of the QR code that comes with email confirmation. <a href="/hxapi/barcode#qr_code">More details about QR Code</a></td>
+    </tr>
+    <tr>
+      <td>QRCodeValueStr</td>
+      <td>(EU only) Value of the QR code that comes with email confirmation, when returning as part of a JSON resposne this value will be a string. <a href="/hxapi/barcode#qr_code">More details about QR Code</a></td>
     </tr>
     <tr>
       <td>FastTrackVouchers/Name</td>

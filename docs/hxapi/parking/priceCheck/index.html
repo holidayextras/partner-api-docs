@@ -307,6 +307,76 @@
 
 </code></pre></div></div>
 
+<h3 id="error-example-no-availability">Error example: no availability</h3>
+
+<h4 id="request-2">Request</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/GLF2/priceCheck?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;System=ABC&amp;lang=en&amp;ArrivalDate=2024-09-15&amp;ArrivalTime=1300&amp;DepartDate=2024-09-17&amp;NumberOfPax=1
+</code></pre></div></div>
+
+<h4 id="response-2">Response</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Result=</span><span class="s">"ERROR"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Error&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>0004<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Message&gt;</span>Product no longer available<span class="nt">&lt;/Message&gt;</span>
+    <span class="nt">&lt;/Error&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+            <span class="nt">&lt;Password&gt;</span>Redacted<span class="nt">&lt;/Password&gt;</span>
+            <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
+            <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
+            <span class="nt">&lt;ArrivalDate&gt;</span>2024-09-15<span class="nt">&lt;/ArrivalDate&gt;</span>
+            <span class="nt">&lt;ArrivalTime&gt;</span>1300<span class="nt">&lt;/ArrivalTime&gt;</span>
+            <span class="nt">&lt;DepartDate&gt;</span>2024-09-17<span class="nt">&lt;/DepartDate&gt;</span>
+            <span class="nt">&lt;NumberOfPax&gt;</span>1<span class="nt">&lt;/NumberOfPax&gt;</span>
+            <span class="nt">&lt;System&gt;</span>ABC<span class="nt">&lt;/System&gt;</span>
+            <span class="nt">&lt;lang&gt;</span>en<span class="nt">&lt;/lang&gt;</span>
+            <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre></div></div>
+
+<h3 id="error-example-request-which-is-incorrect-or-cant-be-actioned">Error example: request which is incorrect or can’t be actioned</h3>
+
+<h4 id="request-3">Request</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/GLF2/priceCheck?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;System=ABC&amp;lang=en&amp;ArrivalDate=2024-11-15&amp;ArrivalTime=2500&amp;DepartDate=2024-11-17&amp;NumberOfPax=1
+</code></pre></div></div>
+
+<h4 id="response-3">Response</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Result=</span><span class="s">"ERROR"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Error&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>price-check<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Message&gt;</span>Can't perform price check for this product<span class="nt">&lt;/Message&gt;</span>
+    <span class="nt">&lt;/Error&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+            <span class="nt">&lt;Password&gt;</span>Redacted<span class="nt">&lt;/Password&gt;</span>
+            <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
+            <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
+            <span class="nt">&lt;ArrivalDate&gt;</span>2024-11-15<span class="nt">&lt;/ArrivalDate&gt;</span>
+            <span class="nt">&lt;ArrivalTime&gt;</span>2500<span class="nt">&lt;/ArrivalTime&gt;</span>
+            <span class="nt">&lt;DepartDate&gt;</span>2024-11-17<span class="nt">&lt;/DepartDate&gt;</span>
+            <span class="nt">&lt;NumberOfPax&gt;</span>1<span class="nt">&lt;/NumberOfPax&gt;</span>
+            <span class="nt">&lt;System&gt;</span>ABC<span class="nt">&lt;/System&gt;</span>
+            <span class="nt">&lt;lang&gt;</span>en<span class="nt">&lt;/lang&gt;</span>
+            <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+
+</code></pre></div></div>
+
 </div>
 
       </main>
