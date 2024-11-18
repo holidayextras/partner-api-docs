@@ -60,10 +60,10 @@ Note the `.js` extension.
 {% endcodetabs %}
 
 
-### Behavior  
+### Behaviour  
 
 - **`true`:** Availability searches include async products.  
-- **`false`:** Availability searches exclude async products (default behavior).  
+- **`false`:** Availability searches exclude async products (default behaviour).  
 
 ---
 
