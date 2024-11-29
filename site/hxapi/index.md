@@ -26,17 +26,17 @@ Please check the table below for details of which products are available in each
 These endpoints are not product-specific. Please check the table below for details of which endpoints are available for each region.
 
 
-|Generic Endpoints|UK|Europe|
-|-----------------|--|------|
-|[User token](/hxapi/usertoken)|Yes|Yes|
-|[Location](/hxapi/locations)|Yes|Yes|
-|[Terminal](/hxapi/terminal)|Yes|No|
-|[Barcode / QRCode](/hxapi/barcode)|Yes|No|
-|[Product library](/hxapi/productlibrary)|Yes|Yes|
-|[Managing a booking](/hxapi/viewamendcancel)|Yes|Yes|
-|[Update a booking's flight](/hxapi/flightUpdate)|Yes|No|
-|[Bundles](/hxapi/bundles)|Yes|No|
-|[Upgrade Availability](/hxapi/upgrade)|Yes|Yes
+| Generic Endpoints                                                                 |UK| Europe |
+|-----------------------------------------------------------------------------------|--|--------|
+| [User token](/hxapi/usertoken)                                                    |Yes| Yes    |
+| [Location](/hxapi/locations)                                                      |Yes| Yes    |
+| [Terminal](/hxapi/terminal)                                                       |Yes| No     |
+| [Barcode / QRCode](/hxapi/barcode)                                                |Yes| No     |
+| [Product library](/hxapi/productlibrary)                                          |Yes| Yes    |
+| [Managing a booking](/hxapi/viewamendcancel)                                      |Yes| Yes    |
+| [Update a booking's flight](/hxapi/flightUpdate)                                  |Yes| No     |
+| [Bundles](/hxapi/bundles)                                                         |Yes| No     |
+| [Upgrade Availability](/hxapi/upgrade)                                            |Yes| Yes    
 
 ## "DE-Start" Product Guides
 

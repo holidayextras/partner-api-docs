@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="asynchronous-bookings">Asynchronous Bookings</h1>
+
+<h2 id="background">Background</h2>
+
+<p>We now offer products that use an asynchronous booking process. This allows partners to handle bookings for a wider range of products. However, asynchronous bookings require a different approach compared to synchronous bookings to provide a seamless experience for customers.
+This guide outlines:</p>
+<ul>
+  <li>Best practices for integrating with our API for asynchronous bookings.</li>
+  <li>Guidance on when and how to poll our API.</li>
+  <li>Details on booking statuses.</li>
+  <li>Information on enabling availability for async products.</li>
+</ul>
+
+<hr />
+
+<h2 id="enabling-async-product-availability">Enabling Async Product Availability</h2>
+
+<p>To view all supply, including async products, partners can now specify whether they want these products included in the availability response.</p>
+
+<h3 id="availability-request">Availability Request</h3>
+
+<p>Partners must include a new parameter in the availability request to indicate whether to include async products.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Mandatory?</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>includeAsyncProducts</td>
+      <td>Boolean</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code>/<code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>N</td>
+      <td>If <code class="language-plaintext highlighter-rouge">true</code>, availability includes async products. Default is <code class="language-plaintext highlighter-rouge">false</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="uk-products-availability-request">UK Products Availability Request</h3>
+
+<ul class="uk-tab" data-uk-switcher="{connect:'#1d1cfea0-4aab-4f8e-bc1c-d14f62543a7d'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="1d1cfea0-4aab-4f8e-bc1c-d14f62543a7d" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/LGW?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2020-01-07&amp;ArrivalTime=1200&amp;DepartDate=2020-01-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;includeAsyncProducts=true
+</code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/LGW.js?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2020-01-07&amp;ArrivalTime=1200&amp;DepartDate=2020-01-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;includeAsyncProducts=true
+</code></pre></div></div>
+<p>Note the <code class="language-plaintext highlighter-rouge">.js</code> extension.</p>
+</li>
+
+</ul>
+
+<h3 id="european-products-availability-request">European Products Availability Request</h3>
+
+<ul class="uk-tab" data-uk-switcher="{connect:'#58f0d1a6-ff3b-4ed8-b428-460d53a426c8'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="58f0d1a6-ff3b-4ed8-b428-460d53a426c8" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/MUC?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;ArrivalTime=1200&amp;DepartDate=2017-12-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;System=ABG&amp;lang=en&amp;includeAsyncProducts=true
+</code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/MUC.js?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;ArrivalTime=1200&amp;DepartDate=2017-12-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;System=ABG&amp;lang=en&amp;includeAsyncProducts=true
+</code></pre></div></div>
+<p>Note the <code class="language-plaintext highlighter-rouge">.js</code> extension.</p>
+</li>
+
+</ul>
+
+<h3 id="behaviour">Behaviour</h3>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">true</code>:</strong> Availability searches include async products.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">false</code>:</strong> Availability searches exclude async products (default behaviour).</li>
+</ul>
+
+<hr />
+
+<h2 id="booking-status-polling">Booking Status Polling</h2>
+
+<p>When working with asynchronous bookings, partners must poll our API to determine the status of a booking and when full booking details are ready.</p>
+
+<h3 id="when-polling-is-required">When Polling is Required</h3>
+
+<p>Polling is required when a booking has been submitted but is not yet confirmed. The <code class="language-plaintext highlighter-rouge">bookingStatus</code> field in the response from the <code class="language-plaintext highlighter-rouge">view booking</code> endpoint indicates the current status of a booking.</p>
+
+<p>Booking details such as the QR code, supplier reference, and other information will only be provided once the <code class="language-plaintext highlighter-rouge">bookingStatus</code> field is in a <code class="language-plaintext highlighter-rouge">CONFIRMED</code> state.</p>
+
+<h3 id="how-often-to-poll">How Often to Poll</h3>
+
+<p>The frequency of polling depends on the product type and supplier:</p>
+<ul>
+  <li><strong>Standard Products:</strong> Poll every 5–10 minutes.</li>
+  <li><strong>Long Confirmation Times (e.g., specific suppliers):</strong> Poll every 15–30 minutes.</li>
+</ul>
+
+<h3 id="booking-status-values">Booking Status Values</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PENDING</code></td>
+      <td>Booking has been submitted but not yet confirmed with the supplier.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CONFIRMED</code></td>
+      <td>Booking has been successfully confirmed by the supplier. Full details are available.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FAILED</code></td>
+      <td>Booking has failed with the supplier.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="api-endpoint">API Endpoint</h2>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="endpoint">Endpoint</h3>
+<p>The endpoint to use is the existing view booking endpoint: <a href="/hxapi/viewamendcancel/view/">/hxapi/viewamendcancel/view/</a></p>
+
+<h2 id="response-example">Response Example</h2>
+
+<p>The response will now include a <code class="language-plaintext highlighter-rouge">bookingStatus</code> field to indicate the current status of the booking.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"bookingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<h2 id="best-practices">Best Practices</h2>
+
+<ol>
+  <li><strong>Polling Interval:</strong>
+    <ul>
+      <li>Follow the recommended intervals based on the product type or supplier.</li>
+      <li>Avoid excessive requests to prevent unnecessary load on our systems.</li>
+    </ul>
+  </li>
+  <li><strong>Stop Polling:</strong>
+    <ul>
+      <li>When the <code class="language-plaintext highlighter-rouge">bookingStatus</code> is <code class="language-plaintext highlighter-rouge">CONFIRMED</code> or <code class="language-plaintext highlighter-rouge">FAILED</code>, stop polling and take the appropriate next steps.</li>
+    </ul>
+  </li>
+  <li><strong>Retry Policy:</strong>
+    <ul>
+      <li>Use exponential backoff for retries after transient errors (e.g., 500 errors or timeouts).</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="workflow-example">Workflow Example</h2>
+
+<ol>
+  <li><strong>Make a booking</strong></li>
+  <li><strong>Start Polling:</strong> Use the view booking endpoint to check the <code class="language-plaintext highlighter-rouge">bookingStatus</code>.
+    <ul>
+      <li><strong>If <code class="language-plaintext highlighter-rouge">PENDING</code>:</strong> Continue polling at the recommended intervals.</li>
+      <li><strong>If <code class="language-plaintext highlighter-rouge">CONFIRMED</code>:</strong> Retrieve full details and stop polling.</li>
+      <li><strong>If <code class="language-plaintext highlighter-rouge">FAILED</code>:</strong> Handle the failure appropriately.</li>
+    </ul>
+  </li>
+  <li><strong>Retrieve Full Details:</strong> Once the booking is confirmed, on the view booking response you’ll have the complete booking information using the same endpoint.</li>
+</ol>
+
+<p>By following these practices, partners can ensure an optimal customer experience while integrating with asynchronous products.</p>
+
+<hr />
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>
