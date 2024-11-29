@@ -35,7 +35,6 @@ These endpoints are not product-specific. Please check the table below for detai
 | [Product library](/hxapi/productlibrary)                                          |Yes| Yes    |
 | [Managing a booking](/hxapi/viewamendcancel)                                      |Yes| Yes    |
 | [Update a booking's flight](/hxapi/flightUpdate)                                  |Yes| No     |
-| [Async Bookings: Status & Polling](/hxapi/asynchronous-bookings) |Yes| Yes    |
 | [Bundles](/hxapi/bundles)                                                         |Yes| No     |
 | [Upgrade Availability](/hxapi/upgrade)                                            |Yes| Yes    
 
