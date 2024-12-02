@@ -78,9 +78,14 @@ Asynchronous bookings require a different approach compared to synchronous booki
   </tbody>
 </table>
 
+<blockquote>
+  <p><strong>Note:</strong><br />
+<strong>Async products</strong> are products that require additional time for confirmation due to complex supplier interactions or backend processes. Unlike standard products, they do not provide immediate booking confirmation. Instead, bookings for these products are processed in stages, with their status transitioning from <code class="language-plaintext highlighter-rouge">PENDING</code> to <code class="language-plaintext highlighter-rouge">CONFIRMED</code> or <code class="language-plaintext highlighter-rouge">FAILED</code> as the confirmation process completes.</p>
+</blockquote>
+
 <h3 id="uk-products-availability-request">UK Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#d7f39199-80bf-40e2-8db8-9184983f3ef4'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#9692f2a0-dd22-4252-9358-e869e77f104b'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -88,10 +93,10 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 </ul>
 
-<ul id="d7f39199-80bf-40e2-8db8-9184983f3ef4" class="uk-switcher uk-margin">
+<ul id="9692f2a0-dd22-4252-9358-e869e77f104b" class="uk-switcher uk-margin">
 
 	<li>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/LGW?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2020-01-07&amp;ArrivalTime=1200&amp;DepartDate=2020-01-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;includeAsyncProducts=true
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/LGW?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-01-07&amp;ArrivalTime=1200&amp;DepartDate=2025-01-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;includeAsyncProducts=true
 </code></pre></div></div>
 </li>
 
@@ -105,7 +110,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 <h3 id="european-products-availability-request">European Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#8f0f5c68-5774-4fd1-99fd-b6e1d7a8adfe'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#e6b26512-f162-4db0-a321-85ef6528e5ab'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -113,15 +118,15 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 </ul>
 
-<ul id="8f0f5c68-5774-4fd1-99fd-b6e1d7a8adfe" class="uk-switcher uk-margin">
+<ul id="e6b26512-f162-4db0-a321-85ef6528e5ab" class="uk-switcher uk-margin">
 
 	<li>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/MUC?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;ArrivalTime=1200&amp;DepartDate=2017-12-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;System=ABG&amp;lang=en&amp;includeAsyncProducts=true
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/MUC?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-12-01&amp;ArrivalTime=1200&amp;DepartDate=2025-12-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;System=ABG&amp;lang=en&amp;includeAsyncProducts=true
 </code></pre></div></div>
 </li>
 
 	<li>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/MUC.js?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2017-12-01&amp;ArrivalTime=1200&amp;DepartDate=2017-12-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;System=ABG&amp;lang=en&amp;includeAsyncProducts=true
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/MUC.js?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-12-01&amp;ArrivalTime=1200&amp;DepartDate=2025-12-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;System=ABG&amp;lang=en&amp;includeAsyncProducts=true
 </code></pre></div></div>
 <p>Note the <code class="language-plaintext highlighter-rouge">.js</code> extension.</p>
 </li>
@@ -133,14 +138,10 @@ Asynchronous bookings require a different approach compared to synchronous booki
 <ul>
   <li><strong><code class="language-plaintext highlighter-rouge">true</code>:</strong> Availability searches include async products.</li>
   <li><strong><code class="language-plaintext highlighter-rouge">false</code>:</strong> Availability searches exclude async products (default behavior).</li>
+  <li>
+    <hr />
+  </li>
 </ul>
-
-<blockquote>
-  <p><strong>Note:</strong><br />
-<strong>Async products</strong> are products that require additional time for confirmation due to complex supplier interactions or backend processes. Unlike standard products, they do not provide immediate booking confirmation. Instead, bookings for these products are processed in stages, with their status transitioning from <code class="language-plaintext highlighter-rouge">PENDING</code> to <code class="language-plaintext highlighter-rouge">CONFIRMED</code> or <code class="language-plaintext highlighter-rouge">FAILED</code> as the confirmation process completes.</p>
-</blockquote>
-
-<hr />
 
 <h2 id="making-an-async-booking">Making an Async Booking</h2>
 
@@ -241,7 +242,7 @@ On the initial booking response, we provide a <code class="language-plaintext hi
 
 <hr />
 
-<h2 id="api-endpoint">API Endpoint</h2>
+<h3 id="api-endpoint">API Endpoint</h3>
 <p>The endpoint to use is the existing view booking endpoint: <a href="/hxapi/viewamendcancel/view/">/hxapi/viewamendcancel/view/</a></p>
 
 <h2 id="response-example">Response Example</h2>
@@ -296,6 +297,8 @@ On the initial booking response, we provide a <code class="language-plaintext hi
 <p>By following these practices, partners can ensure an optimal customer experience while integrating with asynchronous products.</p>
 
 <hr />
+
+<h3 id="documentation-to-follow-for-amendments-and-cancellations">Documentation to follow for amendments and cancellations</h3>
 
 </div>
 
