@@ -2,7 +2,7 @@
 
 ---
 
-# Asynchronous Bookings
+# Asynchronous Bookings <span style="color: red; font-size: medium;">Draft</span>
 
 ## Background
 
