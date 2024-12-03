@@ -128,7 +128,7 @@ On the initial booking response, we provide a `suggestedPollingInterval` field t
 ### API Endpoint
 The endpoint to use is the existing view booking endpoint: [/hxapi/viewamendcancel/view/](/hxapi/viewamendcancel/view/)
 
-## Response Example
+### Response Example
 
 The response will now include a `bookingStatus` field to indicate the current status of the booking and a `suggestedPollingInterval` field to guide partners on the recommended polling frequency.
 
