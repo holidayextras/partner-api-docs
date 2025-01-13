@@ -1,5 +1,6 @@
 | Version Number | Date                | Details                                                                                    |
 |----------------|---------------------|--------------------------------------------------------------------------------------------|
+| 1.22.0         | 13th January 2025   | Added missing error code for unexpected errors.                                            |
 | 1.21.0         | 10th January 2025   | Added customerRef parameter for lounges and fast track.                                    |
 | 1.20.0         | 4th November 2024   | Added `QRCodeValueStr` for EU parking book responses                                       |
 | 1.19.0         | 30th October 2024   | Added customerRef for parking documentation                                                |
