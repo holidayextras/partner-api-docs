@@ -54,7 +54,7 @@
 
 <p>The endpoint to use is (where <code class="language-plaintext highlighter-rouge">YourBookingRef</code> is the Holiday Extras booking reference):</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#fd7b72bb-f0bf-4fe6-a01b-ce0fe9af8eb0'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#e3ba211e-96b2-413a-ab36-542e86a40d95'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -62,15 +62,15 @@
 
 </ul>
 
-<ul id="fd7b72bb-f0bf-4fe6-a01b-ce0fe9af8eb0" class="uk-switcher uk-margin">
+<ul id="e3ba211e-96b2-413a-ab36-542e86a40d95" class="uk-switcher uk-margin">
 
 	<li>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/booking/YourBookingRef
 </code></pre></div></div>
 </li>
 
 	<li>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef.js
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/booking/YourBookingRef.js
 </code></pre></div></div>
 <p>Note the <code class="language-plaintext highlighter-rouge">.js</code> extension.</p>
 </li>
@@ -346,7 +346,7 @@
 the confirmation email. Note that you will need to append the fields
 <code class="language-plaintext highlighter-rouge">ABTANumber</code>, <code class="language-plaintext highlighter-rouge">Password</code> and <code class="language-plaintext highlighter-rouge">key</code> to the link in order to authenticate.</p>
 
-<p>Example: https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test@holidayextras.com&amp;booking_ref=HPABCDE&amp;product_type=carparks&amp;ABTANumber=WT314&amp;Password=redacted&amp;key=mytestkey</p>
+<p>Example: https://api-sandbox.holidayextras.com/v1/confirmation?email=test@holidayextras.com&amp;booking_ref=HPABCDE&amp;product_type=carparks&amp;ABTANumber=WT314&amp;Password=redacted&amp;key=mytestkey</p>
 
 <h4 id="bookingamendable">/Booking/Amendable</h4>
 
@@ -372,7 +372,7 @@ the confirmation email. Note that you will need to append the fields
 
 <h4 id="request">Request</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#24cbadcc-a203-495d-b5f8-22c80b9406fb'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#bf2c5a4e-8a0d-4f94-a2ce-7d38b26bffc3'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -380,15 +380,15 @@ the confirmation email. Note that you will need to append the fields
 
 </ul>
 
-<ul id="24cbadcc-a203-495d-b5f8-22c80b9406fb" class="uk-switcher uk-margin">
+<ul id="bf2c5a4e-8a0d-4f94-a2ce-7d38b26bffc3" class="uk-switcher uk-margin">
 
 	<li>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
 </code></pre></div></div>
 </li>
 
 	<li>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef.js?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/booking/YourBookingRef.js?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
 </code></pre></div></div>
 <p>Note the <code class="language-plaintext highlighter-rouge">.js</code> extension.</p>
 </li>
@@ -397,7 +397,7 @@ the confirmation email. Note that you will need to append the fields
 
 <h4 id="response">Response</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#e22b6c1e-ea14-4951-bc5d-2eb062ab422c'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#db03a190-23b4-4897-a8fc-58d039bac211'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -405,7 +405,7 @@ the confirmation email. Note that you will need to append the fields
 
 </ul>
 
-<ul id="e22b6c1e-ea14-4951-bc5d-2eb062ab422c" class="uk-switcher uk-margin">
+<ul id="db03a190-23b4-4897-a8fc-58d039bac211" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -932,7 +932,7 @@ the confirmation email. Note that you will need to append the fields
 <h3 id="uk-products-view-booking-for-a-transfer">UK Products View Booking (for a transfer)</h3>
 
 <h4 id="request-1">Request</h4>
-<ul class="uk-tab" data-uk-switcher="{connect:'#ff94e2ea-f96b-4e3d-b8cf-2e9a3a939c5e'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#7ac2c581-8ce7-4a34-8ddb-3931ffb1d9b0'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -940,15 +940,15 @@ the confirmation email. Note that you will need to append the fields
 
 </ul>
 
-<ul id="ff94e2ea-f96b-4e3d-b8cf-2e9a3a939c5e" class="uk-switcher uk-margin">
+<ul id="7ac2c581-8ce7-4a34-8ddb-3931ffb1d9b0" class="uk-switcher uk-margin">
 
 	<li>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
 </code></pre></div></div>
 </li>
 
 	<li>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef.js?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/booking/YourBookingRef.js?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
 </code></pre></div></div>
 <p>Note the <code class="language-plaintext highlighter-rouge">.js</code> extension.</p>
 </li>
@@ -957,7 +957,7 @@ the confirmation email. Note that you will need to append the fields
 
 <h4 id="response-1">Response</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#63c64135-8068-4f13-8318-e7d0af07ae62'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#d00736c2-1951-4d38-8999-40b03b61176a'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -965,7 +965,7 @@ the confirmation email. Note that you will need to append the fields
 
 </ul>
 
-<ul id="63c64135-8068-4f13-8318-e7d0af07ae62" class="uk-switcher uk-margin">
+<ul id="d00736c2-1951-4d38-8999-40b03b61176a" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -1271,7 +1271,7 @@ the confirmation email. Note that you will need to append the fields
 
 <h4 id="request-2">Request</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com&amp;System=ABG
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com&amp;System=ABG
 </code></pre></div></div>
 
 <h4 id="response-2">Response</h4>

@@ -13,13 +13,13 @@ POST
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/LocationCode
+https://api.holidayextras.com/v1/hotel/LocationCode
 ```
 
 For example, for _Mercure at London Heathrow_ the endpoint is:
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/LHRMEA
+https://api.holidayextras.com/v1/hotel/LHRMEA
 ```
 
 ## Request Parameters
@@ -142,7 +142,7 @@ the confirmation email. Note that you will need to append the fields
 
 Example:
 ```html
-https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test%40holidayextras.com&booking_ref=HPABCDE&product_type=hotels&ABTANumber=WT314&Password=redacted&key=YourKey
+https://api-sandbox.holidayextras.com/v1/confirmation?email=test%40holidayextras.com&booking_ref=HPABCDE&product_type=hotels&ABTANumber=WT314&Password=redacted&key=YourKey
 ```
 
 ## Worked Examples
@@ -154,7 +154,7 @@ Below are worked examples of both the request and response for booking hotels.
 #### Request
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/LHRMEA
+https://api.holidayextras.com/v1/hotel/LHRMEA
 ```
 
 ```xml
@@ -174,7 +174,7 @@ https://api.holidayextras.co.uk/v1/hotel/LHRMEA
 #### Request
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/MUCLAN
+https://api.holidayextras.com/v1/hotel/MUCLAN
 ```
 
 ```xml
@@ -194,7 +194,7 @@ https://api.holidayextras.co.uk/v1/hotel/MUCLAN
 #### Request
 
 ```http
-https://api.holidayextras.co.uk/v1/hotel/LGWSOF
+https://api.holidayextras.com/v1/hotel/LGWSOF
 ```
 
 ```xml

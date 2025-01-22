@@ -15,7 +15,7 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/de-start/v1/carpark/CarParkCode
+https://api.holidayextras.com/de-start/v1/carpark/CarParkCode
 ```
 
 ### Request Parameters
@@ -56,7 +56,7 @@ Below are worked examples of both the request and response for availability for 
 ### Car Park Availability Request - DE-Start method
 
 ```html
-https://api.holidayextras.co.uk/de-start/sandbox/v1/carpark/FRA8?StartCustomer=YourStartCustomer&BusinessUnit=YourBusinessUnit&IInitials=BJT&ArrivalDate=2018-12-01&ArrivalTime=1200&DepartDate=2018-12-08&DepartTime=1400&NumberOfPax=1&key=YourKey&token=YourToken
+https://api-sandbox.holidayextras.com/de-start/v1/carpark/FRA8?StartCustomer=YourStartCustomer&BusinessUnit=YourBusinessUnit&IInitials=BJT&ArrivalDate=2018-12-01&ArrivalTime=1200&DepartDate=2018-12-08&DepartTime=1400&NumberOfPax=1&key=YourKey&token=YourToken
 ```
 
 ### Car Park Availability Response - DE-Start method

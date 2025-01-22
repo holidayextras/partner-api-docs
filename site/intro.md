@@ -36,7 +36,7 @@ Our API has been designed following [RESTful principles](https://en.wikipedia.or
 A single URL can have different functions depending on the method used to access it. Using the following URL as an example with each method:
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/LGW2
+https://api.holidayextras.com/v1/carpark/LGW2
 ```
 
 GET - returns availability and pricing information for that car park;
@@ -49,9 +49,9 @@ Whenever writing new code or altering existing functionality, you *must* use the
 
 The data returned  in the sandbox is not 'as live', but the format and structure are the same. If you do not, you will affect metrics such as conversion rates, and you will be responsible for any test bookings that have been made in the live environment, i.e. payment.
 
-Sandbox URL: https://api.holidayextras.co.uk/sandbox/
+Sandbox URL: https://api-sandbox.holidayextras.com
 
-Live URL: https://api.holidayextras.co.uk/
+Live URL: https://api.holidayextras.com/
 
 
 ### Reply Formats
@@ -62,19 +62,19 @@ Our API can return data in two formats: XML (default) and JavaScript. To specify
 *  .js
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite?key=YourKey
+https://api-sandbox.holidayextras.com/v1/prodlib/LGW2/lite?key=YourKey
 ```
 
 is the same as
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.xml?key=YourKey
+https://api-sandbox.holidayextras.com/v1/prodlib/LGW2/lite.xml?key=YourKey
 ```
 
 The same query, with results in javascript
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/prodlib/LGW2/lite.js?key=YourKey
+https://api-sandbox.holidayextras.com/v1/prodlib/LGW2/lite.js?key=YourKey
 ```
 
 ### User Journey
