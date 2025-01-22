@@ -21,7 +21,7 @@ GET
 NB: Where `productCode` is the code of the base product i.e. the parking/hotel/lounge etc. product.
 
 ```
-https://api.holidayextras.co.uk/v1/upgrade/LGV4
+https://api.holidayextras.com/v1/upgrade/LGV4
 ```
 
 ## Request Parameters
@@ -77,13 +77,13 @@ Upgrades can be for the day before travel, day of departure or day of return.
 {% codetabs %}
   {% codetab XML %}
   ```
-https://api.holidayextras.co.uk/v1/upgrade/STN5?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
+https://api.holidayextras.com/v1/upgrade/STN5?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
   ```
   {% endcodetab %}
 
   {% codetab JSON %}
 ```
-https://api.holidayextras.co.uk/v1/upgrade/STN5.js?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
+https://api.holidayextras.com/v1/upgrade/STN5.js?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
 ```
   {% endcodetab %}
 {% endcodetabs %}
@@ -111,13 +111,13 @@ https://api.holidayextras.co.uk/v1/upgrade/STN5.js?ABTANumber=YourABTANumber&Pas
 {% codetabs %}
 {% codetab XML %}
 ```
-https://api.holidayextras.co.uk/v1/upgrade/LGWSOF?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
+https://api.holidayextras.com/v1/upgrade/LGWSOF?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
 ```
 {% endcodetab %}
 
 {% codetab JSON %}
 ```
-https://api.holidayextras.co.uk/v1/upgrade/LGWSOF.js?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
+https://api.holidayextras.com/v1/upgrade/LGWSOF.js?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2020-11-03&ArrivalTime=12:30&DepartDate=2020-11-11&DepartTime=13:45
 ```
 {% endcodetab %}
 {% endcodetabs %}

@@ -22,7 +22,7 @@ GET / POST
 The endpoint to use is (where `YourBookingRef` is the Holiday Extras booking reference):
 
 ```
-https://api.holidayextras.co.uk/v1/booking/YourBookingRef
+https://api.holidayextras.com/v1/booking/YourBookingRef
 ```
 
 ### Request Parameters
@@ -79,7 +79,7 @@ Below are worked examples of both the request and response for cancelling a book
 ### Cancel Booking Request - Step 1
 
 ```html
-https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&ConfirmCancel=N&CancelRef=YourCancelRef
+https://api.holidayextras.com/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&ConfirmCancel=N&CancelRef=YourCancelRef
 ```
 
 ### Cancel Booking Response - Step 1
@@ -112,7 +112,7 @@ https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANum
 ### Cancel Booking Request - Step 2
 
 ```html
-https://api.holidayextras.co.uk/v1/booking/YourBookingRef
+https://api.holidayextras.com/v1/booking/YourBookingRef
 ```
 
 ```xml

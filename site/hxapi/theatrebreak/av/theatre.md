@@ -30,7 +30,7 @@ GET
 ### Request
 
 ```html
-https://api.holidayextras.co.uk/sandbox/v1/theatrebreak/SHOLME?ShowDate=2008-05-08&ArrivalDate=2008-05-15&RoomCode[]=D20&key=mytestkey
+https://api-sandbox.holidayextras.co.uk/v1/theatrebreak/SHOLME?ShowDate=2008-05-08&ArrivalDate=2008-05-15&RoomCode[]=D20&key=mytestkey
 ```
 
 

@@ -30,12 +30,12 @@ Example request:
 {% codetabs %}
 {% codetab XML %}
 ```
-https://api.holidayextras.co.uk/v1/sandbox/carHire/products?key=1&From=06NOV16&ArrivalTime=1200&To=13NOV&DepartTime=1600&PickupLocation=FL965&DropoffLocation=FL965&DateOfBirth=1990-10-13
+https://api-sandbox.holidayextras.com/v1/carHire/products?key=1&From=06NOV16&ArrivalTime=1200&To=13NOV&DepartTime=1600&PickupLocation=FL965&DropoffLocation=FL965&DateOfBirth=1990-10-13
 ```
 {% endcodetab %}
 {% codetab JSON %}
 ```
-https://api.holidayextras.co.uk/v1/sandbox/carHire/products.js?key=1&From=06NOV16&ArrivalTime=1200&To=13NOV&DepartTime=1600&PickupLocation=FL965&DropoffLocation=FL965&DateOfBirth=1990-10-13
+https://api-sandbox.holidayextras.com/v1/carHire/products.js?key=1&From=06NOV16&ArrivalTime=1200&To=13NOV&DepartTime=1600&PickupLocation=FL965&DropoffLocation=FL965&DateOfBirth=1990-10-13
 ```
 Note the `.js` extension.
 {% endcodetab %}
