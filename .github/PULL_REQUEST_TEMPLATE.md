@@ -1,9 +1,5 @@
 #### What does this PR do? (please provide any background)
 
-#### What tests does this PR have?
-
-#### How can this be tested?
-
 #### Any tech debt?
 
 #### Screenshots / Screencast
