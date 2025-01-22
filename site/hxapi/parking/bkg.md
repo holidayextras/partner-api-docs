@@ -17,13 +17,13 @@ POST
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/CarParkCode
+https://api.holidayextras.com/v1/carpark/CarParkCode
 ```
 
 For example, for _Maple Manor Meet and Greet at London Gatwick North terminal_ the endpoint is:
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/LGW4
+https://api.holidayextras.com/v1/carpark/LGW4
 ```
 
 ### Request Parameters
@@ -131,10 +131,10 @@ For a detailed explanation of the fields returned, please see below:
 | CarPark/introduction    | Production description text                                                                                                                                                                                   |
 | CarPark/logo            | Product logo. Prepend with `https:`                                                                                                                                                                           |
 | CarPark/RequiresQRCode  | Whether the QR Code needs to be used for this carpark, instead of the barcode                                                                                                                                 |
-| CarPark/BookingUrl      | Prepend with `https://api.holidayextras.co.uk/`                                                                                                                                                               |
-| CarPark/MoreInfoUrl     | Prepend with `https://api.holidayextras.co.uk/`                                                                                                                                                               |
-| BarCode                 | URL to the barcode for the booking. Prepend with `https://api.holidayextras.co.uk/`                                                                                                                           |
-| QRCode                  | URL to the QR code for the booking. Prepend with `https://api.holidayextras.co.uk/`                                                                                                                           |
+| CarPark/BookingUrl      | Prepend with `https://api.holidayextras.com/`                                                                                                                                                               |
+| CarPark/MoreInfoUrl     | Prepend with `https://api.holidayextras.com/`                                                                                                                                                               |
+| BarCode                 | URL to the barcode for the booking. Prepend with `https://api.holidayextras.com/`                                                                                                                           |
+| QRCode                  | URL to the QR code for the booking. Prepend with `https://api.holidayextras.com/`                                                                                                                           |
 | QRCodeValue                                    | (EU only) Value of the QR code that comes with email confirmation. [More details about QR Code](/hxapi/barcode#qr_code)                                                                |
 | QRCodeValueStr                                 | (EU only) Value of the QR code that comes with email confirmation, when returning as part of a JSON resposne this value will be a string. [More details about QR Code](/hxapi/barcode#qr_code)  |
 | FastTrackVouchers/Name          | *Only present if Fast track products have been purchased* - Name used to separate multiple voucher products                                                                                                   |
@@ -157,7 +157,7 @@ the confirmation email. Note that you will need to append the fields
 
 Example:
 ```html
-https://api.holidayextras.co.uk/sandbox/v1/confirmation?email=test@holidayextras.com&booking_ref=HPABCDE&product_type=carparks&ABTANumber=WT314&Password=redacted&key=mytestkey
+https://api-sandbox.holidayextras.com/v1/confirmation?email=test@holidayextras.com&booking_ref=HPABCDE&product_type=carparks&ABTANumber=WT314&Password=redacted&key=mytestkey
 ```
 
 ## Worked Examples
@@ -169,7 +169,7 @@ Below are worked examples of both the request and response for booking car parki
 #### Request
 
 ```html
-https://api.holidayextras.co.uk/carpark/LGW4
+https://api.holidayextras.com/carpark/LGW4
 ```
 
 ```xml
@@ -189,7 +189,7 @@ https://api.holidayextras.co.uk/carpark/LGW4
 #### Request
 
 ```
-https://api.holidayextras.co.uk/carpark/MU01
+https://api.holidayextras.com/carpark/MU01
 ```
 
 ```xml
@@ -209,7 +209,7 @@ https://api.holidayextras.co.uk/carpark/MU01
 #### Request
 
 ```
-https://api.holidayextras.co.uk/carpark/STN5
+https://api.holidayextras.com/carpark/STN5
 ```
 
 ```xml

@@ -6,7 +6,7 @@
 
 ## What is the development server address?
 
-https://api.holidayextras.co.uk/sandbox/
+https://api-sandbox.holidayextras.com/
 
 Whenever writing new code or altering existing functionality, you must use the development server (sandbox). The data returned is not 'as live', but the format and structure are the same. If you do not, you will affect metrics such as conversion rates, and any bookings made will be live.
 
@@ -14,10 +14,7 @@ Whenever writing new code or altering existing functionality, you must use the d
 
 ## What is the live server address?
 
-https://api.holidayextras.co.uk/
-
-
-
+https://api.holidayextras.com/
 
 
 

@@ -22,13 +22,13 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/CarParkProductCode/priceCheck
+https://api.holidayextras.com/v1/carpark/CarParkProductCode/priceCheck
 ```
 
 For example, for _Maple Manor Meet and Greet at London Gatwick North terminal_ the endpoint is:
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/LGW4/priceCheck
+https://api.holidayextras.com/v1/carpark/LGW4/priceCheck
 ```
 
 ### Request Parameters
@@ -68,7 +68,7 @@ Below are worked examples of both the request and response for the price check f
 #### Request
 
 ```
-https://api.holidayextras.co.uk/carpark/LHH6/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-07-01&ArrivalTime=1200&DepartDate=2025-07-08&DepartTime=1200&NumberOfPax=1
+https://api.holidayextras.com/carpark/LHH6/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-07-01&ArrivalTime=1200&DepartDate=2025-07-08&DepartTime=1200&NumberOfPax=1
 ```
 
 #### Response
@@ -82,7 +82,7 @@ https://api.holidayextras.co.uk/carpark/LHH6/priceCheck?ABTANumber=YourABTANumbe
 #### Request
 
 ```
-https://api.holidayextras.co.uk/carpark/LHH6/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-07-01&ArrivalTime=1230&DepartDate=2025-07-08&DepartTime=1345&NumberOfPax=1&Supplements[0][Code]=HXOST1&Supplements[0][Date]=2025-07-01&Supplements[0][Quantity]=1&Supplements[1][Code]=LHRSFS&Supplements[1][Date]=2025-07-01&Supplements[1][Adults]=2&Supplements[1][Children]=1
+https://api.holidayextras.com/carpark/LHH6/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-07-01&ArrivalTime=1230&DepartDate=2025-07-08&DepartTime=1345&NumberOfPax=1&Supplements[0][Code]=HXOST1&Supplements[0][Date]=2025-07-01&Supplements[0][Quantity]=1&Supplements[1][Code]=LHRSFS&Supplements[1][Date]=2025-07-01&Supplements[1][Adults]=2&Supplements[1][Children]=1
 ```
 
 #### Response
@@ -96,7 +96,7 @@ https://api.holidayextras.co.uk/carpark/LHH6/priceCheck?ABTANumber=YourABTANumbe
 #### Request
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/GLF2/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&System=ABC&lang=en&ArrivalDate=2024-09-15&ArrivalTime=1300&DepartDate=2024-09-17&NumberOfPax=1
+https://api.holidayextras.com/v1/carpark/GLF2/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&System=ABC&lang=en&ArrivalDate=2024-09-15&ArrivalTime=1300&DepartDate=2024-09-17&NumberOfPax=1
 ```
 
 #### Response
@@ -110,7 +110,7 @@ https://api.holidayextras.co.uk/v1/carpark/GLF2/priceCheck?ABTANumber=YourABTANu
 #### Request
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/GLF2/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&System=ABC&lang=en&ArrivalDate=2024-11-15&ArrivalTime=2500&DepartDate=2024-11-17&NumberOfPax=1
+https://api.holidayextras.com/v1/carpark/GLF2/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&System=ABC&lang=en&ArrivalDate=2024-11-15&ArrivalTime=2500&DepartDate=2024-11-17&NumberOfPax=1
 ```
 
 #### Response

@@ -17,7 +17,7 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/AirportCode
+https://api.holidayextras.com/v1/carpark/AirportCode
 ```
 
 For example, for London Gatwick the endpoint is:
@@ -25,12 +25,12 @@ For example, for London Gatwick the endpoint is:
 {% codetabs %}
 {% codetab XML %}
 ```
-https://api.holidayextras.co.uk/v1/carpark/LGW
+https://api.holidayextras.com/v1/carpark/LGW
 ```
 {% endcodetab %}
 {% codetab JSON %}
 ```
-https://api.holidayextras.co.uk/v1/carpark/LGW.js
+https://api.holidayextras.com/v1/carpark/LGW.js
 ```
 Note the `.js` extension.
 {% endcodetab %}
@@ -124,12 +124,12 @@ Below are worked examples of both the request and response for availability at a
 {% codetabs %}
 {% codetab XML %}
 ```
-https://api.holidayextras.co.uk/carpark/LGW?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2020-01-07&ArrivalTime=1200&DepartDate=2020-01-08&DepartTime=1200&NumberOfPax=1
+https://api.holidayextras.com/carpark/LGW?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2020-01-07&ArrivalTime=1200&DepartDate=2020-01-08&DepartTime=1200&NumberOfPax=1
 ```
 {% endcodetab %}
 {% codetab JSON %}
 ```
-https://api.holidayextras.co.uk/carpark/LGW.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2020-01-07&ArrivalTime=1200&DepartDate=2020-01-08&DepartTime=1200&NumberOfPax=1
+https://api.holidayextras.com/carpark/LGW.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2020-01-07&ArrivalTime=1200&DepartDate=2020-01-08&DepartTime=1200&NumberOfPax=1
 ```
 Note the `.js` extension.
 {% endcodetab %}
@@ -370,12 +370,12 @@ NB: This is a shortened example compiled from a full availability response.
 {% codetabs %}
 {% codetab XML %}
 ```
-https://api.holidayextras.co.uk/carpark/MUC?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&ArrivalTime=1200&DepartDate=2017-12-08&DepartTime=1200&NumberOfPax=1&System=ABG&lang=en
+https://api.holidayextras.com/carpark/MUC?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&ArrivalTime=1200&DepartDate=2017-12-08&DepartTime=1200&NumberOfPax=1&System=ABG&lang=en
 ```
 {% endcodetab %}
 {% codetab JSON %}
 ```
-https://api.holidayextras.co.uk/carpark/MUC.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&ArrivalTime=1200&DepartDate=2017-12-08&DepartTime=1200&NumberOfPax=1&System=ABG&lang=en
+https://api.holidayextras.com/carpark/MUC.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&ArrivalTime=1200&DepartDate=2017-12-08&DepartTime=1200&NumberOfPax=1&System=ABG&lang=en
 ```
 Note the `.js` extension.
 {% endcodetab %}
@@ -609,8 +609,3 @@ NB: This is a shortened example compiled from a full availability response.
 ```
 {% endcodetab %}
 {% endcodetabs %}
-
-
-
-
-
