@@ -54,7 +54,7 @@
 
 <p>The endpoint to use is (where <code class="language-plaintext highlighter-rouge">YourBookingRef</code> is the Holiday Extras booking reference):</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#dbbbdce4-a386-4b75-b256-bcbc7d153bad'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#d82c07f4-6142-45ce-86db-909490e97b66'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -62,7 +62,7 @@
 
 </ul>
 
-<ul id="dbbbdce4-a386-4b75-b256-bcbc7d153bad" class="uk-switcher uk-margin">
+<ul id="d82c07f4-6142-45ce-86db-909490e97b66" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/booking/YourBookingRef
@@ -156,6 +156,10 @@
       <td>This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br />NB: Our booking references are up to 12 char alphanumeric (including 1/I and 0/O/Q).</td>
     </tr>
     <tr>
+      <td>Booking/Amendable</td>
+      <td>This will return one of the following: <code class="language-plaintext highlighter-rouge">Y</code> = booking can be amended; <code class="language-plaintext highlighter-rouge">N</code> = booking cannot be amended; <code class="language-plaintext highlighter-rouge">C</code> = booking has been cancelled; <code class="language-plaintext highlighter-rouge">S</code> = booking is same day so cannot be amended or cancelled.</td>
+    </tr>
+    <tr>
       <td>Booking/CanxDate</td>
       <td>If the booking has been cancelled, the date on which it was will return here.</td>
     </tr>
@@ -168,8 +172,8 @@
       <td>The date the booking was originally made on.</td>
     </tr>
     <tr>
-      <td><strong>⚠️ Deprecated:</strong> Booking/PdfURL</td>
-      <td>A link to generate a pdf version of the booking confirmation. -  <strong>It is no longer supported and will be removed in future releases.</strong> -</td>
+      <td>Booking/PdfURL</td>
+      <td>⚠ Deprecated: This feature provided a link to generate a PDF version of the booking confirmation. It is no longer supported and will be removed in future releases.</td>
     </tr>
     <tr>
       <td>Itinerary</td>
@@ -368,7 +372,7 @@ the confirmation email. Note that you will need to append the fields
 
 <h4 id="request">Request</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#12ec751a-b977-429b-8cf5-851fb2793b66'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#5b6644c3-d863-4959-91b9-115d8ce6b8e4'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -376,7 +380,7 @@ the confirmation email. Note that you will need to append the fields
 
 </ul>
 
-<ul id="12ec751a-b977-429b-8cf5-851fb2793b66" class="uk-switcher uk-margin">
+<ul id="5b6644c3-d863-4959-91b9-115d8ce6b8e4" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
@@ -393,7 +397,7 @@ the confirmation email. Note that you will need to append the fields
 
 <h4 id="response">Response</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#186245d9-fc74-4fc7-a039-b11e3324419a'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#42f854cd-e291-4bad-92e3-f4ed1ea93e79'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -401,7 +405,7 @@ the confirmation email. Note that you will need to append the fields
 
 </ul>
 
-<ul id="186245d9-fc74-4fc7-a039-b11e3324419a" class="uk-switcher uk-margin">
+<ul id="42f854cd-e291-4bad-92e3-f4ed1ea93e79" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -928,7 +932,7 @@ the confirmation email. Note that you will need to append the fields
 <h3 id="uk-products-view-booking-for-a-transfer">UK Products View Booking (for a transfer)</h3>
 
 <h4 id="request-1">Request</h4>
-<ul class="uk-tab" data-uk-switcher="{connect:'#19b47b38-8deb-4113-b814-3610b1caaf32'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#2a161b19-2661-4abe-a8ca-c15ec360635f'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -936,7 +940,7 @@ the confirmation email. Note that you will need to append the fields
 
 </ul>
 
-<ul id="19b47b38-8deb-4113-b814-3610b1caaf32" class="uk-switcher uk-margin">
+<ul id="2a161b19-2661-4abe-a8ca-c15ec360635f" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
@@ -953,7 +957,7 @@ the confirmation email. Note that you will need to append the fields
 
 <h4 id="response-1">Response</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#fd719f9f-384e-41ec-a7c6-5d5caebd0331'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#e3fbf3c6-0307-4389-aa61-89e384872c81'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -961,7 +965,7 @@ the confirmation email. Note that you will need to append the fields
 
 </ul>
 
-<ul id="fd719f9f-384e-41ec-a7c6-5d5caebd0331" class="uk-switcher uk-margin">
+<ul id="e3fbf3c6-0307-4389-aa61-89e384872c81" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
