@@ -156,10 +156,6 @@
       <td>This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br />NB: Our booking references are up to 12 char alphanumeric (including 1/I and 0/O/Q).</td>
     </tr>
     <tr>
-      <td>Booking/Amendable</td>
-      <td>This will return one of the following: <code class="language-plaintext highlighter-rouge">Y</code> = booking can be amended; <code class="language-plaintext highlighter-rouge">N</code> = booking cannot be amended; <code class="language-plaintext highlighter-rouge">C</code> = booking has been cancelled; <code class="language-plaintext highlighter-rouge">S</code> = booking is same day so cannot be amended or cancelled.</td>
-    </tr>
-    <tr>
       <td>Booking/CanxDate</td>
       <td>If the booking has been cancelled, the date on which it was will return here.</td>
     </tr>
@@ -170,6 +166,10 @@
     <tr>
       <td>Booking/BookingDate</td>
       <td>The date the booking was originally made on.</td>
+    </tr>
+    <tr>
+      <td><strong>⚠️ Deprecated:</strong> Booking/PdfURL</td>
+      <td>A link to generate a pdf version of the booking confirmation. -  <strong>It is no longer supported and will be removed in future releases.</strong> -</td>
     </tr>
     <tr>
       <td>Itinerary</td>
