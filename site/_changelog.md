@@ -1,6 +1,6 @@
 | Version Number | Date                | Details                                                                                                                        |
 |----------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| 1.24.0         | 3rd February 2025   | Mark PDF references as depracated and remove theatre shows link                                                                |
+| 1.24.0         | 3rd February 2025   | Mark PDF references as depracated and remove theatrebreak shows link                                                           |
 | 1.23.0         | 22th January 2025   | Updated all `api.` domain references to .com over .co.uk, updated references to `/sandbox` to `api-sandbox.holidayextras.com`. |
 | 1.22.0         | 13th January 2025   | Added missing error code for unexpected errors.                                                                                |
 | 1.21.0         | 10th January 2025   | Added customerRef parameter for lounges and fast track.                                                                        |
