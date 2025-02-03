@@ -598,6 +598,16 @@ For per <code class="language-plaintext highlighter-rouge">Person</code> upgrade
 
 <p>However, we also have capability to send booking confirmation emails ourselves on behalf of partners. This feature is not available as standard, and so if you wish to enable this please speak to your Account Manager.</p>
 
+<h4 id="pdfurl">PdfUrl</h4>
+
+<p>The <code class="language-plaintext highlighter-rouge">PdfUrl</code> field contains a URL that can be used to retrieve a PDF copy of
+the confirmation email. Note that you will need to append the fields
+<code class="language-plaintext highlighter-rouge">ABTANumber</code>, <code class="language-plaintext highlighter-rouge">Password</code> and <code class="language-plaintext highlighter-rouge">key</code> to the link in order to authenticate.</p>
+
+<p>Example:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api-sandbox.holidayextras.com/v1/confirmation?email=test@holidayextras.com<span class="err">&amp;</span>booking_ref=HPABCDE<span class="err">&amp;</span>product_type=carparks<span class="err">&amp;</span>ABTANumber=WT314<span class="err">&amp;</span>Password=redacted<span class="err">&amp;</span>key=mytestkey
+</code></pre></div></div>
+
 <h2 id="worked-examples">Worked Examples</h2>
 
 <p>Below are worked examples of both the request and response for booking car parking.</p>
