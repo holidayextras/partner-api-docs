@@ -342,12 +342,6 @@
 
 <p>Most of these should be self explanatory, just the values from the booking.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">PdfUrl</code> field contains a URL that can be used to retrieve a PDF copy of
-the confirmation email. Note that you will need to append the fields
-<code class="language-plaintext highlighter-rouge">ABTANumber</code>, <code class="language-plaintext highlighter-rouge">Password</code> and <code class="language-plaintext highlighter-rouge">key</code> to the link in order to authenticate.</p>
-
-<p>Example: https://api-sandbox.holidayextras.com/v1/confirmation?email=test@holidayextras.com&amp;booking_ref=HPABCDE&amp;product_type=carparks&amp;ABTANumber=WT314&amp;Password=redacted&amp;key=mytestkey</p>
-
 <h4 id="bookingamendable">/Booking/Amendable</h4>
 
 <p>Possible values</p>
@@ -427,7 +421,6 @@ the confirmation email. Note that you will need to append the fields
     <span class="nt">&lt;SupplierReference/&gt;</span>
     <span class="nt">&lt;Cancellable/&gt;</span>
     <span class="nt">&lt;BookingDate&gt;</span>2020-07-15<span class="nt">&lt;/BookingDate&gt;</span>
-    <span class="nt">&lt;PdfUrl&gt;</span>/v1/confirmation?email=test%40test.com<span class="ni">&amp;amp;</span>booking_ref=YourBookingRef<span class="ni">&amp;amp;</span>product_type=carparks<span class="nt">&lt;/PdfUrl&gt;</span>
   <span class="nt">&lt;/Booking&gt;</span>
   <span class="nt">&lt;Itinerary&gt;</span>
     <span class="nt">&lt;Product&gt;</span>Parking<span class="nt">&lt;/Product&gt;</span>
@@ -694,7 +687,6 @@ the confirmation email. Note that you will need to append the fields
       </span><span class="nl">"SupplierReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Cancellable"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"BookingDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-15"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"PdfUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/confirmation?email=test%40test.com&amp;amp;booking_ref=YourBookingRef&amp;amp;product_type=carparks"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"Itinerary"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parking"</span><span class="p">,</span><span class="w">
@@ -1294,7 +1286,6 @@ the confirmation email. Note that you will need to append the fields
     <span class="nt">&lt;MidocoBasket/&gt;</span>
     <span class="nt">&lt;MidocoCustRef/&gt;</span>
     <span class="nt">&lt;MidocoId/&gt;</span>
-    <span class="nt">&lt;PdfUrl&gt;</span>/v1/confirmation?email=test%40test.com<span class="ni">&amp;amp;</span>booking_ref=YourBookingRef<span class="ni">&amp;amp;</span>product_type=hotels<span class="nt">&lt;/PdfUrl&gt;</span>
   <span class="nt">&lt;/Booking&gt;</span>
   <span class="nt">&lt;Itinerary&gt;</span>
     <span class="nt">&lt;Product&gt;</span>Hotel<span class="nt">&lt;/Product&gt;</span>

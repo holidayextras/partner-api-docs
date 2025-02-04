@@ -3,7 +3,6 @@
   <Booking>
     <BookingRef>YourBookingRef</BookingRef>
     <MoreInfoURL>/v1/booking/YourBookingRef.de</MoreInfoURL>
-    <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=FRABCDE&amp;product_type=hotels</PdfUrl>
   </Booking>
   <Hotel/>
   <Itinerary>

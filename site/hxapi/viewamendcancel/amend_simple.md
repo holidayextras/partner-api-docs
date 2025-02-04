@@ -121,7 +121,6 @@ https://api.holidayextras.com/booking/YourBookingRef
     </ClientDetails>
     <Booking>
         <BookingRef>YourBookingRef</BookingRef>
-        <PdfUrl>/v1/confirmation?email=test@test.com&booking_ref=YourBookingRef&product_type=carparks</PdfUrl>
     </Booking>
     <CarPark>
         <ArrivalDate>2018-12-01</ArrivalDate>

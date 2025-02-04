@@ -100,16 +100,6 @@ For a detailed explanation of the fields returned, please see below:
 | AvailableSupplements/Supplement/PerNight       | Whether the upgrade is charged per night of a stay                                                                                                                                                            |
 | API_Header/Request                             | A list of parameters that were sent in the view booking request.                                                                                                                                              |
 
-### Fields Explained
-
-Most of these should be self explanatory, just the values from the booking.
-
-The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
-the confirmation email. Note that you will need to append the fields
-`ABTANumber`, `Password` and `key` to the link in order to authenticate.
-
-Example: https://api-sandbox.holidayextras.com/v1/confirmation?email=test@holidayextras.com&booking_ref=HPABCDE&product_type=carparks&ABTANumber=WT314&Password=redacted&key=mytestkey
-
 #### /Booking/Amendable
 
 Possible values
