@@ -58,16 +58,16 @@ For a detailed explanation of the fields returned, please see below:
 | Booking/CanxDate                               | If the booking has been cancelled, the date on which it was will return here.                                                                                                                                 |
 | Booking/AgentComm                              | Commission you have earned from this booking.                                                                                                                                                                 |
 | Booking/BookingDate                            | The date the booking was originally made on.                                                                                                                                                                  |
-| Booking/PdfURL                                 | A link to generate a pdf version of the booking confirmation.                                                                                                                                                 |
+| Booking/PdfURL                                 | ⚠ Deprecated: This feature provided a link to generate a PDF version of the booking confirmation. It is no longer supported and will be removed in future releases.                                           |
 | Itinerary                                      | This block will return details of the original booking, as per the booking response for each product type. Please see the respective booking guides for further details on the fields.                        |
 | ClientDetails                                  | This block will return details of the lead passenger.                                                                                                                                                         |
 | Pricing                                        | This block will return details of the price paid by the customer.                                                                                                                                             |
 | VAT                                            | Please ignore this block.                                                                                                                                                                                     |
 | CustRef                                        | If you have passed in a Customer Reference with your original booking request, it will return here.                                                                                                           |
-| BarCode                                        | A link to generate a bar code for the booking confirmation.
-| QRCodeValue                                    | (EU only) Value of the QR code that comes with email confirmation. [More details about QR Code](/hxapi/barcode#qr_code)                                                                                                                                                     |
-| QRCodeValueStr                                 | (EU only) Value of the QR code that comes with email confirmation. [More details about QR Code](/hxapi/barcode#qr_code)                                                                                                                                                     |
-| SupplierRef                                    | (EU only) External booking id booking                                                                                                                                                                              |
+| BarCode                                        | A link to generate a bar code for the booking confirmation.                                                                                                                                                   |
+| QRCodeValue                                    | (EU only) Value of the QR code that comes with email confirmation. [More details about QR Code](/hxapi/barcode#qr_code)                                                                                       |
+| QRCodeValueStr                                 | (EU only) Value of the QR code that comes with email confirmation. [More details about QR Code](/hxapi/barcode#qr_code)                                                                                       |
+| SupplierRef                                    | (EU only) External booking id booking                                                                                                                                                                         |
 | CurrentSupplements[]                           | Array of upgrades on the booking                                                                                                                                                                              |
 | CurrentSupplements/Supplement/Code             | Upgrade product code                                                                                                                                                                                          |
 | CurrentSupplements/Supplement/Price            | The price paid for the upgrade                                                                                                                                                                                |
@@ -99,16 +99,6 @@ For a detailed explanation of the fields returned, please see below:
 | AvailableSupplements/Supplement/ChDiscAmt      | The amount of discount applied to the child price. Only present for per person upgrades                                                                                                                       |
 | AvailableSupplements/Supplement/PerNight       | Whether the upgrade is charged per night of a stay                                                                                                                                                            |
 | API_Header/Request                             | A list of parameters that were sent in the view booking request.                                                                                                                                              |
-
-### Fields Explained
-
-Most of these should be self explanatory, just the values from the booking.
-
-The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
-the confirmation email. Note that you will need to append the fields
-`ABTANumber`, `Password` and `key` to the link in order to authenticate.
-
-Example: https://api-sandbox.holidayextras.com/v1/confirmation?email=test@holidayextras.com&booking_ref=HPABCDE&product_type=carparks&ABTANumber=WT314&Password=redacted&key=mytestkey
 
 #### /Booking/Amendable
 
