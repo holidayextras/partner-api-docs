@@ -16,7 +16,6 @@
     <MidocoBasket/>
     <MidocoCustRef/>
     <MidocoId/>
-    <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=YourBookingRef&amp;product_type=hotels</PdfUrl>
   </Booking>
   <Itinerary>
     <Product>Hotel</Product>
