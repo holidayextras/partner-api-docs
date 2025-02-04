@@ -4,7 +4,6 @@
     <BookingRef>YourBookingRef</BookingRef>
     <AgentComm>7.25</AgentComm>
     <VATonComm>0.00</VATonComm>
-    <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=HPABCDE&amp;product_type=carparks</PdfUrl>
   </Booking>
   <CarDetails>
     <Registration>TE17 STS</Registration>

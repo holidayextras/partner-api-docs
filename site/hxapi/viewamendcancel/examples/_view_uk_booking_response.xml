@@ -17,7 +17,6 @@
     <SupplierReference/>
     <Cancellable/>
     <BookingDate>2020-07-15</BookingDate>
-    <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=YourBookingRef&amp;product_type=carparks</PdfUrl>
   </Booking>
   <Itinerary>
     <Product>Parking</Product>

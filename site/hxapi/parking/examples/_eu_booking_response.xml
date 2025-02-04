@@ -2,7 +2,6 @@
 <API_Reply Product="CarPark" RequestCode="4" Result="OK">
   <Booking>
     <BookingRef>YourBookingRef</BookingRef>
-    <PdfUrl>/v1/confirmation?email=test%40test.com&amp;booking_ref=FRABCDE&amp;product_type=carparks</PdfUrl>
   </Booking>
   <MoreInfoURL>/carpark/YourBookingRef.de</MoreInfoURL>
   <CarPark>
