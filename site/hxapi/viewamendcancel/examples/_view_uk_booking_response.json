@@ -25,8 +25,7 @@
       "FraudBooking": "",
       "SupplierReference": "",
       "Cancellable": "",
-      "BookingDate": "2020-07-15",
-      "PdfUrl": "/v1/confirmation?email=test%40test.com&amp;booking_ref=YourBookingRef&amp;product_type=carparks"
+      "BookingDate": "2020-07-15"
     },
     "Itinerary": {
       "Product": "Parking",

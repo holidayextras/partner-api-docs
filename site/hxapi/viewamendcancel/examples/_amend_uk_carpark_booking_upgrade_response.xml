@@ -17,7 +17,6 @@
   </ClientDetails>
   <Booking>
     <BookingRef>YourBookingRef</BookingRef>
-    <PdfUrl>/v1/confirmation?email=test@test.com&booking_ref=YourBookingRef&product_type=carparks</PdfUrl>
   </Booking>
   <Pricing>
     <OriginalPrice>72.98</OriginalPrice>

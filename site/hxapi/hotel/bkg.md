@@ -134,17 +134,6 @@ We expect partners to create their own booking confirmations to send to customer
 
 However, we also have capability to send booking confirmation emails ourselves on behalf of partners. This feature is not available as standard, and so if you wish to enable this please speak to your Account Manager.
 
-#### PdfUrl
-
-The `PdfUrl` field contains a URL that can be used to retrieve a PDF copy of
-the confirmation email. Note that you will need to append the fields
-`ABTANumber`, `Password` and `key` to the link in order to authenticate.
-
-Example:
-```html
-https://api-sandbox.holidayextras.com/v1/confirmation?email=test%40holidayextras.com&booking_ref=HPABCDE&product_type=hotels&ABTANumber=WT314&Password=redacted&key=YourKey
-```
-
 ## Worked Examples
 
 Below are worked examples of both the request and response for booking hotels.
