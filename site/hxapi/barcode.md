@@ -31,24 +31,24 @@ The file extension is also required, to tell the API to return the correct image
 #### Request
 
 ```
-https://api-sandbox.holidayextras.com/v1/barcode/ABCDE.png?key=YourKey
+https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=YourKey
 ```
 
 So you can include it in your page as easily as...
 
 ```
-<img src="https://api-sandbox.holidayextras.com/v1/barcode/ABCDE.png?key=YourKey" />
+<img src="https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=YourKey" />
 ```
 
 
 The image can be rotated to fit the side of a page:
 
 ```
-https://api-sandbox.holidayextras.com/v1/barcode/ABCDE.png?key=YourKey&angle=90
+https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=YourKey&angle=90
 ```
 Or
 ```
-https://api-sandbox.holidayextras.com/v1/barcode/ABCDE.png?key=YourKey&angle=270
+https://api.holidayextras.co.uk/sandbox/v1/barcode/ABCDE.png?key=YourKey&angle=270
 ```
 
 
@@ -65,13 +65,13 @@ A QR code can be generated in the same fashion as a barcode, just call the `/qrc
 #### Request
 
 ```
-https://api-sandbox.holidayextras.com/v1/qrcode/ABCDE.png?key=YourKey
+https://api.holidayextras.co.uk/sandbox/v1/qrcode/ABCDE.png?key=YourKey
 ```
 
 So you can include it in your page as easily as...
 
 ```
-<img src="https://api-sandbox.holidayextras.com/v1/qrcode/ABCDE.png?key=YourKey" />
+<img src="https://api.holidayextras.co.uk/sandbox/v1/qrcode/ABCDE.png?key=YourKey" />
 ```
 
 <div id="qr_code"></div>

@@ -19,13 +19,13 @@ GET
 To request the list of options available for the selected insurance scheme, the endpoint to use is (where `SchemeCode` is returned in the [insurance scheme availability response](/hxapi/insurance/availability)):
 
 ```
-https://api.holidayextras.com/v1/insurancepolicy/SchemeCode
+https://api.holidayextras.co.uk/v1/insurancepolicy/SchemeCode
 ```
 
 For example, to request the options available for `SchemeCode` "8673" (Europe low risk, single trip), the endpoint is:
 
 ```
-https://api.holidayextras.com/v1/insurancepolicy/8673
+https://api.holidayextras.co.uk/v1/insurancepolicy/8673
 ```
 
 ### Request Parameters
@@ -86,7 +86,7 @@ Below are worked examples of both the request and response for insurance schemes
 ### Insurance Schemes Options Request
 
 ```
-https://api.holidayextras.com/v1/insurancepolicy/8673?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&StartDate=2017-12-01&EndDate=2017-12-08&birthDate[0]=1970-01-01&title[]=Mr&firstName[]=Test&lastName[]=Test&destinationID=13&schemePrice=9.13
+https://api.holidayextras.co.uk/v1/insurancepolicy/8673?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&StartDate=2017-12-01&EndDate=2017-12-08&birthDate[0]=1970-01-01&title[]=Mr&firstName[]=Test&lastName[]=Test&destinationID=13&schemePrice=9.13
 ```
 
 ### Insurance Schemes Options Response

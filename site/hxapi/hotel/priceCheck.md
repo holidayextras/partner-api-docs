@@ -17,13 +17,13 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.com/v1/hotel/HotelProductCode/priceCheck
+https://api.holidayextras.co.uk/v1/hotel/HotelProductCode/priceCheck
 ```
 
 For example, for _Mercure at London Heathrow_ the endpoint is:
 
 ```
-https://api.holidayextras.com/v1/hotel/LHRMEA/priceCheck
+https://api.holidayextras.co.uk/v1/hotel/LHRMEA/priceCheck
 ```
 
 ## Request Parameters
@@ -91,7 +91,7 @@ Below are worked examples of both the request and response for the price check f
 ### Request
 
 ```
-https://api.holidayextras.com/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2025-07-01&Nights=1&RoomCode=DBL&ParkingDays=0&Adults=2&Children=0
+https://api.holidayextras.co.uk/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2025-07-01&Nights=1&RoomCode=DBL&ParkingDays=0&Adults=2&Children=0
 ```
 
 ### Response
@@ -105,7 +105,7 @@ https://api.holidayextras.com/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANumb
 ### Request
 
 ```
-https://api.holidayextras.com/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2025-07-10&Nights=1&RoomCode=DBL&ParkingDays=0&Adults=2&Children=0&Supplements[0][Code]=LGWSOE&Supplements[0][Date]=2025-07-10&Supplements[0][Quantity]=1&Supplements[0][TotalPrice]=40.00&Supplements[1][Code]=LGWASC&Supplements[1][Date]=2025-07-11&Supplements[1][Adults]=2&Supplements[1][Children]=0&Supplements[1][TotalPrice]=82.00
+https://api.holidayextras.co.uk/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2025-07-10&Nights=1&RoomCode=DBL&ParkingDays=0&Adults=2&Children=0&Supplements[0][Code]=LGWSOE&Supplements[0][Date]=2025-07-10&Supplements[0][Quantity]=1&Supplements[0][TotalPrice]=40.00&Supplements[1][Code]=LGWASC&Supplements[1][Date]=2025-07-11&Supplements[1][Adults]=2&Supplements[1][Children]=0&Supplements[1][TotalPrice]=82.00
 ```
 
 ### Response
@@ -119,7 +119,7 @@ https://api.holidayextras.com/v1/hotel/LHRMEA/priceCheck?ABTANumber=YourABTANumb
 ### Request
 
 ```
-https://api.holidayextras.com/v1/hotel/LGWEUL/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&RoomCode=DBL&Adults=2&Children=0&Nights=1&ArrivalDate=2024-10-15
+https://api.holidayextras.co.uk/v1/hotel/LGWEUL/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&RoomCode=DBL&Adults=2&Children=0&Nights=1&ArrivalDate=2024-10-15
 ```
 
 ### Response
@@ -133,7 +133,7 @@ https://api.holidayextras.com/v1/hotel/LGWEUL/priceCheck?ABTANumber=YourABTANumb
 ### Request
 
 ```
-https://api.holidayextras.com/v1/hotel/LGWEUL/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&RoomCode=DBL&Adults=2&Children=2&Nights=1&ArrivalDate=2024-11-15
+https://api.holidayextras.co.uk/v1/hotel/LGWEUL/priceCheck?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&RoomCode=DBL&Adults=2&Children=2&Nights=1&ArrivalDate=2024-11-15
 ```
 
 ### Response

@@ -15,12 +15,12 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.com/v1/transfers/search
+https://api.holidayextras.co.uk/v1/transfers/search
 ```
 
 Here is an example:
 ```
-https://api.holidayextras.com/v1/transfers/search?token=[TOKEN]&key=[KEY]&ABTANumber=[ABTA]&FromDate=2020-08-01&FromTime=1000&ReturnDate=2020-08-07&ReturnTime=1730&PickUp=AGP&PickUpType=IATA&DropOff=85101062&DropOffType=TTI&OutFlight=U28605&ReturnFlight=U28602&Adults=2
+https://api.holidayextras.co.uk/v1/transfers/search?token=[TOKEN]&key=[KEY]&ABTANumber=[ABTA]&FromDate=2020-08-01&FromTime=1000&ReturnDate=2020-08-07&ReturnTime=1730&PickUp=AGP&PickUpType=IATA&DropOff=85101062&DropOffType=TTI&OutFlight=U28605&ReturnFlight=U28602&Adults=2
 ```
 
 ### Request Parameters
@@ -554,12 +554,12 @@ Below are some worked examples of both the request and response when requesting 
 {% codetabs %}
 {% codetab XML %}
 ```
-https:///api.holidayextras.com/v1/transfers/search?ABTANumber=YourABTANumber&Password=YourABTANumber&Initials=YourInitials&key=YourKey&token=YourToken&PickUp=ALC&PickUpType=IATA&DropOffType=TTI&DropOff=10147575&FromDate=2022-03-16&FromTime=1115&ReturnDate=2022-03-23&ReturnTime=1115&Adults=2&OutFlight=U28605&ReturnFlight=U28602
+https:///api.holidayextras.co.uk/v1/transfers/search?ABTANumber=YourABTANumber&Password=YourABTANumber&Initials=YourInitials&key=YourKey&token=YourToken&PickUp=ALC&PickUpType=IATA&DropOffType=TTI&DropOff=10147575&FromDate=2022-03-16&FromTime=1115&ReturnDate=2022-03-23&ReturnTime=1115&Adults=2&OutFlight=U28605&ReturnFlight=U28602
 ```
 {% endcodetab %}
 {% codetab JSON %}
 ```
-https:///api.holidayextras.com/v1/transfers/search.js?ABTANumber=YourABTANumber&Password=YourABTANumber&Initials=YourInitials&key=YourKey&token=YourToken&PickUp=ALC&PickUpType=IATA&DropOffType=TTI&DropOff=10147575&FromDate=2022-03-16&FromTime=1115&ReturnDate=2022-03-23&ReturnTime=1115&Adults=2&OutFlight=U28605&ReturnFlight=U28602
+https:///api.holidayextras.co.uk/v1/transfers/search.js?ABTANumber=YourABTANumber&Password=YourABTANumber&Initials=YourInitials&key=YourKey&token=YourToken&PickUp=ALC&PickUpType=IATA&DropOffType=TTI&DropOff=10147575&FromDate=2022-03-16&FromTime=1115&ReturnDate=2022-03-23&ReturnTime=1115&Adults=2&OutFlight=U28605&ReturnFlight=U28602
 ```
 Note the `.js` extension.
 {% endcodetab %}
@@ -809,12 +809,12 @@ NB: This is a shortened example compiled from a full availability response.
 {% codetabs %}
 {% codetab XML %}
 ```
-https:///api.holidayextras.com/v1/transfers/search?ABTANumber=YourABTANumber&Password=YourABTANumber&Initials=YourInitials&key=YourKey&token=YourToken&PickUp=ALC&PickUpType=IATA&DropOffType=postal-address&DropOffName=Hotel%20Rural%20Castillo%20De%20Biar&DropOffAddress[0]=Carretera%20de%20Banyeres&DropOffAddress[1]=s/n&DropOffTown=%20Biar&DropOffCounty=Alicante&DropOffPostcode=03410&DropOffCountryCode=ES&DropOffLongitude=-0.76832006&DropOffLatitude=38.63852215&Adults=2&FromDate=2022-03-16&FromTime=1115&ReturnDate=2022-03-23&ReturnTime=1115&OutFlight=U28605&ReturnFlight=U28602
+https:///api.holidayextras.co.uk/v1/transfers/search?ABTANumber=YourABTANumber&Password=YourABTANumber&Initials=YourInitials&key=YourKey&token=YourToken&PickUp=ALC&PickUpType=IATA&DropOffType=postal-address&DropOffName=Hotel%20Rural%20Castillo%20De%20Biar&DropOffAddress[0]=Carretera%20de%20Banyeres&DropOffAddress[1]=s/n&DropOffTown=%20Biar&DropOffCounty=Alicante&DropOffPostcode=03410&DropOffCountryCode=ES&DropOffLongitude=-0.76832006&DropOffLatitude=38.63852215&Adults=2&FromDate=2022-03-16&FromTime=1115&ReturnDate=2022-03-23&ReturnTime=1115&OutFlight=U28605&ReturnFlight=U28602
 ```
 {% endcodetab %}
 {% codetab JSON %}
 ```
-https:///api.holidayextras.com/v1/transfers/search.js?ABTANumber=YourABTANumber&Password=YourABTANumber&Initials=YourInitials&key=YourKey&token=YourToken&PickUp=ALC&PickUpType=IATA&DropOffType=postal-address&DropOffName=Hotel%20Rural%20Castillo%20De%20Biar&DropOffAddress[0]=Carretera%20de%20Banyeres&DropOffAddress[1]=s/n&DropOffTown=%20Biar&DropOffCounty=Alicante&DropOffPostcode=03410&DropOffCountryCode=ES&DropOffLongitude=-0.76832006&DropOffLatitude=38.63852215&Adults=2&FromDate=2022-03-16&FromTime=1115&ReturnDate=2022-03-23&ReturnTime=1115&OutFlight=U28605&ReturnFlight=U28602
+https:///api.holidayextras.co.uk/v1/transfers/search.js?ABTANumber=YourABTANumber&Password=YourABTANumber&Initials=YourInitials&key=YourKey&token=YourToken&PickUp=ALC&PickUpType=IATA&DropOffType=postal-address&DropOffName=Hotel%20Rural%20Castillo%20De%20Biar&DropOffAddress[0]=Carretera%20de%20Banyeres&DropOffAddress[1]=s/n&DropOffTown=%20Biar&DropOffCounty=Alicante&DropOffPostcode=03410&DropOffCountryCode=ES&DropOffLongitude=-0.76832006&DropOffLatitude=38.63852215&Adults=2&FromDate=2022-03-16&FromTime=1115&ReturnDate=2022-03-23&ReturnTime=1115&OutFlight=U28605&ReturnFlight=U28602
 ```
 Note the `.js` extension.
 {% endcodetab %}

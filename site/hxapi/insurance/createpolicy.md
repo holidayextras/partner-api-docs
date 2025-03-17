@@ -10,7 +10,7 @@
 
 This endpoint will create a new insurance policy.
 
-Please note: we do not have a test environment for insurance, so you will be unable to use `api-sandbox.holidayextras.com`. To make test policies you will need to follow these rules:
+Please note: we do not have a test environment for insurance, so you will be unable to use /sandbox/. To make test policies you will need to follow these rules:
 
 1. Make the policy more than 3 months from the search date;
 2. Do not have more than 3 test policies live at any one point;
@@ -27,7 +27,7 @@ POST
 To create an insurance policy, the endpoint to use is (where `CertificateRef` is returned in the options response):
 
 ```
-https://api.holidayextras.com/v1/insurancepolicy/CertificateRef
+https://api.holidayextras.co.uk/v1/insurancepolicy/CertificateRef
 ```
 
 ### Request Parameters
@@ -91,7 +91,7 @@ Below are worked examples of both the request and response for creating an insur
 ### Create Insurance Policy Request
 
 ```
-https://api.holidayextras.com/v1/insurancepolicy/YourCertificateRef
+https://api.holidayextras.co.uk/v1/insurancepolicy/YourCertificateRef
 ```
 
 ```
