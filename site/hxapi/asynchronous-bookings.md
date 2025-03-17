@@ -33,11 +33,11 @@ Partners must include a new parameter in the availability request to indicate wh
 {% codetabs %}
 {% codetab XML %}
 ```
-https://api.holidayextras.com/v1/carpark/LGW?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-01-07&ArrivalTime=1200&DepartDate=2025-01-08&DepartTime=1200&NumberOfPax=1&includeAsyncProducts=true
+https://api.holidayextras.co.uk/v1/carpark/LGW?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-01-07&ArrivalTime=1200&DepartDate=2025-01-08&DepartTime=1200&NumberOfPax=1&includeAsyncProducts=true
 ```
 {% endcodetab %}
 {% codetab JSON %}
-```https://api.holidayextras.com/v1/carpark/LGW.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-01-07&ArrivalTime=1200&DepartDate=2025-01-08&DepartTime=1200&NumberOfPax=1&includeAsyncProducts=true
+```https://api.holidayextras.co.uk/v1/carpark/LGW.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-01-07&ArrivalTime=1200&DepartDate=2025-01-08&DepartTime=1200&NumberOfPax=1&includeAsyncProducts=true
 ```
 Note the `.js` extension.
 {% endcodetab %}
@@ -48,12 +48,12 @@ Note the `.js` extension.
 {% codetabs %}
 {% codetab XML %}
 ```
-https://api.holidayextras.com/v1/carpark/MUC?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-12-01&ArrivalTime=1200&DepartDate=2025-12-08&DepartTime=1200&NumberOfPax=1&System=ABG&lang=en&includeAsyncProducts=true
+https://api.holidayextras.co.uk/v1/carpark/MUC?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-12-01&ArrivalTime=1200&DepartDate=2025-12-08&DepartTime=1200&NumberOfPax=1&System=ABG&lang=en&includeAsyncProducts=true
 ```
 {% endcodetab %}
 {% codetab JSON %}
 ```
-https://api.holidayextras.com/v1/carpark/MUC.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-12-01&ArrivalTime=1200&DepartDate=2025-12-08&DepartTime=1200&NumberOfPax=1&System=ABG&lang=en&includeAsyncProducts=true
+https://api.holidayextras.co.uk/v1/carpark/MUC.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-12-01&ArrivalTime=1200&DepartDate=2025-12-08&DepartTime=1200&NumberOfPax=1&System=ABG&lang=en&includeAsyncProducts=true
 ```
 Note the `.js` extension.
 {% endcodetab %}

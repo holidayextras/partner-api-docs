@@ -34,7 +34,7 @@ POST
 The endpoint to use is (where `YourBookingRef` is the Holiday Extras booking reference):
 
 ```
-https://api.holidayextras.com/v1/booking/YourBookingRef
+https://api.holidayextras.co.uk/v1/booking/YourBookingRef
 ```
 
 ### Request Parameters
@@ -115,7 +115,7 @@ Below are worked examples of both the request and response for amending (complex
 The original booking was made for a hotel staying on 1st December 2018 with 8 days parking.
 
 ```html
-https://api.holidayextras.com/booking/YourBookingRef
+https://api.holidayextras.co.uk/booking/YourBookingRef
 ```
 
 ```xml
@@ -134,7 +134,7 @@ Original booking made for 11th November 2020 with Fast track upgrade for 2 adult
 #### Request
 
 ```html
-https://api.holidayextras.com/booking/YourBookingRef
+https://api.holidayextras.co.uk/booking/YourBookingRef
 ```
 
 ```xml

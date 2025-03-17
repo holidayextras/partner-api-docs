@@ -10,10 +10,10 @@
 
  | Request | Endpoint | Method |
  | ------- | -------- | ------ |
- | List all regions and / or countries | [https://api.holidayextras.com/v1/insurancecountries](countries) | GET |
- | Request insurance schemes available | [https://api.holidayextras.com/v1/insurancepolicy/RegionCode](availability) | GET |
- | Request options for insurance scheme | [https://api.holidayextras.com/v1/insurancepolicy/SchemeCode](options) | GET |
- | Create insurance policy | [https://api.holidayextras.com/v1/insurancepolicy/CertificateRef](createpolicy) | POST |
+ | List all regions and / or countries | [https://api.holidayextras.co.uk/v1/insurancecountries](countries) | GET |
+ | Request insurance schemes available | [https://api.holidayextras.co.uk/v1/insurancepolicy/RegionCode](availability) | GET |
+ | Request options for insurance scheme | [https://api.holidayextras.co.uk/v1/insurancepolicy/SchemeCode](options) | GET |
+ | Create insurance policy | [https://api.holidayextras.co.uk/v1/insurancepolicy/CertificateRef](createpolicy) | POST |
 
 
 ## Insurance User Journey

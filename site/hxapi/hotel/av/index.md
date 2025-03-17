@@ -13,19 +13,19 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.com/v1/hotel/LocationCode
+https://api.holidayextras.co.uk/v1/hotel/LocationCode
 ```
 
 For example, for London Heathrow the endpoint is:
 
 ```
-https://api.holidayextras.com/v1/hotel/LHR
+https://api.holidayextras.co.uk/v1/hotel/LHR
 ```
 
 If you know the specific hotel code, then you can request availability by entering that into the endpoint. For example, for the Hilton at London Heathrow the endpoint is:
 
 ```
-https://api.holidayextras.com/v1/hotel/LHRHIL
+https://api.holidayextras.co.uk/v1/hotel/LHRHIL
 ```
 
 To find the airport locations available for hotels, please refer to the [locations endpoint.](/hxapi/locations)
@@ -126,7 +126,7 @@ Below are worked examples of both the requests and responses for hotel availabil
 ### UK Hotel Availability Request - Room Only (zero days parking)
 
 ```
-https://api.holidayextras.com/v1/hotel/LHR?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&Nights=1&RoomType=T21&ParkingDays=0
+https://api.holidayextras.co.uk/v1/hotel/LHR?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&Nights=1&RoomType=T21&ParkingDays=0
 ```
 
 ### UK Hotel Availability Response - Room Only (zero days parking)
@@ -226,7 +226,7 @@ NB: This is a shortened example compiled from a full availability response.
 ### UK Hotel Availability Request - Room with Parking
 
 ```
-https://api.holidayextras.com/v1/hotel/LHR?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&Nights=1&RoomType=T21&ParkingDays=8
+https://api.holidayextras.co.uk/v1/hotel/LHR?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&Nights=1&RoomType=T21&ParkingDays=8
 ```
 
 ### UK Hotel Availability Response - Room with Parking
@@ -331,7 +331,7 @@ NB: This is a shortened example compiled from a full availability response.
 ### European Hotel Availability Request - Room with Parking
 
 ```
-https://api.holidayextras.com/v1/hotel/MUC?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&Nights=1&RoomType=D20&ParkingDays=8&System=ABG&lang=de
+https://api.holidayextras.co.uk/v1/hotel/MUC?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&Nights=1&RoomType=D20&ParkingDays=8&System=ABG&lang=de
 ```
 
 ### European Hotel Availability Response - Room with Parking

@@ -19,19 +19,19 @@ GET
 To request the list of region codes, the endpoint to use is:
 
 ```
-https://api.holidayextras.com/v1/insurancecountries
+https://api.holidayextras.co.uk/v1/insurancecountries
 ```
 
 To request the list of countries within a given region code, the endpoint to use is:
 
 ```
-https://api.holidayextras.com/v1/insurancecountries/RegionCode
+https://api.holidayextras.co.uk/v1/insurancecountries/RegionCode
 ```
 
 For example, to request all the countries within Europe Low, the endpoint is:
 
 ```
-https://api.holidayextras.com/v1/insurancecountries/EUROPELOW
+https://api.holidayextras.co.uk/v1/insurancecountries/EUROPELOW
 ```
 
 ### List of available regions:
@@ -72,7 +72,7 @@ Below are worked examples of both the request and response for insurance countri
 ### Insurance Countries Request
 
 ```
-https://api.holidayextras.com/v1/insurancecountries/WWXUSA?&ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken
+https://api.holidayextras.co.uk/v1/insurancecountries/WWXUSA?&ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken
 ```
 
 ### Insurance Countries Response

@@ -4,7 +4,7 @@ It is possible to booking upgrade items at the same time as making a core produc
 
 ```http
 POST /v1/{{include.productType}}/{{include.productCode}} HTTP/1.1
-Host: api.holidayextras.com
+Host: api.holidayextras.co.uk
 Content-Type: application/x-www-form-urlencoded
 
 ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2020-11-09&ArrivalTime=12:30&DepartDate=2020-11-17&DepartTime=13:45&Title=Mr&Initial=T&Surname=Test&Address=Holiday Extras Ltd&Address=Ashford Road&Town=Hythe&County=Kent&PostCode=CT214JF&Email=test@test.com&PriceCheckFlag=Y&PriceCheckPrice=50.05&CarColour=White&CarMake=Range Rover&CarModel=Vogue&Registration=TE17 STS&ReturnFlight=VIR19&Supplements[0][Code]=HXOST1&Supplements[0][Quantity]=1&Supplements[0][Date]=2020-11-09&Supplements[0][TotalPrice]=1.99&Supplements[1][Code]=STNSFS&Supplements[1][Date]=2020-11-09&Supplements[1][Adults]=2&Supplements[1][Children]=1&Supplements[1][TotalPrice]=21.00

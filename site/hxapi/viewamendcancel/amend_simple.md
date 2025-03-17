@@ -27,7 +27,7 @@ POST
 The endpoint to use is (where `YourBookingRef` is the Holiday Extras booking reference):
 
 ```
-https://api.holidayextras.com/v1/booking/YourBookingRef
+https://api.holidayextras.co.uk/v1/booking/YourBookingRef
 ```
 
 ### Request Parameters
@@ -78,7 +78,7 @@ Below are worked examples of both the request and response for amending (simple)
 The original booking was made with test details of Mr T TEST:
 
 ```html
-https://api.holidayextras.com/booking/YourBookingRef
+https://api.holidayextras.co.uk/booking/YourBookingRef
 ```
 
 ```xml
