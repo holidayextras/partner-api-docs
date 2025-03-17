@@ -15,13 +15,13 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.com/v1/fasttrack/AirportCode
+https://api.holidayextras.co.uk/v1/fasttrack/AirportCode
 ```
 
 For example, for fasttrack availability at Manchester the endpoint is:
 
 ```
-https://api.holidayextras.com/v1/fasttrack/MAN
+https://api.holidayextras.co.uk/v1/fasttrack/MAN
 ```
 
 To find the airport locations available for fasttrack, please refer to the [locations endpoint.](/hxapi/locations)
@@ -78,7 +78,7 @@ Below are worked examples of both the request and response for availability at a
 ### UK Products Availability Request
 
 ```
-https://api.holidayextras.com/v1/fasttrack/MAN/?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2019-10-22&ArrivalTime=1200&Adults=2&Children=0
+https://api.holidayextras.co.uk/v1/fasttrack/MAN/?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2019-10-22&ArrivalTime=1200&Adults=2&Children=0
 ```
 
 ### UK Products Availability Response

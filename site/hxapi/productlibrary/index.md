@@ -71,26 +71,26 @@ The available fields vary by product type. For each product type there is a reco
 {% codetabs %}
 {% codetab Live (XML) %}
 ```
-https://api.holidayextras.com/v1/product/LGW4/lite?token=000015778&key=mytestkey
+https://api.holidayextras.co.uk/v1/product/LGW4/lite?token=000015778&key=mytestkey
 ```
 {% endcodetab %}
 
 {% codetab Live (JSON) %}
 ```
-https://api.holidayextras.com/v1/product/LGW4/lite.js?token=000015778&key=mytestkey
+https://api.holidayextras.co.uk/v1/product/LGW4/lite.js?token=000015778&key=mytestkey
 ```
 Note the `.js` extension.
 {% endcodetab %}
 
 {% codetab Sandbox (XML) %}
 ```
-https://api-sandbox.holidayextras.com/v1/product/LGW4/lite?token=000015778&key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=mytestkey
 ```
 {% endcodetab %}
 
 {% codetab Sandbox (JSON) %}
 ```
-https://api-sandbox.holidayextras.com/v1/product/LGW4/lite.js?token=000015778&key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&key=mytestkey
 ```
 Note the `.js` extension.
 {% endcodetab %}
@@ -121,26 +121,26 @@ Note the `.js` extension.
 {% codetabs %}
 {% codetab Live (XML) %}
 ```
-https://api.holidayextras.com/v1/product/LGW4/lite?token=000015778&key=mytestkey&fields=name,longitude,latitude
+https://api.holidayextras.co.uk/v1/product/LGW4/lite?token=000015778&key=mytestkey&fields=name,longitude,latitude
 ```
 {% endcodetab %}
 
 {% codetab Live (JSON) %}
 ```
-https://api.holidayextras.com/v1/product/LGW4/lite.js?token=000015778&key=mytestkey&fields=name,longitude,latitude
+https://api.holidayextras.co.uk/v1/product/LGW4/lite.js?token=000015778&key=mytestkey&fields=name,longitude,latitude
 ```
 Note the `.js` extension.
 {% endcodetab %}
 
 {% codetab Sandbox (XML) %}
 ```
-https://api-sandbox.holidayextras.com/v1/product/LGW4/lite?token=000015778&key=mytestkey&fields=name,longitude,latitude
+https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite?token=000015778&key=mytestkey&fields=name,longitude,latitude
 ```
 {% endcodetab %}
 
 {% codetab Sandbox (JSON) %}
 ```
-https://api-sandbox.holidayextras.com/v1/product/LGW4/lite.js?token=000015778&key=mytestkey&fields=name,longitude,latitude
+https://api.holidayextras.co.uk/sandbox/v1/product/LGW4/lite.js?token=000015778&key=mytestkey&fields=name,longitude,latitude
 ```
 Note the `.js` extension.
 {% endcodetab %}
@@ -173,26 +173,26 @@ Requests for German products return a different set of fields. Explanation of fi
 {% codetabs %}
 {% codetab Live (XML) %}
 ```
-https://api.holidayextras.com/v1/product/FRA0?key=mytestkey
+https://api.holidayextras.co.uk/v1/product/FRA0?key=mytestkey
 ```
 {% endcodetab %}
 
 {% codetab Live (JSON) %}
 ```
-https://api.holidayextras.com/v1/product/FRA0.js?key=mytestkey
+https://api.holidayextras.co.uk/v1/product/FRA0.js?key=mytestkey
 ```
 Note the `.js` extension.
 {% endcodetab %}
 
 {% codetab Sandbox (XML) %}
 ```
-https://api-sandbox.holidayextras.com/v1/product/FRA0?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/product/FRA0?key=mytestkey
 ```
 {% endcodetab %}
 
 {% codetab Sandbox (JSON) %}
 ```
-https://api-sandbox.holidayextras.com/v1/product/FRA0.js?key=mytestkey
+https://api.holidayextras.co.uk/sandbox/v1/product/FRA0.js?key=mytestkey
 ```
 Note the `.js` extension.
 {% endcodetab %}
