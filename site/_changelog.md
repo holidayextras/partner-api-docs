@@ -1,6 +1,7 @@
 | Version Number | Date                | Details                                                                                                                        |
 |----------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| 1.23.0         | 17th March 2025     | Restore .co.uk dns and sandbox paths                                                                                           |
+| 1.26.0         | 25th April 2025     | Added duplicate booking error.                                                                                                 |
+| 1.25.0         | 17th March 2025     | Restore .co.uk dns and sandbox paths                                                                                           |
 | 1.24.0         | 3rd February 2025   | Mark PDF references as deprecated and remove theatrebreak shows link                                                           |
 | 1.23.0         | 22th January 2025   | Updated all `api.` domain references to .com over .co.uk, updated references to `/sandbox` to `api-sandbox.holidayextras.com`. |
 | 1.22.0         | 13th January 2025   | Added missing error code for unexpected errors.                                                                                |
