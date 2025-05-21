@@ -39,7 +39,7 @@ NB: All parameter names are case sensitive.
  | EU     | Lounges | type=lounge&system=de  |
  
  
-## Hotel Availability Response
+## Locations Response
 
 For a detailed explanation of the fields returned, please see below:
 
