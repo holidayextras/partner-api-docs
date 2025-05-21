@@ -24,7 +24,18 @@ For example, for fasttrack availability at Manchester the endpoint is:
 https://api.holidayextras.co.uk/v1/fasttrack/MAN
 ```
 
-To find the airport locations available for fasttrack, please refer to the [locations endpoint.](/hxapi/locations)
+Available locations for the FastTrack product are
+| IATA | Location Name   |
+|------|-----------------|
+| BOH  | Bournemouth     |
+| BRS  | Bristol         |
+| EDI  | Edinburgh       |
+| EMA  | East Midlands   |
+| LPL  | Liverpool       |
+| LBA  | Leeds Bradford  |
+| MAN  | Manchester      |
+| NCL  | Newcastle       |
+| STN  | Stansted        |
 
 ### Request Parameters
 
