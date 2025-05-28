@@ -1,6 +1,6 @@
 openapi: 3.0.4
 info:
-  title: Transfers API - Check24 Integration (Draft)
+  title: Transfers API - 1.1 (Draft)
   version: 1.0.0
 
 paths:
@@ -436,7 +436,7 @@ paths:
         '200':
           description: Booking amended
 
-  /v1/transfers/booking/{bookingRef}/checkCancel:
+  /v1/transfers/booking/{bookingRef}/cancellation-policy:
     get:
       summary: Check if booking can be cancelled
       description: Returns the cancellation eligibility or policy for a given booking
