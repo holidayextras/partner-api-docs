@@ -855,12 +855,12 @@
 
 <h3 id="worked-examples">Worked Examples</h3>
 
-<p>Below are some worked examples of both the request and response when requesting transfers avalability.</p>
+<p>Below are some worked examples of both the request and response when requesting transfers availability.</p>
 
-<h4 id="airport-to-tti">Airport to TTI</h4>
+<h4 id="airport-to-giata">Airport to GIATA</h4>
 <h5 id="request">Request</h5>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#0f811f25-54de-4fc9-9f60-9435e1e840ae'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#e0430669-5b8b-441f-9361-51c4ffc3b8e6'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -868,7 +868,279 @@
 
 </ul>
 
-<ul id="0f811f25-54de-4fc9-9f60-9435e1e840ae" class="uk-switcher uk-margin">
+<ul id="e0430669-5b8b-441f-9361-51c4ffc3b8e6" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https:///api.holidayextras.co.uk/v1/transfers/search?ABTANumber=YourABTANumber&amp;Password=YourABTANumber&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;PickUp=ALC&amp;PickUpType=IATA&amp;DropOffType=GIATA&amp;DropOff=439771&amp;FromDate=2022-03-16&amp;FromTime=1115&amp;ReturnDate=2022-03-23&amp;ReturnTime=1115&amp;Adults=2&amp;OutFlight=U28605&amp;ReturnFlight=U28602
+</code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https:///api.holidayextras.co.uk/v1/transfers/search.js?ABTANumber=YourABTANumber&amp;Password=YourABTANumber&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;PickUp=ALC&amp;PickUpType=IATA&amp;DropOffType=GIATA&amp;DropOff=439771&amp;FromDate=2022-03-16&amp;FromTime=1115&amp;ReturnDate=2022-03-23&amp;ReturnTime=1115&amp;Adults=2&amp;OutFlight=U28605&amp;ReturnFlight=U28602
+</code></pre></div></div>
+<p>Note the <code class="language-plaintext highlighter-rouge">.js</code> extension.</p>
+</li>
+
+</ul>
+
+<h5 id="response">Response</h5>
+<p>NB: This is a shortened example compiled from a full availability response.</p>
+
+<ul class="uk-tab" data-uk-switcher="{connect:'#b0e3a835-ac8a-40ba-a4c8-31b853372047'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="b0e3a835-ac8a-40ba-a4c8-31b853372047" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"Transfers"</span> <span class="na">RequestCode=</span><span class="s">"1"</span> <span class="na">Result=</span><span class="s">"OK"</span> <span class="na">cached=</span><span class="s">"1"</span> <span class="na">expires=</span><span class="s">"2021-12-07 13:06:41"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Transfers&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Private Standard Car<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Code&gt;</span>TBHT1169922<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;BookingURL&gt;</span>/transfers/TBHT1169922<span class="nt">&lt;/BookingURL&gt;</span>
+    <span class="nt">&lt;MoreInfoURL/&gt;</span>
+    <span class="nt">&lt;TotalPrice&gt;</span>87.96<span class="nt">&lt;/TotalPrice&gt;</span>
+    <span class="nt">&lt;NonDiscPrice&gt;</span>87.96<span class="nt">&lt;/NonDiscPrice&gt;</span>
+    <span class="nt">&lt;SalesCurrency&gt;</span>GBP<span class="nt">&lt;/SalesCurrency&gt;</span>
+    <span class="nt">&lt;Images&gt;</span>
+    <span class="nt">&lt;Src&gt;</span>//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg<span class="nt">&lt;/Src&gt;</span>
+    <span class="nt">&lt;Alt&gt;</span>private standard<span class="nt">&lt;/Alt&gt;</span>
+    <span class="nt">&lt;/Images&gt;</span>
+    <span class="nt">&lt;Category&gt;</span>private_transfer<span class="nt">&lt;/Category&gt;</span>
+    <span class="nt">&lt;Disclaimer&gt;</span>
+    <span class="nt">&lt;Title/&gt;</span>
+    <span class="nt">&lt;Message/&gt;</span>
+    <span class="nt">&lt;/Disclaimer&gt;</span>
+    <span class="nt">&lt;ProviderDetails&gt;</span>
+    <span class="nt">&lt;ProviderName/&gt;</span>
+    <span class="nt">&lt;ProviderRating/&gt;</span>
+    <span class="nt">&lt;/ProviderDetails&gt;</span>
+    <span class="nt">&lt;Cancellation&gt;</span>
+    <span class="nt">&lt;Period&gt;</span>72<span class="nt">&lt;/Period&gt;</span>
+    <span class="nt">&lt;Percentage&gt;</span>100<span class="nt">&lt;/Percentage&gt;</span>
+    <span class="nt">&lt;Fee&gt;</span>0<span class="nt">&lt;/Fee&gt;</span>
+    <span class="nt">&lt;/Cancellation&gt;</span>
+    <span class="nt">&lt;VehicleDetails&gt;</span>
+      <span class="nt">&lt;MinCapacity&gt;</span>1<span class="nt">&lt;/MinCapacity&gt;</span>
+      <span class="nt">&lt;MaxCapacity&gt;</span>4<span class="nt">&lt;/MaxCapacity&gt;</span>
+      <span class="nt">&lt;MinStops/&gt;</span>
+      <span class="nt">&lt;MaxStops/&gt;</span>
+      <span class="nt">&lt;Bags&gt;</span>4<span class="nt">&lt;/Bags&gt;</span>
+      <span class="nt">&lt;NumberOfVehicles&gt;</span>1<span class="nt">&lt;/NumberOfVehicles&gt;</span>
+      <span class="nt">&lt;IsPrivate&gt;</span>true<span class="nt">&lt;/IsPrivate&gt;</span>
+      <span class="nt">&lt;Supplier/&gt;</span>
+      <span class="nt">&lt;Make/&gt;</span>
+    <span class="nt">&lt;/VehicleDetails&gt;</span>
+    <span class="nt">&lt;OutboundTransfer&gt;</span>
+      <span class="nt">&lt;SupplierRef/&gt;</span>
+      <span class="nt">&lt;Origin&gt;</span>Alicante International Airport (Benidorm)<span class="nt">&lt;/Origin&gt;</span>
+      <span class="nt">&lt;OriginAddress&gt;</span>Alicante International Airport (Benidorm), Alicante<span class="nt">&lt;/OriginAddress&gt;</span>
+      <span class="nt">&lt;OriginIata&gt;</span>ALC<span class="nt">&lt;/OriginIata&gt;</span>
+      <span class="nt">&lt;Destination&gt;</span>Hotel Rural Castillo De Biar<span class="nt">&lt;/Destination&gt;</span>
+      <span class="nt">&lt;DestinationAddress&gt;</span>s/n, Carretera de Banyeres, 03410, Biar<span class="nt">&lt;/DestinationAddress&gt;</span>
+      <span class="nt">&lt;DestinationIata/&gt;</span>
+      <span class="nt">&lt;JourneyTime&gt;</span>60<span class="nt">&lt;/JourneyTime&gt;</span>
+      <span class="nt">&lt;DepartureDate/&gt;</span>
+      <span class="nt">&lt;DepartureTime/&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>16/03/2022<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;ArrivalTime&gt;</span>11:15<span class="nt">&lt;/ArrivalTime&gt;</span>
+      <span class="nt">&lt;ReturnDate/&gt;</span>
+      <span class="nt">&lt;ReturnTime/&gt;</span>
+      <span class="nt">&lt;PickupDate&gt;</span>16/03/2022<span class="nt">&lt;/PickupDate&gt;</span>
+      <span class="nt">&lt;PickupTime&gt;</span>11:15<span class="nt">&lt;/PickupTime&gt;</span>
+      <span class="nt">&lt;JoiningInstructions/&gt;</span>
+      <span class="nt">&lt;ContactNumbers/&gt;</span>
+    <span class="nt">&lt;/OutboundTransfer&gt;</span>
+    <span class="nt">&lt;ReturnTransfer&gt;</span>
+      <span class="nt">&lt;SupplierRef/&gt;</span>
+      <span class="nt">&lt;Origin&gt;</span>Hotel Rural Castillo De Biar<span class="nt">&lt;/Origin&gt;</span>
+      <span class="nt">&lt;OriginAddress&gt;</span>s/n, Carretera de Banyeres, 03410, Biar<span class="nt">&lt;/OriginAddress&gt;</span>
+      <span class="nt">&lt;OriginIata/&gt;</span>
+      <span class="nt">&lt;Destination&gt;</span>Alicante International Airport (Benidorm)<span class="nt">&lt;/Destination&gt;</span>
+      <span class="nt">&lt;DestinationAddress&gt;</span>Alicante International Airport (Benidorm), Alicante<span class="nt">&lt;/DestinationAddress&gt;</span>
+      <span class="nt">&lt;DestinationIata&gt;</span>ALC<span class="nt">&lt;/DestinationIata&gt;</span>
+      <span class="nt">&lt;JourneyTime&gt;</span>60<span class="nt">&lt;/JourneyTime&gt;</span>
+      <span class="nt">&lt;DepartureDate/&gt;</span>
+      <span class="nt">&lt;DepartureTime/&gt;</span>
+      <span class="nt">&lt;ArrivalDate/&gt;</span>
+      <span class="nt">&lt;ArrivalTime/&gt;</span>
+      <span class="nt">&lt;ReturnDate&gt;</span>23/03/2022<span class="nt">&lt;/ReturnDate&gt;</span>
+      <span class="nt">&lt;ReturnTime&gt;</span>11:15<span class="nt">&lt;/ReturnTime&gt;</span>
+      <span class="nt">&lt;PickupDate&gt;</span>23/03/2022<span class="nt">&lt;/PickupDate&gt;</span>
+      <span class="nt">&lt;PickupTime&gt;</span>07:45<span class="nt">&lt;/PickupTime&gt;</span>
+      <span class="nt">&lt;JoiningInstructions/&gt;</span>
+      <span class="nt">&lt;ContactNumbers/&gt;</span>
+    <span class="nt">&lt;/ReturnTransfer&gt;</span>
+    <span class="nt">&lt;advance_purchase&gt;</span>1<span class="nt">&lt;/advance_purchase&gt;</span>
+    <span class="nt">&lt;PartnerOwnSupply&gt;</span>false<span class="nt">&lt;/PartnerOwnSupply&gt;</span>
+  <span class="nt">&lt;/Transfers&gt;</span>
+  <span class="nt">&lt;Pricing/&gt;</span>
+  <span class="nt">&lt;SepaID/&gt;</span>
+  <span class="nt">&lt;API_Header&gt;</span>
+    <span class="nt">&lt;Request&gt;</span>
+      <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+      <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+      <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
+      <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
+      <span class="nt">&lt;PickUp&gt;</span>ALC<span class="nt">&lt;/PickUp&gt;</span>
+      <span class="nt">&lt;PickUpType&gt;</span>IATA<span class="nt">&lt;/PickUpType&gt;</span>
+      <span class="nt">&lt;DropOffType&gt;</span>GIATA<span class="nt">&lt;/DropOffType&gt;</span>
+      <span class="nt">&lt;DropOff&gt;</span>439771<span class="nt">&lt;/DropOff&gt;</span>
+      <span class="nt">&lt;FromDate&gt;</span>2022-03-16<span class="nt">&lt;/FromDate&gt;</span>
+      <span class="nt">&lt;FromTime&gt;</span>1115<span class="nt">&lt;/FromTime&gt;</span>
+      <span class="nt">&lt;ReturnDate&gt;</span>2022-03-23<span class="nt">&lt;/ReturnDate&gt;</span>
+      <span class="nt">&lt;ReturnTime&gt;</span>1115<span class="nt">&lt;/ReturnTime&gt;</span>
+      <span class="nt">&lt;Adults&gt;</span>2<span class="nt">&lt;/Adults&gt;</span>
+      <span class="nt">&lt;OutFlight&gt;</span>U28605<span class="nt">&lt;/OutFlight&gt;</span>
+      <span class="nt">&lt;ReturnFlight&gt;</span>U28602<span class="nt">&lt;/ReturnFlight&gt;</span>
+    <span class="nt">&lt;/Request&gt;</span>
+  <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"API_Reply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transfers"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"RequestCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cached"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-07 14:50:30"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Transfers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Private Standard Car"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TBHT1169922"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"BookingURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/transfers/TBHT1169922.js"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MoreInfoURL"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"TotalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">87.96</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">87.96</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SalesCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//dmy0b9oeprz0f.cloudfront.net/render/resortTransfers/private_standard.jpeg"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private standard"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private_transfer"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Disclaimer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"ProviderDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"ProviderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ProviderRating"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Cancellation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Period"</span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"VehicleDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"MinCapacity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"MaxCapacity"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"MinStops"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"MaxStops"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Bags"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"NumberOfVehicles"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"IsPrivate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Supplier"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Make"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"OutboundTransfer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"SupplierRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alicante International Airport (Benidorm)"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"OriginAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alicante International Airport (Benidorm), Alicante"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"OriginIata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALC"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hotel Rural Castillo De Biar"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"DestinationAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s/n, Carretera de Banyeres, 03410, Biar"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"DestinationIata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"JourneyTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"DepartureDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"DepartureTime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ArrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-03-16"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ArrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:15"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ReturnDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ReturnTime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"PickupDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-03-16"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"PickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:15"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"JoiningInstructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ContactNumbers"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"ReturnTransfer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"SupplierRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hotel Rural Castillo De Biar"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"OriginAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s/n, Carretera de Banyeres, 03410, Biar"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"OriginIata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alicante International Airport (Benidorm)"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"DestinationAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alicante International Airport (Benidorm), Alicante"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"DestinationIata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALC"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"JourneyTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"DepartureDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"DepartureTime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ArrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ArrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ReturnDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-03-23"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ReturnTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:15"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"PickupDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-03-23"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"PickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07:45"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"JoiningInstructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ContactNumbers"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"advance_purchase"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PartnerOwnSupply"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Pricing"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nl">"SepaID"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"API_Header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ABTANumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourABTANumber"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourPassword"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Initials"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourInitials"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourKey"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourToken"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PickUp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALC"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PickUpType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IATA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DropOffType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GIATA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DropOff"</span><span class="p">:</span><span class="w"> </span><span class="mi">439771</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FromDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-03-16"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FromTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1115</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-03-23"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1115</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Adults"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"OutFlight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U28605"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnFlight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U28602"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"js"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+</li>
+
+</ul>
+
+<h4 id="airport-to-tti">Airport to TTI</h4>
+<h5 id="request-1">Request</h5>
+
+<ul class="uk-tab" data-uk-switcher="{connect:'#b707ec8f-6ed4-44ef-a500-db5d0e88abe9'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="b707ec8f-6ed4-44ef-a500-db5d0e88abe9" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https:///api.holidayextras.co.uk/v1/transfers/search?ABTANumber=YourABTANumber&amp;Password=YourABTANumber&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;PickUp=ALC&amp;PickUpType=IATA&amp;DropOffType=TTI&amp;DropOff=10147575&amp;FromDate=2022-03-16&amp;FromTime=1115&amp;ReturnDate=2022-03-23&amp;ReturnTime=1115&amp;Adults=2&amp;OutFlight=U28605&amp;ReturnFlight=U28602
@@ -883,11 +1155,11 @@
 
 </ul>
 
-<h5 id="response">Response</h5>
+<h5 id="response-1">Response</h5>
 
 <p>NB: This is a shortened example compiled from a full availability response.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#98d98649-ff37-418b-aa5c-047eb615680b'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#19a889b0-9436-4da9-a725-269c3893f4f3'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -895,7 +1167,7 @@
 
 </ul>
 
-<ul id="98d98649-ff37-418b-aa5c-047eb615680b" class="uk-switcher uk-margin">
+<ul id="19a889b0-9436-4da9-a725-269c3893f4f3" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"Transfers"</span> <span class="na">RequestCode=</span><span class="s">"1"</span> <span class="na">Result=</span><span class="s">"OK"</span> <span class="na">cached=</span><span class="s">"1"</span> <span class="na">expires=</span><span class="s">"2021-12-07 13:06:41"</span><span class="nt">&gt;</span>
@@ -1131,8 +1403,8 @@
 </ul>
 
 <h4 id="airport-to-postal-address">Airport to Postal Address</h4>
-<h5 id="request-1">Request</h5>
-<ul class="uk-tab" data-uk-switcher="{connect:'#531da62d-6d2c-480f-a288-d5511fdd1b2e'}">
+<h5 id="request-2">Request</h5>
+<ul class="uk-tab" data-uk-switcher="{connect:'#237e6032-fc64-4a59-9dd9-02f7afc3ee7f'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -1140,7 +1412,7 @@
 
 </ul>
 
-<ul id="531da62d-6d2c-480f-a288-d5511fdd1b2e" class="uk-switcher uk-margin">
+<ul id="237e6032-fc64-4a59-9dd9-02f7afc3ee7f" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https:///api.holidayextras.co.uk/v1/transfers/search?ABTANumber=YourABTANumber&amp;Password=YourABTANumber&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;PickUp=ALC&amp;PickUpType=IATA&amp;DropOffType=postal-address&amp;DropOffName=Hotel%20Rural%20Castillo%20De%20Biar&amp;DropOffAddress[0]=Carretera%20de%20Banyeres&amp;DropOffAddress[1]=s/n&amp;DropOffTown=%20Biar&amp;DropOffCounty=Alicante&amp;DropOffPostcode=03410&amp;DropOffCountryCode=ES&amp;DropOffLongitude=-0.76832006&amp;DropOffLatitude=38.63852215&amp;Adults=2&amp;FromDate=2022-03-16&amp;FromTime=1115&amp;ReturnDate=2022-03-23&amp;ReturnTime=1115&amp;OutFlight=U28605&amp;ReturnFlight=U28602
@@ -1155,11 +1427,11 @@
 
 </ul>
 
-<h5 id="response-1">Response</h5>
+<h5 id="response-2">Response</h5>
 
 <p>NB: This is a shortened example compiled from a full availability response.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#b5474625-cb07-4774-91d2-843ed3924c1c'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#cdf88945-8c38-4808-b26e-7ebc7a6126f2'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -1167,7 +1439,7 @@
 
 </ul>
 
-<ul id="b5474625-cb07-4774-91d2-843ed3924c1c" class="uk-switcher uk-margin">
+<ul id="cdf88945-8c38-4808-b26e-7ebc7a6126f2" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"Transfers"</span> <span class="na">RequestCode=</span><span class="s">"1"</span> <span class="na">Result=</span><span class="s">"OK"</span> <span class="na">cached=</span><span class="s">"1"</span> <span class="na">expires=</span><span class="s">"2021-12-07 16:31:35"</span><span class="nt">&gt;</span>
