@@ -573,6 +573,14 @@ For per <code class="language-plaintext highlighter-rouge">Person</code> upgrade
       <td>API_Header/Request</td>
       <td>A list of parameters that were sent in the booking request.</td>
     </tr>
+    <tr>
+      <td><span style="color: red; font-size: medium;">Future Feature</span>: Booking/bookingStatus</td>
+      <td>Indicates the current status of the booking (<code class="language-plaintext highlighter-rouge">PENDING</code>, <code class="language-plaintext highlighter-rouge">CONFIRMED</code>, or <code class="language-plaintext highlighter-rouge">FAILED</code>).</td>
+    </tr>
+    <tr>
+      <td><span style="color: red; font-size: medium;">Future Feature</span>: Booking/suggestedPollingInterval</td>
+      <td>Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -626,6 +634,8 @@ For per <code class="language-plaintext highlighter-rouge">Person</code> upgrade
 <span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;Booking&gt;</span>
         <span class="nt">&lt;BookingRef&gt;</span>YourBookingRef<span class="nt">&lt;/BookingRef&gt;</span>
+        <span style="color: red; font-size: medium;">Future Feature</span> <span class="nt">&lt;BookingStatus&gt;</span>PENDING<span class="nt">&lt;/BookingStatus&gt;</span>
+        <span style="color: red; font-size: medium;">Future Feature</span> <span class="nt">&lt;SuggestedPollingInterval&gt;</span>3600<span class="nt">&lt;/SuggestedPollingInterval&gt;</span>
         <span class="nt">&lt;AgentComm&gt;</span>6.53<span class="nt">&lt;/AgentComm&gt;</span>
         <span class="nt">&lt;VATonComm&gt;</span>0.00<span class="nt">&lt;/VATonComm&gt;</span>
         <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/booking/YourBookingRef<span class="nt">&lt;/MoreInfoURL&gt;</span>
@@ -740,6 +750,8 @@ For per <code class="language-plaintext highlighter-rouge">Person</code> upgrade
 <span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"4"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;Booking&gt;</span>
     <span class="nt">&lt;BookingRef&gt;</span>YourBookingRef<span class="nt">&lt;/BookingRef&gt;</span>
+    <span style="color: red; font-size: medium;">Future Feature</span> <span class="nt">&lt;BookingStatus&gt;</span>PENDING<span class="nt">&lt;/BookingStatus&gt;</span>
+    <span style="color: red; font-size: medium;">Future Feature</span> <span class="nt">&lt;SuggestedPollingInterval&gt;</span>3600<span class="nt">&lt;/SuggestedPollingInterval&gt;</span>
     <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/booking/YourBookingRef.de<span class="nt">&lt;/MoreInfoURL&gt;</span>
   <span class="nt">&lt;/Booking&gt;</span>
   <span class="nt">&lt;Hotel/&gt;</span>
@@ -868,6 +880,8 @@ For per <code class="language-plaintext highlighter-rouge">Person</code> upgrade
 <span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"HotelWithParking"</span> <span class="na">RequestCode=</span><span class="s">"5"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;Booking&gt;</span>
     <span class="nt">&lt;BookingRef&gt;</span>YourBookingRef<span class="nt">&lt;/BookingRef&gt;</span>
+    <span style="color: red; font-size: medium;">Future Feature</span> <span class="nt">&lt;BookingStatus&gt;</span>PENDING<span class="nt">&lt;/BookingStatus&gt;</span>
+    <span style="color: red; font-size: medium;">Future Feature</span> <span class="nt">&lt;SuggestedPollingInterval&gt;</span>3600<span class="nt">&lt;/SuggestedPollingInterval&gt;</span>
     <span class="nt">&lt;AgentComm&gt;</span>13.45<span class="nt">&lt;/AgentComm&gt;</span>
     <span class="nt">&lt;VATonComm&gt;</span>0.00<span class="nt">&lt;/VATonComm&gt;</span>
     <span class="nt">&lt;MoreInfoURL&gt;</span>/v1/booking/YourBookingRef<span class="nt">&lt;/MoreInfoURL&gt;</span>

@@ -335,6 +335,14 @@
       <td>API_Header/Request</td>
       <td>A list of parameters that were sent in the view booking request.</td>
     </tr>
+    <tr>
+      <td><span style="color: red; font-size: medium;">Future Feature</span>: Booking/bookingStatus</td>
+      <td>Indicates the current status of the booking (<code class="language-plaintext highlighter-rouge">PENDING</code>, <code class="language-plaintext highlighter-rouge">CONFIRMED</code>, or <code class="language-plaintext highlighter-rouge">FAILED</code>).</td>
+    </tr>
+    <tr>
+      <td><span style="color: red; font-size: medium;">Future Feature</span>: Booking/suggestedPollingInterval</td>
+      <td>Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -403,6 +411,8 @@
   <span class="nt">&lt;Agent&gt;</span>YourABTA<span class="nt">&lt;/Agent&gt;</span>
   <span class="nt">&lt;Booking&gt;</span>
     <span class="nt">&lt;BookingRef&gt;</span>YourBookingRef<span class="nt">&lt;/BookingRef&gt;</span>
+    <span style="color: red; font-size: medium;">Future Feature</span> <span class="nt">&lt;BookingStatus&gt;</span>PENDING<span class="nt">&lt;/BookingStatus&gt;</span>
+    <span style="color: red; font-size: medium;">Future Feature</span> <span class="nt">&lt;SuggestedPollingInterval&gt;</span>3600<span class="nt">&lt;/SuggestedPollingInterval&gt;</span>
     <span class="nt">&lt;Amendable&gt;</span>Y<span class="nt">&lt;/Amendable&gt;</span>
     <span class="nt">&lt;CanxDate/&gt;</span>
     <span class="nt">&lt;CCode/&gt;</span>
@@ -669,6 +679,8 @@
     </span><span class="nl">"Agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourABTA"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Booking"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"BookingRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourBookingRef"</span><span class="p">,</span><span class="w">
+      <span style="color: red; font-size: medium;">Future Feature</span> </span><span class="nl">"bookingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+      <span style="color: red; font-size: medium;">Future Feature</span> </span><span class="nl">"suggestedPollingInterval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3600"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Amendable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"CanxDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"CCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">

@@ -392,6 +392,14 @@
       <td>Booking/MoreInfoURL</td>
       <td>The URL to GET more information about the booking (view <a href="/hxapi/viewamendcancel/view/">View Booking Request</a> for more information).</td>
     </tr>
+    <tr>
+      <td><span style="color: red; font-size: medium;">Future Feature</span>: Booking/bookingStatus</td>
+      <td>Indicates the current status of the booking (<code class="language-plaintext highlighter-rouge">PENDING</code>, <code class="language-plaintext highlighter-rouge">CONFIRMED</code>, or <code class="language-plaintext highlighter-rouge">FAILED</code>).</td>
+    </tr>
+    <tr>
+      <td><span style="color: red; font-size: medium;">Future Feature</span>: Booking/suggestedPollingInterval</td>
+      <td>Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -404,6 +412,8 @@
             </span><span class="nl">"AgentComm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.17"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"VATonComm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"MoreInfoURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/booking/TBBGNHMT.js"</span><span class="w">
+            <span style="color: red; font-size: medium;">Future Feature</span> </span><span class="nl">"bookingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+            <span style="color: red; font-size: medium;">Future Feature</span> </span><span class="nl">"suggestedPollingInterval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3600"</span><span class="p">,</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transfers"</span><span class="p">,</span><span class="w">
