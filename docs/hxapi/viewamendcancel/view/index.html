@@ -54,7 +54,7 @@
 
 <p>The endpoint to use is (where <code class="language-plaintext highlighter-rouge">YourBookingRef</code> is the Holiday Extras booking reference):</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#7176d3cd-254a-4fbe-aebe-eb1700fc06a4'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#01909983-1338-4ffd-9d21-430bbb84488b'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -62,7 +62,7 @@
 
 </ul>
 
-<ul id="7176d3cd-254a-4fbe-aebe-eb1700fc06a4" class="uk-switcher uk-margin">
+<ul id="01909983-1338-4ffd-9d21-430bbb84488b" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef
@@ -335,14 +335,6 @@
       <td>API_Header/Request</td>
       <td>A list of parameters that were sent in the view booking request.</td>
     </tr>
-    <tr>
-      <td><span style="color: red; font-size: medium;">Future Feature</span>: Booking/bookingStatus</td>
-      <td>Indicates the current status of the booking (<code class="language-plaintext highlighter-rouge">PENDING</code>, <code class="language-plaintext highlighter-rouge">CONFIRMED</code>, or <code class="language-plaintext highlighter-rouge">FAILED</code>).</td>
-    </tr>
-    <tr>
-      <td><span style="color: red; font-size: medium;">Future Feature</span>: Booking/suggestedPollingInterval</td>
-      <td>Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.</td>
-    </tr>
   </tbody>
 </table>
 
@@ -370,7 +362,7 @@
 
 <h4 id="request">Request</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#f24e984d-4f8f-448a-881d-6034b458e1ba'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#e9b265f6-6b29-44b1-92e5-b1678b2204c4'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -378,7 +370,7 @@
 
 </ul>
 
-<ul id="f24e984d-4f8f-448a-881d-6034b458e1ba" class="uk-switcher uk-margin">
+<ul id="e9b265f6-6b29-44b1-92e5-b1678b2204c4" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
@@ -395,7 +387,7 @@
 
 <h4 id="response">Response</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#a72a7515-1618-4039-976a-da90c1760aec'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#edf0fae4-0f14-43cb-a85a-4b479db13d94'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -403,7 +395,7 @@
 
 </ul>
 
-<ul id="a72a7515-1618-4039-976a-da90c1760aec" class="uk-switcher uk-margin">
+<ul id="edf0fae4-0f14-43cb-a85a-4b479db13d94" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -411,8 +403,6 @@
   <span class="nt">&lt;Agent&gt;</span>YourABTA<span class="nt">&lt;/Agent&gt;</span>
   <span class="nt">&lt;Booking&gt;</span>
     <span class="nt">&lt;BookingRef&gt;</span>YourBookingRef<span class="nt">&lt;/BookingRef&gt;</span>
-    <span style="color: red; font-size: medium;">Future Feature</span> <span class="nt">&lt;BookingStatus&gt;</span>PENDING<span class="nt">&lt;/BookingStatus&gt;</span>
-    <span style="color: red; font-size: medium;">Future Feature</span> <span class="nt">&lt;SuggestedPollingInterval&gt;</span>3600<span class="nt">&lt;/SuggestedPollingInterval&gt;</span>
     <span class="nt">&lt;Amendable&gt;</span>Y<span class="nt">&lt;/Amendable&gt;</span>
     <span class="nt">&lt;CanxDate/&gt;</span>
     <span class="nt">&lt;CCode/&gt;</span>
@@ -679,8 +669,6 @@
     </span><span class="nl">"Agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourABTA"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Booking"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"BookingRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourBookingRef"</span><span class="p">,</span><span class="w">
-      <span style="color: red; font-size: medium;">Future Feature</span> </span><span class="nl">"bookingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
-      <span style="color: red; font-size: medium;">Future Feature</span> </span><span class="nl">"suggestedPollingInterval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3600"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Amendable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"CanxDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"CCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -933,7 +921,7 @@
 <h3 id="uk-products-view-booking-for-a-transfer">UK Products View Booking (for a transfer)</h3>
 
 <h4 id="request-1">Request</h4>
-<ul class="uk-tab" data-uk-switcher="{connect:'#2b405f10-d969-48aa-be8a-53060b41010c'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#95065c7c-3bf0-4c10-a180-0309df1587a5'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -941,7 +929,7 @@
 
 </ul>
 
-<ul id="2b405f10-d969-48aa-be8a-53060b41010c" class="uk-switcher uk-margin">
+<ul id="95065c7c-3bf0-4c10-a180-0309df1587a5" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
@@ -958,7 +946,7 @@
 
 <h4 id="response-1">Response</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#436423b4-3ad7-4f66-9b97-beaa43efa3ee'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#c61c75df-d5bf-48a6-bb3b-5d1a4a0e09de'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -966,7 +954,7 @@
 
 </ul>
 
-<ul id="436423b4-3ad7-4f66-9b97-beaa43efa3ee" class="uk-switcher uk-margin">
+<ul id="c61c75df-d5bf-48a6-bb3b-5d1a4a0e09de" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
