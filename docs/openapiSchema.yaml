@@ -1,0 +1,502 @@
+openapi: 3.0.4
+info:
+  title: Transfers API - 1.1 (Draft)
+  version: 1.0.0
+
+paths:
+  /v1/transfers/search:
+    get:
+      summary: Search for available transfers
+      description: Returns a list of available transfers based on pick-up and drop-off details
+      parameters:
+        - name: ABTANumber
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: Password
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: Initials
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: token
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: PickUpType
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [IATA, TTI, GIATA, postal-address, PC]
+        - name: PickUp
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpName
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpAddress
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: PickUpTown
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpCounty
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpPostcode
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpCountryCode
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpLongitude
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: PickUpLatitude
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: DropOffType
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: DropOff
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffName
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffAddress
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: DropOffTown
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffCounty
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffPostcode
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffCountryCode
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffLongitude
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: DropOffLatitude
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: FromDate
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: FromTime
+          in: query
+          required: true
+          schema:
+            type: string
+            pattern: '^\d{4}$'
+        - name: ReturnDate
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: ReturnTime
+          in: query
+          required: false
+          schema:
+            type: string
+            pattern: '^\d{4}$'
+        - name: Adults
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: Children
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: Infants
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: OutFlight
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: ReturnFlight
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of available transfer products
+        '400':
+          description: Invalid request parameters
+
+  /v1/transfers/{productCode}:
+    post:
+      summary: Book a transfer
+      description: Create a booking for a given transfer product
+      parameters:
+        - name: productCode
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ABTANumber
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: Password
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: Initials
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: token
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: PickUpType
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [IATA, TTI, GIATA, postal-address, PC]
+        - name: PickUp
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpName
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpAddress
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: PickUpTown
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpCounty
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpPostcode
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpCountryCode
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpLongitude
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: PickUpLatitude
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: DropOffType
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: DropOff
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffName
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffAddress
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: DropOffTown
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffCounty
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffPostcode
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffCountryCode
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffLongitude
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: DropOffLatitude
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: FromDate
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: FromTime
+          in: query
+          required: true
+          schema:
+            type: string
+            pattern: '^\d{4}$'
+        - name: ReturnDate
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: ReturnTime
+          in: query
+          required: false
+          schema:
+            type: string
+            pattern: '^\d{4}$'
+        - name: Adults
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: Children
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: Infants
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: OutFlight
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: ReturnFlight
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of available transfer products
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Missing token or authentication details
+        '403':
+          description: Invalid agent credentials
+        '404':
+          description: Data not found (e.g. booking, location)
+        '405':
+          description: Method not allowed
+        '422':
+          description: Validation error (e.g. missing or invalid parameters)
+        '500':
+          description: Internal server error or upstream service unavailable
+        '9999':
+          description: Unknown error occurred
+        'F0071':
+          description: Availability validation error (e.g. invalid arrival date)
+        '0003':
+          description: An unexpected error occurred. Please contact support
+        '0037':
+          description: No availability for selected dates or supplier timeout
+        '0071':
+          description: Invalid ABTANumber and/or password, or no upgrades for site
+        '1435':
+          description: Missing Itinerary or ArrivalDate
+        '1441':
+          description: Missing depart date
+        '1466':
+          description: Missing Adults field
+        'chauntry-unavailable':
+          description: Chauntry service is unavailable
+        'TerminalError':
+          description: Failed to retrieve terminal data
+        'MissingParameter':
+          description: A required parameter was not provided
+        'Invalid agentCode':
+          description: Invalid or missing agent code
+        'TokenError':
+          description: Missing auth token in request
+
+  /v1/transfers/booking/{bookingRef}:
+    get:
+      summary: Retrieve booking details
+      description: Get full information about an existing booking
+      parameters:
+        - name: bookingRef
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Booking details
+    delete:
+      summary: Cancel a booking
+      description: Cancel an existing booking for a given booking reference
+      parameters:
+        - name: bookingRef
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Booking cancelled
+    put:
+      summary: Amend a booking (future)
+      description: Update or change booking details
+      parameters:
+        - name: bookingRef
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: To be defined
+      responses:
+        '200':
+          description: Booking amended
+
+  /v1/transfers/booking/{bookingRef}/cancellation-policy:
+    get:
+      summary: Check if booking can be cancelled
+      description: Returns the cancellation eligibility or policy for a given booking
+      parameters:
+        - name: bookingRef
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Cancellation info
+
+
+  /v1/transfers/{productCode}/content:
+    get:
+      summary: Get transfer product content
+      description: Returns content like descriptions, images, etc. for a given transfer product (future)
+      parameters:
+        - name: productCode
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product content
