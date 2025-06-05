@@ -58,7 +58,7 @@ paths:
 
   /v1/transfers/booking/{bookingRef}/cancellation-policy:
     get:
-      summary: Check if booking can be cancelled
+      summary: Check if booking can be cancelled (future)
       description: Returns the cancellation eligibility or policy for a given booking
       parameters:
         - name: bookingRef
