@@ -490,25 +490,6 @@ paths:
       responses:
         '204':
           description: Booking cancelled
-    put:
-      summary: Amend a booking (future)
-      description: Update or change booking details
-      parameters:
-        - name: bookingRef
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              description: To be defined
-      responses:
-        '200':
-          description: Booking amended
 
   /v1/transfers/booking/{bookingRef}/cancellation-policy:
     get:
