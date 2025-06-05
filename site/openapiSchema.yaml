@@ -20,7 +20,7 @@ paths:
       parameters:
         Please refer to the parameters section in the existing documentation for details
       responses:
-        Please refer to the parameters section in the existing documentation for details
+        Please refer to the responses section in the existing documentation for details
 
   /v1/transfers/booking/{bookingRef}:
     get:
@@ -33,7 +33,7 @@ paths:
           schema:
             type: string
       responses:
-        Please refer to the parameters section in the existing view booking documentation for details
+        Please refer to the responses section in the existing view booking documentation for details
 
     delete:
       summary: Cancel a booking (future)
