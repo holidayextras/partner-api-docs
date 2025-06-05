@@ -193,6 +193,44 @@ paths:
           description: A list of available transfer products
         '400':
           description: Invalid request parameters
+        '401':
+          description: Missing token or authentication details
+        '403':
+          description: Invalid agent credentials
+        '404':
+          description: Data not found (e.g. booking, location)
+        '405':
+          description: Method not allowed
+        '422':
+          description: Validation error (e.g. missing or invalid parameters)
+        '500':
+          description: Internal server error or upstream service unavailable
+        '9999':
+          description: Unknown error occurred
+        'F0071':
+          description: Availability validation error (e.g. invalid arrival date)
+        '0003':
+          description: An unexpected error occurred. Please contact support
+        '0037':
+          description: No availability for selected dates or supplier timeout
+        '0071':
+          description: Invalid ABTANumber and/or password, or no upgrades for site
+        '1435':
+          description: Missing Itinerary or ArrivalDate
+        '1441':
+          description: Missing depart date
+        '1466':
+          description: Missing Adults field
+        'chauntry-unavailable':
+          description: Chauntry service is unavailable
+        'TerminalError':
+          description: Failed to retrieve terminal data
+        'MissingParameter':
+          description: A required parameter was not provided
+        'Invalid agentCode':
+          description: Invalid or missing agent code
+        'TokenError':
+          description: Missing auth token in request
 
   /v1/transfers/{productCode}:
     post:
@@ -384,12 +422,48 @@ paths:
           schema:
             type: string
       responses:
-        '201':
-          description: Booking created successfully
+        '200':
+          description: A list of available transfer products
         '400':
-          description: Invalid request
-        '409':
-          description: Booking could not be completed due to validation or price mismatch
+          description: Invalid request parameters
+        '401':
+          description: Missing token or authentication details
+        '403':
+          description: Invalid agent credentials
+        '404':
+          description: Data not found (e.g. booking, location)
+        '405':
+          description: Method not allowed
+        '422':
+          description: Validation error (e.g. missing or invalid parameters)
+        '500':
+          description: Internal server error or upstream service unavailable
+        '9999':
+          description: Unknown error occurred
+        'F0071':
+          description: Availability validation error (e.g. invalid arrival date)
+        '0003':
+          description: An unexpected error occurred. Please contact support
+        '0037':
+          description: No availability for selected dates or supplier timeout
+        '0071':
+          description: Invalid ABTANumber and/or password, or no upgrades for site
+        '1435':
+          description: Missing Itinerary or ArrivalDate
+        '1441':
+          description: Missing depart date
+        '1466':
+          description: Missing Adults field
+        'chauntry-unavailable':
+          description: Chauntry service is unavailable
+        'TerminalError':
+          description: Failed to retrieve terminal data
+        'MissingParameter':
+          description: A required parameter was not provided
+        'Invalid agentCode':
+          description: Invalid or missing agent code
+        'TokenError':
+          description: Missing auth token in request
 
   /v1/transfers/booking/{bookingRef}:
     get:
@@ -405,7 +479,7 @@ paths:
         '200':
           description: Booking details
     delete:
-      summary: Cancel a booking
+      summary: Cancel a booking (future)
       description: Cancel an existing booking for a given booking reference
       parameters:
         - name: bookingRef
