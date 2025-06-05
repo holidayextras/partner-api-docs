@@ -1,6 +1,8 @@
 | Version Number | Date                | Details                                                                                                                        |
 |----------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| 1.26.0         | 4th June 2025       | Added bookingStatus and suggestedPollingInterval to the responses.                                                             |
+| 1.28.0         | 5th June 2025       | Added bookingStatus and suggestedPollingInterval to the responses.                                                             |
+| 1.27.1         | 5th June 2025       | Added `GIATA` location type to transfers availability docs                                                                     |
+| 1.27.0         | 28th May 2025       | Added `GIATA` location type to transfers.                                                                                      |
 | 1.26.0         | 25th April 2025     | Added duplicate booking error.                                                                                                 |
 | 1.25.0         | 17th March 2025     | Restore .co.uk dns and sandbox paths                                                                                           |
 | 1.24.0         | 3rd February 2025   | Mark PDF references as deprecated and remove theatrebreak shows link                                                           |
