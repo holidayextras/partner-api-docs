@@ -24,7 +24,7 @@ paths:
 
   /v1/transfers/booking/{bookingRef}:
     get:
-      summary: Retrieve booking details
+      summary: Retrieve booking details (future)
       description: Get full information about an existing booking
       parameters:
         - name: bookingRef
@@ -33,7 +33,209 @@ paths:
           schema:
             type: string
       responses:
-        Please refer to the responses section in the existing view booking documentation for details
+        '200':
+          description: Booking details successfully retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Booking:
+                    type: object
+                    properties:
+                      BookingRef:
+                        type: string
+                        example: "BookingRef"
+                      SupplierRef:
+                        type: string
+                        example: "SupplierReference"
+                      VoucherRef:
+                        type: string
+                      BookingStatus:
+                        type: string
+                        example: "PENDING"
+                      DateBooked:
+                        type: string
+                        format: date
+                      DateCancelled:
+                        type: string
+                        format: date
+                        nullable: true
+                      Amendable:
+                        type: string
+                        example: "N"
+                      BookingProduct:
+                        type: object
+                        description: Product details for the booking
+                        properties:
+                          Code:
+                            type: string
+                            example: "ProductCode"
+                          Name:
+                            type: string
+                            example: "Private Minibus Transfer (1 -7 People)"
+                          SalesCurrency:
+                            type: string
+                            example: "GBP"
+                          Price:
+                            type: number
+                            example: 27665
+                          Category:
+                            type: string
+                            example: "Private Minibus Transfer (1 -7 People)"
+                          TransferCode:
+                            type: string
+                            example: "TransferCode"
+                          DeparturePointType:
+                            type: string
+                            example: "DeparturePointType"
+                          ArrivalPointType:
+                            type: string
+                            example: "ArrivalPointType"
+                          Cancellation:
+                            type: object
+                            properties:
+                              Period:
+                                type: integer
+                                example: 48
+                              Fee:
+                                type: number
+                                example: 0
+                          VehicleDetails:
+                            type: object
+                            properties:
+                              MinCapacity:
+                                type: integer
+                                example: 1
+                              MaxCapacity:
+                                type: integer
+                                example: 7
+                              IsPrivate:
+                                type: boolean
+                                example: true
+            application/xml:
+              schema:
+                type: object
+                xml:
+                  name: Booking
+                properties:
+                  BookingRef:
+                    type: string
+                    example: "BookingRef"
+                    xml:
+                      name: BookingRef
+                  SupplierRef:
+                    type: string
+                    example: "SupplierReference"
+                    xml:
+                      name: SupplierRef
+                  VoucherRef:
+                    type: string
+                    xml:
+                      name: VoucherRef
+                  BookingStatus:
+                    type: string
+                    example: "PENDING"
+                    xml:
+                      name: BookingStatus
+                  DateBooked:
+                    type: string
+                    format: date
+                    xml:
+                      name: DateBooked
+                  DateCancelled:
+                    type: string
+                    format: date
+                    nullable: true
+                    xml:
+                      name: DateCancelled
+                  Amendable:
+                    type: string
+                    example: "N"
+                    xml:
+                      name: Amendable
+                  BookingProduct:
+                    type: object
+                    xml:
+                      name: BookingProduct
+                    properties:
+                      Code:
+                        type: string
+                        example: "ProductCode"
+                        xml:
+                          name: Code
+                      Name:
+                        type: string
+                        example: "Private Minibus Transfer (1 -7 People)"
+                        xml:
+                          name: Name
+                      SalesCurrency:
+                        type: string
+                        example: "GBP"
+                        xml:
+                          name: SalesCurrency
+                      Price:
+                        type: number
+                        example: 27665
+                        xml:
+                          name: Price
+                      Category:
+                        type: string
+                        example: "Private Minibus Transfer (1 -7 People)"
+                        xml:
+                          name: Category
+                      DeparturePointType:
+                        type: string
+                        example: "DeparturePointType"
+                        xml:
+                          name: DeparturePointType
+                      ArrivalPointType:
+                        type: string
+                        example: "ArrivalPointType"
+                        xml:
+                          name: ArrivalPointType
+                      Cancellation:
+                        type: object
+                        xml:
+                          name: Cancellation
+                        properties:
+                          Period:
+                            type: integer
+                            example: 48
+                            xml:
+                              name: Period
+                          Fee:
+                            type: number
+                            example: 0
+                            xml:
+                              name: Fee
+                      VehicleDetails:
+                        type: object
+                        xml:
+                          name: VehicleDetails
+                        properties:
+                          MinCapacity:
+                            type: integer
+                            example: 1
+                            xml:
+                              name: MinCapacity
+                          MaxCapacity:
+                            type: integer
+                            example: 7
+                            xml:
+                              name: MaxCapacity
+                          IsPrivate:
+                            type: boolean
+                            example: true
+                            xml:
+                              name: IsPrivate
+        '400':
+          description: Invalid booking reference format.
+        '404':
+          description: Booking not found.
+        '500':
+          description: Internal server error.
+
 
     delete:
       summary: Cancel a booking (future)
