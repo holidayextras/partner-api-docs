@@ -1,0 +1,99 @@
+openapi: 3.0.4
+info:
+  title: Transfers API - 1.1 (Draft)
+  version: 1.0.0
+
+paths:
+  /v1/transfers/search:
+    get:
+      summary: Search for available transfers
+      description: Returns a list of available transfers based on pick-up and drop-off details
+      parameters:
+        Please refer to the parameters section in the existing documentation for details
+      responses:
+        Please refer to the parameters section in the existing documentation for details
+
+  /v1/transfers/{productCode}:
+    post:
+      summary: Book a transfer
+      description: Create a booking for a given transfer product
+      parameters:
+        Please refer to the parameters section in the existing documentation for details
+      responses:
+        Please refer to the parameters section in the existing documentation for details
+
+  /v1/transfers/booking/{bookingRef}:
+    get:
+      summary: Retrieve booking details
+      description: Get full information about an existing booking
+      parameters:
+        - name: bookingRef
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        Please refer to the parameters section in the existing view booking documentation for details
+
+    delete:
+      summary: Cancel a booking (future)
+      description: Cancel an existing booking for a given booking reference
+      parameters:
+        - name: bookingRef
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Booking cancelled successfully. No content returned.
+        '400':
+          description: Bad request. Booking reference is missing or invalid.
+        '404':
+          description: Booking not found for the given reference.
+        '409':
+          description: Booking cannot be cancelled (e.g. already used or past deadline).
+        '500':
+          description: Internal server error.
+
+  /v1/transfers/booking/{bookingRef}/cancellation-policy:
+    get:
+      summary: Check if booking can be cancelled
+      description: Returns the cancellation eligibility or policy for a given booking
+      parameters:
+        - name: bookingRef
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns whether the booking is cancellable and any applicable cancellation policy.
+        '400':
+          description: Invalid or missing booking reference.
+        '404':
+          description: Booking not found.
+        '500':
+          description: Internal server error.
+
+
+  /v1/transfers/{productCode}/content:
+    get:
+      summary: Get transfer product content (future)
+      description: Returns content like descriptions, images, etc. for a given transfer product
+      parameters:
+        - name: productCode
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Transfer product content successfully retrieved.
+        '400':
+          description: Invalid product code.
+        '404':
+          description: Transfer product not found.
+        '500':
+          description: Internal server error.
+
