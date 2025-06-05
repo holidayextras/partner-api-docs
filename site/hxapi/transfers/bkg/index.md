@@ -88,13 +88,13 @@ If the booking has been successful, the response will contain a `Booking` field 
 
 For a detailed explanation of the fields returned, please see below:
 
-| Field                            | Additional Information                                                                                                                                     |
-|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Booking/BookingRef               | The reference for the booking, use this reference in all communication with us relating to this booking.                                                   |
-| Booking/AgentComm                | Commission earned from this booking.                                                                                                                       |
-| Booking/MoreInfoURL              | The URL to GET more information about the booking (view [View Booking Request](/hxapi/viewamendcancel/view/) for more information).                        |
-| Booking/BookingStatus            | Indicates the current status of the booking (`PENDING`, `CONFIRMED`, or `FAILED`).                                                                         |
-| Booking/SuggestedPollingInterval | Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.) |
+| Field                                     | Additional Information                                                                                                                                     |
+|-------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Booking/BookingRef                        | The reference for the booking, use this reference in all communication with us relating to this booking.                                                   |
+| Booking/AgentComm                         | Commission earned from this booking.                                                                                                                       |
+| Booking/MoreInfoURL                       | The URL to GET more information about the booking (view [View Booking Request](/hxapi/viewamendcancel/view/) for more information).                        |
+| Booking/BookingStatus (Future)            | Indicates the current status of the booking (`PENDING`, `CONFIRMED`, or `FAILED`).                                                                         |
+| Booking/SuggestedPollingInterval (Future) | Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.) |
 
 
 ### Example
