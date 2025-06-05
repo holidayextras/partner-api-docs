@@ -54,7 +54,7 @@
 
 <p>The endpoint to use is (where <code class="language-plaintext highlighter-rouge">YourBookingRef</code> is the Holiday Extras booking reference):</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#4e8537a7-acbb-47bb-9fc4-ab16aaed3212'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#3734b42b-7fe6-4539-aca3-1964e2c126df'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -62,7 +62,7 @@
 
 </ul>
 
-<ul id="4e8537a7-acbb-47bb-9fc4-ab16aaed3212" class="uk-switcher uk-margin">
+<ul id="3734b42b-7fe6-4539-aca3-1964e2c126df" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef
@@ -143,201 +143,55 @@
 
 <p>For a detailed explanation of the fields returned, please see below:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Additional Information</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Booking/BookingRef</td>
-      <td>This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br />NB: Our booking references are up to 12 char alphanumeric (including 1/I and 0/O/Q).</td>
-    </tr>
-    <tr>
-      <td>Booking/Amendable</td>
-      <td>This will return one of the following: <code class="language-plaintext highlighter-rouge">Y</code> = booking can be amended; <code class="language-plaintext highlighter-rouge">N</code> = booking cannot be amended; <code class="language-plaintext highlighter-rouge">C</code> = booking has been cancelled; <code class="language-plaintext highlighter-rouge">S</code> = booking is same day so cannot be amended or cancelled.</td>
-    </tr>
-    <tr>
-      <td>Booking/CanxDate</td>
-      <td>If the booking has been cancelled, the date on which it was will return here.</td>
-    </tr>
-    <tr>
-      <td>Booking/AgentComm</td>
-      <td>Commission you have earned from this booking.</td>
-    </tr>
-    <tr>
-      <td>Booking/BookingDate</td>
-      <td>The date the booking was originally made on.</td>
-    </tr>
-    <tr>
-      <td>Booking/PdfURL</td>
-      <td>⚠ Deprecated: This feature provided a link to generate a PDF version of the booking confirmation. It is no longer supported and will be removed in future releases.</td>
-    </tr>
-    <tr>
-      <td>Itinerary</td>
-      <td>This block will return details of the original booking, as per the booking response for each product type. Please see the respective booking guides for further details on the fields.</td>
-    </tr>
-    <tr>
-      <td>ClientDetails</td>
-      <td>This block will return details of the lead passenger.</td>
-    </tr>
-    <tr>
-      <td>Pricing</td>
-      <td>This block will return details of the price paid by the customer.</td>
-    </tr>
-    <tr>
-      <td>VAT</td>
-      <td>Please ignore this block.</td>
-    </tr>
-    <tr>
-      <td>CustRef</td>
-      <td>If you have passed in a Customer Reference with your original booking request, it will return here.</td>
-    </tr>
-    <tr>
-      <td>BarCode</td>
-      <td>A link to generate a bar code for the booking confirmation.</td>
-    </tr>
-    <tr>
-      <td>QRCodeValue</td>
-      <td>(EU only) Value of the QR code that comes with email confirmation. <a href="/hxapi/barcode#qr_code">More details about QR Code</a></td>
-    </tr>
-    <tr>
-      <td>QRCodeValueStr</td>
-      <td>(EU only) Value of the QR code that comes with email confirmation. <a href="/hxapi/barcode#qr_code">More details about QR Code</a></td>
-    </tr>
-    <tr>
-      <td>SupplierRef</td>
-      <td>(EU only) External booking id booking</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements[]</td>
-      <td>Array of upgrades on the booking</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements/Supplement/Code</td>
-      <td>Upgrade product code</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements/Supplement/Price</td>
-      <td>The price paid for the upgrade</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements/Supplement/NonDiscPrice</td>
-      <td>The price of the upgrade before any discounts</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements/Supplement/DiscAmt</td>
-      <td>The value of any discount applied</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements/Supplement/Supplier</td>
-      <td>Code for the supplier of the upgrade</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements/Supplement/Rule</td>
-      <td>Internal field</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements/Supplement/Req</td>
-      <td>The purchased quantity of the upgrade</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements/Supplement/Per</td>
-      <td>The pricing basis of the upgrade</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements/Supplement/Adults</td>
-      <td>The number of adult passes purchased</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements/Supplement/Children</td>
-      <td>The number of chlid passes purchased</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements/Supplement/Date</td>
-      <td>The date of use for the upgrade</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements/Supplement/Canx</td>
-      <td>Whether the upgrade is cancellable</td>
-    </tr>
-    <tr>
-      <td>CurrentSupplements/Supplement/Remarks</td>
-      <td>Notes field. Used to store arrival time for lounge upgrades</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements[]</td>
-      <td>Array of upgrades available to purchase post booking</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/Code</td>
-      <td>Upgrade product code</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/Supplier</td>
-      <td>Code for the supplier of the upgrade</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/Per</td>
-      <td>The pricing basis of the upgrade</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/Canx</td>
-      <td>Whether the upgrade is cancellable</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/Name</td>
-      <td>The name of the upgrade product</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/Price</td>
-      <td>The price of the upgrade</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/NonDiscPrice</td>
-      <td>The price of the upgrade before any discounts</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/DiscAmt</td>
-      <td>The value of any discount applied</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/AdPrice</td>
-      <td>The per adult price minus any discounts. Only present for per person upgrades</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/NonDiscAdPrice</td>
-      <td>The per adult price before any discounts. Only present for per person upgrades</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/AdDiscAmt</td>
-      <td>The amount of discount applied to the per adult price. Only present for per person upgrades</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/ChPrice</td>
-      <td>The per child price minus any discounts. Only present for per person upgrades</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/NonDiscChPrice</td>
-      <td>The per child price before any discounts. Only present for per person upgrades</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/ChDiscAmt</td>
-      <td>The amount of discount applied to the child price. Only present for per person upgrades</td>
-    </tr>
-    <tr>
-      <td>AvailableSupplements/Supplement/PerNight</td>
-      <td>Whether the upgrade is charged per night of a stay</td>
-    </tr>
-    <tr>
-      <td>API_Header/Request</td>
-      <td>A list of parameters that were sent in the view booking request.</td>
-    </tr>
-  </tbody>
-</table>
-
+<p>| Field                                          | Additional Information                                                                                                                                                                                        |
+|————————————————|—————————————————————————————————————————————————————————————————————|
+| Booking/BookingRef                             | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br />NB: Our booking references are up to 12 char alphanumeric (including 1/I and 0/O/Q). |
+| Booking/Amendable                              | This will return one of the following: <code class="language-plaintext highlighter-rouge">Y</code> = booking can be amended; <code class="language-plaintext highlighter-rouge">N</code> = booking cannot be amended; <code class="language-plaintext highlighter-rouge">C</code> = booking has been cancelled; <code class="language-plaintext highlighter-rouge">S</code> = booking is same day so cannot be amended or cancelled.          |
+| Booking/CanxDate                               | If the booking has been cancelled, the date on which it was will return here.                                                                                                                                 |
+| Booking/AgentComm                              | Commission you have earned from this booking.                                                                                                                                                                 |
+| Booking/BookingDate                            | The date the booking was originally made on.                                                                                                                                                                  |
+| Booking/PdfURL                                 | ⚠ Deprecated: This feature provided a link to generate a PDF version of the booking confirmation. It is no longer supported and will be removed in future releases.                                           |
+| Itinerary                                      | This block will return details of the original booking, as per the booking response for each product type. Please see the respective booking guides for further details on the fields.                        |
+| ClientDetails                                  | This block will return details of the lead passenger.                                                                                                                                                         |
+| Pricing                                        | This block will return details of the price paid by the customer.                                                                                                                                             |
+| VAT                                            | Please ignore this block.                                                                                                                                                                                     |
+| CustRef                                        | If you have passed in a Customer Reference with your original booking request, it will return here.                                                                                                           |
+| BarCode                                        | A link to generate a bar code for the booking confirmation.                                                                                                                                                   |
+| QRCodeValue                                    | (EU only) Value of the QR code that comes with email confirmation. <a href="/hxapi/barcode#qr_code">More details about QR Code</a>                                                                                       |
+| QRCodeValueStr                                 | (EU only) Value of the QR code that comes with email confirmation. <a href="/hxapi/barcode#qr_code">More details about QR Code</a>                                                                                       |
+| SupplierRef                                    | (EU only) External booking id booking                                                                                                                                                                         |
+| CurrentSupplements[]                           | Array of upgrades on the booking                                                                                                                                                                              |
+| CurrentSupplements/Supplement/Code             | Upgrade product code                                                                                                                                                                                          |
+| CurrentSupplements/Supplement/Price            | The price paid for the upgrade                                                                                                                                                                                |
+| CurrentSupplements/Supplement/NonDiscPrice     | The price of the upgrade before any discounts                                                                                                                                                                 |
+| CurrentSupplements/Supplement/DiscAmt          | The value of any discount applied                                                                                                                                                                             |
+| CurrentSupplements/Supplement/Supplier         | Code for the supplier of the upgrade                                                                                                                                                                          |
+| CurrentSupplements/Supplement/Rule             | Internal field                                                                                                                                                                                                |
+| CurrentSupplements/Supplement/Req              | The purchased quantity of the upgrade                                                                                                                                                                         |
+| CurrentSupplements/Supplement/Per              | The pricing basis of the upgrade                                                                                                                                                                              |
+| CurrentSupplements/Supplement/Adults           | The number of adult passes purchased                                                                                                                                                                          |
+| CurrentSupplements/Supplement/Children         | The number of chlid passes purchased                                                                                                                                                                          |
+| CurrentSupplements/Supplement/Date             | The date of use for the upgrade                                                                                                                                                                               |
+| CurrentSupplements/Supplement/Canx             | Whether the upgrade is cancellable                                                                                                                                                                            |
+| CurrentSupplements/Supplement/Remarks          | Notes field. Used to store arrival time for lounge upgrades                                                                                                                                                   |
+| AvailableSupplements[]                         | Array of upgrades available to purchase post booking                                                                                                                                                          |
+| AvailableSupplements/Supplement/Code           | Upgrade product code                                                                                                                                                                                          |
+| AvailableSupplements/Supplement/Supplier       | Code for the supplier of the upgrade                                                                                                                                                                          |
+| AvailableSupplements/Supplement/Per            | The pricing basis of the upgrade                                                                                                                                                                              |
+| AvailableSupplements/Supplement/Canx           | Whether the upgrade is cancellable                                                                                                                                                                            |
+| AvailableSupplements/Supplement/Name           | The name of the upgrade product                                                                                                                                                                               |
+| AvailableSupplements/Supplement/Price          | The price of the upgrade                                                                                                                                                                                      |
+| AvailableSupplements/Supplement/NonDiscPrice   | The price of the upgrade before any discounts                                                                                                                                                                 |
+| AvailableSupplements/Supplement/DiscAmt        | The value of any discount applied                                                                                                                                                                             |
+| AvailableSupplements/Supplement/AdPrice        | The per adult price minus any discounts. Only present for per person upgrades                                                                                                                                 |
+| AvailableSupplements/Supplement/NonDiscAdPrice | The per adult price before any discounts. Only present for per person upgrades                                                                                                                                |
+| AvailableSupplements/Supplement/AdDiscAmt      | The amount of discount applied to the per adult price. Only present for per person upgrades                                                                                                                   |
+| AvailableSupplements/Supplement/ChPrice        | The per child price minus any discounts. Only present for per person upgrades                                                                                                                                 |
+| AvailableSupplements/Supplement/NonDiscChPrice | The per child price before any discounts. Only present for per person upgrades                                                                                                                                |
+| AvailableSupplements/Supplement/ChDiscAmt      | The amount of discount applied to the child price. Only present for per person upgrades                                                                                                                       |
+| AvailableSupplements/Supplement/PerNight       | Whether the upgrade is charged per night of a stay                                                                                                                                                            |
+| API_Header/Request                             | A list of parameters that were sent in the view booking request.                                                                                                                                              |
+| Booking/BookingStatus  (Future)                | Indicates the current status of the booking (<code class="language-plaintext highlighter-rouge">PENDING</code>, <code class="language-plaintext highlighter-rouge">CONFIRMED</code>, or <code class="language-plaintext highlighter-rouge">FAILED</code>).                                                                                                                            |</p>
 <h4 id="bookingamendable">/Booking/Amendable</h4>
 
 <p>Possible values</p>
@@ -362,7 +216,7 @@
 
 <h4 id="request">Request</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#539c7c8f-a21d-4ec8-ade3-04f2afe11841'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#ff11c425-8ebd-41a9-8e4c-85dbac3dfa2f'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -370,7 +224,7 @@
 
 </ul>
 
-<ul id="539c7c8f-a21d-4ec8-ade3-04f2afe11841" class="uk-switcher uk-margin">
+<ul id="ff11c425-8ebd-41a9-8e4c-85dbac3dfa2f" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
@@ -387,7 +241,7 @@
 
 <h4 id="response">Response</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#f64e7106-5e93-446e-bc46-c4f3572486d7'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#77615747-9fff-4968-ac21-152a9b666b1f'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -395,7 +249,7 @@
 
 </ul>
 
-<ul id="f64e7106-5e93-446e-bc46-c4f3572486d7" class="uk-switcher uk-margin">
+<ul id="77615747-9fff-4968-ac21-152a9b666b1f" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -921,7 +775,7 @@
 <h3 id="uk-products-view-booking-for-a-transfer">UK Products View Booking (for a transfer)</h3>
 
 <h4 id="request-1">Request</h4>
-<ul class="uk-tab" data-uk-switcher="{connect:'#6192a79d-86f2-48e9-85d8-0b08e47a61b2'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#81442423-4168-47d0-9bfa-216ca7d32261'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -929,7 +783,7 @@
 
 </ul>
 
-<ul id="6192a79d-86f2-48e9-85d8-0b08e47a61b2" class="uk-switcher uk-margin">
+<ul id="81442423-4168-47d0-9bfa-216ca7d32261" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
@@ -946,7 +800,7 @@
 
 <h4 id="response-1">Response</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#66d5a929-9fc0-4f61-96ad-461c11653b29'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#7e0ca2b7-32c4-4290-94dd-587fe844e45d'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -954,7 +808,7 @@
 
 </ul>
 
-<ul id="66d5a929-9fc0-4f61-96ad-461c11653b29" class="uk-switcher uk-margin">
+<ul id="7e0ca2b7-32c4-4290-94dd-587fe844e45d" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
