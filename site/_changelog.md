@@ -1,5 +1,6 @@
 | Version Number | Date                | Details                                                                                                                        |
 |----------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| 1.27.1         | 28th May 2025       | Added `GIATA` location type to transfers availability docs                                                                     |
 | 1.27.0         | 28th May 2025       | Added `GIATA` location type to transfers.                                                                                      |
 | 1.26.0         | 25th April 2025     | Added duplicate booking error.                                                                                                 |
 | 1.25.0         | 17th March 2025     | Restore .co.uk dns and sandbox paths                                                                                           |
