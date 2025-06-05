@@ -9,379 +9,18 @@ paths:
       summary: Search for available transfers
       description: Returns a list of available transfers based on pick-up and drop-off details
       parameters:
-        - name: ABTANumber
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: Password
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: Initials
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: key
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: token
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: PickUpType
-          in: query
-          required: true
-          schema:
-            type: string
-            enum: [IATA, TTI, GIATA, postal-address, PC]
-        - name: PickUp
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpName
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpAddress
-          in: query
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-        - name: PickUpTown
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpCounty
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpPostcode
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpCountryCode
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpLongitude
-          in: query
-          required: false
-          schema:
-            type: number
-        - name: PickUpLatitude
-          in: query
-          required: false
-          schema:
-            type: number
-        - name: DropOffType
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: DropOff
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffName
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffAddress
-          in: query
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-        - name: DropOffTown
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffCounty
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffPostcode
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffCountryCode
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffLongitude
-          in: query
-          required: false
-          schema:
-            type: number
-        - name: DropOffLatitude
-          in: query
-          required: false
-          schema:
-            type: number
-        - name: FromDate
-          in: query
-          required: true
-          schema:
-            type: string
-            format: date
-        - name: FromTime
-          in: query
-          required: true
-          schema:
-            type: string
-            pattern: '^\d{4}$'
-        - name: ReturnDate
-          in: query
-          required: false
-          schema:
-            type: string
-            format: date
-        - name: ReturnTime
-          in: query
-          required: false
-          schema:
-            type: string
-            pattern: '^\d{4}$'
-        - name: Adults
-          in: query
-          required: true
-          schema:
-            type: integer
-        - name: Children
-          in: query
-          required: false
-          schema:
-            type: integer
-        - name: Infants
-          in: query
-          required: false
-          schema:
-            type: integer
-        - name: OutFlight
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: ReturnFlight
-          in: query
-          required: false
-          schema:
-            type: string
+        Please refer to the parameters section in the existing documentation for details
       responses:
-        This section will have all the possible responses for the availability endpoint
+        Please refer to the parameters section in the existing documentation for details
 
   /v1/transfers/{productCode}:
     post:
       summary: Book a transfer
       description: Create a booking for a given transfer product
       parameters:
-        - name: productCode
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: ABTANumber
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: Password
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: Initials
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: key
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: token
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: PickUpType
-          in: query
-          required: true
-          schema:
-            type: string
-            enum: [IATA, TTI, GIATA, postal-address, PC]
-        - name: PickUp
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpName
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpAddress
-          in: query
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-        - name: PickUpTown
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpCounty
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpPostcode
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpCountryCode
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpLongitude
-          in: query
-          required: false
-          schema:
-            type: number
-        - name: PickUpLatitude
-          in: query
-          required: false
-          schema:
-            type: number
-        - name: DropOffType
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: DropOff
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffName
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffAddress
-          in: query
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-        - name: DropOffTown
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffCounty
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffPostcode
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffCountryCode
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffLongitude
-          in: query
-          required: false
-          schema:
-            type: number
-        - name: DropOffLatitude
-          in: query
-          required: false
-          schema:
-            type: number
-        - name: FromDate
-          in: query
-          required: true
-          schema:
-            type: string
-            format: date
-        - name: FromTime
-          in: query
-          required: true
-          schema:
-            type: string
-            pattern: '^\d{4}$'
-        - name: ReturnDate
-          in: query
-          required: false
-          schema:
-            type: string
-            format: date
-        - name: ReturnTime
-          in: query
-          required: false
-          schema:
-            type: string
-            pattern: '^\d{4}$'
-        - name: Adults
-          in: query
-          required: true
-          schema:
-            type: integer
-        - name: Children
-          in: query
-          required: false
-          schema:
-            type: integer
-        - name: Infants
-          in: query
-          required: false
-          schema:
-            type: integer
-        - name: OutFlight
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: ReturnFlight
-          in: query
-          required: false
-          schema:
-            type: string
+        Please refer to the parameters section in the existing documentation for details
       responses:
-        This section will have all the possible responses for the make booking endpoint
+        Please refer to the parameters section in the existing documentation for details
 
   /v1/transfers/booking/{bookingRef}:
     get:
@@ -394,7 +33,8 @@ paths:
           schema:
             type: string
       responses:
-        This section will have all the possible responses for the view booking endpoint
+        Please refer to the parameters section in the existing view booking documentation for details
+
     delete:
       summary: Cancel a booking (future)
       description: Cancel an existing booking for a given booking reference
@@ -405,7 +45,16 @@ paths:
           schema:
             type: string
       responses:
-        This section will have all the possible responses for the cancel booking endpoint
+        '204':
+          description: Booking cancelled successfully. No content returned.
+        '400':
+          description: Bad request. Booking reference is missing or invalid.
+        '404':
+          description: Booking not found for the given reference.
+        '409':
+          description: Booking cannot be cancelled (e.g. already used or past deadline).
+        '500':
+          description: Internal server error.
 
   /v1/transfers/booking/{bookingRef}/cancellation-policy:
     get:
@@ -418,7 +67,15 @@ paths:
           schema:
             type: string
       responses:
-        This section will have all the possible responses for the cancellation policy endpoint
+        '200':
+          description: Returns whether the booking is cancellable and any applicable cancellation policy.
+        '400':
+          description: Invalid or missing booking reference.
+        '404':
+          description: Booking not found.
+        '500':
+          description: Internal server error.
+
 
   /v1/transfers/{productCode}/content:
     get:
@@ -431,4 +88,12 @@ paths:
           schema:
             type: string
       responses:
-        This section will have all the possible responses for the product content endpoint
+        '200':
+          description: Transfer product content successfully retrieved.
+        '400':
+          description: Invalid product code.
+        '404':
+          description: Transfer product not found.
+        '500':
+          description: Internal server error.
+
