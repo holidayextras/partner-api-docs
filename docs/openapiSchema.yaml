@@ -11,7 +11,7 @@ paths:
       parameters:
         Please refer to the parameters section in the existing documentation for details
       responses:
-        Please refer to the parameters section in the existing documentation for details
+        Please refer to the responses section in the existing documentation for details
 
   /v1/transfers/{productCode}:
     post:
