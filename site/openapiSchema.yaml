@@ -181,7 +181,7 @@ paths:
                         xml:
                           name: SalesCurrency
                       Price:
-                        type: number
+                        type: integer
                         example: 27665
                         xml:
                           name: Price
