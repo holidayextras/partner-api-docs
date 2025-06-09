@@ -59,7 +59,7 @@ paths:
                         type: string
                       BookingStatus:
                         type: string
-                        example: "PENDING"
+                        example: "Pending"
                       DateBooked:
                         type: string
                         format: date
@@ -141,7 +141,7 @@ paths:
                       name: VoucherRef
                   BookingStatus:
                     type: string
-                    example: "PENDING"
+                    example: "Pending"
                     xml:
                       name: BookingStatus
                   DateBooked:
