@@ -117,14 +117,16 @@ The hotel booking response will confirm that a booking has been placed in our sy
 
 For a detailed explanation of the fields returned, please see below:
 
-| Field              | Additional Information                                                                                                                                                                                    |
-|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Booking/BookingRef | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. NB: Our booking references are up to 12 char alphanumeric (including 1/I and 0/O/Q). |
-| Booking/AgentComm  | Commission you have earned from this booking.                                                                                                                                                             |
-| Itinerary          | This section confirms details of the hotel on the booking.                                                                                                                                                |
-| Room               | This section confirms details of the room booked at the hotel.                                                                                                                                            |
-| ClientDetails      | Confirmation of the customer's details that were sent in the booking request.                                                                                                                             |
-| Pricing            | Confirmation of the price paid by the customer for the hotel room.                                                                                                                                        |
+| Field                                      | Additional Information                                                                                                                                                                                    |
+|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Booking/BookingRef                         | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. NB: Our booking references are up to 12 char alphanumeric (including 1/I and 0/O/Q). |
+| Booking/AgentComm                          | Commission you have earned from this booking.                                                                                                                                                             |
+| Itinerary                                  | This section confirms details of the hotel on the booking.                                                                                                                                                |
+| Room                                       | This section confirms details of the room booked at the hotel.                                                                                                                                            |
+| ClientDetails                              | Confirmation of the customer's details that were sent in the booking request.                                                                                                                             |
+| Pricing                                    | Confirmation of the price paid by the customer for the hotel room.                                                                                                                                        |
+| Booking/BookingStatus    (Future)          | Indicates the current status of the booking (`Pending`, `Confirmed`, `Cancelled`, or `Error`).                                                                                                            |
+| Booking/SuggestedPollingInterval  (Future) | Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.)                                                |
 {% include _booking_response_supplements.md %}
 | API_Header/Request | A list of parameters that were sent in the booking request.                                                                                                                                               |
 
