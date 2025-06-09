@@ -54,7 +54,7 @@
 
 <p>The endpoint to use is (where <code class="language-plaintext highlighter-rouge">YourBookingRef</code> is the Holiday Extras booking reference):</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#bad07c7e-c48d-4b16-b382-ba9ae8b22b88'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#981d3e41-27a3-44b4-80b1-04e81a4da08b'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -62,7 +62,7 @@
 
 </ul>
 
-<ul id="bad07c7e-c48d-4b16-b382-ba9ae8b22b88" class="uk-switcher uk-margin">
+<ul id="981d3e41-27a3-44b4-80b1-04e81a4da08b" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef
@@ -191,7 +191,7 @@
 | AvailableSupplements/Supplement/ChDiscAmt      | The amount of discount applied to the child price. Only present for per person upgrades                                                                                                                       |
 | AvailableSupplements/Supplement/PerNight       | Whether the upgrade is charged per night of a stay                                                                                                                                                            |
 | API_Header/Request                             | A list of parameters that were sent in the view booking request.                                                                                                                                              |
-| Booking/BookingStatus  (Future)                | Indicates the current status of the booking (<code class="language-plaintext highlighter-rouge">PENDING</code>, <code class="language-plaintext highlighter-rouge">CONFIRMED</code>, or <code class="language-plaintext highlighter-rouge">FAILED</code>).                                                                                                                            |</p>
+| Booking/BookingStatus  (Future)                | Indicates the current status of the booking (<code class="language-plaintext highlighter-rouge">PENDING</code>, <code class="language-plaintext highlighter-rouge">CONFIRMED</code>, <code class="language-plaintext highlighter-rouge">CANCELLED</code>, or <code class="language-plaintext highlighter-rouge">FAILED</code>).                                                                                                               |</p>
 <h4 id="bookingamendable">/Booking/Amendable</h4>
 
 <p>Possible values</p>
@@ -216,7 +216,7 @@
 
 <h4 id="request">Request</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#b688817c-a3e0-41c7-b055-593dd2e0a51d'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#80cb5c50-c66d-4aec-ae5d-f1ed673ec493'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -224,7 +224,7 @@
 
 </ul>
 
-<ul id="b688817c-a3e0-41c7-b055-593dd2e0a51d" class="uk-switcher uk-margin">
+<ul id="80cb5c50-c66d-4aec-ae5d-f1ed673ec493" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
@@ -241,7 +241,7 @@
 
 <h4 id="response">Response</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#75fca143-6056-4ca2-8787-f038775c4bf5'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#93fb862c-7064-4582-9bde-ed3bbc1940b0'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -249,7 +249,7 @@
 
 </ul>
 
-<ul id="75fca143-6056-4ca2-8787-f038775c4bf5" class="uk-switcher uk-margin">
+<ul id="93fb862c-7064-4582-9bde-ed3bbc1940b0" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
@@ -775,7 +775,7 @@
 <h3 id="uk-products-view-booking-for-a-transfer">UK Products View Booking (for a transfer)</h3>
 
 <h4 id="request-1">Request</h4>
-<ul class="uk-tab" data-uk-switcher="{connect:'#6453930f-bb4c-4d6a-8310-e8dfa3c0104d'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#240405eb-39b6-447f-9d44-a31906761521'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -783,7 +783,7 @@
 
 </ul>
 
-<ul id="6453930f-bb4c-4d6a-8310-e8dfa3c0104d" class="uk-switcher uk-margin">
+<ul id="240405eb-39b6-447f-9d44-a31906761521" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;Email=test@test.com
@@ -800,7 +800,7 @@
 
 <h4 id="response-1">Response</h4>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#eecfbc76-96e1-466b-9bfd-00b701400fc9'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#36524ea5-b1c7-4599-9abd-8ca6e78a0149'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -808,7 +808,7 @@
 
 </ul>
 
-<ul id="eecfbc76-96e1-466b-9bfd-00b701400fc9" class="uk-switcher uk-margin">
+<ul id="36524ea5-b1c7-4599-9abd-8ca6e78a0149" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
