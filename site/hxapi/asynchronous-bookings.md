@@ -26,7 +26,7 @@ Partners must include a new parameter in the availability request to indicate wh
 | includeAsyncProducts    | Boolean   | `true`/`false` | N | If `true`, availability includes async products. Default is `false`. |
 
 > **Note:**  
-> **Async products** are products that require additional time for confirmation due to complex supplier interactions or backend processes. Unlike standard products, they do not provide immediate booking confirmation. Instead, bookings for these products are processed in stages, with their status transitioning from `pending`, `confirmed`, `cancelled`, or `error` as the confirmation process completes.
+> **Async products** are products that require additional time for confirmation due to complex supplier interactions or backend processes. Unlike standard products, they do not provide immediate booking confirmation. Instead, bookings for these products are processed in stages, with their status transitioning from `Pending`, `Confirmed`, `Cancelled`, or `Error` as the confirmation process completes.
 
 ### UK Products Availability Request
 
@@ -91,10 +91,10 @@ When the `includeAsyncProducts` parameter is set to `true` and the booking is pr
 #### Missing Properties:
 - **QR Code:** Not provided until the booking is confirmed.
 - **Supplier Reference:** Only included in the response once the supplier confirms the booking.
-- **Joining Instructions:** These details will be added once the booking reaches a `confirmed` state.
+- **Joining Instructions:** These details will be added once the booking reaches a `Confirmed` state.
 
 #### Added Property:
-- **`bookingStatus`:** Indicates the current status of the booking (`pending`, `confirmed`, `cancelled`, or `error`).
+- **`bookingStatus`:** Indicates the current status of the booking (`Pending`, `Confirmed`, `Cancelled`, or `Error`).
 - **`suggestedPollingInterval`:** Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.
 
 ---
@@ -108,7 +108,7 @@ When working with asynchronous bookings, partners must poll our API to determine
 Polling is required when a booking has been submitted with the `includeAsyncProducts=true` parameter.
 The `bookingStatus` field in the response from the `view booking` endpoint indicates the current status of a booking.  
 
-Booking details such as the QR code, supplier reference, and other information will only be provided once the `bookingStatus` field is in a `confirmed` state.
+Booking details such as the QR code, supplier reference, and other information will only be provided once the `bookingStatus` field is in a `Confirmed` state.
 
 ### How Often to Poll  
 
@@ -119,10 +119,10 @@ On the initial booking response, we provide a `suggestedPollingInterval` field t
 
 | Status      | Description                                                                 |
 |-------------|-----------------------------------------------------------------------------|
-| `pending`   | Booking has been submitted but not yet confirmed with the supplier.         |
-| `confirmed` | Booking has been successfully confirmed by the supplier. Full details are available. |
-| `error`     | Booking has failed with the supplier. |
-| `cancelled` | Booking has been cancelled, either by the partner or the supplier.         |
+| `Pending`   | Booking has been submitted but not yet confirmed with the supplier.         |
+| `Confirmed` | Booking has been successfully confirmed by the supplier. Full details are available. |
+| `Error`     | Booking has failed with the supplier. |
+| `Cancelled` | Booking has been cancelled, either by the partner or the supplier.         |
 
 ---
 
@@ -135,7 +135,7 @@ The response will now include a `bookingStatus` field to indicate the current st
 
 ```json
 {
-  "bookingStatus": "pending",
+  "bookingStatus": "Pending",
   "suggestedPollingInterval": 300
 }
 ```
@@ -149,7 +149,7 @@ The response will now include a `bookingStatus` field to indicate the current st
    - Avoid excessive requests to prevent unnecessary load on our systems.  
 
 2. **Stop Polling:**  
-   - When the `bookingStatus` is `confirmed` or `error`, stop polling and take the appropriate next steps. 
+   - When the `bookingStatus` is `Confirmed` or `Error`, stop polling and take the appropriate next steps. 
 
 3. **Retry Policy:**  
    - Use exponential backoff for retries after transient errors (e.g., 500 errors or timeouts).  
@@ -160,10 +160,10 @@ The response will now include a `bookingStatus` field to indicate the current st
 
 1. Make a booking 
 2. Start Polling: Use the view booking endpoint to check the `bookingStatus`.  
-   - **If `pending`:** Continue polling at the recommended intervals.  
-   - **If `confirmed`:** Retrieve full details and stop polling.  
-   - **If `error`:** Handle the failure appropriately.
-   - **If `cancelled`:** Handle the cancellation appropriately.
+   - **If `Pending`:** Continue polling at the recommended intervals.  
+   - **If `Confirmed`:** Retrieve full details and stop polling.  
+   - **If `Error`:** Handle the failure appropriately.
+   - **If `Cancelled`:** Handle the cancellation appropriately.
 3. Retrieve Full Details: Once the booking is confirmed, on the view booking response you'll have the complete booking information using the same endpoint.
 
 By following these practices, partners can ensure an optimal customer experience while integrating with asynchronous products.  
