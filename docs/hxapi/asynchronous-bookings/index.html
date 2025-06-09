@@ -80,12 +80,12 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 <blockquote>
   <p><strong>Note:</strong><br />
-<strong>Async products</strong> are products that require additional time for confirmation due to complex supplier interactions or backend processes. Unlike standard products, they do not provide immediate booking confirmation. Instead, bookings for these products are processed in stages, with their status transitioning from <code class="language-plaintext highlighter-rouge">PENDING</code> to <code class="language-plaintext highlighter-rouge">CONFIRMED</code> or <code class="language-plaintext highlighter-rouge">FAILED</code> as the confirmation process completes.</p>
+<strong>Async products</strong> are products that require additional time for confirmation due to complex supplier interactions or backend processes. Unlike standard products, they do not provide immediate booking confirmation. Instead, bookings for these products are processed in stages, with their status transitioning from <code class="language-plaintext highlighter-rouge">pending</code>, <code class="language-plaintext highlighter-rouge">confirmed</code>, <code class="language-plaintext highlighter-rouge">cancelled</code>, or <code class="language-plaintext highlighter-rouge">error</code> as the confirmation process completes.</p>
 </blockquote>
 
 <h3 id="uk-products-availability-request">UK Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#c30a48b3-9deb-4227-9d30-0a7dde44c5ee'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#550fed6b-0221-4083-813e-6b92ba846e30'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -93,7 +93,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 </ul>
 
-<ul id="c30a48b3-9deb-4227-9d30-0a7dde44c5ee" class="uk-switcher uk-margin">
+<ul id="550fed6b-0221-4083-813e-6b92ba846e30" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/LGW?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-01-07&amp;ArrivalTime=1200&amp;DepartDate=2025-01-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;includeAsyncProducts=true
@@ -110,7 +110,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 <h3 id="european-products-availability-request">European Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#2148c8e6-971c-42ee-ac4b-b7bca5ca9944'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#7e2ed745-15e9-4367-9e0d-647f3558953d'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -118,7 +118,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 </ul>
 
-<ul id="2148c8e6-971c-42ee-ac4b-b7bca5ca9944" class="uk-switcher uk-margin">
+<ul id="7e2ed745-15e9-4367-9e0d-647f3558953d" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/MUC?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-12-01&amp;ArrivalTime=1200&amp;DepartDate=2025-12-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;System=ABG&amp;lang=en&amp;includeAsyncProducts=true
@@ -188,12 +188,12 @@ Asynchronous bookings require a different approach compared to synchronous booki
 <ul>
   <li><strong>QR Code:</strong> Not provided until the booking is confirmed.</li>
   <li><strong>Supplier Reference:</strong> Only included in the response once the supplier confirms the booking.</li>
-  <li><strong>Joining Instructions:</strong> These details will be added once the booking reaches a <code class="language-plaintext highlighter-rouge">CONFIRMED</code> state.</li>
+  <li><strong>Joining Instructions:</strong> These details will be added once the booking reaches a <code class="language-plaintext highlighter-rouge">confirmed</code> state.</li>
 </ul>
 
 <h4 id="added-property">Added Property:</h4>
 <ul>
-  <li><strong><code class="language-plaintext highlighter-rouge">bookingStatus</code>:</strong> Indicates the current status of the booking (<code class="language-plaintext highlighter-rouge">PENDING</code>, <code class="language-plaintext highlighter-rouge">CONFIRMED</code>, or <code class="language-plaintext highlighter-rouge">FAILED</code>).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">bookingStatus</code>:</strong> Indicates the current status of the booking (<code class="language-plaintext highlighter-rouge">pending</code>, <code class="language-plaintext highlighter-rouge">confirmed</code>, <code class="language-plaintext highlighter-rouge">cancelled</code>, or <code class="language-plaintext highlighter-rouge">error</code>).</li>
   <li><strong><code class="language-plaintext highlighter-rouge">suggestedPollingInterval</code>:</strong> Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.</li>
 </ul>
 
@@ -208,7 +208,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 <p>Polling is required when a booking has been submitted with the <code class="language-plaintext highlighter-rouge">includeAsyncProducts=true</code> parameter.
 The <code class="language-plaintext highlighter-rouge">bookingStatus</code> field in the response from the <code class="language-plaintext highlighter-rouge">view booking</code> endpoint indicates the current status of a booking.</p>
 
-<p>Booking details such as the QR code, supplier reference, and other information will only be provided once the <code class="language-plaintext highlighter-rouge">bookingStatus</code> field is in a <code class="language-plaintext highlighter-rouge">CONFIRMED</code> state.</p>
+<p>Booking details such as the QR code, supplier reference, and other information will only be provided once the <code class="language-plaintext highlighter-rouge">bookingStatus</code> field is in a <code class="language-plaintext highlighter-rouge">confirmed</code> state.</p>
 
 <h3 id="how-often-to-poll">How Often to Poll</h3>
 
@@ -226,16 +226,20 @@ On the initial booking response, we provide a <code class="language-plaintext hi
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">PENDING</code></td>
+      <td><code class="language-plaintext highlighter-rouge">pending</code></td>
       <td>Booking has been submitted but not yet confirmed with the supplier.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CONFIRMED</code></td>
+      <td><code class="language-plaintext highlighter-rouge">confirmed</code></td>
       <td>Booking has been successfully confirmed by the supplier. Full details are available.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">FAILED</code></td>
+      <td><code class="language-plaintext highlighter-rouge">error</code></td>
       <td>Booking has failed with the supplier.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cancelled</code></td>
+      <td>Booking has been cancelled, either by the partner or the supplier.</td>
     </tr>
   </tbody>
 </table>
@@ -250,7 +254,7 @@ On the initial booking response, we provide a <code class="language-plaintext hi
 <p>The response will now include a <code class="language-plaintext highlighter-rouge">bookingStatus</code> field to indicate the current status of the booking and a <code class="language-plaintext highlighter-rouge">suggestedPollingInterval</code> field to guide partners on the recommended polling frequency.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"bookingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"bookingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"suggestedPollingInterval"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -268,7 +272,7 @@ On the initial booking response, we provide a <code class="language-plaintext hi
   </li>
   <li><strong>Stop Polling:</strong>
     <ul>
-      <li>When the <code class="language-plaintext highlighter-rouge">bookingStatus</code> is <code class="language-plaintext highlighter-rouge">CONFIRMED</code> or <code class="language-plaintext highlighter-rouge">FAILED</code>, stop polling and take the appropriate next steps.</li>
+      <li>When the <code class="language-plaintext highlighter-rouge">bookingStatus</code> is <code class="language-plaintext highlighter-rouge">confirmed</code> or <code class="language-plaintext highlighter-rouge">error</code>, stop polling and take the appropriate next steps.</li>
     </ul>
   </li>
   <li><strong>Retry Policy:</strong>
@@ -286,9 +290,10 @@ On the initial booking response, we provide a <code class="language-plaintext hi
   <li>Make a booking</li>
   <li>Start Polling: Use the view booking endpoint to check the <code class="language-plaintext highlighter-rouge">bookingStatus</code>.
     <ul>
-      <li><strong>If <code class="language-plaintext highlighter-rouge">PENDING</code>:</strong> Continue polling at the recommended intervals.</li>
-      <li><strong>If <code class="language-plaintext highlighter-rouge">CONFIRMED</code>:</strong> Retrieve full details and stop polling.</li>
-      <li><strong>If <code class="language-plaintext highlighter-rouge">FAILED</code>:</strong> Handle the failure appropriately.</li>
+      <li><strong>If <code class="language-plaintext highlighter-rouge">pending</code>:</strong> Continue polling at the recommended intervals.</li>
+      <li><strong>If <code class="language-plaintext highlighter-rouge">confirmed</code>:</strong> Retrieve full details and stop polling.</li>
+      <li><strong>If <code class="language-plaintext highlighter-rouge">error</code>:</strong> Handle the failure appropriately.</li>
+      <li><strong>If <code class="language-plaintext highlighter-rouge">cancelled</code>:</strong> Handle the cancellation appropriately.</li>
     </ul>
   </li>
   <li>Retrieve Full Details: Once the booking is confirmed, on the view booking response you’ll have the complete booking information using the same endpoint.</li>
