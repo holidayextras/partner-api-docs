@@ -73,11 +73,13 @@ The lounge booking response will confirm that a booking has been placed in our s
 
 For a detailed explanation of the fields returned, please see below:
 
-| Field               | Additional Information                                                                                                                                                                                        |
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Booking/BookingRef  | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are up to 12 char alphanumeric (including 1/I and 0/O/Q). |
-| Booking/AgentComm   | Commission you have earned from this booking.                                                                                                                                                                 |
-| Booking/MoreInfoURL | The URL for viewing the booking. See [view booking](/hxapi/viewamendcancel/view) for more details.                                                                                                            |
+| Field                                     | Additional Information                                                                                                                                                                                        |
+|-------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Booking/BookingRef                        | This is the reference for this booking. It must be referred to in all communication with us concerning this booking. <br>NB: Our booking references are up to 12 char alphanumeric (including 1/I and 0/O/Q). |
+| Booking/AgentComm                         | Commission you have earned from this booking.                                                                                                                                                                 |
+| Booking/MoreInfoURL                       | The URL for viewing the booking. See [view booking](/hxapi/viewamendcancel/view) for more details.                                                                                                            |
+| Booking/Status (Future)                   | Indicates the current status of the booking (`Pending`, `Confirmed`, `Cancelled`, or `Error`).                                                                                                                |
+| Booking/SuggestedPollingInterval (Future) | Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.)                                                    |
 {% include _booking_response_supplements.md %}
 | API_Header/Request  | A list of parameters that were sent in the booking request.                                                                                                                                                   |
 
