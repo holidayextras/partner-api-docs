@@ -18,7 +18,13 @@ paths:
       summary: Book a transfer
       description: Create a booking for a given transfer product
       parameters:
-        Please refer to the parameters section in the existing documentation for details
+        requestBody:
+          description:
+          required: true
+          content:
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: Please refer to the parameters section in the existing documentation for details
       responses:
         Please refer to the responses section in the existing documentation for details
 
