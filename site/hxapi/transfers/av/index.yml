@@ -1,0 +1,401 @@
+openapi: 3.1.0
+info:
+  title: Transfers Availability API
+  description: API for checking the availability of transfer services.
+  version: 1.0.0
+servers:
+  - url: https://api.holidayextras.co.uk/v1
+    description: Production server
+paths:
+  /transfers/search:
+    get:
+      operationId: getTransfersAvailability
+      summary: Check availability of transfer services.
+      description: >
+        This endpoint returns the availability of transfer services based on the provided parameters.
+      parameters:
+        - name: ABTANumber
+          in: query
+          required: true
+          description: Agent code confirmed during setup.
+          schema:
+            type: string
+            pattern: '^[A-Z0-9]{5}$'
+        - name: Password
+          in: query
+          required: false
+          description: Password for retail agent requests (confirmed during setup).
+          schema:
+            type: string
+            pattern: '^[A-Z0-9]{5}$'
+        - name: Initials
+          in: query
+          required: false
+          description: Initials of the Operator/Agent.
+          schema:
+            type: string
+            pattern: '^[A-Z]{3}$'
+        - name: key
+          in: query
+          required: true
+          description: API key assigned by your Account Manager.
+          schema:
+            type: string
+        - name: token
+          in: query
+          required: true
+          description: Token for authentication.
+          schema:
+            type: string
+        - name: PickUpType
+          in: query
+          required: true
+          description: Pickup type (IATA, TTI, GIATA, postal-address, PC).
+          schema:
+            type: string
+        - name: PickUp
+          in: query
+          required: false
+          description: Pickup identifier (IATA, TTI, GIATA, Postcode).
+          schema:
+            type: string
+        - name: PickUpName
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpAddress[]
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: PickUpTown
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpCounty
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpPostcode
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: PickUpCountryCode
+          in: query
+          required: false
+          schema:
+            type: string
+            pattern: '^[A-Z]{2}$'
+        - name: PickUpLongitude
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: PickUpLatitude
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: DropOffType
+          in: query
+          required: true
+          description: Drop-off type (IATA, TTI, GIATA, postal-address, PC).
+          schema:
+            type: string
+        - name: DropOff
+          in: query
+          required: false
+          description: Drop-off identifier (IATA, TTI, GIATA, Postcode).
+          schema:
+            type: string
+        - name: DropOffName
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffAddress[]
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: DropOffTown
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffCounty
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffPostcode
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: DropOffCountryCode
+          in: query
+          required: false
+          schema:
+            type: string
+            pattern: '^[A-Z]{2}$'
+        - name: DropOffLongitude
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: DropOffLatitude
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: FromDate
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: FromTime
+          in: query
+          required: true
+          schema:
+            type: string
+            pattern: '^\d{4}$'
+        - name: ReturnDate
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: ReturnTime
+          in: query
+          required: false
+          schema:
+            type: string
+            pattern: '^\d{4}$'
+        - name: Adults
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: Children
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: Infants
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: OutFlight
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: ReturnFlight
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response containing transfer options
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferAvailabilityResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TransferAvailabilityResponse'
+components:
+  schemas:
+    TransferAvailabilityResponse:
+      type: object
+      properties:
+        API_Reply:
+          type: object
+          properties:
+            ATTRIBUTES:
+              type: object
+              properties:
+                Product:
+                  type: string
+                RequestCode:
+                  type: integer
+                Result:
+                  type: string
+                cached:
+                  type: boolean
+                expires:
+                  type: string
+                  format: date-time
+            Transfers:
+              type: array
+              items:
+                type: object
+                properties:
+                  Name:
+                    type: string
+                  Code:
+                    type: string
+                  BookingURL:
+                    type: string
+                  MoreInfoURL:
+                    type: string
+                  TotalPrice:
+                    type: number
+                  NonDiscPrice:
+                    type: number
+                  SalesCurrency:
+                    type: string
+                  Images:
+                    type: object
+                    properties:
+                      Src:
+                        type: string
+                      Alt:
+                        type: string
+                  Category:
+                    type: string
+                  Disclaimer:
+                    type: object
+                    properties:
+                      Title:
+                        type: string
+                      Message:
+                        type: string
+                  ProviderDetails:
+                    type: object
+                    properties:
+                      ProviderName:
+                        type: string
+                      ProviderRating:
+                        type: string
+                  Cancellation:
+                    type: object
+                    properties:
+                      Period:
+                        type: integer
+                      Percentage:
+                        type: integer
+                      Fee:
+                        type: number
+                  VehicleDetails:
+                    type: object
+                    properties:
+                      MinCapacity:
+                        type: integer
+                      MaxCapacity:
+                        type: integer
+                      MinStops:
+                        type: string
+                      MaxStops:
+                        type: string
+                      Bags:
+                        type: integer
+                      NumberOfVehicles:
+                        type: integer
+                      IsPrivate:
+                        type: boolean
+                      Supplier:
+                        type: string
+                      Make:
+                        type: string
+                  OutboundTransfer:
+                    type: object
+                    properties:
+                      Origin:
+                        type: string
+                      OriginAddress:
+                        type: string
+                      OriginIata:
+                        type: string
+                      Destination:
+                        type: string
+                      DestinationAddress:
+                        type: string
+                      DestinationIata:
+                        type: string
+                      JourneyTime:
+                        type: integer
+                      DepartureDate:
+                        type: string
+                      DepartureTime:
+                        type: string
+                      ArrivalDate:
+                        type: string
+                      ArrivalTime:
+                        type: string
+                      ReturnDate:
+                        type: string
+                      ReturnTime:
+                        type: string
+                      PickupDate:
+                        type: string
+                      PickupTime:
+                        type: string
+                      JoiningInstructions:
+                        type: string
+                      ContactNumbers:
+                        type: string
+                  ReturnTransfer:
+                    type: object
+                    properties:
+                      Origin:
+                        type: string
+                      OriginAddress:
+                        type: string
+                      OriginIata:
+                        type: string
+                      Destination:
+                        type: string
+                      DestinationAddress:
+                        type: string
+                      DestinationIata:
+                        type: string
+                      JourneyTime:
+                        type: integer
+                      DepartureDate:
+                        type: string
+                      DepartureTime:
+                        type: string
+                      ArrivalDate:
+                        type: string
+                      ArrivalTime:
+                        type: string
+                      ReturnDate:
+                        type: string
+                      ReturnTime:
+                        type: string
+                      PickupDate:
+                        type: string
+                      PickupTime:
+                        type: string
+                      JoiningInstructions:
+                        type: string
+                      ContactNumbers:
+                        type: string
+                  advance_purchase:
+                    type: boolean
+                  PartnerOwnSupply:
+                    type: boolean
+            Pricing:
+              type: object
+            SepaID:
+              type: string
+            API_Header:
+              type: object
+              properties:
+                Request:
+                  type: object
+                  additionalProperties: true
+
