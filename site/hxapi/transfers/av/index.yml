@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.0
 info:
   title: Transfers Availability API
   description: API for checking the availability of transfer services.
@@ -7,205 +7,46 @@ servers:
   - url: https://api.holidayextras.co.uk/v1
     description: Production server
 paths:
-  /transfers/search:
+  /transfers/search.js:
     get:
-      operationId: getTransfersAvailability
-      summary: Check availability of transfer services.
-      description: >
-        This endpoint returns the availability of transfer services based on the provided parameters.
+      operationId: getTransfersAvailabilityJson
+      summary: Check availability of transfer services (in JSON format).
+      description: This endpoint returns the availability of transfer services based on the provided parameters.
       parameters:
-        - name: ABTANumber
-          in: query
-          required: true
-          description: Agent code confirmed during setup.
-          schema:
-            type: string
-            pattern: '^[A-Z0-9]{5}$'
-        - name: Password
-          in: query
-          required: false
-          description: Password for retail agent requests (confirmed during setup).
-          schema:
-            type: string
-            pattern: '^[A-Z0-9]{5}$'
-        - name: Initials
-          in: query
-          required: false
-          description: Initials of the Operator/Agent.
-          schema:
-            type: string
-            pattern: '^[A-Z]{3}$'
-        - name: key
-          in: query
-          required: true
-          description: API key assigned by your Account Manager.
-          schema:
-            type: string
-        - name: token
-          in: query
-          required: true
-          description: Token for authentication.
-          schema:
-            type: string
-        - name: PickUpType
-          in: query
-          required: true
-          description: Pickup type (IATA, TTI, GIATA, postal-address, PC).
-          schema:
-            type: string
-        - name: PickUp
-          in: query
-          required: false
-          description: Pickup identifier (IATA, TTI, GIATA, Postcode).
-          schema:
-            type: string
-        - name: PickUpName
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpAddress[]
-          in: query
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-        - name: PickUpTown
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpCounty
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpPostcode
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: PickUpCountryCode
-          in: query
-          required: false
-          schema:
-            type: string
-            pattern: '^[A-Z]{2}$'
-        - name: PickUpLongitude
-          in: query
-          required: false
-          schema:
-            type: number
-        - name: PickUpLatitude
-          in: query
-          required: false
-          schema:
-            type: number
-        - name: DropOffType
-          in: query
-          required: true
-          description: Drop-off type (IATA, TTI, GIATA, postal-address, PC).
-          schema:
-            type: string
-        - name: DropOff
-          in: query
-          required: false
-          description: Drop-off identifier (IATA, TTI, GIATA, Postcode).
-          schema:
-            type: string
-        - name: DropOffName
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffAddress[]
-          in: query
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-        - name: DropOffTown
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffCounty
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffPostcode
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: DropOffCountryCode
-          in: query
-          required: false
-          schema:
-            type: string
-            pattern: '^[A-Z]{2}$'
-        - name: DropOffLongitude
-          in: query
-          required: false
-          schema:
-            type: number
-        - name: DropOffLatitude
-          in: query
-          required: false
-          schema:
-            type: number
-        - name: FromDate
-          in: query
-          required: true
-          schema:
-            type: string
-            format: date
-        - name: FromTime
-          in: query
-          required: true
-          schema:
-            type: string
-            pattern: '^\d{4}$'
-        - name: ReturnDate
-          in: query
-          required: false
-          schema:
-            type: string
-            format: date
-        - name: ReturnTime
-          in: query
-          required: false
-          schema:
-            type: string
-            pattern: '^\d{4}$'
-        - name: Adults
-          in: query
-          required: true
-          schema:
-            type: integer
-        - name: Children
-          in: query
-          required: false
-          schema:
-            type: integer
-        - name: Infants
-          in: query
-          required: false
-          schema:
-            type: integer
-        - name: OutFlight
-          in: query
-          required: false
-          schema:
-            type: string
-        - name: ReturnFlight
-          in: query
-          required: false
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ABTANumber'
+        - $ref: '#/components/parameters/Password'
+        - $ref: '#/components/parameters/Initials'
+        - $ref: '#/components/parameters/key'
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/PickUpType'
+        - $ref: '#/components/parameters/PickUp'
+        - $ref: '#/components/parameters/PickUpName'
+        - $ref: '#/components/parameters/PickUpAddress'
+        - $ref: '#/components/parameters/PickUpTown'
+        - $ref: '#/components/parameters/PickUpCounty'
+        - $ref: '#/components/parameters/PickUpPostcode'
+        - $ref: '#/components/parameters/PickUpCountryCode'
+        - $ref: '#/components/parameters/PickUpLongitude'
+        - $ref: '#/components/parameters/PickUpLatitude'
+        - $ref: '#/components/parameters/DropOffType'
+        - $ref: '#/components/parameters/DropOff'
+        - $ref: '#/components/parameters/DropOffName'
+        - $ref: '#/components/parameters/DropOffAddress'
+        - $ref: '#/components/parameters/DropOffTown'
+        - $ref: '#/components/parameters/DropOffCounty'
+        - $ref: '#/components/parameters/DropOffPostcode'
+        - $ref: '#/components/parameters/DropOffCountryCode'
+        - $ref: '#/components/parameters/DropOffLongitude'
+        - $ref: '#/components/parameters/DropOffLatitude'
+        - $ref: '#/components/parameters/FromDate'
+        - $ref: '#/components/parameters/FromTime'
+        - $ref: '#/components/parameters/ReturnDate'
+        - $ref: '#/components/parameters/ReturnTime'
+        - $ref: '#/components/parameters/Adults'
+        - $ref: '#/components/parameters/Children'
+        - $ref: '#/components/parameters/Infants'
+        - $ref: '#/components/parameters/OutFlight'
+        - $ref: '#/components/parameters/ReturnFlight'
       responses:
         '200':
           description: Successful response containing transfer options
@@ -213,10 +54,287 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransferAvailabilityResponse'
+  /transfers/search.xml:
+    get:
+      operationId: getTransfersAvailabilityXml
+      summary: Check availability of transfer services (in XML format).
+      description: This endpoint returns the availability of transfer services based on the provided parameters.
+      parameters:
+        - $ref: '#/components/parameters/ABTANumber'
+        - $ref: '#/components/parameters/Password'
+        - $ref: '#/components/parameters/Initials'
+        - $ref: '#/components/parameters/key'
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/PickUpType'
+        - $ref: '#/components/parameters/PickUp'
+        - $ref: '#/components/parameters/PickUpName'
+        - $ref: '#/components/parameters/PickUpAddress'
+        - $ref: '#/components/parameters/PickUpTown'
+        - $ref: '#/components/parameters/PickUpCounty'
+        - $ref: '#/components/parameters/PickUpPostcode'
+        - $ref: '#/components/parameters/PickUpCountryCode'
+        - $ref: '#/components/parameters/PickUpLongitude'
+        - $ref: '#/components/parameters/PickUpLatitude'
+        - $ref: '#/components/parameters/DropOffType'
+        - $ref: '#/components/parameters/DropOff'
+        - $ref: '#/components/parameters/DropOffName'
+        - $ref: '#/components/parameters/DropOffAddress'
+        - $ref: '#/components/parameters/DropOffTown'
+        - $ref: '#/components/parameters/DropOffCounty'
+        - $ref: '#/components/parameters/DropOffPostcode'
+        - $ref: '#/components/parameters/DropOffCountryCode'
+        - $ref: '#/components/parameters/DropOffLongitude'
+        - $ref: '#/components/parameters/DropOffLatitude'
+        - $ref: '#/components/parameters/FromDate'
+        - $ref: '#/components/parameters/FromTime'
+        - $ref: '#/components/parameters/ReturnDate'
+        - $ref: '#/components/parameters/ReturnTime'
+        - $ref: '#/components/parameters/Adults'
+        - $ref: '#/components/parameters/Children'
+        - $ref: '#/components/parameters/Infants'
+        - $ref: '#/components/parameters/OutFlight'
+        - $ref: '#/components/parameters/ReturnFlight'
+      responses:
+        '200':
+          description: Successful response containing transfer options
+          content:
             application/xml:
               schema:
                 $ref: '#/components/schemas/TransferAvailabilityResponse'
 components:
+  parameters:
+    ABTANumber:
+      name: ABTANumber
+      description: Agent code confirmed during setup. If this is a retail agent, then the Password parameter is also required.
+      schema:
+        type: string
+        pattern: '^[A-Z0-9]{5}$'
+      required: true
+      in: query
+    Password:
+      name: Password
+      description: Required only for retail agents. Optional for intermediaries.
+      schema:
+        type: string
+        pattern: '^[A-Z0-9]{5}$'
+      required: true
+      in: query
+    Initials:
+      name: Initials
+      description: Initials of the Operator/Agent.
+      schema:
+        type: string
+        pattern: '^[A-Z]{3}$'
+      required: false
+      in: query
+    key:
+      name: key
+      description: API key assigned by your Account Manager.
+      schema:
+        type: string
+      required: true
+      in: query
+    token:
+      name: token
+      description: Token for authentication.
+      schema:
+        type: string
+      required: true
+      in: query
+    PickUpType:
+      name: PickUpType
+      description: Pickup type (IATA, TTI, GIATA, postal-address, PC).
+      schema:
+        type: string
+        enum: [ 'IATA', 'TTI', 'GIATA', 'postal-address', 'PC' ]
+      required: true
+      in: query
+    PickUp:
+      name: PickUp
+      description: Pickup identifier (IATA, TTI, GIATA, Postcode).
+      schema:
+        type: string
+      required: false
+      in: query
+    PickUpName:
+      name: PickUpName
+      description: Name of the pickup location. Only required when the location type is postal-address
+      schema:
+        type: string
+      in: query
+    PickUpAddress:
+      name: PickUpAddress
+      description: Address of the pickup location. Only required when the location type is postal-address
+      schema:
+        type: array
+        items:
+          type: string
+      in: query
+    PickUpTown:
+      name: PickUpTown
+      description: Town or city of the pickup location. Only required when the location type is postal-address
+      schema:
+        type: string
+      in: query
+    PickUpCounty:
+      name: PickUpCounty
+      description: County of the pickup location. Only required when the location type is postal-address
+      schema:
+        type: string
+      in: query
+    PickUpPostcode:
+      name: PickUpPostcode
+      description: Postcode of the pickup location. Only required when the location type is postal-address
+      schema:
+        type: string
+      in: query
+    PickUpCountryCode:
+      name: PickUpCountryCode
+      description: Country code of the pickup location. Only required when the location type is postal-address
+      schema:
+        type: string
+        pattern: '^[A-Z]{2}$'
+      in: query
+    PickUpLongitude:
+      name: PickUpLongitude
+      description: Longitude of the pickup location. Only required when the location type is postal-address
+      schema:
+        type: number
+      in: query
+    PickUpLatitude:
+      name: PickUpLatitude
+      description: Latitude of the pickup location. Only required when the location type is postal-address
+      schema:
+        type: number
+      in: query
+    DropOffType:
+      name: DropOffType
+      description: Drop-off type (IATA, TTI, GIATA, postal-address, PC).
+      schema:
+        type: string
+        enum: [ 'IATA', 'TTI', 'GIATA', 'postal-address', 'PC' ]
+      required: true
+      in: query
+    DropOff:
+      name: DropOff
+      description: Drop-off identifier (IATA, TTI, GIATA, Postcode). Not required for `postal-address`
+      schema:
+        type: string
+      in: query
+    DropOffName:
+      name: DropOffName
+      description: Name of the drop-off location. Only required when the location type is postal-address
+      schema:
+        type: string
+      in: query
+    DropOffAddress:
+      name: DropOffAddress
+      description: Address of the drop-off location. Only required when the location type is postal-address
+      schema:
+        type: array
+        items:
+          type: string
+      in: query
+    DropOffTown:
+      name: DropOffTown
+      description: Town or city of the drop-off location. Only required when the location type is postal-address
+      schema:
+        type: string
+      in: query
+    DropOffCounty:
+      name: DropOffCounty
+      description: County of the drop-off location. Only required when the location type is postal-address
+      schema:
+        type: string
+      in: query
+    DropOffPostcode:
+      name: DropOffPostcode
+      description: Postcode of the drop-off location. Only required when the location type is postal-address
+      schema:
+        type: string
+      in: query
+    DropOffCountryCode:
+      name: DropOffCountryCode
+      description: Country code of the drop-off location. Only required when the location type is postal-address
+      schema:
+        type: string
+        pattern: '^[A-Z]{2}$'
+      in: query
+    DropOffLongitude:
+      name: DropOffLongitude
+      description: Longitude of the drop-off location. Only required when the location type is postal-address
+      schema:
+        type: number
+      in: query
+    DropOffLatitude:
+      name: DropOffLatitude
+      description: Latitude of the drop-off location. Only required when the location type is postal-address
+      schema:
+        type: number
+      in: query
+    FromDate:
+      name: FromDate
+      description: Date of the transfer in YYYY-MM-DD format. Flight Arrival Date (`PickUpType` = `IATA`), Flight Departure Date (`DropOffType` = `IATA`), Preferred Date.
+      schema:
+        type: string
+        format: date
+      required: true
+      in: query
+    FromTime:
+      name: FromTime
+      description: Time of the transfer in HHMM format. Flight Arrival Time (`PickUpType` = `IATA`), Flight Departure Time (`DropOffType` = `IATA`), Preferred Time.
+      schema:
+        type: string
+        pattern: '^\d{4}$'
+      in: query
+    ReturnDate:
+      name: ReturnDate
+      description: Return date of the transfer in YYYY-MM-DD format. Flight Departure Date (`PickUpType` = `IATA`), Flight Arrival Date (`DropOffType` = `IATA`), Preferred Return Date.
+      schema:
+        type: string
+        format: date
+      in: query
+    ReturnTime:
+      name: ReturnTime
+      description: Return time of the transfer in HHMM format. Flight Departure Time (`PickUpType` = `IATA`), Flight Arrival Time (`DropOffType` = `IATA`), Preferred Return Time.
+      schema:
+        type: string
+        pattern: '^\d{4}$'
+      in: query
+    Adults:
+      name: Adults
+      description: Number of adults in the transfer party.
+      schema:
+        type: integer
+        minimum: 1
+      required: true
+      in: query
+    Children:
+      name: Children
+      description: Number of children in the transfer party.
+      schema:
+        type: integer
+      required: false
+      in: query
+    Infants:
+      name: Infants
+      description: Number of infants in the transfer party.
+      schema:
+        type: integer
+      required: false
+      in: query
+    OutFlight:
+      name: OutFlight
+      description: A flight number is required if the journey involves being picked up or dropped off at an Airport.
+      schema:
+        type: string
+      in: query
+    ReturnFlight:
+      name: ReturnFlight
+      description: A flight number is required if the return journey involves being picked up or dropped off at an Airport.
+      schema:
+        type: string
+      in: query
   schemas:
     TransferAvailabilityResponse:
       type: object
