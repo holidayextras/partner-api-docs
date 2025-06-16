@@ -54,6 +54,72 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TransferAvailabilityResponse'
+        '400':
+          description: Bad Request – validation or availability-related error
+          content:
+            application/json:
+              examples:
+                invalidCredentials:
+                  summary: Invalid ABTANumber and/or password
+                  value:
+                    errorCode: "0071"
+                    message: "Invalid ABTANumber and/or password"
+                missingToken:
+                  summary: Missing token in request
+                  value:
+                    errorCode: "TokenError"
+                    message: "Missing token in request"
+                invalidAgent:
+                  summary: Invalid agent code
+                  value:
+                    errorCode: "Invalid agentCode"
+                    message: "Invalid agent code"
+                agentLookupFailed:
+                  summary: Agent lookup failed
+                  value:
+                    errorCode: "Agent Lookup Error"
+                    message: "Unable to retrieve agent details - are you missing a password?"
+                noAvailability:
+                  summary: No availability found
+                  value:
+                    errorCode: "0037"
+                    message: "Sorry, we have no availability for the dates and times selected."
+                timeoutAvailability:
+                  summary: Availability supplier timeout
+                  value:
+                    errorCode: "0037"
+                    message: "Sorry, the availability timeout has been reached. Please try again."
+                productUnavailable:
+                  summary: Product is not available
+                  value:
+                    errorCode: "0004"
+                    message: "Product is not available"
+                duplicateBooking:
+                  summary: Duplicate booking detected
+                  value:
+                    errorCode: "0005"
+                    message: "We are unable to process this booking as it appears similar to a recent request."
+                invalidArrivalDate:
+                  summary: Invalid arrival date and/or time
+                  value:
+                    errorCode: "F0071"
+                    message: "Invalid arrival date and/or time"
+                pastDateBooking:
+                  summary: Booking date is in the past
+                  value:
+                    errorCode: "F0071"
+                    message: "Bookings cannot be made for stays before today"
+                missingFromDate:
+                  summary: Depart date missing
+                  value:
+                    errorCode: "1441"
+                    message: "Please make sure you have entered a depart date."
+                missingAdults:
+                  summary: Adults field missing
+                  value:
+                    errorCode: "1466"
+                    message: "Missing or empty mandatory Adults field."
+
   /transfers/search.xml:
     get:
       operationId: getTransfersAvailabilityXml
@@ -101,6 +167,72 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/TransferAvailabilityResponse'
+        '400':
+          description: Bad Request – validation or availability-related error
+          content:
+            application/json:
+              examples:
+                invalidCredentials:
+                  summary: Invalid ABTANumber and/or password
+                  value:
+                    errorCode: "0071"
+                    message: "Invalid ABTANumber and/or password"
+                missingToken:
+                  summary: Missing token in request
+                  value:
+                    errorCode: "TokenError"
+                    message: "Missing token in request"
+                invalidAgent:
+                  summary: Invalid agent code
+                  value:
+                    errorCode: "Invalid agentCode"
+                    message: "Invalid agent code"
+                agentLookupFailed:
+                  summary: Agent lookup failed
+                  value:
+                    errorCode: "Agent Lookup Error"
+                    message: "Unable to retrieve agent details - are you missing a password?"
+                noAvailability:
+                  summary: No availability found
+                  value:
+                    errorCode: "0037"
+                    message: "Sorry, we have no availability for the dates and times selected."
+                timeoutAvailability:
+                  summary: Availability supplier timeout
+                  value:
+                    errorCode: "0037"
+                    message: "Sorry, the availability timeout has been reached. Please try again."
+                productUnavailable:
+                  summary: Product is not available
+                  value:
+                    errorCode: "0004"
+                    message: "Product is not available"
+                duplicateBooking:
+                  summary: Duplicate booking detected
+                  value:
+                    errorCode: "0005"
+                    message: "We are unable to process this booking as it appears similar to a recent request."
+                invalidArrivalDate:
+                  summary: Invalid arrival date and/or time
+                  value:
+                    errorCode: "F0071"
+                    message: "Invalid arrival date and/or time"
+                pastDateBooking:
+                  summary: Booking date is in the past
+                  value:
+                    errorCode: "F0071"
+                    message: "Bookings cannot be made for stays before today"
+                missingFromDate:
+                  summary: Depart date missing
+                  value:
+                    errorCode: "1441"
+                    message: "Please make sure you have entered a depart date."
+                missingAdults:
+                  summary: Adults field missing
+                  value:
+                    errorCode: "1466"
+                    message: "Missing or empty mandatory Adults field."
+
 components:
   parameters:
     ABTANumber:
