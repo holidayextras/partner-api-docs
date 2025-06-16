@@ -97,20 +97,24 @@ For a detailed explanation of the fields returned, please see below:
 
 Here are the available categories which may be returned, there will only be one category assigned to each Transfer:
 
-- shared_shuttle
-- speedy_shuttle
-- private_transfer
-- wheelchair_adapted
-- helicopter_transfer
-- water_taxi
-- shared_water_taxi
-- limo_transfer
+- private_adapted_vehicle
+- private_car
 - private_coach
+- private_electric_car
+- private_excutive_car
+- private_executive_electric_car
+- private_helicopter
+- private_limousine
+- private_luxury_car
 - private_minibus
-- private_executive
-- land_and_water
-- train
-- suv
+- private_minivan
+- private_sea_plane
+- private_speed_boat
+- private_suv
+- private_water_taxi
+- shared_express_shuttle
+- shared_shuttle
+- shared_water_taxi
 
 ### Example
 
