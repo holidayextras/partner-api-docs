@@ -23,7 +23,7 @@ Partners must include a new parameter in the availability request to indicate wh
 
 | Name                    | Data Type | Format  | Mandatory? | Additional Information                                    |
 |-------------------------|-----------|---------|------------|----------------------------------------------------------|
-| includeAsyncProducts    | Boolean   | `true`/`false` | N | If `true`, availability includes async products. Default is `false`. |
+| includeAsyncOnlyProducts    | Boolean   | `true`/`false` | N | If `true`, availability includes async products. Default is `false`. |
 
 > **Note:**  
 > **Async products** are products that require additional time for confirmation due to complex supplier interactions or backend processes. Unlike standard products, they do not provide immediate booking confirmation. Instead, bookings for these products are processed in stages, with their status transitioning from `Pending`, `Confirmed`, `Cancelled`, or `Error` as the confirmation process completes.
@@ -33,11 +33,11 @@ Partners must include a new parameter in the availability request to indicate wh
 {% codetabs %}
 {% codetab XML %}
 ```
-https://api.holidayextras.co.uk/v1/carpark/LGW?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-01-07&ArrivalTime=1200&DepartDate=2025-01-08&DepartTime=1200&NumberOfPax=1&includeAsyncProducts=true
+https://api.holidayextras.co.uk/v1/carpark/LGW?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-01-07&ArrivalTime=1200&DepartDate=2025-01-08&DepartTime=1200&NumberOfPax=1&includeAsyncOnlyProducts=true
 ```
 {% endcodetab %}
 {% codetab JSON %}
-```https://api.holidayextras.co.uk/v1/carpark/LGW.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-01-07&ArrivalTime=1200&DepartDate=2025-01-08&DepartTime=1200&NumberOfPax=1&includeAsyncProducts=true
+```https://api.holidayextras.co.uk/v1/carpark/LGW.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-01-07&ArrivalTime=1200&DepartDate=2025-01-08&DepartTime=1200&NumberOfPax=1&includeAsyncOnlyProducts=true
 ```
 Note the `.js` extension.
 {% endcodetab %}
@@ -48,12 +48,12 @@ Note the `.js` extension.
 {% codetabs %}
 {% codetab XML %}
 ```
-https://api.holidayextras.co.uk/v1/carpark/MUC?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-12-01&ArrivalTime=1200&DepartDate=2025-12-08&DepartTime=1200&NumberOfPax=1&System=ABG&lang=en&includeAsyncProducts=true
+https://api.holidayextras.co.uk/v1/carpark/MUC?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-12-01&ArrivalTime=1200&DepartDate=2025-12-08&DepartTime=1200&NumberOfPax=1&System=ABG&lang=en&includeAsyncOnlyProducts=true
 ```
 {% endcodetab %}
 {% codetab JSON %}
 ```
-https://api.holidayextras.co.uk/v1/carpark/MUC.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-12-01&ArrivalTime=1200&DepartDate=2025-12-08&DepartTime=1200&NumberOfPax=1&System=ABG&lang=en&includeAsyncProducts=true
+https://api.holidayextras.co.uk/v1/carpark/MUC.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2025-12-01&ArrivalTime=1200&DepartDate=2025-12-08&DepartTime=1200&NumberOfPax=1&System=ABG&lang=en&includeAsyncOnlyProducts=true
 ```
 Note the `.js` extension.
 {% endcodetab %}
@@ -74,7 +74,7 @@ We have introduced a new parameter to the booking endpoint to support asynchrono
 
 | Name                    | Data Type | Format          | Mandatory? | Additional Information                                            |
 |-------------------------|-----------|-----------------|------------|--------------------------------------------------------------------|
-| includeAsyncProducts    | Boolean   | `true`/`false` | N          | If `true`, the booking is treated as asynchronous. Default is `false`. |
+| includeAsyncOnlyProducts    | Boolean   | `true`/`false` | N          | If `true`, the booking is treated as asynchronous. Default is `false`. |
 
 ### Behavior
 
@@ -82,11 +82,11 @@ We have introduced a new parameter to the booking endpoint to support asynchrono
 - **`false`:** The booking will follow the standard synchronous process.
 
 ### Request
-Use the existing request examples: [/hxapi/parking/bkg/](/hxapi/parking/bkg/) and add the `includeAsyncProducts=true` query parameter.
+Use the existing request examples: [/hxapi/parking/bkg/](/hxapi/parking/bkg/) and add the `includeAsyncOnlyProducts=true` query parameter.
 
 ### Response Structure for Async Bookings
 
-When the `includeAsyncProducts` parameter is set to `true` and the booking is processed asynchronously, the response will closely resemble the normal synchronous booking response. However, certain properties will be missing, as they are only available after the booking is fully confirmed.
+When the `includeAsyncOnlyProducts` parameter is set to `true` and the booking is processed asynchronously, the response will closely resemble the normal synchronous booking response. However, certain properties will be missing, as they are only available after the booking is fully confirmed.
 
 #### Missing Properties:
 - **QR Code:** Not provided until the booking is confirmed.
@@ -105,7 +105,7 @@ When working with asynchronous bookings, partners must poll our API to determine
 
 ### When Polling is Required  
 
-Polling is required when a booking has been submitted with the `includeAsyncProducts=true` parameter.
+Polling is required when a booking has been submitted with the `includeAsyncOnlyProducts=true` parameter.
 The `bookingStatus` field in the response from the `view booking` endpoint indicates the current status of a booking.  
 
 Booking details such as the QR code, supplier reference, and other information will only be provided once the `bookingStatus` field is in a `Confirmed` state.
