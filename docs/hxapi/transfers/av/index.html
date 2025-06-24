@@ -266,14 +266,14 @@
       <td>Date</td>
       <td>YYYY-MM-DD</td>
       <td>N</td>
-      <td>Flight Arrival Date (<code class="language-plaintext highlighter-rouge">DropOffType</code> = <code class="language-plaintext highlighter-rouge">IATA</code>), Flight Departure Date (<code class="language-plaintext highlighter-rouge">PickUpType</code> = <code class="language-plaintext highlighter-rouge">IATA</code>), Preferred Date.</td>
+      <td>Flight Arrival Date (<code class="language-plaintext highlighter-rouge">DropOffType</code> = <code class="language-plaintext highlighter-rouge">IATA</code>), Flight Departure Date (<code class="language-plaintext highlighter-rouge">PickUpType</code> = <code class="language-plaintext highlighter-rouge">IATA</code>), Preferred Date. <strong>Required</strong> for return bookings as it is not inferred from flight data;</td>
     </tr>
     <tr>
       <td>ReturnTime</td>
       <td>Time</td>
       <td>HHMM</td>
       <td>N</td>
-      <td>Flight Arrival Time (<code class="language-plaintext highlighter-rouge">DropOffType</code> = <code class="language-plaintext highlighter-rouge">IATA</code>), Flight Departure Time (<code class="language-plaintext highlighter-rouge">PickUpType</code> = <code class="language-plaintext highlighter-rouge">IATA</code>), Preferred Time.</td>
+      <td>Flight Arrival Time (<code class="language-plaintext highlighter-rouge">DropOffType</code> = <code class="language-plaintext highlighter-rouge">IATA</code>), Flight Departure Time (<code class="language-plaintext highlighter-rouge">PickUpType</code> = <code class="language-plaintext highlighter-rouge">IATA</code>), Preferred Time. <strong>Required</strong> for return bookings as it is not inferred from flight data;</td>
     </tr>
     <tr>
       <td>Adults</td>
@@ -864,7 +864,7 @@
 <h4 id="airport-to-giata">Airport to GIATA</h4>
 <h5 id="request">Request</h5>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#3557f5aa-bb71-4670-a4b7-a447391f5453'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#81f7f131-b945-4a7c-8324-6a9aff33ab0c'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -872,7 +872,7 @@
 
 </ul>
 
-<ul id="3557f5aa-bb71-4670-a4b7-a447391f5453" class="uk-switcher uk-margin">
+<ul id="81f7f131-b945-4a7c-8324-6a9aff33ab0c" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https:///api.holidayextras.co.uk/v1/transfers/search?ABTANumber=YourABTANumber&amp;Password=YourABTANumber&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;PickUp=ALC&amp;PickUpType=IATA&amp;DropOffType=GIATA&amp;DropOff=439771&amp;FromDate=2022-03-16&amp;FromTime=1115&amp;ReturnDate=2022-03-23&amp;ReturnTime=1115&amp;Adults=2&amp;OutFlight=U28605&amp;ReturnFlight=U28602
@@ -890,7 +890,7 @@
 <h5 id="response">Response</h5>
 <p>NB: This is a shortened example compiled from a full availability response.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#f7d5591a-80da-4839-830d-33e02aeffbda'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#91312838-8f8b-4c18-b252-118253b86cc0'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -898,7 +898,7 @@
 
 </ul>
 
-<ul id="f7d5591a-80da-4839-830d-33e02aeffbda" class="uk-switcher uk-margin">
+<ul id="91312838-8f8b-4c18-b252-118253b86cc0" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"Transfers"</span> <span class="na">RequestCode=</span><span class="s">"1"</span> <span class="na">Result=</span><span class="s">"OK"</span> <span class="na">cached=</span><span class="s">"1"</span> <span class="na">expires=</span><span class="s">"2021-12-07 13:06:41"</span><span class="nt">&gt;</span>
@@ -1136,7 +1136,7 @@
 <h4 id="airport-to-tti">Airport to TTI</h4>
 <h5 id="request-1">Request</h5>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#32ecedf5-1a27-4749-928d-1586b777c90c'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#3d248d20-bb5b-408b-ae64-37292dd416cb'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -1144,7 +1144,7 @@
 
 </ul>
 
-<ul id="32ecedf5-1a27-4749-928d-1586b777c90c" class="uk-switcher uk-margin">
+<ul id="3d248d20-bb5b-408b-ae64-37292dd416cb" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https:///api.holidayextras.co.uk/v1/transfers/search?ABTANumber=YourABTANumber&amp;Password=YourABTANumber&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;PickUp=ALC&amp;PickUpType=IATA&amp;DropOffType=TTI&amp;DropOff=10147575&amp;FromDate=2022-03-16&amp;FromTime=1115&amp;ReturnDate=2022-03-23&amp;ReturnTime=1115&amp;Adults=2&amp;OutFlight=U28605&amp;ReturnFlight=U28602
@@ -1163,7 +1163,7 @@
 
 <p>NB: This is a shortened example compiled from a full availability response.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#feaf98bc-2419-4e63-b62a-f2327912772b'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#bb646165-ace3-4d18-8814-3b5aa5bc9839'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -1171,7 +1171,7 @@
 
 </ul>
 
-<ul id="feaf98bc-2419-4e63-b62a-f2327912772b" class="uk-switcher uk-margin">
+<ul id="bb646165-ace3-4d18-8814-3b5aa5bc9839" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"Transfers"</span> <span class="na">RequestCode=</span><span class="s">"1"</span> <span class="na">Result=</span><span class="s">"OK"</span> <span class="na">cached=</span><span class="s">"1"</span> <span class="na">expires=</span><span class="s">"2021-12-07 13:06:41"</span><span class="nt">&gt;</span>
@@ -1408,7 +1408,7 @@
 
 <h4 id="airport-to-postal-address">Airport to Postal Address</h4>
 <h5 id="request-2">Request</h5>
-<ul class="uk-tab" data-uk-switcher="{connect:'#42c7e728-5785-4fa7-ac69-6fb1deea98b1'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#3c3ed34b-c5c8-4014-a765-565dfa1afa25'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -1416,7 +1416,7 @@
 
 </ul>
 
-<ul id="42c7e728-5785-4fa7-ac69-6fb1deea98b1" class="uk-switcher uk-margin">
+<ul id="3c3ed34b-c5c8-4014-a765-565dfa1afa25" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https:///api.holidayextras.co.uk/v1/transfers/search?ABTANumber=YourABTANumber&amp;Password=YourABTANumber&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;PickUp=ALC&amp;PickUpType=IATA&amp;DropOffType=postal-address&amp;DropOffName=Hotel%20Rural%20Castillo%20De%20Biar&amp;DropOffAddress[0]=Carretera%20de%20Banyeres&amp;DropOffAddress[1]=s/n&amp;DropOffTown=%20Biar&amp;DropOffCounty=Alicante&amp;DropOffPostcode=03410&amp;DropOffCountryCode=ES&amp;DropOffLongitude=-0.76832006&amp;DropOffLatitude=38.63852215&amp;Adults=2&amp;FromDate=2022-03-16&amp;FromTime=1115&amp;ReturnDate=2022-03-23&amp;ReturnTime=1115&amp;OutFlight=U28605&amp;ReturnFlight=U28602
@@ -1435,7 +1435,7 @@
 
 <p>NB: This is a shortened example compiled from a full availability response.</p>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#b4508d95-dbdb-4119-8873-f1f50d8b90d4'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#641c6473-eb67-4061-b429-8f0abb7bc940'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -1443,7 +1443,7 @@
 
 </ul>
 
-<ul id="b4508d95-dbdb-4119-8873-f1f50d8b90d4" class="uk-switcher uk-margin">
+<ul id="641c6473-eb67-4061-b429-8f0abb7bc940" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"Transfers"</span> <span class="na">RequestCode=</span><span class="s">"1"</span> <span class="na">Result=</span><span class="s">"OK"</span> <span class="na">cached=</span><span class="s">"1"</span> <span class="na">expires=</span><span class="s">"2021-12-07 16:31:35"</span><span class="nt">&gt;</span>
