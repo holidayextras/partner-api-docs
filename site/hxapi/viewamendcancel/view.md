@@ -100,6 +100,8 @@ For a detailed explanation of the fields returned, please see below:
 | AvailableSupplements/Supplement/PerNight       | Whether the upgrade is charged per night of a stay                                                                                                                                                            |
 | API_Header/Request                             | A list of parameters that were sent in the view booking request.                                                                                                                                              |
 | Booking/Status  (Future)                       | Indicates the current status of the booking (`Pending`, `Confirmed`, `Cancelled`, or `Error`).                                                                                                                |
+
+
 #### /Booking/Amendable
 
 Possible values
