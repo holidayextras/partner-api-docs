@@ -1,5 +1,6 @@
 | Version Number | Date                | Details                                                                                                                        |
 |----------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| 1.29.0         | 25th June 2025      | Added new error codes.                                                                                                         |
 | 1.28.0         | 5th June 2025       | Added bookingStatus and suggestedPollingInterval to the responses.                                                             |
 | 1.27.1         | 5th June 2025       | Added `GIATA` location type to transfers availability docs                                                                     |
 | 1.27.0         | 28th May 2025       | Added `GIATA` location type to transfers.                                                                                      |
