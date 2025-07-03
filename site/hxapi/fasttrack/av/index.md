@@ -42,7 +42,7 @@ NB: All parameter names are case sensitive.
 | Adults      | Integer   | [0-4] 1 char     | Y          | Number of adults requiring entry to the fasttrack.                                                                                                                                                                                                                                                                                            |
 | Children    | Integer   | [0-3] 1 char     | N          | Number of children requiring entry to the fasttrack.                                                                                                                                                                                                                                                                                          |
 | OutFlight   | String    | [A-Z0-9] 9 chars | N          | This is also known as an 'flight number'. <br>Used to establish which terminal the customer is flying from using our look up tool and return products specific to that terminal.                                                                                                                                                              |
-| Terminal    | String    | [A-Z1-9] 1 char  | N          | An optional field when requesting hotel and parking that will filter the availble results to those that serve the given terminal. Terminal options can be found using the [Terminal](/hxapi/terminal) request, where the name of the terminal is a word only the first character is needed for this request ( eg. N for the North terminal ). |
+
 
 ## FastTrack Availability Response
 
@@ -66,7 +66,8 @@ For a detailed explanation of the fields returned, please see below:
 | FastTrack/Logo             | Link to a logo for the product. Prepend with `https:`                                                       |
 | FastTrack/ExtraInformation | Extended description of the product                                                                         |
 | IsRefundable               | Whether the product can be refunded                                                                         |
-| AirportLocation            | The location code for the product airport                                                                   |
+| AirportLocation            | The location name for the product airport                                                                   |
+| Location                   | The airport location the product is located at and its terminals                                            |
 | Terminal                   | The airport terminal of the product                                                                         |
 
 
