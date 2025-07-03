@@ -145,13 +145,6 @@
       <td>N</td>
       <td>This is also known as an ‘flight number’. <br />Used to establish which terminal the customer is flying from using our look up tool and return products specific to that terminal.</td>
     </tr>
-    <tr>
-      <td>Terminal</td>
-      <td>String</td>
-      <td>[A-Z1-9] 1 char</td>
-      <td>N</td>
-      <td>An optional field when requesting hotel and parking that will filter the availble results to those that serve the given terminal. Terminal options can be found using the <a href="/hxapi/terminal">Terminal</a> request, where the name of the terminal is a word only the first character is needed for this request ( eg. N for the North terminal ).</td>
-    </tr>
   </tbody>
 </table>
 
@@ -219,7 +212,11 @@
     </tr>
     <tr>
       <td>AirportLocation</td>
-      <td>The location code for the product airport</td>
+      <td>The location name for the product airport</td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td>The airport location the product is located at and its terminals</td>
     </tr>
     <tr>
       <td>Terminal</td>
