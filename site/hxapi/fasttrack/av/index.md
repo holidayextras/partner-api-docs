@@ -67,7 +67,7 @@ For a detailed explanation of the fields returned, please see below:
 | FastTrack/ExtraInformation | Extended description of the product                                                                         |
 | IsRefundable               | Whether the product can be refunded                                                                         |
 | AirportLocation            | The location name for the product airport                                                                   |
-| Location                   | The airport location the product is located at and its terminals                                            |
+| Location                   | Extended location information for the airport including a list of all terminals on site                  |
 | Terminal                   | The airport terminal of the product                                                                         |
 
 
