@@ -1,5 +1,6 @@
 | Version Number | Date                | Details                                                                                                                        |
 |----------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| 1.31.0         | 21st July 2025      | Added new error code.                                                                                                          |
 | 1.30.0         | 3rd July 2025       | Update FastTrack availability documentation.                                                                                   |
 | 1.29.0         | 25th June 2025      | Added new error codes.                                                                                                         |
 | 1.28.0         | 5th June 2025       | Added bookingStatus and suggestedPollingInterval to the responses.                                                             |
