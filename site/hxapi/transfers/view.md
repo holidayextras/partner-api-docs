@@ -41,7 +41,6 @@ NB: All parameter names are case sensitive.
 | Password           | String    | [A-Z0-9] 5 chars | Y*         | Password required for retail agent requests - intermediaries do not require a password.<br />This will be confirmed to you by your Account Manager during set up.                                                                                                                            |
 | key                | String    | [A-Z]            | Y          | This will be assigned to you by your Account Manager during set up.                                                                                                                                                                                                                          |
 | token              | String    | [0-9] 9 chars    | Y          | Please see [user token endpoint](/hxapi/usertoken) for details of how to generate a token.                                                                                                                                                                                                   |
-| Email              | String    | [A-Z] 50 chars   | Y          | Email address for the booking lookup.                                                                                                                                                                                                                                                        |
 
 ## View Booking Response
 
