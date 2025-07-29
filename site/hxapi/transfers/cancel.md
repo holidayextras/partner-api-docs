@@ -6,7 +6,7 @@
 
 ## Important Notes
 
-- **Check cancellation fees first**: Before cancelling, use the [Cancellation Policy](cancellation-policy) endpoint to check if the booking is cancellable and to see any applicable fees and refund amounts
+- **Check cancellation fees first**: Before cancelling, use the [Cancellation Policy](/hxapi/transfers/cancellation-policy/) endpoint to check if the booking is cancellable and to see any applicable fees and refund amounts
 - This DELETE request will immediately cancel the booking - ensure you want to proceed before making the request
 - Cancellation fees and refund amounts will depend on the booking's cancellation policy
 - Once cancelled, a booking cannot be uncancelled or modified
