@@ -6,10 +6,10 @@
 
 ## Important Notes
 
-- This endpoint is for checking cancellation policy only - it does not perform any cancellation
-- Use this endpoint before cancelling a booking to check if it's cancellable and to understand any fees
-- The response shows the exact refund amount you would receive after cancellation
-- Cancellation policies vary by supplier and may change based on how close to the travel date you are
+- This endpoint is for checking cancellation policy only - it does not perform any cancellation.
+- Use this endpoint before cancelling a booking to check if it's cancellable and to understand any fees.
+- The response shows the exact refund amount you would receive after cancellation.
+- Cancellation policies vary by supplier and may change based on how close to the travel date you are.
 
 ## Cancellation Policy Request
 
