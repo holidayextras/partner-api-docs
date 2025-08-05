@@ -19,13 +19,13 @@ GET
 To request the list of insurance schemes available, the endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/insurancepolicy/RegionCode
+https://api.holidayextras.com/v1/insurancepolicy/RegionCode
 ```
 
 For example, to request a quote for a policy covering Europe (low risk), the endpoint is:
 
 ```
-https://api.holidayextras.co.uk/v1/insurancepolicy/EUROPELOW
+https://api.holidayextras.com/v1/insurancepolicy/EUROPELOW
 ```
 
 To find the list of available regions, please refer to the section on [insurance countries](/hxapi/insurance/countries).
@@ -88,7 +88,7 @@ Below are worked examples of both the request and response for insurance quote.
 ### Insurance Schemes Availability Request
 
 ```
-https://api.holidayextras.co.uk/v1/insurancepolicy/EUROPELOW?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&StartDate=2017-12-01&EndDate=2017-12-08&birthDate[0]=1982-06-26&title[0]=Mr&firstName[0]=TEST&lastName[0]=TEST
+https://api.holidayextras.com/v1/insurancepolicy/EUROPELOW?ABTANumber=YourABTANumber&Password=YourPassword&key=YourKey&token=YourToken&StartDate=2017-12-01&EndDate=2017-12-08&birthDate[0]=1982-06-26&title[0]=Mr&firstName[0]=TEST&lastName[0]=TEST
 ```
 
 ### Insurance Schemes Availability Response

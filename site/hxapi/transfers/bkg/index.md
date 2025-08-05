@@ -14,7 +14,7 @@ POST
 
 The endpoint to use is:
 ```
-https://api.holidayextras.co.uk/v1/transfers/[CODE]
+https://api.holidayextras.com/v1/transfers/[CODE]
 ```
 Where ```[CODE]``` is the product code received in the availability request of the product you want to book.
 
@@ -24,7 +24,7 @@ Here is an example for the following Availability response:
 <BookingURL>/transfers/TBHT1169922</BookingURL>
 ...
 ```
-Your Make Booking request will have the following URL: https://api.holidayextras.co.uk/v1/transfers/TBHT1169922
+Your Make Booking request will have the following URL: https://api.holidayextras.com/v1/transfers/TBHT1169922
 
 ### Request Parameters
 

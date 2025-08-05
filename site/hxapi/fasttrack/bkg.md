@@ -15,13 +15,13 @@ POST
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/fastTrack/FastTrackCode
+https://api.holidayextras.com/v1/fastTrack/FastTrackCode
 ```
 
 For example, for FastTrack Terminal 1 at Manchester airport the endpoint is:
 
 ```
-https://api.holidayextras.co.uk/v1/fastTrack/APMANSF1
+https://api.holidayextras.com/v1/fastTrack/APMANSF1
 ```
 
 ### Request Parameters
@@ -87,7 +87,7 @@ Below are worked examples of both the request and response for booking a fasttra
 ### UK Products Booking Request
 
 ```
-https://api.holidayextras.co.uk/v1/fastTrack/APMANSF11
+https://api.holidayextras.com/v1/fastTrack/APMANSF11
 ```
 
 ```xml

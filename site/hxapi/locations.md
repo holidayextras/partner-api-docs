@@ -15,7 +15,7 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/location
+https://api.holidayextras.com/v1/location
 ```
 
 ### Request Parameters
@@ -58,7 +58,7 @@ Below are worked examples of both the requests and responses for locations.
 ### UK Parking Location Request
 
 ```
-https://api.holidayextras.co.uk/v1/location?key=YourKey&token=YourToken&type=1
+https://api.holidayextras.com/v1/location?key=YourKey&token=YourToken&type=1
 ```
 
 ### UK Parking Location Response
@@ -103,7 +103,7 @@ NB: This is a shortened example compiled from a full UK parking location respons
 ### EU Hotel Location Request
 
 ```
-https://api.holidayextras.co.uk/v1/location?key=YourKey&token=YourToken&type=hotel&system=de
+https://api.holidayextras.com/v1/location?key=YourKey&token=YourToken&type=hotel&system=de
 ```
 
 ### EU Hotel Location Response
