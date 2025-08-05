@@ -17,13 +17,13 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/CarParkCode
+https://api.holidayextras.com/v1/carpark/CarParkCode
 ```
 
 For example, for _Purple Parking Park and Ride T2 at London Heathrow_ the endpoint is:
 
 ```
-https://api.holidayextras.co.uk/v1/carpark/LHH6
+https://api.holidayextras.com/v1/carpark/LHH6
 ```
 
 To find the airport locations available for car parking, please refer to the [locations endpoint.](/hxapi/locations)
@@ -111,7 +111,7 @@ Below are worked examples of both the request and response for availability at a
 ### UK Products Availability Request
 
 ```html
-https://api.holidayextras.co.uk/carpark/LHH6?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&ArrivalTime=1200&DepartDate=2017-12-08&DepartTime=1200&NumberOfPax=1
+https://api.holidayextras.com/carpark/LHH6?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&ArrivalTime=1200&DepartDate=2017-12-08&DepartTime=1200&NumberOfPax=1
 ```
 
 ### UK Products Availability Response
@@ -174,7 +174,7 @@ https://api.holidayextras.co.uk/carpark/LHH6?ABTANumber=YourABTANumber&Password=
 ### European Products Availability Request
 
 ```html
-https://api.holidayextras.co.uk/carpark/MU01?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&ArrivalTime=1200&DepartDate=2017-12-08&DepartTime=1200&NumberOfPax=1&System=ABG
+https://api.holidayextras.com/carpark/MU01?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2017-12-01&ArrivalTime=1200&DepartDate=2017-12-08&DepartTime=1200&NumberOfPax=1&System=ABG
 ```
 
 ### European Products Availability Response

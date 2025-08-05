@@ -27,7 +27,7 @@ POST
 To create an insurance policy, the endpoint to use is (where `CertificateRef` is returned in the options response):
 
 ```
-https://api.holidayextras.co.uk/v1/insurancepolicy/CertificateRef
+https://api.holidayextras.com/v1/insurancepolicy/CertificateRef
 ```
 
 ### Request Parameters
@@ -91,7 +91,7 @@ Below are worked examples of both the request and response for creating an insur
 ### Create Insurance Policy Request
 
 ```
-https://api.holidayextras.co.uk/v1/insurancepolicy/YourCertificateRef
+https://api.holidayextras.com/v1/insurancepolicy/YourCertificateRef
 ```
 
 ```
