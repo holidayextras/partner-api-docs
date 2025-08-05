@@ -15,13 +15,13 @@ POST
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/lounge/LoungeCode
+https://api.holidayextras.com/v1/lounge/LoungeCode
 ```
 
 For example, for _Plaza Premium T5 lounge - 3 hours at London Heathrow Airport_ the endpoint is:
 
 ```
-https://api.holidayextras.co.uk/v1/lounge/LHRPA5
+https://api.holidayextras.com/v1/lounge/LHRPA5
 ```
 
 ### Request Parameters
@@ -98,7 +98,7 @@ Below are worked examples of both the request and response for booking a lounge.
 #### Request
 
 ```
-https://api.holidayextras.co.uk/v1/lounge/LHRPO3
+https://api.holidayextras.com/v1/lounge/LHRPO3
 ```
 
 ```xml
@@ -118,7 +118,7 @@ https://api.holidayextras.co.uk/v1/lounge/LHRPO3
 #### Request
 
 ```
-https://api.holidayextras.co.uk/v1/lounge/HAMLHL
+https://api.holidayextras.com/v1/lounge/HAMLHL
 ```
 
 ```xml
@@ -138,7 +138,7 @@ https://api.holidayextras.co.uk/v1/lounge/HAMLHL
 #### Request
 
 ```
-https://api.holidayextras.co.uk/v1/lounge/LHRPO3
+https://api.holidayextras.com/v1/lounge/LHRPO3
 ```
 
 ```xml

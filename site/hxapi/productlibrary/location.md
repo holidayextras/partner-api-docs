@@ -13,7 +13,7 @@ This request returns all valid locations and their codes.
 ### Request
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/location?key=mytestkey
+https://api-sandbox.holidayextras.com/v1/location?key=mytestkey
 ```
 
 

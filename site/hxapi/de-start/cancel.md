@@ -20,7 +20,7 @@ GET / POST
 The endpoint to use is (where `YourBookingRef` is the Holiday Extras booking reference):
 
 ```
-https://payment.holidayextras.co.uk/legacy/booking/YourBookingRef
+https://payment.holidayextras.com/legacy/booking/YourBookingRef
 ```
 
 ### Request Parameters
@@ -76,7 +76,7 @@ Below are worked examples of both the request and response for cancelling a book
 ### Cancel Booking Request - Step 1
 
 ```html
-https://payment.holidayextras.co.uk/legacy/booking/YourBookingRef?BusinessUnit=YourBusinessUnit&ConfirmCancel=N&Operator=BJT&SStartCustomer=YourStartCustomer&key=YourKey&token=YourToken&CancelRef=YourCancelRef
+https://payment.holidayextras.com/legacy/booking/YourBookingRef?BusinessUnit=YourBusinessUnit&ConfirmCancel=N&Operator=BJT&SStartCustomer=YourStartCustomer&key=YourKey&token=YourToken&CancelRef=YourCancelRef
 ```
 
 ### Cancel Booking Response - Step 1
@@ -111,7 +111,7 @@ https://payment.holidayextras.co.uk/legacy/booking/YourBookingRef?BusinessUnit=Y
 ### Cancel Booking Request - Step 2
 
 ```html
-https://payment.holidayextras.co.uk/legacy/booking/YourBookingRef
+https://payment.holidayextras.com/legacy/booking/YourBookingRef
 ```
 
 ```xml

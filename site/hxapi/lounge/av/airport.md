@@ -15,13 +15,13 @@ GET
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/lounge/AirportCode
+https://api.holidayextras.com/v1/lounge/AirportCode
 ```
 
 For example, for lounge availability at Gatwick the endpoint is:
 
 ```
-https://api.holidayextras.co.uk/v1/lounge/LGW
+https://api.holidayextras.com/v1/lounge/LGW
 ```
 
 To find the airport locations available for lounges, please refer to the [locations endpoint.](/hxapi/locations)
@@ -77,7 +77,7 @@ Below are worked examples of both the request and response for availability at a
 ### UK Products Availability Request
 
 ```
-https://api.holidayextras.co.uk/v1/lounge/LHR?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2018-12-01&ArrivalTime=1200&Adults=2&Children=0
+https://api.holidayextras.com/v1/lounge/LHR?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2018-12-01&ArrivalTime=1200&Adults=2&Children=0
 ```
 
 ### UK Products Availability Response
@@ -161,7 +161,7 @@ https://api.holidayextras.co.uk/v1/lounge/LHR?ABTANumber=YourABTANumber&Password
 ### European Products Availability Request
 
 ```
-https://api.holidayextras.co.uk/v1/lounge/HAM?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2018-12-01&ArrivalTime=1200&Adults=2&Children=0&System=ABG&lang=de
+https://api.holidayextras.com/v1/lounge/HAM?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&token=YourToken&ArrivalDate=2018-12-01&ArrivalTime=1200&Adults=2&Children=0&System=ABG&lang=de
 ```
 
 ### European Products Availability Response

@@ -15,7 +15,7 @@ POST
 The endpoint to use is:
 
 ```
-https://payment.holidayextras.co.uk/legacy/carpark/CarParkCode
+https://payment.holidayextras.com/legacy/carpark/CarParkCode
 ```
 
 ### Request Parameters
@@ -81,7 +81,7 @@ Below are worked examples of both the request and response for booking car parki
 ### Car Park Booking Request - DE-Start method
 
 ```html
-https://payment.holidayextras.co.uk/legacy/carpark/FRA8
+https://payment.holidayextras.com/legacy/carpark/FRA8
 ```
 
 ```xml

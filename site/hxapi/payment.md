@@ -40,7 +40,7 @@ Sandbox:
 
 Production:
 
-`https://payment.holidayextras.co.uk/legacy/`
+`https://payment.holidayextras.com/legacy/`
 
 In order for us to process the payment, the following fields must be included in the booking request:
 
