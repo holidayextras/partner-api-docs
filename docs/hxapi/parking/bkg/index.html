@@ -52,12 +52,12 @@
 
 <p>The endpoint to use is:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/CarParkCode
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/carpark/CarParkCode
 </code></pre></div></div>
 
 <p>For example, for <em>Maple Manor Meet and Greet at London Gatwick North terminal</em> the endpoint is:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/v1/carpark/LGW4
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/carpark/LGW4
 </code></pre></div></div>
 
 <h3 id="request-parameters">Request Parameters</h3>
@@ -318,7 +318,7 @@
 <p>It is possible to booking upgrade items at the same time as making a core product booking. Once the core product has been selected you must make an <a href="/hxapi/upgrade">Upgrade availability request</a>. Use the information in the response to pick the upgrades desired for the product. In the booking request any number of <code class="language-plaintext highlighter-rouge">Supplements</code> tags may be added but each must be for a unique upgrade. Multiple <code class="language-plaintext highlighter-rouge">Supplements</code> can be added in the request using the square bracket(<code class="language-plaintext highlighter-rouge">[]</code>) notation e.g.</p>
 
 <div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">POST</span> <span class="nn">/v1/carpark/STN5</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="p">:</span> <span class="s">api.holidayextras.co.uk</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.holidayextras.com</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
 ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2020-11-09&amp;ArrivalTime=12:30&amp;DepartDate=2020-11-17&amp;DepartTime=13:45&amp;Title=Mr&amp;Initial=T&amp;Surname=Test&amp;Address=Holiday Extras Ltd&amp;Address=Ashford Road&amp;Town=Hythe&amp;County=Kent&amp;PostCode=CT214JF&amp;Email=test@test.com&amp;PriceCheckFlag=Y&amp;PriceCheckPrice=50.05&amp;CarColour=White&amp;CarMake=Range Rover&amp;CarModel=Vogue&amp;Registration=TE17 STS&amp;ReturnFlight=VIR19&amp;Supplements[0][Code]=HXOST1&amp;Supplements[0][Quantity]=1&amp;Supplements[0][Date]=2020-11-09&amp;Supplements[0][TotalPrice]=1.99&amp;Supplements[1][Code]=STNSFS&amp;Supplements[1][Date]=2020-11-09&amp;Supplements[1][Adults]=2&amp;Supplements[1][Children]=1&amp;Supplements[1][TotalPrice]=21.00
@@ -511,19 +511,19 @@ For per <code class="language-plaintext highlighter-rouge">Person</code> upgrade
     </tr>
     <tr>
       <td>CarPark/BookingUrl</td>
-      <td>Prepend with <code class="language-plaintext highlighter-rouge">https://api.holidayextras.co.uk/</code></td>
+      <td>Prepend with <code class="language-plaintext highlighter-rouge">https://api.holidayextras.com/</code></td>
     </tr>
     <tr>
       <td>CarPark/MoreInfoUrl</td>
-      <td>Prepend with <code class="language-plaintext highlighter-rouge">https://api.holidayextras.co.uk/</code></td>
+      <td>Prepend with <code class="language-plaintext highlighter-rouge">https://api.holidayextras.com/</code></td>
     </tr>
     <tr>
       <td>BarCode</td>
-      <td>URL to the barcode for the booking. Prepend with <code class="language-plaintext highlighter-rouge">https://api.holidayextras.co.uk/</code></td>
+      <td>URL to the barcode for the booking. Prepend with <code class="language-plaintext highlighter-rouge">https://api.holidayextras.com/</code></td>
     </tr>
     <tr>
       <td>QRCode</td>
-      <td>URL to the QR code for the booking. Prepend with <code class="language-plaintext highlighter-rouge">https://api.holidayextras.co.uk/</code></td>
+      <td>URL to the QR code for the booking. Prepend with <code class="language-plaintext highlighter-rouge">https://api.holidayextras.com/</code></td>
     </tr>
     <tr>
       <td>QRCodeValue</td>
@@ -614,7 +614,7 @@ For per <code class="language-plaintext highlighter-rouge">Person</code> upgrade
 
 <h4 id="request">Request</h4>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/LGW4
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/carpark/LGW4
 </code></pre></div></div>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Request&gt;</span>
@@ -738,7 +738,7 @@ For per <code class="language-plaintext highlighter-rouge">Person</code> upgrade
 
 <h4 id="request-1">Request</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/MU01
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/carpark/MU01
 </code></pre></div></div>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Request&gt;</span>
@@ -849,7 +849,7 @@ For per <code class="language-plaintext highlighter-rouge">Person</code> upgrade
 
 <h4 id="request-2">Request</h4>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.co.uk/carpark/STN5
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/carpark/STN5
 </code></pre></div></div>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Request&gt;</span>
