@@ -92,9 +92,9 @@ For a detailed explanation of the fields returned, please see below:
 |-------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Booking/BookingRef                        | The reference for the booking, use this reference in all communication with us relating to this booking.                                                   |
 | Booking/AgentComm                         | Commission earned from this booking.                                                                                                                       |
-| Booking/MoreInfoURL                       | The URL to GET more information about the booking (view [View Booking Request](/hxapi/viewamendcancel/view/) for more information).                        |
+| Booking/MoreInfoURL                       | The URL to GET more information about the booking (view [View Booking Request](../view) for more information).                        |
 | Booking/Status (Future)                   | Indicates the current status of the booking (`Pending`, `Confirmed`, `Cancelled`, or `Error`).                                                             |
-| Booking/SuggestedPollingInterval (Future) | Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.) |
+| Booking/SuggestedPollingInterval (Future) | Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier. |
 
 
 ### Example
