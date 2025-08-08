@@ -24,4 +24,3 @@ For the complete API specification, see the [OpenAPI schema](https://api.holiday
  | Cancellation Policy        | [https://api.holidayextras.com/v1/transfers/[BookingRef]/cancellation-policy](cancellation-policy) | GET    |
  | Amend Booking              | not supported                                                                |   -    |
 
-To **View** your existing bookings, use the [View Booking](view) endpoint. To **Cancel** your existing bookings, use the [Cancel Booking](cancel) endpoint.

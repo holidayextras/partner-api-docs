@@ -51,24 +51,21 @@ For a detailed explanation of the fields returned, please see below:
 | Field                                     | Additional Information                                                                                                                                     |
 |-------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Booking/BookingRef                        | The reference for the booking.                                                                                                                             |
-| Booking/SupplierRef                       | Reference number provided by the transfer supplier.                                                                                                        |
-| Booking/VoucherRef                        | Reference number for the booking voucher.                                                                                                                  |
+| Booking/SupplierRef                       | Reference number provided by the transfer supplier (for the overall booking).                                                                              |
 | Booking/Status                            | Current status of the booking (e.g., Confirmed, Pending, Cancelled).                                                                                      |
-| Booking/DateBooked                        | Date and time when the booking was made.                                                                                                                   |
-| Booking/DateCancelled                     | Date and time when the booking was cancelled (if applicable).                                                                                              |
+| Booking/DateBooked                        | Date and time when the booking was made (ISO 8601 format, UTC timezone).                                                                                  |
+| Booking/DateCancelled                     | Date and time when the booking was cancelled, if applicable (ISO 8601 format, UTC timezone).                                                              |
 | Booking/Email                             | Email address associated with the booking.                                                                                                                 |
 | Booking/Product/Price                     | Total price for the transfer booking.                                                                                                                      |
 | Booking/Product/Currency                  | Currency in which the price is denominated.                                                                                                                |
-| Booking/Product/Category                  | Category of the transfer product.                                                                                                                           |
+| Booking/Product/Category                  | Category of the transfer product. See [Transfer Categories](/hxapi/transfers/av/#transfer-categories) for available options.                              |
 | Booking/Product/TransferCode              | Unique code for the transfer product.                                                                                                                      |
 | Booking/Product/DeparturePointType        | Type of the departure point.                                                                                                                               |
 | Booking/Product/ArrivalPointType          | Type of the arrival point.                                                                                                                                 |
-| Booking/Product/Cancellation             | Cancellation policy details including period, percentage, and fee.                                                                                         |
+| Booking/Product/Cancellation             | Cancellation policy details including period (in hours), percentage, and fee. For full cancellation details including refund calculations, use the [Cancellation Policy](/hxapi/transfers/cancellation-policy/) endpoint. |
 | Booking/Product/VehicleDetails           | Details about the vehicle including capacity, stops, bags allowed, and whether it's private.                                                               |
 | Booking/Product/OutboundTransfer         | Details of the outbound transfer journey including origin, destination, journey time, and pickup/arrival times.                                           |
 | Booking/Product/ReturnTransfer           | Details of the return transfer journey (only present if the booking includes a return transfer).                                                           |
-| Booking/Amendable                        | Indicates whether the booking can be amended after confirmation.                                                                                           |
-| Booking/Addonable                        | Indicates whether additional services can be added to the booking.                                                                                         |
 
 ### Transfer Details Fields
 
@@ -77,7 +74,7 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
 | Field                | Additional Information                                                        |
 |----------------------|-------------------------------------------------------------------------------|
 | JourneyId            | Unique identifier for the transfer journey.                                  |
-| SupplierRef          | Reference provided by the transfer supplier.                                 |
+| SupplierRef          | Reference provided by the transfer supplier (specific to this journey leg). |
 | Origin               | Starting point of the transfer.                                              |
 | OriginAddress        | Address of the origin location.                                               |
 | OriginIata           | IATA code of the origin location.                                             |
@@ -85,13 +82,13 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
 | DestinationAddress   | Address of the destination location.                                          |
 | DestinationIata      | IATA code of the destination location.                                        |
 | JourneyTime          | Duration of the journey in minutes.                                           |
-| DepartureDate        | Date of departure.                                                            |
-| DepartureTime        | Departure time (local).                                                       |
-| ArrivalDate          | Date of arrival.                                                              |
-| ArrivalTime          | Arrival time (local).                                                         |
-| PickupDate           | Pickup date.                                                                  |
-| PickupTime           | Pickup time (local).                                                          |
-| InformationUrl       | URL with additional transfer information.                                     |
+| DepartureDate        | Date of departure (usually relates to associated flight departure).          |
+| DepartureTime        | Departure time (local, usually relates to associated flight departure).      |
+| ArrivalDate          | Date of arrival (usually relates to associated flight arrival).              |
+| ArrivalTime          | Arrival time (local, usually relates to associated flight arrival).          |
+| PickupDate           | Pickup date for the transfer vehicle.                                        |
+| PickupTime           | Pickup time for the transfer vehicle (local time).                           |
+| InformationUrl       | URL with additional transfer information (when available from supplier).     |
 | JoiningInstruction   | Instructions on where and how to join the transfer.                          |
 | ContactNumbers       | Contact information including emergency numbers and reconfirmation details.   |
 
@@ -103,7 +100,6 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
 <Booking>
   <BookingRef>TBBGNHMT</BookingRef>
   <SupplierRef>123456</SupplierRef>
-  <VoucherRef>789012</VoucherRef>
   <Status>Confirmed</Status>
   <DateBooked>2025-01-15T10:30:00Z</DateBooked>
   <DateCancelled/>
@@ -116,7 +112,7 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
     <DeparturePointType>Airport</DeparturePointType>
     <ArrivalPointType>Hotel</ArrivalPointType>
     <Cancellation>
-      <Period>72</Period>
+      <Period>24</Period>
       <Percentage>100</Percentage>
       <Fee>0</Fee>
     </Cancellation>
@@ -180,8 +176,6 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
       </ContactNumbers>
     </ReturnTransfer>
   </Product>
-  <Amendable>false</Amendable>
-  <Addonable>false</Addonable>
 </Booking>
 ```
 {% endcodetab %}
@@ -191,7 +185,6 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
   "Booking": {
     "BookingRef": "TBBGNHMT",
     "SupplierRef": 123456,
-    "VoucherRef": 789012,
     "Status": "Confirmed",
     "DateBooked": "2025-01-15T10:30:00Z",
     "DateCancelled": null,
@@ -204,7 +197,7 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
       "DeparturePointType": "Airport",
       "ArrivalPointType": "Hotel",
       "Cancellation": {
-        "Period": 72,
+        "Period": 24,
         "Percentage": 100,
         "Fee": 0
       },
@@ -267,9 +260,7 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
           "EmergencyTel": "+34 952 999 888"
         }
       }
-    },
-    "Amendable": "false",
-    "Addonable": "false"
+    }
   }
 }
 ```

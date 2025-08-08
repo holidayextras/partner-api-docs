@@ -50,16 +50,18 @@ NB: All parameter names are case sensitive.
 
 If the cancellation is successful, the response will contain booking and cancellation details including any fees and refund information.
 
+**Note**: The `CancelFee` in this response is a string formatted as currency (e.g., "10.50"), while the dedicated [Cancellation Policy](/hxapi/transfers/cancellation-policy/) endpoint returns fee amounts as integers in pence/cents.
+
 For a detailed explanation of the fields returned, please see below:
 
 | Field                                     | Additional Information                                                                                                                                     |
 |-------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Booking/BookingRef                        | Unique identifier for the transfer booking.                                                                                                               |
 | Booking/Status                            | Current status of the booking after cancellation (e.g., Cancelled).                                                                                      |
-| Cancel/CancelFee                          | Fee charged for the cancellation, if applicable (string value).                                                                                          |
+| Cancel/CancelFee                          | Fee charged for the cancellation, if applicable (string value in currency format, e.g., "10.50").                                                    |
 | Cancel/CancelRef                          | Reference number for the cancellation.                                                                                                                    |
 | Cancel/CancelInfo                         | Information about the cancellation.                                                                                                                       |
-| Cancel/RefundAmount                       | Amount refunded for the cancellation, if applicable.                                                                                                      |
+| Cancel/RefundAmount                       | Amount refunded for the cancellation, if applicable (numeric value).                                                                                     |
 
 ### Example
 

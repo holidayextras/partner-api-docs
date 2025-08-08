@@ -113,7 +113,7 @@ The API will return error responses in the following scenarios:
 
 ### Invalid Booking Reference
 
-If the booking reference format is invalid (must be 5-7 characters):
+If the booking reference format is invalid (must be 5-8 characters):
 
 ```json
 {
