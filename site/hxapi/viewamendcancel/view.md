@@ -21,12 +21,12 @@ The endpoint to use is (where `YourBookingRef` is the Holiday Extras booking ref
 {% codetabs %}
 {% codetab XML %}
 ```
-https://api.holidayextras.co.uk/v1/booking/YourBookingRef
+https://api.holidayextras.com/v1/booking/YourBookingRef
 ```
 {% endcodetab %}
 {% codetab JSON %}
 ```
-https://api.holidayextras.co.uk/v1/booking/YourBookingRef.js
+https://api.holidayextras.com/v1/booking/YourBookingRef.js
 ```
 Note the `.js` extension.
 {% endcodetab %}
@@ -123,12 +123,12 @@ Below are worked examples of both the request and response for view a booking.
 {% codetabs %}
 {% codetab XML %}
 ```
-https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com
+https://api.holidayextras.com/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com
 ```
 {% endcodetab %}
 {% codetab JSON %}
 ```
-https://api.holidayextras.co.uk/v1/booking/YourBookingRef.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com
+https://api.holidayextras.com/v1/booking/YourBookingRef.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com
 ```
 Note the `.js` extension.
 {% endcodetab %}
@@ -157,12 +157,12 @@ Note the `.js` extension.
 {% codetabs %}
 {% codetab XML %}
 ```
-https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com
+https://api.holidayextras.com/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com
 ```
 {% endcodetab %}
 {% codetab JSON %}
 ```
-https://api.holidayextras.co.uk/v1/booking/YourBookingRef.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com
+https://api.holidayextras.com/v1/booking/YourBookingRef.js?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com
 ```
 Note the `.js` extension.
 {% endcodetab %}
@@ -190,7 +190,7 @@ Note the `.js` extension.
 #### Request
 
 ```
-https://api.holidayextras.co.uk/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com&System=ABG
+https://api.holidayextras.com/v1/booking/YourBookingRef?ABTANumber=YourABTANumber&Password=YourPassword&Initials=YourInitials&key=YourKey&Email=test@test.com&System=ABG
 ```
 
 #### Response

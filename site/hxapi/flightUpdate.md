@@ -19,7 +19,7 @@ POST
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/flightUpdate
+https://api.holidayextras.com/v1/flightUpdate
 ```
 
 ### Request Parameters

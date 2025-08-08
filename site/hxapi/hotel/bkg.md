@@ -13,13 +13,13 @@ POST
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/LocationCode
+https://api.holidayextras.com/v1/hotel/LocationCode
 ```
 
 For example, for _Mercure at London Heathrow_ the endpoint is:
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/LHRMEA
+https://api.holidayextras.com/v1/hotel/LHRMEA
 ```
 
 ## Request Parameters
@@ -145,7 +145,7 @@ Below are worked examples of both the request and response for booking hotels.
 #### Request
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/LHRMEA
+https://api.holidayextras.com/v1/hotel/LHRMEA
 ```
 
 ```xml
@@ -165,7 +165,7 @@ https://api.holidayextras.co.uk/v1/hotel/LHRMEA
 #### Request
 
 ```
-https://api.holidayextras.co.uk/v1/hotel/MUCLAN
+https://api.holidayextras.com/v1/hotel/MUCLAN
 ```
 
 ```xml
@@ -185,7 +185,7 @@ https://api.holidayextras.co.uk/v1/hotel/MUCLAN
 #### Request
 
 ```http
-https://api.holidayextras.co.uk/v1/hotel/LGWSOF
+https://api.holidayextras.com/v1/hotel/LGWSOF
 ```
 
 ```xml

@@ -22,14 +22,14 @@ DELETE
 The endpoint to use is:
 
 ```
-https://api.holidayextras.co.uk/v1/transfers/booking/[BookingRef]
+https://api.holidayextras.com/v1/transfers/booking/[BookingRef]
 ```
 
 Where ```[BookingRef]``` is the booking reference you received when making the original booking.
 
 For example:
 ```
-https://api.holidayextras.co.uk/v1/transfers/booking/TBBGNHMT
+https://api.holidayextras.com/v1/transfers/booking/TBBGNHMT
 ```
 
 ### Request Parameters

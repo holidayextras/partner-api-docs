@@ -13,7 +13,7 @@ This request returns all valid locations and their codes.
 ### Request
 
 ```
-https://api.holidayextras.co.uk/sandbox/v1/location?key=mytestkey
+https://api-sandbox.holidayextras.com/v1/location?key=mytestkey
 ```
 
 
@@ -25,13 +25,13 @@ https://api.holidayextras.co.uk/sandbox/v1/location?key=mytestkey
 	<Product>
 		<Code>ABZ</Code>
 		<Name>Aberdeen</Name>
-		<MoreInfoURL>/sandbox/v1/product/ABZ</MoreInfoURL>
+		<MoreInfoURL>/v1/product/ABZ</MoreInfoURL>
 		<Type>airport</Type>
 	</Product>
 	<Product>
 		<Code>BFS</Code>
 		<Name>Belfast</Name>
-		<MoreInfoURL>/sandbox/v1/product/BFS</MoreInfoURL>
+		<MoreInfoURL>/v1/product/BFS</MoreInfoURL>
 		<Type>airport</Type>
 	</Product>
 	.
