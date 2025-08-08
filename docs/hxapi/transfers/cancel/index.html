@@ -127,6 +127,8 @@
 
 <p>If the cancellation is successful, the response will contain booking and cancellation details including any fees and refund information.</p>
 
+<p><strong>Note</strong>: The <code class="language-plaintext highlighter-rouge">CancelFee</code> in this response is a string formatted as currency (e.g., “10.50”), while the dedicated <a href="/hxapi/transfers/cancellation-policy/">Cancellation Policy</a> endpoint returns fee amounts as integers in pence/cents.</p>
+
 <p>For a detailed explanation of the fields returned, please see below:</p>
 
 <table>
@@ -147,7 +149,7 @@
     </tr>
     <tr>
       <td>Cancel/CancelFee</td>
-      <td>Fee charged for the cancellation, if applicable (string value).</td>
+      <td>Fee charged for the cancellation, if applicable (string value in currency format, e.g., “10.50”).</td>
     </tr>
     <tr>
       <td>Cancel/CancelRef</td>
@@ -159,14 +161,14 @@
     </tr>
     <tr>
       <td>Cancel/RefundAmount</td>
-      <td>Amount refunded for the cancellation, if applicable.</td>
+      <td>Amount refunded for the cancellation, if applicable (numeric value).</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="example">Example</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#b9e88910-8733-428e-a4b5-bc92405b355c'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#d0c8b007-06dc-42e0-93bb-da7d85e0b895'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -174,7 +176,7 @@
 
 </ul>
 
-<ul id="b9e88910-8733-428e-a4b5-bc92405b355c" class="uk-switcher uk-margin">
+<ul id="d0c8b007-06dc-42e0-93bb-da7d85e0b895" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Booking&gt;</span>

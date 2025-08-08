@@ -133,11 +133,7 @@
     </tr>
     <tr>
       <td>Booking/SupplierRef</td>
-      <td>Reference number provided by the transfer supplier.</td>
-    </tr>
-    <tr>
-      <td>Booking/VoucherRef</td>
-      <td>Reference number for the booking voucher.</td>
+      <td>Reference number provided by the transfer supplier (for the overall booking).</td>
     </tr>
     <tr>
       <td>Booking/Status</td>
@@ -145,11 +141,11 @@
     </tr>
     <tr>
       <td>Booking/DateBooked</td>
-      <td>Date and time when the booking was made.</td>
+      <td>Date and time when the booking was made (ISO 8601 format, UTC timezone).</td>
     </tr>
     <tr>
       <td>Booking/DateCancelled</td>
-      <td>Date and time when the booking was cancelled (if applicable).</td>
+      <td>Date and time when the booking was cancelled, if applicable (ISO 8601 format, UTC timezone).</td>
     </tr>
     <tr>
       <td>Booking/Email</td>
@@ -165,7 +161,7 @@
     </tr>
     <tr>
       <td>Booking/Product/Category</td>
-      <td>Category of the transfer product.</td>
+      <td>Category of the transfer product. See <a href="/hxapi/transfers/av/#transfer-categories">Transfer Categories</a> for available options.</td>
     </tr>
     <tr>
       <td>Booking/Product/TransferCode</td>
@@ -181,7 +177,7 @@
     </tr>
     <tr>
       <td>Booking/Product/Cancellation</td>
-      <td>Cancellation policy details including period, percentage, and fee.</td>
+      <td>Cancellation policy details including period (in hours), percentage, and fee. For full cancellation details including refund calculations, use the <a href="/hxapi/transfers/cancellation-policy/">Cancellation Policy</a> endpoint.</td>
     </tr>
     <tr>
       <td>Booking/Product/VehicleDetails</td>
@@ -194,14 +190,6 @@
     <tr>
       <td>Booking/Product/ReturnTransfer</td>
       <td>Details of the return transfer journey (only present if the booking includes a return transfer).</td>
-    </tr>
-    <tr>
-      <td>Booking/Amendable</td>
-      <td>Indicates whether the booking can be amended after confirmation.</td>
-    </tr>
-    <tr>
-      <td>Booking/Addonable</td>
-      <td>Indicates whether additional services can be added to the booking.</td>
     </tr>
   </tbody>
 </table>
@@ -224,7 +212,7 @@
     </tr>
     <tr>
       <td>SupplierRef</td>
-      <td>Reference provided by the transfer supplier.</td>
+      <td>Reference provided by the transfer supplier (specific to this journey leg).</td>
     </tr>
     <tr>
       <td>Origin</td>
@@ -256,31 +244,31 @@
     </tr>
     <tr>
       <td>DepartureDate</td>
-      <td>Date of departure.</td>
+      <td>Date of departure (usually relates to associated flight departure).</td>
     </tr>
     <tr>
       <td>DepartureTime</td>
-      <td>Departure time (local).</td>
+      <td>Departure time (local, usually relates to associated flight departure).</td>
     </tr>
     <tr>
       <td>ArrivalDate</td>
-      <td>Date of arrival.</td>
+      <td>Date of arrival (usually relates to associated flight arrival).</td>
     </tr>
     <tr>
       <td>ArrivalTime</td>
-      <td>Arrival time (local).</td>
+      <td>Arrival time (local, usually relates to associated flight arrival).</td>
     </tr>
     <tr>
       <td>PickupDate</td>
-      <td>Pickup date.</td>
+      <td>Pickup date for the transfer vehicle.</td>
     </tr>
     <tr>
       <td>PickupTime</td>
-      <td>Pickup time (local).</td>
+      <td>Pickup time for the transfer vehicle (local time).</td>
     </tr>
     <tr>
       <td>InformationUrl</td>
-      <td>URL with additional transfer information.</td>
+      <td>URL with additional transfer information (when available from supplier).</td>
     </tr>
     <tr>
       <td>JoiningInstruction</td>
@@ -295,7 +283,7 @@
 
 <h3 id="example">Example</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#324e1c8f-99a2-4e9b-9d73-4ddb479f539e'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#752917dd-5387-40bc-96dc-d76f3ec9ae85'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -303,13 +291,12 @@
 
 </ul>
 
-<ul id="324e1c8f-99a2-4e9b-9d73-4ddb479f539e" class="uk-switcher uk-margin">
+<ul id="752917dd-5387-40bc-96dc-d76f3ec9ae85" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Booking&gt;</span>
   <span class="nt">&lt;BookingRef&gt;</span>TBBGNHMT<span class="nt">&lt;/BookingRef&gt;</span>
   <span class="nt">&lt;SupplierRef&gt;</span>123456<span class="nt">&lt;/SupplierRef&gt;</span>
-  <span class="nt">&lt;VoucherRef&gt;</span>789012<span class="nt">&lt;/VoucherRef&gt;</span>
   <span class="nt">&lt;Status&gt;</span>Confirmed<span class="nt">&lt;/Status&gt;</span>
   <span class="nt">&lt;DateBooked&gt;</span>2025-01-15T10:30:00Z<span class="nt">&lt;/DateBooked&gt;</span>
   <span class="nt">&lt;DateCancelled/&gt;</span>
@@ -322,7 +309,7 @@
     <span class="nt">&lt;DeparturePointType&gt;</span>Airport<span class="nt">&lt;/DeparturePointType&gt;</span>
     <span class="nt">&lt;ArrivalPointType&gt;</span>Hotel<span class="nt">&lt;/ArrivalPointType&gt;</span>
     <span class="nt">&lt;Cancellation&gt;</span>
-      <span class="nt">&lt;Period&gt;</span>72<span class="nt">&lt;/Period&gt;</span>
+      <span class="nt">&lt;Period&gt;</span>24<span class="nt">&lt;/Period&gt;</span>
       <span class="nt">&lt;Percentage&gt;</span>100<span class="nt">&lt;/Percentage&gt;</span>
       <span class="nt">&lt;Fee&gt;</span>0<span class="nt">&lt;/Fee&gt;</span>
     <span class="nt">&lt;/Cancellation&gt;</span>
@@ -386,8 +373,6 @@
       <span class="nt">&lt;/ContactNumbers&gt;</span>
     <span class="nt">&lt;/ReturnTransfer&gt;</span>
   <span class="nt">&lt;/Product&gt;</span>
-  <span class="nt">&lt;Amendable&gt;</span>false<span class="nt">&lt;/Amendable&gt;</span>
-  <span class="nt">&lt;Addonable&gt;</span>false<span class="nt">&lt;/Addonable&gt;</span>
 <span class="nt">&lt;/Booking&gt;</span>
 </code></pre></div></div>
 </li>
@@ -397,7 +382,6 @@
   </span><span class="nl">"Booking"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"BookingRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TBBGNHMT"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"SupplierRef"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"VoucherRef"</span><span class="p">:</span><span class="w"> </span><span class="mi">789012</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Confirmed"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DateBooked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-15T10:30:00Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"DateCancelled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -410,7 +394,7 @@
       </span><span class="nl">"DeparturePointType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Airport"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ArrivalPointType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hotel"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Cancellation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Period"</span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Period"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -473,9 +457,7 @@
           </span><span class="nl">"EmergencyTel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34 952 999 888"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Amendable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Addonable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
