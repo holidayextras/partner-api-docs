@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="product-upgrades">Product Upgrades</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; <a href="/hxapi/upgrade">Product Upgrades</a></p>
+
+<h2 id="upgrades-availability-request">Upgrades Availability Request</h2>
+
+<p>Upgrades are currently only supported for parking, hotel and lounge bookings. Upgrades can be requested on a per product basis.</p>
+
+<h4 id="method">Method</h4>
+
+<p>GET</p>
+
+<h4 id="endpoint">Endpoint</h4>
+
+<p>/upgrade/{productCode}</p>
+
+<p>NB: Where <code class="language-plaintext highlighter-rouge">productCode</code> is the code of the base product i.e. the parking/hotel/lounge etc. product.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/upgrade/LGV4
+</code></pre></div></div>
+
+<h2 id="request-parameters">Request Parameters</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Mandatory?</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y</td>
+      <td>This is also known as an ‘agent code’. <br />This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y*</td>
+      <td>Password required for retail agent requests - intermediaries do not require a password.<br />This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z] 3 chars</td>
+      <td>N</td>
+      <td>The initials of the Operator / Agent.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+      <td>This will be assigned to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9] 9 chars</td>
+      <td>Y</td>
+      <td>Please see <a href="/hxapi/usertoken">user token endpoint</a> for details of how to generate a token.</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>String</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+      <td>This should be the same as the <code class="language-plaintext highlighter-rouge">ArrivalDate</code> from the base product request.</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+      <td>This should be the same as the <code class="language-plaintext highlighter-rouge">ArrivalTime</code> from the base product request.</td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>N</td>
+      <td>This should be the same as the <code class="language-plaintext highlighter-rouge">DepartDate</code> from the base product request.</td>
+    </tr>
+    <tr>
+      <td>DepartTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>N</td>
+      <td>This should be the same as the <code class="language-plaintext highlighter-rouge">DepartTime</code> from the base product request.</td>
+    </tr>
+    <tr>
+      <td>Adults</td>
+      <td>Integer</td>
+      <td>[0-9]</td>
+      <td>Y*</td>
+      <td>Mandatory for Lounge upgrade requests. Number of adults in the party</td>
+    </tr>
+    <tr>
+      <td>Children</td>
+      <td>Integer</td>
+      <td>[0-9]</td>
+      <td>Y*</td>
+      <td>Mandatory for Lounge upgrade requests. Number of children in the party</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="upgrade-availability-response">Upgrade Availability Response</h2>
+
+<p>The response will return a list of available upgrades.
+Upgrades are sold on a per booking, per person, or per room basis.
+Upgrades can be for the day before travel, day of departure or day of return.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Code</td>
+      <td>Product code for the upgrade</td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>Name of the upgrade</td>
+    </tr>
+    <tr>
+      <td>Per</td>
+      <td>Pricing basis, either per <em>P</em>erson, per <em>B</em>ooking, per <em>R</em>oom</td>
+    </tr>
+    <tr>
+      <td>Canx</td>
+      <td>Whether the upgrade is cancellable (Y/N)</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>supplement_type</td>
+      <td>Type classification for the upgrade</td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td>Date the upgrade is to be booked for. Format YYYY-MM-DD</td>
+    </tr>
+    <tr>
+      <td>only_for_adults</td>
+      <td>Upgrades restricted to adult only parties e.g. Adult only lounges</td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td>The price of the upgrade minus any discounts. Only present for per booking upgrades</td>
+    </tr>
+    <tr>
+      <td>NonDiscPrice</td>
+      <td>The total price of the upgrade before discounts. Only present for per booking upgrades</td>
+    </tr>
+    <tr>
+      <td>DiscAmt</td>
+      <td>The amount of any discount applied. Only present for per booking upgrades</td>
+    </tr>
+    <tr>
+      <td>AdPrice</td>
+      <td>The per adult price minus any discounts. Only present for per person upgrades</td>
+    </tr>
+    <tr>
+      <td>NonDiscAdPrice</td>
+      <td>The per adult price before any discounts. Only present for per person upgrades</td>
+    </tr>
+    <tr>
+      <td>AdDiscAmt</td>
+      <td>The amount of discount applied to the per adult price. Only present for per person upgrades</td>
+    </tr>
+    <tr>
+      <td>ChPrice</td>
+      <td>The per child price minus any discounts. Only present for per person upgrades</td>
+    </tr>
+    <tr>
+      <td>NonDiscChPrice</td>
+      <td>The per child price before any discounts. Only present for per person upgrades</td>
+    </tr>
+    <tr>
+      <td>ChDiscAmt</td>
+      <td>The amount of discount applied to the child price. Only present for per person upgrades</td>
+    </tr>
+    <tr>
+      <td>API_Header/Request</td>
+      <td>The API returns every parameter and value you sent in the request.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="example-1---carpark-upgrades">Example 1 - Carpark Upgrades</h3>
+
+<h4 id="request">Request</h4>
+
+<ul class="uk-tab" data-uk-switcher="{connect:'#22bdc2b4-3c60-43a3-befc-78c652274915'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="22bdc2b4-3c60-43a3-befc-78c652274915" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/upgrade/STN5?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2020-11-03&amp;ArrivalTime=12:30&amp;DepartDate=2020-11-11&amp;DepartTime=13:45
+</code></pre></div></div>
+
+</li>
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/upgrade/STN5.js?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2020-11-03&amp;ArrivalTime=12:30&amp;DepartDate=2020-11-11&amp;DepartTime=13:45
+</code></pre></div></div>
+
+</li>
+
+</ul>
+
+<h4 id="response">Response</h4>
+
+<ul class="uk-tab" data-uk-switcher="{connect:'#10ac3f0e-d6ca-42ed-977a-fd66d6a1027c'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="10ac3f0e-d6ca-42ed-977a-fd66d6a1027c" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Result=</span><span class="s">"OK"</span> <span class="na">expires=</span><span class="s">"2020-07-10 09:43:97"</span> <span class="na">RequestCode=</span><span class="s">"2"</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">cached=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Hotel/&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>CBNOFF<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Trees for Cities<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>B<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>N<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Do your bit for the environment. One tree can make a world of difference.<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Charity Donation<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>1.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>1.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;DiscAmt&gt;</span>0.00<span class="nt">&lt;/DiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>GADCOA<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Insure your Mobile and your Gadgets<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>B<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>£2,000 of cover for theft, loss <span class="ni">&amp;amp;</span> accidental damage when travelling.<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>gadget cover<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>9.99<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>9.99<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;DiscAmt&gt;</span>0.00<span class="nt">&lt;/DiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>HEXBFE<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>booking fee<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>B<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description/&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Payment<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>0.25<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>0.25<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;DiscAmt&gt;</span>0.00<span class="nt">&lt;/DiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>HXOST1<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Late Return Cover<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>B<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Delayed flight? No need to worry about extra parking charges with the Holiday Extras late return cover<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Payment<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>1.99<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>1.99<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;DiscAmt&gt;</span>0.00<span class="nt">&lt;/DiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>HXOST2<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Late Return Cover<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>B<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Delayed flight? No need to worry about extra parking charges with the Holiday Extras late return cover<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Payment<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>1.49<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>1.49<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;DiscAmt&gt;</span>0.00<span class="nt">&lt;/DiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>HXOSTE<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>14-day Delayed Return Service<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>B<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description/&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Payment<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>9.99<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>9.99<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;DiscAmt&gt;</span>0.00<span class="nt">&lt;/DiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>HXOSTN<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Late Return Cover<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>B<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Delayed flight? No need to worry about extra parking charges with the Holiday Extras late return cover<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Payment<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>1.99<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>1.99<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;DiscAmt&gt;</span>0.00<span class="nt">&lt;/DiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>STNESP<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Escape Lounge<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>P<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Escape the hustle and bustle of the airport terminal and enjoy the calming atmosphere of the official airport lounge. Relax before your flight, catch up with last minute emails and enjoy complimentary freshly prepared food and drinks!<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Lounge<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;AdPrice&gt;</span>25.50<span class="nt">&lt;/AdPrice&gt;</span>
+        <span class="nt">&lt;NonDiscAdPrice&gt;</span>25.50<span class="nt">&lt;/NonDiscAdPrice&gt;</span>
+        <span class="nt">&lt;AdDiscAmt&gt;</span>0.00<span class="nt">&lt;/AdDiscAmt&gt;</span>
+        <span class="nt">&lt;ChPrice&gt;</span>19.20<span class="nt">&lt;/ChPrice&gt;</span>
+        <span class="nt">&lt;NonDiscChPrice&gt;</span>19.20<span class="nt">&lt;/NonDiscChPrice&gt;</span>
+        <span class="nt">&lt;ChDiscAmt&gt;</span>0.00<span class="nt">&lt;/ChDiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>STNSFS<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Security FastTrack<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>P<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Short on time? Take the fast track through security and you’ll fly through.<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>At the airport<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;AdPrice&gt;</span>7.00<span class="nt">&lt;/AdPrice&gt;</span>
+        <span class="nt">&lt;NonDiscAdPrice&gt;</span>7.00<span class="nt">&lt;/NonDiscAdPrice&gt;</span>
+        <span class="nt">&lt;AdDiscAmt&gt;</span>0.00<span class="nt">&lt;/AdDiscAmt&gt;</span>
+        <span class="nt">&lt;ChPrice&gt;</span>7.00<span class="nt">&lt;/ChPrice&gt;</span>
+        <span class="nt">&lt;NonDiscChPrice&gt;</span>7.00<span class="nt">&lt;/NonDiscChPrice&gt;</span>
+        <span class="nt">&lt;ChDiscAmt&gt;</span>0.00<span class="nt">&lt;/ChDiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>STNFTA<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Passport Control FastTrack<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>P<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Dreading the wait in arrivals? The passport control FastTrack will have you home in no time.<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>At the airport<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-11<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;AdPrice&gt;</span>7.00<span class="nt">&lt;/AdPrice&gt;</span>
+        <span class="nt">&lt;NonDiscAdPrice&gt;</span>7.00<span class="nt">&lt;/NonDiscAdPrice&gt;</span>
+        <span class="nt">&lt;AdDiscAmt&gt;</span>0.00<span class="nt">&lt;/AdDiscAmt&gt;</span>
+        <span class="nt">&lt;ChPrice&gt;</span>7.00<span class="nt">&lt;/ChPrice&gt;</span>
+        <span class="nt">&lt;NonDiscChPrice&gt;</span>7.00<span class="nt">&lt;/NonDiscChPrice&gt;</span>
+        <span class="nt">&lt;ChDiscAmt&gt;</span>0.00<span class="nt">&lt;/ChDiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;ABTANumber&gt;</span>WEB1<span class="nt">&lt;/ABTANumber&gt;</span>
+            <span class="nt">&lt;key&gt;</span>ONLIN<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;token&gt;</span>ef008a98-9434-11e1-af41-123143040224<span class="nt">&lt;/token&gt;</span>
+            <span class="nt">&lt;ArrivalDate&gt;</span>2020-11-03<span class="nt">&lt;/ArrivalDate&gt;</span>
+            <span class="nt">&lt;ArrivalTime&gt;</span>12:30<span class="nt">&lt;/ArrivalTime&gt;</span>
+            <span class="nt">&lt;DepartDate&gt;</span>2020-11-11<span class="nt">&lt;/DepartDate&gt;</span>
+            <span class="nt">&lt;DepartTime&gt;</span>13:45<span class="nt">&lt;/DepartTime&gt;</span>
+            <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"API_Reply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-10 14:20:40"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"RequestCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CarPark"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"cached"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"Hotel"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Supplement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CBNOFF"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trees for Cities"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Do your bit for the environment. One tree can make a world of difference."</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Charity Donation"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GADCOA"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Insure your Mobile and your Gadgets"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£2,000 of cover for theft, loss &amp; accidental damage when travelling."</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gadget cover"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HEXBFE"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booking fee"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.25"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HXOST1"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Late Return Cover"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delayed flight? No need to worry about extra parking charges with the Holiday Extras late return cover"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.99</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.99</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HXOST2"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Late Return Cover"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delayed flight? No need to worry about extra parking charges with the Holiday Extras late return cover"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.49</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.49</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HXOSTE"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14-day Delayed Return Service"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HXOSTN"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Late Return Cover"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delayed flight? No need to worry about extra parking charges with the Holiday Extras late return cover"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.99</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.99</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STNESP"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Escape Lounge"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Escape the hustle and bustle of the airport terminal and enjoy the calming atmosphere of the official airport lounge. Relax before your flight, catch up with last minute emails and enjoy complimentary freshly prepared food and drinks!"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lounge"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"AdPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.5</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscAdPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.5</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"AdDiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ChPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.2</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscChPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.2</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ChDiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STNSFS"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Security FastTrack"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Short on time? Take the fast track through security and you’ll fly through.</span><span class="se">\r\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"At the airport"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"AdPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscAdPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"AdDiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ChPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscChPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ChDiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STNFTA"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passport Control FastTrack"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dreading the wait in arrivals? The passport control FastTrack will have you home in no time."</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"At the airport"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-11"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"AdPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscAdPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"AdDiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ChPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscChPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ChDiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"API_Header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"ABTANumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WEB1"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLIN"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef008a98-9434-11e1-af41-123143040224"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ArrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ArrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:30"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DepartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-11"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DepartTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13:45"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"v"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"js"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+</li>
+
+</ul>
+
+<h3 id="example-1---hotel-upgrades">Example 1 - Hotel Upgrades</h3>
+
+<h4 id="request-1">Request</h4>
+
+<ul class="uk-tab" data-uk-switcher="{connect:'#8028ecea-8575-443b-9d31-7ab2568aa415'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="8028ecea-8575-443b-9d31-7ab2568aa415" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/upgrade/LGWSOF?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2020-11-03&amp;ArrivalTime=12:30&amp;DepartDate=2020-11-11&amp;DepartTime=13:45
+</code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/upgrade/LGWSOF.js?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2020-11-03&amp;ArrivalTime=12:30&amp;DepartDate=2020-11-11&amp;DepartTime=13:45
+</code></pre></div></div>
+</li>
+
+</ul>
+
+<h4 id="response-1">Response</h4>
+
+<ul class="uk-tab" data-uk-switcher="{connect:'#f237f551-9986-4d0e-8a3f-2010e8e56700'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="f237f551-9986-4d0e-8a3f-2010e8e56700" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Result=</span><span class="s">"OK"</span> <span class="na">expires=</span><span class="s">"2020-07-10 14:25:38"</span> <span class="na">cached=</span><span class="s">"1"</span> <span class="na">Product=</span><span class="s">"General"</span> <span class="na">System=</span><span class="s">"ABC"</span> <span class="na">Version=</span><span class="s">"1.0"</span> <span class="na">Customer=</span><span class="s">"A"</span> <span class="na">Session=</span><span class="s">"123456789"</span> <span class="na">RequestCode=</span><span class="s">"12"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Itinerary&gt;</span>
+        <span class="nt">&lt;SiteCode&gt;</span>LGWSOF<span class="nt">&lt;/SiteCode&gt;</span>
+    <span class="nt">&lt;/Itinerary&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>AIRHLG<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Flight compensation checker<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>B<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Claim up to £550 per person.<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Payment<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>5.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>5.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;DiscAmt&gt;</span>0.00<span class="nt">&lt;/DiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>AIRHLI<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Flight compensation checker<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>B<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Claim up to £550 per person.<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Payment<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>3.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>3.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;DiscAmt&gt;</span>0.00<span class="nt">&lt;/DiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>CBNOFF<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Trees for Cities<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>B<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>N<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Do your bit for the environment. One tree can make a world of difference.<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Charity Donation<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>1.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>1.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;DiscAmt&gt;</span>0.00<span class="nt">&lt;/DiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>GADCOA<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Insure your Mobile and your Gadgets<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>B<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>£2,000 of cover for theft, loss <span class="ni">&amp;amp;</span> accidental damage when travelling.<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>gadget cover<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>9.99<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>9.99<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;DiscAmt&gt;</span>0.00<span class="nt">&lt;/DiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LGWSOD<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Urban Cafe 2-course dinner<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>P<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter&gt;</span>
+            <span class="nt">&lt;primary_for_product_type&gt;</span>1<span class="nt">&lt;/primary_for_product_type&gt;</span>
+            <span class="nt">&lt;wistia&gt;</span>1<span class="nt">&lt;/wistia&gt;</span>
+        <span class="nt">&lt;/Filter&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Two tasty courses for less than you'd normally pay for one.<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Dinner<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;AdPrice&gt;</span>20.00<span class="nt">&lt;/AdPrice&gt;</span>
+        <span class="nt">&lt;NonDiscAdPrice&gt;</span>20.00<span class="nt">&lt;/NonDiscAdPrice&gt;</span>
+        <span class="nt">&lt;AdDiscAmt&gt;</span>0.00<span class="nt">&lt;/AdDiscAmt&gt;</span>
+        <span class="nt">&lt;ChPrice&gt;</span>20.00<span class="nt">&lt;/ChPrice&gt;</span>
+        <span class="nt">&lt;NonDiscChPrice&gt;</span>20.00<span class="nt">&lt;/NonDiscChPrice&gt;</span>
+        <span class="nt">&lt;ChDiscAmt&gt;</span>0.00<span class="nt">&lt;/ChDiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LGWSOE<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Luxury room upgrade<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>R<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Plush room, mini bar and access to the hotel's exclusive Club Lounge.<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Luxury<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;only_for_adults&gt;</span>1<span class="nt">&lt;/only_for_adults&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>70.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>70.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;DiscAmt&gt;</span>0.00<span class="nt">&lt;/DiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LGWSOS<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Superior room upgrade<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>R<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>A more luxurious room, wifi and mineral water all included.<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Luxury<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-03<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;only_for_adults&gt;</span>1<span class="nt">&lt;/only_for_adults&gt;</span>
+        <span class="nt">&lt;Price&gt;</span>30.00<span class="nt">&lt;/Price&gt;</span>
+        <span class="nt">&lt;NonDiscPrice&gt;</span>30.00<span class="nt">&lt;/NonDiscPrice&gt;</span>
+        <span class="nt">&lt;DiscAmt&gt;</span>0.00<span class="nt">&lt;/DiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LGWASC<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Club Aspire North Lounge<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>P<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter/&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Something modern. Food <span class="ni">&amp;amp;</span> drink, work <span class="ni">&amp;amp;</span> rest zones, charge points <span class="ni">&amp;amp;</span> wifi.<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Lounge<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-04<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;AdPrice&gt;</span>28.00<span class="nt">&lt;/AdPrice&gt;</span>
+        <span class="nt">&lt;NonDiscAdPrice&gt;</span>28.00<span class="nt">&lt;/NonDiscAdPrice&gt;</span>
+        <span class="nt">&lt;AdDiscAmt&gt;</span>0.00<span class="nt">&lt;/AdDiscAmt&gt;</span>
+        <span class="nt">&lt;ChPrice&gt;</span>18.50<span class="nt">&lt;/ChPrice&gt;</span>
+        <span class="nt">&lt;NonDiscChPrice&gt;</span>18.50<span class="nt">&lt;/NonDiscChPrice&gt;</span>
+        <span class="nt">&lt;ChDiscAmt&gt;</span>0.00<span class="nt">&lt;/ChDiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;Supplement&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LGWSOB<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Buffet breakfast<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Per&gt;</span>P<span class="nt">&lt;/Per&gt;</span>
+        <span class="nt">&lt;Canx&gt;</span>Y<span class="nt">&lt;/Canx&gt;</span>
+        <span class="nt">&lt;Filter&gt;</span>
+            <span class="nt">&lt;wistia&gt;</span>1<span class="nt">&lt;/wistia&gt;</span>
+        <span class="nt">&lt;/Filter&gt;</span>
+        <span class="nt">&lt;description&gt;</span>Save time by booking a big and delicious breakfast now.<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;supplement_type&gt;</span>Breakfast<span class="nt">&lt;/supplement_type&gt;</span>
+        <span class="nt">&lt;Date&gt;</span>2020-11-04<span class="nt">&lt;/Date&gt;</span>
+        <span class="nt">&lt;AdPrice&gt;</span>19.00<span class="nt">&lt;/AdPrice&gt;</span>
+        <span class="nt">&lt;NonDiscAdPrice&gt;</span>19.00<span class="nt">&lt;/NonDiscAdPrice&gt;</span>
+        <span class="nt">&lt;AdDiscAmt&gt;</span>0.00<span class="nt">&lt;/AdDiscAmt&gt;</span>
+        <span class="nt">&lt;ChPrice&gt;</span>19.00<span class="nt">&lt;/ChPrice&gt;</span>
+        <span class="nt">&lt;NonDiscChPrice&gt;</span>19.00<span class="nt">&lt;/NonDiscChPrice&gt;</span>
+        <span class="nt">&lt;ChDiscAmt&gt;</span>0.00<span class="nt">&lt;/ChDiscAmt&gt;</span>
+    <span class="nt">&lt;/Supplement&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;ABTANumber&gt;</span>WEB1<span class="nt">&lt;/ABTANumber&gt;</span>
+            <span class="nt">&lt;key&gt;</span>ONLIN<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;token&gt;</span>ef008a98-9434-11e1-af41-123143040224<span class="nt">&lt;/token&gt;</span>
+            <span class="nt">&lt;ArrivalDate&gt;</span>2020-11-03<span class="nt">&lt;/ArrivalDate&gt;</span>
+            <span class="nt">&lt;ArrivalTime&gt;</span>12:30<span class="nt">&lt;/ArrivalTime&gt;</span>
+            <span class="nt">&lt;DepartDate&gt;</span>2020-11-11<span class="nt">&lt;/DepartDate&gt;</span>
+            <span class="nt">&lt;DepartTime&gt;</span>13:45<span class="nt">&lt;/DepartTime&gt;</span>
+            <span class="nt">&lt;v&gt;</span>1<span class="nt">&lt;/v&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"API_Reply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ATTRIBUTES"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-10 14:22:16"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"cached"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"General"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"System"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Session"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456789</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"RequestCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"Itinerary"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"SiteCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LGWSOF"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"Supplement"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AIRHLG"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flight compensation checker"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Claim up to £550 per person.</span><span class="se">\r\n\r\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AIRHLI"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flight compensation checker"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Claim up to £550 per person.</span><span class="se">\r\n\r\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CBNOFF"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trees for Cities"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Do your bit for the environment. One tree can make a world of difference."</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Charity Donation"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GADCOA"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Insure your Mobile and your Gadgets"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£2,000 of cover for theft, loss &amp; accidental damage when travelling."</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gadget cover"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LGWSOD"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Urban Cafe 2-course dinner"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"primary_for_product_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"wistia"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Two tasty courses for less than you'd normally pay for one."</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dinner"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"AdPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscAdPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"AdDiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ChPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscChPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ChDiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LGWSOE"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Luxury room upgrade"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plush room, mini bar and access to the hotel's exclusive Club Lounge."</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Luxury"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"only_for_adults"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LGWSOS"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Superior room upgrade"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A more luxurious room, wifi and mineral water all included."</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Luxury"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"only_for_adults"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LGWASC"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Club Aspire North Lounge"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Something modern. Food &amp; drink, work &amp; rest zones, charge points &amp; wifi."</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lounge"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-04"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"AdPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscAdPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"AdDiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ChPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.5</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscChPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.5</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ChDiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LGWSOB"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buffet breakfast"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Per"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Canx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Filter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"wistia"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Save time by booking a big and delicious breakfast now."</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"supplement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Breakfast"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-04"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"AdPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscAdPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"AdDiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ChPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"NonDiscChPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ChDiscAmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"API_Header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"ABTANumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WEB1"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONLIN"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef008a98-9434-11e1-af41-123143040224"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ArrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-03"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ArrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:30"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DepartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-11"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"DepartTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13:45"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"v"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"js"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+</li>
+
+</ul>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>

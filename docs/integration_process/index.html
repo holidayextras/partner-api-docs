@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="integration-process">Integration Process</h1>
+
+<p>We aim to make the process for partners integrating with our API straightforward, by following these simple steps:</p>
+
+<ol>
+  <li>Create an account;</li>
+  <li>Kick off call;</li>
+  <li>Development phase;</li>
+  <li>Certification;</li>
+  <li>Go live.</li>
+</ol>
+
+<p>More details on each of these steps can be found below.</p>
+
+<h2 id="1-account-creation">1. Account Creation</h2>
+
+<p>Before you can start interacting with our API, you must apply for an <em>API account</em>, even if you are already working with us.</p>
+
+<h4 id="insurance-only">Insurance only:</h4>
+<p>If you are integrating with our API for insurance products, then the process is different than that set out below, due to regulations imposed by the Financial Conduct Authority. Please contact our <a href="mailto:travelinsurance@holidayextras.com">Insurance Team</a> in the first instance, who will be happy to talk you through the process of account creation.</p>
+
+<h4 id="all-other-products">All other products:</h4>
+<p>Please complete the <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1H4fp744DNt8mzwKt-7bh_xer3N2JbIHhNLRgUHwf2r9GZw/viewform?usp=sf_link">sign up form</a>, which is automatically submitted to us upon completion.</p>
+
+<p>You are also required to submit one of the following finance forms to us, depending on your region:</p>
+
+<ul>
+  <li>For UK Partners: <a href="/hxapi/DD_MANDATE_RBS_HX.pdf">Direct Debit Mandate</a></li>
+  <li>For European Partners: <a href="/hxapi/SEPA_Basislastschriftmandat.pdf">SEPA Mandate</a></li>
+</ul>
+
+<p>Once all the information has been received, we aim to set up the account within 48 hours (if submitted at weekends or bank holidays, this will not be processed until the following working day).</p>
+
+<p>When completed, the finance forms should be sent by email to either our <a href="mailto:sales@holidayextras.com">UK</a> or <a href="mailto:hxapi-contact@holidayextras.de">European</a> Partnerships teams (depending on your region). We will respond with your account details and any further instructions for getting started.</p>
+
+<h2 id="2-kick-off-call">2. Kick off call</h2>
+
+<p>Once your account has been created you will be assigned an Account Manager, who will support you throughout the integration process. The initial contact with your Account Manager will be either a conference call or face to face meeting (whichever is most practical), which will cover more detail around the scope of the integration and provide an overview of how our API works. Technical support will also be available on this call.</p>
+
+<p>More details can be found in the <a href="https://docs.google.com/document/d/1dL6kF3_hpBIKeXeEUkehR22geAhpazD8V58EVSRrUKo/edit">kick off document</a>.</p>
+
+<h2 id="3-development-phase">3. Development phase</h2>
+
+<p>During the development phase, your Account Manager will be contactable to answer any queries you may have. We will agree in the kick off call the level of support you require, which will depend on the complexity of your integration and the timescales for completing it. For example, we can set up regular calls to review progress, and provide technical contact details to support with integration queries.</p>
+
+<h2 id="4-certification">4. Certification</h2>
+
+<p>Once you have completed your development we will invite you to a call to seek certification for your integration. This is an important step as it enables us to check you are using our API correctly.</p>
+
+<p>The key parts of certification are use case testing, load testing and security. We will expect to review examples of requests made and responses received for each product you are using.</p>
+
+<p>More details can be found in the <a href="https://docs.google.com/document/d/1W8cAttcx9l8VPSY999p0TzmrWifJyqIi3shxZVcrYTE/edit">certification checklist</a>.</p>
+
+<h2 id="5-go-live">5. Go Live</h2>
+
+<p>Once we are satisfied that your integration meets the requirements in the certification check we will add your production credentials to our systems and notify you of the details. We will agree a date by which you will complete your integration and be live in production.</p>
+
+<p>It is the final stage in the integration process, so we will also ensure that all outstanding issues have been rectified, and that we have the correct reporting in place, so we can monitor performance from go live.</p>
+
+<p>Once your integration is live the day to day management of the account will be handled by the Account Manager, as agreed between us.</p>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>

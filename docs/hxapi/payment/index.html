@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="payment">Payment</h1>
+
+<p>For all UK partners and any new partners integrating after <strong>1st July 2017</strong>, Holiday Extras will not accept payment details being passed through the API. The responsibility for collecting and processing payment from the customer is the responsibility of the partner.</p>
+
+<p>If you have any questions concerning this then please contact your Account Manager.</p>
+
+<h2 id="existing-integrations">Existing integrations</h2>
+
+<p>For existing integrations <em>in Europe only</em> we will continue to support the following payment methods via the API:</p>
+
+<h3 id="sepa">SEPA</h3>
+
+<p>To make a payment using SEPA, the following fields must be included in the booking request:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Mandatory?</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AccountName</td>
+      <td>String</td>
+      <td>[A-Z0-9]</td>
+      <td>Y</td>
+      <td>Name on the account</td>
+    </tr>
+    <tr>
+      <td>AccountNumber</td>
+      <td>String</td>
+      <td>See additional information</td>
+      <td>Y</td>
+      <td>The IBAN account number. The IBAN number structure comprises 2 character country code, 2 character check digits (integer), followed by up to 30 characters (integers). <a href="https://www.sepaforcorporates.com/single-euro-payments-area/iban-number-format-sepa-country/">More information on IBAN.</a></td>
+    </tr>
+    <tr>
+      <td>SortCode</td>
+      <td>String</td>
+      <td>[A-Z0-9] 11 chars</td>
+      <td>Y</td>
+      <td>The SEPA sort code</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The following test details can be used in sandbox only:</p>
+
+<ul>
+  <li>AccountName - Mr T Test</li>
+  <li>AccountNumber - DE00000000000000000066</li>
+  <li>SortCode - 99999999999</li>
+</ul>
+
+<h3 id="payment-by-credit-or-debit-card">Payment by credit or debit card</h3>
+
+<p>To make a payment using credit or debit cards, you must use a different endpoint to that stated in the Detailed Guides. This is to enable us to tokenise the card details before they reach our systems.</p>
+
+<p>The endpoints that must be used are:</p>
+
+<p>Sandbox:</p>
+
+<p><code class="language-plaintext highlighter-rouge">https://payment-staging.holidayextras.co.uk/legacy/</code></p>
+
+<p>Production:</p>
+
+<p><code class="language-plaintext highlighter-rouge">https://payment.holidayextras.com/legacy/</code></p>
+
+<p>In order for us to process the payment, the following fields must be included in the booking request:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Mandatory?</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CardNumber</td>
+      <td>String</td>
+      <td>[0-9] Max 16 chars</td>
+      <td>Y</td>
+      <td>Name on the account</td>
+    </tr>
+    <tr>
+      <td>ExpiryDate</td>
+      <td>Date</td>
+      <td>MMYY</td>
+      <td>Y</td>
+      <td>The expiry date of the card</td>
+    </tr>
+    <tr>
+      <td>CV2</td>
+      <td>Integer</td>
+      <td>[0-9] 4 chars</td>
+      <td>Y*</td>
+      <td>* This is a mandatory requirement for partners in the UK; for European partners this is discretionary. <br />The 3 digit number printed in the signature space of most cards (For Amex only, it is a 4 digit number printed on the front of the card). Also known as “CVV” or “CVV2”.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The following test details can be used in sandbox only:</p>
+
+<h4 id="visa-credit-card">Visa Credit Card:</h4>
+<ul>
+  <li>CardNumber	- 4715059999000437</li>
+  <li>ExpiryDate	- 05/21</li>
+  <li>CV2	Integer - 222</li>
+</ul>
+
+<h4 id="visa-debit-card">Visa Debit Card:</h4>
+<ul>
+  <li>CardNumber	- 4508750015741019</li>
+  <li>ExpiryDate	- 05/21</li>
+  <li>CV2	Integer - 222</li>
+</ul>
+
+<h4 id="american-express">American Express:</h4>
+<ul>
+  <li>CardNumber	- 345678000000007</li>
+  <li>ExpiryDate	- 05/21</li>
+  <li>CV2	Integer - 2222</li>
+</ul>
+
+<p>NB: We do not provide test card details for the production (live) environment.</p>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>

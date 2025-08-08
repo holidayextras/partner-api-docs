@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="availability-at-car-park">Availability At Car Park</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; product:<a href="/hxapi/parking">Parking</a> &gt; endpoint:<a href="/hxapi/parking/av">carpark</a> &gt; <a href="/hxapi/parking/av/carpark">Availability by Carpark</a></p>
+
+<h2 id="car-park-availability-request">Car Park Availability Request</h2>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p>The endpoint to use is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/carpark/CarParkCode
+</code></pre></div></div>
+
+<p>For example, for <em>Purple Parking Park and Ride T2 at London Heathrow</em> the endpoint is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/carpark/LHH6
+</code></pre></div></div>
+
+<p>To find the airport locations available for car parking, please refer to the <a href="/hxapi/locations">locations endpoint.</a></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<p>NB: All parameter names are case sensitive.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Mandatory?</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y</td>
+      <td>This is also known as an ‘agent code’. <br />This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y*</td>
+      <td>Password required for retail agent requests - intermediaries do not require a password.<br />This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Initials</td>
+      <td>String</td>
+      <td>[A-Z] 3 chars</td>
+      <td>N</td>
+      <td>The initials of the Operator / Agent.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+      <td>This will be assigned to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9] 9 chars</td>
+      <td>Y</td>
+      <td>Please see <a href="/hxapi/usertoken">user token endpoint</a> for details of how to generate a token.</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+      <td>Date customer drops vehicle at car park.</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+      <td>Time customer drops vehicle at car park.</td>
+    </tr>
+    <tr>
+      <td>DepartDate</td>
+      <td>Date</td>
+      <td>YYYY-MM-DD</td>
+      <td>Y</td>
+      <td>Date customer picks up vehicle from car park.</td>
+    </tr>
+    <tr>
+      <td>DepartTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Y</td>
+      <td>Time customer picks up vehicle from car park.</td>
+    </tr>
+    <tr>
+      <td>NumberOfPax</td>
+      <td>Integer</td>
+      <td>[0-9] 2 chars</td>
+      <td>N</td>
+      <td>Number of passengers.</td>
+    </tr>
+    <tr>
+      <td>OutFlight</td>
+      <td>String</td>
+      <td>[A-Z0-9] 9 chars</td>
+      <td>N</td>
+      <td>This is also known as an ‘flight number’. <br />Used to establish which terminal the customer is flying from using our look up tool and return products specific to that terminal.</td>
+    </tr>
+    <tr>
+      <td>filter</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>N</td>
+      <td>Pass in values <code class="language-plaintext highlighter-rouge">filter=on_airport</code>, <code class="language-plaintext highlighter-rouge">filter=recommended</code> or <code class="language-plaintext highlighter-rouge">filter=meet_and_greet</code> to only show car parks meeting those criteria. You can filter by any field that comes back in the filter section of the API. Only a single filter can be used at once.</td>
+    </tr>
+    <tr>
+      <td>fields</td>
+      <td>String</td>
+      <td>[A-Z] a csv list of product info fields</td>
+      <td>N</td>
+      <td>A list of product info fields can be passed in to return configurable product information e.g. <code class="language-plaintext highlighter-rouge">fields=name,address,latitude,sellingpoint</code>.</td>
+    </tr>
+    <tr>
+      <td>top3</td>
+      <td>Boolean</td>
+      <td>[0,1]</td>
+      <td>N</td>
+      <td>If a value of <code class="language-plaintext highlighter-rouge">1</code> is passed in for the <code class="language-plaintext highlighter-rouge">top3</code> param, then a maximum of three car parks will be returned, one on airport, one park and ride, and one meet and greet.</td>
+    </tr>
+    <tr>
+      <td>System</td>
+      <td>String</td>
+      <td>[A-Z] 3 chars</td>
+      <td>Y*</td>
+      <td>For European products, you need to pass in the value of <code class="language-plaintext highlighter-rouge">System=ABG</code> (the default is <code class="language-plaintext highlighter-rouge">System=ABC</code>, which is UK products only).</td>
+    </tr>
+    <tr>
+      <td>lang</td>
+      <td>String</td>
+      <td>[A-Z] 2 chars</td>
+      <td>Y*</td>
+      <td>Required for requests for European products. (Values available are <code class="language-plaintext highlighter-rouge">en</code>, <code class="language-plaintext highlighter-rouge">de</code>, <code class="language-plaintext highlighter-rouge">it</code>, <code class="language-plaintext highlighter-rouge">es</code>, <code class="language-plaintext highlighter-rouge">pt</code> and <code class="language-plaintext highlighter-rouge">nl</code>.)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="car-park-availability-response">Car Park Availability Response</h2>
+
+<p>The car park availability response will return the specific product requested, so long as it has availability on the specific dates and durations. A summary of the request received can be found in the header field at the end of the response.</p>
+
+<p>For a detailed explanation of the fields returned, please see below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Additional Information</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CarPark/Name</td>
+      <td>The name of the product</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarPark/Code</td>
+      <td>The product code</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarPark/BookingURL</td>
+      <td>The URL to POST the booking request to for this particular product. Note: The product code <strong>includes</strong> prefix.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarPark/MoreInfoURL</td>
+      <td>The link to more information about this product, sourced from the Product Library. Note: The product code <strong>doesn’t include</strong> prefix.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarPark/RequestFlags</td>
+      <td>_NB. In Europe this will be replaced with <code class="language-plaintext highlighter-rouge">&lt;CarDetFlags&gt;</code>, see below for more info on these.These flags list which details the car park operator requires from the customer. If a flag is returned with a ‘Y’ your application should send the corresponding field/value in the booking request.<br />Flags are only returned when required. The flags which can be returned are: <code class="language-plaintext highlighter-rouge">Registration</code>, <code class="language-plaintext highlighter-rouge">CarMake</code>, <code class="language-plaintext highlighter-rouge">CarModel</code>, <code class="language-plaintext highlighter-rouge">CarColour</code>, <code class="language-plaintext highlighter-rouge">OutFlight</code>, <code class="language-plaintext highlighter-rouge">ReturnFlight</code>, <code class="language-plaintext highlighter-rouge">OutTerminal</code>, <code class="language-plaintext highlighter-rouge">ReturnTerminal</code>, <code class="language-plaintext highlighter-rouge">Destination</code>, <code class="language-plaintext highlighter-rouge">MobileNum</code>.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarPark/NonDiscPrice</td>
+      <td>The non discounted price. Some agent codes apply a discount so we return this field to enable a comparison.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarPark/TotalPrice</td>
+      <td>The price of product <em>without</em> any surcharges/fees added.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarPark/GatePrice</td>
+      <td>If available, the price of product if you were to turn up on the day.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarPark/CanAmendCantCancel</td>
+      <td>Whether the product can be amend but not cancelled.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarPark/CancellationFeeExceptions</td>
+      <td>If the carpark has non-standard cancellation fees.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarPark/AmendmentFeeExceptions</td>
+      <td>If the carpark has non-standard amendment fees.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CarPark/Filter</td>
+      <td>We have a filter mechanism on our site, to show particular types of product, such as Meet and Greet. The filters that apply to a product are returned here. Possible values are: <code class="language-plaintext highlighter-rouge">meet_and_greet</code>, <code class="language-plaintext highlighter-rouge">recommended</code>, <code class="language-plaintext highlighter-rouge">on_airport</code>, <code class="language-plaintext highlighter-rouge">terminal</code>, <code class="language-plaintext highlighter-rouge">valet_included</code>, <code class="language-plaintext highlighter-rouge">car_parked_for_you</code>.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Pricing/CreditCardSurcharge</td>
+      <td>NB: This is only relevant for Intermediary Agents in Europe, where Holiday Extras is responsible for processing the payment, not the Agent. <br />The first step in the calculation is to determine the credit card surcharge payable (x), based on the value of the booking, using this formula: <br />x = (TotalPrice + the CanxWaiver) / 100 x CCardSurchargePercent <br />Second, to prevent the surcharge from exceeding certain boundaries we have min and max thresholds, which can be calculated as follows: <br />if x &lt; CCardSurchargeMin; <br />x = CCardSurchargeMin <br />else if x &gt; CCardSurchargeMax; <br />x = CCardSurchargeMax</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Pricing/CancellationWaiver/Waiver</td>
+      <td>We provide an optional cancellation waiver. If this is not added then cancellation will incur a fee. This returns the cancellation fee cost.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>API_Header/Request</td>
+      <td>The API returns every parameter and value you sent in the previous request.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="cardetflags-europe-only">CarDetFlags (Europe Only)</h4>
+
+<p>For European products only, the availability response will return a field called <code class="language-plaintext highlighter-rouge">&lt;CarDetFlags&gt;</code>, which identifies the fields required when making a booking. (This is instead of the <code class="language-plaintext highlighter-rouge">&lt;RequestFlags&gt;</code> field which is returned for UK products only).</p>
+
+<p>For example: <code class="language-plaintext highlighter-rouge">&lt;CarDetFlags&gt;</code> NNNNNNNNNNNNNNNNNN <code class="language-plaintext highlighter-rouge">&lt;/CarDetFlags&gt;</code></p>
+
+<p>The order of the flags is always the same, and refers to these parameters respectively:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>Parameter</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Registration</td>
+      <td>String</td>
+      <td>See <a href="/hxapi/formats/#car-details">Expanded Formats</a></td>
+      <td>Vehicle registration number <br /> NB: This field is not validated through the API.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>CarMake</td>
+      <td>String</td>
+      <td>[A-Z0-9] 25 chars</td>
+      <td>Make of vehicle, e.g. Audi.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>CarModel</td>
+      <td>String</td>
+      <td>[A-Z0-9] 25 chars</td>
+      <td>Model of vehicle, e.g. A6.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>CarColour</td>
+      <td>String</td>
+      <td>[A-Z0-9] 25 chars</td>
+      <td>Colour of vehicle, e.g. White.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>NumberOfPax</td>
+      <td>Integer</td>
+      <td>[0-9]</td>
+      <td>Number of passengers in the vehicle.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>CarDropoffTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Arrival time when you drop the vehicle off at the car park e.g 1000.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>CarPickupTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Return time, when you pick the vehicle up from the car park, e.g. 1600.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>OutTerminal</td>
+      <td>String</td>
+      <td>[A-Z0-9] 2 chars</td>
+      <td>Single letter or number representation of the terminal e.g N or S or 4</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>OutFltNo</td>
+      <td>String</td>
+      <td>[A-Z0-9] 10 chars</td>
+      <td>Outbound flight number e.g. EZY123.</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>InFltNo</td>
+      <td>String</td>
+      <td>[A-Z0-9] 10 chars</td>
+      <td>Return flight number e.g. EZY124.</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>OutFltTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Departure time of the outbound flight e.g. 1200.</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>InFltTime</td>
+      <td>Time</td>
+      <td>HHMM</td>
+      <td>Arrival time of the inbound flight e.g. 1500.</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>MobileNum</td>
+      <td>String</td>
+      <td>[A-Z0-9] 15 chars</td>
+      <td>Customer’s mobile number.</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>ShipName</td>
+      <td>String</td>
+      <td>[A-Z0-9] 20 chars</td>
+      <td>Name of the ship, e.g. AIDA</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>PierName</td>
+      <td>String</td>
+      <td>[A-Z0-9] 20 chars</td>
+      <td>Name of the pier or port where the ship is departing from</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>ChildSeat</td>
+      <td>String</td>
+      <td>Y/N</td>
+      <td>Is a child car seat needed?</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>AddlServices</td>
+      <td>String</td>
+      <td>[A-Z0-9] 50 chars</td>
+      <td>In this parameter you may add additional remarks regarding the booking.</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>RetTerminal</td>
+      <td>String</td>
+      <td>[A-Z0-9] 2 chars</td>
+      <td>Single letter or number representation of the terminal e.g N or S or 4</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="worked-examples">Worked Examples</h2>
+
+<p>Below are worked examples of both the request and response for availability at an airport.</p>
+
+<h3 id="uk-products-availability-request">UK Products Availability Request</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/carpark/LHH6?ABTANumber=YourABTANumber<span class="err">&amp;</span>Password=YourPassword<span class="err">&amp;</span>Initials=YourInitials<span class="err">&amp;</span>key=YourKey<span class="err">&amp;</span>token=YourToken<span class="err">&amp;</span>ArrivalDate=2017-12-01<span class="err">&amp;</span>ArrivalTime=1200<span class="err">&amp;</span>DepartDate=2017-12-08<span class="err">&amp;</span>DepartTime=1200<span class="err">&amp;</span>NumberOfPax=1
+</code></pre></div></div>
+
+<h3 id="uk-products-availability-response">UK Products Availability Response</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"3"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;CarPark&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Purple Parking Park and Ride T2<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>LHH6<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/carpark/HPLHH6<span class="nt">&lt;/BookingURL&gt;</span>
+        <span class="nt">&lt;MoreInfoURL&gt;</span>/product/LHH6<span class="nt">&lt;/MoreInfoURL&gt;</span>
+        <span class="nt">&lt;RequestFlags&gt;</span>
+            <span class="nt">&lt;CarColour&gt;</span>1<span class="nt">&lt;/CarColour&gt;</span>
+            <span class="nt">&lt;CarMake&gt;</span>1<span class="nt">&lt;/CarMake&gt;</span>
+            <span class="nt">&lt;CarModel&gt;</span>1<span class="nt">&lt;/CarModel&gt;</span>
+            <span class="nt">&lt;Destination&gt;</span>1<span class="nt">&lt;/Destination&gt;</span>
+            <span class="nt">&lt;MobileNum&gt;</span>1<span class="nt">&lt;/MobileNum&gt;</span>
+            <span class="nt">&lt;OutFlight&gt;</span>1<span class="nt">&lt;/OutFlight&gt;</span>
+            <span class="nt">&lt;OutTerminal&gt;</span>1<span class="nt">&lt;/OutTerminal&gt;</span>
+            <span class="nt">&lt;Registration&gt;</span>1<span class="nt">&lt;/Registration&gt;</span>
+            <span class="nt">&lt;ReturnFlight&gt;</span>1<span class="nt">&lt;/ReturnFlight&gt;</span>
+            <span class="nt">&lt;ReturnTerminal&gt;</span>1<span class="nt">&lt;/ReturnTerminal&gt;</span>
+        <span class="nt">&lt;/RequestFlags&gt;</span>
+        <span class="nt">&lt;TotalPrice&gt;</span>85.95<span class="nt">&lt;/TotalPrice&gt;</span>
+        <span class="nt">&lt;GatePrice&gt;</span>89.99<span class="nt">&lt;/GatePrice&gt;</span>
+        <span class="nt">&lt;Filter&gt;</span>
+            <span class="nt">&lt;terminal&gt;</span>2<span class="nt">&lt;/terminal&gt;</span>
+            <span class="nt">&lt;meet_and_greet&gt;</span>0<span class="nt">&lt;/meet_and_greet&gt;</span>
+            <span class="nt">&lt;park_and_ride&gt;</span>1<span class="nt">&lt;/park_and_ride&gt;</span>
+            <span class="nt">&lt;car_parked_for_you&gt;</span>1<span class="nt">&lt;/car_parked_for_you&gt;</span>
+        <span class="nt">&lt;/Filter&gt;</span>
+    <span class="nt">&lt;/CarPark&gt;</span>
+    <span class="nt">&lt;Pricing&gt;</span>
+        <span class="nt">&lt;CCardSurchargePercent&gt;</span>2.20<span class="nt">&lt;/CCardSurchargePercent&gt;</span>
+        <span class="nt">&lt;TotalPrice&gt;</span>85.95<span class="nt">&lt;/TotalPrice&gt;</span>
+        <span class="nt">&lt;CCardSurchargeAmount&gt;</span>0.00<span class="nt">&lt;/CCardSurchargeAmount&gt;</span>
+        <span class="nt">&lt;CancellationWaiver&gt;</span>
+            <span class="nt">&lt;Waiver&gt;</span>1.99<span class="nt">&lt;/Waiver&gt;</span>
+        <span class="nt">&lt;/CancellationWaiver&gt;</span>
+    <span class="nt">&lt;/Pricing&gt;</span>
+    <span class="nt">&lt;SepaID/&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+            <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+            <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
+            <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
+            <span class="nt">&lt;ArrivalDate&gt;</span>2017-12-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+            <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+            <span class="nt">&lt;DepartDate&gt;</span>2017-12-08<span class="nt">&lt;/DepartDate&gt;</span>
+            <span class="nt">&lt;DepartTime&gt;</span>1200<span class="nt">&lt;/DepartTime&gt;</span>
+            <span class="nt">&lt;NumberOfPax&gt;</span>1<span class="nt">&lt;/NumberOfPax&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre></div></div>
+
+<h3 id="european-products-availability-request">European Products Availability Request</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/carpark/MU01?ABTANumber=YourABTANumber<span class="err">&amp;</span>Password=YourPassword<span class="err">&amp;</span>Initials=YourInitials<span class="err">&amp;</span>key=YourKey<span class="err">&amp;</span>token=YourToken<span class="err">&amp;</span>ArrivalDate=2017-12-01<span class="err">&amp;</span>ArrivalTime=1200<span class="err">&amp;</span>DepartDate=2017-12-08<span class="err">&amp;</span>DepartTime=1200<span class="err">&amp;</span>NumberOfPax=1<span class="err">&amp;</span>System=ABG
+</code></pre></div></div>
+
+<h3 id="european-products-availability-response">European Products Availability Response</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;API_Reply</span> <span class="na">Product=</span><span class="s">"CarPark"</span> <span class="na">RequestCode=</span><span class="s">"3"</span> <span class="na">Result=</span><span class="s">"OK"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;CarPark&gt;</span>
+        <span class="nt">&lt;Name&gt;</span>Parkservice Sky München<span class="nt">&lt;/Name&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>MU01<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;BookingURL&gt;</span>/carpark/FRMU01<span class="nt">&lt;/BookingURL&gt;</span>
+        <span class="nt">&lt;MoreInfoURL&gt;</span>/product/MU01<span class="nt">&lt;/MoreInfoURL&gt;</span>
+        <span class="nt">&lt;RequestFlags/&gt;</span>
+        <span class="nt">&lt;TotalPrice&gt;</span>35.00<span class="nt">&lt;/TotalPrice&gt;</span>
+        <span class="nt">&lt;GatePrice&gt;</span>0.00<span class="nt">&lt;/GatePrice&gt;</span>
+        <span class="nt">&lt;CancellationRule&gt;</span>0<span class="nt">&lt;/CancellationRule&gt;</span>
+        <span class="nt">&lt;CarDetFlags&gt;</span>NNNNNNNNYYNYNNNNNN<span class="nt">&lt;/CarDetFlags&gt;</span>
+        <span class="nt">&lt;CarDetails&gt;</span>Y<span class="nt">&lt;/CarDetails&gt;</span>
+        <span class="nt">&lt;DiscDates/&gt;</span>
+        <span class="nt">&lt;QRCodeProduct&gt;</span>N<span class="nt">&lt;/QRCodeProduct&gt;</span>
+        <span class="nt">&lt;Filter&gt;</span>
+            <span class="nt">&lt;car_parked_for_you&gt;</span>1<span class="nt">&lt;/car_parked_for_you&gt;</span>
+            <span class="nt">&lt;meet_and_greet&gt;</span>0<span class="nt">&lt;/meet_and_greet&gt;</span>
+            <span class="nt">&lt;on_airport/&gt;</span>
+            <span class="nt">&lt;recommended/&gt;</span>
+            <span class="nt">&lt;special_offer_text&gt;</span>1<span class="nt">&lt;/special_offer_text&gt;</span>
+            <span class="nt">&lt;valet_included&gt;</span>0<span class="nt">&lt;/valet_included&gt;</span>
+        <span class="nt">&lt;/Filter&gt;</span>
+    <span class="nt">&lt;/CarPark&gt;</span>
+    <span class="nt">&lt;Pricing&gt;</span>
+        <span class="nt">&lt;CCardSurchargePercent&gt;</span>0.00<span class="nt">&lt;/CCardSurchargePercent&gt;</span>
+        <span class="nt">&lt;TotalPrice&gt;</span>35.00<span class="nt">&lt;/TotalPrice&gt;</span>
+        <span class="nt">&lt;CCardSurchargeAmount&gt;</span>0.00<span class="nt">&lt;/CCardSurchargeAmount&gt;</span>
+    <span class="nt">&lt;/Pricing&gt;</span>
+    <span class="nt">&lt;SepaID&gt;</span>DE11ZZZ00000633860<span class="nt">&lt;/SepaID&gt;</span>
+    <span class="nt">&lt;API_Header&gt;</span>
+        <span class="nt">&lt;Request&gt;</span>
+            <span class="nt">&lt;ABTANumber&gt;</span>YourABTANumber<span class="nt">&lt;/ABTANumber&gt;</span>
+            <span class="nt">&lt;Password&gt;</span>YourPassword<span class="nt">&lt;/Password&gt;</span>
+            <span class="nt">&lt;Initials&gt;</span>YourInitials<span class="nt">&lt;/Initials&gt;</span>
+            <span class="nt">&lt;key&gt;</span>YourKey<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;token&gt;</span>YourToken<span class="nt">&lt;/token&gt;</span>
+            <span class="nt">&lt;ArrivalDate&gt;</span>2017-12-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+            <span class="nt">&lt;ArrivalTime&gt;</span>1200<span class="nt">&lt;/ArrivalTime&gt;</span>
+            <span class="nt">&lt;DepartDate&gt;</span>2017-12-08<span class="nt">&lt;/DepartDate&gt;</span>
+            <span class="nt">&lt;DepartTime&gt;</span>1200<span class="nt">&lt;/DepartTime&gt;</span>
+            <span class="nt">&lt;NumberOfPax&gt;</span>1<span class="nt">&lt;/NumberOfPax&gt;</span>
+            <span class="nt">&lt;System&gt;</span>ABG<span class="nt">&lt;/System&gt;</span>
+            <span class="nt">&lt;lang&gt;</span>de<span class="nt">&lt;/lang&gt;</span>
+        <span class="nt">&lt;/Request&gt;</span>
+    <span class="nt">&lt;/API_Header&gt;</span>
+<span class="nt">&lt;/API_Reply&gt;</span>
+</code></pre></div></div>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>

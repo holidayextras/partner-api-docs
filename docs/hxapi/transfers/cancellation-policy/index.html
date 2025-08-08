@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="transfers-cancellation-policy">Transfers Cancellation Policy</h1>
+
+<h2 id="important-notes">Important Notes</h2>
+
+<ul>
+  <li>This endpoint is for checking cancellation policy only - it does not perform any cancellation.</li>
+  <li>Use this endpoint before cancelling a booking to check if it’s cancellable and to understand any fees.</li>
+  <li>The response shows the exact refund amount you would receive after cancellation.</li>
+  <li>Cancellation policies vary by supplier and may change based on how close to the travel date you are.</li>
+</ul>
+
+<h2 id="cancellation-policy-request">Cancellation Policy Request</h2>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p>The endpoint to use is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/transfers/[BookingRef]/cancellation-policy
+</code></pre></div></div>
+
+<p>Where <code class="language-plaintext highlighter-rouge">[BookingRef]</code> is the booking reference you received when making the original booking.</p>
+
+<p>For example:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/transfers/TBBGNHMT/cancellation-policy
+</code></pre></div></div>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<p>NB: All parameter names are case sensitive.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Mandatory?</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y</td>
+      <td>This is also known as an ‘agent code’. This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y*</td>
+      <td>Password required for retail agent requests - intermediaries do not require a password.<br />This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+      <td>This will be assigned to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9] 9 chars</td>
+      <td>Y</td>
+      <td>Please see <a href="/hxapi/usertoken">user token endpoint</a> for details of how to generate a token.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cancellation-policy-response">Cancellation Policy Response</h2>
+
+<p>This endpoint provides detailed cancellation policy information for a transfers booking, including refund calculations, cancellable status, and terms &amp; conditions.</p>
+
+<p>For a detailed explanation of the fields returned, please see below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BookingRef</td>
+      <td>Unique identifier for the transfer booking.</td>
+    </tr>
+    <tr>
+      <td>Cancellable</td>
+      <td>Boolean indicating whether the booking can be cancelled.</td>
+    </tr>
+    <tr>
+      <td>Fee</td>
+      <td>Fixed fee charged for cancellation in pence/cents (integer value).</td>
+    </tr>
+    <tr>
+      <td>Currency</td>
+      <td>Currency code from the booking (e.g., GBP, EUR, USD).</td>
+    </tr>
+    <tr>
+      <td>RefundableAmount</td>
+      <td>Amount that will be refunded after cancellation in pence/cents (integer value).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
+
+<ul class="uk-tab" data-uk-switcher="{connect:'#13f9382b-247b-4d90-b070-c6c40d733cfb'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="13f9382b-247b-4d90-b070-c6c40d733cfb" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;BookingRef&gt;</span>TB12345<span class="nt">&lt;/BookingRef&gt;</span>
+<span class="nt">&lt;Cancellable&gt;</span>true<span class="nt">&lt;/Cancellable&gt;</span>
+<span class="nt">&lt;Fee&gt;</span>1050<span class="nt">&lt;/Fee&gt;</span>
+<span class="nt">&lt;Currency&gt;</span>GBP<span class="nt">&lt;/Currency&gt;</span>
+<span class="nt">&lt;RefundableAmount&gt;</span>8500<span class="nt">&lt;/RefundableAmount&gt;</span>
+</code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"BookingRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TB12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Cancellable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1050</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"RefundableAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">8500</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+</li>
+
+</ul>
+
+<h3 id="example---non-cancellable-booking">Example - Non-Cancellable Booking</h3>
+
+<ul class="uk-tab" data-uk-switcher="{connect:'#6474feb1-bf87-49f3-973d-cc87b6e514ee'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="6474feb1-bf87-49f3-973d-cc87b6e514ee" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;BookingRef&gt;</span>TB12345<span class="nt">&lt;/BookingRef&gt;</span>
+<span class="nt">&lt;Cancellable&gt;</span>false<span class="nt">&lt;/Cancellable&gt;</span>
+<span class="nt">&lt;Fee&gt;</span>10352<span class="nt">&lt;/Fee&gt;</span>
+<span class="nt">&lt;Currency&gt;</span>GBP<span class="nt">&lt;/Currency&gt;</span>
+<span class="nt">&lt;RefundableAmount&gt;</span>0<span class="nt">&lt;/RefundableAmount&gt;</span>
+</code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"BookingRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TB12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Cancellable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">10352</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"RefundableAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+</li>
+
+</ul>
+
+<h2 id="error-responses">Error Responses</h2>
+
+<p>The API will return error responses in the following scenarios:</p>
+
+<h3 id="invalid-booking-reference">Invalid Booking Reference</h3>
+
+<p>If the booking reference format is invalid (must be 5-7 characters):</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Validation Error"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid booking reference format"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="booking-not-found">Booking Not Found</h3>
+
+<p>If no booking is found with the provided reference:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid-booking-ref"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No booking found with reference"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="invalid-product-type">Invalid Product Type</h3>
+
+<p>If the booking reference exists but is not for a transfers booking:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Validation Error"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not a transfers booking"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="method-not-allowed">Method Not Allowed</h3>
+
+<p>If you attempt to use a method other than GET (such as POST or DELETE):</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"409"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Method not allowed. Only GET requests are supported for cancellation policy."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="parking">Parking</h1>
+
+<p><a href="/hxapi/">API Docs</a> &gt; product:<a href="index">Parking</a></p>
+
+<h2 id="parking-endpoints">Parking Endpoints</h2>
+
+<p>Here are the car parking specific endpoints:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Request</th>
+      <th>Endpoint</th>
+      <th>Method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Availability at airport</td>
+      <td><a href="av/airport">https://api.holidayextras.com/v1/carpark/AirportCode</a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Availability at car park</td>
+      <td><a href="av/carpark">https://api.holidayextras.com/v1/carpark/CarParkCode</a></td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>Make booking at car park</td>
+      <td><a href="bkg">https://api.holidayextras.com/v1/carpark/CarParkCode</a></td>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <td>Pre-booking price check</td>
+      <td><a href="priceCheck">https://api.holidayextras.com/v1/carpark/CarParkProductCode/priceCheck</a></td>
+      <td>GET</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="parking-user-journey">Parking User Journey</h2>
+
+<p>Below is a diagram detailing how the endpoints can be used to create a parking user journey. More information on each endpoint can be found in the detailed guides listed above.</p>
+
+<p><img src="/hxapi/parking/Parking_User_Journey.png" alt="Image of Parking User Journey" /></p>
+
+<h2 id="parking-top-tips">Parking Top Tips</h2>
+
+<p>We have put together these top tips, which detail how to optimise your use of our API for providing parking to your customers.</p>
+
+<h4 id="merging-product-library-data-into-availability-response">Merging Product Library data into availability response</h4>
+
+<p>To save sending a separate <code class="language-plaintext highlighter-rouge">https</code> request for information from the Product Library, you can specify a comma-separated list of values to pull this information back with the availability request.</p>
+
+<p>Just specify a parameter named <code class="language-plaintext highlighter-rouge">fields</code> and include the Product Library field names there.</p>
+
+<p>For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&amp;fields=field_a,field_b,field_c
+</code></pre></div></div>
+
+<p>Alternatively, the method for querying the product library as a separate request <a href="/hxapi/productlibrary/index">is outlined here</a>.</p>
+
+<h4 id="advance-purchase">Advance purchase</h4>
+
+<p>There is a field in the Product Library for car parks, named <code class="language-plaintext highlighter-rouge">advance_purchase</code>. Advance purchase products are non-refundable and non-cancellable. As a result, the Cancellation Waiver must not be sold to customers purchasing a product with <code class="language-plaintext highlighter-rouge">advance_purchase</code> set to 1.</p>
+
+<h4 id="request-flags">Request flags</h4>
+
+<p>The request flags brought back from availability searches indicate the fields required in the booking by the car park. You <em>must</em> retrieve this information from the customer at the time of booking.</p>
+
+<p>There are occasions where your booking will go through without sending this information but can fail later when importing the bookings to car parks. This causes us considerable administrative difficulties and may result in your customer’s booking being cancelled without notice.</p>
+
+<h4 id="good-to-go-meet-and-greet">Good to go meet and greet</h4>
+<p>New product types which are amendable by dates and times but cannot be cancelled.  The response will return <code class="language-plaintext highlighter-rouge">CanAmendCantCancel</code> set to either 1 or 0.</p>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>
