@@ -53,30 +53,30 @@ For a detailed explanation of the fields returned, please see below:
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | BookingRef           | Unique identifier for the transfer booking.                                                                                                               |
 | Cancellable          | Boolean indicating whether the booking can be cancelled.                                                                                                  |
-| CancellationFee      | Fee charged for cancellation (formatted as currency string).                                                                                              |
+| Fee                  | Fixed fee charged for cancellation in pence/cents (integer value).                                                                                       |
 | Currency             | Currency code from the booking (e.g., GBP, EUR, USD).                                                                                                    |
-| RefundableAmount     | Amount that will be refunded after cancellation (formatted as currency string).                                                                           |
+| RefundableAmount     | Amount that will be refunded after cancellation in pence/cents (integer value).                                                                          |
 
 ### Example
 
 {% codetabs %}
 {% codetab XML %}
 ```xml
-<BookingRef>TBBGNHMT</BookingRef>
+<BookingRef>TB12345</BookingRef>
 <Cancellable>true</Cancellable>
-<CancellationFee>10.50</CancellationFee>
+<Fee>1050</Fee>
 <Currency>GBP</Currency>
-<RefundableAmount>93.02</RefundableAmount>
+<RefundableAmount>8500</RefundableAmount>
 ```
 {% endcodetab %}
 {% codetab JSON %}
 ```json
 {
-  "BookingRef": "TBBGNHMT",
+  "BookingRef": "TB12345",
   "Cancellable": true,
-  "CancellationFee": "10.50",
+  "Fee": 1050,
   "Currency": "GBP",
-  "RefundableAmount": "93.02"
+  "RefundableAmount": 8500
 }
 ```
 {% endcodetab %}
@@ -87,21 +87,21 @@ For a detailed explanation of the fields returned, please see below:
 {% codetabs %}
 {% codetab XML %}
 ```xml
-<BookingRef>TBBGNHMT</BookingRef>
+<BookingRef>TB12345</BookingRef>
 <Cancellable>false</Cancellable>
-<CancellationFee>103.52</CancellationFee>
+<Fee>10352</Fee>
 <Currency>GBP</Currency>
-<RefundableAmount>0.00</RefundableAmount>
+<RefundableAmount>0</RefundableAmount>
 ```
 {% endcodetab %}
 {% codetab JSON %}
 ```json
 {
-  "BookingRef": "TBBGNHMT",
+  "BookingRef": "TB12345",
   "Cancellable": false,
-  "CancellationFee": "103.52",
+  "Fee": 10352,
   "Currency": "GBP",
-  "RefundableAmount": "0.00"
+  "RefundableAmount": 0
 }
 ```
 {% endcodetab %}
@@ -128,7 +128,7 @@ If no booking is found with the provided reference:
 
 ```json
 {
-  "Code": "NoRows",
+  "Code": "invalid-booking-ref",
   "Message": "No booking found with reference"
 }
 ```
@@ -141,5 +141,16 @@ If the booking reference exists but is not for a transfers booking:
 {
   "Code": "Validation Error",
   "Message": "Not a transfers booking"
+}
+```
+
+### Method Not Allowed
+
+If you attempt to use a method other than GET (such as POST or DELETE):
+
+```json
+{
+  "Code": "409",
+  "Message": "Method not allowed. Only GET requests are supported for cancellation policy."
 }
 ```

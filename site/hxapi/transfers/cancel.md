@@ -56,7 +56,7 @@ For a detailed explanation of the fields returned, please see below:
 |-------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Booking/BookingRef                        | Unique identifier for the transfer booking.                                                                                                               |
 | Booking/Status                            | Current status of the booking after cancellation (e.g., Cancelled).                                                                                      |
-| Cancel/CancelFee                          | Fee charged for the cancellation, if applicable (formatted as currency string).                                                                           |
+| Cancel/CancelFee                          | Fee charged for the cancellation, if applicable (string value).                                                                                          |
 | Cancel/CancelRef                          | Reference number for the cancellation.                                                                                                                    |
 | Cancel/CancelInfo                         | Information about the cancellation.                                                                                                                       |
 | Cancel/RefundAmount                       | Amount refunded for the cancellation, if applicable.                                                                                                      |
