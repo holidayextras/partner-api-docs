@@ -142,7 +142,7 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
       <ArrivalDate>2025-08-01</ArrivalDate>
       <ArrivalTime>11:00</ArrivalTime>
       <PickupDate>2025-08-01</PickupDate>
-      <PickupTime>10:00</PickupTime>
+      <PickupTime>11:00</PickupTime>
       <InformationUrl>https://example.com/transfer-info</InformationUrl>
       <JoiningInstruction>Meet at Terminal 3 Arrivals Hall</JoiningInstruction>
       <ContactNumbers>
@@ -166,7 +166,7 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
       <ArrivalDate>2025-08-07</ArrivalDate>
       <ArrivalTime>13:30</ArrivalTime>
       <PickupDate>2025-08-07</PickupDate>
-      <PickupTime>12:30</PickupTime>
+      <PickupTime>10:00</PickupTime>
       <InformationUrl>https://example.com/transfer-info</InformationUrl>
       <JoiningInstruction>Meet in hotel lobby 10 minutes before pickup</JoiningInstruction>
       <ContactNumbers>
@@ -227,7 +227,7 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
         "ArrivalDate": "2025-08-01",
         "ArrivalTime": "11:00",
         "PickupDate": "2025-08-01",
-        "PickupTime": "10:00",
+        "PickupTime": "11:30",
         "InformationUrl": "https://example.com/transfer-info",
         "JoiningInstruction": "Meet at Terminal 3 Arrivals Hall",
         "ContactNumbers": {
@@ -251,7 +251,7 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
         "ArrivalDate": "2025-08-07",
         "ArrivalTime": "13:30",
         "PickupDate": "2025-08-07",
-        "PickupTime": "12:30",
+        "PickupTime": "10:00",
         "InformationUrl": "https://example.com/transfer-info",
         "JoiningInstruction": "Meet in hotel lobby 10 minutes before pickup",
         "ContactNumbers": {
