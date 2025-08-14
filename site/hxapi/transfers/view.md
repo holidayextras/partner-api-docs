@@ -82,15 +82,29 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
 | DestinationAddress   | Address of the destination location.                                          |
 | DestinationIata      | IATA code of the destination location.                                        |
 | JourneyTime          | Duration of the journey in minutes.                                           |
-| DepartureDate        | Date of departure (usually relates to associated flight departure).          |
-| DepartureTime        | Departure time (local, usually relates to associated flight departure).      |
-| ArrivalDate          | Date of arrival (usually relates to associated flight arrival).              |
-| ArrivalTime          | Arrival time (local, usually relates to associated flight arrival).          |
-| PickupDate           | Pickup date for the transfer vehicle.                                        |
-| PickupTime           | Pickup time for the transfer vehicle (local time).                           |
+| FlightDetails        | Flight information associated with the transfer.                              |
+| Pickup               | Pickup time for the transfer vehicle as an ISO 8601 timestamp in UTC (Zulu time). |
 | InformationUrl       | URL with additional transfer information (when available from supplier).     |
 | JoiningInstruction   | Instructions on where and how to join the transfer.                          |
-| ContactNumbers       | Contact information including emergency numbers and reconfirmation details.   |
+| ContactNumbers       | Contact information including UkEmergencyTel, ReconfirmationTel, and EmergencyTel phone numbers. |
+
+### FlightDetails Fields
+
+The `FlightDetails` object contains flight information when the transfer is associated with a flight:
+
+| Field                                | Additional Information                                                        |
+|--------------------------------------|-------------------------------------------------------------------------------|
+| FlightDetails/Code                   | Flight number/code (e.g., "U28605").                                         |
+| FlightDetails/Origin                 | Origin airport IATA code (e.g., "LGW").                                      |
+| FlightDetails/Destination            | Destination airport IATA code (e.g., "AGP").                                 |
+| FlightDetails/Departure              | Flight departure time as ISO 8601 timestamp in UTC (Zulu time).              |
+| FlightDetails/Arrival                | Flight arrival time as ISO 8601 timestamp in UTC (Zulu time).                |
+
+**Important Notes:**
+- All timestamps use UTC timezone and are formatted as ISO 8601 with 'Z' suffix (e.g., "2025-08-01T10:00:00Z")
+- For airport pickup transfers, the `Arrival` time represents when passengers land and need pickup
+- For airport drop-off transfers, the `Departure` time represents when passengers need to be at the airport
+- The `FlightDetails` object and its individual fields can be null when flight information is not available or unknown
 
 ### Example
 
@@ -137,12 +151,14 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
       <DestinationAddress>Av. del Mar, 29600, Marbella</DestinationAddress>
       <DestinationIata/>
       <JourneyTime>60</JourneyTime>
-      <DepartureDate>2025-08-01</DepartureDate>
-      <DepartureTime>10:00</DepartureTime>
-      <ArrivalDate>2025-08-01</ArrivalDate>
-      <ArrivalTime>11:00</ArrivalTime>
-      <PickupDate>2025-08-01</PickupDate>
-      <PickupTime>11:00</PickupTime>
+      <FlightDetails>
+        <Code>U28605</Code>
+        <Origin>LGW</Origin>
+        <Destination>AGP</Destination>
+        <Departure/>
+        <Arrival>2025-08-01T10:00:00Z</Arrival>
+      </FlightDetails>
+      <Pickup>2025-08-01T10:30:00Z</Pickup>
       <InformationUrl>https://example.com/transfer-info</InformationUrl>
       <JoiningInstruction>Meet at Terminal 3 Arrivals Hall</JoiningInstruction>
       <ContactNumbers>
@@ -161,12 +177,14 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
       <DestinationAddress>Málaga Airport, Málaga</DestinationAddress>
       <DestinationIata>AGP</DestinationIata>
       <JourneyTime>60</JourneyTime>
-      <DepartureDate>2025-08-07</DepartureDate>
-      <DepartureTime>12:30</DepartureTime>
-      <ArrivalDate>2025-08-07</ArrivalDate>
-      <ArrivalTime>13:30</ArrivalTime>
-      <PickupDate>2025-08-07</PickupDate>
-      <PickupTime>10:00</PickupTime>
+      <FlightDetails>
+        <Code>U28602</Code>
+        <Origin>AGP</Origin>
+        <Destination>LGW</Destination>
+        <Departure>2025-08-07T13:30:00Z</Departure>
+        <Arrival/>
+      </FlightDetails>
+      <Pickup>2025-08-07T10:00:00Z</Pickup>
       <InformationUrl>https://example.com/transfer-info</InformationUrl>
       <JoiningInstruction>Meet in hotel lobby 10 minutes before pickup</JoiningInstruction>
       <ContactNumbers>
@@ -222,12 +240,14 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
         "DestinationAddress": "Av. del Mar, 29600, Marbella",
         "DestinationIata": "",
         "JourneyTime": 60,
-        "DepartureDate": "2025-08-01",
-        "DepartureTime": "10:00",
-        "ArrivalDate": "2025-08-01",
-        "ArrivalTime": "11:00",
-        "PickupDate": "2025-08-01",
-        "PickupTime": "11:30",
+        "FlightDetails": {
+          "Code": "U28605",
+          "Origin": "LGW",
+          "Destination": "AGP",
+          "Departure": null,
+          "Arrival": "2025-08-01T10:00:00Z"
+        },
+        "Pickup": "2025-08-01T10:30:00Z",
         "InformationUrl": "https://example.com/transfer-info",
         "JoiningInstruction": "Meet at Terminal 3 Arrivals Hall",
         "ContactNumbers": {
@@ -246,12 +266,14 @@ Both `OutboundTransfer` and `ReturnTransfer` contain the following detailed info
         "DestinationAddress": "Málaga Airport, Málaga",
         "DestinationIata": "AGP",
         "JourneyTime": 60,
-        "DepartureDate": "2025-08-07",
-        "DepartureTime": "12:30",
-        "ArrivalDate": "2025-08-07",
-        "ArrivalTime": "13:30",
-        "PickupDate": "2025-08-07",
-        "PickupTime": "10:00",
+        "FlightDetails": {
+          "Code": "U28602",
+          "Origin": "AGP",
+          "Destination": "LGW",
+          "Departure": "2025-08-07T13:30:00Z",
+          "Arrival": null
+        },
+        "Pickup": "2025-08-07T10:00:00Z",
         "InformationUrl": "https://example.com/transfer-info",
         "JoiningInstruction": "Meet in hotel lobby 10 minutes before pickup",
         "ContactNumbers": {
