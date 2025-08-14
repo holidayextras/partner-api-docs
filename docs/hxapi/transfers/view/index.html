@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="transfers-view-booking">Transfers View Booking</h1>
+
+<h2 id="important-notes">Important Notes</h2>
+
+<ul>
+  <li>This endpoint provides comprehensive booking details including journey information, contact numbers, and cancellation policies</li>
+  <li>Use this endpoint to retrieve up-to-date booking status and transfer details</li>
+  <li>The response includes both outbound and return transfer information (if applicable)</li>
+</ul>
+
+<h2 id="view-booking-request">View Booking Request</h2>
+
+<h3 id="method">Method</h3>
+
+<p>GET</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p>The endpoint to use is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/transfers/booking/[BookingRef]
+</code></pre></div></div>
+
+<p>Where <code class="language-plaintext highlighter-rouge">[BookingRef]</code> is the booking reference you received when making the original booking.</p>
+
+<p>For example:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/transfers/booking/TBBGNHMT
+</code></pre></div></div>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<p>NB: All parameter names are case sensitive.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data Type</th>
+      <th>Format</th>
+      <th>Mandatory?</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ABTANumber</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y</td>
+      <td>This is also known as an ‘agent code’. This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>String</td>
+      <td>[A-Z0-9] 5 chars</td>
+      <td>Y*</td>
+      <td>Password required for retail agent requests - intermediaries do not require a password.<br />This will be confirmed to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>String</td>
+      <td>[A-Z]</td>
+      <td>Y</td>
+      <td>This will be assigned to you by your Account Manager during set up.</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>String</td>
+      <td>[0-9] 9 chars</td>
+      <td>Y</td>
+      <td>Please see <a href="/hxapi/usertoken">user token endpoint</a> for details of how to generate a token.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="view-booking-response">View Booking Response</h2>
+
+<p>If the booking is found, the response will contain detailed information about the transfer booking including journey details, cancellation policy, and contact information.</p>
+
+<p>For a detailed explanation of the fields returned, please see below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Booking/BookingRef</td>
+      <td>The reference for the booking.</td>
+    </tr>
+    <tr>
+      <td>Booking/SupplierRef</td>
+      <td>Reference number provided by the transfer supplier (for the overall booking).</td>
+    </tr>
+    <tr>
+      <td>Booking/Status</td>
+      <td>Current status of the booking (e.g., Confirmed, Pending, Cancelled).</td>
+    </tr>
+    <tr>
+      <td>Booking/DateBooked</td>
+      <td>Date and time when the booking was made (ISO 8601 format, UTC timezone).</td>
+    </tr>
+    <tr>
+      <td>Booking/DateCancelled</td>
+      <td>Date and time when the booking was cancelled, if applicable (ISO 8601 format, UTC timezone).</td>
+    </tr>
+    <tr>
+      <td>Booking/Email</td>
+      <td>Email address associated with the booking.</td>
+    </tr>
+    <tr>
+      <td>Booking/Product/Price</td>
+      <td>Total price for the transfer booking.</td>
+    </tr>
+    <tr>
+      <td>Booking/Product/Currency</td>
+      <td>Currency in which the price is denominated.</td>
+    </tr>
+    <tr>
+      <td>Booking/Product/Category</td>
+      <td>Category of the transfer product. See <a href="/hxapi/transfers/av/#transfer-categories">Transfer Categories</a> for available options.</td>
+    </tr>
+    <tr>
+      <td>Booking/Product/TransferCode</td>
+      <td>Unique code for the transfer product.</td>
+    </tr>
+    <tr>
+      <td>Booking/Product/DeparturePointType</td>
+      <td>Type of the departure point.</td>
+    </tr>
+    <tr>
+      <td>Booking/Product/ArrivalPointType</td>
+      <td>Type of the arrival point.</td>
+    </tr>
+    <tr>
+      <td>Booking/Product/Cancellation</td>
+      <td>Cancellation policy details including period (in hours), percentage, and fee. For full cancellation details including refund calculations, use the <a href="/hxapi/transfers/cancellation-policy/">Cancellation Policy</a> endpoint.</td>
+    </tr>
+    <tr>
+      <td>Booking/Product/VehicleDetails</td>
+      <td>Details about the vehicle including capacity, stops, bags allowed, and whether it’s private.</td>
+    </tr>
+    <tr>
+      <td>Booking/Product/OutboundTransfer</td>
+      <td>Details of the outbound transfer journey including origin, destination, journey time, and pickup/arrival times.</td>
+    </tr>
+    <tr>
+      <td>Booking/Product/ReturnTransfer</td>
+      <td>Details of the return transfer journey (only present if the booking includes a return transfer).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="transfer-details-fields">Transfer Details Fields</h3>
+
+<p>Both <code class="language-plaintext highlighter-rouge">OutboundTransfer</code> and <code class="language-plaintext highlighter-rouge">ReturnTransfer</code> contain the following detailed information:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>JourneyId</td>
+      <td>Unique identifier for the transfer journey.</td>
+    </tr>
+    <tr>
+      <td>SupplierRef</td>
+      <td>Reference provided by the transfer supplier (specific to this journey leg).</td>
+    </tr>
+    <tr>
+      <td>Origin</td>
+      <td>Starting point of the transfer.</td>
+    </tr>
+    <tr>
+      <td>OriginAddress</td>
+      <td>Address of the origin location.</td>
+    </tr>
+    <tr>
+      <td>OriginIata</td>
+      <td>IATA code of the origin location.</td>
+    </tr>
+    <tr>
+      <td>Destination</td>
+      <td>Destination point of the transfer.</td>
+    </tr>
+    <tr>
+      <td>DestinationAddress</td>
+      <td>Address of the destination location.</td>
+    </tr>
+    <tr>
+      <td>DestinationIata</td>
+      <td>IATA code of the destination location.</td>
+    </tr>
+    <tr>
+      <td>JourneyTime</td>
+      <td>Duration of the journey in minutes.</td>
+    </tr>
+    <tr>
+      <td>DepartureDate</td>
+      <td>Date of departure (usually relates to associated flight departure).</td>
+    </tr>
+    <tr>
+      <td>DepartureTime</td>
+      <td>Departure time (local, usually relates to associated flight departure).</td>
+    </tr>
+    <tr>
+      <td>ArrivalDate</td>
+      <td>Date of arrival (usually relates to associated flight arrival).</td>
+    </tr>
+    <tr>
+      <td>ArrivalTime</td>
+      <td>Arrival time (local, usually relates to associated flight arrival).</td>
+    </tr>
+    <tr>
+      <td>PickupDate</td>
+      <td>Pickup date for the transfer vehicle.</td>
+    </tr>
+    <tr>
+      <td>PickupTime</td>
+      <td>Pickup time for the transfer vehicle (local time).</td>
+    </tr>
+    <tr>
+      <td>InformationUrl</td>
+      <td>URL with additional transfer information (when available from supplier).</td>
+    </tr>
+    <tr>
+      <td>JoiningInstruction</td>
+      <td>Instructions on where and how to join the transfer.</td>
+    </tr>
+    <tr>
+      <td>ContactNumbers</td>
+      <td>Contact information including emergency numbers and reconfirmation details.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
+
+<ul class="uk-tab" data-uk-switcher="{connect:'#d7b56246-b7c3-409a-9fd2-b592d106754c'}">
+
+	<li class="uk-active"><a href="#">XML</a></li>
+
+	<li><a href="#">JSON</a></li>
+
+</ul>
+
+<ul id="d7b56246-b7c3-409a-9fd2-b592d106754c" class="uk-switcher uk-margin">
+
+	<li>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Booking&gt;</span>
+  <span class="nt">&lt;BookingRef&gt;</span>TBBGNHMT<span class="nt">&lt;/BookingRef&gt;</span>
+  <span class="nt">&lt;SupplierRef&gt;</span>123456<span class="nt">&lt;/SupplierRef&gt;</span>
+  <span class="nt">&lt;Status&gt;</span>Confirmed<span class="nt">&lt;/Status&gt;</span>
+  <span class="nt">&lt;DateBooked&gt;</span>2025-01-15T10:30:00Z<span class="nt">&lt;/DateBooked&gt;</span>
+  <span class="nt">&lt;DateCancelled/&gt;</span>
+  <span class="nt">&lt;Email&gt;</span>customer@example.com<span class="nt">&lt;/Email&gt;</span>
+  <span class="nt">&lt;Product&gt;</span>
+    <span class="nt">&lt;Price&gt;</span>103.52<span class="nt">&lt;/Price&gt;</span>
+    <span class="nt">&lt;Currency&gt;</span>GBP<span class="nt">&lt;/Currency&gt;</span>
+    <span class="nt">&lt;Category&gt;</span>private_car<span class="nt">&lt;/Category&gt;</span>
+    <span class="nt">&lt;TransferCode&gt;</span>TBHT1169922<span class="nt">&lt;/TransferCode&gt;</span>
+    <span class="nt">&lt;DeparturePointType&gt;</span>Airport<span class="nt">&lt;/DeparturePointType&gt;</span>
+    <span class="nt">&lt;ArrivalPointType&gt;</span>Hotel<span class="nt">&lt;/ArrivalPointType&gt;</span>
+    <span class="nt">&lt;Cancellation&gt;</span>
+      <span class="nt">&lt;Period&gt;</span>24<span class="nt">&lt;/Period&gt;</span>
+      <span class="nt">&lt;Percentage&gt;</span>100<span class="nt">&lt;/Percentage&gt;</span>
+      <span class="nt">&lt;Fee&gt;</span>0<span class="nt">&lt;/Fee&gt;</span>
+    <span class="nt">&lt;/Cancellation&gt;</span>
+    <span class="nt">&lt;VehicleDetails&gt;</span>
+      <span class="nt">&lt;MinCapacity&gt;</span>1<span class="nt">&lt;/MinCapacity&gt;</span>
+      <span class="nt">&lt;MaxCapacity&gt;</span>4<span class="nt">&lt;/MaxCapacity&gt;</span>
+      <span class="nt">&lt;MinStops/&gt;</span>
+      <span class="nt">&lt;MaxStops/&gt;</span>
+      <span class="nt">&lt;Bags&gt;</span>4<span class="nt">&lt;/Bags&gt;</span>
+      <span class="nt">&lt;NumberOfVehicles&gt;</span>1<span class="nt">&lt;/NumberOfVehicles&gt;</span>
+      <span class="nt">&lt;IsPrivate&gt;</span>true<span class="nt">&lt;/IsPrivate&gt;</span>
+      <span class="nt">&lt;Supplier&gt;</span>Transfer Company Ltd<span class="nt">&lt;/Supplier&gt;</span>
+      <span class="nt">&lt;Make&gt;</span>Mercedes<span class="nt">&lt;/Make&gt;</span>
+    <span class="nt">&lt;/VehicleDetails&gt;</span>
+    <span class="nt">&lt;OutboundTransfer&gt;</span>
+      <span class="nt">&lt;JourneyId&gt;</span>OUT123456<span class="nt">&lt;/JourneyId&gt;</span>
+      <span class="nt">&lt;SupplierRef&gt;</span>ABC123<span class="nt">&lt;/SupplierRef&gt;</span>
+      <span class="nt">&lt;Origin&gt;</span>Málaga Airport<span class="nt">&lt;/Origin&gt;</span>
+      <span class="nt">&lt;OriginAddress&gt;</span>Málaga Airport, Málaga<span class="nt">&lt;/OriginAddress&gt;</span>
+      <span class="nt">&lt;OriginIata&gt;</span>AGP<span class="nt">&lt;/OriginIata&gt;</span>
+      <span class="nt">&lt;Destination&gt;</span>Hotel Sol Marbella<span class="nt">&lt;/Destination&gt;</span>
+      <span class="nt">&lt;DestinationAddress&gt;</span>Av. del Mar, 29600, Marbella<span class="nt">&lt;/DestinationAddress&gt;</span>
+      <span class="nt">&lt;DestinationIata/&gt;</span>
+      <span class="nt">&lt;JourneyTime&gt;</span>60<span class="nt">&lt;/JourneyTime&gt;</span>
+      <span class="nt">&lt;DepartureDate&gt;</span>2025-08-01<span class="nt">&lt;/DepartureDate&gt;</span>
+      <span class="nt">&lt;DepartureTime&gt;</span>10:00<span class="nt">&lt;/DepartureTime&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2025-08-01<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;ArrivalTime&gt;</span>11:00<span class="nt">&lt;/ArrivalTime&gt;</span>
+      <span class="nt">&lt;PickupDate&gt;</span>2025-08-01<span class="nt">&lt;/PickupDate&gt;</span>
+      <span class="nt">&lt;PickupTime&gt;</span>11:00<span class="nt">&lt;/PickupTime&gt;</span>
+      <span class="nt">&lt;InformationUrl&gt;</span>https://example.com/transfer-info<span class="nt">&lt;/InformationUrl&gt;</span>
+      <span class="nt">&lt;JoiningInstruction&gt;</span>Meet at Terminal 3 Arrivals Hall<span class="nt">&lt;/JoiningInstruction&gt;</span>
+      <span class="nt">&lt;ContactNumbers&gt;</span>
+        <span class="nt">&lt;UkEmergencyTel&gt;</span>+44 20 7123 4567<span class="nt">&lt;/UkEmergencyTel&gt;</span>
+        <span class="nt">&lt;ReconfirmationTel&gt;</span>+34 952 123 456<span class="nt">&lt;/ReconfirmationTel&gt;</span>
+        <span class="nt">&lt;EmergencyTel&gt;</span>+34 952 999 888<span class="nt">&lt;/EmergencyTel&gt;</span>
+      <span class="nt">&lt;/ContactNumbers&gt;</span>
+    <span class="nt">&lt;/OutboundTransfer&gt;</span>
+    <span class="nt">&lt;ReturnTransfer&gt;</span>
+      <span class="nt">&lt;JourneyId&gt;</span>RET123456<span class="nt">&lt;/JourneyId&gt;</span>
+      <span class="nt">&lt;SupplierRef&gt;</span>DEF456<span class="nt">&lt;/SupplierRef&gt;</span>
+      <span class="nt">&lt;Origin&gt;</span>Hotel Sol Marbella<span class="nt">&lt;/Origin&gt;</span>
+      <span class="nt">&lt;OriginAddress&gt;</span>Av. del Mar, 29600, Marbella<span class="nt">&lt;/OriginAddress&gt;</span>
+      <span class="nt">&lt;OriginIata/&gt;</span>
+      <span class="nt">&lt;Destination&gt;</span>Málaga Airport<span class="nt">&lt;/Destination&gt;</span>
+      <span class="nt">&lt;DestinationAddress&gt;</span>Málaga Airport, Málaga<span class="nt">&lt;/DestinationAddress&gt;</span>
+      <span class="nt">&lt;DestinationIata&gt;</span>AGP<span class="nt">&lt;/DestinationIata&gt;</span>
+      <span class="nt">&lt;JourneyTime&gt;</span>60<span class="nt">&lt;/JourneyTime&gt;</span>
+      <span class="nt">&lt;DepartureDate&gt;</span>2025-08-07<span class="nt">&lt;/DepartureDate&gt;</span>
+      <span class="nt">&lt;DepartureTime&gt;</span>12:30<span class="nt">&lt;/DepartureTime&gt;</span>
+      <span class="nt">&lt;ArrivalDate&gt;</span>2025-08-07<span class="nt">&lt;/ArrivalDate&gt;</span>
+      <span class="nt">&lt;ArrivalTime&gt;</span>13:30<span class="nt">&lt;/ArrivalTime&gt;</span>
+      <span class="nt">&lt;PickupDate&gt;</span>2025-08-07<span class="nt">&lt;/PickupDate&gt;</span>
+      <span class="nt">&lt;PickupTime&gt;</span>10:00<span class="nt">&lt;/PickupTime&gt;</span>
+      <span class="nt">&lt;InformationUrl&gt;</span>https://example.com/transfer-info<span class="nt">&lt;/InformationUrl&gt;</span>
+      <span class="nt">&lt;JoiningInstruction&gt;</span>Meet in hotel lobby 10 minutes before pickup<span class="nt">&lt;/JoiningInstruction&gt;</span>
+      <span class="nt">&lt;ContactNumbers&gt;</span>
+        <span class="nt">&lt;UkEmergencyTel&gt;</span>+44 20 7123 4567<span class="nt">&lt;/UkEmergencyTel&gt;</span>
+        <span class="nt">&lt;ReconfirmationTel&gt;</span>+34 952 123 456<span class="nt">&lt;/ReconfirmationTel&gt;</span>
+        <span class="nt">&lt;EmergencyTel&gt;</span>+34 952 999 888<span class="nt">&lt;/EmergencyTel&gt;</span>
+      <span class="nt">&lt;/ContactNumbers&gt;</span>
+    <span class="nt">&lt;/ReturnTransfer&gt;</span>
+  <span class="nt">&lt;/Product&gt;</span>
+<span class="nt">&lt;/Booking&gt;</span>
+</code></pre></div></div>
+</li>
+
+	<li>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Booking"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"BookingRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TBBGNHMT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SupplierRef"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Confirmed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DateBooked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-15T10:30:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DateCancelled"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mf">103.52</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private_car"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TransferCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TBHT1169922"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DeparturePointType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Airport"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ArrivalPointType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hotel"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Cancellation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Period"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"VehicleDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"MinCapacity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MaxCapacity"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MinStops"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"MaxStops"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Bags"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"NumberOfVehicles"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IsPrivate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Supplier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transfer Company Ltd"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Make"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mercedes"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"OutboundTransfer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"JourneyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OUT123456"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SupplierRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Málaga Airport"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"OriginAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Málaga Airport, Málaga"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"OriginIata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGP"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hotel Sol Marbella"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DestinationAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. del Mar, 29600, Marbella"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DestinationIata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"JourneyTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DepartureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DepartureTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ArrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ArrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PickupDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"InformationUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/transfer-info"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"JoiningInstruction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meet at Terminal 3 Arrivals Hall"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ContactNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"UkEmergencyTel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+44 20 7123 4567"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ReconfirmationTel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34 952 123 456"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"EmergencyTel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34 952 999 888"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"ReturnTransfer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"JourneyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RET123456"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SupplierRef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEF456"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hotel Sol Marbella"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"OriginAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. del Mar, 29600, Marbella"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"OriginIata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Málaga Airport"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DestinationAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Málaga Airport, Málaga"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DestinationIata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGP"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"JourneyTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DepartureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-07"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DepartureTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ArrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-07"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ArrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PickupDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-07"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"InformationUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/transfer-info"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"JoiningInstruction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meet in hotel lobby 10 minutes before pickup"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ContactNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"UkEmergencyTel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+44 20 7123 4567"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ReconfirmationTel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34 952 123 456"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"EmergencyTel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+34 952 999 888"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+</li>
+
+</ul>
+
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>
