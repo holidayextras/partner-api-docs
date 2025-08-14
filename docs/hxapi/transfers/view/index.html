@@ -243,28 +243,12 @@
       <td>Duration of the journey in minutes.</td>
     </tr>
     <tr>
-      <td>DepartureDate</td>
-      <td>Date of departure (usually relates to associated flight departure).</td>
+      <td>FlightDetails</td>
+      <td>Flight information associated with the transfer.</td>
     </tr>
     <tr>
-      <td>DepartureTime</td>
-      <td>Departure time (local, usually relates to associated flight departure).</td>
-    </tr>
-    <tr>
-      <td>ArrivalDate</td>
-      <td>Date of arrival (usually relates to associated flight arrival).</td>
-    </tr>
-    <tr>
-      <td>ArrivalTime</td>
-      <td>Arrival time (local, usually relates to associated flight arrival).</td>
-    </tr>
-    <tr>
-      <td>PickupDate</td>
-      <td>Pickup date for the transfer vehicle.</td>
-    </tr>
-    <tr>
-      <td>PickupTime</td>
-      <td>Pickup time for the transfer vehicle (local time).</td>
+      <td>Pickup</td>
+      <td>Pickup time for the transfer vehicle as an ISO 8601 timestamp in UTC (Zulu time).</td>
     </tr>
     <tr>
       <td>InformationUrl</td>
@@ -276,14 +260,57 @@
     </tr>
     <tr>
       <td>ContactNumbers</td>
-      <td>Contact information including emergency numbers and reconfirmation details.</td>
+      <td>Contact information including UkEmergencyTel, ReconfirmationTel, and EmergencyTel phone numbers.</td>
     </tr>
   </tbody>
 </table>
 
+<h3 id="flightdetails-fields">FlightDetails Fields</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">FlightDetails</code> object contains flight information when the transfer is associated with a flight:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Additional Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FlightDetails/Code</td>
+      <td>Flight number/code (e.g., “U28605”).</td>
+    </tr>
+    <tr>
+      <td>FlightDetails/Origin</td>
+      <td>Origin airport IATA code (e.g., “LGW”).</td>
+    </tr>
+    <tr>
+      <td>FlightDetails/Destination</td>
+      <td>Destination airport IATA code (e.g., “AGP”).</td>
+    </tr>
+    <tr>
+      <td>FlightDetails/Departure</td>
+      <td>Flight departure time as ISO 8601 timestamp in UTC (Zulu time).</td>
+    </tr>
+    <tr>
+      <td>FlightDetails/Arrival</td>
+      <td>Flight arrival time as ISO 8601 timestamp in UTC (Zulu time).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Important Notes:</strong></p>
+<ul>
+  <li>All timestamps use UTC timezone and are formatted as ISO 8601 with ‘Z’ suffix (e.g., “2025-08-01T10:00:00Z”)</li>
+  <li>For airport pickup transfers, the <code class="language-plaintext highlighter-rouge">Arrival</code> time represents when passengers land and need pickup</li>
+  <li>For airport drop-off transfers, the <code class="language-plaintext highlighter-rouge">Departure</code> time represents when passengers need to be at the airport</li>
+  <li>The <code class="language-plaintext highlighter-rouge">FlightDetails</code> object and its individual fields can be null when flight information is not available or unknown</li>
+</ul>
+
 <h3 id="example">Example</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#d7b56246-b7c3-409a-9fd2-b592d106754c'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#665c97e6-330f-4212-b097-459971cb56cf'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -291,7 +318,7 @@
 
 </ul>
 
-<ul id="d7b56246-b7c3-409a-9fd2-b592d106754c" class="uk-switcher uk-margin">
+<ul id="665c97e6-330f-4212-b097-459971cb56cf" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Booking&gt;</span>
@@ -334,12 +361,14 @@
       <span class="nt">&lt;DestinationAddress&gt;</span>Av. del Mar, 29600, Marbella<span class="nt">&lt;/DestinationAddress&gt;</span>
       <span class="nt">&lt;DestinationIata/&gt;</span>
       <span class="nt">&lt;JourneyTime&gt;</span>60<span class="nt">&lt;/JourneyTime&gt;</span>
-      <span class="nt">&lt;DepartureDate&gt;</span>2025-08-01<span class="nt">&lt;/DepartureDate&gt;</span>
-      <span class="nt">&lt;DepartureTime&gt;</span>10:00<span class="nt">&lt;/DepartureTime&gt;</span>
-      <span class="nt">&lt;ArrivalDate&gt;</span>2025-08-01<span class="nt">&lt;/ArrivalDate&gt;</span>
-      <span class="nt">&lt;ArrivalTime&gt;</span>11:00<span class="nt">&lt;/ArrivalTime&gt;</span>
-      <span class="nt">&lt;PickupDate&gt;</span>2025-08-01<span class="nt">&lt;/PickupDate&gt;</span>
-      <span class="nt">&lt;PickupTime&gt;</span>11:00<span class="nt">&lt;/PickupTime&gt;</span>
+      <span class="nt">&lt;FlightDetails&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>U28605<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Origin&gt;</span>LGW<span class="nt">&lt;/Origin&gt;</span>
+        <span class="nt">&lt;Destination&gt;</span>AGP<span class="nt">&lt;/Destination&gt;</span>
+        <span class="nt">&lt;Departure/&gt;</span>
+        <span class="nt">&lt;Arrival&gt;</span>2025-08-01T10:00:00Z<span class="nt">&lt;/Arrival&gt;</span>
+      <span class="nt">&lt;/FlightDetails&gt;</span>
+      <span class="nt">&lt;Pickup&gt;</span>2025-08-01T10:30:00Z<span class="nt">&lt;/Pickup&gt;</span>
       <span class="nt">&lt;InformationUrl&gt;</span>https://example.com/transfer-info<span class="nt">&lt;/InformationUrl&gt;</span>
       <span class="nt">&lt;JoiningInstruction&gt;</span>Meet at Terminal 3 Arrivals Hall<span class="nt">&lt;/JoiningInstruction&gt;</span>
       <span class="nt">&lt;ContactNumbers&gt;</span>
@@ -358,12 +387,14 @@
       <span class="nt">&lt;DestinationAddress&gt;</span>Málaga Airport, Málaga<span class="nt">&lt;/DestinationAddress&gt;</span>
       <span class="nt">&lt;DestinationIata&gt;</span>AGP<span class="nt">&lt;/DestinationIata&gt;</span>
       <span class="nt">&lt;JourneyTime&gt;</span>60<span class="nt">&lt;/JourneyTime&gt;</span>
-      <span class="nt">&lt;DepartureDate&gt;</span>2025-08-07<span class="nt">&lt;/DepartureDate&gt;</span>
-      <span class="nt">&lt;DepartureTime&gt;</span>12:30<span class="nt">&lt;/DepartureTime&gt;</span>
-      <span class="nt">&lt;ArrivalDate&gt;</span>2025-08-07<span class="nt">&lt;/ArrivalDate&gt;</span>
-      <span class="nt">&lt;ArrivalTime&gt;</span>13:30<span class="nt">&lt;/ArrivalTime&gt;</span>
-      <span class="nt">&lt;PickupDate&gt;</span>2025-08-07<span class="nt">&lt;/PickupDate&gt;</span>
-      <span class="nt">&lt;PickupTime&gt;</span>10:00<span class="nt">&lt;/PickupTime&gt;</span>
+      <span class="nt">&lt;FlightDetails&gt;</span>
+        <span class="nt">&lt;Code&gt;</span>U28602<span class="nt">&lt;/Code&gt;</span>
+        <span class="nt">&lt;Origin&gt;</span>AGP<span class="nt">&lt;/Origin&gt;</span>
+        <span class="nt">&lt;Destination&gt;</span>LGW<span class="nt">&lt;/Destination&gt;</span>
+        <span class="nt">&lt;Departure&gt;</span>2025-08-07T13:30:00Z<span class="nt">&lt;/Departure&gt;</span>
+        <span class="nt">&lt;Arrival/&gt;</span>
+      <span class="nt">&lt;/FlightDetails&gt;</span>
+      <span class="nt">&lt;Pickup&gt;</span>2025-08-07T10:00:00Z<span class="nt">&lt;/Pickup&gt;</span>
       <span class="nt">&lt;InformationUrl&gt;</span>https://example.com/transfer-info<span class="nt">&lt;/InformationUrl&gt;</span>
       <span class="nt">&lt;JoiningInstruction&gt;</span>Meet in hotel lobby 10 minutes before pickup<span class="nt">&lt;/JoiningInstruction&gt;</span>
       <span class="nt">&lt;ContactNumbers&gt;</span>
@@ -419,12 +450,14 @@
         </span><span class="nl">"DestinationAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av. del Mar, 29600, Marbella"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"DestinationIata"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nl">"JourneyTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DepartureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-01"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DepartureTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ArrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-01"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ArrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PickupDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-01"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FlightDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U28605"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LGW"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGP"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Departure"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Arrival"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-01T10:00:00Z"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Pickup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-01T10:30:00Z"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"InformationUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/transfer-info"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"JoiningInstruction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meet at Terminal 3 Arrivals Hall"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ContactNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -443,12 +476,14 @@
         </span><span class="nl">"DestinationAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Málaga Airport, Málaga"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"DestinationIata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGP"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"JourneyTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DepartureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-07"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"DepartureTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:30"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ArrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-07"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ArrivalTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13:30"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PickupDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-07"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PickupTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"FlightDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U28602"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AGP"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LGW"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Departure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-07T13:30:00Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Arrival"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Pickup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-07T10:00:00Z"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"InformationUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/transfer-info"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"JoiningInstruction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meet in hotel lobby 10 minutes before pickup"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ContactNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
