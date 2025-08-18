@@ -98,10 +98,12 @@ The `FlightDetails` object contains flight information when the transfer is asso
 | FlightDetails/Departure              | Flight departure time as ISO 8601 timestamp in UTC (Zulu time).              |
 | FlightDetails/Arrival                | Flight arrival time as ISO 8601 timestamp in UTC (Zulu time).                |
 
+
 **Important Notes:**
+
 - All timestamps use UTC timezone and are formatted as ISO 8601 with 'Z' suffix (e.g., "2025-08-01T10:00:00Z")
 - For airport pickup transfers, the `Arrival` time represents when passengers land and need pickup
-- For airport drop-off transfers, the `Departure` time represents when passengers need to be at the airport
+- For airport drop-off transfers, the `Departure` time represents the flight departure time, and the pickup time is automatically calculated to ensure passengers arrive at the airport with adequate time before their flight
 - The `FlightDetails` object and its individual fields can be null when flight information is not available or unknown
 
 ### Example
