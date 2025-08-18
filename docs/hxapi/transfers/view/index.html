@@ -168,20 +168,20 @@
       <td>Unique code for the transfer product.</td>
     </tr>
     <tr>
-      <td>Booking/Product/DeparturePointType</td>
-      <td>Type of the departure point.</td>
-    </tr>
-    <tr>
-      <td>Booking/Product/ArrivalPointType</td>
-      <td>Type of the arrival point.</td>
-    </tr>
-    <tr>
       <td>Booking/Product/Cancellation</td>
       <td>Cancellation policy details including period (in hours), percentage, and fee. For full cancellation details including refund calculations, use the <a href="/hxapi/transfers/cancellation-policy/">Cancellation Policy</a> endpoint.</td>
     </tr>
     <tr>
       <td>Booking/Product/VehicleDetails</td>
       <td>Details about the vehicle including capacity, stops, bags allowed, and whether it’s private.</td>
+    </tr>
+    <tr>
+      <td>Booking/Product/OutboundTransfer</td>
+      <td>Details of the outbound transfer journey including origin, destination, journey time, and pickup/arrival times.</td>
+    </tr>
+    <tr>
+      <td>Booking/Product/ReturnTransfer</td>
+      <td>Details of the return transfer journey (only present if the booking includes a return transfer).</td>
     </tr>
   </tbody>
 </table>
@@ -302,7 +302,7 @@
 
 <h3 id="example">Example</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#03dc4e7b-8a4e-4d35-8039-1ba1d69b3598'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#2c07885c-5d29-4bad-a338-3105db50ba2c'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -310,7 +310,7 @@
 
 </ul>
 
-<ul id="03dc4e7b-8a4e-4d35-8039-1ba1d69b3598" class="uk-switcher uk-margin">
+<ul id="2c07885c-5d29-4bad-a338-3105db50ba2c" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Booking&gt;</span>
@@ -325,8 +325,6 @@
     <span class="nt">&lt;Currency&gt;</span>GBP<span class="nt">&lt;/Currency&gt;</span>
     <span class="nt">&lt;Category&gt;</span>private_car<span class="nt">&lt;/Category&gt;</span>
     <span class="nt">&lt;TransferCode&gt;</span>TBHT1169922<span class="nt">&lt;/TransferCode&gt;</span>
-    <span class="nt">&lt;DeparturePointType&gt;</span>Airport<span class="nt">&lt;/DeparturePointType&gt;</span>
-    <span class="nt">&lt;ArrivalPointType&gt;</span>Hotel<span class="nt">&lt;/ArrivalPointType&gt;</span>
     <span class="nt">&lt;Cancellation&gt;</span>
       <span class="nt">&lt;Period&gt;</span>24<span class="nt">&lt;/Period&gt;</span>
       <span class="nt">&lt;Percentage&gt;</span>100<span class="nt">&lt;/Percentage&gt;</span>
@@ -414,8 +412,6 @@
       </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private_car"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"TransferCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TBHT1169922"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"DeparturePointType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Airport"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ArrivalPointType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hotel"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Cancellation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Period"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
