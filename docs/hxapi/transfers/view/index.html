@@ -293,16 +293,17 @@
 </table>
 
 <p><strong>Important Notes:</strong></p>
+
 <ul>
   <li>All timestamps use UTC timezone and are formatted as ISO 8601 with ‘Z’ suffix (e.g., “2025-08-01T10:00:00Z”)</li>
   <li>For airport pickup transfers, the <code class="language-plaintext highlighter-rouge">Arrival</code> time represents when passengers land and need pickup</li>
-  <li>For airport drop-off transfers, the <code class="language-plaintext highlighter-rouge">Departure</code> time represents when passengers need to be at the airport</li>
+  <li>For airport drop-off transfers, the <code class="language-plaintext highlighter-rouge">Departure</code> time represents the flight departure time, and the pickup time is automatically calculated to ensure passengers arrive at the airport with adequate time before their flight</li>
   <li>The <code class="language-plaintext highlighter-rouge">FlightDetails</code> object and its individual fields can be null when flight information is not available or unknown</li>
 </ul>
 
 <h3 id="example">Example</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#2c07885c-5d29-4bad-a338-3105db50ba2c'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#f4a88716-3796-49fe-bebf-8e9892813339'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -310,7 +311,7 @@
 
 </ul>
 
-<ul id="2c07885c-5d29-4bad-a338-3105db50ba2c" class="uk-switcher uk-margin">
+<ul id="f4a88716-3796-49fe-bebf-8e9892813339" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Booking&gt;</span>
