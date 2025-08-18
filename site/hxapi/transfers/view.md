@@ -60,8 +60,6 @@ For a detailed explanation of the fields returned, please see below:
 | Booking/Product/Currency                  | Currency in which the price is denominated.                                                                                                                |
 | Booking/Product/Category                  | Category of the transfer product. See [Transfer Categories](/hxapi/transfers/av/#transfer-categories) for available options.                              |
 | Booking/Product/TransferCode              | Unique code for the transfer product.                                                                                                                      |
-| Booking/Product/DeparturePointType        | Type of the departure point.                                                                                                                               |
-| Booking/Product/ArrivalPointType          | Type of the arrival point.                                                                                                                                 |
 | Booking/Product/Cancellation             | Cancellation policy details including period (in hours), percentage, and fee. For full cancellation details including refund calculations, use the [Cancellation Policy](/hxapi/transfers/cancellation-policy/) endpoint. |
 | Booking/Product/VehicleDetails           | Details about the vehicle including capacity, stops, bags allowed, and whether it's private.                                                               |
 | Booking/Product/OutboundTransfer         | Details of the outbound transfer journey including origin, destination, journey time, and pickup/arrival times.                                           |
@@ -123,8 +121,6 @@ The `FlightDetails` object contains flight information when the transfer is asso
     <Currency>GBP</Currency>
     <Category>private_car</Category>
     <TransferCode>TBHT1169922</TransferCode>
-    <DeparturePointType>Airport</DeparturePointType>
-    <ArrivalPointType>Hotel</ArrivalPointType>
     <Cancellation>
       <Period>24</Period>
       <Percentage>100</Percentage>
@@ -212,8 +208,6 @@ The `FlightDetails` object contains flight information when the transfer is asso
       "Currency": "GBP",
       "Category": "private_car",
       "TransferCode": "TBHT1169922",
-      "DeparturePointType": "Airport",
-      "ArrivalPointType": "Hotel",
       "Cancellation": {
         "Period": 24,
         "Percentage": 100,
