@@ -64,7 +64,8 @@ For a detailed explanation of the fields returned, please see below:
 | Booking/Product/ArrivalPointType          | Type of the arrival point.                                                                                                                                 |
 | Booking/Product/Cancellation             | Cancellation policy details including period (in hours), percentage, and fee. For full cancellation details including refund calculations, use the [Cancellation Policy](/hxapi/transfers/cancellation-policy/) endpoint. |
 | Booking/Product/VehicleDetails           | Details about the vehicle including capacity, stops, bags allowed, and whether it's private.                                                               |
-
+| Booking/Product/OutboundTransfer         | Details of the outbound transfer journey including origin, destination, journey time, and pickup/arrival times.                                           |
+| Booking/Product/ReturnTransfer           | Details of the return transfer journey (only present if the booking includes a return transfer).                                                           |
 
 ### Transfer Details Fields
 
