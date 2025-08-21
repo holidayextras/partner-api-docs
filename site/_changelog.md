@@ -1,6 +1,7 @@
 | Version Number | Date                | Details                                                                                                                        |
 |----------------|---------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| 1.33.0         | 18th Aug 2025       | Added comprehensive transfers documentation including view booking, cancel booking, and cancellation policy endpoints.        |
+| 1.34.0         | 21st Aug 2025       | Added priceCheck parameters for transfers make booking endpoint.                                                               |
+| 1.33.0         | 18th Aug 2025       | Added comprehensive transfers documentation including view booking, cancel booking, and cancellation policy endpoints.         |
 | 1.32.0         | 5th Aug 2025        | Updated all `api.` domain references to .com over .co.uk, updated references to `/sandbox` to `api-sandbox.holidayextras.com`. |
 | 1.31.0         | 21st July 2025      | Added new error code.                                                                                                          |
 | 1.30.0         | 3rd July 2025       | Update FastTrack availability documentation.                                                                                   |

@@ -357,6 +357,20 @@
       <td>Y</td>
       <td>The total price of the Transfer/s (This will be the value of the <code class="language-plaintext highlighter-rouge">TotalPrice</code> property returned in the availability response).</td>
     </tr>
+    <tr>
+      <td>PriceCheckFlag</td>
+      <td>String</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Indicates a price check will be carried out prior to booking. <br />If the price is lower in the system the booking will be made as the customer will benefit from a saving.  If the price has changed and is higher than the price stated on availability, an error will return to explain that the price has increased, the booking can still be made but the customer must confirm that they will pay the higher amount.  You should then resubmit the request changing the PriceCheckPrice with the new price.</td>
+    </tr>
+    <tr>
+      <td>PriceCheckPrice</td>
+      <td>Float</td>
+      <td>[0-9]</td>
+      <td>Y</td>
+      <td>Price of the product, received from the availability request or price check.</td>
+    </tr>
   </tbody>
 </table>
 
