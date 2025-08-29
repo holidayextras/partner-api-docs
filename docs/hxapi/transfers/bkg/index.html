@@ -117,7 +117,7 @@
       <td>String</td>
       <td>[A-Z0-9]</td>
       <td>Y</td>
-      <td>The type can either be <code class="language-plaintext highlighter-rouge">IATA</code>, <code class="language-plaintext highlighter-rouge">TTI</code>, <code class="language-plaintext highlighter-rouge">GIATA</code>, <code class="language-plaintext highlighter-rouge">postal-address</code> or <code class="language-plaintext highlighter-rouge">PC</code> (Postcode) (i.e <code class="language-plaintext highlighter-rouge">PickUpType=IATA</code>).</td>
+      <td>The type can either be <code class="language-plaintext highlighter-rouge">IATA</code>, <code class="language-plaintext highlighter-rouge">TTI</code>, <code class="language-plaintext highlighter-rouge">GIATA</code>, <code class="language-plaintext highlighter-rouge">postal-address</code> or <code class="language-plaintext highlighter-rouge">PC</code> (Postcode - only available for UK locations) (i.e <code class="language-plaintext highlighter-rouge">PickUpType=IATA</code>).</td>
     </tr>
     <tr>
       <td>PickUp</td>
@@ -187,7 +187,7 @@
       <td>String</td>
       <td>[A-Z0-9]</td>
       <td>Y</td>
-      <td>The type can either be <code class="language-plaintext highlighter-rouge">IATA</code>, <code class="language-plaintext highlighter-rouge">TTI</code>, <code class="language-plaintext highlighter-rouge">GIATA</code>, <code class="language-plaintext highlighter-rouge">postal-address</code> or <code class="language-plaintext highlighter-rouge">PC</code> (Postcode) (i.e <code class="language-plaintext highlighter-rouge">DropOffType=TTI</code>).</td>
+      <td>The type can either be <code class="language-plaintext highlighter-rouge">IATA</code>, <code class="language-plaintext highlighter-rouge">TTI</code>, <code class="language-plaintext highlighter-rouge">GIATA</code>, <code class="language-plaintext highlighter-rouge">postal-address</code> or <code class="language-plaintext highlighter-rouge">PC</code> (Postcode - only available for UK locations) (i.e <code class="language-plaintext highlighter-rouge">DropOffType=TTI</code>).</td>
     </tr>
     <tr>
       <td>DropOff</td>
@@ -368,8 +368,8 @@
       <td>PriceCheckPrice</td>
       <td>Float</td>
       <td>[0-9]</td>
-      <td>N+</td>
-      <td>Price of the product, received from the availability request or price check.</td>
+      <td>N</td>
+      <td>Price of the product, received from the availability request or price check.  Only required when <code class="language-plaintext highlighter-rouge">PriceCheckFlag</code> is <code class="language-plaintext highlighter-rouge">Y</code></td>
     </tr>
   </tbody>
 </table>
