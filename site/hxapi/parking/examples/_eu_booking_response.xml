@@ -2,6 +2,8 @@
 <API_Reply Product="CarPark" RequestCode="4" Result="OK">
   <Booking>
     <BookingRef>YourBookingRef</BookingRef>
+    <AgentComm>3.75</AgentComm>
+    <VATonComm>0.00</VATonComm>
   </Booking>
   <MoreInfoURL>/carpark/YourBookingRef.de</MoreInfoURL>
   <CarPark>
