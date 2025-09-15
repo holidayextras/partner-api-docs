@@ -2,7 +2,7 @@
 
 ---
 
-# Asynchronous Bookings <span style="color: red; font-size: medium;">Draft</span>
+# Asynchronous Bookings
 
 ## Background
 
@@ -63,7 +63,7 @@ Note the `.js` extension.
 
 - **`true`:** Availability searches include async products.
 - **`false`:** Availability searches exclude async products (default behavior).
-- 
+
 ---
 
 ## Making an Async Booking
@@ -78,7 +78,7 @@ We have introduced a new parameter to the booking endpoint to support asynchrono
 
 ### Behavior
 
-- **`true`:** The booking will be processed asynchronously. A response will indicate that the booking has been created but not yet confirmed.
+- **`true`:** The booking will be processed asynchronously. The booking response will indicate that the booking has been created but not yet confirmed.
 - **`false`:** The booking will follow the standard synchronous process.
 
 ### Request
