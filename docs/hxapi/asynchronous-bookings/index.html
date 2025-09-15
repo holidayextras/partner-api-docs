@@ -38,7 +38,7 @@
     <div class="container">
       <main role="main">
         <div class="panel-body">
-  <h1 id="asynchronous-bookings-draft">Asynchronous Bookings <span style="color: red; font-size: medium;">Draft</span></h1>
+  <h1 id="asynchronous-bookings">Asynchronous Bookings</h1>
 
 <h2 id="background">Background</h2>
 
@@ -85,7 +85,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 <h3 id="uk-products-availability-request">UK Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#edea130d-b045-4c32-ae44-4001e57e61e8'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#98ada274-d6eb-460b-bf7c-a87b4ea66364'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -93,7 +93,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 </ul>
 
-<ul id="edea130d-b045-4c32-ae44-4001e57e61e8" class="uk-switcher uk-margin">
+<ul id="98ada274-d6eb-460b-bf7c-a87b4ea66364" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/carpark/LGW?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-01-07&amp;ArrivalTime=1200&amp;DepartDate=2025-01-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;includeAsyncOnlyProducts=true
@@ -110,7 +110,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 <h3 id="european-products-availability-request">European Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#bb7b28fd-b4c4-476c-9dde-894b3be0cfd5'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#1f0d439e-5b96-40e8-8876-f04a748dc98b'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -118,7 +118,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 </ul>
 
-<ul id="bb7b28fd-b4c4-476c-9dde-894b3be0cfd5" class="uk-switcher uk-margin">
+<ul id="1f0d439e-5b96-40e8-8876-f04a748dc98b" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/carpark/MUC?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-12-01&amp;ArrivalTime=1200&amp;DepartDate=2025-12-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;System=ABG&amp;lang=en&amp;includeAsyncOnlyProducts=true
@@ -138,10 +138,9 @@ Asynchronous bookings require a different approach compared to synchronous booki
 <ul>
   <li><strong><code class="language-plaintext highlighter-rouge">true</code>:</strong> Availability searches include async products.</li>
   <li><strong><code class="language-plaintext highlighter-rouge">false</code>:</strong> Availability searches exclude async products (default behavior).</li>
-  <li>
-    <hr />
-  </li>
 </ul>
+
+<hr />
 
 <h2 id="making-an-async-booking">Making an Async Booking</h2>
 
@@ -173,7 +172,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 <h3 id="behavior-1">Behavior</h3>
 
 <ul>
-  <li><strong><code class="language-plaintext highlighter-rouge">true</code>:</strong> The booking will be processed asynchronously. A response will indicate that the booking has been created but not yet confirmed.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">true</code>:</strong> The booking will be processed asynchronously. The booking response will indicate that the booking has been created but not yet confirmed.</li>
   <li><strong><code class="language-plaintext highlighter-rouge">false</code>:</strong> The booking will follow the standard synchronous process.</li>
 </ul>
 
