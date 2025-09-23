@@ -85,7 +85,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 <h3 id="uk-products-availability-request">UK Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#7b4fb7d0-51c9-45a9-8ee4-cc8eb3d76ce7'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#7a7b0432-1209-4103-a5df-1816bc9338af'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -93,7 +93,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 </ul>
 
-<ul id="7b4fb7d0-51c9-45a9-8ee4-cc8eb3d76ce7" class="uk-switcher uk-margin">
+<ul id="7a7b0432-1209-4103-a5df-1816bc9338af" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/carpark/LGW?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-01-07&amp;ArrivalTime=1200&amp;DepartDate=2025-01-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;includeAsyncOnlyProducts=true
@@ -110,7 +110,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 <h3 id="european-products-availability-request">European Products Availability Request</h3>
 
-<ul class="uk-tab" data-uk-switcher="{connect:'#adf24a6c-29e0-49a9-8e33-82f9b2db0147'}">
+<ul class="uk-tab" data-uk-switcher="{connect:'#bbb9e990-63fc-4274-b30a-384dbe70dca2'}">
 
 	<li class="uk-active"><a href="#">XML</a></li>
 
@@ -118,7 +118,7 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 </ul>
 
-<ul id="adf24a6c-29e0-49a9-8e33-82f9b2db0147" class="uk-switcher uk-margin">
+<ul id="bbb9e990-63fc-4274-b30a-384dbe70dca2" class="uk-switcher uk-margin">
 
 	<li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.holidayextras.com/v1/carpark/MUC?ABTANumber=YourABTANumber&amp;Password=YourPassword&amp;Initials=YourInitials&amp;key=YourKey&amp;token=YourToken&amp;ArrivalDate=2025-12-01&amp;ArrivalTime=1200&amp;DepartDate=2025-12-08&amp;DepartTime=1200&amp;NumberOfPax=1&amp;System=ABG&amp;lang=en&amp;includeAsyncOnlyProducts=true
@@ -192,8 +192,8 @@ Asynchronous bookings require a different approach compared to synchronous booki
 
 <h4 id="added-property">Added Property:</h4>
 <ul>
-  <li><strong><code class="language-plaintext highlighter-rouge">bookingStatus</code>:</strong> Indicates the current status of the booking (<code class="language-plaintext highlighter-rouge">Pending</code>, <code class="language-plaintext highlighter-rouge">Confirmed</code>, <code class="language-plaintext highlighter-rouge">Cancelled</code>, or <code class="language-plaintext highlighter-rouge">Error</code>).</li>
-  <li><strong><code class="language-plaintext highlighter-rouge">suggestedPollingInterval</code>:</strong> Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Status</code>:</strong> Indicates the current status of the booking (<code class="language-plaintext highlighter-rouge">Pending</code>, <code class="language-plaintext highlighter-rouge">Confirmed</code>, <code class="language-plaintext highlighter-rouge">Cancelled</code>, or <code class="language-plaintext highlighter-rouge">Error</code>).</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">SuggestedPollingInterval</code>:</strong> Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.</li>
 </ul>
 
 <hr />
@@ -205,14 +205,14 @@ Asynchronous bookings require a different approach compared to synchronous booki
 <h3 id="when-polling-is-required">When Polling is Required</h3>
 
 <p>Polling is required when a booking has been submitted with the <code class="language-plaintext highlighter-rouge">includeAsyncOnlyProducts=true</code> parameter.
-The <code class="language-plaintext highlighter-rouge">bookingStatus</code> field in the response from the <code class="language-plaintext highlighter-rouge">view booking</code> endpoint indicates the current status of a booking.</p>
+The <code class="language-plaintext highlighter-rouge">Status</code> field in the response from the <code class="language-plaintext highlighter-rouge">view booking</code> endpoint indicates the current status of a booking.</p>
 
-<p>Booking details such as the QR code, supplier reference, and other information will only be provided once the <code class="language-plaintext highlighter-rouge">bookingStatus</code> field is in a <code class="language-plaintext highlighter-rouge">Confirmed</code> state.</p>
+<p>Booking details such as the QR code, supplier reference, and other information will only be provided once the <code class="language-plaintext highlighter-rouge">Status</code> field is in a <code class="language-plaintext highlighter-rouge">Confirmed</code> state.</p>
 
 <h3 id="how-often-to-poll">How Often to Poll</h3>
 
 <p>The frequency of polling depends on the product type and supplier.
-On the initial booking response, we provide a <code class="language-plaintext highlighter-rouge">suggestedPollingInterval</code> field to guide partners on the recommended polling frequency.</p>
+On the initial booking response, we provide a <code class="language-plaintext highlighter-rouge">SuggestedPollingInterval</code> field to guide partners on the recommended polling frequency.</p>
 
 <h3 id="booking-status-values">Booking Status Values</h3>
 
@@ -250,11 +250,11 @@ On the initial booking response, we provide a <code class="language-plaintext hi
 
 <h3 id="response-example">Response Example</h3>
 
-<p>The response will now include a <code class="language-plaintext highlighter-rouge">bookingStatus</code> field to indicate the current status of the booking and a <code class="language-plaintext highlighter-rouge">suggestedPollingInterval</code> field to guide partners on the recommended polling frequency.</p>
+<p>The response will now include a <code class="language-plaintext highlighter-rouge">Status</code> field to indicate the current status of the booking and a <code class="language-plaintext highlighter-rouge">SuggestedPollingInterval</code> (integer, seconds) field to guide partners on the recommended polling frequency.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"bookingStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"suggestedPollingInterval"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SuggestedPollingInterval"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -265,7 +265,7 @@ On the initial booking response, we provide a <code class="language-plaintext hi
 <ol>
   <li><strong>Polling Interval:</strong>
     <ul>
-      <li>Follow the recommended intervals provided in the response.</li>
+      <li>Follow the recommended intervals provided in the response (value is in seconds).</li>
       <li>Avoid excessive requests to prevent unnecessary load on our systems.</li>
     </ul>
   </li>
@@ -287,7 +287,7 @@ On the initial booking response, we provide a <code class="language-plaintext hi
 
 <ol>
   <li>Make a booking</li>
-  <li>Start Polling: Use the view booking endpoint to check the <code class="language-plaintext highlighter-rouge">bookingStatus</code>.
+  <li>Start Polling: Use the view booking endpoint to check the <code class="language-plaintext highlighter-rouge">Status</code>.
     <ul>
       <li><strong>If <code class="language-plaintext highlighter-rouge">Pending</code>:</strong> Continue polling at the recommended intervals.</li>
       <li><strong>If <code class="language-plaintext highlighter-rouge">Confirmed</code>:</strong> Retrieve full details and stop polling.</li>

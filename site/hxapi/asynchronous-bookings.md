@@ -94,8 +94,8 @@ When the `includeAsyncOnlyProducts` parameter is set to `true` and the booking i
 - **Joining Instructions:** These details will be added once the booking reaches a `Confirmed` state.
 
 #### Added Property:
-- **`bookingStatus`:** Indicates the current status of the booking (`Pending`, `Confirmed`, `Cancelled`, or `Error`).
-- **`suggestedPollingInterval`:** Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.
+- **`Status`:** Indicates the current status of the booking (`Pending`, `Confirmed`, `Cancelled`, or `Error`).
+- **`SuggestedPollingInterval`:** Specifies the recommended interval in seconds for polling the view booking endpoint. The polling frequency varies based on the product type and supplier.
 
 ---
 
@@ -106,14 +106,14 @@ When working with asynchronous bookings, partners must poll our API to determine
 ### When Polling is Required  
 
 Polling is required when a booking has been submitted with the `includeAsyncOnlyProducts=true` parameter.
-The `bookingStatus` field in the response from the `view booking` endpoint indicates the current status of a booking.  
+The `Status` field in the response from the `view booking` endpoint indicates the current status of a booking.  
 
-Booking details such as the QR code, supplier reference, and other information will only be provided once the `bookingStatus` field is in a `Confirmed` state.
+Booking details such as the QR code, supplier reference, and other information will only be provided once the `Status` field is in a `Confirmed` state.
 
 ### How Often to Poll  
 
 The frequency of polling depends on the product type and supplier.
-On the initial booking response, we provide a `suggestedPollingInterval` field to guide partners on the recommended polling frequency.
+On the initial booking response, we provide a `SuggestedPollingInterval` field to guide partners on the recommended polling frequency.
 
 ### Booking Status Values  
 
@@ -131,12 +131,12 @@ The endpoint to use is the existing view booking endpoint: [/hxapi/viewamendcanc
 
 ### Response Example
 
-The response will now include a `bookingStatus` field to indicate the current status of the booking and a `suggestedPollingInterval` field to guide partners on the recommended polling frequency.
+The response will now include a `Status` field to indicate the current status of the booking and a `SuggestedPollingInterval` (integer, seconds) field to guide partners on the recommended polling frequency.
 
 ```json
 {
-  "bookingStatus": "Pending",
-  "suggestedPollingInterval": 300
+  "Status": "Pending",
+  "SuggestedPollingInterval": 5
 }
 ```
 
@@ -145,7 +145,7 @@ The response will now include a `bookingStatus` field to indicate the current st
 ## Best Practices  
 
 1. **Polling Interval:**  
-   - Follow the recommended intervals provided in the response.  
+   - Follow the recommended intervals provided in the response (value is in seconds).  
    - Avoid excessive requests to prevent unnecessary load on our systems.  
 
 2. **Stop Polling:**  
@@ -159,7 +159,7 @@ The response will now include a `bookingStatus` field to indicate the current st
 ## Workflow Example  
 
 1. Make a booking 
-2. Start Polling: Use the view booking endpoint to check the `bookingStatus`.  
+2. Start Polling: Use the view booking endpoint to check the `Status`.  
    - **If `Pending`:** Continue polling at the recommended intervals.  
    - **If `Confirmed`:** Retrieve full details and stop polling.  
    - **If `Error`:** Handle the failure appropriately.
