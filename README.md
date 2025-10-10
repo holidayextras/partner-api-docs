@@ -10,6 +10,7 @@ Documentation to give to partners who would like to integrate with our API.
 
 Setting up ruby (only need to be done once per machine):
 
+    brew install --force openssl@1.1
     curl -sSL https://get.rvm.io | bash -s stable
     rvm install "ruby-3.2.0" --with-openssl-dir=$(brew --prefix openssl@1.1)
     gem install bundler
