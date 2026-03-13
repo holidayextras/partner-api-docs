@@ -1,4 +1,4 @@
-**APIConnect Partner API v2 - Understanding the OpenAPI Documentation**
+# APIConnect Partner API v2 - Understanding the OpenAPI Documentation
 
 Document Version: 0.1 Last Updated: 2026-01-30
 

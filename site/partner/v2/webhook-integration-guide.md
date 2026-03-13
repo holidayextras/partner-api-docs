@@ -1,4 +1,4 @@
-**APIConnect Partner API v2 - Event Notifications**
+# APIConnect Partner API v2 - Event Notifications
 
 Version: 1.0 Last Updated: 2026-01-29
 

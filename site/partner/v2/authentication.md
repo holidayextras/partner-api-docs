@@ -1,3 +1,5 @@
+# Authentication
+
 This guide explains how to authenticate with our API using OAuth 2.0 client credentials flow.
 
 ## Overview
