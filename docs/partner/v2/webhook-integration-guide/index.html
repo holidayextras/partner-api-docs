@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="apiconnect-partner-api-v2---event-notifications">APIConnect Partner API v2 - Event Notifications</h1>
+
+<p>Version: 1.0 Last Updated: 2026-01-29</p>
+
+<hr />
+
+<h2 id="overview">Overview</h2>
+
+<p>Webhooks allow you to receive real-time notifications when booking events occur. We’ll send HTTP POST requests to your endpoint when booking states change.</p>
+
+<h3 id="when-to-use-webhooks">When to Use Webhooks</h3>
+
+<p>Use webhooks when you want to be notified about booking status changes, particularly for pending bookings that need confirmation.</p>
+
+<p><strong>Note:</strong> If you use our hosted confirmation page or the confirmation endpoint (which handles status automatically), you may not need webhooks. See the <a href="/partner/v2/api-endpoint-navigation-guide/#stage-4-create-booking">API Endpoint Navigation Guide</a> for alternatives.</p>
+
+<hr />
+
+<h2 id="configuration">Configuration</h2>
+
+<h3 id="step-1-create-your-endpoint">Step 1: Create Your Endpoint</h3>
+
+<p>Your webhook endpoint must:</p>
+
+<ul>
+  <li>Accept HTTP POST requests</li>
+  <li>Be publicly accessible via HTTPS (valid SSL certificate required)</li>
+  <li>Respond with HTTP 200 within 10 seconds</li>
+  <li>Verify the signature we send (security requirement)</li>
+</ul>
+
+<h3 id="step-2-speak-with-your-partnerships-manager">Step 2: Speak With Your Partnerships Manager</h3>
+
+<p>Let your partnerships manager know your endpoint and they will configure it within the Holiday Extras APIConnect platform</p>
+
+<p><strong>Important:</strong> Store your webhook secret securely (environment variable or vault).</p>
+
+<hr />
+
+<h2 id="event-payload-structure">Event Payload Structure</h2>
+
+<p>All webhook events follow this structure:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"collection_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"550e8400-e29b-41d4-a716-446655440000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booking.confirmed"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-01-29T10:30:45.123Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"correlation_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c7f8e3d2-a1b4-4c5d-9e8f-7a6b5c4d3e2f"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"trace_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trace_abc123xyz789"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APIConnect"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"booking_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HX123456"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"partner_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ORDER-12345"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="envelope-fields">Envelope Fields</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Purpose</th>
+      <th>How to Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">collection_id</code></td>
+      <td>Unique event identifier</td>
+      <td>Use for deduplication - store this to prevent processing the same event twice</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">event_type</code></td>
+      <td>Type of event</td>
+      <td>Describes what has occurred</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">timestamp</code></td>
+      <td>When event occurred</td>
+      <td>For ordering events and auditing</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">correlation_id</code></td>
+      <td>Groups related events</td>
+      <td>For tracking the entire booking lifecycle</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">trace_id</code></td>
+      <td>Debug identifier</td>
+      <td>Include in support requests</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">source</code></td>
+      <td>Who sent this webhook</td>
+      <td>Verification purposes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data.booking_reference</code></td>
+      <td>Our booking reference</td>
+      <td>Use to fetch full booking details via API</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data.partner_reference</code></td>
+      <td>Your reference</td>
+      <td>Match to your internal order/transaction</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="why-thin-payloads">Why Thin Payloads?</h3>
+
+<p>The webhook contains <strong>only identifiers</strong>, not full booking details. This is intentional:</p>
+
+<ul>
+  <li>You always get fresh data by calling the API</li>
+  <li>No risk of processing stale information</li>
+  <li>Consistent data structure across all events</li>
+</ul>
+
+<p><strong>After receiving a webhook, call:</strong> <code class="language-plaintext highlighter-rouge">GET /api/v1/bookings/{booking_reference}</code> to fetch full booking details.</p>
+
+<hr />
+
+<h2 id="event-types">Event Types</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Type</th>
+      <th>When Sent</th>
+      <th>Typical Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">booking.confirmed</code></td>
+      <td>Supplier confirms</td>
+      <td>Fetch booking details, update database, send confirmation email</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">booking.failed</code></td>
+      <td>Supplier rejects</td>
+      <td>Fetch failure reason, process refund, notify customer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="security-signature-verification">Security: Signature Verification</h2>
+
+<p>Every webhook includes an HMAC-SHA256 signature in the <code class="language-plaintext highlighter-rouge">X-HX-Signature</code> header. You <strong>must</strong> verify this signature to ensure the webhook came from us.</p>
+
+<h3 id="request-headers">Request Headers</h3>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">POST</span> <span class="nn">/webhooks/apiconnect</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.yourcompany.com</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">X-HX-Signature</span><span class="p">:</span> <span class="s">sha256=a1b2c3d4e5f6...</span>
+<span class="na">X-HX-Timestamp</span><span class="p">:</span> <span class="s">1738152645</span>
+<span class="na">X-HX-Collection-Id</span><span class="p">:</span> <span class="s">550e8400-e29b-41d4-a716-446655440000</span>
+<span class="s">{...webhook payload...}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="handling-duplicates">Handling Duplicates</h2>
+
+<p>Webhooks use <strong>at-least-once delivery</strong>, meaning the same event may be delivered multiple times.</p>
+
+<hr />
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>
