@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="authentication">Authentication</h1>
+
+<p>This guide explains how to authenticate with our API using OAuth 2.0 client credentials flow.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>Our API uses OAuth 2.0 with the client credentials grant type. This flow is designed for server-to-server authentication where no user interaction is required.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>To use OAuth authentication, you must first obtain client credentials:</p>
+
+<ul>
+  <li><strong>client_id</strong>: Your unique application identifier</li>
+  <li><strong>client_secret</strong>: Your application’s secret key</li>
+</ul>
+
+<p>Contact us to register your application and receive credentials.</p>
+
+<h2 id="base-url">Base URL</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Base URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Production</td>
+      <td><code class="language-plaintext highlighter-rouge">https://auth.holidayextras.com</code></td>
+    </tr>
+    <tr>
+      <td>Staging</td>
+      <td><code class="language-plaintext highlighter-rouge">https://auth-staging.holidayextras.com</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="discovery">Discovery</h2>
+
+<p>OAuth server metadata is available at the well-known endpoint:</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">GET /.well-known/oauth-authorization-server
+</span></code></pre></div></div>
+
+<p>This returns a JSON document describing the OAuth server configuration:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://auth.holidayextras.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://auth.holidayextras.com/oauth2/token"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"revocation_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://auth.holidayextras.com/oauth2/revoke"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_endpoint_auth_methods_supported"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"client_secret_basic"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"grant_types_supported"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"client_credentials"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"response_types_supported"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"scopes_supported"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="token-generation">Token Generation</h2>
+
+<h3 id="token-endpoint">Token Endpoint</h3>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST /oauth2/token
+</span></code></pre></div></div>
+
+<h3 id="token-authentication">Token Authentication</h3>
+
+<p>Use HTTP Basic authentication with your credentials encoded as base64:</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">Authorization: Basic {base64(client_id:client_secret)}
+</span></code></pre></div></div>
+
+<h3 id="request">Request</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authorization</td>
+      <td><code class="language-plaintext highlighter-rouge">Basic {base64_encoded_credentials}</code></td>
+    </tr>
+    <tr>
+      <td>Content-Type</td>
+      <td><code class="language-plaintext highlighter-rouge">application/x-www-form-urlencoded</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body Parameter</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>grant_type</td>
+      <td><code class="language-plaintext highlighter-rouge">client_credentials</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response">Response</h3>
+
+<p>A successful request returns <code class="language-plaintext highlighter-rouge">200 OK</code> with a JSON body:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123xyz..."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>access_token</td>
+      <td>The token to use for API requests</td>
+    </tr>
+    <tr>
+      <td>token_type</td>
+      <td>Always <code class="language-plaintext highlighter-rouge">Bearer</code></td>
+    </tr>
+    <tr>
+      <td>expires_in</td>
+      <td>Token lifetime in seconds (3600 = 1 hour)</td>
+    </tr>
+    <tr>
+      <td>scope</td>
+      <td>Granted scopes (if applicable)</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>Token status</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="token-example">Token Example</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://auth.holidayextras.com/oauth2/token"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'your_client_id:your_client_secret'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s2">"grant_type=client_credentials"</span>
+</code></pre></div></div>
+
+<h2 id="using-access-tokens">Using Access Tokens</h2>
+
+<p>Include the access token in the <code class="language-plaintext highlighter-rouge">Authorization</code> header for all API requests:</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">Authorization: Bearer {access_token}
+</span></code></pre></div></div>
+
+<h3 id="usage-example">Usage Example</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="s2">"https://api.holidayextras.com/endpoint"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer abc123xyz..."</span>
+</code></pre></div></div>
+
+<h3 id="token-expiry">Token Expiry</h3>
+
+<p>Access tokens expire after <strong>1 hour</strong> (3600 seconds / 3600000 milliseconds).</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">expires_in</code> field in the token response indicates the remaining lifetime in seconds. Your application should:</p>
+
+<ol>
+  <li>Store the token and its expiry time</li>
+  <li>Request a new token before the current one expires</li>
+  <li>Handle 401 responses by requesting a new token</li>
+</ol>
+
+<h2 id="rate-limits">Rate Limits</h2>
+
+<p>The OAuth token endpoints are limited to <strong>100 requests per hour</strong> per client.</p>
+
+<p>If you exceed this limit, you will receive a <code class="language-plaintext highlighter-rouge">429 Too Many Requests</code> response.</p>
+
+<p>If you anticipate needing higher rate limits, contact your account representative to discuss your requirements.</p>
+
+<h2 id="token-revocation">Token Revocation</h2>
+
+<p>To invalidate an access token before it expires, use the revocation endpoint.</p>
+
+<h3 id="revoke-endpoint">Revoke Endpoint</h3>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST /oauth2/revoke
+</span></code></pre></div></div>
+
+<h3 id="revoke-authentication">Revoke Authentication</h3>
+
+<p>Use HTTP Basic authentication with the <strong>same credentials that generated the token</strong>:</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">Authorization: Basic {base64(client_id:client_secret)}
+</span></code></pre></div></div>
+
+<h3 id="revoke-request">Revoke Request</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authorization</td>
+      <td><code class="language-plaintext highlighter-rouge">Basic {base64_encoded_credentials}</code></td>
+    </tr>
+    <tr>
+      <td>Content-Type</td>
+      <td><code class="language-plaintext highlighter-rouge">application/x-www-form-urlencoded</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body Parameter</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>token</td>
+      <td>The access token to revoke</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="revoke-response">Revoke Response</h3>
+
+<p>A successful revocation returns <code class="language-plaintext highlighter-rouge">200 OK</code> with no body.</p>
+
+<p>Per RFC 7009, the endpoint returns 200 for both valid and invalid tokens to prevent token enumeration.</p>
+
+<h3 id="revoke-example">Revoke Example</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://auth.holidayextras.com/oauth2/revoke"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'your_client_id:your_client_secret'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s2">"token=abc123xyz..."</span>
+</code></pre></div></div>
+
+<p>##</p>
+
+<h2 id="error-responses">Error Responses</h2>
+
+<p>Error responses follow RFC 6749 format:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error_code"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="error-codes">Error Codes</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Error Code</th>
+      <th>HTTP Status</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">invalid_request</code></td>
+      <td>400</td>
+      <td>Missing or invalid request parameters (e.g., missing Authorization header)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">invalid_client</code></td>
+      <td>401</td>
+      <td>Client authentication failed (invalid client_id or client_secret)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-error-response">Example Error Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid_client"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>
