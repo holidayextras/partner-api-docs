@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+    <form class="navbar-form navbar-right" id="search-form" method="get" action="/search">
+      <div class="input-group input-group-lg">
+        <input type="text" name="query" class="form-control" id="search-box" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="apiconnect-partner-api-v2---understanding-the-openapi-documentation">APIConnect Partner API v2 - Understanding the OpenAPI Documentation</h1>
+
+<p>Document Version: 0.1 Last Updated: 2026-01-30</p>
+
+<p>This document is in Beta</p>
+
+<hr />
+
+<h2 id="purpose-of-this-guide">Purpose of This Guide</h2>
+
+<p>This guide helps you navigate the Swagger/OpenAPI documentation by explaining the <strong>context</strong> and <strong>workflow</strong> of the API endpoints. While Swagger shows you <em>what</em> each endpoint does, this guide explains <em>when</em> and <em>why</em> to use each endpoint, and how they work together.</p>
+
+<h2 id="openapi-specification">OpenAPI Specification</h2>
+
+<p>The openapi schema for the API can be found at <a href="https://api-sandbox.holidayextras.com/partner-api/v2-beta/schema.json">https://api-sandbox.holidayextras.com/partner-api/v2-beta/schema.json</a></p>
+
+<p>This is a live document and is expected to be updated.</p>
+
+<p>This can be viewed using a tool of your choice. We recommend <a href="https://editor.swagger.io/">https://editor.swagger.io/</a> or importing the schema into <a href="https://www.postman.com/">Postman</a>.</p>
+
+<hr />
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ol>
+  <li><a href="#api-architecture-overview">API Architecture Overview</a></li>
+  <li><a href="#core-concepts">Core Concepts</a></li>
+  <li><a href="#the-customer-journey">The Customer Journey</a></li>
+  <li><a href="#common-workflows">Common Workflows</a></li>
+</ol>
+
+<hr />
+
+<h2 id="api-architecture-overview">API Architecture Overview</h2>
+
+<h3 id="product-centric-design">Product-Centric Design</h3>
+
+<p>The APIConnect API is built around <strong>products</strong>. Each of our five products has the same set of endpoints:</p>
+
+<p><strong>Available Products:</strong></p>
+
+<ul>
+  <li><strong>Parking</strong> - Airport car parking</li>
+</ul>
+
+<p><strong>Coming Soon</strong></p>
+
+<ul>
+  <li><strong>Hotels</strong> - Airport hotel accommodation</li>
+  <li><strong>Hotel with Parking</strong> - Integrated packages</li>
+  <li><strong>Lounges</strong> - Airport lounge access</li>
+  <li><strong>FastTrack</strong> - Priority security lanes</li>
+</ul>
+
+<p><strong>Endpoint Pattern:</strong> When you see endpoints in the OpenAPI schema like:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">GET /v2/products/parking</code></li>
+  <li><code class="language-plaintext highlighter-rouge">GET /v2/products/hotels</code></li>
+  <li><code class="language-plaintext highlighter-rouge">GET /v2/products/lounges</code></li>
+</ul>
+
+<p>These all follow the same pattern - just replace the product type.</p>
+
+<h3 id="the-one-exception-locations">The One Exception: Locations</h3>
+
+<p>The <strong>Locations</strong> endpoint is the only endpoint that doesn’t follow the product-specific pattern. It’s used to discover which locations (airports) have which products available.</p>
+
+<hr />
+
+<h2 id="core-concepts">Core Concepts</h2>
+
+<h3 id="1-price-guarantee-tokens">1. Price Guarantee Tokens</h3>
+
+<p><strong>What:</strong> A time-limited token that locks in a price <strong>When:</strong> Obtained from the Products endpoint <strong>Why:</strong> Ensures customers aren’t charged more than the quoted price <strong>Validity:</strong> 30 minutes <strong>Usage:</strong> Required for Book endpoint</p>
+
+<p><strong>Example Flow:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Customer searches → Products endpoint returns price + token
+2. Customer sees price: £45.99
+3. Customer books → Pass token to Book endpoint
+4. API validates token → Price has increased to £48.99
+5. API only charges £45.99 (the guaranteed price)
+</code></pre></div></div>
+
+<h3 id="2-booking-reference-vs-partner-reference">2. Booking Reference vs Partner Reference</h3>
+
+<p><strong>Booking Reference:</strong></p>
+
+<ul>
+  <li><strong>Format:</strong> e.g., <code class="language-plaintext highlighter-rouge">HX123456</code></li>
+  <li><strong>Source:</strong> Generated by APIConnect</li>
+  <li><strong>Uniqueness:</strong> Guaranteed unique</li>
+  <li><strong>Usage:</strong> Use this for View Booking, Amend, Cancel endpoints</li>
+  <li><strong>Why:</strong> This is our internal identifier that pinpoints a single booking</li>
+</ul>
+
+<p><strong>Partner Reference:</strong></p>
+
+<ul>
+  <li><strong>Format:</strong> Your choice (e.g., <code class="language-plaintext highlighter-rouge">ORDER-12345</code>)</li>
+  <li><strong>Source:</strong> Provided by you</li>
+  <li><strong>Uniqueness:</strong> NOT guaranteed unique (up to you to manage)</li>
+  <li><strong>Usage:</strong> Use this for List Bookings endpoint only</li>
+  <li><strong>Why:</strong> Helps you match our bookings to your internal systems</li>
+</ul>
+
+<h3 id="3-quote-and-confirm-pattern">3. Quote and Confirm Pattern</h3>
+
+<p>For amendments and cancellations, we use a two-step “quote and confirm” pattern:</p>
+
+<p><strong>Quote Step:</strong></p>
+
+<ul>
+  <li>Preview what will happen</li>
+  <li>Get costs/refunds calculated</li>
+  <li>Receive a token</li>
+  <li>Nothing is actioned yet</li>
+</ul>
+
+<p><strong>Confirm Step:</strong></p>
+
+<ul>
+  <li>Use the token from the quote</li>
+  <li>Actually execute the change</li>
+  <li>Booking is modified/cancelled</li>
+  <li>Customer is charged/refunded</li>
+</ul>
+
+<p><strong>Why this pattern?</strong> It allows customers to see the financial impact before committing to the change.</p>
+
+<hr />
+
+<h2 id="the-customer-journey">The Customer Journey</h2>
+
+<h3 id="stage-1-discovery">Stage 1: Discovery</h3>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v2/locations</code></p>
+
+<p><strong>Purpose:</strong> Find out which airports have which products available</p>
+
+<p><strong>When to use:</strong></p>
+
+<ul>
+  <li>User hasn’t selected a location yet</li>
+  <li>Building a location selector</li>
+  <li>Need to show available products by location</li>
+</ul>
+
+<p><strong>Response includes:</strong></p>
+
+<ul>
+  <li>Location types</li>
+  <li>Location codes (IATA / UNLOCODE)</li>
+  <li>Location names</li>
+  <li>Available product types at each location</li>
+</ul>
+
+<p><strong>Caching:</strong> Safe to cache for 24 hours</p>
+
+<hr />
+
+<h3 id="stage-2-product-search">Stage 2: Product Search</h3>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v2/products/parking</code></p>
+
+<p><strong>Purpose:</strong> Search for available products with pricing</p>
+
+<p><strong>When to use:</strong></p>
+
+<ul>
+  <li>Customer has selected location and dates</li>
+  <li>You need availability and pricing</li>
+  <li>This is always the first step in the booking flow</li>
+</ul>
+
+<p><strong>Parking-specific parameter options:</strong></p>
+
+<p>For parking products, you have flexibility in how you specify timing. You can provide <strong>either</strong> set of parameters:</p>
+
+<p><strong>Option 1: Explicit parking times</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">parking_entry_date_time</code> - When the customer will arrive at the car park</li>
+  <li><code class="language-plaintext highlighter-rouge">parking_exit_date_time</code> - When the customer will leave the car park</li>
+</ul>
+
+<p>Use this when you know the exact parking duration needed.</p>
+
+<p><strong>Option 2: Flight-based calculation</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">outbound_flight_number</code> - Departure flight number</li>
+  <li><code class="language-plaintext highlighter-rouge">outbound_flight_date_time</code> - Departure flight time</li>
+  <li><code class="language-plaintext highlighter-rouge">inbound_flight_number</code> - Return flight number</li>
+  <li><code class="language-plaintext highlighter-rouge">inbound_flight_date_time</code> - Return flight time</li>
+</ul>
+
+<p>Use this when you want the API to calculate appropriate parking times based on flight schedules. The API will automatically add buffer time for airport arrival/departure.</p>
+
+<p><strong>Important rules:</strong></p>
+
+<ul>
+  <li>At least one set of parameters must be provided</li>
+  <li>If both sets are provided, <code class="language-plaintext highlighter-rouge">parking_entry_date_time</code> and <code class="language-plaintext highlighter-rouge">parking_exit_date_time</code> take precedence</li>
+  <li>Flight-based calculation is useful when you’re unsure how much time customers need between parking and their flight</li>
+</ul>
+
+<p><strong>Response includes:</strong></p>
+
+<ul>
+  <li>List of available products</li>
+  <li>Pricing for each product</li>
+  <li><strong>Price guarantee token</strong> (important!)</li>
+  <li>Product capabilities (modifiable, cancellable, etc.)</li>
+  <li>Basic product information</li>
+  <li>Supplier required information</li>
+</ul>
+
+<p><strong>Important:</strong> The price guarantee token will expire. We will inform you in the API response of this duration. If the customer takes longer to book, you’ll need to search again to get a fresh token.</p>
+
+<p><strong>Caching:</strong> DO NOT cache this response - prices and availability change frequently</p>
+
+<hr />
+
+<h3 id="stage-3-content-enrichment-optional">Stage 3: Content Enrichment (Optional)</h3>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v2/content/parking</code></p>
+
+<p>Examples:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">GET /v2/content/parking</code></li>
+</ul>
+
+<p><strong>Purpose:</strong> Get detailed product information, images, descriptions, and features</p>
+
+<p><strong>When to use:</strong></p>
+
+<ul>
+  <li>Customer clicks on a product to see more details</li>
+  <li>You want to show rich product information</li>
+  <li>Building a product details page</li>
+</ul>
+
+<p><strong>Response includes:</strong></p>
+
+<ul>
+  <li>Full product descriptions (multi-language)</li>
+  <li>Images and gallery</li>
+  <li>Detailed features and amenities</li>
+  <li>Location details and directions</li>
+</ul>
+
+<p><strong>Caching:</strong> Safe to cache - check response headers for cache duration</p>
+
+<p><strong>Why separate from Products?</strong> Content is large and changes less frequently. Separating it allows the Products endpoint to be fast and efficient, while Content can be cached and only fetched when needed.</p>
+
+<hr />
+
+<h3 id="stage-4-create-booking">Stage 4: Create Booking</h3>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">POST /v2/bookings/parking</code></p>
+
+<p><strong>Purpose:</strong> Create a booking.</p>
+
+<p><strong>When to use:</strong></p>
+
+<ul>
+  <li>Customer has selected a product</li>
+  <li>Customer is ready to confirm the booking</li>
+</ul>
+
+<p><strong>Request requires:</strong></p>
+
+<ul>
+  <li><strong>Price guarantee token</strong> (from the search results)</li>
+  <li>Customer details</li>
+  <li>Product-specific details (see product-specific integration guide)
+    <ul>
+      <li>Parking: Vehicle details, flight info, entry/exit times</li>
+      <li>Hotels: Room requirements, arrival time, guest count</li>
+      <li>Lounges: Passenger details, flight info, visit time</li>
+      <li>FastTrack: Passenger details, flight info, travel time</li>
+    </ul>
+  </li>
+  <li>Your partner reference (optional but recommended)</li>
+</ul>
+
+<p><strong>Response includes:</strong></p>
+
+<ul>
+  <li><strong>Booking reference</strong> (e.g., HX123456) - Our booking reference</li>
+  <li><strong>Booking status</strong> (<code class="language-plaintext highlighter-rouge">pending</code> or <code class="language-plaintext highlighter-rouge">confirmed</code>)</li>
+  <li><strong>Hosted confirmation page URL</strong> - A link to our hosted confirmation page</li>
+  <li><strong>Recommended polling interval</strong> (in seconds) - Suggested frequency for status checks</li>
+  <li>All booking details</li>
+</ul>
+
+<p><strong>Important:</strong> Always include an <code class="language-plaintext highlighter-rouge">Idempotency-Key</code> header to prevent duplicate bookings if there’s a network error.</p>
+
+<p><strong>Understanding Booking Status:</strong></p>
+
+<p><strong>Confirmed Status:</strong></p>
+
+<ul>
+  <li>The booking is fully confirmed with the supplier</li>
+  <li>Show confirmation details to the customer immediately</li>
+  <li>No further action needed</li>
+</ul>
+
+<p><strong>Pending Status:</strong></p>
+
+<ul>
+  <li>We have created the booking on our side</li>
+  <li>Our supplier is still processing the confirmation on their side</li>
+  <li>The booking will transition to either <code class="language-plaintext highlighter-rouge">confirmed</code> or <code class="language-plaintext highlighter-rouge">error</code></li>
+</ul>
+
+<p><strong>Handling Pending Bookings - Four Options:</strong></p>
+
+<p>You have four options for handling pending bookings, depending on how much control you want:</p>
+
+<p><strong>Option 1: Hosted Confirmation Page (Simplest)</strong></p>
+
+<ul>
+  <li>Use the Holiday Extras co-branded hosted confirmation page URL included in the booking response</li>
+  <li>Direct customers to this URL</li>
+  <li>We handle all status updates and display logic</li>
+  <li>The page automatically updates when the booking confirms</li>
+  <li>No polling or webhooks needed on your side</li>
+</ul>
+
+<p><strong>Option 2: Confirmation Endpoint (Simple)</strong></p>
+
+<ul>
+  <li>Use the Confirmation endpoint (Stage 5) to display booking details</li>
+  <li>The data returned is always relevant to the current status</li>
+  <li>Shows “pending” messaging when pending, “confirmed” details when confirmed</li>
+  <li>Make the same call regardless of status - we handle the logic</li>
+  <li>No need to track status transitions yourself</li>
+</ul>
+
+<p><strong>Option 3: Polling (More Control)</strong></p>
+
+<ul>
+  <li>Call the GET booking endpoint (<code class="language-plaintext highlighter-rouge">GET /v2/bookings/parking/{booking-reference}</code>) repeatedly</li>
+  <li>Use the <code class="language-plaintext highlighter-rouge">recommended_polling_interval</code> from the booking response</li>
+  <li>Check the status field in each response</li>
+  <li>Stop polling when status changes to <code class="language-plaintext highlighter-rouge">confirmed</code> or <code class="language-plaintext highlighter-rouge">error</code></li>
+  <li>You control the customer experience during the pending period</li>
+</ul>
+
+<p><strong>Option 4: Webhooks (Event-Driven)</strong></p>
+
+<ul>
+  <li>Build an endpoint on your side matching our webhook specification</li>
+  <li>We call your endpoint when the booking status changes</li>
+  <li>Your endpoint receives notification of the status update</li>
+  <li>Then call GET booking to retrieve the latest information</li>
+  <li>Most efficient for handling status updates</li>
+</ul>
+
+<p><strong>Recommendation:</strong></p>
+
+<ul>
+  <li>Use Option 1 or 2 if you want us to handle the complexity</li>
+  <li>Use Option 3 or 4 if you need full control over the customer experience</li>
+</ul>
+
+<hr />
+
+<h3 id="stage-5-booking-confirmation-details">Stage 5: Booking Confirmation Details</h3>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v2/bookings/parking/{booking-reference}/confirmation-details</code></p>
+
+<p><strong>Purpose:</strong> Get formatted confirmation details for display</p>
+
+<p><strong>When to use:</strong></p>
+
+<ul>
+  <li>Immediately after booking is created</li>
+  <li>Displaying a confirmation page</li>
+</ul>
+
+<p><strong>Query parameters:</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">format</code>: <code class="language-plaintext highlighter-rouge">json</code> (default), <code class="language-plaintext highlighter-rouge">html</code>, or <code class="language-plaintext highlighter-rouge">markdown</code></li>
+</ul>
+
+<p><strong>Response includes:</strong></p>
+
+<ul>
+  <li>All booking details formatted for display</li>
+  <li>Product-specific instructions (PIN codes, meeting points, etc.)</li>
+  <li>Contact information</li>
+  <li>Important notices</li>
+</ul>
+
+<p><strong>Format options:</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">json</code>: Structured data for your own rendering</li>
+  <li><code class="language-plaintext highlighter-rouge">html</code>: Ready-to-use HTML snippet for web pages</li>
+  <li><code class="language-plaintext highlighter-rouge">markdown</code>: Text-based format for simpler emails</li>
+</ul>
+
+<p><strong>Why use this?</strong> The formatted confirmation includes product-specific instructions. It’s optimized for customer-facing display.</p>
+
+<hr />
+
+<h3 id="stage-6-view-booking">Stage 6: View Booking</h3>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v2/bookings/parking/{booking-reference}</code></p>
+
+<p><strong>Purpose:</strong> Retrieve a specific booking by our booking reference</p>
+
+<p><strong>When to use:</strong></p>
+
+<ul>
+  <li>Customer wants to view their booking</li>
+  <li>You need to check current booking status</li>
+  <li>Before allowing amendments or cancellations</li>
+</ul>
+
+<p><strong>Response includes:</strong></p>
+
+<ul>
+  <li>Complete booking details</li>
+  <li>Current status (pending, confirmed, cancelled, error)</li>
+  <li>Customer details</li>
+</ul>
+
+<p><strong>Important:</strong> Use our <strong>booking reference</strong>, not your partner reference.</p>
+
+<hr />
+
+<h3 id="stage-7-list-bookings-alternative-lookup">Stage 7: List Bookings (Alternative Lookup)</h3>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v2/bookings/parking?partner_reference={your-reference}</code></p>
+
+<p><strong>Purpose:</strong> Find bookings using YOUR reference</p>
+
+<p><strong>When to use:</strong></p>
+
+<ul>
+  <li>Customer lost our booking reference</li>
+  <li>You need to look up by your internal order ID</li>
+  <li>You need to reconcile your orders with our bookings</li>
+</ul>
+
+<p><strong>Response includes:</strong></p>
+
+<ul>
+  <li><strong>Array of bookings</strong> (not a single booking)</li>
+  <li>Each booking has our booking reference</li>
+  <li>Use our booking reference for subsequent operations</li>
+</ul>
+
+<p><strong>Why an array?</strong> We don’t guarantee your partner reference is unique. You might reuse order IDs or have multiple bookings per order. Therefore, we always return an array, even if there’s only one result.</p>
+
+<p><strong>Next step:</strong> Display the bookings to the customer and let them select which one they want to manage, then use our booking reference for amendments/cancellations.</p>
+
+<hr />
+
+<h3 id="stage-8-amend-booking-two-step-process">Stage 8: Amend Booking (Two-Step Process)</h3>
+
+<h4 id="step-1-amend-quote">Step 1: Amend Quote</h4>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">PATCH /v2/bookings/parking/{booking-reference}/amendments/quote</code></p>
+
+<p><strong>Purpose:</strong> Preview the amendment without executing it</p>
+
+<p><strong>When to use:</strong></p>
+
+<ul>
+  <li>Customer wants to change booking details</li>
+  <li>You need to show pricing impact before confirming</li>
+</ul>
+
+<p><strong>Response includes:</strong></p>
+
+<ul>
+  <li>Amendment fee (if any)</li>
+  <li>Price difference (if dates/product changed)</li>
+  <li>Total charge or refund</li>
+  <li><strong>Amendment token</strong> (for the confirm step)</li>
+</ul>
+
+<p><strong>Nothing is changed yet</strong> - this is just a quote.</p>
+
+<h4 id="step-2-amend-confirm">Step 2: Amend Confirm</h4>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">POST /v2/bookings/parking/{booking-reference}/amendments/confirm</code></p>
+
+<p><strong>Purpose:</strong> Actually execute the amendment</p>
+
+<p><strong>When to use:</strong></p>
+
+<ul>
+  <li>Customer has seen the quote and accepted it</li>
+  <li>You’re ready to charge/refund the difference</li>
+</ul>
+
+<p><strong>Request requires:</strong></p>
+
+<ul>
+  <li><strong>Amendment token</strong> (from the quote response)</li>
+</ul>
+
+<p><strong>Response includes:</strong></p>
+
+<ul>
+  <li>Updated booking details</li>
+  <li>Confirmation of changes</li>
+  <li>Receipt of any charges/refunds</li>
+</ul>
+
+<p><strong>Important:</strong> The amendment token works the same as the price guarantee token.</p>
+
+<p><strong>Typical workflow:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Customer clicks "Change flight details"
+2. Call Amend Quote → Show "£5 amendment fee"
+3. Customer clicks "Confirm changes"
+4. Call Amend Confirm with token → Booking updated
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="stage-9-cancel-booking-two-step-process">Stage 9: Cancel Booking (Two-Step Process)</h3>
+
+<h4 id="step-1-cancel-quote">Step 1: Cancel Quote</h4>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">PATCH /v2/bookings/parking/{booking-reference}/cancellations/quote</code></p>
+
+<p><strong>Purpose:</strong> Preview the cancellation without executing it</p>
+
+<p><strong>When to use:</strong></p>
+
+<ul>
+  <li>Customer wants to cancel</li>
+  <li>You need to show refund amount before confirming</li>
+</ul>
+
+<p><strong>Response includes:</strong></p>
+
+<ul>
+  <li>Cancellation fee (if any)</li>
+  <li>Refund amount</li>
+  <li><strong>Cancellation token</strong> (for the confirm step)</li>
+</ul>
+
+<p><strong>Nothing is cancelled yet</strong> - this is just a quote.</p>
+
+<h4 id="step-2-cancel-confirm">Step 2: Cancel Confirm</h4>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">POST /v2/bookings/parking/{booking-reference}/cancellations/confirm</code></p>
+
+<p><strong>Purpose:</strong> Actually cancel the booking</p>
+
+<p><strong>When to use:</strong></p>
+
+<ul>
+  <li>Customer has seen the refund amount and confirmed</li>
+  <li>You’re ready to process the cancellation</li>
+</ul>
+
+<p><strong>Request requires:</strong></p>
+
+<ul>
+  <li><strong>Cancellation token</strong> (from the quote response)</li>
+</ul>
+
+<p><strong>Response includes:</strong></p>
+
+<ul>
+  <li>Confirmation of cancellation</li>
+  <li>Final refund amounts</li>
+</ul>
+
+<p><strong>Important:</strong> Cancellations cannot be undone. The customer would need to create a new booking.</p>
+
+<p><strong>Typical workflow:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Customer clicks "Cancel booking"
+2. Call Cancel Quote → Show "You'll receive a £40.99 refund"
+3. Customer clicks "Confirm cancellation"
+4. Call Cancel Confirm with token → Booking cancelled
+5. Show confirmation
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="common-workflows">Common Workflows</h2>
+
+<h3 id="workflow-1-standard-booking-flow">Workflow 1: Standard Booking Flow</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. GET /v2/locations
+   → Show airport selector
+2. GET /v2/products/parking?location_code=LHR&amp;...
+   → Show available parking products with prices
+   → Save price_guarantee_token from response
+3. [Optional] GET /v2/content/parking
+   → Show detailed product information
+4. POST /v2/bookings/parking
+   → Include the price_guarantee_token
+   → Create booking
+5. GET /v2/bookings/parking/{booking-reference}/confirmation-details?format=html
+   → Display confirmation to customer
+   → Send confirmation email
+</code></pre></div></div>
+
+<h3 id="workflow-2-customer-wants-to-view-their-booking">Workflow 2: Customer Wants to View Their Booking</h3>
+
+<p><strong>Scenario A: Customer has our booking reference</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. GET /v2/bookings/parking/{booking-reference}
+   → Show booking details
+</code></pre></div></div>
+
+<p><strong>Scenario B: Customer only has your order number</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. GET /v2/bookings/parking?partner_reference={your-ref}
+   → Returns array of bookings
+2. Display list of bookings to customer
+3. Customer selects booking → Use our booking_reference
+4. GET /v2/bookings/parking/{booking-reference}
+   → Show booking details
+</code></pre></div></div>
+
+<h3 id="workflow-3-customer-wants-to-change-flight-details">Workflow 3: Customer Wants to Change Flight Details</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. GET /v2/bookings/parking/{booking-reference}
+   → Get current booking details
+   → Show to customer
+2. Customer enters new flight details
+3. PATCH /v2/bookings/parking/{booking-reference}/amendments/quote
+   → Pass new flight details
+   → Get amendment_token
+4. Show customer: "Amendment fee: £5.00"
+   → Customer confirms
+5. POST /v2/bookings/parking/{booking-reference}/amendments/confirm
+   → Include amendment_token
+   → Booking updated
+6. GET /v2/bookings/parking/{booking-reference}/confirmation-details?format=html
+   → Send updated confirmation email
+</code></pre></div></div>
+
+<h3 id="workflow-4-customer-wants-to-cancel">Workflow 4: Customer Wants to Cancel</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. GET /v2/bookings/parking/{booking-reference}
+   → Get current booking details
+2. PATCH /v2/bookings/parking/{booking-reference}/cancellations/quote
+   → Get cancellation_token and refund amount
+3. Show customer: "You'll receive a refund of £40.99"
+   → Customer confirms
+4. POST /v2/bookings/parking/{booking-reference}/cancellations/confirm
+   → Include cancellation_token
+   → Booking cancelled
+5. Show confirmation: "Booking cancelled."
+</code></pre></div></div>
+
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>
