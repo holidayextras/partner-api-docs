@@ -555,6 +555,69 @@
       }
       ,
     
+      "partner-v2-problems-bad-gateway": {
+        "title": "Bad Gateway",
+        "content": "# Bad Gateway| Field | Value ||-------|-------|| **Status** | 502 || **Code** | `bad_gateway` |An upstream service returned an invalid response. This is a transient error and can be retried.## Common causes- A downstream booking system is temporarily unavailable- Network issues between internal services## Example response```json{  \"type\": \"https://docs.holidayextras.co.uk/partner/v2/problems/bad-gateway\",  \"title\": \"Bad Gateway\",  \"status\": 502,  \"code\": \"bad_gateway\",  \"errors\": []}```## How to resolveRetry the request with exponential backoff (e.g. 2s, 4s, 8s). If the error persists after 3 attempts, contact support with the `trace_id`.",
+        "url": "/partner/v2/problems/bad-gateway/"
+      }
+      ,
+    
+      "partner-v2-problems-bad-request": {
+        "title": "Bad Request",
+        "content": "# Bad Request| Field | Value ||-------|-------|| **Status** | 400 || **Code** | `bad_request` |The request was malformed or missing required parameters. Check the `errors` array for details on which fields failed validation.## Common causes- Missing required query parameters (e.g. `location_code`, `currency`)- Invalid parameter format (e.g. non-ISO datetime, invalid IATA code)- Missing or malformed request body on POST/PATCH endpoints## Example response```json{  \"type\": \"https://docs.holidayextras.co.uk/partner/v2/problems/bad-request\",  \"title\": \"Bad Request\",  \"status\": 400,  \"code\": \"bad_request\",  \"errors\": [    {      \"field\": \"location_code\",      \"message\": \"must match pattern \\\"^[A-Z]{3}$\\\"\"    }  ]}```## How to resolveReview the `errors` array to identify which fields need correcting. Each error includes a `field` name and a `message` describing the validation failure.",
+        "url": "/partner/v2/problems/bad-request/"
+      }
+      ,
+    
+      "partner-v2-problems-conflict": {
+        "title": "Conflict",
+        "content": "# Conflict| Field | Value ||-------|-------|| **Status** | 409 || **Code** | `conflict` |The request conflicts with the current state of the resource. This typically means a duplicate operation was attempted.## Common causes- Attempting to create a booking with a duplicate idempotency key- Attempting to cancel a booking that is already cancelled- Concurrent modification of the same resource## Example response```json{  \"type\": \"https://docs.holidayextras.co.uk/partner/v2/problems/conflict\",  \"title\": \"Conflict\",  \"status\": 409,  \"code\": \"conflict\",  \"errors\": [    {      \"message\": \"Booking has already been cancelled\"    }  ]}```## How to resolveCheck the current state of the resource before retrying. If using idempotency keys, verify the original request completed successfully.",
+        "url": "/partner/v2/problems/conflict/"
+      }
+      ,
+    
+      "partner-v2-problems-internal-error": {
+        "title": "Internal Server Error",
+        "content": "# Internal Server Error| Field | Value ||-------|-------|| **Status** | 500 || **Code** | `internal_error` |An unexpected error occurred on the server. This is a transient error and can be retried.## Retry guidance- Wait at least 2 seconds before the first retry- Use exponential backoff (e.g. 2s, 4s, 8s)- Stop retrying after 3 attemptsIf the error persists, contact support with the `trace_id` from the response.## Example response```json{  \"type\": \"https://docs.holidayextras.co.uk/partner/v2/problems/internal-error\",  \"title\": \"Internal Server Error\",  \"status\": 500,  \"code\": \"internal_error\",  \"trace_id\": \"abc123def456\",  \"errors\": []}```## How to resolveRetry the request with exponential backoff. If the error persists after multiple retries, raise it with your Holiday Extras integration contact and include the `trace_id` value.",
+        "url": "/partner/v2/problems/internal-error/"
+      }
+      ,
+    
+      "partner-v2-problems-not-acceptable": {
+        "title": "Not Acceptable",
+        "content": "# Not Acceptable| Field | Value ||-------|-------|| **Status** | 406 || **Code** | `not_acceptable` |The server cannot produce a response matching the `Accept` header sent in the request.## Common causes- Setting the `Accept` header to a content type other than `application/json`## Example response```json{  \"type\": \"https://docs.holidayextras.co.uk/partner/v2/problems/not-acceptable\",  \"title\": \"Not Acceptable\",  \"status\": 406,  \"code\": \"not_acceptable\",  \"errors\": []}```## How to resolveSet the `Accept` header to `application/json`.",
+        "url": "/partner/v2/problems/not-acceptable/"
+      }
+      ,
+    
+      "partner-v2-problems-resource-not-found": {
+        "title": "Resource Not Found",
+        "content": "# Resource Not Found| Field | Value ||-------|-------|| **Status** | 404 || **Code** | `resource_not_found` |The requested resource does not exist. This is a permanent error -- retrying with the same parameters will not succeed.## Common causes- Booking reference does not exist- Location code not found for the requested currency## Example response```json{  \"type\": \"https://docs.holidayextras.co.uk/partner/v2/problems/resource-not-found\",  \"title\": \"Resource not found\",  \"status\": 404,  \"code\": \"resource_not_found\",  \"errors\": [    {      \"field\": \"reference\",      \"message\": \"Booking with reference ZZZZZZQ not found\"    }  ]}```## How to resolveVerify the identifier you are using (e.g. booking reference) is correct. A 404 means the resource does not exist -- do not retry automatically.",
+        "url": "/partner/v2/problems/resource-not-found/"
+      }
+      ,
+    
+      "partner-v2-problems-too-early": {
+        "title": "Too Early",
+        "content": "# Too Early| Field | Value ||-------|-------|| **Status** | 425 || **Code** | `too_early` |The request was made too early. The booking or resource is not yet in a state where this operation can be performed.## Common causes- Attempting to view or modify a booking that is still being processed- Polling for a booking status before the asynchronous creation has completed## Example response```json{  \"type\": \"https://docs.holidayextras.co.uk/partner/v2/problems/too-early\",  \"title\": \"Too Early\",  \"status\": 425,  \"code\": \"too_early\",  \"errors\": [    {      \"message\": \"Booking is still being processed\"    }  ]}```## How to resolveWait and retry using the `recommended_polling_seconds` value from the booking creation response. Use exponential backoff if the error persists.",
+        "url": "/partner/v2/problems/too-early/"
+      }
+      ,
+    
+      "partner-v2-problems-unprocessable-entity": {
+        "title": "Unprocessable Entity",
+        "content": "# Unprocessable Entity| Field | Value ||-------|-------|| **Status** | 422 || **Code** | `unprocessable_entity` |The request is well-formed but contains values that cannot be processed. Check the `errors` array for details.## Common causes- Location and currency combination is not supported (e.g. searching for a UK-only airport in EUR)- Product token has expired or is invalid- Business rule violation (e.g. parking exit before entry)## Example response```json{  \"type\": \"https://docs.holidayextras.co.uk/partner/v2/problems/unprocessable-entity\",  \"title\": \"Unprocessable Entity\",  \"status\": 422,  \"code\": \"unprocessable_entity\",  \"errors\": [    {      \"field\": \"product_token\",      \"message\": \"Product token has expired\"    }  ]}```## How to resolveReview the `errors` array for specific field-level details. Unlike a 400 (malformed request), a 422 means the request format is correct but the values are not valid for processing.",
+        "url": "/partner/v2/problems/unprocessable-entity/"
+      }
+      ,
+    
+      "partner-v2-problems-unsupported-media-type": {
+        "title": "Unsupported Media Type",
+        "content": "# Unsupported Media Type| Field | Value ||-------|-------|| **Status** | 415 || **Code** | `unsupported_media_type` |The request body uses a content type that the server does not support.## Common causes- Sending a request body with a `Content-Type` other than `application/json`- Missing the `Content-Type` header on POST/PATCH requests## Example response```json{  \"type\": \"https://docs.holidayextras.co.uk/partner/v2/problems/unsupported-media-type\",  \"title\": \"Unsupported Media Type\",  \"status\": 415,  \"code\": \"unsupported_media_type\",  \"errors\": []}```## How to resolveSet the `Content-Type` header to `application/json` for all POST and PATCH requests.",
+        "url": "/partner/v2/problems/unsupported-media-type/"
+      }
+      ,
+    
       "partner-v2-webhook-integration-guide": {
         "title": "APIConnect Partner API v2 - Event Notifications",
         "content": "# APIConnect Partner API v2 - Event NotificationsVersion: 1.0 Last Updated: 2026-01-29---## OverviewWebhooks allow you to receive real-time notifications when booking events occur. We'll send HTTP POST requests to your endpoint when booking states change.### When to Use WebhooksUse webhooks when you want to be notified about booking status changes, particularly for pending bookings that need confirmation.**Note:** If you use our hosted confirmation page or the confirmation endpoint (which handles status automatically), you may not need webhooks. See the [API Endpoint Navigation Guide](/partner/v2/api-endpoint-navigation-guide/#stage-4-create-booking) for alternatives.---## Configuration### Step 1: Create Your EndpointYour webhook endpoint must:* Accept HTTP POST requests* Be publicly accessible via HTTPS (valid SSL certificate required)* Respond with HTTP 200 within 10 seconds* Verify the signature we send (security requirement)### Step 2: Speak With Your Partnerships ManagerLet your partnerships manager know your endpoint and they will configure it within the Holiday Extras APIConnect platform**Important:** Store your webhook secret securely (environment variable or vault).---## Event Payload StructureAll webhook events follow this structure:```json{  \"collection_id\": \"550e8400-e29b-41d4-a716-446655440000\",  \"event_type\": \"booking.confirmed\",  \"timestamp\": \"2026-01-29T10:30:45.123Z\",  \"correlation_id\": \"c7f8e3d2-a1b4-4c5d-9e8f-7a6b5c4d3e2f\",  \"trace_id\": \"trace_abc123xyz789\",  \"source\": \"APIConnect\",  \"data\": {    \"booking_reference\": \"HX123456\",    \"partner_reference\": \"ORDER-12345\"  }}```### Envelope Fields| Field | Purpose | How to Use ||-------|---------|------------|| `collection_id` | Unique event identifier | Use for deduplication - store this to prevent processing the same event twice || `event_type` | Type of event | Describes what has occurred || `timestamp` | When event occurred | For ordering events and auditing || `correlation_id` | Groups related events | For tracking the entire booking lifecycle || `trace_id` | Debug identifier | Include in support requests || `source` | Who sent this webhook | Verification purposes || `data.booking_reference` | Our booking reference | Use to fetch full booking details via API || `data.partner_reference` | Your reference | Match to your internal order/transaction |### Why Thin Payloads?The webhook contains **only identifiers**, not full booking details. This is intentional:* You always get fresh data by calling the API* No risk of processing stale information* Consistent data structure across all events**After receiving a webhook, call:** `GET /api/v1/bookings/{booking_reference}` to fetch full booking details.---## Event Types| Event Type | When Sent | Typical Action ||------------|-----------|----------------|| `booking.confirmed` | Supplier confirms | Fetch booking details, update database, send confirmation email || `booking.failed` | Supplier rejects | Fetch failure reason, process refund, notify customer |## Security: Signature VerificationEvery webhook includes an HMAC-SHA256 signature in the `X-HX-Signature` header. You **must** verify this signature to ensure the webhook came from us.### Request Headers```httpPOST /webhooks/apiconnect HTTP/1.1Host: api.yourcompany.comContent-Type: application/jsonX-HX-Signature: sha256=a1b2c3d4e5f6...X-HX-Timestamp: 1738152645X-HX-Collection-Id: 550e8400-e29b-41d4-a716-446655440000{...webhook payload...}```---## Handling DuplicatesWebhooks use **at-least-once delivery**, meaning the same event may be delivered multiple times.---",
