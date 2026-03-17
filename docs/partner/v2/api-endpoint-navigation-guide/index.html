@@ -75,7 +75,7 @@
 
 <h3 id="product-centric-design">Product-Centric Design</h3>
 
-<p>The APIConnect API is built around <strong>products</strong>. Each of our five products has the same set of endpoints:</p>
+<p>The APIConnect API is built around <strong>products</strong>. Each of our products has the same set of endpoints:</p>
 
 <p><strong>Available Products:</strong></p>
 
@@ -86,6 +86,7 @@
 <p><strong>Coming Soon</strong></p>
 
 <ul>
+  <li><strong>Transfers</strong> - Airport transfers</li>
   <li><strong>Hotels</strong> - Airport hotel accommodation</li>
   <li><strong>Hotel with Parking</strong> - Integrated packages</li>
   <li><strong>Lounges</strong> - Airport lounge access</li>
@@ -257,7 +258,7 @@
   <li>Supplier required information</li>
 </ul>
 
-<p><strong>Important:</strong> The price guarantee token will expire. We will inform you in the API response of this duration. If the customer takes longer to book, you’ll need to search again to get a fresh token.</p>
+<p><strong>Important:</strong> The price guarantee token will expire — the expiry time is included in the response. Using an expired token will return a <code class="language-plaintext highlighter-rouge">422 Unprocessable Entity</code> error. If this happens, re-run the search to get a fresh token.</p>
 
 <p><strong>Caching:</strong> DO NOT cache this response - prices and availability change frequently</p>
 
@@ -337,7 +338,7 @@
   <li>All booking details</li>
 </ul>
 
-<p><strong>Important:</strong> Always include an <code class="language-plaintext highlighter-rouge">Idempotency-Key</code> header to prevent duplicate bookings if there’s a network error.</p>
+<p><strong>Important:</strong> Always include an <code class="language-plaintext highlighter-rouge">Idempotency-Key</code> header to prevent duplicate bookings if there’s a network error. Any unique string is accepted; UUID v4 is recommended. Re-use the same key to safely retry a failed request.</p>
 
 <p><strong>Understanding Booking Status:</strong></p>
 
@@ -441,9 +442,9 @@
 <p><strong>Format options:</strong></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">json</code>: Structured data for your own rendering</li>
-  <li><code class="language-plaintext highlighter-rouge">html</code>: Ready-to-use HTML snippet for web pages</li>
-  <li><code class="language-plaintext highlighter-rouge">markdown</code>: Text-based format for simpler emails</li>
+  <li><code class="language-plaintext highlighter-rouge">json</code>: Returns an array of <code class="language-plaintext highlighter-rouge">{ type, value }</code> pairs (e.g., <code class="language-plaintext highlighter-rouge">{ "type": "booking_reference", "value": "HX123456" }</code>). Use these fields to build your own confirmation page.</li>
+  <li><code class="language-plaintext highlighter-rouge">html</code>: Returns a <code class="language-plaintext highlighter-rouge">{ text }</code> object containing a ready-to-use HTML snippet for web pages.</li>
+  <li><code class="language-plaintext highlighter-rouge">markdown</code>: Returns a <code class="language-plaintext highlighter-rouge">{ text }</code> object containing text-based format for simpler emails.</li>
 </ul>
 
 <p><strong>Why use this?</strong> The formatted confirmation includes product-specific instructions. It’s optimized for customer-facing display.</p>
@@ -477,6 +478,10 @@
 <hr />
 
 <h3 id="stage-7-list-bookings-alternative-lookup">Stage 7: List Bookings (Alternative Lookup)</h3>
+
+<blockquote>
+  <p>This endpoint will be available in a later phase.</p>
+</blockquote>
 
 <p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v2/bookings/parking?partner_reference={your-reference}</code></p>
 
@@ -557,7 +562,7 @@
   <li>Receipt of any charges/refunds</li>
 </ul>
 
-<p><strong>Important:</strong> The amendment token works the same as the price guarantee token.</p>
+<p><strong>Important:</strong> The amendment token is short-lived, like the price guarantee token. Using an expired token will return a <code class="language-plaintext highlighter-rouge">422 Unprocessable Entity</code> error — re-request the amendment quote to get a fresh token.</p>
 
 <p><strong>Typical workflow:</strong></p>
 
@@ -620,7 +625,7 @@
   <li>Final refund amounts</li>
 </ul>
 
-<p><strong>Important:</strong> Cancellations cannot be undone. The customer would need to create a new booking.</p>
+<p><strong>Important:</strong> The cancellation token is short-lived. Using an expired token will return a <code class="language-plaintext highlighter-rouge">422 Unprocessable Entity</code> error — re-request the cancellation quote to get a fresh token. Cancellations cannot be undone; you would need to create a new booking.</p>
 
 <p><strong>Typical workflow:</strong></p>
 
