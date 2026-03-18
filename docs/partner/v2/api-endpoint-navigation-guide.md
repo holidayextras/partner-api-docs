@@ -37,7 +37,7 @@ This can be viewed using a tool of your choice. We recommend <https://editor.swa
 
 ### Product-Centric Design
 
-The APIConnect API is built around **products**. Each of our five products has the same set of endpoints:
+The APIConnect API is built around **products**. Each of our products has the same set of endpoints:
 
 **Available Products:**
 
@@ -45,6 +45,7 @@ The APIConnect API is built around **products**. Each of our five products has t
 
 **Coming Soon**
 
+* **Transfers** - Airport transfers
 * **Hotels** - Airport hotel accommodation
 * **Hotel with Parking** - Integrated packages
 * **Lounges** - Airport lounge access
@@ -195,7 +196,7 @@ Use this when you want the API to calculate appropriate parking times based on f
 * Basic product information
 * Supplier required information
 
-**Important:** The price guarantee token will expire. We will inform you in the API response of this duration. If the customer takes longer to book, you'll need to search again to get a fresh token.
+**Important:** The price guarantee token will expire — the expiry time is included in the response. Using an expired token will return a `422 Unprocessable Entity` error. If this happens, re-run the search to get a fresh token.
 
 **Caching:** DO NOT cache this response - prices and availability change frequently
 
@@ -262,7 +263,7 @@ Examples:
 * **Recommended polling interval** (in seconds) - Suggested frequency for status checks
 * All booking details
 
-**Important:** Always include an `Idempotency-Key` header to prevent duplicate bookings if there's a network error.
+**Important:** Always include an `Idempotency-Key` header to prevent duplicate bookings if there's a network error. Any unique string is accepted; UUID v4 is recommended. Re-use the same key to safely retry a failed request.
 
 **Understanding Booking Status:**
 
@@ -346,9 +347,9 @@ You have four options for handling pending bookings, depending on how much contr
 
 **Format options:**
 
-* `json`: Structured data for your own rendering
-* `html`: Ready-to-use HTML snippet for web pages
-* `markdown`: Text-based format for simpler emails
+* `json`: Returns an array of `{ type, value }` pairs (e.g., `{ "type": "booking_reference", "value": "HX123456" }`). Use these fields to build your own confirmation page.
+* `html`: Returns a `{ text }` object containing a ready-to-use HTML snippet for web pages.
+* `markdown`: Returns a `{ text }` object containing text-based format for simpler emails.
 
 **Why use this?** The formatted confirmation includes product-specific instructions. It's optimized for customer-facing display.
 
@@ -380,6 +381,8 @@ You have four options for handling pending bookings, depending on how much contr
 ---
 
 ### Stage 7: List Bookings (Alternative Lookup)
+
+> This endpoint will be available in a later phase.
 
 **Endpoint:** `GET /v2/bookings/parking?partner_reference={your-reference}`
 
@@ -447,7 +450,7 @@ You have four options for handling pending bookings, depending on how much contr
 * Confirmation of changes
 * Receipt of any charges/refunds
 
-**Important:** The amendment token works the same as the price guarantee token.
+**Important:** The amendment token is short-lived, like the price guarantee token. Using an expired token will return a `422 Unprocessable Entity` error — re-request the amendment quote to get a fresh token.
 
 **Typical workflow:**
 
@@ -502,7 +505,7 @@ You have four options for handling pending bookings, depending on how much contr
 * Confirmation of cancellation
 * Final refund amounts
 
-**Important:** Cancellations cannot be undone. The customer would need to create a new booking.
+**Important:** The cancellation token is short-lived. Using an expired token will return a `422 Unprocessable Entity` error — re-request the cancellation quote to get a fresh token. Cancellations cannot be undone; you would need to create a new booking.
 
 **Typical workflow:**
 
