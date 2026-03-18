@@ -33,3 +33,5 @@ The request was malformed or missing required parameters. Check the `errors` arr
 ## How to resolve
 
 Review the `errors` array to identify which fields need correcting. Each error includes a `field` name and a `message` describing the validation failure.
+
+> **Note:** The `errors` array is always present in every error response. It will contain field-level details when applicable, or be empty (e.g., for 500 errors).
