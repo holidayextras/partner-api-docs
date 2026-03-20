@@ -13,7 +13,7 @@ This guide helps you navigate the Swagger/OpenAPI documentation by explaining th
 
 ## OpenAPI Specification
 
-The openapi schema for the API can be found at <https://api-sandbox.holidayextras.com/partner-api/v2-beta/schema.json>
+The openapi schema for the API can be found at <https://api-sandbox.holidayextras.com/partner-api/v2/schema.json>
 
 This is a live document and is expected to be updated.
 
