@@ -575,6 +575,13 @@
       }
       ,
     
+      "partner-v2-problems-method-not-allowed": {
+        "title": "Method Not Allowed",
+        "content": "# Method Not Allowed| Field | Value ||-------|-------|| **Status** | 405 || **Code** | `method_not_allowed` |The requested HTTP method is not supported for this endpoint. The resource exists, but it does not accept the method used in the request.## Common causes- Sending a PATCH, PUT, or DELETE request to a read-only endpoint- Sending a GET request to a write-only endpoint- Using the wrong HTTP method for the intended operation## Example responseThe response includes an `Allow` header listing the HTTP methods that the endpoint supports.```httpHTTP/1.1 405 Method Not AllowedAllow: GET, HEADContent-Type: application/json``````json{  \"type\": \"https://docs.holidayextras.co.uk/partner/v2/problems/method-not-allowed\",  \"title\": \"Method Not Allowed\",  \"status\": 405,  \"code\": \"method_not_allowed\",  \"errors\": []}```## How to resolveCheck the `Allow` header in the response to see which HTTP methods the endpoint supports. Refer to the API documentation for the correct method for your intended operation.",
+        "url": "/partner/v2/problems/method-not-allowed/"
+      }
+      ,
+    
       "partner-v2-problems-not-acceptable": {
         "title": "Not Acceptable",
         "content": "# Not Acceptable| Field | Value ||-------|-------|| **Status** | 406 || **Code** | `not_acceptable` |The server cannot produce a response matching the `Accept` header sent in the request.## Common causes- Setting the `Accept` header to a content type other than `application/json`## Example response```json{  \"type\": \"https://docs.holidayextras.co.uk/partner/v2/problems/not-acceptable\",  \"title\": \"Not Acceptable\",  \"status\": 406,  \"code\": \"not_acceptable\",  \"errors\": []}```## How to resolveSet the `Accept` header to `application/json`.",
