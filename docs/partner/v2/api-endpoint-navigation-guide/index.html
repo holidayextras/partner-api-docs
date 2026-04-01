@@ -103,7 +103,24 @@
 
 <h2 id="core-concepts">Core Concepts</h2>
 
-<h3 id="1-price-guarantee-tokens">1. Price Guarantee Tokens</h3>
+<h3 id="1-date-and-time-formats">1. Date and Time Formats</h3>
+
+<p>The API uses two datetime formats:</p>
+
+<ul>
+  <li>
+    <p><strong>Local datetime</strong> (e.g., <code class="language-plaintext highlighter-rouge">2026-05-20T08:00:00</code>) – Times without a timezone offset. These are always in the <strong>airport’s local timezone</strong>. When you submit <code class="language-plaintext highlighter-rouge">parking_entry_datetime: "2026-05-20T08:00:00"</code> for Heathrow, that means 8am London time. The API returns parking and flight times in this same format.</p>
+  </li>
+  <li>
+    <p><strong>UTC datetime</strong> (e.g., <code class="language-plaintext highlighter-rouge">2026-05-20T07:00:00.000Z</code>) – Times with a <code class="language-plaintext highlighter-rouge">Z</code> suffix. Used for token expiry times and policy deadlines. These are always UTC.</p>
+  </li>
+</ul>
+
+<h3 id="2-currency-and-pricing">2. Currency and Pricing</h3>
+
+<p>All monetary values in the API are expressed in <strong>minor currency units</strong> (e.g., pence for GBP, cents for EUR). A price of <code class="language-plaintext highlighter-rouge">4599</code> in GBP means <strong>45.99</strong>. This applies to all price, commission, refund, and cost fields across every endpoint.</p>
+
+<h3 id="3-price-guarantee-tokens">3. Price Guarantee Tokens</h3>
 
 <p><strong>What:</strong> A time-limited token that locks in a price <strong>When:</strong> Obtained from the Products endpoint <strong>Why:</strong> Ensures customers aren’t charged more than the quoted price <strong>Validity:</strong> 30 minutes <strong>Usage:</strong> Required for Book endpoint</p>
 
@@ -116,7 +133,7 @@
 5. API only charges £45.99 (the guaranteed price)
 </code></pre></div></div>
 
-<h3 id="2-booking-reference-vs-partner-reference">2. Booking Reference vs Partner Reference</h3>
+<h3 id="4-booking-reference-vs-partner-reference">4. Booking Reference vs Partner Reference</h3>
 
 <p><strong>Booking Reference:</strong></p>
 
@@ -138,7 +155,7 @@
   <li><strong>Why:</strong> Helps you match our bookings to your internal systems</li>
 </ul>
 
-<h3 id="3-quote-and-confirm-pattern">3. Quote and Confirm Pattern</h3>
+<h3 id="5-quote-and-confirm-pattern">5. Quote and Confirm Pattern</h3>
 
 <p>For amendments and cancellations, we use a two-step “quote and confirm” pattern:</p>
 
@@ -184,7 +201,7 @@
 
 <ul>
   <li>Location types</li>
-  <li>Location codes (IATA / UNLOCODE)</li>
+  <li>Location codes (IATA)</li>
   <li>Location names</li>
   <li>Available product types at each location</li>
 </ul>
@@ -214,8 +231,8 @@
 <p><strong>Option 1: Explicit parking times</strong></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">parking_entry_date_time</code> - When the customer will arrive at the car park</li>
-  <li><code class="language-plaintext highlighter-rouge">parking_exit_date_time</code> - When the customer will leave the car park</li>
+  <li><code class="language-plaintext highlighter-rouge">parking_entry_datetime</code> - When the customer will arrive at the car park</li>
+  <li><code class="language-plaintext highlighter-rouge">parking_exit_datetime</code> - When the customer will leave the car park</li>
 </ul>
 
 <p>Use this when you know the exact parking duration needed.</p>
@@ -224,9 +241,9 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">outbound_flight_number</code> - Departure flight number</li>
-  <li><code class="language-plaintext highlighter-rouge">outbound_flight_date_time</code> - Departure flight time</li>
+  <li><code class="language-plaintext highlighter-rouge">outbound_departure_datetime</code> - Departure flight time</li>
   <li><code class="language-plaintext highlighter-rouge">inbound_flight_number</code> - Return flight number</li>
-  <li><code class="language-plaintext highlighter-rouge">inbound_flight_date_time</code> - Return flight time</li>
+  <li><code class="language-plaintext highlighter-rouge">inbound_arrival_datetime</code> - Return flight time</li>
 </ul>
 
 <p>Use this when you want the API to calculate appropriate parking times based on flight schedules. The API will automatically add buffer time for airport arrival/departure.</p>
@@ -235,9 +252,21 @@
 
 <ul>
   <li>At least one set of parameters must be provided</li>
-  <li>If both sets are provided, <code class="language-plaintext highlighter-rouge">parking_entry_date_time</code> and <code class="language-plaintext highlighter-rouge">parking_exit_date_time</code> take precedence</li>
+  <li>If both sets are provided, <code class="language-plaintext highlighter-rouge">parking_entry_datetime</code> and <code class="language-plaintext highlighter-rouge">parking_exit_datetime</code> take precedence</li>
   <li>Flight-based calculation is useful when you’re unsure how much time customers need between parking and their flight</li>
 </ul>
+
+<p><strong>How flight-based derivation works:</strong></p>
+
+<p>When you provide <code class="language-plaintext highlighter-rouge">outbound_departure_datetime</code> instead of <code class="language-plaintext highlighter-rouge">parking_entry_datetime</code>, the API derives an appropriate parking start time based on the flight schedule. Similarly, <code class="language-plaintext highlighter-rouge">inbound_arrival_datetime</code> derives the parking end time. This adds buffer time for airport arrival and departure.</p>
+
+<p>You must provide at least one of each pair:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">parking_entry_datetime</code> OR <code class="language-plaintext highlighter-rouge">outbound_departure_datetime</code></li>
+  <li><code class="language-plaintext highlighter-rouge">parking_exit_datetime</code> OR <code class="language-plaintext highlighter-rouge">inbound_arrival_datetime</code></li>
+</ul>
+
+<p>If both are provided in a pair, the explicit parking time takes precedence.</p>
 
 <p><strong>Response includes:</strong></p>
 
@@ -317,17 +346,15 @@
       <li>FastTrack: Passenger details, flight info, travel time</li>
     </ul>
   </li>
-  <li>Your partner reference (optional but recommended)</li>
+  <li>Your partner reference (optional but recommended, max 20 characters)</li>
 </ul>
 
 <p><strong>Response includes:</strong></p>
 
 <ul>
   <li><strong>Booking reference</strong> (e.g., HX123456) - Our booking reference</li>
-  <li><strong>Booking status</strong> (<code class="language-plaintext highlighter-rouge">pending</code> or <code class="language-plaintext highlighter-rouge">confirmed</code>)</li>
-  <li><strong>Hosted confirmation page URL</strong> - A link to our hosted confirmation page</li>
+  <li><strong>Booking status</strong> (<code class="language-plaintext highlighter-rouge">Pending</code> or <code class="language-plaintext highlighter-rouge">Confirmed</code>)</li>
   <li><strong>Recommended polling interval</strong> (in seconds) - Suggested frequency for status checks</li>
-  <li>All booking details</li>
 </ul>
 
 <p><strong>Important:</strong> Always include an <code class="language-plaintext highlighter-rouge">Idempotency-Key</code> header to prevent duplicate bookings if there’s a network error. Any unique string is accepted; UUID v4 is recommended. Re-use the same key to safely retry a failed request.</p>
@@ -357,19 +384,19 @@
 <p><strong>Option 1: Hosted Confirmation Page (Simplest)</strong></p>
 
 <ul>
-  <li>Use the Holiday Extras co-branded hosted confirmation page URL included in the booking response</li>
+  <li>Call <code class="language-plaintext highlighter-rouge">GET /v2/bookings/parking/{booking-reference}</code> to get the <code class="language-plaintext highlighter-rouge">confirmation_page_link</code></li>
   <li>Direct customers to this URL</li>
   <li>We handle all status updates and display logic</li>
   <li>The page automatically updates when the booking confirms</li>
   <li>No polling or webhooks needed on your side</li>
 </ul>
 
-<p><strong>Option 2: Confirmation Endpoint (Simple)</strong></p>
+<p><strong>Option 2: GET Booking Endpoint (Simple)</strong></p>
 
 <ul>
-  <li>Use the Confirmation endpoint (Stage 5) to display booking details</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">GET /v2/bookings/parking/{booking-reference}</code> to display booking details</li>
   <li>The data returned is always relevant to the current status</li>
-  <li>Shows “pending” messaging when pending, “confirmed” details when confirmed</li>
+  <li>Shows pending state when pending, full confirmation details when confirmed</li>
   <li>Make the same call regardless of status - we handle the logic</li>
   <li>No need to track status transitions yourself</li>
 </ul>
@@ -403,43 +430,24 @@
 
 <hr />
 
-<h3 id="stage-5-booking-confirmation-details">Stage 5: Booking Confirmation Details</h3>
+<h3 id="stage-5-booking-confirmation">Stage 5: Booking Confirmation</h3>
 
-<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v2/bookings/parking/{booking-reference}/confirmation-details</code></p>
+<p>After creating a booking, you have two options for showing confirmation details to customers:</p>
 
-<p><strong>Purpose:</strong> Get formatted confirmation details for display</p>
-
-<p><strong>When to use:</strong></p>
+<p><strong>Option 1: Hosted Confirmation Page</strong></p>
 
 <ul>
-  <li>Immediately after booking is created</li>
-  <li>Displaying a confirmation page</li>
+  <li>Use the <code class="language-plaintext highlighter-rouge">confirmation_page_link</code> field from <code class="language-plaintext highlighter-rouge">GET /v2/bookings/parking/{booking-reference}</code> – a URL to a Holiday Extras hosted confirmation page</li>
+  <li>Direct customers here and we handle the display</li>
+  <li>The page automatically updates when the booking confirms</li>
 </ul>
 
-<p><strong>Query parameters:</strong></p>
+<p><strong>Option 2: Build Your Own</strong></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">format</code>: <code class="language-plaintext highlighter-rouge">json</code> (default), <code class="language-plaintext highlighter-rouge">html</code>, or <code class="language-plaintext highlighter-rouge">markdown</code></li>
+  <li>Use the booking details from <code class="language-plaintext highlighter-rouge">GET /v2/bookings/parking/{booking-reference}</code> (Stage 6) to build your own confirmation page</li>
+  <li>The response includes all booking details, entry methods, and customer information</li>
 </ul>
-
-<p><strong>Response includes:</strong></p>
-
-<ul>
-  <li>All booking details formatted for display</li>
-  <li>Product-specific instructions (PIN codes, meeting points, etc.)</li>
-  <li>Contact information</li>
-  <li>Important notices</li>
-</ul>
-
-<p><strong>Format options:</strong></p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">json</code>: Returns an array of <code class="language-plaintext highlighter-rouge">{ type, value }</code> pairs (e.g., <code class="language-plaintext highlighter-rouge">{ "type": "booking_reference", "value": "HX123456" }</code>). Use these fields to build your own confirmation page.</li>
-  <li><code class="language-plaintext highlighter-rouge">html</code>: Returns a <code class="language-plaintext highlighter-rouge">{ text }</code> object containing a ready-to-use HTML snippet for web pages.</li>
-  <li><code class="language-plaintext highlighter-rouge">markdown</code>: Returns a <code class="language-plaintext highlighter-rouge">{ text }</code> object containing text-based format for simpler emails.</li>
-</ul>
-
-<p><strong>Why use this?</strong> The formatted confirmation includes product-specific instructions. It’s optimized for customer-facing display.</p>
 
 <hr />
 
@@ -461,8 +469,22 @@
 
 <ul>
   <li>Complete booking details</li>
-  <li>Current status (pending, confirmed, cancelled, error)</li>
+  <li>Current status (Pending, Confirmed, Aborted, Error, Received, Accepted)</li>
   <li>Customer details</li>
+  <li><code class="language-plaintext highlighter-rouge">confirmation_page_link</code> – hosted confirmation page URL (or null if not yet available)</li>
+  <li><code class="language-plaintext highlighter-rouge">entry_method</code> – how the customer enters the car park (QR code, barcode, or reference number)</li>
+  <li><code class="language-plaintext highlighter-rouge">amendable_data</code> – the current values of fields that can be amended. If empty, the booking cannot be amended. Use these values to pre-fill an amendment form before calling the amendment quote endpoint.</li>
+  <li><code class="language-plaintext highlighter-rouge">policies</code> – amendment and refund policies for this booking (see below)</li>
+</ul>
+
+<p><strong>Understanding Policies:</strong></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">policies</code> object tells you what changes are available and what refunds apply:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">amendments.permitted</code> – whether the booking can be amended</li>
+  <li><code class="language-plaintext highlighter-rouge">amendments.until</code> – deadline for amendments (UTC), or null if no deadline</li>
+  <li><code class="language-plaintext highlighter-rouge">refunds</code> – an array of refund tiers, ordered by deadline descending. The first tier whose <code class="language-plaintext highlighter-rouge">until</code> datetime has not yet passed determines the refund amount. An empty array means no refund is available.</li>
 </ul>
 
 <p><strong>Important:</strong> Use our <strong>booking reference</strong>, not your partner reference.</p>
@@ -570,7 +592,7 @@
 
 <h4 id="step-1-cancel-quote">Step 1: Cancel Quote</h4>
 
-<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">PATCH /v2/bookings/parking/{booking-reference}/cancellations/quote</code></p>
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v2/bookings/parking/{booking-reference}/cancellations/quote</code></p>
 
 <p><strong>Purpose:</strong> Preview the cancellation without executing it</p>
 
@@ -644,9 +666,8 @@
 4. POST /v2/bookings/parking
    → Include the price_guarantee_token
    → Create booking
-5. GET /v2/bookings/parking/{booking-reference}/confirmation-details?format=html
-   → Display confirmation to customer
-   → Send confirmation email
+5. Use confirmation_page_link from booking response
+   → Or build your own confirmation from GET /v2/bookings/parking/{booking-reference}
 </code></pre></div></div>
 
 <h3 id="workflow-2-customer-wants-to-view-their-booking">Workflow 2: Customer Wants to View Their Booking</h3>
@@ -681,15 +702,15 @@
 5. POST /v2/bookings/parking/{booking-reference}/amendments/confirm
    → Include amendment_token
    → Booking updated
-6. GET /v2/bookings/parking/{booking-reference}/confirmation-details?format=html
-   → Send updated confirmation email
+6. GET /v2/bookings/parking/{booking-reference}
+   → Send updated confirmation email with latest booking details
 </code></pre></div></div>
 
 <h3 id="workflow-4-customer-wants-to-cancel">Workflow 4: Customer Wants to Cancel</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. GET /v2/bookings/parking/{booking-reference}
    → Get current booking details
-2. PATCH /v2/bookings/parking/{booking-reference}/cancellations/quote
+2. GET /v2/bookings/parking/{booking-reference}/cancellations/quote
    → Get cancellation_token and refund amount
 3. Show customer: "You'll receive a refund of £40.99"
    → Customer confirms

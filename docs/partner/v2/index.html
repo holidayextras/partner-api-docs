@@ -36,11 +36,46 @@
 
 <p>This documentation is subject to change. Further features, including a booking list capability to support reconciliation and recovery flows, as well as wider product coverage, will be introduced in later phases.</p>
 
-<p>Documentation:</p>
+<h2 id="environments">Environments</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Production</th>
+      <th>Staging</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>API</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">https://api.holidayextras.com</code></td>
+      <td><code class="language-plaintext highlighter-rouge">https://api-sandbox.holidayextras.com</code></td>
+    </tr>
+    <tr>
+      <td><strong>Auth</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">https://auth.holidayextras.com</code></td>
+      <td><code class="language-plaintext highlighter-rouge">https://auth-staging.holidayextras.com</code></td>
+    </tr>
+    <tr>
+      <td><strong>OpenAPI Schema</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">https://api.holidayextras.com/partner-api/v2/schema.json</code></td>
+      <td><code class="language-plaintext highlighter-rouge">https://api-sandbox.holidayextras.com/partner-api/v2/schema.json</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Use staging for development and testing. Authenticate against the matching auth environment – staging credentials will not work against production and vice versa.</p>
+
+<p>View the schema in <a href="https://editor.swagger.io/">Swagger Editor</a> or import into <a href="https://www.postman.com/">Postman</a>.</p>
+
+<h2 id="documentation">Documentation</h2>
+
 <ul>
-  <li><a href="/partner/v2/api-endpoint-navigation-guide/">APIConnect (Partner API 2026) - Understanding the OpenAPI Documentation</a></li>
-  <li><a href="/partner/v2/webhook-integration-guide/">APIConnect (Partner API 2026) - Event Notifications</a></li>
-  <li><a href="/partner/v2/authentication/">Authentication</a></li>
+  <li><a href="/partner/v2/authentication/">Authentication</a> - OAuth 2.0 client credentials flow</li>
+  <li><a href="/partner/v2/api-endpoint-navigation-guide/">Understanding the OpenAPI Documentation</a> - Endpoint workflows and integration guide</li>
+  <li><a href="/partner/v2/webhook-integration-guide/">Event Notifications</a> - Webhook integration for booking status updates</li>
+  <li><a href="/partner/v2/problems/bad-request/">Error Responses</a> - HTTP error codes and resolution guidance</li>
 </ul>
 
 </div>
