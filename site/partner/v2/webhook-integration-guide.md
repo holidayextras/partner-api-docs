@@ -79,7 +79,7 @@ The webhook contains **only identifiers**, not full booking details. This is int
 * No risk of processing stale information
 * Consistent data structure across all events
 
-**After receiving a webhook, call:** `GET /api/v1/bookings/{booking_reference}` to fetch full booking details.
+**After receiving a webhook, call:** `GET /v2/bookings/parking/{booking_reference}` to fetch full booking details.
 
 
 ---

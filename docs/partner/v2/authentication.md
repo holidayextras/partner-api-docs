@@ -181,8 +181,6 @@ curl -X POST "https://auth.holidayextras.com/oauth2/revoke" \
   -d "token=abc123xyz..."
 ```
 
-## 
-
 ## Error Responses
 
 Error responses follow RFC 6749 format:
