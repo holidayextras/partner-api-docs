@@ -4,16 +4,17 @@ Partner API 2026 (APIConnect) is the next step for our platform. It brings UK an
 
 This documentation is subject to change. Further features, including a booking list capability to support reconciliation and recovery flows, as well as wider product coverage, will be introduced in later phases.
 
-## OpenAPI Schema
+## Environments
 
-The OpenAPI specification is available at:
+| | Production | Staging |
+|---|---|---|
+| **API** | `https://api.holidayextras.com` | `https://api-sandbox.holidayextras.com` |
+| **Auth** | `https://auth.holidayextras.com` | `https://auth-staging.holidayextras.com` |
+| **OpenAPI Schema** | `https://api.holidayextras.com/partner-api/v2/schema.json` | `https://api-sandbox.holidayextras.com/partner-api/v2/schema.json` |
 
-| Environment | Schema URL |
-|-------------|-----------|
-| Production  | `https://api.holidayextras.com/partner-api/v2/schema.json` |
-| Staging     | `https://api-sandbox.holidayextras.com/partner-api/v2/schema.json` |
+Use staging for development and testing. Authenticate against the matching auth environment -- staging credentials will not work against production and vice versa.
 
-View in [Swagger Editor](https://editor.swagger.io/) or import into [Postman](https://www.postman.com/).
+View the schema in [Swagger Editor](https://editor.swagger.io/) or import into [Postman](https://www.postman.com/).
 
 ## Documentation
 
