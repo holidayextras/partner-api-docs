@@ -76,7 +76,11 @@ The API uses two datetime formats:
 
 * **UTC datetime** (e.g., `2026-05-20T07:00:00.000Z`) -- Times with a `Z` suffix. Used for token expiry times and policy deadlines. These are always UTC.
 
-### 2. Price Guarantee Tokens
+### 2. Currency and Pricing
+
+All monetary values in the API are expressed in **minor currency units** (e.g., pence for GBP, cents for EUR). A price of `4599` in GBP means **45.99**. This applies to all price, commission, refund, and cost fields across every endpoint.
+
+### 3. Price Guarantee Tokens
 
 **What:** A time-limited token that locks in a price **When:** Obtained from the Products endpoint **Why:** Ensures customers aren't charged more than the quoted price **Validity:** 30 minutes **Usage:** Required for Book endpoint
 
@@ -90,7 +94,7 @@ The API uses two datetime formats:
 5. API only charges £45.99 (the guaranteed price)
 ```
 
-### 3. Booking Reference vs Partner Reference
+### 4. Booking Reference vs Partner Reference
 
 **Booking Reference:**
 
@@ -108,7 +112,7 @@ The API uses two datetime formats:
 * **Usage:** Use this for List Bookings endpoint only
 * **Why:** Helps you match our bookings to your internal systems
 
-### 4. Quote and Confirm Pattern
+### 5. Quote and Confirm Pattern
 
 For amendments and cancellations, we use a two-step "quote and confirm" pattern:
 
