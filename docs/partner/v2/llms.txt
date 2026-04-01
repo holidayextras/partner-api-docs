@@ -1,0 +1,27 @@
+# Holiday Extras APIConnect (Partner API v2)
+
+> REST API for partners integrating with Holiday Extras travel services. OAuth 2.0 authenticated, OpenAPI-defined, product-centric design covering parking (with more products coming).
+
+## Getting Started
+
+- [APIConnect Overview](https://docs.holidayextras.co.uk/partner/v2/): Platform introduction and documentation index
+- [Authentication](https://docs.holidayextras.co.uk/partner/v2/authentication/): OAuth 2.0 client credentials flow, token lifecycle, rate limits, revocation
+- [API Endpoint Navigation Guide](https://docs.holidayextras.co.uk/partner/v2/api-endpoint-navigation-guide/): Full customer journey — discovery, search, book, amend, cancel with workflow examples
+- [OpenAPI Schema](https://api-sandbox.holidayextras.com/partner-api/v2/schema.json): Machine-readable API specification
+
+## Guides
+
+- [Event Notifications (Webhooks)](https://docs.holidayextras.co.uk/partner/v2/webhook-integration-guide/): Real-time booking status notifications, signature verification, payload structure
+
+## Error Reference
+
+- [Bad Request](https://docs.holidayextras.co.uk/partner/v2/problems/bad-request/)
+- [Conflict](https://docs.holidayextras.co.uk/partner/v2/problems/conflict/)
+- [Internal Error](https://docs.holidayextras.co.uk/partner/v2/problems/internal-error/)
+- [Method Not Allowed](https://docs.holidayextras.co.uk/partner/v2/problems/method-not-allowed/)
+- [Not Acceptable](https://docs.holidayextras.co.uk/partner/v2/problems/not-acceptable/)
+- [Resource Not Found](https://docs.holidayextras.co.uk/partner/v2/problems/resource-not-found/)
+- [Too Early](https://docs.holidayextras.co.uk/partner/v2/problems/too-early/)
+- [Unprocessable Entity](https://docs.holidayextras.co.uk/partner/v2/problems/unprocessable-entity/)
+- [Unsupported Media Type](https://docs.holidayextras.co.uk/partner/v2/problems/unsupported-media-type/)
+- [Bad Gateway](https://docs.holidayextras.co.uk/partner/v2/problems/bad-gateway/)
