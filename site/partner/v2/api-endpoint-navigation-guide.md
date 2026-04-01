@@ -68,7 +68,15 @@ The **Locations** endpoint is the only endpoint that doesn't follow the product-
 
 ## Core Concepts
 
-### 1. Price Guarantee Tokens
+### 1. Date and Time Formats
+
+The API uses two datetime formats:
+
+* **Local datetime** (e.g., `2026-05-20T08:00:00`) -- Times without a timezone offset. These are always in the **airport's local timezone**. When you submit `parking_entry_datetime: "2026-05-20T08:00:00"` for Heathrow, that means 8am London time. The API returns parking and flight times in this same format.
+
+* **UTC datetime** (e.g., `2026-05-20T07:00:00.000Z`) -- Times with a `Z` suffix. Used for token expiry times and policy deadlines. These are always UTC.
+
+### 2. Price Guarantee Tokens
 
 **What:** A time-limited token that locks in a price **When:** Obtained from the Products endpoint **Why:** Ensures customers aren't charged more than the quoted price **Validity:** 30 minutes **Usage:** Required for Book endpoint
 
@@ -82,7 +90,7 @@ The **Locations** endpoint is the only endpoint that doesn't follow the product-
 5. API only charges £45.99 (the guaranteed price)
 ```
 
-### 2. Booking Reference vs Partner Reference
+### 3. Booking Reference vs Partner Reference
 
 **Booking Reference:**
 
@@ -100,7 +108,7 @@ The **Locations** endpoint is the only endpoint that doesn't follow the product-
 * **Usage:** Use this for List Bookings endpoint only
 * **Why:** Helps you match our bookings to your internal systems
 
-### 3. Quote and Confirm Pattern
+### 4. Quote and Confirm Pattern
 
 For amendments and cancellations, we use a two-step "quote and confirm" pattern:
 
@@ -140,7 +148,7 @@ For amendments and cancellations, we use a two-step "quote and confirm" pattern:
 **Response includes:**
 
 * Location types
-* Location codes (IATA / UNLOCODE)
+* Location codes (IATA)
 * Location names
 * Available product types at each location
 
@@ -167,25 +175,35 @@ For parking products, you have flexibility in how you specify timing. You can pr
 
 **Option 1: Explicit parking times**
 
-* `parking_entry_date_time` - When the customer will arrive at the car park
-* `parking_exit_date_time` - When the customer will leave the car park
+* `parking_entry_datetime` - When the customer will arrive at the car park
+* `parking_exit_datetime` - When the customer will leave the car park
 
 Use this when you know the exact parking duration needed.
 
 **Option 2: Flight-based calculation**
 
 * `outbound_flight_number` - Departure flight number
-* `outbound_flight_date_time` - Departure flight time
+* `outbound_departure_datetime` - Departure flight time
 * `inbound_flight_number` - Return flight number
-* `inbound_flight_date_time` - Return flight time
+* `inbound_arrival_datetime` - Return flight time
 
 Use this when you want the API to calculate appropriate parking times based on flight schedules. The API will automatically add buffer time for airport arrival/departure.
 
 **Important rules:**
 
 * At least one set of parameters must be provided
-* If both sets are provided, `parking_entry_date_time` and `parking_exit_date_time` take precedence
+* If both sets are provided, `parking_entry_datetime` and `parking_exit_datetime` take precedence
 * Flight-based calculation is useful when you're unsure how much time customers need between parking and their flight
+
+**How flight-based derivation works:**
+
+When you provide `outbound_departure_datetime` instead of `parking_entry_datetime`, the API derives an appropriate parking start time based on the flight schedule. Similarly, `inbound_arrival_datetime` derives the parking end time. This adds buffer time for airport arrival and departure.
+
+You must provide at least one of each pair:
+* `parking_entry_datetime` OR `outbound_departure_datetime`
+* `parking_exit_datetime` OR `inbound_arrival_datetime`
+
+If both are provided in a pair, the explicit parking time takes precedence.
 
 **Response includes:**
 
@@ -253,15 +271,13 @@ Examples:
   * Hotels: Room requirements, arrival time, guest count
   * Lounges: Passenger details, flight info, visit time
   * FastTrack: Passenger details, flight info, travel time
-* Your partner reference (optional but recommended)
+* Your partner reference (optional but recommended, max 20 characters)
 
 **Response includes:**
 
 * **Booking reference** (e.g., HX123456) - Our booking reference
-* **Booking status** (`pending` or `confirmed`)
-* **Hosted confirmation page URL** - A link to our hosted confirmation page
+* **Booking status** (`Pending` or `Confirmed`)
 * **Recommended polling interval** (in seconds) - Suggested frequency for status checks
-* All booking details
 
 **Important:** Always include an `Idempotency-Key` header to prevent duplicate bookings if there's a network error. Any unique string is accepted; UUID v4 is recommended. Re-use the same key to safely retry a failed request.
 
@@ -285,17 +301,17 @@ You have four options for handling pending bookings, depending on how much contr
 
 **Option 1: Hosted Confirmation Page (Simplest)**
 
-* Use the Holiday Extras co-branded hosted confirmation page URL included in the booking response
+* Call `GET /v2/bookings/parking/{booking-reference}` to get the `confirmation_page_link`
 * Direct customers to this URL
 * We handle all status updates and display logic
 * The page automatically updates when the booking confirms
 * No polling or webhooks needed on your side
 
-**Option 2: Confirmation Endpoint (Simple)**
+**Option 2: GET Booking Endpoint (Simple)**
 
-* Use the Confirmation endpoint (Stage 5) to display booking details
+* Use `GET /v2/bookings/parking/{booking-reference}` to display booking details
 * The data returned is always relevant to the current status
-* Shows "pending" messaging when pending, "confirmed" details when confirmed
+* Shows pending state when pending, full confirmation details when confirmed
 * Make the same call regardless of status - we handle the logic
 * No need to track status transitions yourself
 
@@ -323,35 +339,20 @@ You have four options for handling pending bookings, depending on how much contr
 
 ---
 
-### Stage 5: Booking Confirmation Details
+### Stage 5: Booking Confirmation
 
-**Endpoint:** `GET /v2/bookings/parking/{booking-reference}/confirmation-details`
+After creating a booking, you have two options for showing confirmation details to customers:
 
-**Purpose:** Get formatted confirmation details for display
+**Option 1: Hosted Confirmation Page**
 
-**When to use:**
+* Use the `confirmation_page_link` field from `GET /v2/bookings/parking/{booking-reference}` -- a URL to a Holiday Extras hosted confirmation page
+* Direct customers here and we handle the display
+* The page automatically updates when the booking confirms
 
-* Immediately after booking is created
-* Displaying a confirmation page
+**Option 2: Build Your Own**
 
-**Query parameters:**
-
-* `format`: `json` (default), `html`, or `markdown`
-
-**Response includes:**
-
-* All booking details formatted for display
-* Product-specific instructions (PIN codes, meeting points, etc.)
-* Contact information
-* Important notices
-
-**Format options:**
-
-* `json`: Returns an array of `{ type, value }` pairs (e.g., `{ "type": "booking_reference", "value": "HX123456" }`). Use these fields to build your own confirmation page.
-* `html`: Returns a `{ text }` object containing a ready-to-use HTML snippet for web pages.
-* `markdown`: Returns a `{ text }` object containing text-based format for simpler emails.
-
-**Why use this?** The formatted confirmation includes product-specific instructions. It's optimized for customer-facing display.
+* Use the booking details from `GET /v2/bookings/parking/{booking-reference}` (Stage 6) to build your own confirmation page
+* The response includes all booking details, entry methods, and customer information
 
 
 ---
@@ -372,8 +373,20 @@ You have four options for handling pending bookings, depending on how much contr
 **Response includes:**
 
 * Complete booking details
-* Current status (pending, confirmed, cancelled, error)
+* Current status (Pending, Confirmed, Aborted, Error, Received, Accepted)
 * Customer details
+* `confirmation_page_link` -- hosted confirmation page URL (or null if not yet available)
+* `entry_method` -- how the customer enters the car park (QR code, barcode, or reference number)
+* `amendable_data` -- the current values of fields that can be amended. If empty, the booking cannot be amended. Use these values to pre-fill an amendment form before calling the amendment quote endpoint.
+* `policies` -- amendment and refund policies for this booking (see below)
+
+**Understanding Policies:**
+
+The `policies` object tells you what changes are available and what refunds apply:
+
+* `amendments.permitted` -- whether the booking can be amended
+* `amendments.until` -- deadline for amendments (UTC), or null if no deadline
+* `refunds` -- an array of refund tiers, ordered by deadline descending. The first tier whose `until` datetime has not yet passed determines the refund amount. An empty array means no refund is available.
 
 **Important:** Use our **booking reference**, not your partner reference.
 
@@ -468,7 +481,7 @@ You have four options for handling pending bookings, depending on how much contr
 
 #### Step 1: Cancel Quote
 
-**Endpoint:** `PATCH /v2/bookings/parking/{booking-reference}/cancellations/quote`
+**Endpoint:** `GET /v2/bookings/parking/{booking-reference}/cancellations/quote`
 
 **Purpose:** Preview the cancellation without executing it
 
@@ -535,9 +548,8 @@ You have four options for handling pending bookings, depending on how much contr
 4. POST /v2/bookings/parking
    → Include the price_guarantee_token
    → Create booking
-5. GET /v2/bookings/parking/{booking-reference}/confirmation-details?format=html
-   → Display confirmation to customer
-   → Send confirmation email
+5. Use confirmation_page_link from booking response
+   → Or build your own confirmation from GET /v2/bookings/parking/{booking-reference}
 ```
 
 ### Workflow 2: Customer Wants to View Their Booking
@@ -575,8 +587,8 @@ You have four options for handling pending bookings, depending on how much contr
 5. POST /v2/bookings/parking/{booking-reference}/amendments/confirm
    → Include amendment_token
    → Booking updated
-6. GET /v2/bookings/parking/{booking-reference}/confirmation-details?format=html
-   → Send updated confirmation email
+6. GET /v2/bookings/parking/{booking-reference}
+   → Send updated confirmation email with latest booking details
 ```
 
 ### Workflow 4: Customer Wants to Cancel
@@ -584,7 +596,7 @@ You have four options for handling pending bookings, depending on how much contr
 ```
 1. GET /v2/bookings/parking/{booking-reference}
    → Get current booking details
-2. PATCH /v2/bookings/parking/{booking-reference}/cancellations/quote
+2. GET /v2/bookings/parking/{booking-reference}/cancellations/quote
    → Get cancellation_token and refund amount
 3. Show customer: "You'll receive a refund of £40.99"
    → Customer confirms
