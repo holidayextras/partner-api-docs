@@ -21,4 +21,4 @@ View the schema in [Swagger Editor](https://editor.swagger.io/) or import into [
 * [Authentication](./authentication.md) - OAuth 2.0 client credentials flow
 * [Understanding the OpenAPI Documentation](./api-endpoint-navigation-guide.md) - Endpoint workflows and integration guide
 * [Event Notifications](./webhook-integration-guide.md) - Webhook integration for booking status updates
-* [Error Responses](./problems/) - HTTP error codes and resolution guidance
+* [Error Responses](./problems/bad-request.md) - HTTP error codes and resolution guidance
