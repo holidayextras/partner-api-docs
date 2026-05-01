@@ -118,7 +118,22 @@
 
 <h3 id="2-currency-and-pricing">2. Currency and Pricing</h3>
 
-<p>All monetary values in the API are expressed in <strong>minor currency units</strong> (e.g., pence for GBP, cents for EUR). A price of <code class="language-plaintext highlighter-rouge">4599</code> in GBP means <strong>45.99</strong>. This applies to all price, commission, refund, and cost fields across every endpoint.</p>
+<p>All monetary values are returned as objects of the shape <code class="language-plaintext highlighter-rouge">{ "amount_major": &lt;number&gt;, "currency": "GBP" | "EUR" }</code>. The <code class="language-plaintext highlighter-rouge">amount_major</code> is in major currency units (e.g. <code class="language-plaintext highlighter-rouge">45.99</code> GBP = forty-five pounds and ninety-nine pence) and the <code class="language-plaintext highlighter-rouge">currency</code> field carries the ISO 4217 code alongside the value, so currency travels with each amount.</p>
+
+<p>Example:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"pricing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w">          </span><span class="p">{</span><span class="w"> </span><span class="nl">"amount_major"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.99</span><span class="p">,</span><span class="w"> </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"commission"</span><span class="p">:</span><span class="w">     </span><span class="p">{</span><span class="w"> </span><span class="nl">"amount_major"</span><span class="p">:</span><span class="w">  </span><span class="mf">6.90</span><span class="p">,</span><span class="w"> </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"commission_vat"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"amount_major"</span><span class="p">:</span><span class="w">  </span><span class="mf">1.38</span><span class="p">,</span><span class="w"> </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">commission_vat</code> and other optional money fields are either the full <code class="language-plaintext highlighter-rouge">{ amount_major, currency }</code> object or <code class="language-plaintext highlighter-rouge">null</code> – never a half-state where one part is missing.</p>
+
+<p>This shape applies to every money-bearing field across every v2 endpoint: search prices, booking pricing, refund policies, amendment quote/confirm prices, cancellation refund amounts.</p>
 
 <h3 id="3-price-guarantee-tokens">3. Price Guarantee Tokens</h3>
 
