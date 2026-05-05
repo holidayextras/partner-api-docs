@@ -78,21 +78,21 @@ The API uses two datetime formats:
 
 ### 2. Currency and Pricing
 
-All monetary values are returned as objects of the shape `{ "amount_major": <number>, "currency": "GBP" | "EUR" }`. The `amount_major` is in major currency units (e.g. `45.99` GBP = forty-five pounds and ninety-nine pence) and the `currency` field carries the ISO 4217 code alongside the value, so currency travels with each amount.
+All monetary values are returned as objects of the shape `{ "amount": <number>, "currency": "GBP" | "EUR" }`. The `amount` is in major currency units (e.g. `45.99` GBP = forty-five pounds and ninety-nine pence) and the `currency` field carries the ISO 4217 code alongside the value, so currency travels with each amount.
 
 Example:
 
 ```json
 {
   "pricing": {
-    "price":          { "amount_major": 45.99, "currency": "GBP" },
-    "commission":     { "amount_major":  6.90, "currency": "GBP" },
-    "commission_vat": { "amount_major":  1.38, "currency": "GBP" }
+    "price":          { "amount": 45.99, "currency": "GBP" },
+    "commission":     { "amount":  6.90, "currency": "GBP" },
+    "commission_vat": { "amount":  1.38, "currency": "GBP" }
   }
 }
 ```
 
-`commission_vat` and other optional money fields are either the full `{ amount_major, currency }` object or `null` -- never a half-state where one part is missing.
+`commission_vat` and other optional money fields are either the full `{ amount, currency }` object or `null` -- never a half-state where one part is missing.
 
 This shape applies to every money-bearing field across every v2 endpoint: search prices, booking pricing, refund policies, amendment quote/confirm prices, cancellation refund amounts.
 
