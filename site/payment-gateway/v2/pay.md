@@ -48,6 +48,7 @@ NB: All parameter names are case sensitive.
  | currency | String | [A-Z]{3} | Y | ISO 4217 standard currency code for the currency of this payment |
  | postalCode | String | [A-Z0-9] | N | The postal code for the payment's billing address. |
  | countryCode | String | [A-Z]{2} | N | ISO 3166-1 alpha-2 standard country code for the billing address. |
+ | merchantInitiatedReason | String | ENUM (recurring, instalment, unscheduled) | N | Either the merchant initiated reason for this transaction or the reason for future merchant initiated transactions  |
 
 
 ## Payment Response
@@ -73,6 +74,8 @@ Below are examples of both the request and response for a new payment.
 `Accept: application/vnd.holidayextras.v2+json` <br />
 `Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=`
 
+Simple customer initiated transaction
+
 ```
 {
   "channel": "channel",
@@ -82,6 +85,21 @@ Below are examples of both the request and response for a new payment.
   "currency": "GBP",
   "postalCode": "CT21 4JF",
   "countryCode": "GB"
+}
+```
+
+Merchant initiated transaction (such as an yearly renewal)
+
+```
+{
+  "channel": "channel",
+  "token": "4111111111111111",
+  "paymentReference": "testPaymentRef",
+  "amount": 1234,
+  "currency": "GBP",
+  "postalCode": "CT21 4JF",
+  "countryCode": "GB",
+  "merchantInitiatedReason": "recurring"
 }
 ```
 
