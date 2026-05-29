@@ -161,6 +161,13 @@
       <td>N</td>
       <td>ISO 3166-1 alpha-2 standard country code for the billing address.</td>
     </tr>
+    <tr>
+      <td>merchantInitiatedReason</td>
+      <td>String</td>
+      <td>ENUM (recurring, instalment, unscheduled)</td>
+      <td>N</td>
+      <td>Either the merchant initiated reason for this transaction or the reason for future merchant initiated transactions</td>
+    </tr>
   </tbody>
 </table>
 
@@ -204,6 +211,8 @@
 <code class="language-plaintext highlighter-rouge">Accept: application/vnd.holidayextras.v2+json</code> <br />
 <code class="language-plaintext highlighter-rouge">Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=</code></p>
 
+<p>Simple customer initiated transaction</p>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
   "channel": "channel",
   "token": "4111111111111111",
@@ -212,6 +221,20 @@
   "currency": "GBP",
   "postalCode": "CT21 4JF",
   "countryCode": "GB"
+}
+</code></pre></div></div>
+
+<p>Merchant initiated transaction (such as an yearly renewal)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "channel": "channel",
+  "token": "4111111111111111",
+  "paymentReference": "testPaymentRef",
+  "amount": 1234,
+  "currency": "GBP",
+  "postalCode": "CT21 4JF",
+  "countryCode": "GB",
+  "merchantInitiatedReason": "recurring"
 }
 </code></pre></div></div>
 
