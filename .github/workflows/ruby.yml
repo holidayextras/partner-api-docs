@@ -34,10 +34,15 @@ jobs:
     - name: Commit generated pages
       # only update docs on non master
       if: ${{ github.ref != 'refs/heads/master' }}
+      env:
+        # Bind the untrusted PR branch name to an env var instead of interpolating
+        # ${{ github.head_ref }} into the shell script, where a branch name containing
+        # shell metacharacters would be executed as code (command injection).
+        HEAD_REF: ${{ github.head_ref }}
       run: |
         bundle exec rake dist
         git add docs
         cd docs
         git status
         git commit -am "Update dist"
-        git push origin HEAD:${{ github.head_ref }} --force
+        git push origin "HEAD:$HEAD_REF" --force
