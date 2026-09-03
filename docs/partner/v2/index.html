@@ -34,49 +34,44 @@
 
 <p>Partner API 2026 (APIConnect) is the next step for our platform. It brings UK and EU integrations together in one place, with OAuth 2.0 authentication and standardised contracts defined using an OpenAPI schema. The platform is built to scale as we expand into more markets.</p>
 
-<p>This documentation is subject to change. Further features, including a booking list capability to support reconciliation and recovery flows, as well as wider product coverage, will be introduced in later phases.</p>
+<h2 id="documentation">Documentation</h2>
 
-<h2 id="environments">Environments</h2>
+<p>Partner API 2026 documentation:</p>
+
+<h3 id="holidayextraspartner-api-documentation"><strong><a href="https://github.com/holidayextras/partner-api-documentation">holidayextras/partner-api-documentation</a></strong></h3>
+
+<p>Start with the <a href="https://github.com/holidayextras/partner-api-documentation/blob/main/README.md">README</a> for environments, base URLs, authentication and the current OpenAPI schema.</p>
 
 <table>
   <thead>
     <tr>
       <th> </th>
-      <th>Production</th>
-      <th>Staging</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>API</strong></td>
-      <td><code class="language-plaintext highlighter-rouge">https://api.holidayextras.com</code></td>
-      <td><code class="language-plaintext highlighter-rouge">https://api-sandbox.holidayextras.com</code></td>
+      <td><a href="https://github.com/holidayextras/partner-api-documentation/blob/main/onboarding.md">Getting started</a></td>
+      <td>The route from sandbox access to launch</td>
     </tr>
     <tr>
-      <td><strong>Auth</strong></td>
-      <td><code class="language-plaintext highlighter-rouge">https://auth.holidayextras.com</code></td>
-      <td><code class="language-plaintext highlighter-rouge">https://auth-staging.holidayextras.com</code></td>
+      <td><a href="https://github.com/holidayextras/partner-api-documentation/tree/main/docs/integration-guides">Integration guides</a></td>
+      <td>Authentication, sandbox testing, search, webhooks, versioning, price lock</td>
     </tr>
     <tr>
-      <td><strong>OpenAPI Schema</strong></td>
-      <td><code class="language-plaintext highlighter-rouge">https://api.holidayextras.com/partner-api/v2/schema.json</code></td>
-      <td><code class="language-plaintext highlighter-rouge">https://api-sandbox.holidayextras.com/partner-api/v2/schema.json</code></td>
+      <td><a href="https://github.com/holidayextras/partner-api-documentation/tree/main/docs/api-reference">API reference</a></td>
+      <td>Per-endpoint request and response detail</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/holidayextras/partner-api-documentation/blob/main/docs/errors.md">Error handling</a></td>
+      <td>How to respond to errors in your integration</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/holidayextras/partner-api-documentation/blob/main/faqs.md">FAQs</a></td>
+      <td>Common questions</td>
     </tr>
   </tbody>
 </table>
-
-<p>Use staging for development and testing. Authenticate against the matching auth environment – staging credentials will not work against production and vice versa.</p>
-
-<p>View the schema in <a href="https://editor.swagger.io/">Swagger Editor</a> or import into <a href="https://www.postman.com/">Postman</a>.</p>
-
-<h2 id="documentation">Documentation</h2>
-
-<ul>
-  <li><a href="/partner/v2/authentication/">Authentication</a> - OAuth 2.0 client credentials flow</li>
-  <li><a href="/partner/v2/api-endpoint-navigation-guide/">Understanding the OpenAPI Documentation</a> - Endpoint workflows and integration guide</li>
-  <li><a href="/partner/v2/webhook-integration-guide/">Event Notifications</a> - Webhook integration for booking status updates</li>
-  <li><a href="/partner/v2/problems/bad-request/">Error Responses</a> - HTTP error codes and resolution guidance</li>
-</ul>
 
 </div>
 
