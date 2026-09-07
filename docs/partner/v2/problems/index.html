@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/tabs.css">
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="https://d17s4kc6349e5h.cloudfront.net/holidayextras/assets/images/favicons/favicon_16.png" sizes="16x16"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://www.holidayextras.co.uk/"></a>
+    </div>
+    <a class="navbar-title pull-left" href="/">
+      Holiday Extras API
+    </a>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <main role="main">
+        <div class="panel-body">
+  <h1 id="error-responses">Error Responses</h1>
+
+<p>This page is the reference for the problem <code class="language-plaintext highlighter-rouge">type</code> URIs the API returns. For guidance on how your integration should respond to each one – when to retry, what to show the customer – see the <a href="https://github.com/holidayextras/partner-api-documentation/blob/main/docs/errors.md">error handling guide</a> in <a href="https://github.com/holidayextras/partner-api-documentation">partner-api-documentation</a>, which is the source of truth for Partner API documentation.</p>
+
+<p>Every error returned by Partner API v2 uses the same problem details body, served as <code class="language-plaintext highlighter-rouge">application/problem+json</code>:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://docs.holidayextras.co.uk/partner/v2/problems/conflict"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conflict"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">409</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The amendment token has expired"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token_expired"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"trace_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123def456"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>A stable URI identifying the class of problem. It resolves to the page for that problem, listed below.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">title</code></td>
+      <td>A short, human-readable summary of the problem class.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>The HTTP status code, repeated in the body.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">detail</code></td>
+      <td>A human-readable explanation of this specific occurrence. Always <code class="language-plaintext highlighter-rouge">null</code> on a <code class="language-plaintext highlighter-rouge">5xx</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">code</code></td>
+      <td>A machine-readable value for this specific occurrence. Branch on this, not on <code class="language-plaintext highlighter-rouge">title</code> or <code class="language-plaintext highlighter-rouge">detail</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">trace_id</code></td>
+      <td>The identifier to quote when contacting support. Present whenever a trace is available.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">errors</code></td>
+      <td>Field-level failures, each with <code class="language-plaintext highlighter-rouge">field</code>, <code class="language-plaintext highlighter-rouge">message</code> and an optional <code class="language-plaintext highlighter-rouge">code</code>. Always empty on a <code class="language-plaintext highlighter-rouge">5xx</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="type-and-code-are-not-the-same-thing"><code class="language-plaintext highlighter-rouge">type</code> and <code class="language-plaintext highlighter-rouge">code</code> are not the same thing</h2>
+
+<p><code class="language-plaintext highlighter-rouge">type</code> names the class of problem and is drawn from the fixed list below. <code class="language-plaintext highlighter-rouge">code</code> names the specific occurrence and can be more precise than the <code class="language-plaintext highlighter-rouge">type</code>. In the example above, an expired amendment token is a conflict, so <code class="language-plaintext highlighter-rouge">type</code> is <code class="language-plaintext highlighter-rouge">.../conflict</code>, but <code class="language-plaintext highlighter-rouge">code</code> is the narrower <code class="language-plaintext highlighter-rouge">token_expired</code>.</p>
+
+<p>Treat <code class="language-plaintext highlighter-rouge">type</code> as the stable link to documentation and <code class="language-plaintext highlighter-rouge">code</code> as the value your integration switches on. A new <code class="language-plaintext highlighter-rouge">code</code> can appear within an existing <code class="language-plaintext highlighter-rouge">type</code> without the <code class="language-plaintext highlighter-rouge">type</code> changing, so match <code class="language-plaintext highlighter-rouge">code</code> values you know and fall back on <code class="language-plaintext highlighter-rouge">status</code> for the rest rather than failing closed on an unrecognised value.</p>
+
+<h2 id="problem-types">Problem types</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Canonical <code class="language-plaintext highlighter-rouge">code</code></th>
+      <th>Problem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td><code class="language-plaintext highlighter-rouge">bad_request</code></td>
+      <td><a href="/partner/v2/problems/bad-request/">Bad Request</a></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td><code class="language-plaintext highlighter-rouge">unauthorized</code></td>
+      <td><a href="/partner/v2/problems/unauthorized/">Unauthorized</a></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td><code class="language-plaintext highlighter-rouge">forbidden</code></td>
+      <td><a href="/partner/v2/problems/forbidden/">Forbidden</a></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td><code class="language-plaintext highlighter-rouge">resource_not_found</code></td>
+      <td><a href="/partner/v2/problems/resource-not-found/">Resource Not Found</a></td>
+    </tr>
+    <tr>
+      <td>405</td>
+      <td><code class="language-plaintext highlighter-rouge">method_not_allowed</code></td>
+      <td><a href="/partner/v2/problems/method-not-allowed/">Method Not Allowed</a></td>
+    </tr>
+    <tr>
+      <td>406</td>
+      <td><code class="language-plaintext highlighter-rouge">not_acceptable</code></td>
+      <td><a href="/partner/v2/problems/not-acceptable/">Not Acceptable</a></td>
+    </tr>
+    <tr>
+      <td>408</td>
+      <td><code class="language-plaintext highlighter-rouge">request_timeout</code></td>
+      <td><a href="/partner/v2/problems/request-timeout/">Request Timeout</a></td>
+    </tr>
+    <tr>
+      <td>409</td>
+      <td><code class="language-plaintext highlighter-rouge">conflict</code></td>
+      <td><a href="/partner/v2/problems/conflict/">Conflict</a></td>
+    </tr>
+    <tr>
+      <td>410</td>
+      <td><code class="language-plaintext highlighter-rouge">gone</code></td>
+      <td><a href="/partner/v2/problems/gone/">Gone</a></td>
+    </tr>
+    <tr>
+      <td>415</td>
+      <td><code class="language-plaintext highlighter-rouge">unsupported_media_type</code></td>
+      <td><a href="/partner/v2/problems/unsupported-media-type/">Unsupported Media Type</a></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td><code class="language-plaintext highlighter-rouge">unprocessable_entity</code></td>
+      <td><a href="/partner/v2/problems/unprocessable-entity/">Unprocessable Entity</a></td>
+    </tr>
+    <tr>
+      <td>425</td>
+      <td><code class="language-plaintext highlighter-rouge">too_early</code></td>
+      <td><a href="/partner/v2/problems/too-early/">Too Early</a></td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td><code class="language-plaintext highlighter-rouge">too_many_requests</code></td>
+      <td><a href="/partner/v2/problems/too-many-requests/">Too Many Requests</a></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td><code class="language-plaintext highlighter-rouge">internal_error</code></td>
+      <td><a href="/partner/v2/problems/internal-error/">Internal Server Error</a></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td><code class="language-plaintext highlighter-rouge">bad_gateway</code></td>
+      <td><a href="/partner/v2/problems/bad-gateway/">Bad Gateway</a></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td><code class="language-plaintext highlighter-rouge">upstream_error</code></td>
+      <td><a href="/partner/v2/problems/upstream-error/">Upstream Error</a></td>
+    </tr>
+    <tr>
+      <td>503</td>
+      <td><code class="language-plaintext highlighter-rouge">service_unavailable</code></td>
+      <td><a href="/partner/v2/problems/service-unavailable/">Service Unavailable</a></td>
+    </tr>
+    <tr>
+      <td>503</td>
+      <td><code class="language-plaintext highlighter-rouge">dependency_unavailable</code></td>
+      <td><a href="/partner/v2/problems/dependency-unavailable/">Dependency Unavailable</a></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td><code class="language-plaintext highlighter-rouge">gateway_timeout</code></td>
+      <td><a href="/partner/v2/problems/gateway-timeout/">Gateway Timeout</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="retrying">Retrying</h2>
+
+<p><code class="language-plaintext highlighter-rouge">4xx</code> problems describe something about the request and will fail again unchanged – fix the request rather than retrying it. The exceptions are <a href="/partner/v2/problems/request-timeout/">Request Timeout</a>, <a href="/partner/v2/problems/too-early/">Too Early</a> and <a href="/partner/v2/problems/too-many-requests/">Too Many Requests</a>, where the request itself was never processed and a later attempt can succeed.</p>
+
+<p><code class="language-plaintext highlighter-rouge">5xx</code> problems are server-side and usually transient. Retry with exponential backoff (e.g. 2s, 4s, 8s) and stop after 3 attempts, then contact support with the <code class="language-plaintext highlighter-rouge">trace_id</code>.</p>
+
+<p>When retrying a write – creating a booking, or confirming an amendment or cancellation – always send the <strong>same</strong> <code class="language-plaintext highlighter-rouge">Idempotency-Key</code> as the original request. A retry with a fresh key can duplicate an operation that had already succeeded.</p>
+
+</div>
+
+      </main>
+    </div>
+    <script src="/js/code-snippets.js"></script>
+    <script src="/js/tabs.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PTPVDF7');</script>
+    <!-- End Google Tag Manager -->
+  </body>
+</html>
